@@ -394,8 +394,9 @@ $dir=trim($hasil,"/");
 				data:{akses:"ok"},
 				url:"finish.php",
 				cache:false,
-				success: function(){
-					window.location.href="<?php echo siteURL(); ?>"+"<?php echo $dir; ?>";
+				success: function(data){
+					console.log(data);
+					//window.location.href="<?php echo siteURL(); ?>"+"<?php echo $dir; ?>";
 				}
 			})
 		}
