@@ -41,7 +41,7 @@ $pdo = new PDO("mysql:host=$host_database;dbname=$nama_database", $user_database
 $script = file_get_contents("db_simpg.sql");
   $statements = parseScript($script);
   foreach($statements as $statement) {
-    mysqli_query($dbConnection, $statement);
+    $pdo->query($statement);
   }
  
 $pdo->query("UPDATE tb_users 
