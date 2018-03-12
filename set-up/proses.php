@@ -104,6 +104,7 @@ fclose($file);
 
 
 $init="../application/config/database.php";
+chmod($init, 0777);
 
 $string="
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
