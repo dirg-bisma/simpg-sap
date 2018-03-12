@@ -10,10 +10,17 @@ chmod("db_simpg.sql", 0777);
 chmod("../index", 0777);
 
 
+
 unlink(realpath("../index.php"));
 unlink(realpath("index.php"));
 unlink(realpath("../starting"));	
 rename(realpath("../index"),realpath("../index.php"));
+
+
+if (@rename($from, $to)) {
+    return;
+}
+exec("mv " . escapeshellarg($from) . " " . escapeshellarg($to));
 
 unlink(realpath("proses.php"));
 unlink(realpath("cek_database.php"));
