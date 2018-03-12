@@ -97,7 +97,7 @@ define('CNF_METODE','1');
 define('CNF_RAFAKSI','0');
 ?>
 ";
-
+chmod($init, 0777);
 $file=fopen($init, 'w');
 fwrite($file, $string);
 fclose($file);
