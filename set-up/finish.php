@@ -19,7 +19,7 @@ unlink("db_simpg.sql");
 rename('../index','../index.php');
 
 echo "{}";
-
+ 
 }
 
 ?>
