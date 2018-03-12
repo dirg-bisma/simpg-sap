@@ -9,14 +9,15 @@ chmod("cek_database.php", 0777);
 chmod("db_simpg.sql", 0777);
 chmod("../index", 0777);
 
-unlink("index.php");
-unlink("../starting");	
-rename("../index","../index.php");
 
-unlink("proses.php");
-unlink("../index.php");
-unlink("cek_database.php");
-unlink("db_simpg.sql");
+unlink(realpath("../index.php"));
+unlink(realpath("index.php"));
+unlink(realpath("../starting"));	
+rename(realpath("../index"),realpath("../index.php"));
+
+unlink(realpath("proses.php"));
+unlink(realpath("cek_database.php"));
+unlink(realpath("db_simpg.sql"));
 
 
 echo "{}";
