@@ -314,6 +314,33 @@ class Apitimbangan extends SB_Controller
         echo json_encode($result);
     }
 
+    function noloko()
+    {
+        $this->load->model('apitimbanganmodel');
+        $result = $this->apitimbanganmodel->NoLoko();
+            if(count($result) > 0){
+                foreach ($result[0] as $key => $value) {
+                    if (is_null($value)) {
+                        $result[0]->$key = "";
+                    }
+                }
+                $output = array(
+                    'result' => $result,
+                    'count' => count($result),
+                    'msg' => 'success',
+                    'status' => 'true'
+                );
+            }else{
+                $output = array(
+                    'result' => [],
+                    'count' => count($result),
+                    'msg' => 'data not found',
+                    'status' => 'false'
+                );
+            }
+        echo json_encode($output);
+    }
+
     public function cetaklori($train_stat, $no_loko)
     {
         $this->load->model('apitimbanganmodel');

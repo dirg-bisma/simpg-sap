@@ -195,7 +195,7 @@ class Users extends SB_Controller
 		if( $this->form_validation->run() )
 		{
 			$data = $this->validatePost();
-			$data['password'] = md5('garbis8');
+			$data['password'] = md5($_POST['username']);
 			$ID = $this->model->insertRow($data , $this->input->get_post( 'id' , true ));
 			// Input logs
 			if( $this->input->get( 'id' , true ) =='')

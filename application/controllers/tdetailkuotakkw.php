@@ -107,7 +107,7 @@ class Tdetailkuotakkw extends SB_Controller
             $btn ='';
 			$idku = $this->model->primaryKey;
             if($dt->aff_tebang == 0){
-            	$btn .= '<a href="javascript:formOrder(\''.$dt->idkuotakkw.'\',\''.$dt->kode_blok.'\')"  class="tips "  title="view"><i class="fa  fa-search"></i>  </a> &nbsp;&nbsp;'; 
+            	$btn .= '<a href="javascript:formOrder(\''.$dt->idkuotakkw.'\',\''.$dt->kode_blok.'\')"  class="tips "  title="Order SPTA"><i class="fa  fa-search"></i>  </a> &nbsp;&nbsp;'; 
             }else{
             	$btn .= "Sudah Aff";
             }

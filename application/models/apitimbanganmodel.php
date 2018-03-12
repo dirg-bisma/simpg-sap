@@ -27,6 +27,14 @@ class Apitimbanganmodel extends SB_Model
         return $cek_bruto;
     }
 
+    public function Noloko()
+    {
+        $this->db->select('*');
+        $this->db->from('m_no_loko');
+        $cek_bruto = $this->db->get();
+        return $cek_bruto->result();
+    }
+
     public function TaraLori($no_lori)
     {
         $this->db->select('*');
