@@ -23,8 +23,9 @@
 
 <script type="text/javascript">
 $(document).ready(function(){
-	window.print();
-	setTimeout(function () { window.close();}, 1000);
+	//window.print();
+	setTimeout(function () { window.print();}, 2000);
+	setTimeout(function () { window.close();}, 3000);
 });
 
 

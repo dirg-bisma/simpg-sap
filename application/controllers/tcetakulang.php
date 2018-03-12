@@ -121,7 +121,7 @@ class Tcetakulang extends SB_Controller
             	$btn .= '<a href='.site_url('tcetakulang/cetakulang/'.$dt->$idku).' target="_blank"  class="tips "  title="view"><i class="fa  fa-print"></i> Cetak Ulang </a> &nbsp;&nbsp;<br />';
             }
             if($this->access['is_edit'] ==1 && $dt->selektor_status == 0 && $dt->retur_status == 0){
-            	$btn .= '<a href=javascript:getRetur('.$dt->$idku.')  class="tips "  title="Edit"><i class="fa  fa-share"></i> Retur </a> &nbsp;&nbsp;';
+            	//$btn .= '<a href=javascript:getRetur('.$dt->$idku.')  class="tips "  title="Edit"><i class="fa  fa-share"></i> Retur </a> &nbsp;&nbsp;';
             }
             
            

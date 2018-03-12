@@ -27,6 +27,6 @@ define('CNF_COMPANYCODE','N011');
 define('CNF_PLANCODE','KP11');
 define('CNF_TAHUNTANAM','2017');
 define('CNF_TAHUNGILING','2018');
-define('CNF_METODE','2');
+define('CNF_METODE','1');
 define('CNF_RAFAKSI','0');
 ?>

@@ -26,7 +26,10 @@
 					$jnsta = 'TAPG';
 				}
 			?>
-		<b><?php echo $jnsta.'<br />'.strtoupper(($row->kepemilikan)).'<br />'.$row->jenis_spta;?></b></td>
+		<b><?php echo $jnsta.'<br />'.strtoupper(($row->kepemilikan)).'<br />'.$row->jenis_spta;?></b><br />
+		<br />
+		<span style="background-color: black;color: white; padding: 10px">CETAK ULANG</span>
+		</td>
 		<td style="text-align: center;padding:5px">
 		
 			<img src="<?php echo site_url('tkuotaspta/generateBarcode/'.$row->no_spat);?>"> 
@@ -38,12 +41,13 @@
 	<tr>
 		<td style="text-align: center; padding:2px;height: 75px;border-bottom:1px solid black;border-right:1px solid black">
 			
-		<b><?php echo $jnsta.'<br />'.strtoupper(($row->kepemilikan)).'<br />'.$row->jenis_spta;?></b></td>
+		<b><?php echo $jnsta.'<br />'.strtoupper(($row->kepemilikan)).'<br />'.$row->jenis_spta;?></b><br /><br />
+		<span style="background-color: black;color: white; padding: 10px">CETAK ULANG</span></td>
 		<td style="text-align: center;padding:2px;border-bottom:1px solid black">
-			<center><b><?php echo strtoupper(CNF_NAMAPERUSAHAAN);?></b><br />
-			<b><u>UNIT USAHA <?php echo strtoupper(CNF_PG);?> CETAK ULANG</u></b></center>
-			<?php echo $row->no_spat;?>
-			<br />
+		<img src="<?php echo site_url('tkuotaspta/generateBarcode/'.$row->no_spat);?>"> 
+			<center>
+			<b><u>UNIT USAHA <?php echo strtoupper(CNF_PG);?></u></b></center>
+			
 			<?php echo $row->deskripsi_blok;?>
 		</td>
 		</tr>

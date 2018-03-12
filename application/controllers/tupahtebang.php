@@ -74,7 +74,8 @@ class Tupahtebang extends SB_Controller
 
         if($filter != '') $filter .= ')';
 
-        $filter .= " AND tgl = '$tgl'";
+        $tgl2 = $_GET['tgl2'];
+		$filter .= " AND tgl BETWEEN '$tgl' AND '$tgl2' ";
         
         $pta = $_GET['pta'];
         $mandor = $_GET['mandor'];
@@ -172,10 +173,12 @@ class Tupahtebang extends SB_Controller
 	}
 	function printbukti($tgl){
 
-		$filter = " WHERE 0=0 AND tgl = '$tgl'";
+        $tgl2 = $_GET['tgl2'];
+		$filter = " WHERE 0=0 AND tgl BETWEEN '$tgl' AND '$tgl2'";
         
         $pta = $_GET['pta'];
         $mandor = $_GET['mandor'];
+        $tgl2 = $_GET['tgl2'];
 
         if($pta != '') $filter .= " AND persno_pta = '$pta'";
         if($mandor != '') $filter .= " AND persno_mandor = '$mandor'";

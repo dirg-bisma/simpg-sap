@@ -18,7 +18,8 @@
                   <h3 class="box-title">&nbsp;</h3>
                   <div class="box-tools pull-right">
  	  Tanggal : &nbsp;&nbsp;&nbsp;
-    <input type="text" class="date" style="text-align: center" id="tgl1" readonly value="<?php echo date('Y-m-d');?>">&nbsp;&nbsp;
+    <input type="text" class="date" style="text-align: center" id="tgl1" readonly value="<?php echo date('Y-m-d');?>">&nbsp;s/d&nbsp;
+    <input type="text" class="date" style="text-align: center" id="tgl2" readonly value="<?php echo date('Y-m-d');?>">&nbsp;&nbsp;
   PTA : &nbsp;&nbsp;&nbsp;
     <select id="pta" class="select21" style="height: 24px"></select>&nbsp;&nbsp;
     Mandor : &nbsp;&nbsp;&nbsp;
@@ -103,7 +104,7 @@ $(document).ready(function(){
  
         // Load data for the table's content from an Ajax source
         "ajax": {
-            "url": "<?php echo site_url('tupahtebang/grids');?>/"+$('#tgl1').val()+"?pta="+$('#pta').val()+"&mandor="+$('#mandor').val(),
+            "url": "<?php echo site_url('tupahtebang/grids');?>/"+$('#tgl1').val()+"?tgl2="+$('#tgl2').val()+"&pta="+$('#pta').val()+"&mandor="+$('#mandor').val(),
             "type": "POST"
         },
  
@@ -118,12 +119,12 @@ $(document).ready(function(){
       });
 
  function reloadGrid(){
-    table.ajax.url( "<?php echo site_url('tupahtebang/grids')?>/"+$('#tgl1').val()+"?pta="+$('#pta').val()+"&mandor="+$('#mandor').val() ).load();
+    table.ajax.url( "<?php echo site_url('tupahtebang/grids');?>/"+$('#tgl1').val()+"?tgl2="+$('#tgl2').val()+"&pta="+$('#pta').val()+"&mandor="+$('#mandor').val() ).load();
  }
 
  function printreport(a){
    if(a == 1){
-      window.open("<?php echo site_url('tupahtebang/printbukti')?>/"+$('#tgl1').val()+"?pta="+$('#pta').val()+"&mandor="+$('#mandor').val(),"_blank");
+      window.open("<?php echo site_url('tupahtebang/printbukti');?>/"+$('#tgl1').val()+"?tgl2="+$('#tgl2').val()+"&pta="+$('#pta').val()+"&mandor="+$('#mandor').val(),"_blank");
    }
  }
 </script>

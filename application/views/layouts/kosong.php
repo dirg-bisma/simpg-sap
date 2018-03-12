@@ -32,8 +32,8 @@ function updateStatusCetak(){
             data: {tgl_spta:"<?php echo $tgl;?>",pta:"<?php echo $pta;?>",kat:"<?php echo $kat;?>"},
             success: function (data) {
                 if(data=='ok'){
-					window.print();
-					setTimeout(function () { window.close();}, 1000);
+					       setTimeout(function () { window.print();}, 2000);
+                  setTimeout(function () { window.close();}, 3000);
 				}
 				
             }
