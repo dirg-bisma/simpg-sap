@@ -86,7 +86,7 @@
 				  <div class="form-group  " >
 					<label for="ipt" class=" control-label col-md-4 text-right"><?php echo $this->lang->line('core.fr_mtitle'); ?> </label>
 					<div class="col-md-8">
-						<input type="text" name="menu_name" id="menu_name" value="<?php  echo $row['menu_name'];?>" class="form-control" />	
+						<input type="text" name="menu_name" id="menu_name" value="<?php  echo $row['menu_name'];?>" class="form-control" readonly />	
 					  <?php if(CNF_MULTILANG ==1) { 
 					    $lang = SiteHelpers::langOption();
 						foreach($lang as $l) { 
@@ -135,7 +135,7 @@
 				  <div class="form-group  int-link" >
 					<label for="ipt" class=" control-label col-md-4 text-right"><?php echo $this->lang->line('core.t_module'); ?> </label>
 					<div class="col-md-8">
-					  <select name='module' rows='5' id='module'  class='form-control '    >
+					  <select name='modulex' disabled rows='5' id='module'  class='form-control '    >
 							<option value=""> -- Select Module or Page -- </option>
 							<optgroup label="Module ">
 							<?php foreach($modules as $mod) :?>

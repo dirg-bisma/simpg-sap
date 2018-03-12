@@ -137,7 +137,7 @@
 		<td style="text-align: center;" colspan="2">
 			<table width="100%" cellspacing="0" >
 			<b><?php echo strtoupper(CNF_NAMAPERUSAHAAN);?></b><br />
-			<b>UNIT USAHA <?php echo strtoupper(CNF_PG);?> CETAK ULANG</b>
+			<b>UNIT USAHA <?php echo strtoupper(CNF_PG);?></b>
 			<br />
 				<tbody>
 				<tr>

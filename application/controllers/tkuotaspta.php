@@ -299,7 +299,7 @@ FROM
 				'kode_plant' => CNF_PLANCODE,
 				'kode_blok' => $_POST['kode_blok'],
 				'tgl_spta' => $_POST['tgl_spta'],
-				'tgl_expired' => date('Y-m-d 11:59:59', strtotime($epdate. ' + 1 days')),
+				'tgl_expired' => date('Y-m-d 05:59:59', strtotime($epdate. ' + 1 days')),
 				'kode_affd' => $_POST['afdeling'],
 				'persno_pta' => $_POST['persno_pta'],
 				'id_petani_sap' => $_POST['id_petani_sap'],
