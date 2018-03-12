@@ -1,9 +1,8 @@
 /*
 SQLyog Ultimate v12.09 (64 bit)
-MySQL - 10.1.10-MariaDB : Database - simpg_ptpn
+MySQL - 10.1.19-MariaDB : Database - db_simpg
 *********************************************************************
-*/
-
+*/
 
 /*!40101 SET NAMES utf8 */;
 
@@ -99,24 +98,6 @@ CREATE TABLE `m_kendaraan_tma` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 /*Data for the table `m_kendaraan_tma` */
-
-DROP TABLE IF EXISTS `sap_m_petani`;
-
-CREATE TABLE `sap_m_petani` (
-  `Customer` varchar(10) NOT NULL,
-  `CoCd` varchar(4) DEFAULT NULL,
-  `nama` varchar(200) DEFAULT NULL,
-  `City` varchar(50) DEFAULT NULL,
-  `Street` varchar(255) DEFAULT NULL,
-  `search_tem` varchar(255) DEFAULT NULL,
-  `external_bp` varchar(255) DEFAULT NULL,
-  `recon_att` varchar(255) DEFAULT NULL,
-  `pers_no` varchar(255) DEFAULT NULL,
-  `Customer1` varchar(255) DEFAULT NULL,
-  `Group` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`Customer`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
-
 
 /*Table structure for table `m_lori` */
 
@@ -2326,7 +2307,6 @@ CREATE TABLE `t_timbangan` (
 
 /*Data for the table `t_timbangan` */
 
-insert  into `t_timbangan`(`id_timbangan`,`id_spat`,`lokasi_timbang_1`,`lokasi_timbang_2`,`bruto`,`tara`,`netto`,`netto_final`,`netto_rafaksi`,`rafaksi_prosentis`,`tgl_bruto`,`tgl_tara`,`tgl_netto`,`tgl_rafaksi`,`transloading_status`,`no_transloading`,`ptgs_transloading`,`ptgs_timbang_1`,`ptgs_timbang_2`,`tgl_transloading`,`multi_sling`,`netto_sebelum_koreksi`,`ket_koreksi_timbangan`,`train_stat`,`no_lori`,`no_loko`) values (2,4,'DC1',NULL,0,0,7820,7820,NULL,0,'2018-02-27 12:12:51','2018-02-27 12:12:51','2018-02-27 12:12:51',NULL,1,'110','optimbangan','optimbangan',NULL,'2018-02-27 12:12:51','4560;3260;',NULL,NULL,NULL,NULL,NULL);
 insert  into `t_timbangan`(`id_timbangan`,`id_spat`,`lokasi_timbang_1`,`lokasi_timbang_2`,`bruto`,`tara`,`netto`,`netto_final`,`netto_rafaksi`,`rafaksi_prosentis`,`tgl_bruto`,`tgl_tara`,`tgl_netto`,`tgl_rafaksi`,`transloading_status`,`no_transloading`,`ptgs_transloading`,`ptgs_timbang_1`,`ptgs_timbang_2`,`tgl_transloading`,`multi_sling`,`netto_sebelum_koreksi`,`ket_koreksi_timbangan`,`train_stat`,`no_lori`,`no_loko`) values (3,5,'DC1',NULL,0,0,7650,7650,NULL,0,'2018-02-27 13:25:54','2018-02-27 13:25:54','2018-02-27 13:25:54',NULL,0,NULL,NULL,'optimbangan',NULL,NULL,'',NULL,NULL,NULL,NULL,NULL);
 insert  into `t_timbangan`(`id_timbangan`,`id_spat`,`lokasi_timbang_1`,`lokasi_timbang_2`,`bruto`,`tara`,`netto`,`netto_final`,`netto_rafaksi`,`rafaksi_prosentis`,`tgl_bruto`,`tgl_tara`,`tgl_netto`,`tgl_rafaksi`,`transloading_status`,`no_transloading`,`ptgs_transloading`,`ptgs_timbang_1`,`ptgs_timbang_2`,`tgl_transloading`,`multi_sling`,`netto_sebelum_koreksi`,`ket_koreksi_timbangan`,`train_stat`,`no_lori`,`no_loko`) values (8,33,'DC1','JT1',12870,2170,10700,10700,NULL,0,'2018-03-06 16:35:59','2018-03-06 17:21:34','2018-03-06 17:21:34',NULL,1,'231',NULL,'optimbangan','dirga','2018-03-06 17:21:34',NULL,NULL,NULL,NULL,NULL,NULL);
 insert  into `t_timbangan`(`id_timbangan`,`id_spat`,`lokasi_timbang_1`,`lokasi_timbang_2`,`bruto`,`tara`,`netto`,`netto_final`,`netto_rafaksi`,`rafaksi_prosentis`,`tgl_bruto`,`tgl_tara`,`tgl_netto`,`tgl_rafaksi`,`transloading_status`,`no_transloading`,`ptgs_transloading`,`ptgs_timbang_1`,`ptgs_timbang_2`,`tgl_transloading`,`multi_sling`,`netto_sebelum_koreksi`,`ket_koreksi_timbangan`,`train_stat`,`no_lori`,`no_loko`) values (9,0,NULL,'JT1',0,2870,10000,10000,NULL,0,NULL,'2018-03-06 17:08:31','2018-03-06 17:08:31',NULL,0,NULL,NULL,NULL,'dirga',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
@@ -2335,7 +2315,6 @@ insert  into `t_timbangan`(`id_timbangan`,`id_spat`,`lokasi_timbang_1`,`lokasi_t
 insert  into `t_timbangan`(`id_timbangan`,`id_spat`,`lokasi_timbang_1`,`lokasi_timbang_2`,`bruto`,`tara`,`netto`,`netto_final`,`netto_rafaksi`,`rafaksi_prosentis`,`tgl_bruto`,`tgl_tara`,`tgl_netto`,`tgl_rafaksi`,`transloading_status`,`no_transloading`,`ptgs_transloading`,`ptgs_timbang_1`,`ptgs_timbang_2`,`tgl_transloading`,`multi_sling`,`netto_sebelum_koreksi`,`ket_koreksi_timbangan`,`train_stat`,`no_lori`,`no_loko`) values (12,34,'DC1','JT1',14620,5620,9000,9000,NULL,0,'2018-03-06 17:22:56','2018-03-06 17:23:28','2018-03-06 17:23:28',NULL,0,NULL,NULL,'optimbangan','optimbangan',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 insert  into `t_timbangan`(`id_timbangan`,`id_spat`,`lokasi_timbang_1`,`lokasi_timbang_2`,`bruto`,`tara`,`netto`,`netto_final`,`netto_rafaksi`,`rafaksi_prosentis`,`tgl_bruto`,`tgl_tara`,`tgl_netto`,`tgl_rafaksi`,`transloading_status`,`no_transloading`,`ptgs_transloading`,`ptgs_timbang_1`,`ptgs_timbang_2`,`tgl_transloading`,`multi_sling`,`netto_sebelum_koreksi`,`ket_koreksi_timbangan`,`train_stat`,`no_lori`,`no_loko`) values (13,35,'JT1','JT1',9870,2870,7000,7000,NULL,0,'2018-03-06 17:41:17','2018-03-06 17:41:42','2018-03-06 17:41:42',NULL,0,NULL,NULL,'optimbangan','optimbangan',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 insert  into `t_timbangan`(`id_timbangan`,`id_spat`,`lokasi_timbang_1`,`lokasi_timbang_2`,`bruto`,`tara`,`netto`,`netto_final`,`netto_rafaksi`,`rafaksi_prosentis`,`tgl_bruto`,`tgl_tara`,`tgl_netto`,`tgl_rafaksi`,`transloading_status`,`no_transloading`,`ptgs_transloading`,`ptgs_timbang_1`,`ptgs_timbang_2`,`tgl_transloading`,`multi_sling`,`netto_sebelum_koreksi`,`ket_koreksi_timbangan`,`train_stat`,`no_lori`,`no_loko`) values (14,22,'DC1',NULL,0,0,7400,7400,NULL,0,'2018-03-07 04:19:39','2018-03-07 04:19:39','2018-03-07 04:19:39',NULL,0,NULL,NULL,'optimbangan',NULL,NULL,'',NULL,NULL,NULL,NULL,NULL);
-insert  into `t_timbangan`(`id_timbangan`,`id_spat`,`lokasi_timbang_1`,`lokasi_timbang_2`,`bruto`,`tara`,`netto`,`netto_final`,`netto_rafaksi`,`rafaksi_prosentis`,`tgl_bruto`,`tgl_tara`,`tgl_netto`,`tgl_rafaksi`,`transloading_status`,`no_transloading`,`ptgs_transloading`,`ptgs_timbang_1`,`ptgs_timbang_2`,`tgl_transloading`,`multi_sling`,`netto_sebelum_koreksi`,`ket_koreksi_timbangan`,`train_stat`,`no_lori`,`no_loko`) values (15,36,'DC1',NULL,0,0,11300,11300,NULL,0,'2018-03-07 07:03:50','2018-03-07 07:03:50','2018-03-07 07:03:50',NULL,0,NULL,NULL,'optimbangan',NULL,NULL,'5600;5700;',NULL,NULL,NULL,NULL,NULL);
 insert  into `t_timbangan`(`id_timbangan`,`id_spat`,`lokasi_timbang_1`,`lokasi_timbang_2`,`bruto`,`tara`,`netto`,`netto_final`,`netto_rafaksi`,`rafaksi_prosentis`,`tgl_bruto`,`tgl_tara`,`tgl_netto`,`tgl_rafaksi`,`transloading_status`,`no_transloading`,`ptgs_transloading`,`ptgs_timbang_1`,`ptgs_timbang_2`,`tgl_transloading`,`multi_sling`,`netto_sebelum_koreksi`,`ket_koreksi_timbangan`,`train_stat`,`no_lori`,`no_loko`) values (16,55,'JT1','JT1',12390,6390,6000,6000,NULL,0,'2018-03-08 08:14:45','2018-03-08 08:19:36','2018-03-08 08:19:36',NULL,0,NULL,NULL,'optimbangan','optimbangan',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 
 /*Table structure for table `t_upah_tebang` */
@@ -3111,11 +3090,11 @@ DELIMITER $$
 
 /*!50003 DROP TRIGGER*//*!50032 IF EXISTS */ /*!50003 `tr_ari_insert` */$$
 
-/*!50003 CREATE */ /*!50003 TRIGGER `tr_ari_insert` AFTER INSERT ON `t_ari` FOR EACH ROW BEGIN
-	declare nourut int;
-	SELECT IFNULL(MAX(no_urut_analisa_rendemen),0)+1 into nourut FROM t_spta b WHERE date(ari_tgl)=date(NEW.tgl_ari);
-	update t_spta set ari_status=if(NEW.ditolak_ari = 1,2,1),ari_tgl=NEW.tgl_ari,
-	no_urut_analisa_rendemen = if(no_urut_analisa_rendemen=0,nourut,no_urut_analisa_rendemen) where id=NEW.id_spta;
+/*!50003 CREATE */ /*!50003 TRIGGER `tr_ari_insert` AFTER INSERT ON `t_ari` FOR EACH ROW BEGIN
+	declare nourut int;
+	SELECT IFNULL(MAX(no_urut_analisa_rendemen),0)+1 into nourut FROM t_spta b WHERE date(ari_tgl)=date(NEW.tgl_ari);
+	update t_spta set ari_status=if(NEW.ditolak_ari = 1,2,1),ari_tgl=NEW.tgl_ari,
+	no_urut_analisa_rendemen = if(no_urut_analisa_rendemen=0,nourut,no_urut_analisa_rendemen) where id=NEW.id_spta;
     END */$$
 
 
@@ -3127,12 +3106,12 @@ DELIMITER $$
 
 /*!50003 DROP TRIGGER*//*!50032 IF EXISTS */ /*!50003 `tr_mejatebu_insert` */$$
 
-/*!50003 CREATE */ /*!50003 TRIGGER `tr_mejatebu_insert` AFTER INSERT ON `t_meja_tebu` FOR EACH ROW BEGIN
-	declare nourut int;
-	SELECT IFNULL(MAX(no_urut_analisa_rendemen),0)+1 into nourut FROM t_meja_tebu a JOIN t_spta b ON a.id_spta=b.id WHERE gilingan=NEW.gilingan AND b.hari_giling=get_hari_giling();
-	update t_spta set meja_tebu_status=1,meja_tebu_tgl=NEW.tgl_meja_tebu,hari_giling=get_hari_giling(),tgl_giling=get_tgl_giling(),
-	no_urut_analisa_rendemen = IF(no_urut_analisa_rendemen=0,nourut,no_urut_analisa_rendemen)
-	 where id=NEW.id_spta;
+/*!50003 CREATE */ /*!50003 TRIGGER `tr_mejatebu_insert` AFTER INSERT ON `t_meja_tebu` FOR EACH ROW BEGIN
+	declare nourut int;
+	SELECT IFNULL(MAX(no_urut_analisa_rendemen),0)+1 into nourut FROM t_meja_tebu a JOIN t_spta b ON a.id_spta=b.id WHERE gilingan=NEW.gilingan AND b.hari_giling=get_hari_giling();
+	update t_spta set meja_tebu_status=1,meja_tebu_tgl=NEW.tgl_meja_tebu,hari_giling=get_hari_giling(),tgl_giling=get_tgl_giling(),
+	no_urut_analisa_rendemen = IF(no_urut_analisa_rendemen=0,nourut,no_urut_analisa_rendemen)
+	 where id=NEW.id_spta;
     END */$$
 
 
@@ -3144,11 +3123,11 @@ DELIMITER $$
 
 /*!50003 DROP TRIGGER*//*!50032 IF EXISTS */ /*!50003 `tr_selektor_insert` */$$
 
-/*!50003 CREATE */ /*!50003 TRIGGER `tr_selektor_insert` AFTER INSERT ON `t_selektor` FOR EACH ROW BEGIN
-    declare temp_noblok varchar(20);
-	
-	update t_spta set selektor_status=if(NEW.ditolak_sel=1,2,1),selektor_tgl=NEW.tgl_selektor WHERE id=NEW.id_spta;
-	 
+/*!50003 CREATE */ /*!50003 TRIGGER `tr_selektor_insert` AFTER INSERT ON `t_selektor` FOR EACH ROW BEGIN
+    declare temp_noblok varchar(20);
+	
+	update t_spta set selektor_status=if(NEW.ditolak_sel=1,2,1),selektor_tgl=NEW.tgl_selektor WHERE id=NEW.id_spta;
+	 
     END */$$
 
 
@@ -3160,12 +3139,12 @@ DELIMITER $$
 
 /*!50003 DROP TRIGGER*//*!50032 IF EXISTS */ /*!50003 `tr_selektor_update` */$$
 
-/*!50003 CREATE */ /*!50003 TRIGGER `tr_selektor_update` AFTER UPDATE ON `t_selektor` FOR EACH ROW BEGIN
-    DECLARE temp_noblok VARCHAR(20);
-    if NEW.tanaman_status = 1 then
-	SELECT kode_blok INTO temp_noblok FROM t_spta WHERE id=NEW.id_spta;
-	UPDATE sap_field SET luas_tebang = luas_tebang+NEW.ha_tertebang WHERE kode_blok=temp_noblok;
-    end if;
+/*!50003 CREATE */ /*!50003 TRIGGER `tr_selektor_update` AFTER UPDATE ON `t_selektor` FOR EACH ROW BEGIN
+    DECLARE temp_noblok VARCHAR(20);
+    if NEW.tanaman_status = 1 then
+	SELECT kode_blok INTO temp_noblok FROM t_spta WHERE id=NEW.id_spta;
+	UPDATE sap_field SET luas_tebang = luas_tebang+NEW.ha_tertebang WHERE kode_blok=temp_noblok;
+    end if;
     END */$$
 
 
@@ -3177,10 +3156,10 @@ DELIMITER $$
 
 /*!50003 DROP TRIGGER*//*!50032 IF EXISTS */ /*!50003 `tr_gen_no_spta` */$$
 
-/*!50003 CREATE */ /*!50003 TRIGGER `tr_gen_no_spta` BEFORE INSERT ON `t_spta` FOR EACH ROW BEGIN
-	DECLARE nilaimax INT;
-	SELECT IFNULL(MAX(RIGHT(no_spat,4))+1,1) into nilaimax FROM `t_spta` WHERE tgl_spta = NEW.tgl_spta;
-	SET NEW.no_spat = CONCAT(NEW.kode_plant,'-',DATE_FORMAT(DATE(NEW.tgl_spta),'%d%m%Y'),'-',LPAD(nilaimax,4,'0'));
+/*!50003 CREATE */ /*!50003 TRIGGER `tr_gen_no_spta` BEFORE INSERT ON `t_spta` FOR EACH ROW BEGIN
+	DECLARE nilaimax INT;
+	SELECT IFNULL(MAX(RIGHT(no_spat,4))+1,1) into nilaimax FROM `t_spta` WHERE tgl_spta = NEW.tgl_spta;
+	SET NEW.no_spat = CONCAT(NEW.kode_plant,'-',DATE_FORMAT(DATE(NEW.tgl_spta),'%d%m%Y'),'-',LPAD(nilaimax,4,'0'));
     END */$$
 
 
@@ -3192,26 +3171,26 @@ DELIMITER $$
 
 /*!50003 DROP TRIGGER*//*!50032 IF EXISTS */ /*!50003 `tr_timbangan_insert` */$$
 
-/*!50003 CREATE */ /*!50003 TRIGGER `tr_timbangan_insert` AFTER INSERT ON `t_timbangan` FOR EACH ROW BEGIN
-    DECLARE temp_noblok VARCHAR(20);
-	if NEW.netto != 0 and NEW.bruto = 0 then
-	/*jika timbang langsung netto*/
-	
-	
-		SELECT kode_blok INTO temp_noblok FROM t_spta WHERE id=NEW.id_spat;
-		update t_spta set timb_bruto_status=1,timb_bruto_tgl=NEW.tgl_bruto,timb_netto_status=1,timb_netto_tgl=NEW.tgl_netto where id = NEW.id_spat;
-		UPDATE sap_field SET total_tebang = (total_tebang+NEW.netto_final) WHERE kode_blok=temp_noblok;
-	elseif NEW.netto != 0 AND NEW.bruto != 0 THEN
-	/*jika timbang langsung netto*/
-	
-	
-		SELECT kode_blok INTO temp_noblok FROM t_spta WHERE id=NEW.id_spat;
-		UPDATE t_spta SET timb_bruto_status=1,timb_bruto_tgl=NEW.tgl_bruto,timb_netto_status=1,timb_netto_tgl=NEW.tgl_netto WHERE id = NEW.id_spat;
-		UPDATE sap_field SET total_tebang = (total_tebang+NEW.netto_final) WHERE kode_blok=temp_noblok;
-	ELSEIF NEW.netto = 0 and NEW.bruto != 0 then
-	/*jika timbang bruto - tara*/
-		UPDATE t_spta SET timb_bruto_status=1,timb_bruto_tgl=NEW.tgl_bruto WHERE id = NEW.id_spat;
-	end if;
+/*!50003 CREATE */ /*!50003 TRIGGER `tr_timbangan_insert` AFTER INSERT ON `t_timbangan` FOR EACH ROW BEGIN
+    DECLARE temp_noblok VARCHAR(20);
+	if NEW.netto != 0 and NEW.bruto = 0 then
+	/*jika timbang langsung netto*/
+	
+	
+		SELECT kode_blok INTO temp_noblok FROM t_spta WHERE id=NEW.id_spat;
+		update t_spta set timb_bruto_status=1,timb_bruto_tgl=NEW.tgl_bruto,timb_netto_status=1,timb_netto_tgl=NEW.tgl_netto where id = NEW.id_spat;
+		UPDATE sap_field SET total_tebang = (total_tebang+NEW.netto_final) WHERE kode_blok=temp_noblok;
+	elseif NEW.netto != 0 AND NEW.bruto != 0 THEN
+	/*jika timbang langsung netto*/
+	
+	
+		SELECT kode_blok INTO temp_noblok FROM t_spta WHERE id=NEW.id_spat;
+		UPDATE t_spta SET timb_bruto_status=1,timb_bruto_tgl=NEW.tgl_bruto,timb_netto_status=1,timb_netto_tgl=NEW.tgl_netto WHERE id = NEW.id_spat;
+		UPDATE sap_field SET total_tebang = (total_tebang+NEW.netto_final) WHERE kode_blok=temp_noblok;
+	ELSEIF NEW.netto = 0 and NEW.bruto != 0 then
+	/*jika timbang bruto - tara*/
+		UPDATE t_spta SET timb_bruto_status=1,timb_bruto_tgl=NEW.tgl_bruto WHERE id = NEW.id_spat;
+	end if;
     END */$$
 
 
@@ -3223,13 +3202,13 @@ DELIMITER $$
 
 /*!50003 DROP TRIGGER*//*!50032 IF EXISTS */ /*!50003 `tr_timbangan_update` */$$
 
-/*!50003 CREATE */ /*!50003 TRIGGER `tr_timbangan_update` AFTER UPDATE ON `t_timbangan` FOR EACH ROW BEGIN
-    DECLARE temp_noblok VARCHAR(20);
-	if NEW.netto != 0 then
-		SELECT kode_blok INTO temp_noblok FROM t_spta WHERE id=NEW.id_spat;
-		UPDATE t_spta SET timb_netto_status=1,timb_netto_tgl=NEW.tgl_netto WHERE id = NEW.id_spat;
-		UPDATE sap_field SET total_tebang = (total_tebang-OLD.netto_final)+NEW.netto_final WHERE kode_blok=temp_noblok;
-	end if;
+/*!50003 CREATE */ /*!50003 TRIGGER `tr_timbangan_update` AFTER UPDATE ON `t_timbangan` FOR EACH ROW BEGIN
+    DECLARE temp_noblok VARCHAR(20);
+	if NEW.netto != 0 then
+		SELECT kode_blok INTO temp_noblok FROM t_spta WHERE id=NEW.id_spat;
+		UPDATE t_spta SET timb_netto_status=1,timb_netto_tgl=NEW.tgl_netto WHERE id = NEW.id_spat;
+		UPDATE sap_field SET total_tebang = (total_tebang-OLD.netto_final)+NEW.netto_final WHERE kode_blok=temp_noblok;
+	end if;
     END */$$
 
 
@@ -3241,10 +3220,10 @@ DELIMITER ;
 DELIMITER $$
 
 /*!50003 CREATE FUNCTION `get_hablur_ari`(netto double,rendemen double(10,2)) RETURNS double
-BEGIN
-    declare hasil double;
-    set hasil = netto*rendemen/100;
-	return ROUND_UP(hasil,2);
+BEGIN
+    declare hasil double;
+    set hasil = netto*rendemen/100;
+	return ROUND_UP(hasil,2);
     END */$$
 DELIMITER ;
 
@@ -3254,20 +3233,20 @@ DELIMITER ;
 DELIMITER $$
 
 /*!50003 CREATE FUNCTION `get_hari_giling`() RETURNS int(11)
-BEGIN
-	declare hargil int;
-	declare temptgl date;
-	declare temphargil int;
-	
-	select ifnull(max(tgl_giling),get_tgl_giling()) into temptgl from t_spta;
-	
-	set temphargil = datediff(get_tgl_giling(),temptgl);
-	if temphargil = 0 then
-		set temphargil = 1;
-	end if;
-	
-	SELECT IFNULL(MAX(hari_giling),(SELECT IFNULL(MAX(hari_giling),0) FROM t_spta)+temphargil) into hargil FROM t_spta WHERE tgl_giling=get_tgl_giling();
-	return hargil;
+BEGIN
+	declare hargil int;
+	declare temptgl date;
+	declare temphargil int;
+	
+	select ifnull(max(tgl_giling),get_tgl_giling()) into temptgl from t_spta;
+	
+	set temphargil = datediff(get_tgl_giling(),temptgl);
+	if temphargil = 0 then
+		set temphargil = 1;
+	end if;
+	
+	SELECT IFNULL(MAX(hari_giling),(SELECT IFNULL(MAX(hari_giling),0) FROM t_spta)+temphargil) into hargil FROM t_spta WHERE tgl_giling=get_tgl_giling();
+	return hargil;
     END */$$
 DELIMITER ;
 
@@ -3277,37 +3256,37 @@ DELIMITER ;
 DELIMITER $$
 
 /*!50003 CREATE FUNCTION `get_rendemen_bagihasil_ptr`( vkat varchar(2), vrendemen double(10,2)) RETURNS double(10,4)
-BEGIN
-	/* jika rendemen < = 6 bagihasil = 66 % */
-	/* jika rendemen >  6 bagihasil = 66 % dan < = 7.99 => 66% + (selisih dari 6 * 70%)*/
-	/* jika rendemen >=  8 bagihasil =  66% + (selisih dari 6 * 75%)*/
-	declare hslrendemen double(10,4);
-	DECLARE temphslrendemen1 DOUBLE(10,4);
-	DECLARE temphslrendemen2 DOUBLE(10,4);
-	DECLARE temphslrendemen3 DOUBLE(10,4);
-	declare selisih double(10,2);
-	
-	
-	if vkat = 'TR' then
-	if vrendemen <= 6 then
-		set hslrendemen = vrendemen * 66 / 100;
-	elseif vrendemen > 6 and vrendemen <= 8 then
-		set temphslrendemen1  = 6.00 * 66 / 100;
-		set selisih = vrendemen - 6.00;
-		SET temphslrendemen2  = selisih * 70 / 100;
-		set hslrendemen = temphslrendemen1+temphslrendemen2;
-	elseif vrendemen > 8 then
-		SET temphslrendemen1  = 6.00 * 66 / 100;
-		set temphslrendemen2 = 2.00 * 70 / 100;
-		SET selisih = vrendemen - 8.00;
-		SET temphslrendemen3  = selisih * 75 / 100;
-		SET hslrendemen = temphslrendemen1+temphslrendemen2+temphslrendemen3;
-	end if;
-	else
-	 set hslrendemen = 0;
-	end if;
-	
-	return hslrendemen;
+BEGIN
+	/* jika rendemen < = 6 bagihasil = 66 % */
+	/* jika rendemen >  6 bagihasil = 66 % dan < = 7.99 => 66% + (selisih dari 6 * 70%)*/
+	/* jika rendemen >=  8 bagihasil =  66% + (selisih dari 6 * 75%)*/
+	declare hslrendemen double(10,4);
+	DECLARE temphslrendemen1 DOUBLE(10,4);
+	DECLARE temphslrendemen2 DOUBLE(10,4);
+	DECLARE temphslrendemen3 DOUBLE(10,4);
+	declare selisih double(10,2);
+	
+	
+	if vkat = 'TR' then
+	if vrendemen <= 6 then
+		set hslrendemen = vrendemen * 66 / 100;
+	elseif vrendemen > 6 and vrendemen <= 8 then
+		set temphslrendemen1  = 6.00 * 66 / 100;
+		set selisih = vrendemen - 6.00;
+		SET temphslrendemen2  = selisih * 70 / 100;
+		set hslrendemen = temphslrendemen1+temphslrendemen2;
+	elseif vrendemen > 8 then
+		SET temphslrendemen1  = 6.00 * 66 / 100;
+		set temphslrendemen2 = 2.00 * 70 / 100;
+		SET selisih = vrendemen - 8.00;
+		SET temphslrendemen3  = selisih * 75 / 100;
+		SET hslrendemen = temphslrendemen1+temphslrendemen2+temphslrendemen3;
+	end if;
+	else
+	 set hslrendemen = 0;
+	end if;
+	
+	return hslrendemen;
     END */$$
 DELIMITER ;
 
@@ -3317,11 +3296,11 @@ DELIMITER ;
 DELIMITER $$
 
 /*!50003 CREATE FUNCTION `get_tgl_giling`() RETURNS date
-BEGIN
-	DECLARE tgl date;
-	SELECT IF(STR_TO_DATE(now(),'%Y-%m-%d %H:%i:%s') < STR_TO_DATE(CONCAT(DATE(now()),' 06:59:59'),'%Y-%m-%d %H:%i:%s'),
-STR_TO_DATE(NOW(),'%Y-%m-%d') - INTERVAL 1 DAY, STR_TO_DATE(NOW(),'%Y-%m-%d')) into tgl;
-	return tgl;
+BEGIN
+	DECLARE tgl date;
+	SELECT IF(STR_TO_DATE(now(),'%Y-%m-%d %H:%i:%s') < STR_TO_DATE(CONCAT(DATE(now()),' 06:59:59'),'%Y-%m-%d %H:%i:%s'),
+STR_TO_DATE(NOW(),'%Y-%m-%d') - INTERVAL 1 DAY, STR_TO_DATE(NOW(),'%Y-%m-%d')) into tgl;
+	return tgl;
     END */$$
 DELIMITER ;
 
@@ -3332,9 +3311,9 @@ DELIMITER $$
 
 /*!50003 CREATE FUNCTION `ROUND_UP`(num DECIMAL(32,16), places INT) RETURNS decimal(32,2)
     DETERMINISTIC
-RETURN CASE WHEN num < 0
-THEN - ceil(abs(num) * power(10, places)) / power(10, places)
-ELSE ceil(abs(num) * power(10, places)) / power(10, places)
+RETURN CASE WHEN num < 0
+THEN - ceil(abs(num) * power(10, places)) / power(10, places)
+ELSE ceil(abs(num) * power(10, places)) / power(10, places)
 END */$$
 DELIMITER ;
 
@@ -3836,10 +3815,6 @@ DROP TABLE IF EXISTS `vw_upah_tebang`;
 /*!50001 DROP VIEW IF EXISTS `vw_upah_tebang` */;
 
 /*!50001 CREATE ALGORITHM=UNDEFINED SQL SECURITY DEFINER VIEW `vw_upah_tebang` AS (select `a`.`id` AS `id`,`a`.`tgl` AS `tgl`,`a`.`no_bukti` AS `no_bukti`,`a`.`kode_blok` AS `kode_blok`,`a`.`persno_pta` AS `persno_pta`,`a`.`persno_mandor` AS `persno_mandor`,`a`.`keterangan` AS `keterangan`,`a`.`ttl_item` AS `ttl_item`,`a`.`status` AS `status`,`a`.`user_act` AS `user_act`,`a`.`tgl_act` AS `tgl_act`,`b`.`deskripsi_blok` AS `deskripsi_blok`,`b`.`kepemilikan` AS `kepemilikan`,`b`.`luas_ha` AS `luas_ha`,`c`.`name` AS `pta`,`d`.`name` AS `mandor`,`e`.`nama_petani` AS `nama_petani` from ((((`t_upah_tebang` `a` join `sap_field` `b` on((`a`.`kode_blok` = `b`.`kode_blok`))) join `sap_m_karyawan` `c` on((`c`.`Persno` = convert(`a`.`persno_pta` using utf8)))) join `sap_m_karyawan` `d` on((`d`.`Persno` = convert(`a`.`persno_mandor` using utf8)))) left join `sap_petani` `e` on((`e`.`id_petani_sap` = `b`.`id_petani_sap`))) group by `a`.`id`) */;
-
-
-
-
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
