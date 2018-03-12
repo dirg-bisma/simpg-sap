@@ -396,7 +396,7 @@ $dir=trim($hasil,"/");
 				cache:false,
 				success: function(data){
 					console.log(data);
-					//window.location.href="<?php echo siteURL(); ?>"+"<?php echo $dir; ?>";
+					window.location.href="<?php echo siteURL(); ?>"+"<?php echo $dir; ?>";
 				}
 			})
 		}
