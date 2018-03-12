@@ -2,6 +2,26 @@
 
 if(file_exists("../starting") AND isset($_POST['nama_database'])) {
 
+function parseScript($script) {
+
+  $result = array();
+  $delimiter = ';';
+  while(strlen($script) && preg_match('/((DELIMITER)[ ]+([^\n\r])|[' . $delimiter . ']|$)/is', $script, $matches, PREG_OFFSET_CAPTURE)) {
+    if (count($matches) > 2) {
+      $delimiter = $matches[3][0];
+      $script = substr($script, $matches[3][1] + 1);
+    } else {
+      if (strlen($statement = trim(substr($script, 0, $matches[0][1])))) {
+        $result[] = $statement;
+      }
+      $script = substr($script, $matches[0][1] + 1);
+    }
+  }
+
+  return $result;
+
+}
+
 ini_set('max_execution_time', 1000);
 $nama_database=$_POST['nama_database'];
 $host_database=$_POST['host_database'];
@@ -18,25 +38,11 @@ $companycode=$_POST['companycode'];
 
 $pdo = new PDO("mysql:host=$host_database;dbname=$nama_database", $user_database, $password_database);
 
-
-$templine = '';
-$lines = file("db_simpg_test.sql");
-foreach ($lines as $line)
-{
-if (substr($line, 0, 2) == '--' || $line == '')
-    continue;
-
-$templine .= $line;
-if (substr(trim($line), -1, 1) == ';')
-{
-	//echo $templine.'<br />';
-    $pdo->query("DROP TRIGGER IF EXISTS  `tr_ari_insert`"); 
-    $pdo->query("CREATE  TRIGGER `tr_ari_insert` AFTER INSERT ON `t_ari` FOR EACH ROW BEGIN declare nourut int; 
-SELECT IFNULL(MAX(no_urut_analisa_rendemen),0)+1 into nourut FROM t_spta b WHERE date(ari_tgl)=date(NEW.tgl_ari); 
-update t_spta set ari_status=if(NEW.ditolak_ari = 1,2,1),ari_tgl=NEW.tgl_ari, no_urut_analisa_rendemen = if(no_urut_analisa_rendemen=0,nourut,no_urut_analisa_rendemen) where id=NEW.id_spta; END;");
-    $templine = '';
-}
-}
+$script = file_get_contents("db_simpg.sql");
+  $statements = parseScript($script);
+  foreach($statements as $statement) {
+    mysqli_query($dbConnection, $statement);
+  }
  
 $pdo->query("UPDATE tb_users 
 			SET 
