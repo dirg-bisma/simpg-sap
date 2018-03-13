@@ -39,7 +39,7 @@
 
 				<li><a href="<?php echo site_url('hakakses/updates') ;?>" ><i class="fa fa-share"></i> Get Updates Files </a></li>
 
-				<li><a href="<?php echo site_url('hakakses/updates') ;?>" ><i class="fa fa-share"></i> Get Updates Databases </a></li>	
+				<li><a href="<?php echo site_url('hakakses/databaseupdate') ;?>" ><i class="fa fa-share"></i> Get Updates Databases </a></li>	
 			</ul>
 		</li>	
 	
