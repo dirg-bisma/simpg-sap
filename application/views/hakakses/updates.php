@@ -18,7 +18,7 @@
  <div class="box-body">
  	<div class="page-content-wrapper">
   <?php
-  
+
     function execPrint($command) {
     $result = array();
     exec($command, $result);
@@ -27,7 +27,7 @@
     }
 }
 // Print the exec output inside of a pre element
-print("<pre>" . execPrint("git pull"));
+print("<pre>" . execPrint("git pull")."</pre>");
 
   ?>
   </div>
