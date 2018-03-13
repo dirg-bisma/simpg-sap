@@ -14,7 +14,7 @@ chmod(realpath("../index"), 0777);
 
 
 if(!rename("../index","../index.php")){
-	exec("mv ".realpath("../index")." ".realpath("../index.php"));
+	exec("mv ../index ../index.php");
 	echo "gagal";
 }
 unlink(realpath("index.php"));
