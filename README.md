@@ -6,7 +6,7 @@ Install Server Windows
    exp. c:/xampp/htdocs/simpg
 
 4. setelah itu create database bisa via phpmyadmin
-5. jalankan dari browser <ip-server>/simpg
+5. jalankan dari browser [ip-server]/simpg
 6. ikuti dan isi instruksi hingga selesai
 
 Instalasi Server Linux
@@ -40,8 +40,8 @@ Instalasi Server Linux
 
 11. setelah itu buat database nya di server 
     dengan ketik
-    # mysql -u <username> -p <password>
-    mysql> create database <namadatabase>;
+    # mysql -u [username] -p [password]
+    mysql> create database [namadatabase];
 
-12. jalankan dari browser <ip-server>/simpg
+12. jalankan dari browser [ip-server]/simpg
 13. ikuti dan isi instruksi hingga selesai
