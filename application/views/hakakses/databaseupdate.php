@@ -17,6 +17,7 @@
                   <h3 class="box-title">Sinkronisasi Database</h3>
  <div class="box-body">
  	<div class="page-content-wrapper">
+  <a href='javascript:getresetdata()' class='btn btn-info'><i class='fa fa-database'></i> Reset Data</a>
 <table class="table table-bordered display dataTable no-footer" id="gridv" role="grid" aria-describedby="gridv_info">
         <thead>
           <th>Nama File</th>
@@ -56,6 +57,22 @@
                 alert('Database Berhasil disinkronisasikan !!');
               //  window.reload();
               window.location = '<?php echo site_url('hakakses/databaseupdate');?>';
+        
+            }
+        });
+      }
+    }
+
+    function getresetdata(id){
+      if(confirm('Apakah anda yakin untuk reset database ini, semua data master dan transaksi akan hilang ?')){
+          $.ajax({
+            type: "POST",
+            url: "<?php echo site_url('hakakses/resetdata');?>",
+            data: {id:id},
+            success: function (data) {
+                alert('Database Berhasil direset !!');
+              //  window.reload();
+             // window.location = '<?php echo site_url('hakakses/databaseupdate');?>';
         
             }
         });

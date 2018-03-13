@@ -234,12 +234,63 @@ class Mmasterfield extends SB_Controller
 			exit();
 		}
 
-	$allDataInSheet = $objPHPExcel->getActiveSheet()->toArray(null,true,true,true);
+		$ix = 0;
+		$num=$objPHPExcel->getSheetCount() ;
+		for($r=0;$r<$num;$r++){
+    	$objPHPExcel->setActiveSheetIndex($r);
+		$allDataInSheet = $objPHPExcel->getActiveSheet()->toArray(null,true,true,true);
 		$arrayCount = count($allDataInSheet);  // Here get total count of row in that Excel sheet
+		//var_dump($allDataInSheet);die();
 		$totupload  = 0;
 		$totdecline = 0;
+		$tmpkodepetak = "";
 		for($i=2;$i<=$arrayCount;$i++){
-			 
+			 if(CNF_COMPANYCODE == 'N007' || CNF_COMPANYCODE == 'N002' || CNF_COMPANYCODE == 'N014'){
+			 	if(trim($allDataInSheet[$i]["B"]) == CNF_COMPANYCODE && trim($allDataInSheet[$i]["C"]) == CNF_PLANCODE){
+			 		$tempdata = array(
+					'kode_komoditas' => trim($allDataInSheet[$i]["A"]), 
+					'company_code' 	=> trim($allDataInSheet[$i]["B"]), 
+					'kode_plant' 	=> trim($allDataInSheet[$i]["C"]), 
+					'divisi' 		=> trim($allDataInSheet[$i]["D"]), 
+					'kode_blok' 		=> trim($allDataInSheet[$i]["E"]), 
+					'valid_from' 	=> trim($allDataInSheet[$i]["F"]), 
+					'valid_to' 		=> trim($allDataInSheet[$i]["G"]), 
+					'tanggal_mulai' 	=> trim($allDataInSheet[$i]["F"]), 
+					'sampai' 		=> trim($allDataInSheet[$i]["G"]), 
+					'project_definition' => trim($allDataInSheet[$i]["H"]), 
+					'land_clearing' 	=> trim($allDataInSheet[$i]["I"]), 
+					'immature' 		=> trim($allDataInSheet[$i]["J"]), 
+					'mature' 		=> trim($allDataInSheet[$i]["K"]), 
+					'others' 		=> trim($allDataInSheet[$i]["L"]), 
+					'deskripsi_blok' => trim($allDataInSheet[$i]["M"]), 
+					'luas_tanam' 	=> trim($allDataInSheet[$i]["P"]), 
+					'tahun_tanam' 	=> trim($allDataInSheet[$i]["Q"]), 
+					'periode' 		=> trim($allDataInSheet[$i]["R"]), 
+					'status_blok' 	=> trim($allDataInSheet[$i]["S"]), 
+					'kepemilikan' 	=> trim($allDataInSheet[$i]["T"]), 
+					'id_petani_sap' 	=> trim($allDataInSheet[$i]["U"]), 
+					'jenis_tanah' 	=> trim($allDataInSheet[$i]["V"]), 
+					'total_pokok' 	=> trim($allDataInSheet[$i]["W"]), 
+					'luas_ha' 		=> trim($allDataInSheet[$i]["X"]), 
+					'kondisi_areal' 	=> trim($allDataInSheet[$i]["Y"]), 
+					'kode_varietas' 	=> trim($allDataInSheet[$i]["Z"]), 
+					'gis_id' 		=> trim($allDataInSheet[$i]["AA"]),  
+					'jarak_blok_ke_pabrik' 	=> trim($allDataInSheet[$i]["AU"]), 
+					'jml_batang_juring' 		=> trim($allDataInSheet[$i]["AL"]), 
+					'jml_juring_ha' 			=> trim($allDataInSheet[$i]["AV"]), 
+					'taksasi_pandang' 		=> trim($allDataInSheet[$i]["AT"]), 
+					'berat_per_m' 			=> trim($allDataInSheet[$i]["AS"]), 
+					'rata_tgi_batang' 		=> trim($allDataInSheet[$i]["AR"])
+				);
+				//var_dump($tempdata);
+				$ID = $this->model->insertRowUpdate($tempdata , trim($allDataInSheet[$i]["E"]));
+				$totupload++;
+
+					}else{
+						$totdecline++;
+						$tmpkodepetak .= trim($allDataInSheet[$i]["E"]).', ';
+					}
+			 	}else{
 			
 			if(trim($allDataInSheet[$i]["C"]) == CNF_COMPANYCODE && trim($allDataInSheet[$i]["D"]) == CNF_PLANCODE){
 				$tempdata = array(
@@ -281,13 +332,20 @@ class Mmasterfield extends SB_Controller
 				//var_dump($tempdata);
 				$ID = $this->model->insertRowUpdate($tempdata , trim($allDataInSheet[$i]["F"]));
 				$totupload++;
+
 			}else{
 				$totdecline++;
+						$tmpkodepetak .= trim($allDataInSheet[$i]["F"]).', ';
 			}
 		}
-			$this->inputLogs(" Upload data master field oleh ".$this->session->userdata('fid').' dengan data '.$totupload.' Berhasil dan '.$totdecline.' Gagal keupload');
+	}
+	 $ix++;
+
+    }
+		//	die();
+			$this->inputLogs(" Upload data master field oleh ".$this->session->userdata('fid').' dengan data '.$totupload.' Berhasil dan '.$totdecline.' Gagal keupload. Ket : '.$tmpkodepetak);
 			
-			$this->session->set_flashdata('message',SiteHelpers::alert('success'," Upload data master field oleh ".$this->session->userdata('fid').' dengan data '.$totupload.' Berhasil dan '.$totdecline.' Gagal keupload karena beda plan'));
+			$this->session->set_flashdata('message',SiteHelpers::alert('success'," Upload data master field oleh ".$this->session->userdata('fid').' dengan data '.$totupload.' Berhasil dan '.$totdecline.' Gagal keupload karena beda plan  Gagal keupload. Ket : '.$tmpkodepetak));
 			
 			redirect( 'mmasterfield',301);
 			

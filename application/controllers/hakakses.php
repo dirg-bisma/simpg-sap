@@ -241,6 +241,17 @@ class Hakakses extends SB_Controller  {
 		}
     }
 
+    public function resetdata(){
+    	$r = "t_angkutan,t_angkutan_detail,t_ari,t_lap_harian_pengolahan,t_lap_jam,t_meja_tebu,t_selektor,t_spta,t_spta_detail_tma,t_spta_kuota,t_spta_kuota_kkw,t_spta_kuota_tot,
+   t_timbangan,t_upah_tebang,t_upah_tebang_detail,sap_field,m_vendor,sap_petani";
+   $rx = explode(',', $r);
+   foreach ($rx as $key => $value) {
+   		$this->db->query("TRUNCATE ".$value);
+   	//echo $value;
+   }
+    	
+    }
+
 
     function parseScript($script) {
 
