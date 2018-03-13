@@ -16,23 +16,26 @@ class Apitimbangan extends SB_Controller
 
     function index()
     {
-
+        $this->load->model('apitimbanganmodel');
+        $no_spat = 'KP11-13032018-0010';
+        $status_nett = $this->apitimbanganmodel->cekStatusSpat($no_spat, array('timb_netto_status' => 1));
+        var_dump($status_nett);
     }
 
     function login()
     {
-        $user = $this->input->get('username');
-        $pass = md5($this->input->get('password'));
-        $this->db->get_where('tb_users', array('username'=>$user, 'password' => $pass));
-        $result = $this->db->count_all_results();
+        $user = $this->input->post('username');
+        $pass = md5($this->input->post('password'));
 
-        if($result == 1){
+        $result = $this->db->get_where('tb_users', array('username'=>$user, 'password' => $pass, 'group_id' => 8));
+
+
+        if($result->num_rows() == 1){
             $msg = array('msg' => 'success', 'status' => 'true');
         }else{
             $msg = array('msg' => 'failure', 'status' => 'false');
         }
         echo json_encode($msg);
-
     }
 
     /**
@@ -101,41 +104,51 @@ class Apitimbangan extends SB_Controller
     function simpandcs()
     {
         try{
-            $this->db->select('id');
-            $this->db->where('no_spat', $this->input->get('no_spat'));
-            $this->db->from('t_spta');
-            $id_spat = $this->db->row();
+            $no_spat = $this->input->post('no_spat');
+            $this->load->model('apitimbanganmodel');
 
-            $data = array(
-                'id_spat' => $id_spat->id,
-                'bruto' => "0",
-                'tara' => "0",
-                'netto' => $this->input->get('netto'),
-                'netto_final' => $this->input->get('netto'),
-                'tgl_netto' => date('Y-m-d H:i:s'),
-                'tgl_tara' => date('Y-m-d H:i:s'),
-                'tgl_bruto' => date('Y-m-d H:i:s'),
-                'lokasi_timbang_1' => $this->input->get('kode_timbangan'),
-                'ptgs_timbang_1' => $this->input->get('ptgs_timbang'),
-            );
+            $id_spat = $this->apitimbanganmodel->VByNoSpat($no_spat);
+            $status_nett = $this->apitimbanganmodel->cekStatusSpat($no_spat, 'timb_netto_status', 1);
 
-            if($this->input->get('transloading_status') == 1) {
-                $data += array(
-                    'transloading_status' => $this->input->get('transloading_status'),
-                    'no_transloading' => $this->input->get('no_transloading'),
-                    'ptgs_transloading' => $this->input->get('ptgs_timbang'),
-                    'tgl_transloading' => date('Y-m-d H:i:s'),
-                    'multi_sling' => $this->input->get('multi_sling'),
+            if($status_nett == 0){
+                $data = array(
+                    'id_spat' => $id_spat[0]->id,
+                    'bruto' => "0",
+                    'tara' => "0",
+                    'netto' => $this->input->post('netto'),
+                    'netto_final' => $this->input->post('netto'),
+                    'tgl_netto' => date('Y-m-d H:i:s'),
+                    'tgl_tara' => date('Y-m-d H:i:s'),
+                    'tgl_bruto' => date('Y-m-d H:i:s'),
+                    'lokasi_timbang_1' => $this->input->post('kode_timbangan'),
+                    'ptgs_timbang_1' => $this->input->post('ptgs_timbang'),
                 );
+
+                if($this->input->get('transloading_status') == 1) {
+                    $data += array(
+                        'transloading_status' => $this->input->post('transloading_status'),
+                        'no_transloading' => $this->input->post('no_transloading'),
+                        'ptgs_transloading' => $this->input->post('ptgs_timbang'),
+                        'tgl_transloading' => date('Y-m-d H:i:s'),
+                        'multi_sling' => $this->input->post('multi_sling'),
+                    );
+                }
+
+                $this->db->set($data);
+                $this->db->insert('t_timbangan');
+                $result = array(
+                    'msg' => $this->input->get('no_spat'),
+                    'status' => 'true'
+                );
+                echo json_encode($result);
+            }else{
+                $result = array(
+                    'msg' => "Sudah pernah melakukan penimbangan Netto",
+                    'status' => 'false'
+                );
+                echo json_encode($result);
             }
 
-            $this->db->set($data);
-            $this->db->insert('t_timbangan');
-            $result = array(
-                'msg' => $this->input->get('no_spat'),
-                'status' => 'true'
-            );
-            echo json_encode($result);
         }catch (Exception $ex){
             $result = array(
                 'msg' => $ex,
@@ -148,32 +161,32 @@ class Apitimbangan extends SB_Controller
     function simpanbrutojembatan()
     {
         try{
-            $no_spat = $this->input->get('no_spat');
+            $no_spat = $this->input->post('no_spat');
             $this->load->model('apitimbanganmodel');
 
             $id_spat = $this->apitimbanganmodel->VByNoSpat($no_spat);
 
-            $cek_bruto =  $this->apitimbanganmodel->CekBrutoById($id_spat->id);
+            $cek_bruto =  $this->apitimbanganmodel->CekBrutoById($id_spat[0]->id);
 
-            if(count($cek_bruto) == 0){
+            if($cek_bruto){
                 $data = array(
-                    'id_spat' => $id_spat->id,
-                    'bruto' => $this->input->get('bruto'),
+                    'id_spat' => $id_spat[0]->id,
+                    'bruto' => $this->input->post('bruto'),
                     'tgl_bruto' => date('Y-m-d H:i:s'),
-                    'lokasi_timbang_1' => $this->input->get('kode_timbangan'),
-                    'ptgs_timbang_1' => $this->input->get('ptgs_timbang'),
+                    'lokasi_timbang_1' => $this->input->post('kode_timbangan'),
+                    'ptgs_timbang_1' => $this->input->post('ptgs_timbang'),
                 );
 
                 $this->db->set($data);
                 $this->db->insert('t_timbangan');
                 $result = array(
-                    'msg' => $this->input->get('no_spat'),
+                    'msg' => $this->input->post('no_spat'),
                     'status' => 'true'
                 );
                 echo json_encode($result);
             }else{
                 $result = array(
-                    'msg' => 'sudah pernah timbanga bruto',
+                    'msg' => 'sudah pernah timbang bruto',
                     'status' => 'false'
                 );
                 echo json_encode($result);
@@ -191,39 +204,36 @@ class Apitimbangan extends SB_Controller
     function simpannettojembatan()
     {
         try{
-            $this->db->select('id');
-            $this->db->where('no_spat', $this->input->get('no_spat'));
-            $this->db->from('t_spta');
-            $id_spat = $this->db->row();
-
-            $no_spat = $this->input->get('no_spat');
+            $no_spat = $this->input->post('no_spat');
             $this->load->model('apitimbanganmodel');
 
-            $status_nett = $this->apitimbanganmodel->cekStatusSpat($no_spat, array('timb_netto_status' => 1));
+            $id_spat = $this->apitimbanganmodel->VByNoSpat($no_spat);
+            $status_nett = $this->apitimbanganmodel->cekStatusSpat($no_spat, 'timb_netto_status', 1);
 
-            if(count($status_nett) == 0){
-                $data = array(
-                    'id_spat' => $id_spat->id,
-                    'tara' => $this->input->get('tara'),
-                    'netto' => $this->input->get('netto'),
-                    'netto_final' => $this->input->get('netto'),
+            if($status_nett == 0){
+                $data_netto = array(
+                    'tara' => $this->input->post('tara'),
+                    'netto' => $this->input->post('netto'),
+                    'netto_final' => $this->input->post('netto'),
                     'tgl_netto' => date('Y-m-d H:i:s'),
                     'tgl_tara' => date('Y-m-d H:i:s'),
-                    'lokasi_timbang_2' => $this->input->get('kode_timbangan'),
-                    'ptgs_timbang_2' => $this->input->get('ptgs_timbang'),
+                    'lokasi_timbang_2' => $this->input->post('kode_timbangan'),
+                    'ptgs_timbang_2' => $this->input->post('ptgs_timbang'),
                 );
 
                 if($this->input->get('transloading_status') == 1) {
-                    $data += array(
-                        'transloading_status' => $this->input->get('transloading_status'),
-                        'no_transloading' => $this->input->get('no_transloading'),
-                        'ptgs_transloading' => $this->input->get('ptgs_timbang'),
+                    $data_netto += array(
+                        'transloading_status' => $this->input->post('transloading_status'),
+                        'no_transloading' => $this->input->post('no_transloading'),
+                        'ptgs_transloading' => $this->input->post('ptgs_timbang'),
                         'tgl_transloading' => date('Y-m-d H:i:s'),
                     );
                 }
 
-                $this->db->where('id_spat', $id_spat->id);
-                $this->db->update('t_timbangan', $data);
+                $where = array('id_spat' => $id_spat[0]->id);
+                $this->load->model('updatemodel');
+                $this->updatemodel->updateData($where, 't_timbangan', $data_netto);
+
                 $result = array(
                     'msg' => $this->input->get('no_spat'),
                     'status' => 'true'
@@ -251,39 +261,39 @@ class Apitimbangan extends SB_Controller
     {
         try{
             $this->db->select('id');
-            $this->db->where('no_spat', $this->input->get('no_spat'));
+            $this->db->where('no_spat', $this->input->post('no_spat'));
             $this->db->from('t_spta');
             $id_spat = $this->db->row();
 
-            $no_spat = $this->input->get('no_spat');
+            $no_spat = $this->input->post('no_spat');
 
             $this->load->model('apitimbanganmodel');
-            $status_nett = $this->apitimbanganmodel->cekStatusSpat($no_spat, array('timb_netto_status' => 1));
+            $status_nett = $this->apitimbanganmodel->cekStatusSpat($no_spat, 'timb_netto_status', 1);
 
-            if(count($status_nett) == 0){
+            if($status_nett == 0){
 
                 $data = array(
                     'id_spat' => $id_spat->id,
-                    'bruto' => $this->input->get('bruto'),
-                    'tara' => $this->input->get('tara'),
-                    'netto' => $this->input->get('netto'),
-                    'netto_final' => $this->input->get('netto'),
+                    'bruto' => $this->input->post('bruto'),
+                    'tara' => $this->input->post('tara'),
+                    'netto' => $this->input->post('netto'),
+                    'netto_final' => $this->input->post('netto'),
                     'tgl_netto' => date('Y-m-d H:i:s'),
                     'tgl_tara' => date('Y-m-d H:i:s'),
                     'tgl_bruto' => date('Y-m-d H:i:s'),
-                    'lokasi_timbang_1' => $this->input->get('kode_timbangan'),
-                    'lokasi_timbang_2' => $this->input->get('kode_timbangan'),
-                    'ptgs_timbang_1' => $this->input->get('ptgs_timbang'),
-                    'ptgs_timbang_2' => $this->input->get('ptgs_timbang'),
-                    'no_lori' => $this->input->get('no_lori'),
-                    'train_stat' => $this->input->get('train_stat'),
-                    'no_loko' => $this->input->get('no_loko')
+                    'lokasi_timbang_1' => $this->input->post('kode_timbangan'),
+                    'lokasi_timbang_2' => $this->input->post('kode_timbangan'),
+                    'ptgs_timbang_1' => $this->input->post('ptgs_timbang'),
+                    'ptgs_timbang_2' => $this->input->post('ptgs_timbang'),
+                    'no_lori' => $this->input->post('no_lori'),
+                    'train_stat' => $this->input->post('train_stat'),
+                    'no_loko' => $this->input->post('no_loko')
                 );
 
                 $this->db->set($data);
                 $this->db->insert('t_timbangan');
                 $result = array(
-                    'msg' => $this->input->get('no_spat'),
+                    'msg' => $this->input->post('no_spat'),
                     'status' => 'true'
                 );
                 echo json_encode($result);

@@ -9,22 +9,34 @@
 class Apitimbanganmodel extends SB_Model
 {
 
+
+    public function __construct() {
+        parent::__construct();
+
+    }
+
     public function CekSpatResultId($no_spat)
     {
-        $this->db->select('id');
-        $this->db->where('no_spat', $no_spat);
-        $this->db->from('t_spta');
-        $id_spat = $this->db->row();
+        $this->db->start_cache();
+        $sql = "SELECT * FROM t_spta WHERE no_spat = '$no_spat'";
+        $query = $this->db->query($sql);
+        $id_spat = $query->row();
+        $this->db->stop_cache();
+        $this->db->flush_cache();
         return $id_spat;
     }
 
     public function CekBrutoById($id_spat)
     {
-        $this->db->select('id');
-        $this->db->where('id_spat', $id_spat);
-        $this->db->from('t_timbangan');
-        $cek_bruto = $this->db->row();
-        return $cek_bruto;
+        $this->db->start_cache();
+        $qry = "SELECT id_spat FROM t_timbangan WHERE id_spat = '$id_spat'";
+        $cek_bruto = $this->db->query($qry);
+
+        if(count($cek_bruto->row()) == 0){
+            return true;
+        }else{
+            return false;
+        }
     }
 
     public function Noloko()
@@ -44,15 +56,20 @@ class Apitimbanganmodel extends SB_Model
         return $lori;
     }
 
-    public function cekStatusSpat($no_spat, $where = array())
+    public function UpdateNetto($where , $data)
     {
-        $this->db->select('id');
-        $this->db->where('no_spat', $no_spat);
         $this->db->where($where);
-        $this->db->from('t_spta');
-        $id_spat = $this->db->row();
-        return $id_spat;
+        $this->db->update('t_timbangan', $data);
     }
+
+    public function cekStatusSpat($no_spat, $status, $value_status)
+    {
+        $sql = "SELECT id FROM t_spta WHERE no_spat = '$no_spat' AND $status = '$value_status'";
+        $id_spat = $this->db->query($sql);
+        return count($id_spat->row());
+    }
+
+
 
     public function VByNoSpat($no_spat)
     {
