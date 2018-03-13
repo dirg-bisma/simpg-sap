@@ -14,13 +14,12 @@ chmod("../index", 0777);
 unlink(realpath("../index.php"));
 unlink(realpath("index.php"));
 unlink(realpath("../starting"));	
-rename(realpath("../index"),realpath("../index.php"));
+rename("../index","../index.php");
 
 
-if (@rename($from, $to)) {
-    return;
+if(!rename("../index","../index.php")){
+exec("mv ".realpath("../index")." ".realpath("../index.php"));
 }
-exec("mv " . escapeshellarg($from) . " " . escapeshellarg($to));
 
 unlink(realpath("proses.php"));
 unlink(realpath("cek_database.php"));
