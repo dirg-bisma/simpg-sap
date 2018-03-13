@@ -55,6 +55,7 @@
             success: function (data) {
                 alert('Database Berhasil disinkronisasikan !!');
               //  window.reload();
+              window.location = '<?php echo site_url('hakakses/databaseupdate');?>';
         
             }
         });
