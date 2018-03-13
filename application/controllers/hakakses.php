@@ -183,6 +183,17 @@ class Hakakses extends SB_Controller  {
     	$this->data['content'] = $this->load->view('hakakses/updates',null, true );		
     	$this->load->view('layouts/main', $this->data ); 
     } 
+
+
+    public function databaseupdate(){
+
+    	$directory = 'update-db/';
+		$scanned_directory = array_diff(scandir($directory), array('..', '.'));
+
+		$this->data['direktori'] = $scanned_directory;
+    	$this->data['content'] = $this->load->view('hakakses/databaseupdate',$this->data, true );		
+    	$this->load->view('layouts/main', $this->data ); 
+    }
 	
 	
    
