@@ -1,17 +1,14 @@
+<section class="content">
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="box box-danger">
+              	<div class="box-header with-border">
+                  <h3 class="box-title"><?php echo $pageTitle ;?></h3>
+                   <div class="box-body">
 
-  <div class="page-content row">
+	<div class="page-content-wrapper m-t">
     <!-- Page header -->
-    <div class="page-header">
-      <div class="page-title">
-        <h3><?php echo $this->lang->line('core.m_myaccount'); ?> <small>View Detail My Info</small></h3>
-      </div>
-
-      <ul class="breadcrumb">
-        <li><a href="<?php echo site_url('dashboard') ;?>"><?php echo $this->lang->line('core.m_dashboard'); ?> </a></li>
-		<li class="active"><?php echo $this->lang->line('core.m_myaccount'); ?> </li>
-      </ul>
-	</div>  
-		
+    
 	<div class="page-content-wrapper m-t">
 	<ul class="nav nav-tabs" >
 	  <li class="active"><a href="#info" data-toggle="tab"><?php echo $this->lang->line('core.personalinfo'); ?> </a></li>
@@ -20,6 +17,7 @@
 	
 	<div class="tab-content">
 	  <div class="tab-pane active m-t" id="info">
+	  <br />
 	  	<?php echo $this->session->flashdata('message');?>
 		<?php echo validation_errors(); ?>
 	  	<form class="form-horizontal" action="<?php echo site_url('user/saveProfile') ;?>" method="post"  parsley-validate='true' novalidate='true' enctype="multipart/form-data"> 
@@ -73,6 +71,7 @@
 	  </div>
   
 	  <div class="tab-pane  m-t" id="pass">
+	   <br />
 	  <form class="form-horizontal" action="<?php echo site_url('user/savePassword') ;?>" method="post"  parsley-validate='true' novalidate='true'>  
 		  
 		  <div class="form-group">
@@ -105,3 +104,10 @@
 </div>
  
  </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ </section>
+ 
