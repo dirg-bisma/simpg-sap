@@ -50,7 +50,7 @@
       if(confirm('Apakah anda yakin untuk sync database ini ?')){
           $.ajax({
             type: "POST",
-            url: "<?php site_url('hakakses/syncdatabase');?>",
+            url: "<?php echo site_url('hakakses/syncdatabase');?>",
             data: {id:id},
             success: function (data) {
                 alert('Database Berhasil disinkronisasikan !!');
