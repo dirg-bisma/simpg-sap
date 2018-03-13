@@ -17,12 +17,19 @@
                   <h3 class="box-title">Update Modul</h3>
  <div class="box-body">
  	<div class="page-content-wrapper">
+<table class="table table-bordered display dataTable no-footer" id="gridv" role="grid" aria-describedby="gridv_info">
+        <thead>
+          <th>Nama File</th>
+          <th>Tanggal Updates</th>
+          <th>Tanggal Sinkronisasi Local</th>
+        </thead>
   <?php
 
     foreach ($direktori as $key) {
-      echo var_dump($key).'<br />';
+      echo "<tr><td>".$key->nama_file."</td><td>".$key->dateadd."</td><td>".$key->datesync."</td></tr>";
     }
   ?>
+  </table>
   </div>
   </div>
   </div>

@@ -190,7 +190,36 @@ class Hakakses extends SB_Controller  {
     	$directory = 'update-db/';
 		$scanned_directory = array_diff(scandir($directory), array('..', '.'));
 
-		$this->data['direktori'] = $scanned_directory;
+		$a = $this->db->query("SELECT TABLE_NAME 
+  FROM information_schema.TABLES
+ WHERE TABLE_SCHEMA = SCHEMA()
+   AND TABLE_NAME NOT LIKE '\_%'
+   AND TABLE_NAME NOT LIKE '%\_xrefs'
+   AND table_name LIKE 'updates_filesql'")->row();
+
+			if(!$a){
+				$this->db->query("CREATE TABLE `updates_filesql` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `nama_file` varchar(100) DEFAULT NULL,
+  `datesync` datetime DEFAULT NULL,
+  `status_sync` smallint(1) DEFAULT '0',
+  `dateadd` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1");
+			}
+
+		foreach ($scanned_directory as $key) {
+			
+			$ax = $this->db->query("SELECT * FROM updates_filesql WHERE nama_file='$key'")->row();
+			if(!$ax){
+				$this->db->query("INSERT INTO updates_filesql(nama_file,dateadd) VALUES('$key',NOW())");
+			}
+
+		}
+
+		$rs = $this->db->query("SELECT * FROM updates_filesql ORDER BY dateadd DESC")->result();
+
+		$this->data['direktori'] = $rs;
     	$this->data['content'] = $this->load->view('hakakses/databaseupdate',$this->data, true );		
     	$this->load->view('layouts/main', $this->data ); 
     }
