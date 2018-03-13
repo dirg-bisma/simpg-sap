@@ -10,7 +10,7 @@ chmod("db_simpg.sql", 0777);
 chmod(realpath("../index"), 0777);
 
 
-rename("../index","../index.php");
+//rename("../index","../index.php");
 
 
 if(!rename("../index","../index.php")){
@@ -19,7 +19,8 @@ if(!rename("../index","../index.php")){
 	//unlink(realpath("../index.php"));
 }
 unlink(realpath("index.php"));
-unlink(realpath("../starting"));	
+unlink(realpath("../starting"));
+unlink(realpath("../index"));	
 
 
 unlink(realpath("proses.php"));
