@@ -27,7 +27,12 @@ class Dashboardtimbangan extends CI_Controller
             $result = $this->dashboardtimbanganmodel->AntrianTruk();
         }
 
-        $output = array('data' => [$result]);
+        if(count($result) > 0){
+            $output = array('data' => [$result]);
+        }else{
+            $output = array('data' => []);
+        }
+
 
         echo json_encode($output);
     }
