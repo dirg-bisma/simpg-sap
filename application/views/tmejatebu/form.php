@@ -57,8 +57,14 @@
 									<input type='hidden' class='form-control input-sm' readonly name='warna_meja_tebu'    value="<?php echo $warna_meja_tebu;?>" />
 									
 									<input type='hidden' class='form-control input-sm' readonly name='gilingan'    value="<?php echo $this->session->userdata('gilingan');?>" />
-								  </div> 
+								  </div>
+
 								  <div class="col-md-6">
+									<label for="ipt" class=" control-label ">No Lori    </label>									
+									  <input type='text' class='form-control input-sm' readonly id="no_transloading" />
+								
+								  </div> 
+								  <div class="col-md-12">
 									<label for="ipt" class=" control-label "> Kondisi Tebu  <span class="asterix"> * </span>  </label>									
 									  <select name='kondisi_tebu' rows='5' id='kondisi_tebu-<?php echo $kode_meja_tebu;?>' code='{$kondisi_tebu}' 
 							class='form-control input-sm  ' style='width: 100%;' required  ></select> 			

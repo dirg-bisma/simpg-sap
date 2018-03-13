@@ -3,7 +3,7 @@
 
 <section class="content">
           <div class="row">
-            <div class="col-xs-12">
+            <div class="col-xs-<?php echo $col ;?>">
               <div class="box box-danger">
               	<div class="box-header with-border">
                   <h3 class="box-title"><?php echo $pageTitle ;?></h3>
@@ -29,7 +29,6 @@
 						<th><?php echo $t['label'] ?></th>
 					<?php endif; ?>
 				<?php endforeach; ?>
-				<th><?php echo $this->lang->line('core.btn_action'); ?></th>
 			  </tr>
         </thead>
 

@@ -125,18 +125,7 @@ class Tanalisarendemen extends SB_Controller
             //add html for action
             $btn ='';
 			$idku = $this->model->primaryKey;
-            if($this->access['is_detail'] ==1){
-            	$btn .= '<a href='.site_url('tanalisarendemen/show/'.$dt->$idku).'  class="tips "  title="view"><i class="fa  fa-search"></i>  </a> &nbsp;&nbsp;';
-            }
-            if($this->access['is_edit'] ==1){
-            	$btn .= '<a href='.site_url('tanalisarendemen/add/'.$dt->$idku).'  class="tips "  title="Edit"><i class="fa  fa-edit"></i>  </a> &nbsp;&nbsp;';
-            }
-            if($this->access['is_remove'] ==1){
-            	$btn .= '<a href="#" onclick="ConfirmDelete(\''.site_url('tanalisarendemen/destroy/').'\','.$dt->$idku.')"  class="tips "  title="Delete"><i class="fa  fa-trash"></i>  </a>';
-            	
-            }
-           
- 			$row[] = $btn;
+            
             $data[] = $row;
             $no++;
         }
