@@ -1,6 +1,6 @@
 <?php 
 
-if(file_exists("../starting") AND isset($_POST['akses'])){
+//if(file_exists("../starting") AND isset($_POST['akses'])){
 chmod("../starting", 0777);
 chmod("proses.php", 0777);
 chmod("index.php", 0777);
@@ -29,6 +29,6 @@ unlink(realpath("db_simpg.sql"));
 
 echo "{}";
  
-}
+//}
 
 ?>
