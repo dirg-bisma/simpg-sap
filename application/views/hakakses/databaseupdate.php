@@ -21,14 +21,13 @@
         <thead>
           <th>Nama File</th>
           <th>Tanggal Updates</th>
-          <th>Tanggal Sinkronisasi Local</th>
-          <th>Act</th>
+          <th>Sinkronisasi Local</th>
         </thead>
   <?php
 
     foreach ($direktori as $key) {
       if($key->status_sync == 0){
-      echo "<tr><td>".$key->nama_file."</td><td>".$key->dateadd."</td><td>".$key->datesync."</td><td>
+      echo "<tr><td>".$key->nama_file."</td><td>".$key->dateadd."
       <a href='javascript:getupdatesdb(".$key->id.")' class='btn btn-info'><i class='fa fa-sync'></i> Sync</a>
       </td></tr>";
       }else{
@@ -44,3 +43,23 @@
   </div>
   </div>
   </section>
+
+  <script type="text/javascript">
+    
+    function getupdatesdb(id){
+      if(confirm('Apakah anda yakin untuk sync database ini ?')){
+          $.ajax({
+            type: "POST",
+            url: "<?php site_url('hakakses/');?>",
+            data: frm.serialize(),
+            success: function (data) {
+                alert('Data Berhasil Disimpan !!');
+         $('#sximo-modal').modal('hide');
+        reloadgrid();
+        refreshKkw();
+        
+            }
+        });
+      }
+    }
+  </script>

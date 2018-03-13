@@ -223,6 +223,44 @@ class Hakakses extends SB_Controller  {
     	$this->data['content'] = $this->load->view('hakakses/databaseupdate',$this->data, true );		
     	$this->load->view('layouts/main', $this->data ); 
     }
+
+
+    public function syncdatabase(){
+    	$id = $_POST['id'];
+
+    	$x = $this->db->query("SELECT * FROM updates_filesql WHERE id=$id")->row();
+
+    	if($x){
+    	$script = file_get_contents("update-db/".$x->nama_file);
+		  $statements = $this->parseScript($script);
+		  foreach($statements as $statement) {
+		    $this->db->query($statement);
+		  }
+
+		  $this->db->query("UPDATE updates_filesql SET status_sync=1 AND datesync=NOW() WHERE id=$id");
+		}
+    }
+
+
+    function parseScript($script) {
+
+  $result = array();
+  $delimiter = ';';
+  while(strlen($script) && preg_match('/((DELIMITER)[ ]+([^\n\r])|[' . $delimiter . ']|$)/is', $script, $matches, PREG_OFFSET_CAPTURE)) {
+    if (count($matches) > 2) {
+      $delimiter = $matches[3][0];
+      $script = substr($script, $matches[3][1] + 1);
+    } else {
+      if (strlen($statement = trim(substr($script, 0, $matches[0][1])))) {
+        $result[] = $statement;
+      }
+      $script = substr($script, $matches[0][1] + 1);
+    }
+  }
+
+  return $result;
+
+}
 	
 	
    
