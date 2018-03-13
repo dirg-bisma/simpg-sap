@@ -32,6 +32,7 @@ Instalasi Server Linux
 9. setelah itu ganti permission group nya menjadi www-data 
    #chown -R www-data:www-data /var/www/simpg/
    #chown -R www-data:www-data /var/www/simpg/.git
+   #chown -R www-data:www-data /var/www/simpg/*
 
 10. ganti www-data menjadi sudo dengan edit
     nano /etc/sudoers
