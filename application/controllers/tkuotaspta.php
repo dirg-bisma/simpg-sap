@@ -103,10 +103,10 @@ class Tkuotaspta extends SB_Controller
             if($this->access['is_detail'] ==1){
             	$btn .= '<a href='.site_url('tkuotaspta/show/'.$dt->$idku).'  class="tips "  title="Detail Order SPTA"><i class="fa  fa-search"></i>  </a> &nbsp;&nbsp;';
             }
-            if($this->access['is_edit'] ==1){
+            if($this->access['is_edit'] ==1 && $dt->tgl_spta >= date('Y-m-d')){
             	$btn .= '<a href='.site_url('tkuotaspta/add/'.$dt->$idku).'  class="tips "  title="Edit Kuota Harian"><i class="fa  fa-edit"></i>  </a> &nbsp;&nbsp;';
             }
-            if($this->access['is_remove'] ==1 && $dt->cetak == 0){
+            if($this->access['is_remove'] ==1 && $dt->simpan == 0){
             	$btn .= '<a href="#" onclick="ConfirmDelete(\''.site_url('tkuotaspta/destroy/').'\','.$dt->$idku.')"  class="tips "  title="Hapus Kuota Harian"><i class="fa  fa-trash"></i>  </a>';
             	
             }

@@ -130,10 +130,18 @@
 									<label for="ipt" class=" control-label "> Afdeling  <span class="asterix"> * </span>  </label>									
 									  <input type='text' class='form-control input-sm' readonly  id='afdeling'  required /> 						
 								  </div>
-								  
-								  <div class="form-group  " >
+								  <div class="form-group  col-md-6" >
+									<label for="ipt" class=" control-label "> Jenis Angkutan  <span class="asterix"> * </span>  </label>									
+									  <input type='text' class='form-control input-sm' readonly  id='jenis_angkutan'  required /> 						
+								  </div>
+								  <div class="form-group  col-md-6" >
 									<label for="ipt" class=" control-label "> Jenis Tebangan  <span class="asterix"> * </span>  </label>									
 									  <input type='text' class='form-control input-sm' readonly  id='jenis_tebangan'  required /> 						
+								  </div>
+
+								  <div class="form-group" >
+									<label for="ipt" class=" control-label "> Kategori Tebangan  <span class="asterix"> * </span>  </label>									
+									  <input type='text' class='form-control input-sm' readonly  id='kat_tebangan'  required /> 						
 								  </div>
 
 								  
@@ -242,6 +250,8 @@ function getNoSPTA(e,nospta){
 						$('#id_spta').val(dat.data.id);
 						$('#kategori').val(dat.data.kode_kat_lahan);
 						$('#jenis_tebangan').val(dat.data.txt_metode_tma);
+						$('#jenis_angkutan').val(dat.data.jenis_spta);
+						$('#kat_tebangan').val(dat.data.kat_spta);
 						$('#no_spta').attr('readonly',true);
 						$('#jam_tebang').focus();
 						if(dat.data.metode_tma == 2){

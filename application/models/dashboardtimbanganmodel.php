@@ -18,7 +18,7 @@ class Dashboardtimbanganmodel extends CI_Model
         $result = $this->db->query($qry);
         $data = array();
         foreach ($result->result() as $tx){
-            $data += array(
+            $data[] = array(
                 'no' => $tx->no_urut,
                 'no_spat' => $tx->no_spat,
                 'no_angkutan' => $tx->no_angkutan,
@@ -36,7 +36,7 @@ class Dashboardtimbanganmodel extends CI_Model
         $result = $this->db->query($qry);
         $data = array();
         foreach ($result->result() as $tx){
-            $data += array(
+            $data[] = array(
                 'no' => $tx->no_urut,
                 'no_spat' => $tx->no_spat,
                 'no_angkutan' => $tx->no_angkutan,

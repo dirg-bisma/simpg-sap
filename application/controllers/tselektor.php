@@ -222,8 +222,12 @@ class Tselektor extends SB_Controller
 	function cekspta(){
 		$arr['stt'] = 0;
 		if(isset($_POST['nospta'])){
-			$cek = $this->db->query("SELECT id,kode_blok,kode_kat_lahan,kode_affd,CONCAT(tgl_spta,' 00:00:00') AS tgl_spta,tgl_expired,
-IF(NOW() < CONCAT(tgl_spta,' 00:00:00'),CONCAT('SPTA Belum Berlaku, Berlaku pada ',DATE_FORMAT(tgl_spta,'%d %M %Y Jam %H:%i')),'1') AS berlaku,IF(metode_tma=1,'MANUAL',IF(metode_tma=2,'SEMI MEKANISASI','MEKANISASI')) AS txt_metode_tma,
+			$cek = $this->db->query("SELECT id,kode_blok,jenis_spta,
+				IF( tebang_pg = 0 AND angkut_pg = 0,'TAS',
+IF( tebang_pg = 1 AND angkut_pg = 0,'TPGAS',
+IF( tebang_pg = 0 AND angkut_pg = 1,'TSAPG',
+IF( tebang_pg = 1 AND angkut_pg = 1,'TAPG','')))) AS kat_spta,kode_kat_lahan,kode_affd,CONCAT(tgl_spta,' 00:00:00') AS tgl_spta,tgl_expired,
+IF(NOW() > CONCAT(tgl_spta,' 00:00:00'),CONCAT('SPTA Belum Berlaku, Berlaku pada ',DATE_FORMAT(tgl_spta,'%d %M %Y Jam %H:%i')),'1') AS berlaku,IF(metode_tma=1,'MANUAL',IF(metode_tma=2,'SEMI MEKANISASI','MEKANISASI')) AS txt_metode_tma,
 IF(NOW() > tgl_expired,CONCAT('SPTA sudah Expired Pada ',DATE_FORMAT(tgl_expired,'%d %M %Y Jam %H:%i')),'0') AS ed,
 IF(selektor_status=0,if(retur_status=1,'SPTA Sudah di retur!',0),CONCAT('SPTA sudah Masuk Selektor Pada ',DATE_FORMAT(selektor_tgl,'%d %M %Y Jam %H:%i'))) AS stt,
 metode_tma FROM t_spta WHERE no_spat = '".$_POST['nospta']."'")->row();

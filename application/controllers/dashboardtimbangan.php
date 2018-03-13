@@ -28,7 +28,7 @@ class Dashboardtimbangan extends CI_Controller
         }
 
         if(count($result) > 0){
-            $output = array('data' => [$result]);
+            $output = array('data' => $result);
         }else{
             $output = array('data' => []);
         }

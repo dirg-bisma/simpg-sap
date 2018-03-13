@@ -4,16 +4,24 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <script src="<?php echo base_url();?>adminlte/plugins/jQuery/jquery-1.12.4.min.js"></script>
     <!-- DataTables -->
+
+<link rel="stylesheet" href="<?php echo base_url();?>/adminlte/bootstrap/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="<?php echo base_url();?>/adminlte/bootstrap/css/font-awesome.min.css">
+
     <link rel="stylesheet" href="<?php echo base_url();?>adminlte/plugins/datatables/jquery.dataTables.css">
+    <link rel="stylesheet" href="<?php echo base_url();?>/adminlte/plugins/datatables/dataTables.bootstrap.css">
 
     <!-- DataTables -->
-    <script src="<?php echo base_url();?>adminlte/plugins/datatables/jquery.dataTables.min.js"></script>
+
+    <script src="<?php echo base_url();?>adminlte/plugins/jQuery/jquery-1.12.4.min.js"></script>
+    <script src="<?php echo base_url();?>/adminlte/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="<?php echo base_url();?>/adminlte/plugins/datatables/dataTables.bootstrap.min.js"></script>
 </head>
 <body>
     <div>
-        <table id="antrian" class="display compact" style="width:100%">
+        <table id="antrian" class="table table-bordered display" style="width:100%">
             <thead>
             <tr>
                 <th>No Urut</th>
@@ -38,7 +46,7 @@
 <script>
     $(document).ready(function() {
         var tabel_antrian = $('#antrian').DataTable( {
-            "ajax": "<?php echo base_url();?>index.php/dashboardtimbangan/data/TRUK",
+            "ajax": "<?php echo site_url('dashboardtimbangan/data/TRUK');?>",
             "columns": [
                 { "data": "no" },
                 { "data": "no_spat" },

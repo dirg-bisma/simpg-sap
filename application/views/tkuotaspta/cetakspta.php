@@ -38,19 +38,20 @@
 	<tr>
 		<td style="text-align: center; padding:2px;height: 75px;border-bottom:1px solid black;border-right:1px solid black">
 			
-		<b><?php echo $jnsta.'<br />'.strtoupper(($row->kepemilikan)).'<br />'.$row->jenis_spta;?></b></td>
+		<b><?php echo $jnsta.'<br />'.strtoupper(($row->kepemilikan)).'<br />'.$row->jenis_spta;?></b><br /><br />
+		<span style="background-color: black;color: white; padding: 10px">CETAK ULANG</span></td>
 		<td style="text-align: center;padding:2px;border-bottom:1px solid black">
-			<center><b><?php echo strtoupper(CNF_NAMAPERUSAHAAN);?></b><br />
-			<b><u>UNIT USAHA <?php echo strtoupper(CNF_PG);?></u></b></center>
-			<?php echo $row->no_spat;?>
-			<br />
+		<img src="<?php echo site_url('tkuotaspta/generateBarcode/'.$row->no_spat);?>"> 
+			<center>
+			<b><u><?php echo strtoupper(CNF_NAMAPERUSAHAAN);?></u></b></center>
+			
 			<?php echo $row->deskripsi_blok;?>
 		</td>
 		</tr>
 		</table>
+		<center>
+			<b><u>UNIT USAHA <?php echo strtoupper(CNF_PG);?></u></b></center>
 		<table width="100%" cellspacing="0"   >
-			
-			<br />
 				<tr>
 					<td style="width: 50%; text-align: center;" width="50%" valign="top">
 						<table style="margin-left: auto; margin-right: auto;" width="95%" cellspacing="0">
@@ -89,7 +90,7 @@
 								<td style="padding:2px;width:30%">Sopir<br />&nbsp;</td><td> </td>
 							</tr>
 							<?php
-								if($row->metode_tma == 2){
+								if($row->metode_tma != 1){
 							?>
 							<tr>
 								<td style="padding:2px;width:30%">No. HV</td><td> </td>
