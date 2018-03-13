@@ -237,7 +237,7 @@ class Hakakses extends SB_Controller  {
 		    $this->db->query($statement);
 		  }
 
-		  $this->db->query("UPDATE updates_filesql SET status_sync=1 AND datesync=NOW() WHERE id=$id");
+		  $this->db->query("UPDATE updates_filesql SET status_sync=1,datesync=NOW() WHERE id=$id");
 		}
     }
 
