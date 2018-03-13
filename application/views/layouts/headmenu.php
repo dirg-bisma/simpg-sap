@@ -35,7 +35,9 @@
 				<li><a href="<?php echo site_url('sximo/menu/index?pos=sidebar') ;?>" ><i class="fa fa-sitemap"></i> <?php echo $this->lang->line('core.m_menu'); ?> </a></li>		
 				
 				<!--li><a href="<?php echo site_url('groups') ;?>" ><i class="fa fa-group"></i> Groups User </a></li-->		
-				<li><a href="<?php echo site_url('hakakses') ;?>" ><i class="fa fa-cogs"></i> Setting Hak Akses </a></li>	
+				<li><a href="<?php echo site_url('hakakses') ;?>" ><i class="fa fa-cogs"></i> Setting Hak Akses </a></li>
+
+				<li><a href="<?php echo site_url('dashboard/updates') ;?>" ><i class="fa fa-share"></i> Get Updates </a></li>	
 			</ul>
 		</li>	
 	

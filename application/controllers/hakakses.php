@@ -175,6 +175,13 @@ class Hakakses extends SB_Controller  {
 		
         $this->session->set_flashdata('message',SiteHelpers::alert('success','Permission Has Changed Successful.'));        
 	    redirect('hakakses/permission/'.$row->module_name,301);
+    }
+
+
+    public function updates(){
+
+    	$this->data['content'] = $this->load->view('hakakses/updates',null, true );		
+    	$this->load->view('layouts/main', $this->data ); 
     } 
 	
 	
