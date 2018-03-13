@@ -20,8 +20,8 @@
     <script src="<?php echo base_url();?>/adminlte/plugins/datatables/dataTables.bootstrap.min.js"></script>
 </head>
 <body>
-    <div>
-        <table id="antrian" class="table table-bordered display" style="width:100%">
+    <div class="table-responsive" style="padding: 30px;">
+        <table id="antrian" class="table table-bordered display col-md-8" style="font-size: 12px">
             <thead>
             <tr>
                 <th>No Urut</th>
@@ -47,6 +47,7 @@
     $(document).ready(function() {
         var tabel_antrian = $('#antrian').DataTable( {
             "ajax": "<?php echo site_url('dashboardtimbangan/data/TRUK');?>",
+            "paging" : false,
             "columns": [
                 { "data": "no" },
                 { "data": "no_spat" },
