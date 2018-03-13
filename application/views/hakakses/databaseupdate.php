@@ -27,7 +27,7 @@
 
     foreach ($direktori as $key) {
       if($key->status_sync == 0){
-      echo "<tr><td>".$key->nama_file."</td><td>".$key->dateadd."
+      echo "<tr><td>".$key->nama_file."</td><td>".$key->dateadd."</td><td>
       <a href='javascript:getupdatesdb(".$key->id.")' class='btn btn-info'><i class='fa fa-sync'></i> Sync</a>
       </td></tr>";
       }else{
