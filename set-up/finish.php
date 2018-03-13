@@ -7,19 +7,20 @@ chmod("index.php", 0777);
 chmod("../index.php", 0777);
 chmod("cek_database.php", 0777);
 chmod("db_simpg.sql", 0777);
-chmod("../index", 0777);
+chmod(realpath("../index"), 0777);
 
 
-
-unlink(realpath("../index.php"));
-unlink(realpath("index.php"));
-unlink(realpath("../starting"));	
 rename("../index","../index.php");
 
 
 if(!rename("../index","../index.php")){
-exec("mv ".realpath("../index")." ".realpath("../index.php"));
+	exec("mv ".realpath("../index")." ".realpath("../index.php"));
+}else{
+	//unlink(realpath("../index.php"));
 }
+unlink(realpath("index.php"));
+unlink(realpath("../starting"));	
+
 
 unlink(realpath("proses.php"));
 unlink(realpath("cek_database.php"));
