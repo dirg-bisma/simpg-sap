@@ -56,6 +56,7 @@ class Apitimbanganmodel extends SB_Model
         return $lori;
     }
 
+
     public function UpdateNetto($where , $data)
     {
         $this->db->where($where);
@@ -68,8 +69,6 @@ class Apitimbanganmodel extends SB_Model
         $id_spat = $this->db->query($sql);
         return count($id_spat->row());
     }
-
-
 
     public function VByNoSpat($no_spat)
     {

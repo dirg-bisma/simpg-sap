@@ -206,7 +206,6 @@ class Apitimbangan extends SB_Controller
         try{
             $no_spat = $this->input->post('no_spat');
             $this->load->model('apitimbanganmodel');
-
             $id_spat = $this->apitimbanganmodel->VByNoSpat($no_spat);
             $status_nett = $this->apitimbanganmodel->cekStatusSpat($no_spat, 'timb_netto_status', 1);
 
@@ -231,8 +230,7 @@ class Apitimbangan extends SB_Controller
                 }
 
                 $where = array('id_spat' => $id_spat[0]->id);
-                $this->load->model('updatemodel');
-                $this->updatemodel->updateData($where, 't_timbangan', $data_netto);
+                $this->apitimbanganmodel->UpdateNetto($where, $data_netto);
 
                 $result = array(
                     'msg' => $this->input->get('no_spat'),
