@@ -22,11 +22,18 @@
           <th>Nama File</th>
           <th>Tanggal Updates</th>
           <th>Tanggal Sinkronisasi Local</th>
+          <th>Act</th>
         </thead>
   <?php
 
     foreach ($direktori as $key) {
+      if($key->status_sync == 0){
+      echo "<tr><td>".$key->nama_file."</td><td>".$key->dateadd."</td><td>".$key->datesync."</td><td>
+      <a href='javascript:getupdatesdb(".$key->id.")' class='btn btn-info'><i class='fa fa-sync'><i> Sync</a>
+      </td></tr>";
+      }else{
       echo "<tr><td>".$key->nama_file."</td><td>".$key->dateadd."</td><td>".$key->datesync."</td></tr>";
+      }
     }
   ?>
   </table>
