@@ -1,5 +1,5 @@
 <?php 
-
+ 
 if(file_exists("../starting") AND isset($_POST['nama_database'])) {
 
 function parseScript($script) {

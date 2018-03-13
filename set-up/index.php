@@ -388,7 +388,7 @@ $dir=trim($hasil,"/");
 	$(document).on("click",".tombol-finish",function(){
 		_this=$(this);
 		if(!_this[0].memproses){
-			//_this[0].memproses=true;
+			_this[0].memproses=true;
 			$.ajax({
 				type:"post",
 				data:{akses:"ok"},
@@ -396,7 +396,7 @@ $dir=trim($hasil,"/");
 				cache:false,
 				success: function(data){
 					console.log(data);
-					//window.location.href="<?php echo siteURL(); ?>"+"<?php echo $dir; ?>";
+					window.location.href="<?php echo siteURL(); ?>"+"<?php echo $dir; ?>";
 				}
 			})
 		}
