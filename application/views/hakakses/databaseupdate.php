@@ -54,7 +54,7 @@
             data: {id:id},
             success: function (data) {
                 alert('Database Berhasil disinkronisasikan !!');
-                window.reload();
+              //  window.reload();
         
             }
         });
