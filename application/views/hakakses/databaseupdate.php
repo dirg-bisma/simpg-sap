@@ -50,13 +50,11 @@
       if(confirm('Apakah anda yakin untuk sync database ini ?')){
           $.ajax({
             type: "POST",
-            url: "<?php site_url('hakakses/');?>",
-            data: frm.serialize(),
+            url: "<?php site_url('hakakses/syncdatabase');?>",
+            data: {id:id},
             success: function (data) {
-                alert('Data Berhasil Disimpan !!');
-         $('#sximo-modal').modal('hide');
-        reloadgrid();
-        refreshKkw();
+                alert('Database Berhasil disinkronisasikan !!');
+                window.reload();
         
             }
         });
