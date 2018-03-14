@@ -18,10 +18,11 @@
  <div class="box-body">
  	<div class="page-content-wrapper">
   <?php
-
+  $a = '';
 
     echo "<pre>";
-        echo system("git pull");
+        echo  shell_exec("git pull");
+        
         echo "</pre>";
 
   
