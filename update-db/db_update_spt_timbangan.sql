@@ -407,9 +407,6 @@ insert  into `tb_module`(`module_id`,`module_name`,`module_title`,`module_note`,
 	
 
 
-DELIMITER $$
-CREATE ALGORITHM=UNDEFINED SQL SECURITY DEFINER VIEW `vw_spt_data` AS (select `a`.`kode_blok` AS `kode_blok`,`a`.`divisi` AS `divisi`,`a`.`luas_ha` AS `luas_ha`,`a`.`tahun_tanam` AS `tahun_tanam`,`a`.`periode` AS `periode`,`a`.`status_blok` AS `status_blok`,`a`.`kepemilikan` AS `kepemilikan`,`a`.`kode_varietas` AS `kode_varietas`,`b`.`no_petak` AS `no_petak`,`b`.`no_surat` AS `no_surat`,`b`.`h_brix_kebun` AS `h_brix_kebun`,`b`.`h_brix` AS `h_brix`,`b`.`h_pol` AS `h_pol`,`b`.`h_fk` AS `h_fk`,`b`.`h_kp` AS `h_kp`,`b`.`h_kdt` AS `h_kdt`,`b`.`h_tscore` AS `h_tscore`,`b`.`h_tglanalisa` AS `h_tglanalisa`,`b`.`keterangan` AS `keterangan`,`b`.`user_act` AS `user_act`,`b`.`tgl_act` AS `tgl_act`,`b`.`status` AS `status` from (((`sap_field` `a` join `sap_m_affdeling` `d` on((`d`.`kode_affd` = `a`.`divisi`))) join `sap_m_karyawan` `e` on((`e`.`Persno` = convert(`d`.`Persno` using utf8)))) left join `sap_field_spt` `b` on((`a`.`kode_blok` = `b`.`no_petak`))) group by `a`.`kode_blok`)$$
-DELIMITER ;
 
 /*  Alter Function in target  */
 
