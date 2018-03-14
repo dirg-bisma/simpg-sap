@@ -56,12 +56,13 @@ class Tdetailkuotakkwmodel extends SB_Model
   `a`.`periode`        AS `periode`,
   `a`.`luas_ha`        AS `luas_ha`,
   a.aff_tebang,
+  a.spt_status,
   IFNULL(`b`.`kouta_tot`,0) AS `kuota_spta`,
   id_spta_kuota_kkw,
   id_spta_kuota
 FROM (`sap_field` `a`
    LEFT JOIN (SELECT * FROM `t_spta_kuota_tot` WHERE id_spta_kuota_kkw=$idx) `b`
-     ON ((`a`.`kode_blok` = `b`.`kode_blok`)))) as ax WHERE 0=0 
+     ON ((`a`.`kode_blok` = `b`.`kode_blok`)))) as ax WHERE 0=0 AND ax.spt_status =1
 			{$params} ". $this->queryGroup() ." {$orderConditional}  {$limitConditional} ");
 		$result = $query->result();
 		$query->free_result();

@@ -61,7 +61,7 @@
 
 								  <div class="col-md-6">
 									<label for="ipt" class=" control-label ">No Lori    </label>									
-									  <input type='text' class='form-control input-sm' readonly id="no_transloading" />
+									  <input type='text' class='form-control input-sm' readonly id="no_transloading-<?php echo $kode_meja_tebu;?>" />
 								
 								  </div> 
 								  <div class="col-md-12">
@@ -178,6 +178,7 @@ function getNoSPTA<?php echo $kode_meja_tebu;?>(e,nospta){
 						$('#kode_petak-<?php echo $kode_meja_tebu;?>').val(dat.data.kode_blok);
 						$('#id_spta-<?php echo $kode_meja_tebu;?>').val(dat.data.id);
 						$('#kategori-<?php echo $kode_meja_tebu;?>').val(dat.data.kode_kat_lahan);
+						$('#no_transloading-<?php echo $kode_meja_tebu;?>').val(dat.data.no_trans);
 						$('#no_spta-<?php echo $kode_meja_tebu;?>').attr('readonly',true);
 						
 					}else{

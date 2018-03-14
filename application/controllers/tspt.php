@@ -1,18 +1,18 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
-class Tmejatebu extends SB_Controller 
+class Tspt extends SB_Controller 
 {
 
 	protected $layout 	= "layouts/main";
-	public $module 		= 'tmejatebu';
+	public $module 		= 'tspt';
 	public $per_page	= '10';
 	public $idx			= '';
 
 	function __construct() {
 		parent::__construct();
 		
-		$this->load->model('tmejatebumodel');
-		$this->model = $this->tmejatebumodel;
+		$this->load->model('tsptmodel');
+		$this->model = $this->tsptmodel;
 		$idx = $this->model->primaryKey;
 		
 		$this->info = $this->model->makeInfo( $this->module);
@@ -20,7 +20,7 @@ class Tmejatebu extends SB_Controller
 		$this->data = array_merge( $this->data, array(
 			'pageTitle'	=> 	$this->info['title'],
 			'pageNote'	=>  $this->info['note'],
-			'pageModule'	=> 'tmejatebu',
+			'pageModule'	=> 'tspt',
 		));
 		$this->col = array();
 		$this->con = array();
@@ -39,15 +39,14 @@ class Tmejatebu extends SB_Controller
 		}
 		
 		if(!$this->session->userdata('logged_in')) redirect('user/login',301);
-		if(!$this->session->userdata('gilingan')) redirect('dashboard',301);
 		
 	}
 
 	function grids(){
 		
-		$sort = 'tgl_meja_tebu'; 
-		$order = 'DESC';
-		$filter = " AND gilingan = '".$this->session->userdata('gilingan')."'";
+		$sort = $this->model->primaryKey; 
+		$order = 'asc';
+		$filter = "";
 		//$filter = (!is_null($this->input->get('search', true)) ? $this->buildSearch() : '');
 		//order 
 		if(isset($_POST['order']))
@@ -61,20 +60,17 @@ class Tmejatebu extends SB_Controller
         	}
 
         }
-		$filx ='';
+
         for ($i=0; $i < count($this->col) ; $i++) { 
         	
             if(isset($_POST['search']['value']) && $_POST['search']['value'] != ''){
             	if($i==0){
-            		$filx .= " AND (".$this->col[$i+1]." LIKE '%".$_POST['search']['value']."%'";
+            		$filter .= " AND ".$this->col[$i+1]." LIKE '%".$_POST['search']['value']."%'";
             	}else{
-            		$filx .= " OR ".$this->col[$i+1]." LIKE '%".$_POST['search']['value']."%'";
+            		$filter .= " OR ".$this->col[$i+1]." LIKE '%".$_POST['search']['value']."%'";
             	}
             }
         }
-		
-		if($filx != '') $filx .= ')';
-		$filter = $filter.$filx;
 
 		$params = array(
 			'limit'		=> $_POST['start'],
@@ -97,20 +93,22 @@ class Tmejatebu extends SB_Controller
             $row[] = $no+1;
             for ($i=0; $i < count($this->col) ; $i++) { 
             		$field = $this->col[$i+1];
-					if($field == 'no_spat'){
-						$row[] = '<span style="padding:10px;background:'.$dt->warna_meja_tebu.'"><b>'.$dt->$field.'</b></span>';
-					}else{
-						$conn = (isset($this->con[$i+1]) ? $this->con[$i+1] : array() ) ;
-						$row[] = SiteHelpers::gridDisplay($dt->$field , $field , $conn );
-					}
+            		$conn = (isset($this->con[$i+1]) ? $this->con[$i+1] : array() ) ;
+					$row[] = SiteHelpers::gridDisplay($dt->$field , $field , $conn );
             }
  
             //add html for action
             $btn ='';
 			$idku = $this->model->primaryKey;
+            if($dt->no_surat != ''){
+            	$btn .= '<a href=""  class="tips "  title="Cetak SPT"><i class="fa  fa-print"></i>  </a> &nbsp;&nbsp;';
+            }
+            if($dt->no_surat == '' && $this->access['is_edit'] ==1){
+            	$btn .= '<a href="javascript:getformspt(\''.$dt->kode_blok.'\')" class="tips "  title="Isi Hasil Analisa"><i class="fa  fa-edit"></i>  </a> &nbsp;&nbsp;';
+            }
             
            
- 			//$row[] = $btn;
+ 			$row[] = $btn;
             $data[] = $row;
             $no++;
         }
@@ -139,28 +137,7 @@ class Tmejatebu extends SB_Controller
 		$this->data['access']		= $this->access;
 		// Render into template
 		
-		$this->data['hargil'] 			= $this->db->query('SELECT get_hari_giling() as hargil')->row();
-		
-		$fd = $this->db->query("SELECT * FROM m_mejatebu WHERE parent='".$this->session->userdata('gilingan')."' ORDER BY kode")->result();
-		
-		$this->data['content'] = '';
-		
-		$rx = 0;
-		foreach($fd as $r){
-			$rx++;
-			$this->data['kode_meja_tebu'] = $r->kode;
-			$this->data['warna_meja_tebu'] = $r->warna;
-			$this->data['content'] .= $this->load->view('tmejatebu/form',$this->data, true );
-		}
-
-		if($rx > 1){
-			$rx = 12;
-		}else{
-			$rx = 8;
-		}
-		
-		$this->data['col'] = $rx;
-		$this->data['content'] .= $this->load->view('tmejatebu/index',$this->data, true );
+		$this->data['content'] = $this->load->view('tspt/index',$this->data, true );
 		
     	$this->load->view('layouts/main', $this->data );
     
@@ -180,34 +157,36 @@ class Tmejatebu extends SB_Controller
 		{
 			$this->data['row'] =  $row;
 		} else {
-			$this->data['row'] = $this->model->getColumnTable('t_meja_tebu'); 
+			$this->data['row'] = $this->model->getColumnTable('sap_field_spt'); 
 		}
 		
 		$this->data['id'] = $id;
-		$this->data['content'] =  $this->load->view('tmejatebu/view', $this->data ,true);	  
+		$this->data['content'] =  $this->load->view('tspt/view', $this->data ,true);	  
 		$this->load->view('layouts/main',$this->data);
 	}
   
 	function add( $id = null ) 
 	{
-		if($id =='')
-			if($this->access['is_add'] ==0) redirect('dashboard',301);
-
-		if($id !='')
-			if($this->access['is_edit'] ==0) redirect('dashboard',301);	
+		
 
 		$row = $this->model->getRow( $id );
 		if($row)
 		{
 			$this->data['row'] =  $row;
 		} else {
-			$this->data['row'] = $this->model->getColumnTable('t_meja_tebu'); 
+
+			$this->data['row'] = $this->model->getColumnTable('sap_field_spt'); 
+			$this->data['row']['no_petak'] = $id;
 		}
 	
 		$this->data['id'] = $id;
-		$this->data['content'] = $this->load->view('tmejatebu/form',$this->data, true );		
-	  	$this->load->view('layouts/main', $this->data );
+		echo $this->data['content'] = $this->load->view('tspt/form',$this->data, true );		
+	  	
 	
+	}
+
+	function getnosurat(){
+
 	}
 	
 	function save() {
@@ -218,13 +197,15 @@ class Tmejatebu extends SB_Controller
 		if( $this->form_validation->run() )
 		{
 			$data = $this->validatePost();
-			$data['ptgs_meja_tebu'] = $this->session->userdata('fid');
-			$data['tgl_meja_tebu']  = date('Y-m-d H:i:s');
-			$data['rafraksi_aktif']  = CNF_RAFAKSI;
-			
-			$ID = $this->model->insertRow($data , $this->input->get_post( 'id_mejatebu' , true ));
+			$a = $this->db->query("SELECT LPAD(IFNULL(MAX(LEFT(no_surat,5))+1,1),5,'0') AS nosurat FROM `sap_field_spt` ")->row();
+			$data['user_act'] =$this->session->userdata('fid');
+			$data['tgl_act'] =date('Y-m-d H:i:s');
+			$data['status'] =1;
+			$data['no_surat'] =$a->nosurat.'/QC/SPT/'.CNF_TAHUNGILING;
+
+			$ID = $this->model->insertRow($data , '');
 			// Input logs
-			if( $this->input->get( 'id_mejatebu' , true ) =='')
+			if( $this->input->get( 'no_petak' , true ) =='')
 			{
 				$this->inputLogs("New Entry row with ID : $ID  , Has Been Save Successfull");
 			} else {
@@ -234,9 +215,9 @@ class Tmejatebu extends SB_Controller
 			$this->session->set_flashdata('message',SiteHelpers::alert('success'," Data has been saved succesfuly !"));
 			if($this->input->post('apply'))
 			{
-				redirect( 'tmejatebu/add/'.$ID,301);
+				redirect( 'tspt/add/'.$ID,301);
 			} else {
-				redirect( 'tmejatebu',301);
+				redirect( 'tspt',301);
 			}			
 			
 			
@@ -260,26 +241,6 @@ class Tmejatebu extends SB_Controller
 		$this->inputLogs("ID : ".$_POST['id']."  , Has Been Removed Successfull");
 		echo "ID : ".$_POST['id']."  , berhasil dihapus !!";
 		
-	}
-	
-	function cekspta(){
-		$arr['stt'] = 0;
-		if(isset($_POST['nospta'])){
-			
-			$cek = $this->db->query("SELECT a.id,kode_blok,IFNULL(b.no_transloading,'-') as no_trans,kode_kat_lahan,kode_affd,IF(metode_tma=1,'MANUAL',IF(metode_tma=2,'SEMI MEKANISASI','MEKANISASI')) AS txt_metode_tma,
-IF(meja_tebu_status = 1,CONCAT('SPTA sudah Masuk Meja Tebu Pada ',DATE_FORMAT(meja_tebu_tgl,'%d %M %Y Jam %H:%i')),'0') AS ed,
-IF(timb_bruto_status=0,'SPTA Belum Masuk Timbangan',1) AS stt,
-metode_tma FROM t_spta a INNER JOIN t_timbangan b on b.id_spat=a.id WHERE no_spat = '".$_POST['nospta']."'")->row();
-		$arr['stt'] = 1;
-		if($cek){
-			$arr['stt'] = 1;
-			$arr['data'] = $cek;
-		}else{
-			$arr['stt'] = 0;
-		}
-		
-		}
-		echo json_encode($arr);
 	}
 
 
