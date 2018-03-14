@@ -7,6 +7,7 @@
 <title><?php echo  CNF_APPNAME ;?> | <?php echo $title;?></title>
 <link rel="shortcut icon" href="<?php echo base_url();?>favicon.ico" type="image/x-icon">
 <script src="<?php echo base_url();?>/adminlte/plugins/jQuery/jQuery-2.1.4.min.js"></script>
+<script src="<?php echo base_url();?>/adminlte/plugins/barcode/barcode128.js"></script>
    <style>
    @media print
 {
@@ -22,7 +23,8 @@
 
 <script type="text/javascript">
 $(document).ready(function(){
-	updateStatusCetak();
+  JsBarcode(".barcode").init();
+	setTimeout(function () {updateStatusCetak();}, 2000);
 });
 
 function updateStatusCetak(){

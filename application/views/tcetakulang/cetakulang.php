@@ -30,9 +30,16 @@
 		<br />
 		<span style="background-color: black;color: white; padding: 10px">CETAK ULANG</span>
 		</td>
-		<td style="text-align: center;padding:5px">
+		<td style="text-align: center;">
 		
-			<img src="<?php echo site_url('tkuotaspta/generateBarcode/'.$row->no_spat);?>"> 
+			<svg class="barcode"
+  jsbarcode-format="code128"
+  jsbarcode-value="<?php echo $row->no_spat;?>"
+  jsbarcode-textmargin="0"
+  jsbarcode-height="70"
+  jsbarcode-width="1"
+  jsbarcode-fontSize="12">
+</svg> 
 		</td>
 		<td style="width:45%" rowspan="6" valign="top" >
 		
@@ -43,8 +50,15 @@
 			
 		<b><?php echo $jnsta.'<br />'.strtoupper(($row->kepemilikan)).'<br />'.$row->jenis_spta;?></b><br /><br />
 		<span style="background-color: black;color: white; padding: 10px">CETAK ULANG</span></td>
-		<td style="text-align: center;padding:2px;border-bottom:1px solid black">
-		<img src="<?php echo site_url('tkuotaspta/generateBarcode/'.$row->no_spat);?>"> 
+		<td style="text-align: center;border-bottom:1px solid black">
+		<svg class="barcode"
+  jsbarcode-format="code128"
+  jsbarcode-value="<?php echo $row->no_spat;?>"
+  jsbarcode-textmargin="0"
+  jsbarcode-height="70"
+  jsbarcode-width="1"
+  jsbarcode-fontSize="12">
+</svg>  
 			<center>
 			<b><u><?php echo strtoupper(CNF_NAMAPERUSAHAAN);?></u></b></center>
 			
