@@ -38,8 +38,7 @@
 	<tr>
 		<td style="text-align: center; padding:2px;height: 75px;border-bottom:1px solid black;border-right:1px solid black">
 			
-		<b><?php echo $jnsta.'<br />'.strtoupper(($row->kepemilikan)).'<br />'.$row->jenis_spta;?></b><br /><br />
-		<span style="background-color: black;color: white; padding: 10px">CETAK ULANG</span></td>
+		<b><?php echo $jnsta.'<br />'.strtoupper(($row->kepemilikan)).'<br />'.$row->jenis_spta;?></b><br /></td>
 		<td style="text-align: center;padding:2px;border-bottom:1px solid black">
 		<img src="<?php echo site_url('tkuotaspta/generateBarcode/'.$row->no_spat);?>"> 
 			<center>
