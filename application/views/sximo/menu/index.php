@@ -135,7 +135,7 @@
 				  <div class="form-group  int-link" >
 					<label for="ipt" class=" control-label col-md-4 text-right"><?php echo $this->lang->line('core.t_module'); ?> </label>
 					<div class="col-md-8">
-					  <select name='modulex' disabled rows='5' id='module'  class='form-control '    >
+					  <select name='module' readonly rows='5' id='module'  class='form-control '    >
 							<option value=""> -- Select Module or Page -- </option>
 							<optgroup label="Module ">
 							<?php foreach($modules as $mod) :?>
