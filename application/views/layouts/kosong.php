@@ -24,7 +24,7 @@
 <script type="text/javascript">
 $(document).ready(function(){
   JsBarcode(".barcode").init();
-	setTimeout(function () {updateStatusCetak();}, 2000);
+	setTimeout(function () {updateStatusCetak();}, 500);
 });
 
 function updateStatusCetak(){
