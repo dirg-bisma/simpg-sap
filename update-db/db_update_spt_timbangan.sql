@@ -7,6 +7,9 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 /*Table structure for table `sap_field_spt` */
+DROP TABLE IF EXISTS `vw_ari_data`;
+/*!50001 DROP VIEW IF EXISTS `vw_ari_data` */;
+/*!50001 DROP TABLE IF EXISTS `vw_ari_data` */;
 
 DROP TABLE IF EXISTS `sap_field_spt`;
 
