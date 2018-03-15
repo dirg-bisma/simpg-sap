@@ -49,11 +49,9 @@ class Apitimbanganmodel extends SB_Model
 
     public function TaraLori($no_lori)
     {
-        $this->db->select('*');
-        $this->db->where('nolori', $no_lori);
-        $this->db->from('m_lori');
-        $lori = $this->db->row();
-        return $lori;
+        $sql = "SELECT * FROM m_lori WHERE nolori = '$no_lori'";
+        $lori = $this->db->query($sql);
+        return $lori->row();
     }
 
 

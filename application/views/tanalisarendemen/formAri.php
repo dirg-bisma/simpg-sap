@@ -149,8 +149,14 @@ function getDataSPTA(nospta){
 			dataType: 'json',
             success: function (dat) {
 				if(dat.stt == 1){
+					
 					if(dat.data.point_cek == 1 && dat.data.stt == 0){
-						$('#no_spta').val(nospta);
+						if(dat.data.kondisi_tebu == 'D' || dat.data.kondisi_tebu == 'E'){
+							$('#no_spta').val(nospta+' / '+dat.data.kondisi_tebu);
+						}else{
+							$('#no_spta').val(nospta);
+						}
+						
 						$('#afdeling').val(dat.data.kode_affd);
 						$('#kode_petak').val(dat.data.kode_blok);
 						$('#id_spta').val(dat.data.id);

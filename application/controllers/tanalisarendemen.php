@@ -289,9 +289,10 @@ IF(ari_status = 1,CONCAT('SPTA Sudah di ANALISA tanggal ',DATE_FORMAT(ari_tgl,'%
 				- cek meja tebu sudah masuk belum
 				- cek ari sudah pernah diinput belum
 			**/
-				$cek = $this->db->query("SELECT id,kode_blok,kode_kat_lahan,kode_affd,
+				$cek = $this->db->query("SELECT t_spta.id,t_meja_tebu.kondisi_tebu,kode_blok,kode_kat_lahan,kode_affd,
 IF(meja_tebu_status = 1,1,'SPTA Belum Masuk MASUK MEJA !!') AS point_cek,
-IF(ari_status = 1,CONCAT('SPTA Sudah di ANALISA tanggal ',DATE_FORMAT(ari_tgl,'%D %M %Y %H:%i')),IF(ari_status=2,CONCAT('SPTA ditolak di ANALISA ARI tanggal ',DATE_FORMAT(ari_tgl,'%D %M %Y %H:%i')),0)) AS stt FROM t_spta WHERE no_spat = '".$_POST['nospta']."'")->row();
+IF(ari_status = 1,CONCAT('SPTA Sudah di ANALISA tanggal ',DATE_FORMAT(ari_tgl,'%D %M %Y %H:%i')),IF(ari_status=2,CONCAT('SPTA ditolak di ANALISA ARI tanggal ',DATE_FORMAT(ari_tgl,'%D %M %Y %H:%i')),0)) AS stt 
+FROM t_spta INNER JOIN t_meja_tebu ON t_spta.id=t_meja_tebu.id_spta WHERE no_spat = '".$_POST['nospta']."'")->row();
 			
 			
 			}

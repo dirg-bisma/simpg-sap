@@ -4,7 +4,7 @@
 
 <section class="content">
           <div class="row">
-            <div class="col-xs-12">
+            <div class="col-xs-8">
               <div class="box box-danger">
               	<div class="box-header with-border">
                   <h3 class="box-title"><?php echo $pageTitle ;?></h3>
@@ -76,6 +76,7 @@ var table;
           "orderable": false, //set not orderable
         },
         ],
+    "order": [[ 2, "desc" ]]
         });
       });
 </script>
