@@ -124,7 +124,7 @@ class Apitimbangan extends SB_Controller
                     'ptgs_timbang_1' => $this->input->post('ptgs_timbang'),
                 );
 
-                if($this->input->get('transloading_status') == 1) {
+                if($this->input->post('no_transloading') != "") {
                     $data += array(
                         'transloading_status' => $this->input->post('transloading_status'),
                         'no_transloading' => $this->input->post('no_transloading'),
@@ -220,7 +220,7 @@ class Apitimbangan extends SB_Controller
                     'ptgs_timbang_2' => $this->input->post('ptgs_timbang'),
                 );
 
-                if($this->input->get('transloading_status') == 1) {
+                if($this->input->post('no_transloading') != "") {
                     $data_netto += array(
                         'transloading_status' => $this->input->post('transloading_status'),
                         'no_transloading' => $this->input->post('no_transloading'),
@@ -233,7 +233,7 @@ class Apitimbangan extends SB_Controller
                 $this->apitimbanganmodel->UpdateNetto($where, $data_netto);
 
                 $result = array(
-                    'msg' => $this->input->get('no_spat'),
+                    'msg' => $this->input->post('no_spat'),
                     'status' => 'true'
                 );
                 echo json_encode($result);

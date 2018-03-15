@@ -80,7 +80,7 @@
             ' </td><td align="right"> '.$r->tertebang.
             ' </td><td align="right"> '.number_format($r->netto,0).
             ' </td><td align="right"> '.$r->sisa.
-            ' </td><td align="right"> '.number_format($r->netto/$r->tertebang,0).' </td></tr>';
+            ' </td><td align="right"> '.@number_format($r->netto/$r->tertebang,0).' </td></tr>';
         $A += $r->A;
         $B += $r->B;
         $C += $r->C;
@@ -104,9 +104,9 @@
         <td align="center"><?php echo $truk;?></td>
         <td align="center"><?php echo $lori;?></td>
         <td align="right"><?php echo $ha;?></td>
-        <td align="right"><?php echo number_format($netto,0);?></td>
+        <td align="right"><?php echo @number_format($netto,0);?></td>
         <td></td>
-        <td align="right"><?php echo number_format($netto/$ha,0);?></td>
+        <td align="right"><?php echo @number_format($netto/$ha,0);?></td>
     </tr></tfoot>
 </table>
 <hr />
