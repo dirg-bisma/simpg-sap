@@ -71,13 +71,10 @@
 						<table style="margin-left: auto; margin-right: auto;" width="95%" cellspacing="0">
 							<tbody>
 							<tr >
-								<td style="text-align: left;"><span>Tgl SPTA&nbsp;</span></td>
-								<td style="text-align: left;"><span>:&nbsp;<?php echo SiteHelpers::daterpt($row->tgl_spta);?></span></td>
+								<td style="text-align: left;"><span>No Petak / Tgl SPTA&nbsp;</span></td>
+								<td style="text-align: left;"><span>:&nbsp;<?php echo $row->kode_blok;?> / <?php echo SiteHelpers::daterpt($row->tgl_spta);?></span></td>
 							</tr>
-							<tr >
-								<td style="text-align: left;" width="40%"><span>No Petak&nbsp;</span></td>
-								<td style="text-align: left;"><span>:&nbsp;<?php echo $row->kode_blok;?></span></td>
-							</tr>
+							
 							
 							
 						
@@ -98,11 +95,9 @@
 								<td style="padding:2px;width:20%">No Lori<br />&nbsp;</td><td> </td>
 							</tr>
 							<tr>
-								<td style="padding:2px;width:20%">No Truk<br />&nbsp;<br /></td><td> </td>
+								<td style="padding:2px;width:20%">No Truk / Sopir<br />&nbsp;<br /></td><td> </td>
 							</tr>
-							<tr>
-								<td style="padding:2px;width:30%">Sopir<br />&nbsp;</td><td> </td>
-							</tr>
+							
 							<?php
 								if($row->metode_tma != 1){
 							?>

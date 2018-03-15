@@ -394,7 +394,7 @@ LEFT JOIN sap_petani d ON d.`id_petani_sap`=c.`id_petani_sap` WHERE 0=0 AND ceta
 				$html .= $this->load->view('tkuotaspta/cetakspta',$this->data, true);
 			//}
 
-			if($i == 1){
+			if($i == 3){
 				$html .= '<p style="page-break-after: always;">&nbsp;</p>';
 				$i=0;
 			}
