@@ -282,10 +282,17 @@ function getNoSPTA(e,nospta){
 }
 
 function cekha(a){
+	if('<?php echo CNF_COMPANYCODE;?>' == 'N007'){
+	if(a > 0.9){
+		alert('Hektar tidak boleh melebihi 0.9 hektar');
+		$('#hektar_tertebang').val(0);
+	}
+}else{
 	if(a > 0.15){
 		alert('Hektar tidak boleh melebihi 0.15 hektar');
 		$('#hektar_tertebang').val(0);
 	}
+}
 }
 
 
