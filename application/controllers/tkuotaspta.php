@@ -265,7 +265,10 @@ FROM
 		$this->data['afdeling'] = $blk->divisi;
 		$this->data['id_petani_sap'] = $blk->id_petani_sap;
 		$this->data['kategori'] = $blk->kepemilikan;
+		$this->data['idjrk'] = '';
+		if($jrk){
 		$this->data['idjrk'] = $jrk->id_jarak;
+	}
 		$this->data['id'] = $idkuotadetail;
 
 		echo $this->load->view('tkuotaspta/formorder',$this->data, true);	
