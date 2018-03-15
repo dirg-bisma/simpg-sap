@@ -269,7 +269,7 @@ class Tmejatebu extends SB_Controller
 			$cek = $this->db->query("SELECT a.id,kode_blok,IFNULL(b.no_transloading,'-') as no_trans,kode_kat_lahan,kode_affd,IF(metode_tma=1,'MANUAL',IF(metode_tma=2,'SEMI MEKANISASI','MEKANISASI')) AS txt_metode_tma,
 IF(meja_tebu_status = 1,CONCAT('SPTA sudah Masuk Meja Tebu Pada ',DATE_FORMAT(meja_tebu_tgl,'%d %M %Y Jam %H:%i')),'0') AS ed,
 IF(timb_bruto_status=0,'SPTA Belum Masuk Timbangan',1) AS stt,
-metode_tma FROM t_spta a INNER JOIN t_timbangan b on b.id_spat=a.id WHERE no_spat = '".$_POST['nospta']."'")->row();
+metode_tma FROM t_spta a LEFT JOIN t_timbangan b on b.id_spat=a.id WHERE no_spat = '".$_POST['nospta']."'")->row();
 		$arr['stt'] = 1;
 		if($cek){
 			$arr['stt'] = 1;

@@ -265,10 +265,11 @@ INNER JOIN t_selektor c ON c.`id_spta`=b.`id` WHERE a.id_upah_tebang=$id")->resu
 		if($row)
 		{
 			$this->data['row'] =  $row;
-			$a = "SELECT a.`no_spat`,a.`jenis_spta`,b.no_angkutan,b.terbakar_sel,d.* FROM t_spta a
+			$a = "SELECT a.`no_spat`,a.`jenis_spta`,a.metode_tma,b.no_angkutan,b.terbakar_sel,b.tgl_tebang,b.tgl_selektor,e.kondisi_tebu,d.* FROM t_spta a
 INNER JOIN sap_field a1 ON a1.`kode_blok`=a.`kode_blok`
 INNER JOIN t_selektor b ON a.id=b.id_spta
 INNER JOIN t_timbangan c ON c.`id_spat`=a.`id`
+INNER JOIN t_meja_tebu e ON e.id_spta=a.id
 INNER JOIN t_upah_tebang_detail d ON d.`id_spta`=a.`id` WHERE d.id_upah_tebang=$id";
 		$b = $this->db->query($a)->result();
 			$this->data['detail'] =  $b;
@@ -370,21 +371,24 @@ SET a.`upah_tebang_status`=".$ID.",a.`upah_tebang_tgl` = NOW() WHERE b.`id_upah_
 		$mandor = $_POST['mandor'];
 		$tgla = $_POST['tgla'];
 		$tglb = $_POST['tglb'];
+		$jtebangan = $_POST['jenis_tebangan'];
 		
-		$wh = " AND a.kode_blok='$kodeblok' AND a.persno_pta='$pta' and b.persno_mandor_tma='$mandor' and date(a.timb_netto_tgl) BETWEEN '$tgla' and '$tglb'";
+		$wh = " AND a.kode_blok='$kodeblok' AND a.persno_pta='$pta' and b.persno_mandor_tma='$mandor' AND a.metode_tma = '$jtebangan'  and date(a.timb_netto_tgl) BETWEEN '$tgla' and '$tglb'";
 		
-		$sql = "SELECT a.id,a.`persno_pta`,a.kode_blok,b.persno_mandor_tma,a.`no_spat`,a.`kode_kat_lahan`,c.`netto_final`, b.no_angkutan,a1.`deskripsi_blok`,date(a.`timb_netto_tgl`) as tgl_timb,a.`jenis_spta`,a.upah_tebang_status,b.terbakar_sel FROM t_spta a
+		$sql = "SELECT a.id,a.`persno_pta`,a.metode_tma,a.kode_blok,b.persno_mandor_tma,a.`no_spat`,a.`kode_kat_lahan`,c.`netto_final`, b.no_angkutan,a1.`deskripsi_blok`,date(a.`timb_netto_tgl`) as tgl_timb,a.`jenis_spta`,a.upah_tebang_status,b.terbakar_sel,b.tgl_tebang,b.tgl_selektor,d.kondisi_tebu FROM t_spta a
 INNER JOIN sap_field a1 ON a1.`kode_blok`=a.`kode_blok`
 INNER JOIN t_selektor b ON a.id=b.id_spta
 INNER JOIN t_timbangan c ON c.`id_spat`=a.`id`
+INNER JOIN t_meja_tebu d ON d.id_spta=a.id
 WHERE a.`timb_netto_status` = 1 AND a.`tebang_pg`=1 $wh";
 		
 		$th = $this->db->query($sql)->result();
 		$htm = "";
 		$arter = array('1'=>'Ya','0'=>'Tidak');
+				$arterx = array('1'=>'Manual','2'=>'Semi Mekanisasi','3'=>'Mekanisasi');
 		foreach($th as $tb){
 
-			$r = 'javascript:addrow("'.$tb->id.'","'.$tb->no_spat.'","'.$tb->no_angkutan.'","'.$tb->jenis_spta.'","'.$tb->netto_final.'","'.$arter[$tb->terbakar_sel].'")';
+			$r = 'javascript:addrow("'.$tb->id.'","'.$tb->no_spat.'","'.$tb->no_angkutan.'","'.$tb->jenis_spta.'","'.$tb->netto_final.'","'.$arter[$tb->terbakar_sel].'","'.$tb->kondisi_tebu.'","'.$tb->tgl_tebang.'","'.$tb->tgl_selektor.'","'.$arterx[$tb->metode_tma].'")';
 			$htm .= "<tr>";
 			if($tb->upah_tebang_status == 0){
 				$htm .= "<td><a href='".$r."'><i class='fa fa-send'></i></a></td>";
@@ -399,7 +403,11 @@ WHERE a.`timb_netto_status` = 1 AND a.`tebang_pg`=1 $wh";
 				<td>".$tb->netto_final."</td>
 				<td>".$tb->kode_kat_lahan."</td>
 				<td>".$tb->jenis_spta."</td>
+				<td>".$arterx[$tb->metode_tma]."</td>
 				<td>".$arter[$tb->terbakar_sel]."</td>
+				<td>".$tb->kondisi_tebu."</td>
+				<td>".$tb->tgl_tebang."</td>
+				<td>".$tb->tgl_selektor."</td>
 			</tr>";
 		}
 		

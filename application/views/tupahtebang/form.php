@@ -71,7 +71,11 @@ $t = $this->db->query("SELECT * FROM m_pekerjaan_tma where status_pekerjaan != 2
 			<th>Netto</th>
 			<th>Kategori</th>
 			<th>Jenis SPTA</th>
+			<th>Tebangan</th>
 			<th>Terbakar</th>
+			<th>Mutu</th>
+			<th>Tebang</th>
+			<th>Masuk</th>
 		</tr>
 		</thead>
 		<tbody id="bodylist">
@@ -155,6 +159,14 @@ $t = $this->db->query("SELECT * FROM m_pekerjaan_tma where status_pekerjaan != 2
 									<label for="ipt" class=" control-label "> s/d Hari </label>									
 									  <input type='text' class='form-control input-sm' placeholder='' value='1' id='sdhari'   /> 						
 								  </div>
+
+								  <div class="form-group  col-md-12" >
+								  <select class="form-control" id="jenis_tebangan" >
+			<option value="1">Manual</option>
+			<option value="2">Semi Mekanisasi</option>
+			<option value="3">Mekanisasi</option>
+		</select>
+								  </div>
 			</div>
 			
 			
@@ -189,11 +201,15 @@ $t = $this->db->query("SELECT * FROM m_pekerjaan_tma where status_pekerjaan != 2
 				<table class="table table-striped" id="gridv">
 					<thead>
 						<th>x</th>
-						<th>No SPTA</th>
-						<th>No Kendaraan</th>
-						<th>Jenis SPTA</th>
+						<th>SPTA</th>
+						<th>NoPol</th>
+						<th>Jenis</th>
 						<th>Netto</th>
+						<th>Tebangan</th>
 						<th>Terbakar</th>
+						<th>Mutu</th>
+						<th>Tebang</th>
+						<th>Masuk</th>
 						<?php
 							
 							foreach($t as $tb){
@@ -253,12 +269,17 @@ $(document).ready(function() {
 
 				$ardet = array();
 				$arter = array('1'=>'Ya','0'=>'Tidak');
+				$arterx = array('1'=>'Manual','2'=>'Semi Mekanisasi','3'=>'Mekanisasi');
 				$ardet[] = "<a href='javascript:removeData(\\\"".$key->id_spta."\\\")'> del</a>";
 					$ardet[] = $key->no_spat;
 					$ardet[] = $key->no_angkutan;
 					$ardet[] = $key->jenis_spta;
 					$ardet[] = "<input type='text' name='netto[]' readonly value='".$key->netto."' class='inlinecs number'><input type='hidden' readonly name='idx[]' value='".$key->id_spta."'>";
-					$ardet[] = $arter[$key->terbakar_sel];	
+					$ardet[] = $arterx[$key->metode_tma];
+					$ardet[] = $arter[$key->terbakar_sel];
+					$ardet[] = $key->kondisi_tebu;
+					$ardet[] = $key->tgl_tebang;
+					$ardet[] = $key->tgl_selektor;		
 				foreach($t as $tb){
 					
 					$nmkol = $tb->kodekolom;
@@ -297,7 +318,7 @@ function cariData(){
 	$.ajax({
 		url : "<?php echo site_url('tupahtebang/getlistTimbangan');?>",
 		method : "POST",
-		data : {kode_blok:$('#kode_blok').val(),pta:$('#persno_pta').val(),mandor:$('#persno_mandor').val(),tgla:$('#tgl_1').val(),tglb:x},
+		data : {kode_blok:$('#kode_blok').val(),pta:$('#persno_pta').val(),mandor:$('#persno_mandor').val(),tgla:$('#tgl_1').val(),tglb:x,jenis_tebangan:$('#jenis_tebangan').val()},
 		success : function(a){
 			
 			$('#bodylist').html(a); 
@@ -335,10 +356,10 @@ function cariData(){
 
 	  
 	  
-function addrow(id,nospta,noken,jenis,netto,terbakar){
+function addrow(id,nospta,noken,jenis,netto,terbakar,nilaitebu,tebang,masuk,tebangan){
 	if (dataset.indexOf(id) === -1) {
 		dataset.push(id);
-		datasetx.push(["<a href='javascript:removeData(\""+id+"\")'> del</a>",nospta,noken,jenis,"<input type='text' name='netto[]' readonly value='"+netto+"' class='inlinecs number'><input type='hidden' readonly name='idx[]' value='"+id+"'>",terbakar,
+		datasetx.push(["<a href='javascript:removeData(\""+id+"\")'> del</a>",nospta,noken,jenis,"<input type='text' name='netto[]' readonly value='"+netto+"' class='inlinecs number'><input type='hidden' readonly name='idx[]' value='"+id+"'>",tebangan,terbakar,nilaitebu,tebang,masuk,
 		<?php echo '"'.implode('","', $arkolom).'"' ?>]);
 	}
 	else {

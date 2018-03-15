@@ -147,15 +147,7 @@
 								  
 			</div>
 			
-			<div class="col-md-3">
-			<device type="media" onchange="update(this.data)"></device>
-<video autoplay></video>
-<script>
-  function update(stream) {
-    document.querySelector('video').src = stream.url;
-  }
-</script>
-</div>
+			
 			<div class="col-md-3" id="manual">
 													
 								  <div class="form-group  " >
@@ -290,8 +282,8 @@ function getNoSPTA(e,nospta){
 }
 
 function cekha(a){
-	if(a > 0.9){
-		alert('Hektar tidak boleh melebihi 0.9 hektar');
+	if(a > 0.15){
+		alert('Hektar tidak boleh melebihi 0.15 hektar');
 		$('#hektar_tertebang').val(0);
 	}
 }
