@@ -4,7 +4,7 @@ class Mkualitastebumodel extends SB_Model
 {
 
 	public $table = 'm_rafaksi';
-	public $primaryKey = 'nilai';
+	public $primaryKey = 'id';
 
 	public function __construct() {
 		parent::__construct();
@@ -18,7 +18,7 @@ class Mkualitastebumodel extends SB_Model
 	}
 	public static function queryWhere(  ){
 		
-		return "  WHERE m_rafaksi.nilai IS NOT NULL   ";
+		return "  WHERE m_rafaksi.id IS NOT NULL   ";
 	}
 	
 	public static function queryGroup(){

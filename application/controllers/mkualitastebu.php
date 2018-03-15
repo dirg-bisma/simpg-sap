@@ -198,9 +198,9 @@ class Mkualitastebu extends SB_Controller
 		if( $this->form_validation->run() )
 		{
 			$data = $this->validatePost();
-			$ID = $this->model->insertRow($data , $this->input->get_post( 'nilai' , true ));
+			$ID = $this->model->insertRow($data , $this->input->get_post( 'id' , true ));
 			// Input logs
-			if( $this->input->get( 'nilai' , true ) =='')
+			if( $this->input->get( 'id' , true ) =='')
 			{
 				$this->inputLogs("New Entry row with ID : $ID  , Has Been Save Successfull");
 			} else {

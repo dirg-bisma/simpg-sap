@@ -26,6 +26,13 @@
 
 <div class="col-md-4">
 									
+								  <div class="form-group hidethis " style="display:none;">
+									<label for="Id" class=" control-label col-md-4 text-left"> Id </label>
+									<div class="col-md-8">
+									  <input type='text' class='form-control input-sm' placeholder='' value='<?php echo $row['id'];?>' name='id'   /> <br />
+									  <i> <small></small></i>
+									 </div> 
+								  </div> 					
 								  <div class="form-group  " >
 									<label for="Nilai" class=" control-label col-md-4 text-left"> Nilai <span class="asterix"> * </span></label>
 									<div class="col-md-8">
