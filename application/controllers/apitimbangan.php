@@ -121,7 +121,9 @@ class Apitimbangan extends SB_Controller
                     'tgl_tara' => date('Y-m-d H:i:s'),
                     'tgl_bruto' => date('Y-m-d H:i:s'),
                     'lokasi_timbang_1' => $this->input->post('kode_timbangan'),
+                    'lokasi_timbang_2' => $this->input->post('kode_timbangan'),
                     'ptgs_timbang_1' => $this->input->post('ptgs_timbang'),
+                    'ptgs_timbang_2' => $this->input->post('ptgs_timbang'),
                 );
 
                 if($this->input->post('no_transloading') != "") {
@@ -137,7 +139,7 @@ class Apitimbangan extends SB_Controller
                 $this->db->set($data);
                 $this->db->insert('t_timbangan');
                 $result = array(
-                    'msg' => $this->input->get('no_spat'),
+                    'msg' => $this->input->post('no_spat'),
                     'status' => 'true'
                 );
                 echo json_encode($result);

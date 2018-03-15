@@ -1,117 +1,84 @@
-<section class="content-header">
-          <h1>
-            <?php echo $pageTitle ;?>
-          </h1>
-          <ol class="breadcrumb">
 
-          	<li><i class="fa fa-dashboard"></i> <a href="<?php echo site_url('dashboard') ?>">Dashboard</a></li>
-			<li><a href="<?php echo site_url('tspt') ?>"><?php echo $pageTitle ?></a></li>
-			<li class="active"> Detail </li>
-          </ol>
-        </section>
-
- <section class="content">
-          <div class="row">
-            <div class="col-xs-12">
-              <div class="box box-danger">
-              	<div class="box-header with-border">	
-				<div class="table-responsive">
-					<table class="table table-striped table-bordered" >
-						<tbody>	
+<script src="<?php echo base_url();?>/adminlte/plugins/jQuery/jQuery-2.1.4.min.js"></script>
+<table style="margin-left:60%;width:30%;font-size:10px;height: 5px;font-family:Monospace;border-collapse: collapse;" border="1"  >
+				<tr>
+					<td style="font-size:13px;text-align:center;"><?php echo strtoupper(CNF_NAMAPERUSAHAAN);?></td>
 					
-					<tr>
-						<td width='30%' class='label-view text-right'>No Petak</td>
-						<td><?php echo $row['no_petak'] ;?> </td>
-						
-					</tr>
-				
-					<tr>
-						<td width='30%' class='label-view text-right'>No Surat</td>
-						<td><?php echo $row['no_surat'] ;?> </td>
-						
-					</tr>
-				
-					<tr>
-						<td width='30%' class='label-view text-right'>H Brix Kebun</td>
-						<td><?php echo $row['h_brix_kebun'] ;?> </td>
-						
-					</tr>
-				
-					<tr>
-						<td width='30%' class='label-view text-right'>H Brix</td>
-						<td><?php echo $row['h_brix'] ;?> </td>
-						
-					</tr>
-				
-					<tr>
-						<td width='30%' class='label-view text-right'>H Pol</td>
-						<td><?php echo $row['h_pol'] ;?> </td>
-						
-					</tr>
-				
-					<tr>
-						<td width='30%' class='label-view text-right'>H Fk</td>
-						<td><?php echo $row['h_fk'] ;?> </td>
-						
-					</tr>
-				
-					<tr>
-						<td width='30%' class='label-view text-right'>H Kp</td>
-						<td><?php echo $row['h_kp'] ;?> </td>
-						
-					</tr>
-				
-					<tr>
-						<td width='30%' class='label-view text-right'>H Kdt</td>
-						<td><?php echo $row['h_kdt'] ;?> </td>
-						
-					</tr>
-				
-					<tr>
-						<td width='30%' class='label-view text-right'>H Tscore</td>
-						<td><?php echo $row['h_tscore'] ;?> </td>
-						
-					</tr>
-				
-					<tr>
-						<td width='30%' class='label-view text-right'>Tgl Analisa</td>
-						<td><?php echo $row['h_tglanalisa'] ;?> </td>
-						
-					</tr>
-				
-					<tr>
-						<td width='30%' class='label-view text-right'>Keterangan</td>
-						<td><?php echo $row['keterangan'] ;?> </td>
-						
-					</tr>
-				
-					<tr>
-						<td width='30%' class='label-view text-right'>User</td>
-						<td><?php echo $row['user_act'] ;?> </td>
-						
-					</tr>
-				
-					<tr>
-						<td width='30%' class='label-view text-right'>Tgl Buat</td>
-						<td><?php echo $row['tgl_act'] ;?> </td>
-						
-					</tr>
-				
-					<tr>
-						<td width='30%' class='label-view text-right'>Status</td>
-						<td><?php echo $row['status'] ;?> </td>
-						
-					</tr>
-				
-						</tbody>	
-					</table>    
-				</div>
-				<a href="<?php echo site_url('tspt');?>" class="btn btn-sm btn-warning"> << Back </a>
-			</div>
-		</div>		
-	
+				</tr>
+				<tr>
+					<td style="font-size:15px;text-align:center;"><b><?php echo CNF_PG;?></b></td>
+				</tr>
+				<tr>
+					<td style="text-align:center;"><span style="font-size: 15px">SURAT PERINTAH TEBANG</span></td>
+				</tr>
+				</table>
+              
+ <table class="tableizer-table" style="height: 5px;font-family:Monospace;width: 90%;padding: 10px">
+<thead><tr class="tableizer-firstrow">
+<th style="width: 100px">Kepada</th><th style="width: 100px">&nbsp;</th><th>&nbsp;</th><th>&nbsp;</th><th>&nbsp;</th><th>&nbsp;</th><th>&nbsp;</th><th>&nbsp;</th></tr></thead><tbody>
+ <tr><td>Sdr</td><td >: <?php echo $row['name'];?></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+ <tr><td>Di</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+ <tr><td>Tempat</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+ <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+ <tr><td colspan="8">SURAT PERINTAH TEBANG</td></tr>
+ <tr><td colspan="8">&nbsp;</td></tr>
+ <tr><td colspan="8">Dengan ini diperintahkan kepada saudara untuk melaksanakan Tebang Muat pada :</td></tr>
+ <tr><td>&nbsp;</td><td >No Petak</td><td colspan="5" style="font-weight: bold"><i><?php echo $row['no_petak'];?></i></td></tr>
+ <tr><td>&nbsp;</td><td>Kategori</td><td colspan="5" style="font-weight: bold"><i><?php echo $row['kepemilikan'];?></i></td></tr>
+ <tr><td>&nbsp;</td><td>Deskripsi </td><td colspan="5" style="font-weight: bold"><i><?php echo $row['deskripsi_blok'];?></i></td></tr>
+ <tr><td>&nbsp;</td><td>Varietas</td><td colspan="5" style="font-weight: bold"><i><?php echo $row['kode_varietas'];?></i></td></tr>
+ <tr><td>&nbsp;</td><td>Luas</td><td colspan="5" style="font-weight: bold"><i><?php echo $row['luas_ha'];?> Ha</i></td></tr>
+ <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+ <tr><td>Hasil Analisa</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+ <tr><td>&nbsp;</td><td>% Brix Analisa</td><td style="font-weight: bold"><i><?php echo $row['h_brix'];?></i></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+ <tr><td>&nbsp;</td><td>% Pol Analisa</td><td style="font-weight: bold"><i><?php echo $row['h_pol'];?></i></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+ <tr><td>&nbsp;</td><td>FK</td><td style="font-weight: bold"><i><?php echo $row['h_fk'];?></i></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+ <tr><td>&nbsp;</td><td>KP</td><td style="font-weight: bold"><i><?php echo $row['h_kp'];?></i></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+ <tr><td>&nbsp;</td><td>K.DT</td><td style="font-weight: bold"><i><?php echo $row['h_kdt'];?></i></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+ <tr><td>&nbsp;</td><td>T-Score</td><td style="font-weight: bold"><i><?php echo $row['h_tscore'];?></i></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+ <tr><td>&nbsp;</td><td>Tgl Analisa</td><td style="font-weight: bold"><i><?php echo SiteHelpers::datereport($row['h_tglanalisa']);?></i></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+ <tr><td>&nbsp;</td><td>Keterangan</td><td style="font-weight: bold"><i><?php echo ($row['keterangan']);?></i></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+ <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+ <tr><td colspan="8">Demikian untuk menjadi periksa dan dilaksanakan dengan sebaik-baiknya</td></tr>
+ <tr><td>&nbsp;</td><td colspan="1">Keterangan Brix Kebun</td><td style="font-weight: bold"><i><?php echo $row['h_brix_kebun'];?></i></td></tr>
+</tbody></table>	
+<table  style="height: 5px;font-family:Monospace;" border="0" width="100%">
+<tbody>
 
-	</div>
-</div>
-</section>
-	  
+<tr>
+
+<td align="center"  style="font-size:13px">
+<br />
+<b>Manajer Tanaman</b><br />
+	<br />
+	<br />
+	<br />
+	.........................
+</td>
+
+<td align="center"  style="font-size:13px">
+<br />
+</td>
+
+<td align="center"  style="font-size:13px">
+<?php echo CNF_PG.', '.SiteHelpers::datereport(date('Y-m-d'));?><br />
+<b>Manajer QC</b><br />
+	<br />
+	<br />
+	<br />
+	.........................
+</td>
+
+</tr>
+</table>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	//window.print();
+	
+	setTimeout(function () { window.print();}, 2000);
+	setTimeout(function () { window.close();}, 3000);
+});
+
+
+</script>

@@ -101,7 +101,7 @@ class Tspt extends SB_Controller
             $btn ='';
 			$idku = $this->model->primaryKey;
             if($dt->no_surat != ''){
-            	$btn .= '<a href=""  class="tips "  title="Cetak SPT"><i class="fa  fa-print"></i>  </a> &nbsp;&nbsp;';
+            	$btn .= '<a href="'.site_url('tspt/show/'.$dt->kode_blok).'" target="_blank" class="tips "  title="Cetak SPT"><i class="fa  fa-print"></i>  </a> &nbsp;&nbsp;';
             }
             if($dt->no_surat == '' && $this->access['is_edit'] ==1){
             	$btn .= '<a href="javascript:getformspt(\''.$dt->kode_blok.'\')" class="tips "  title="Isi Hasil Analisa"><i class="fa  fa-edit"></i>  </a> &nbsp;&nbsp;';
@@ -155,14 +155,18 @@ class Tspt extends SB_Controller
 		$row = $this->model->getRow($id);
 		if($row)
 		{
-			$this->data['row'] =  $row;
+			//$this->data['row'] =  $row;
+			$this->data['row'] = $this->db->query("SELECT a.*,b.`deskripsi_blok`,b.`kode_varietas`,b.`kepemilikan`,b.`luas_ha`,d.`name` FROM `sap_field_spt` a 
+INNER JOIN `sap_field` b ON a.`no_petak`=b.`kode_blok`
+INNER JOIN `sap_m_affdeling` c ON c.`kode_affd`=b.`divisi`
+INNER JOIN `sap_m_karyawan` d ON d.`Persno`=c.`Persno` WHERE a.no_petak='$id'")->row_array();
 		} else {
 			$this->data['row'] = $this->model->getColumnTable('sap_field_spt'); 
 		}
 		
 		$this->data['id'] = $id;
-		$this->data['content'] =  $this->load->view('tspt/view', $this->data ,true);	  
-		$this->load->view('layouts/main',$this->data);
+		echo $this->data['content'] =  $this->load->view('tspt/view', $this->data ,true);	  
+		//$this->load->view('layouts/main',$this->data);
 	}
   
 	function add( $id = null ) 
