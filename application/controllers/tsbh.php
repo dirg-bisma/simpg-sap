@@ -282,14 +282,97 @@ class Tsbh extends SB_Controller
 	function uploadsend(){
 		 //var_dump($_FILES);die();
 		ini_set('memory_limit', '4048M');
-		 include APPPATH."/third_party/PHPExcel/IOFactory.php";
+		// include APPPATH."/third_party/PHPExcel/IOFactory.php";
+
+		//include (APPPATH.'/third_party/php-excel-reader/excel_reader2.php');
+		include (APPPATH.'/third_party/SpreadsheetReader.php');
+		$file = 'TEMP_SBH.xlsx';
+
+		if(move_uploaded_file($_FILES['template_sbh']['tmp_name'], $file)){
+		chmod($file, 0777);
+try
+	{
+		$files = $file;
+		$Spreadsheet = new SpreadsheetReader($files);
+
+		$Sheets = $Spreadsheet -> Sheets();
+		$BaseMem = memory_get_usage();
+		$Spreadsheet -> ChangeSheet(0);
+		$totdata = 0;
+		if($Sheets[0] == 'SBH-TEMPLATE'){
+			//var_dump($Spreadsheet);
+			foreach ($Spreadsheet as $Key => $Row)
+			{
+				if($Key > 2){
+						$tempdataari = array(
+					'id_ari'	 	=> trim($Row[1]), 
+					'id_spta' 		=> trim($Row[0]), 
+					'persen_brix_ari' 		=> trim($Row[34]), 
+					'persen_pol_ari' 		=> trim($Row[35]), 
+					'ph_ari' 		=> trim($Row[36]), 
+					'hk' 			=> trim($Row[37]), 
+					'nilai_nira' 	=> trim($Row[38]), 
+					'faktor_rendemen' 		=> trim($Row[39]), 
+					'rendemen_ari' 	=> trim($Row[40]), 
+					'hablur_ari' 	=> trim($Row[41]), 
+					'gula_total' 	=> trim($Row[42]), 
+					'tetes_total' 	=> trim($Row[43]), 
+					'rendemen_ptr' 	=> trim($Row[44]), 
+					'gula_ptr' 		=> trim($Row[45]), 
+					'tetes_ptr' 	=> trim($Row[46]), 
+					'gula_pg' 		=> trim($Row[47]), 
+					'tetes_pg' 		=> trim($Row[48]),
+					'sbh_ari_status'				=> '1',
+					'sbh_ari_user'				=> $this->session->userdata('fid'),
+					'sbh_ari_tgl'				=> date('Y-m-d H:i:s')
+				);
+
+			$tempspta = array(
+					'sbh_status' => '1',
+					'sbh_tgl'	=> date('Y-m-d H:i:s')
+				);
+
+			$this->db->where('id_ari', trim($Row[1]));
+			$this->db->where('id_spta', trim($Row[0]));
+			$this->db->where('pengolahan_status', '0');
+			$this->db->update('t_ari', $tempdataari);
+
+
+			$this->db->where('id', trim($Row[0]));
+			$this->db->where('sbh_status < ', 2);
+			$this->db->update('t_spta', $tempspta);
+			$totdata++;
+					}
+				}
+
+				echo ($totdata)." Data SBH Berhasil Diupload Silahkan cek di Table Sebelum di approve !!";
+			
+		}else{
+			echo "Nama Sheet Template File Excel Salah..";
+		}
+		}
+	catch (Exception $E)
+	{
+		echo $E -> getMessage();
+	}
+}
+
+
+		/*
 
 		 $cacheMethod = PHPExcel_CachedObjectStorageFactory::cache_to_phpTemp;
 		 	$cacheSettings = array( 'memoryCacheSize' => '8MB');
 			PHPExcel_Settings::setCacheStorageMethod($cacheMethod, $cacheSettings); 
 
+		$target = basename($_FILES['template_sbh']['name']) ;
+    
+		if(move_uploaded_file($_FILES['template_sbh']['tmp_name'], $target)){
+			chmod($target,0777);
+
+		
+
 		try {
-		$objPHPExcel = PHPExcel_IOFactory::load($_FILES['template_sbh']['tmp_name']);
+		$objPHPExcel = PHPExcel_IOFactory::load($target);
 		} catch(ErrorException $e) {
 			die('Error loading file "'.pathinfo($inputFileName,PATHINFO_BASENAME).'": '.$e->getMessage());
 			exit();
@@ -346,7 +429,8 @@ class Tsbh extends SB_Controller
 	}else{
 		echo "Format tempate salah !! Silahakan Download template SBH dari SIMPG !!";
 	}
-	}
+	}*/
+}
 	
 	
 
