@@ -282,6 +282,8 @@ class Tsbh extends SB_Controller
 	function uploadsend(){
 		 //var_dump($_FILES);die();
 		ini_set('memory_limit', '4048M');
+		ini_set('upload_max_filesize','30M');
+		ini_set('post_max_size','30M');
 		// include APPPATH."/third_party/PHPExcel/IOFactory.php";
 
 		//include (APPPATH.'/third_party/php-excel-reader/excel_reader2.php');
@@ -355,6 +357,8 @@ try
 	{
 		echo $E -> getMessage();
 	}
+}else{
+	echo 'File Gagal Upload !! Max Upload Filesize '.ini_get('upload_max_filesize');
 }
 
 
