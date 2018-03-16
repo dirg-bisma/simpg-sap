@@ -81,6 +81,13 @@
 
  
  </div>
+ <footer class="main-footer">
+    <div class="pull-right hidden-xs">
+      <b>Version</b> 2.0
+    </div>
+    <strong>Copyright © 2018 <a href="#">SIMPG - PT. Perkebunan Nusantara XI</a>.</strong> All rights
+    reserved.
+  </footer>
 
 <div class="modal fade" id="sximo-modal"  role="dialog">
 <div class="modal-dialog" id="modal-dial">
@@ -165,6 +172,17 @@ var intVal = function ( i ) {
 
   jQuery(document).ready(function ($) {
     $(".select2").select2();
+    $("form").submit(function(){
+      var temp1 = 0;
+      $('.parsley-error-list').each(function(){
+          temp1++;
+      });
+
+      if(temp1 > 0){
+        $('input[type="submit"]').hide();
+      }
+    });
+    
 
     $('input[type="checkbox"], input[type="radio"]').iCheck({
           checkboxClass: 'icheckbox_minimal-blue',

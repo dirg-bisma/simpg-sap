@@ -12,6 +12,11 @@
     <?php
       $gid = $this->session->userdata('gid');
       switch ($gid) {
+        case '7' :
+        ?>
+         <li><a href="<?php echo site_url('tsbh/upload');?>"><i class="fa fa-upload"></i> Upload SBH  </a></li> 
+        <?php
+        break;
         case '10':
           ?>
               <li><a href="<?php echo site_url('tsbh/upload');?>"><i class="fa fa-upload"></i> Upload SBH  </a></li> 
@@ -154,7 +159,7 @@ table = $('#gridv').DataTable({
 		{  "targets": [1,3,2,5],"width": "100px" },
 		{  "targets": [6],"width": "70px" }, 
 		{  "targets": [0],"width": "20px" },
-		{ className: "number", "targets": [ 14,30,39,40,41,43,44,45,46 ] },
+		{ className: "number", "targets": [ 13,14,16,17,18,28,29,30,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46 ] },
         {  "targets": [ -1 ], "orderable": false },
         ], 
 		"fixedColumns":  {

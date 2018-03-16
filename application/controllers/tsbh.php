@@ -281,7 +281,13 @@ class Tsbh extends SB_Controller
 
 	function uploadsend(){
 		 //var_dump($_FILES);die();
+		ini_set('memory_limit', '4048M');
 		 include APPPATH."/third_party/PHPExcel/IOFactory.php";
+
+		 $cacheMethod = PHPExcel_CachedObjectStorageFactory::cache_to_phpTemp;
+		 	$cacheSettings = array( 'memoryCacheSize' => '8MB');
+			PHPExcel_Settings::setCacheStorageMethod($cacheMethod, $cacheSettings); 
+
 		try {
 		$objPHPExcel = PHPExcel_IOFactory::load($_FILES['template_sbh']['tmp_name']);
 		} catch(ErrorException $e) {

@@ -90,7 +90,7 @@
 									</div>		
 				<div class="form-group col-md-4 " >
 									<label for="ipt" class=" control-label "> % Brix Ari  <span class="asterix"> * </span>  </label>									
-									  <input type='number' class='form-control input-sm' name='persen_brix_ari'  required /> 						
+									  <input type='number' class='form-control input-sm' name='persen_brix_ari' id='persen_brix_ari'  required /> 						
 								  </div> 					
 								  <div class="form-group col-md-4 " >
 									<label for="ipt" class=" control-label "> % Pol Ari  <span class="asterix"> * </span>  </label>									
@@ -162,7 +162,7 @@ function getDataSPTA(nospta){
 						$('#id_spta').val(dat.data.id);
 						$('#kategori').val(dat.data.kode_kat_lahan);
 						$('#no_spta').attr('readonly',true);
-						
+						$('#persen_brix_ari').focus();
 					}else{
 						
 							var al = dat.data.point_cek;

@@ -181,6 +181,7 @@ function getNoSPTA<?php echo $kode_meja_tebu;?>(e,nospta){
 						$('#no_transloading-<?php echo $kode_meja_tebu;?>').val(dat.data.no_trans);
 						$('#no_spta-<?php echo $kode_meja_tebu;?>').attr('readonly',true);
 						
+						$('#kondisi_tebu-<?php echo $kode_meja_tebu;?>').focus();
 					}else{
 						
 							var al = dat.data.ed;

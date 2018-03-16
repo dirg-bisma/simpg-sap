@@ -78,10 +78,10 @@ class Apitimbanganmodel extends SB_Model
 
     public function VByNoLori($no_lori)
     {
-        $query = $this->Query() . ' WHERE t_selektor.no_angkutan = "'.$no_lori.'"' .
-            'and t_spta.selektor_status = "1" and t_spta.timb_netto_status = "0"';
+        $query = $this->Query() . " WHERE t_selektor.no_angkutan = '$no_lori'
+        and t_spta.selektor_status = '1' and t_spta.timb_netto_status = '0' and t_spta.meja_tebu_status = '0'";
 
-        $results = $this->db->query($query)->result();
+        $results = $this->db->query($query)->row();
         return $results;
     }
 

@@ -9,10 +9,37 @@
             <div class="col-xs-12">
 			<ul class="nav nav-tabs" style="margin:10px 0;background:#dedede"> 
 		<li ><a href="<?php echo site_url('tsbh');?>"><i class="fa fa-download"></i> View & Download SBH </a></li>
-		<li class="active"><a href="<?php echo site_url('tsbh/upload');?>"><i class="fa fa-upload"></i> Upload SBH  </a></li>	
-		<li><a href="<?php echo site_url('tsbh/pengolahan');?>"><i class="fa fa-check-square"></i> Approve Pengolahan </a></li>
-		<li><a href="<?php echo site_url('tsbh/tanaman');?>"><i class="fa fa-check-circle"></i> Approve Tanaman </a></li>
-		<li><a href="<?php echo site_url('tsbh/aku');?>"><i class="fa fa-flag-checkered"></i> Approve AKU </a></li>
+		<?php
+      $gid = $this->session->userdata('gid');
+      switch ($gid) {
+        case '7' :
+        ?>
+         <li class="active"><a href="<?php echo site_url('tsbh/upload');?>"><i class="fa fa-upload"></i> Upload SBH  </a></li> 
+        <?php
+        break;
+        case '10':
+          ?>
+              <li class="active"><a href="<?php echo site_url('tsbh/upload');?>"><i class="fa fa-upload"></i> Upload SBH  </a></li> 
+              <li><a href="<?php echo site_url('tsbh/pengolahan');?>"><i class="fa fa-check-square"></i> Approve Pengolahan </a></li> 
+          <?php
+          break;
+        case '11':
+          ?>
+              
+              <li><a href="<?php echo site_url('tsbh/tanaman');?>"><i class="fa fa-check-circle"></i> Approve Tanaman </a></li>
+          <?php
+          break;
+        case '12':
+          ?>
+              
+              <li><a href="<?php echo site_url('tsbh/aku');?>"><i class="fa fa-flag-checkered"></i> Approve AKU </a></li>
+          <?php
+          break;
+      
+        
+        
+      }
+    ?>
 </ul>
               <div class="box box-danger">
               	<div class="box-header with-border">
