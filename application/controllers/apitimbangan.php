@@ -24,8 +24,8 @@ class Apitimbangan extends SB_Controller
 
     function login()
     {
-        $user = $this->input->post('username');
-        $pass = md5($this->input->post('password'));
+        $user = $this->GetPost('username');
+        $pass = md5($this->GetPost('password'));
 
         $result = $this->db->get_where('tb_users', array('username'=>$user, 'password' => $pass, 'group_id' => 8));
 
@@ -104,7 +104,7 @@ class Apitimbangan extends SB_Controller
     function simpandcs()
     {
         try{
-            $no_spat = $this->input->post('no_spat');
+            $no_spat = $this->GetPost('no_spat');
             $this->load->model('apitimbanganmodel');
 
             $id_spat = $this->apitimbanganmodel->VByNoSpat($no_spat);
@@ -115,31 +115,31 @@ class Apitimbangan extends SB_Controller
                     'id_spat' => $id_spat[0]->id,
                     'bruto' => "0",
                     'tara' => "0",
-                    'netto' => $this->input->post('netto'),
-                    'netto_final' => $this->input->post('netto'),
+                    'netto' => $this->GetPost('netto'),
+                    'netto_final' => $this->GetPost('netto'),
                     'tgl_netto' => date('Y-m-d H:i:s'),
                     'tgl_tara' => date('Y-m-d H:i:s'),
                     'tgl_bruto' => date('Y-m-d H:i:s'),
-                    'lokasi_timbang_1' => $this->input->post('kode_timbangan'),
-                    'lokasi_timbang_2' => $this->input->post('kode_timbangan'),
-                    'ptgs_timbang_1' => $this->input->post('ptgs_timbang'),
-                    'ptgs_timbang_2' => $this->input->post('ptgs_timbang'),
+                    'lokasi_timbang_1' => $this->GetPost('kode_timbangan'),
+                    'lokasi_timbang_2' => $this->GetPost('kode_timbangan'),
+                    'ptgs_timbang_1' => $this->GetPost('ptgs_timbang'),
+                    'ptgs_timbang_2' => $this->GetPost('ptgs_timbang'),
                 );
 
-                if($this->input->post('no_transloading') != "") {
+                if($this->GetPost('no_transloading') != "") {
                     $data += array(
-                        'transloading_status' => $this->input->post('transloading_status'),
-                        'no_transloading' => $this->input->post('no_transloading'),
-                        'ptgs_transloading' => $this->input->post('ptgs_timbang'),
+                        'transloading_status' => $this->GetPost('transloading_status'),
+                        'no_transloading' => $this->GetPost('no_transloading'),
+                        'ptgs_transloading' => $this->GetPost('ptgs_timbang'),
                         'tgl_transloading' => date('Y-m-d H:i:s'),
-                        'multi_sling' => $this->input->post('multi_sling'),
+                        'multi_sling' => $this->GetPost('multi_sling'),
                     );
                 }
 
                 $this->db->set($data);
                 $this->db->insert('t_timbangan');
                 $result = array(
-                    'msg' => $this->input->post('no_spat'),
+                    'msg' => $this->GetPost('no_spat'),
                     'status' => 'true'
                 );
                 echo json_encode($result);
@@ -163,7 +163,7 @@ class Apitimbangan extends SB_Controller
     function simpanbrutojembatan()
     {
         try{
-            $no_spat = $this->input->post('no_spat');
+            $no_spat = $this->GetPost('no_spat');
             $this->load->model('apitimbanganmodel');
 
             $id_spat = $this->apitimbanganmodel->VByNoSpat($no_spat);
@@ -173,16 +173,16 @@ class Apitimbangan extends SB_Controller
             if($cek_bruto){
                 $data = array(
                     'id_spat' => $id_spat[0]->id,
-                    'bruto' => $this->input->post('bruto'),
+                    'bruto' => $this->GetPost('bruto'),
                     'tgl_bruto' => date('Y-m-d H:i:s'),
-                    'lokasi_timbang_1' => $this->input->post('kode_timbangan'),
-                    'ptgs_timbang_1' => $this->input->post('ptgs_timbang'),
+                    'lokasi_timbang_1' => $this->GetPost('kode_timbangan'),
+                    'ptgs_timbang_1' => $this->GetPost('ptgs_timbang'),
                 );
 
                 $this->db->set($data);
                 $this->db->insert('t_timbangan');
                 $result = array(
-                    'msg' => $this->input->post('no_spat'),
+                    'msg' => $this->GetPost('no_spat'),
                     'status' => 'true'
                 );
                 echo json_encode($result);
@@ -206,27 +206,27 @@ class Apitimbangan extends SB_Controller
     function simpannettojembatan()
     {
         try{
-            $no_spat = $this->input->post('no_spat');
+            $no_spat = $this->GetPost('no_spat');
             $this->load->model('apitimbanganmodel');
             $id_spat = $this->apitimbanganmodel->VByNoSpat($no_spat);
             $status_nett = $this->apitimbanganmodel->cekStatusSpat($no_spat, 'timb_netto_status', 1);
 
             if($status_nett == 0){
                 $data_netto = array(
-                    'tara' => $this->input->post('tara'),
-                    'netto' => $this->input->post('netto'),
-                    'netto_final' => $this->input->post('netto'),
+                    'tara' => $this->GetPost('tara'),
+                    'netto' => $this->GetPost('netto'),
+                    'netto_final' => $this->GetPost('netto'),
                     'tgl_netto' => date('Y-m-d H:i:s'),
                     'tgl_tara' => date('Y-m-d H:i:s'),
-                    'lokasi_timbang_2' => $this->input->post('kode_timbangan'),
-                    'ptgs_timbang_2' => $this->input->post('ptgs_timbang'),
+                    'lokasi_timbang_2' => $this->GetPost('kode_timbangan'),
+                    'ptgs_timbang_2' => $this->GetPost('ptgs_timbang'),
                 );
 
-                if($this->input->post('no_transloading') != "") {
+                if($this->GetPost('no_transloading') != "") {
                     $data_netto += array(
-                        'transloading_status' => $this->input->post('transloading_status'),
-                        'no_transloading' => $this->input->post('no_transloading'),
-                        'ptgs_transloading' => $this->input->post('ptgs_timbang'),
+                        'transloading_status' => $this->GetPost('transloading_status'),
+                        'no_transloading' => $this->GetPost('no_transloading'),
+                        'ptgs_transloading' => $this->GetPost('ptgs_timbang'),
                         'tgl_transloading' => date('Y-m-d H:i:s'),
                     );
                 }
@@ -235,7 +235,7 @@ class Apitimbangan extends SB_Controller
                 $this->apitimbanganmodel->UpdateNetto($where, $data_netto);
 
                 $result = array(
-                    'msg' => $this->input->post('no_spat'),
+                    'msg' => $this->GetPost('no_spat'),
                     'status' => 'true'
                 );
                 echo json_encode($result);
@@ -260,7 +260,7 @@ class Apitimbangan extends SB_Controller
     function simpanlori()
     {
         try{
-            if($this->input->post('no_spat')){$no_spat =  $this->input->post('no_spat');}else{ $no_spat = $this->input->get('no_spat');}
+            $no_spat =  $this->GetPost('no_spat');
             $this->load->model('apitimbanganmodel');
             $id_spat = $this->apitimbanganmodel->VByNoSpat($no_spat);
 
@@ -268,14 +268,14 @@ class Apitimbangan extends SB_Controller
                 $status_nett = $this->apitimbanganmodel->cekStatusSpat($no_spat, 'timb_netto_status', 1);
 
 
-                if($this->input->post('bruto')){$bruto = $this->input->post('bruto'); }else{$bruto = $this->input->get('bruto');}
-                if($this->input->post('tara')){$tara = $this->input->post('tara'); }else{$tara = $this->input->get('tara');}
-                if($this->input->post('netto')){$netto = $this->input->post('netto'); }else{$netto = $this->input->get('netto');}
-                if($this->input->post('kode_timbangan')){$lokasi_timbang_1 = $this->input->post('kode_timbangan'); }else{$lokasi_timbang_1 = $this->input->get('kode_timbangan');}
-                if($this->input->post('ptgs_timbang')){$ptgs_timbang_1 = $this->input->post('ptgs_timbang'); }else{$ptgs_timbang_1 = $this->input->get('ptgs_timbang');}
-                if($this->input->post('no_lori')){$no_lori = $this->input->post('no_lori'); }else{$no_lori = $this->input->get('no_lori');}
-                if($this->input->post('train_stat')){$train_stat = $this->input->post('train_stat'); }else{$train_stat = $this->input->get('train_stat');}
-                if($this->input->post('no_loko')){$no_loko = $this->input->post('no_loko'); }else{$no_loko = $this->input->get('no_loko');}
+                $bruto = $this->GetPost('bruto');
+                $tara = $this->GetPost('tara');
+                $netto = $this->GetPost('netto');
+                $lokasi_timbang_1 = $this->GetPost('kode_timbangan');
+                $ptgs_timbang_1 = $this->GetPost('ptgs_timbang');
+                $no_lori = $this->GetPost('no_lori');
+                $train_stat = $this->GetPost('train_stat');
+                $no_loko = $this->GetPost('no_loko');
 
                 if($status_nett == 0){
                     $data = array(
@@ -324,7 +324,7 @@ class Apitimbangan extends SB_Controller
 
         }catch (Exception $ex){
             $result = array(
-                'msg' => $ex->getMessage(),
+                'msg' => $ex,
                 'status' => 'false'
             );
             echo json_encode($result);
@@ -343,26 +343,26 @@ class Apitimbangan extends SB_Controller
     {
         $this->load->model('apitimbanganmodel');
         $result = $this->apitimbanganmodel->NoLoko();
-            if(count($result) > 0){
-                foreach ($result[0] as $key => $value) {
-                    if (is_null($value)) {
-                        $result[0]->$key = "";
-                    }
+        if(count($result) > 0){
+            foreach ($result[0] as $key => $value) {
+                if (is_null($value)) {
+                    $result[0]->$key = "";
                 }
-                $output = array(
-                    'result' => $result,
-                    'count' => count($result),
-                    'msg' => 'success',
-                    'status' => 'true'
-                );
-            }else{
-                $output = array(
-                    'result' => [],
-                    'count' => count($result),
-                    'msg' => 'data not found',
-                    'status' => 'false'
-                );
             }
+            $output = array(
+                'result' => $result,
+                'count' => count($result),
+                'msg' => 'success',
+                'status' => 'true'
+            );
+        }else{
+            $output = array(
+                'result' => [],
+                'count' => count($result),
+                'msg' => 'data not found',
+                'status' => 'false'
+            );
+        }
         echo json_encode($output);
     }
 
@@ -393,5 +393,67 @@ class Apitimbangan extends SB_Controller
         }
 
         echo json_encode($output);
+    }
+
+    function simpantaralori()
+    {
+
+        $no_lori = $this->GetPost('no_lori');
+        $tara = $this->GetPost('tara');
+        $ptgs_timbang = $this->GetPost('ptgs_timbang');
+
+        if($no_lori !== "" && $tara !== "" && $ptgs_timbang !== ""){
+            $this->load->model('apitimbanganmodel');
+            $result = $this->apitimbanganmodel->TaraLori($no_lori);
+
+            try{
+                if(count($result) > 0){
+                    $where = array('nolori' => $no_lori);
+                    $this->db->where($where);
+                    $this->db->update('m_lori', array(
+                        'tara' => $tara,
+                        'usertara' => $ptgs_timbang,
+                        'taradate' => date('Y-m-d H:i:s')
+                    ));
+                }else{
+                    $this->db->set(array(
+                        'nolori' => $no_lori,
+                        'tara' => $tara,
+                        'usertara' => $ptgs_timbang,
+                        'taradate' => date('Y-m-d H:i:s')
+                    ));
+                    $this->db->insert('m_lori');
+                }
+                $result = array(
+                    'msg' => "Berhasil simpan data Lori : $no_lori Tara : $tara",
+                    'status' => 'false'
+                );
+                echo json_encode($result);
+            }catch (Exception $ex){
+                $result = array(
+                    'msg' => $ex,
+                    'status' => 'false'
+                );
+                echo json_encode($result);
+            }
+        }else{
+            $result = array(
+                'msg' => 'parameter tidak lengkap',
+                'status' => 'false'
+            );
+            echo json_encode($result);
+        }
+
+    }
+
+    private function GetPost($input){
+        if($this->input->get($input)){
+            $output = $this->input->get($input);
+        }elseif($this->input->post($input)){
+            $output = $this->input->post($input);
+        }else{
+            $output = "";
+        }
+        return $output;
     }
 }
