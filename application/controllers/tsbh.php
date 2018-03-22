@@ -7,6 +7,7 @@ class Tsbh extends SB_Controller
 	public $module 		= 'tsbh';
 	public $per_page	= '10';
 	public $idx			= '';
+	public $fltr 		= '';
 
 	function __construct() {
 		parent::__construct();
@@ -14,7 +15,7 @@ class Tsbh extends SB_Controller
 		$this->load->model('tsbhmodel');
 		$this->model = $this->tsbhmodel;
 		$idx = $this->model->primaryKey;
-		
+		$this->fltr = '';
 		$this->info = $this->model->makeInfo( $this->module);
 		$this->access = $this->model->validAccess($this->info['id']);	
 		$this->data = array_merge( $this->data, array(
@@ -71,9 +72,10 @@ class Tsbh extends SB_Controller
         	
             if(isset($_POST['search']['value']) && $_POST['search']['value'] != ''){
 				$term = $_POST['search']['value'];
-            	$filter .= " AND (no_spat like '%$term%' OR kode_kat_lahan like '%$term%' OR kode_blok  like '%$term%' OR kode_blok  like '%$term%' OR jenis_spta  like '%$term%')";
+            	$filter .= " AND (no_spat like '%$term%' OR kode_kat_lahan like '%$term%' OR kode_blok  like '%$term%' OR kode_blok  like '%$term%' OR jenis_spta  like '%$term%' OR deskripsi_blok  like '%$term%' OR nama_petani  like '%$term%')";
             }
         
+        $this->session->set_userdata(array('filt_sbh' => $filter));
 
 		$params = array(
 			'limit'		=> $_POST['start'],
@@ -239,6 +241,8 @@ class Tsbh extends SB_Controller
 		if($jns == 3){
 			$filter .= " AND sbh_status = 1";
 		} 
+
+		$filter .= $this->session->userdata('filt_sbh');
 		$params = array(
 			'limit'		=> 0,
 			'page'		=> 0,
@@ -302,11 +306,15 @@ try
 		$Spreadsheet -> ChangeSheet(0);
 		$totdata = 0;
 		if($Sheets[0] == 'SBH-TEMPLATE'){
-			//var_dump($Spreadsheet);
+			//var_dump($Spreadsheet);die();
+
 			foreach ($Spreadsheet as $Key => $Row)
 			{
+				
 				if($Key > 2){
+					if(trim($Row[1]) != ''){
 						$tempdataari = array(
+					
 					'id_ari'	 	=> trim($Row[1]), 
 					'id_spta' 		=> trim($Row[0]), 
 					'persen_brix_ari' 		=> trim($Row[34]), 
@@ -343,8 +351,11 @@ try
 			$this->db->where('id', trim($Row[0]));
 			$this->db->where('sbh_status < ', 2);
 			$this->db->update('t_spta', $tempspta);
-			$totdata++;
+			
+			
+			 $totdata++;
 					}
+				}
 				}
 
 				echo ($totdata)." Data SBH Berhasil Diupload Silahkan cek di Table Sebelum di approve !!";

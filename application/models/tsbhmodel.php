@@ -124,7 +124,7 @@ GROUP BY `a`.`id`) as ax WHERE 0=0
 		$query->free_result();
 
 		if($key =='' ) { $key ='*'; } else { $key = $table.".".$key ; }
-		$counter_select = "SELECT count(id) as total from t_spta  WHERE 0=0 {$params}";
+		$counter_select = "SELECT count(id) as total from vw_sbh_data  WHERE 0=0 {$params}";
 		//echo 	$counter_select; exit;
 		$query = $this->db->query( $counter_select );
 		$res = $query->result();
