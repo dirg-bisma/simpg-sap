@@ -71,6 +71,7 @@ class Apitimbangan extends SB_Controller
         echo json_encode($output);
     }
 
+
     function bynolori($no_lori)
     {
         $this->load->model('apitimbanganmodel');
