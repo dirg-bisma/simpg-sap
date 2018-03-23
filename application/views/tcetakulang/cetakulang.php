@@ -75,7 +75,7 @@
 							<tbody>
 							<tr >
 								<td style="text-align: left;"><span>Tgl SPTA&nbsp;</span></td>
-								<td style="text-align: left;"><span>:&nbsp;<?php echo SiteHelpers::daterpt($row->tgl_spta);?></span></td>
+								<td style="text-align: left;"><span>:&nbsp;<?php echo SiteHelpers::daterpt($row->tgl_spta).' <b><i>('.$row->txt_metode_tma.')</i></b>';?></span></td>
 							</tr>
 							<tr >
 								<td style="text-align: left;" width="40%"><span>No Petak&nbsp;</span></td>
@@ -122,10 +122,10 @@
 								if($row->metode_tma != 1){
 							?>
 							<tr>
-								<td style="padding:2px;width:30%">No. ST</td><td> </td>
+								<td style="padding:2px;width:30%">No. ST / No. CT</td><td> </td>
 							</tr>
 							<tr>
-								<td style="padding:2px;width:30%">Op. ST</td><td> </td>
+								<td style="padding:2px;width:30%">Op. ST / Op. CT</td><td> </td>
 							</tr>
 							<tr>
 								<td style="padding:2px;width:30%">No. GL</td><td> </td>
@@ -160,7 +160,7 @@
 							<tbody>
 							<tr >
 								<td style="text-align: left;"><span>Tgl SPTA&nbsp;</span></td>
-								<td style="text-align: left;"><span>:&nbsp;<?php echo SiteHelpers::daterpt($row->tgl_spta);?></span></td>
+								<td style="text-align: left;"><span>:&nbsp;<?php echo SiteHelpers::daterpt($row->tgl_spta).' <b><i>('.$row->txt_metode_tma.')</i></b>';?></span></td>
 							</tr>
 							<tr >
 								<td style="text-align: left;" width="40%"><span>No Petak&nbsp;</span></td>

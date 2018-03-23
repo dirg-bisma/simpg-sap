@@ -66,16 +66,16 @@
 								 	
 				<div class="form-group col-md-4 " >
 									<label for="ipt" class=" control-label "> % Brix  <span class="asterix"> * </span>  </label>									
-									  <input type='number' class='form-control input-sm' name='persen_brix_ari'  required /> 						
+									  <input type='number' class='form-control input-sm' name='persen_brix_ari' value="0" required /> 						
 								  </div> 					
 								  <div class="form-group col-md-4 " >
 									<label for="ipt" class=" control-label "> % Pol  <span class="asterix"> * </span>  </label>									
-									  <input type='number' class='form-control input-sm'  name='persen_pol_ari'  required /> 						
+									  <input type='number' class='form-control input-sm'  name='persen_pol_ari' value="0" required /> 						
 								  </div> 
 								  
 								  <div class="form-group col-md-4 " >
 									<label for="ipt" class=" control-label "> pH  <span class="asterix"> * </span>  </label>									
-									  <input type='number' class='form-control input-sm'  name='ph_ari' required /> 						
+									  <input type='number' value="0" class='form-control input-sm'  name='ph_ari' required /> 						
 								  </div>
 								
 

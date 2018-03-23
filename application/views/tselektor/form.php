@@ -159,11 +159,11 @@
 									  <input type='text' class='form-control input-sm' name='op_hv'   /> 						
 								  </div> 					
 								  <div class="form-group  " >
-									<label for="ipt" class=" control-label "> No S.tipping    </label>									
+									<label for="ipt" class=" control-label "> No S.tipping / No. NCT   </label>									
 									  <input type='text' class='form-control input-sm' name='no_stipping'   /> 						
 								  </div> 					
 								  <div class="form-group  " >
-									<label for="ipt" class=" control-label "> Op S.tipping    </label>									
+									<label for="ipt" class=" control-label "> Op S.tipping / Op. NCT   </label>									
 									  <input type='text' class='form-control input-sm' name='op_stipping'   /> 						
 								  </div> 					
 								  <div class="form-group  mekanisasi" >
