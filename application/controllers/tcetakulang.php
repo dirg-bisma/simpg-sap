@@ -238,7 +238,7 @@ LEFT JOIN sap_petani d ON d.`id_petani_sap`=c.`id_petani_sap` WHERE a.id='$id'")
 		foreach($a as $b){
 			$this->data['row'] =$b; 
 			$html .= $this->load->view('tcetakulang/cetakulang',$this->data, true);
-			if($i == 4){
+			if($i == 1){
 			$i=0;
 				$html .= '<div class="pagebreak"> </div>';
 			}
