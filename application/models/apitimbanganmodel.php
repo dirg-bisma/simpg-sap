@@ -204,7 +204,7 @@ class Apitimbanganmodel extends SB_Model
                   INNER JOIN sap_m_karyawan AS kkw 
                     ON aff1.Persno = kkw.Persno 
                   LEFT JOIN t_timbangan 
-                    ON t_spta.id = t_timbangan.id_spat ';
+                    ON t_spta.id = t_timbangan.id_spat  ';
         return $qry;
     }
 
