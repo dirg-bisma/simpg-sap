@@ -70,7 +70,7 @@ class Apitimbanganmodel extends SB_Model
 
     public function VByNoSpat($no_spat)
     {
-        $query = $this->Query() . ' WHERE t_spta.no_spat = "'.$no_spat.'"';
+        $query = $this->Query() . ' WHERE t_spta.no_spat = "'.$no_spat.'"   GROUP BY t_spta.id';
 
         $results = $this->db->query($query)->result();
         return $results;
@@ -79,7 +79,8 @@ class Apitimbanganmodel extends SB_Model
     public function VByNoLori($no_lori)
     {
         $query = $this->Query() . " WHERE t_selektor.no_angkutan = '$no_lori'
-        and t_spta.selektor_status = '1' and t_spta.timb_netto_status = '0' and t_spta.meja_tebu_status = '0'";
+        and t_spta.selektor_status = '1' and t_spta.timb_netto_status = '0' and t_spta.meja_tebu_status = '0'
+          GROUP BY t_spta.id";
 
         $results = $this->db->query($query)->row();
         return $results;
@@ -204,7 +205,7 @@ class Apitimbanganmodel extends SB_Model
                   INNER JOIN sap_m_karyawan AS kkw 
                     ON aff1.Persno = kkw.Persno 
                   LEFT JOIN t_timbangan 
-                    ON t_spta.id = t_timbangan.id_spat  ';
+                    ON t_spta.id = t_timbangan.id_spat ';
         return $qry;
     }
 
