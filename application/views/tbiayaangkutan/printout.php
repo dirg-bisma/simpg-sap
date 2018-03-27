@@ -132,7 +132,7 @@
 </td>
 
 <td align="center"  style="font-size:13px">
-<?php echo CNF_PG.', '.SiteHelpers::datereport(date('Y-m-d'));?><br />
+<?php echo CNF_PG.', '.SiteHelpers::datereport($row['tgl']);?><br />
 <b><?php echo $row['nama_vendor'];?></b><br />
 	<br />
 	<br />

@@ -11,7 +11,7 @@
 			</ul>
 		 <form action="<?php echo site_url('tbiayaangkutan/save/'.$row['id']); ?>" class='form-horizontal' 
 		 parsley-validate='true' novalidate='true' method="post" enctype="multipart/form-data" > 
-
+		 <input type="hidden" name="id" value="<?php echo $row['id'];?>" />
 
 <div class="col-md-12">
 <table style="width:100%">
@@ -20,31 +20,30 @@
 	<td style="width:150px"><input type='text' class='form-control input-sm' placeholder='' value='<?php echo $row['kode_tx'];?>' name='kode_tx'  required /></td>
 	<td style="width:20px">&nbsp;</td>
 	<td style="width:70px">Tanggal *</td>
-	<td style="width:150px"><input type='text' required class='form-control input-sm date' placeholder='' value='<?php echo $row['tgl'];?>' name='tgl'   /> </td>
+	<td style="width:150px"><input type='text' required class='form-control input-sm date' placeholder='' value='<?php echo $row['tgl'];?>' name='tgl'  /> </td>
 	<td style="width:20px">&nbsp;</td>
 	<td style="width:50px">Vendor *</td>
 	<td ><select name='vendor_id' rows='5' id='vendor_id' code='{$vendor_id}' 
 							class='form-control input-sm select2 ' style='width: 100%;' required  ></select> </td>
 	
-	
+	<td style="text-align: right;width:100px">Tgl Timbang</td>
+<td style="width:20px">&nbsp;</td>
+<td style="width:150px"><input type='text' class='form-control input-sm date' placeholder='' value='<?php echo $row['tgl_awal'];?>' name='tgl_awal' id='tgl_awal' required  /> </td>
+<td style="width:10px">&nbsp;s/d&nbsp;</td>
+<td style="width:150px"><input type='text' class='form-control input-sm date' placeholder='' value='<?php echo $row['tgl_akhir'];?>' name='tgl_akhir' id='tgl_akhir' required  /> </td>
 </tr>
 </table>
 <hr />
 <table><tr>
-<td >Periode Timbang</td>
-<td style="width:20px">&nbsp;</td>
-<td style="width:150px" colspan="3"><input type='text' class='form-control input-sm date' placeholder='' value='<?php echo $row['tgl_awal'];?>' name='tgl_awal' id='tgl_awal' required  /> </td>
-<td style="width:10px">&nbsp;s/d&nbsp;</td>
-<td style="width:150px"><input type='text' class='form-control input-sm date' placeholder='' value='<?php echo $row['tgl_akhir'];?>' name='tgl_akhir' id='tgl_akhir' required  /> </td>
-<td style="width:10px">&nbsp;</td>
-<td style="width:50px">&nbsp;<a href="javascript:getDetail()" class="btn btn-sm btn-danger" style="margin-top: -20px;"><i class="fa fa-search"></i> Cari</a></td>
+<td style="width:130px">Filter No SPTA </td>
+	<td style="width:250px"><input type='text' class='form-control input-sm' placeholder='Masukan no SPTA'  id='no_spta' onkeyup="getDetail(event,this.value)" autocomplete="off" /></td>
 </tr></table>
 <hr /><b>Rincian SPTA</b>
 <div class="table-responsive">
     <table class="table table-bordered display" id="gridv">
         <thead>
 			<tr>
-				<th> <input type="checkbox"  id="select-all" name="ss"/> </th>
+				<th>  </th>
 				<th> Timbang </th>
 				<th> SPTA </th>
 				<th> Kode Blok </th>
@@ -93,46 +92,107 @@
 			 
 <script type="text/javascript">
 $(document).ready(function() { 
-
+		$(".sidebar-toggle").trigger("click");
 		$("#vendor_id").jCombo("<?php echo site_url('tbiayaangkutan/comboselect?filter=m_vendor:id_vendor:nama_vendor') ?>",
 		{  selected_value : '<?php echo $row["vendor_id"] ?>' });
-		$('#select-all').on('ifChecked', function(){
-			$('input:checkbox').not(this).prop('checked', true);
-			pilihSPTA();
+
+		$('form input').on('keypress', function(e) {
+			return e.which !== 13;
 		});
-		$('#select-all').on('ifUnchecked', function(){
-			$('input:checkbox').not(this).prop('checked', false);
-			pilihSPTA();
-		});
+
+		if("<?php echo $row['id'];?>" != ''){
+			getDetailEdit('<?php echo $row['id'];?>');
+		}
 		
 		//$('input.number').number( true, 0 );
 });
 
-function getDetail(){
+
+function getDetailEdit(idx){
+	$.ajax({
+			 type: 'POST', 
+	        url: '<?php echo site_url('tbiayaangkutan/getDetailEdit');?>', 
+	        data: { id_angkutan:idx }, 
+	        dataType : 'json',
+	        success: function (data) {
+	        	if(data.msg != 0){
+	        		$('#bodytable').append(data.row);
+	        	}
+	        }
+	    });
+}
+
+
+function changebiaya(a){
+	var b = $("#tarif-"+a+" option:selected").attr("biaya");
+	var netto = $('#netto-'+a).val();
+	var jml = b*netto;
+	$('#tarif_n-'+a).val(b);
+	$('#jmlh-'+a).val(jml);
+	getTotal();
+}
+
+function remrow(inz){
+	$('#'+inz).remove();
+	getTotal();
+}
+
+
+function getTotal(){
+	var total = 0;
+	$('.jmlh').each(function(i, obj) {
+		total += ($(this).val()*1);
+	});
+
+	$('#total').val(total);
+}
+
+function getDetail(e,nospta){
+
+	nospta = nospta.toUpperCase();
+	
+	if(e.keyCode == 13){
 	var vendor = $('#vendor_id').val();
 	var tglawal = $('#tgl_awal').val();
 	var tglakhir = $('#tgl_akhir').val();
 	
-	$.ajax({
-		 type: 'POST', 
-        url: '<?php echo site_url('tbiayaangkutan/getDetail');?>', 
-        data: { vendor: vendor,tglawal:tglawal,tglakhir:tglakhir }, 
-        success: function (data) { 
-           $('#bodytable').html(data);
-        }
-	});
+		$.ajax({
+			 type: 'POST', 
+	        url: '<?php echo site_url('tbiayaangkutan/getDetail');?>', 
+	        data: { vendor: vendor,tglawal:tglawal,tglakhir:tglakhir,nospta:nospta }, 
+	        dataType : 'json',
+	        success: function (data) { 
+	        	if(data.msg == 1){
+	        		var temp = true;
+	        		$('.dataselect').each(function(i, obj) {
+							var x = $(this).val();
+							if(x== nospta){
+								temp = false;
+							}
+						
+					});
+
+	        		if(temp){
+	        			$('#bodytable').append(data.row);
+	        			$('#no_spta').val('');
+	        			getTotal();
+	        		}else{
+	        			alert('No SPTA '+nospta+' sudah ada dalam list ');
+	        		}
+
+	        	}else{
+	        		alert('No SPTA '+nospta+' Tidak ditemukan pada tanggal timbang '+tglawal+' s/d '+tglakhir);
+
+	        	}
+	           //$('#bodytable').append(data);
+	          // pilihSPTA();
+	        }
+		});
+	}
+
+
 }
 
-function pilihSPTA(){
-	var total = 0;
-	$('.dataselect').each(function(i, obj) {
-		if($(this).prop("checked")){
-			var x = $(this).val();
-			var y = x.split('||');
-			total += parseInt(y[3]);
-		}
-	});
-	$('#total').val(total);
-}
+
 
 </script>		 

@@ -257,6 +257,7 @@ WHERE e.angkutan_id=$id";
 			$this->data['row'] =  $row;
 		} else {
 			$this->data['row'] = $this->model->getColumnTable('t_angkutan'); 
+			$this->data['row']['tgl'] = date('Y-m-d');
 		}
 	
 		$this->data['id'] = $id;
@@ -277,18 +278,23 @@ WHERE e.angkutan_id=$id";
 			$data['tgl_act'] = date('Y-m-d H:i:s');
 			$data['user_act'] = $this->session->userdata('fid');
 			$ID = $this->model->insertRow($data , $this->input->get_post( 'id' , true ));
+
+			$this->db->query("DELETE FROM t_angkutan_detail where angkutan_id = '".$ID."'");
+			$this->db->query("UPDATE t_spta a SET a.`upah_angkut_status`=0,a.`upah_angkut_tgl` = NULL WHERE a.`upah_angkut_status`='".$ID."'");
 			
-			foreach($_POST['datakirim'] as $f){
-				$temp = explode('||',$f);
+			foreach($_POST['idspta'] as $f=>$r){
+				
 				$ar = array(
 				'angkutan_id'=>$ID,
-				'id_spta'=>$temp[0],
-				'netto'=>$temp[1],
-				'biaya'=>$temp[2],
-				'total'=>$temp[3]
+				'id_spta'=>$_POST['idspta'][$f],
+				'id_biaya'=>$_POST['tarif'][$f],
+				'netto'=>$_POST['netto'][$f],
+				'biaya'=>$_POST['tarif_n'][$f],
+				'total'=>$_POST['jmlh'][$f]
 				);
 				
 				$this->db->insert('t_angkutan_detail',$ar);
+				$this->db->query("UPDATE t_spta SET jarak_id = ".$_POST['tarif'][$f]." WHERE id=$r");
 			}
 			// Input logs
 			if( $this->input->get( 'id' , true ) =='')
@@ -297,6 +303,9 @@ WHERE e.angkutan_id=$id";
 			} else {
 				$this->inputLogs(" ID : $ID  , Has Been Changed Successfull");
 			}
+
+			$this->db->query("UPDATE t_spta a INNER JOIN t_angkutan_detail b ON a.`id`=b.`id_spta`
+SET a.`upah_angkut_status`=".$ID.",a.`upah_angkut_tgl` = NOW() WHERE b.`angkutan_id`='".$ID."'");
 			// Redirect after save	
 			$this->session->set_flashdata('message',SiteHelpers::alert('success'," Data has been saved succesfuly !"));
 			
@@ -312,38 +321,129 @@ WHERE e.angkutan_id=$id";
 			$this->displayError($data);
 		}
 	}
-	
-	function getDetail(){
-		$vendor = $_POST['vendor'];
-		$tglawal = $_POST['tglawal'];
-		$tglakhir = $_POST['tglakhir'];
-		
-		$sql = "SELECT a.id,a.no_spat,a.kode_blok,sf.`deskripsi_blok`,a.vendor_angkut,c.`no_angkutan`,DATE_FORMAT(a.timb_netto_tgl,'%d/%m/%Y Jam %H:%i') AS txt_tgl_timb,
+
+	function generateSelect($id){
+		$htm = '';
+		$d = $this->db->query("SELECT id_jarak,keterangan,biaya FROM `m_biaya_jarak` ORDER BY km_min")->result();
+		foreach ($d as $kp) {
+			if($kp->id_jarak == $id){
+			$htm .= '<option value="'.$kp->id_jarak.'" selected biaya="'.$kp->biaya.'">'.$kp->keterangan.'</option>';
+		}else{
+			$htm .= '<option value="'.$kp->id_jarak.'" biaya="'.$kp->biaya.'">'.$kp->keterangan.'</option>';
+		}
+		}
+
+		return $htm;
+	}
+
+
+	function getDetailEdit(){
+		$id_angkutan = $_POST['id_angkutan'];
+		$sql = "SELECT a.id,a.no_spat,a.kode_blok,sf.`deskripsi_blok`,a.vendor_angkut,c.`no_angkutan`,DATE_FORMAT(a.timb_netto_tgl,'%d/%m/%Y Jam %H:%i') AS txt_tgl_timb,d.id_jarak,
 a.timb_netto_tgl AS tgl_timbang,c.`no_angkutan`,b.`netto`,d.`keterangan`,d.`biaya` AS tarif,(d.`biaya`*b.`netto`) AS jumlah FROM t_spta a 
 INNER JOIN sap_field sf ON sf.`kode_blok`=a.kode_blok
 INNER JOIN t_selektor c ON c.`id_spta`=a.id
 INNER JOIN t_timbangan b ON a.id=b.`id_spat` 
 INNER JOIN m_biaya_jarak d ON d.`id_jarak`=a.jarak_id
-WHERE a.timb_netto_status = 1 AND a.upah_angkut_status = 0 AND a.angkut_pg=1 AND a.vendor_angkut=$vendor AND date(a.timb_netto_tgl) BETWEEN '$tglawal' AND '$tglakhir'";
+WHERE a.timb_netto_status = 1 AND a.upah_angkut_status = $id_angkutan";
 
 		$th = $this->db->query($sql)->result();
-		$htm = '';
+		$htm = array('msg'=>0);
+		$dt = '';
 		foreach($th as $tf){
-			$htm .= "<tr>
-				<td> <input type='checkbox' class='dataselect' onchange='pilihSPTA()' name='datakirim[]' value='".$tf->id.'||'.$tf->netto.'||'.$tf->tarif.'||'.$tf->jumlah."' /> </td>
-				<td> ".$tf->txt_tgl_timb." </td>
-				<td> ".$tf->no_spat." </td>
+			$dt .= "<tr id='".$tf->id."'>
+				<td><i class='fa fa-trash' onclick='remrow(".$tf->id.")'></i></td>
+				<td>  
+				<input type='hidden' name='idspta[]' id='idspta-".$tf->id."' value='".$tf->id."' />
+				<input type='hidden' name='netto[]' id='netto-".$tf->id."' value='".$tf->netto."' />
+				 ".$tf->txt_tgl_timb." </td>
+				<td><input type='text' readonly value='".$tf->no_spat."' class='dataselect' /> </td>
 				<td> ".$tf->kode_blok." </td>
 				<td> ".$tf->deskripsi_blok." </td>
 				<td> ".$tf->no_angkutan." </td>
 				<td class='number'> ".number_format($tf->netto,0)." </td>
-				<td> ".$tf->keterangan." </td>
-				<td class='number'> ".number_format($tf->tarif,0)." </td>
-				<td class='number'> ".number_format($tf->jumlah,0)." </td>
+				<td> <select style='width:100px;height:25px' onchange='changebiaya(".$tf->id.")' name='tarif[]' id='tarif-".$tf->id."' >".$this->generateSelect($tf->id_jarak)."</select> </td>
+				<td ><input type='text' class='form-control input-sm number' style='width:100px;height:25px'  readonly name='tarif_n[]' id='tarif_n-".$tf->id."' value='".$tf->tarif."' /></td>
+				<td ><input type='text' class='form-control input-sm number jmlh' readonly name='jmlh[]'  id='jmlh-".$tf->id."' value='".$tf->jumlah."' /></td>
 			  </tr>";
 		}
+
+		if($dt != ''){
+			$htm = array('msg'=>1,'nospta'=>'','row'=> $dt);
+		}
 		
-		echo $htm;
+		echo json_encode($htm);
+	}
+	
+	function getDetail(){
+		$vendor = $_POST['vendor'];
+		$tglawal = $_POST['tglawal'];
+		$tglakhir = $_POST['tglakhir'];
+		$nospta = $_POST['nospta'];
+		$wh = '';
+		if($nospta != ''){
+			$wh = "  AND a.no_spat='$nospta'";
+		}
+		
+		  $sql = "SELECT a.id,a.no_spat,a.kode_blok,sf.`deskripsi_blok`,a.vendor_angkut,c.`no_angkutan`,DATE_FORMAT(a.timb_netto_tgl,'%d/%m/%Y Jam %H:%i') AS txt_tgl_timb,d.id_jarak,
+a.timb_netto_tgl AS tgl_timbang,c.`no_angkutan`,b.`netto`,d.`keterangan`,d.`biaya` AS tarif,(d.`biaya`*b.`netto`) AS jumlah FROM t_spta a 
+INNER JOIN sap_field sf ON sf.`kode_blok`=a.kode_blok
+INNER JOIN t_selektor c ON c.`id_spta`=a.id
+INNER JOIN t_timbangan b ON a.id=b.`id_spat` 
+INNER JOIN m_biaya_jarak d ON d.`id_jarak`=a.jarak_id
+WHERE a.timb_netto_status = 1 AND a.upah_angkut_status = 0 AND a.angkut_pg=1 AND a.vendor_angkut=$vendor $wh AND date(a.timb_netto_tgl) BETWEEN '$tglawal' AND '$tglakhir'";
+
+		$th = $this->db->query($sql)->result();
+		$htm = array('msg'=>0);
+		$dt = '';
+
+		
+
+
+		foreach($th as $tf){
+
+			if($nospta != ''){
+
+			$htm = array('msg'=>1,'nospta'=>$nospta,'row'=>"<tr id='".$tf->id."'>
+				<td><i class='fa fa-trash' onclick='remrow(".$tf->id.")'></i></td>
+				<td>  
+				<input type='hidden' name='idspta[]' id='idspta-".$tf->id."' value='".$tf->id."' />
+				<input type='hidden' name='netto[]' id='netto-".$tf->id."' value='".$tf->netto."' />
+				 ".$tf->txt_tgl_timb." </td>
+				<td><input type='text' readonly value='".$tf->no_spat."' class='dataselect' /> </td>
+				<td> ".$tf->kode_blok." </td>
+				<td> ".$tf->deskripsi_blok." </td>
+				<td> ".$tf->no_angkutan." </td>
+				<td class='number'> ".number_format($tf->netto,0)." </td>
+				<td> <select style='width:100px;height:25px' onchange='changebiaya(".$tf->id.")' name='tarif[]' id='tarif-".$tf->id."' >".$this->generateSelect($tf->id_jarak)."</select> </td>
+				<td ><input type='text' class='form-control input-sm number' style='width:100px;height:25px'  readonly name='tarif_n[]' id='tarif_n-".$tf->id."' value='".$tf->tarif."' /></td>
+				<td ><input type='text' class='form-control input-sm number jmlh' readonly name='jmlh[]'  id='jmlh-".$tf->id."' value='".$tf->jumlah."' /></td>
+			  </tr>");
+		}else{
+			$dt .= "<tr id='".$tf->id."'>
+				<td><i class='fa fa-trash' onclick='remrow(".$tf->id.")'></i></td>
+				<td>  
+				<input type='hidden' name='idspta[]' id='idspta-".$tf->id."' value='".$tf->id."' />
+				<input type='hidden' name='netto[]' id='netto-".$tf->id."' value='".$tf->netto."' />
+				 ".$tf->txt_tgl_timb." </td>
+				<td><input type='text' readonly value='".$tf->no_spat."' class='dataselect' /> </td>
+				<td> ".$tf->kode_blok." </td>
+				<td> ".$tf->deskripsi_blok." </td>
+				<td> ".$tf->no_angkutan." </td>
+				<td class='number'> ".number_format($tf->netto,0)." </td>
+				<td> <select style='width:100px;height:25px' onchange='changebiaya(".$tf->id.")' name='tarif[]' id='tarif-".$tf->id."' >".$this->generateSelect($tf->id_jarak)."</select> </td>
+				<td ><input type='text' class='form-control input-sm number' style='width:100px;height:25px'  readonly name='tarif_n[]' id='tarif_n-".$tf->id."' value='".$tf->tarif."' /></td>
+				<td ><input type='text' class='form-control input-sm number jmlh' readonly name='jmlh[]'  id='jmlh-".$tf->id."' value='".$tf->jumlah."' /></td>
+			  </tr>";
+		}
+
+		}
+
+		if($dt != ''){
+			$htm = array('msg'=>1,'nospta'=>'','row'=> $dt);
+		}
+		
+		echo json_encode($htm);
 	}
 
 	function destroy()

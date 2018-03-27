@@ -1,7 +1,11 @@
+
 <aside class="main-sidebar">
         <!-- sidebar: style can be found in sidebar.less -->
         <section class="sidebar">
           <!-- Sidebar user panel -->
+          <?php
+ $mod = $this->uri->segment(1);
+?>
           <div class="user-panel">
             <div class="pull-left image">
               <img src="<?php echo base_url('logo.png');?>" id="imglogo" class="img-circle" style="height:40px" alt="User Image">
@@ -20,7 +24,8 @@
 
             <?php $sidebar = SiteHelpers::menus('sidebar');?>
 <?php foreach ($sidebar as $menu) : ?>
-   <li class="treeview">
+   <li class="treeview <?php if($menu['module'] == $mod) echo 'active';?>">
+   
     <a 
       <?php 
       if($menu['menu_type'] =='external') { 
@@ -49,7 +54,7 @@
     <?php if(count($menu['childs']) > 0) :?>
       <ul class="treeview-menu">
         <?php foreach ($menu['childs'] as $menu2) : ?>
-         <li>
+         <li class="<?php if($menu2['module'] == $mod) echo 'active';?>">
           <a 
             <?php 
             if($menu2['menu_type'] =='external') {  
@@ -240,3 +245,9 @@
         </section>
         <!-- /.sidebar -->
       </aside>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+      $( "li.active" ).parent("ul.treeview-menu").parent( "li.treeview" ).addClass("active" );
+  });
+</script>
