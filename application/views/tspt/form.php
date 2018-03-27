@@ -36,31 +36,31 @@
 								  </div> 					
 								  <div class="form-group col-md-4 " >
 									<label for="ipt" class=" control-label "> Tgl Analisa  <span class="asterix"> * </span>  </label>									
-									  <input type='text' class='form-control input-sm date' placeholder='' value='<?php echo $row['h_tglanalisa'];?>' name='h_tglanalisa'  required /> 						
+									  <input type='text' class='form-control input-sm date' placeholder='' value='<?php echo date('Y-m-d');?>' name='h_tglanalisa'  required /> 						
 								  </div> 					
 								  <div class="form-group  col-md-4" >
-									<label for="ipt" class=" control-label "> % Brix Analisa  <span class="asterix"> * </span>  </label>									
-									  <input type='text' class='form-control input-sm number' placeholder='' value='<?php echo $row['h_brix'];?>' name='h_brix'  required /> 						
+									<label for="ipt" class=" control-label "> % Brix Analisa  </label>									
+									  <input type='text' class='form-control input-sm number' placeholder='' value='0' name='h_brix'  required /> 						
 								  </div> 					
 								  <div class="form-group col-md-4 " >
-									<label for="ipt" class=" control-label "> % Pol Analisa  <span class="asterix"> * </span>  </label>									
-									  <input type='text' class='form-control input-sm number' placeholder='' value='<?php echo $row['h_pol'];?>' name='h_pol'  required /> 						
+									<label for="ipt" class=" control-label "> % Pol Analisa  	 </label>						
+									  <input type='text' class='form-control input-sm number' placeholder='' value='0' name='h_pol'  required /> 						
 								  </div> 					
 								  <div class="form-group col-md-4 " >
-									<label for="ipt" class=" control-label "> FK  <span class="asterix"> * </span>  </label>									
-									  <input type='text' class='form-control input-sm number' placeholder='' value='<?php echo $row['h_fk'];?>' name='h_fk'  required /> 						
+									<label for="ipt" class=" control-label "> FK   </label>									
+									  <input type='text' class='form-control input-sm number' placeholder='' value='0' name='h_fk'  required /> 						
 								  </div> 					
 								  <div class="form-group col-md-4 " >
-									<label for="ipt" class=" control-label "> KP  <span class="asterix"> * </span>  </label>									
-									  <input type='text' class='form-control input-sm number' placeholder='' value='<?php echo $row['h_kp'];?>' name='h_kp'  required /> 						
+									<label for="ipt" class=" control-label "> KP    </label>									
+									  <input type='text' class='form-control input-sm number' placeholder='' value='0' name='h_kp'  required /> 						
 								  </div> 					
 								  <div class="form-group col-md-4 " >
-									<label for="ipt" class=" control-label "> K.DT  <span class="asterix"> * </span>  </label>									
-									  <input type='text' class='form-control input-sm number' placeholder='' value='<?php echo $row['h_kdt'];?>' name='h_kdt'  required /> 						
+									<label for="ipt" class=" control-label "> K.DT   </label>									
+									  <input type='text' class='form-control input-sm number' placeholder='' value='0' name='h_kdt'  required /> 						
 								  </div> 					
 								  <div class="form-group col-md-4 " >
-									<label for="ipt" class=" control-label "> T-Score  <span class="asterix"> * </span>  </label>									
-									  <input type='text' class='form-control input-sm number' placeholder='' value='<?php echo $row['h_tscore'];?>' name='h_tscore'  required /> 						
+									<label for="ipt" class=" control-label "> T-Score   </label>									
+									  <input type='text' class='form-control input-sm number' placeholder='' value='0' name='h_tscore'  required /> 						
 								  </div> 					
 								  <div class="form-group col-md-4 " >
 									<label for="ipt" class=" control-label "> Brix Kebun  <span class="asterix"> * </span>  </label>									

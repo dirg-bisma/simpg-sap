@@ -43,11 +43,11 @@
 									</div>
 								  <div class="form-group col-md-4 " >
 									<label for="ipt" class=" control-label "> Brix  <span class="asterix"> * </span>  </label>									
-									  <input type='number' class='form-control input-sm' name='brix_sel'  required /> 						
+									  <input type='number' value="0" class='form-control input-sm' name='brix_sel'  required /> 						
 								  </div> 					
 								  <div class="form-group  col-md-4" >
 									<label for="ipt" class=" control-label "> Ph  <span class="asterix"> * </span>  </label>									
-									  <input type='number' class='form-control input-sm' name='ph_sel'  required /> 						
+									  <input type='number' value="0" class='form-control input-sm' name='ph_sel'  required /> 						
 								  </div> 					
 								 
 									<div class="form-group col-md-4 " >

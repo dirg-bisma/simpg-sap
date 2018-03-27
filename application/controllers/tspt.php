@@ -205,7 +205,7 @@ INNER JOIN `sap_m_karyawan` d ON d.`Persno`=c.`Persno` WHERE a.no_petak='$id'")-
 			$data['user_act'] =$this->session->userdata('fid');
 			$data['tgl_act'] =date('Y-m-d H:i:s');
 			$data['status'] =1;
-			$data['no_surat'] =$a->nosurat.'/QC/SPT/'.CNF_TAHUNGILING;
+			$data['no_surat'] =$a->nosurat.'/TMA/SPT/'.CNF_TAHUNGILING;
 
 			$ID = $this->model->insertRow($data , '');
 			// Input logs
