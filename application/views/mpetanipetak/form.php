@@ -20,67 +20,51 @@
 			<ul class="parsley-error-list">
 				<?php echo $this->session->flashdata('errors');?>
 			</ul>
-		 <form action="<?php echo site_url('mpetanipetak/save/'.$row['id_petani']); ?>" class='form-horizontal' 
+		 <form action="<?php echo site_url('mpetanipetak/save/'.$row['id_petani']); ?>" class='form-vertical' 
 		 parsley-validate='true' novalidate='true' method="post" enctype="multipart/form-data" > 
 
 
-<div class="col-md-12">
+<div class="col-md-4">
+									
+								  <div class="form-group hidethis " style="display:none;">
+									<label for="ipt" class=" control-label "> Id Petani    </label>									
+									  <input type='text' class='form-control input-sm' placeholder='' value='<?php echo $row['id_petani'];?>' name='id_petani'   /> 						
+								  </div> 					
+								  <div class="form-group  " >
+									<label for="ipt" class=" control-label "> Id Petani Sap  <span class="asterix"> * </span>  </label>									
+									  <input type='text' class='form-control input-sm' placeholder='' value='<?php echo $row['id_petani_sap'];?>' name='id_petani_sap'  required /> 						
+								  </div> 					
+								  <div class="form-group  " >
+									<label for="ipt" class=" control-label "> Nama Petani  <span class="asterix"> * </span>  </label>									
+									  <input type='text' class='form-control input-sm' placeholder='' value='<?php echo $row['nama_petani'];?>' name='nama_petani'  required /> 						
+								  </div> 					
+								  <div class="form-group  " >
+									<label for="ipt" class=" control-label "> No Ktp  <span class="asterix"> * </span>  </label>									
+									  <input type='text' class='form-control input-sm' placeholder='' value='<?php echo $row['no_ktp'];?>' name='no_ktp'  required /> 						
+								  </div> 
+			</div>
+			
+			<div class="col-md-4">
 									
 								  <div class="form-group  " >
-									<label for="Id Petani" class=" control-label col-md-4 text-left"> Id Petani </label>
-									<div class="col-md-8">
-									  <input type='text' class='form-control input-sm' placeholder='' value='<?php echo $row['id_petani'];?>' name='id_petani'   /> <br />
-									  <i> <small></small></i>
-									 </div> 
+									<label for="ipt" class=" control-label "> Alamat Petani  <span class="asterix"> * </span>  </label>									
+									  <input type='text' class='form-control input-sm' placeholder='' value='<?php echo $row['alamat_petani'];?>' name='alamat_petani'  required /> 						
 								  </div> 					
 								  <div class="form-group  " >
-									<label for="Id Petani Sap" class=" control-label col-md-4 text-left"> Id Petani Sap </label>
-									<div class="col-md-8">
-									  <input type='text' class='form-control input-sm' placeholder='' value='<?php echo $row['id_petani_sap'];?>' name='id_petani_sap'   /> <br />
-									  <i> <small></small></i>
-									 </div> 
+									<label for="ipt" class=" control-label "> Kota Petani  <span class="asterix"> * </span>  </label>									
+									  <input type='text' class='form-control input-sm' placeholder='' value='<?php echo $row['kota_petani'];?>' name='kota_petani'  required /> 						
+								  </div> 
+			</div>
+			
+			<div class="col-md-4">
+									
+								  <div class="form-group  " >
+									<label for="ipt" class=" control-label "> Reconciliation Account    </label>									
+									  <input type='text' class='form-control input-sm' placeholder='' value='<?php echo $row['reconciliation_account'];?>' name='reconciliation_account'   /> 						
 								  </div> 					
 								  <div class="form-group  " >
-									<label for="Nama Petani" class=" control-label col-md-4 text-left"> Nama Petani </label>
-									<div class="col-md-8">
-									  <input type='text' class='form-control input-sm' placeholder='' value='<?php echo $row['nama_petani'];?>' name='nama_petani'   /> <br />
-									  <i> <small></small></i>
-									 </div> 
-								  </div> 					
-								  <div class="form-group  " >
-									<label for="No Ktp" class=" control-label col-md-4 text-left"> No Ktp </label>
-									<div class="col-md-8">
-									  <input type='text' class='form-control input-sm' placeholder='' value='<?php echo $row['no_ktp'];?>' name='no_ktp'   /> <br />
-									  <i> <small></small></i>
-									 </div> 
-								  </div> 					
-								  <div class="form-group  " >
-									<label for="Alamat Petani" class=" control-label col-md-4 text-left"> Alamat Petani </label>
-									<div class="col-md-8">
-									  <input type='text' class='form-control input-sm' placeholder='' value='<?php echo $row['alamat_petani'];?>' name='alamat_petani'   /> <br />
-									  <i> <small></small></i>
-									 </div> 
-								  </div> 					
-								  <div class="form-group  " >
-									<label for="Kota Petani" class=" control-label col-md-4 text-left"> Kota Petani </label>
-									<div class="col-md-8">
-									  <input type='text' class='form-control input-sm' placeholder='' value='<?php echo $row['kota_petani'];?>' name='kota_petani'   /> <br />
-									  <i> <small></small></i>
-									 </div> 
-								  </div> 					
-								  <div class="form-group  " >
-									<label for="Reconciliation Account" class=" control-label col-md-4 text-left"> Reconciliation Account </label>
-									<div class="col-md-8">
-									  <input type='text' class='form-control input-sm' placeholder='' value='<?php echo $row['reconciliation_account'];?>' name='reconciliation_account'   /> <br />
-									  <i> <small></small></i>
-									 </div> 
-								  </div> 					
-								  <div class="form-group  " >
-									<label for="Region" class=" control-label col-md-4 text-left"> Region </label>
-									<div class="col-md-8">
-									  <input type='text' class='form-control input-sm' placeholder='' value='<?php echo $row['region'];?>' name='region'   /> <br />
-									  <i> <small></small></i>
-									 </div> 
+									<label for="ipt" class=" control-label "> Region    </label>									
+									  <input type='text' class='form-control input-sm' placeholder='' value='<?php echo $row['region'];?>' name='region'   /> 						
 								  </div> 
 			</div>
 			

@@ -106,7 +106,8 @@ class Mmasterfield extends SB_Controller
             if($this->access['is_edit'] ==1){
             	$btn .= '<a href='.site_url('mmasterfield/add/'.$dt->$idku).'  class="tips "  title="Edit"><i class="fa  fa-edit"></i>  </a> &nbsp;&nbsp;';
             }
-            if($this->access['is_remove'] ==1){
+            
+            if($this->access['is_remove'] ==4){
             	$btn .= '<a href="#" onclick="ConfirmDelete(\''.site_url('mmasterfield/destroy/').'\','.$dt->$idku.')"  class="tips "  title="Delete"><i class="fa  fa-trash"></i>  </a>';
             	
             }
@@ -182,10 +183,42 @@ class Mmasterfield extends SB_Controller
 			$this->data['row'] =  $row;
 		} else {
 			$this->data['row'] = $this->model->getColumnTable('sap_field'); 
+			$this->data['row']['kode_komoditas'] = 'TB';
+			$this->data['row']['company_code'] = CNF_COMPANYCODE;
+			$this->data['row']['kode_plant'] = CNF_PLANCODE;
+			$this->data['row']['tahun_tanam'] = CNF_TAHUNTANAM;
 		}
 	
 		$this->data['id'] = $id;
 		$this->data['content'] = $this->load->view('mmasterfield/form',$this->data, true );		
+	  	$this->load->view('layouts/main', $this->data );
+	
+	}
+
+
+
+	function addupload( $id = null ) 
+	{
+		if($id =='')
+			if($this->access['is_add'] ==0) redirect('dashboard',301);
+
+		if($id !='')
+			if($this->access['is_edit'] ==0) redirect('dashboard',301);	
+
+		$row = $this->model->getRow( $id );
+		if($row)
+		{
+			$this->data['row'] =  $row;
+		} else {
+			$this->data['row'] = $this->model->getColumnTable('sap_field'); 
+			$this->data['row']['kode_komoditas'] = 'TB';
+			$this->data['row']['company_code'] = CNF_COMPANYCODE;
+			$this->data['row']['kode_plant'] = CNF_PLANCODE;
+			$this->data['row']['tahun_tanam'] = CNF_TAHUNTANAM;
+		}
+	
+		$this->data['id'] = $id;
+		$this->data['content'] = $this->load->view('mmasterfield/formupload',$this->data, true );		
 	  	$this->load->view('layouts/main', $this->data );
 	
 	}
@@ -198,12 +231,15 @@ class Mmasterfield extends SB_Controller
 		if( $this->form_validation->run() )
 		{
 			$data = $this->validatePost();
-			$ID = $this->model->insertRow($data , $this->input->get_post( 'id_field' , true ));
+			//var_dump($data);die();
 			// Input logs
-			if( $this->input->get( 'id_field' , true ) =='')
+			if( $this->input->get_post( 'id_field' , true ) =='')
 			{
+			$ID = $this->model->insertRow($data , null);
 				$this->inputLogs("New Entry row with ID : $ID  , Has Been Save Successfull");
 			} else {
+
+			$ID = $this->model->insertRow($data , $this->input->get_post( 'kode_blok' , true ));
 				$this->inputLogs(" ID : $ID  , Has Been Changed Successfull");
 			}
 			// Redirect after save	

@@ -19,9 +19,14 @@
                   <div class="box-tools pull-right">
  	
 		<?php if($this->access['is_add'] ==1) : ?>
-		<a href="<?php echo site_url('mmasterfield/add') ?>" class="tips btn btn-xs btn-info"  title="<?php echo $this->lang->line('core.btn_new'); ?>">
-		<i class="fa fa-plus"></i>&nbsp;Upload Master Field </a>
+		<a href="<?php echo site_url('mmasterfield/addupload') ?>" class="tips btn btn-xs btn-info"  title="<?php echo $this->lang->line('core.btn_new'); ?>">
+		<i class="fa fa-upload"></i>&nbsp;Upload Master Field </a>
 		<?php endif;?>
+
+    <?php if($this->access['is_edit'] ==1) : ?>
+    <a href="<?php echo site_url('mmasterfield/add') ?>" class="tips btn btn-xs btn-danger"  title="<?php echo $this->lang->line('core.btn_new'); ?>">
+    <i class="fa fa-plus"></i>&nbsp;Tambah Master Field </a>
+    <?php endif;?>
                   </div>
                 </div>
 

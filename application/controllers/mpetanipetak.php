@@ -104,9 +104,9 @@ class Mpetanipetak extends SB_Controller
             	$btn .= '<a href='.site_url('mpetanipetak/show/'.$dt->$idku).'  class="tips "  title="view"><i class="fa  fa-search"></i>  </a> &nbsp;&nbsp;';
             }
             if($this->access['is_edit'] ==1){
-            	$btn .= '<a href='.site_url('mpetanipetak/add/'.$dt->$idku).'  class="tips "  title="Edit"><i class="fa  fa-edit"></i>  </a> &nbsp;&nbsp;';
+            	$btn .= '<a href='.site_url('mpetanipetak/addform/'.$dt->$idku).'  class="tips "  title="Edit"><i class="fa  fa-edit"></i>  </a> &nbsp;&nbsp;';
             }
-            if($this->access['is_remove'] ==1){
+            if($this->access['is_remove'] ==4){
             	$btn .= '<a href="#" onclick="ConfirmDelete(\''.site_url('mpetanipetak/destroy/').'\','.$dt->$idku.')"  class="tips "  title="Delete"><i class="fa  fa-trash"></i>  </a>';
             	
             }
@@ -167,6 +167,27 @@ class Mpetanipetak extends SB_Controller
 		$this->data['content'] =  $this->load->view('mpetanipetak/view', $this->data ,true);	  
 		$this->load->view('layouts/main',$this->data);
 	}
+
+
+	function addform($id = null){
+		if($id =='')
+			if($this->access['is_add'] ==0) redirect('dashboard',301);
+
+		if($id !='')
+			if($this->access['is_edit'] ==0) redirect('dashboard',301);	
+
+		$row = $this->model->getRow( $id );
+		if($row)
+		{
+			$this->data['row'] =  $row;
+		} else {
+			$this->data['row'] = $this->model->getColumnTable('sap_petani'); 
+		}
+	
+		$this->data['id'] = $id;
+		$this->data['content'] = $this->load->view('mpetanipetak/form',$this->data, true );		
+	  	$this->load->view('layouts/main', $this->data );
+	}
   
 	function add( $id = null ) 
 	{
@@ -212,19 +233,21 @@ INNER JOIN sap_m_petani b ON a.`id_petani_sap`=b.Customer
 		if( $this->form_validation->run() )
 		{
 			$data = $this->validatePost();
-			$ID = $this->model->insertRow($data , $this->input->get_post( 'id_petani' , true ));
 			// Input logs
 			if( $this->input->get( 'id_petani' , true ) =='')
 			{
+			$ID = $this->model->insertRow($data , $this->input->get_post( 'id_petani_sap' , true ));
 				$this->inputLogs("New Entry row with ID : $ID  , Has Been Save Successfull");
 			} else {
+
+			$ID = $this->model->insertRow($data , $this->input->get_post( 'id_petani_sap' , true ));
 				$this->inputLogs(" ID : $ID  , Has Been Changed Successfull");
 			}
 			// Redirect after save	
 			$this->session->set_flashdata('message',SiteHelpers::alert('success'," Data has been saved succesfuly !"));
 			if($this->input->post('apply'))
 			{
-				redirect( 'mpetanipetak/add/'.$ID,301);
+				redirect( 'mpetanipetak/addform/'.$ID,301);
 			} else {
 				redirect( 'mpetanipetak',301);
 			}			

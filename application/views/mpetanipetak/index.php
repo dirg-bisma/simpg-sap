@@ -22,6 +22,11 @@
 		<a href="<?php echo site_url('mpetanipetak/add') ?>" class="tips btn btn-xs btn-info"  title="<?php echo $this->lang->line('core.btn_new'); ?>">
 		<i class="fa fa-download"></i>&nbsp;Sync Data Petani Petak</a>
 		<?php endif;?>
+
+    <?php if($this->access['is_edit'] ==1) : ?>
+    <a href="<?php echo site_url('mpetanipetak/addform') ?>" class="tips btn btn-xs btn-danger"  title="<?php echo $this->lang->line('core.btn_new'); ?>">
+    <i class="fa fa-plus"></i>&nbsp;Tambah Petani</a>
+    <?php endif;?>
                   </div>
                 </div>
 

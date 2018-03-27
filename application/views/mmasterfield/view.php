@@ -20,8 +20,20 @@
 						<tbody>	
 					
 					<tr>
-						<td width='30%' class='label-view text-right'>Id Field</td>
-						<td><?php echo $row['id_field'] ;?> </td>
+						<td width='30%' class='label-view text-right'>AFD</td>
+						<td><?php echo $row['divisi'] ;?> </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Kategori</td>
+						<td><?php echo $row['kepemilikan'] ;?> </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Kode Blok</td>
+						<td><?php echo $row['kode_blok'] ;?> </td>
 						
 					</tr>
 				
@@ -40,18 +52,6 @@
 					<tr>
 						<td width='30%' class='label-view text-right'>Kode Plant</td>
 						<td><?php echo $row['kode_plant'] ;?> </td>
-						
-					</tr>
-				
-					<tr>
-						<td width='30%' class='label-view text-right'>Divisi</td>
-						<td><?php echo $row['divisi'] ;?> </td>
-						
-					</tr>
-				
-					<tr>
-						<td width='30%' class='label-view text-right'>Kode Blok</td>
-						<td><?php echo $row['kode_blok'] ;?> </td>
 						
 					</tr>
 				
@@ -140,20 +140,14 @@
 					</tr>
 				
 					<tr>
-						<td width='30%' class='label-view text-right'>Kepemilikan</td>
-						<td><?php echo $row['kepemilikan'] ;?> </td>
+						<td width='30%' class='label-view text-right'>Jenis Tanah</td>
+						<td><?php echo $row['jenis_tanah'] ;?> </td>
 						
 					</tr>
 				
 					<tr>
 						<td width='30%' class='label-view text-right'>Id Petani Sap</td>
 						<td><?php echo $row['id_petani_sap'] ;?> </td>
-						
-					</tr>
-				
-					<tr>
-						<td width='30%' class='label-view text-right'>Jenis Tanah</td>
-						<td><?php echo $row['jenis_tanah'] ;?> </td>
 						
 					</tr>
 				
@@ -176,7 +170,7 @@
 					</tr>
 				
 					<tr>
-						<td width='30%' class='label-view text-right'>Kode Varietas</td>
+						<td width='30%' class='label-view text-right'>Varietas</td>
 						<td><?php echo $row['kode_varietas'] ;?> </td>
 						
 					</tr>
@@ -200,14 +194,14 @@
 					</tr>
 				
 					<tr>
-						<td width='30%' class='label-view text-right'>Jml Batang Juring</td>
-						<td><?php echo $row['jml_batang_juring'] ;?> </td>
+						<td width='30%' class='label-view text-right'>Jml Juring Ha</td>
+						<td><?php echo $row['jml_juring_ha'] ;?> </td>
 						
 					</tr>
 				
 					<tr>
-						<td width='30%' class='label-view text-right'>Jml Juring Ha</td>
-						<td><?php echo $row['jml_juring_ha'] ;?> </td>
+						<td width='30%' class='label-view text-right'>Jml Batang Juring</td>
+						<td><?php echo $row['jml_batang_juring'] ;?> </td>
 						
 					</tr>
 				
