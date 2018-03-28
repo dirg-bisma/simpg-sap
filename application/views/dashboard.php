@@ -179,9 +179,9 @@
       <thead>
       <tr>
       <th rowspan="3" style="border-bottom: 1px solid red;background: black;color: red;text-align: center;">JAM</th>
-      <th colspan="6" style="background: #36a65a36;padding: 3px;text-align: center">SELEKTOR</th>
-      <th colspan="6" style="background: #3bc0f038;padding: 3px;text-align: center">TIMBANG</th>
-      <th colspan="6" style="background: #dd4b393d;padding: 3px;text-align: center">GILING</th>
+      <th colspan="6" style="background: #36a65a36;padding: 3px;text-align: center">SELEKTOR (UNIT)</th>
+      <th colspan="6" style="background: #3bc0f038;padding: 3px;text-align: center">TIMBANG (TON)</th>
+      <th colspan="6" style="background: #dd4b393d;padding: 3px;text-align: center">GILING (TON)</th>
       </tr>
       <tr>
       <th colspan="3" style="background: #36a65a36;padding: 3px;text-align: center">YL</th>
