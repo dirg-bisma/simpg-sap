@@ -44,9 +44,25 @@ class apimaterialmodel extends SB_Model
         return $result->result();
     }
 
+    public function getTTransaksi($no_transaski)
+    {
+        $sql = "SELECT * FROM t_transaksi_material AS a WHERE a.`no_transaksi` LIKE '%$no_transaski%'";
+
+        $result = $this->db->query($sql);
+        return $result->result();
+    }
+
+    public function getTTransaksiByNo($no_transaski)
+    {
+        $sql = "SELECT * FROM t_transaksi_material AS a WHERE a.`no_transaksi` = '$no_transaski'";
+
+        $result = $this->db->query($sql);
+        return $result->row();
+    }
+
     public function getTmaterialTransaksi($no_transaski, $tgl_1, $tgl_2)
     {
-        $sql = "SELECT a.* FROM t_material AS a WHERE a.`no_transaksi` LIKE '%$no_transaski%'
+        $sql = "SELECT a.* FROM t_timbang_material AS a WHERE a.`no_transaksi` LIKE '%$no_transaski%'
                 AND (DATE(tgl_timbang_1) BETWEEN '$tgl_1' AND '$tgl_2')";
 
         $result = $this->db->query($sql);
@@ -55,7 +71,15 @@ class apimaterialmodel extends SB_Model
 
     public function getTmaterialTiket($no_tiket)
     {
-        $sql = "SELECT a.* FROM t_material AS a WHERE a.`no_tiket` LIKE '%$no_tiket%'";
+        $sql = "SELECT a.* FROM t_timbang_material AS a WHERE a.`no_tiket` = '$no_tiket'";
+
+        $result = $this->db->query($sql);
+        return $result->result();
+    }
+
+    public function searchTmaterialTiket($no_tiket)
+    {
+        $sql = "SELECT a.* FROM t_timbang_material AS a WHERE a.`no_tiket` LIKE '%$no_tiket%'";
 
         $result = $this->db->query($sql);
         return $result->result();
@@ -63,7 +87,7 @@ class apimaterialmodel extends SB_Model
 
     public function getTmaterialMaterial($search_material)
     {
-        $sql = "SELECT a.* FROM t_material AS a WHERE a.`kode_material` LIKE '%$search_material%' OR a.nama_material LIKE '%$search_material%'";
+        $sql = "SELECT a.* FROM t_timbang_material AS a WHERE a.`kode_material` LIKE '%$search_material%' OR a.nama_material LIKE '%$search_material%'";
 
         $result = $this->db->query($sql);
         return $result->result();
@@ -71,7 +95,7 @@ class apimaterialmodel extends SB_Model
 
     public function getTmaterialRelasi($search_relasi)
     {
-        $sql = "SELECT a.* FROM t_material AS a WHERE a.`kode_relasi` LIKE '%$search_relasi%' OR a.nama_relasi LIKE '%$search_relasi%'";
+        $sql = "SELECT a.* FROM t_timbang_material AS a WHERE a.`kode_relasi` LIKE '%$search_relasi%' OR a.nama_relasi LIKE '%$search_relasi%'";
 
         $result = $this->db->query($sql);
         return $result->result();

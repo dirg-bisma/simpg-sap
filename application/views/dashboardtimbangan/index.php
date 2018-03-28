@@ -29,6 +29,8 @@
                 <th>No Kend.</th>
                 <th>Tgl Selektor</th>
                 <th>Bruto</th>
+                <th>Tgl Bruto</th>
+                <th>Waktu Tunggu</th>
             </tr>
             </thead>
             <tfoot>
@@ -38,6 +40,8 @@
                 <th>No Kend.</th>
                 <th>Tgl Selektor</th>
                 <th>Bruto</th>
+                <th>Tgl Bruto</th>
+                <th>Waktu Tunggu</th>
             </tr>
             </tfoot>
         </table>
@@ -53,7 +57,9 @@
                 { "data": "no_spat" },
                 { "data": "no_angkutan" },
                 { "data": "tgl_selektor" },
-                { "data": "bruto" }
+                { "data": "bruto" },
+                { "data": "timb_bruto_tgl" },
+                { "data": "waktu_tunggu" }
             ]
         } );
 

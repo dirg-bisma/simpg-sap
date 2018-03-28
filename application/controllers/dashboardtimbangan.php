@@ -33,7 +33,16 @@ class Dashboardtimbangan extends CI_Controller
             $output = array('data' => []);
         }
 
-
         echo json_encode($output);
+    }
+
+    function indexlori()
+    {
+        $this->load->view('dashboardtimbangan/indexlori');
+    }
+
+    function formcetaklori()
+    {
+        $this->load->view('dashboardtimbangan/formcetaklori');
     }
 }
