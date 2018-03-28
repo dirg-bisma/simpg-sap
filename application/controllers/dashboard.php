@@ -90,18 +90,18 @@ GROUP BY DATE_FORMAT(meja_tebu_tgl,'%H')) AS ylgillori ON ylgillori.jam=jm.jam
  			<td style="text-align:center">'.$rw->struk.'</td>
  			<td style="text-align:center">'.$rw->slori.'</td>
  			<td style="text-align:center">'.($rw->struk+$rw->slori).'</td>
- 			<td style="text-align:center">'.number_format($rw->yltimtruk/1000,3).'</td>
- 			<td style="text-align:center">'.number_format($rw->yltimlori/1000,3).'</td>
- 			<td style="text-align:center">'.number_format(($rw->yltimlori+$rw->yltimtruk)/1000,3).'</td>
- 			<td style="text-align:center">'.number_format($rw->timtruk/1000,3).'</td>
- 			<td style="text-align:center">'.number_format($rw->timlori/1000,3).'</td>
- 			<td style="text-align:center">'.number_format(($rw->timlori+$rw->timtruk)/1000,3).'</td>
- 			<td style="text-align:center">'.number_format($rw->ylgiltruk/1000,3).'</td>
- 			<td style="text-align:center">'.number_format($rw->ylgillori/1000,3).'</td>
- 			<td style="text-align:center">'.number_format(($rw->ylgillori+$rw->ylgiltruk)/1000,3).'</td>
- 			<td style="text-align:center">'.number_format($rw->giltruk/1000,3).'</td>
- 			<td style="text-align:center">'.number_format($rw->gillori/1000,3).'</td>
- 			<td style="text-align:center">'.number_format(($rw->giltruk+$rw->gillori)/1000,3).'</td></tr>';
+ 			<td style="text-align:center">'.number_format($rw->yltimtruk/1000,2).'</td>
+ 			<td style="text-align:center">'.number_format($rw->yltimlori/1000,2).'</td>
+ 			<td style="text-align:center">'.number_format(($rw->yltimlori+$rw->yltimtruk)/1000,2).'</td>
+ 			<td style="text-align:center">'.number_format($rw->timtruk/1000,2).'</td>
+ 			<td style="text-align:center">'.number_format($rw->timlori/1000,2).'</td>
+ 			<td style="text-align:center">'.number_format(($rw->timlori+$rw->timtruk)/1000,2).'</td>
+ 			<td style="text-align:center">'.number_format($rw->ylgiltruk/1000,2).'</td>
+ 			<td style="text-align:center">'.number_format($rw->ylgillori/1000,2).'</td>
+ 			<td style="text-align:center">'.number_format(($rw->ylgillori+$rw->ylgiltruk)/1000,2).'</td>
+ 			<td style="text-align:center">'.number_format($rw->giltruk/1000,2).'</td>
+ 			<td style="text-align:center">'.number_format($rw->gillori/1000,2).'</td>
+ 			<td style="text-align:center">'.number_format(($rw->giltruk+$rw->gillori)/1000,2).'</td></tr>';
  		}
 
  		echo $htm;
