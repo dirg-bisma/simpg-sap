@@ -220,72 +220,13 @@
       <th style="background: #dd4b393d;padding: 3px;text-align: center">LORI</th>
       <th style="background: #dd4b393d;padding: 3px;text-align: center">TOTAL</th>
       </tr>
+
       </thead>
-      </table>
-      <!--table class="table" style="padding: 3px;margin: 3px;width: 100%;">
-      <thead>
-
-            <tr>
-            <th  style="text-align: center;" colspan="2">JAM</th>
-        <?php
-          $sql = $this->db->query("SHOW COLUMNS FROM t_lap_jam WHERE FIELD LIKE 'j%'")->result();
-          foreach ($sql as $k) {
-            ?>
-              <th style="text-align: center;"><?php echo strtoupper(substr($k->Field,1).':00');?></th>
-           
-            <?php
-          }
-        ?>
-        <th style="text-align: center;">TOTAL</th>
-         </tr>
-<thead><tr class="tableizer-firstrow"><th>HI</th>
-<th>TRUK</th>
-<?php
-          $sql = $this->db->query("SHOW COLUMNS FROM t_lap_jam WHERE FIELD LIKE 'j%'")->result();
-          foreach ($sql as $k) {
-            ?>
-              <th style="text-align: right;">0</th>
-           
-            <?php
-          }
-        ?>
-        <th style="text-align: right;">-</th>
-</tr>
- <tr><td>&nbsp;</td><td>LORI</td>
-<?php
-          $sql = $this->db->query("SHOW COLUMNS FROM t_lap_jam WHERE FIELD LIKE 'j%'")->result();
-          foreach ($sql as $k) {
-            ?>
-              <th style="text-align: right;">0</th>
-           
-            <?php
-          }
-        ?>
-        <th style="text-align: right;">-</th>
- </tr>
- <tr><td>&nbsp;</td><td>SELETOR TOTAL</td></tr>
- <tr><td>YL</td><td>TRUK</td></tr>
- <tr><td>&nbsp;</td><td>LORI</td></tr>
- <tr><td>&nbsp;</td><td>SELEKTOR TOTAL</td></tr>
-
- <tr class="tableizer-firstrow"><th>HI</th><th>TRUK</th></tr>
- <tr><td>&nbsp;</td><td>LORI</td></tr>
- <tr><td>&nbsp;</td><td>TIMBANG TOTAL</td></tr>
- <tr><td>YL</td><td>TRUK</td></tr>
- <tr><td>&nbsp;</td><td>LORI</td></tr>
- <tr><td>&nbsp;</td><td>TIMBANG TOTAL</td></tr>
-
- <tr class="tableizer-firstrow"><th>HI</th><th>TRUK</th></tr>
- <tr><td>&nbsp;</td><td>LORI</td></tr>
- <tr><td>&nbsp;</td><td>GILING TOTAL</td></tr>
- <tr><td>YL</td><td>TRUK</td></tr>
- <tr><td>&nbsp;</td><td>LORI</td></tr>
- <tr><td>&nbsp;</td><td>GILING TOTAL</td></tr>
-</tbody>
+      <tbody id="dataText">
         
-
-      </thead>
-      </table-->
+      </tbody>
+      </table>
+      
     </div>
   </div>
 </div>
@@ -299,6 +240,21 @@ var table;
 $(document).ready(function(){
 	$("#mejatebu").jCombo("<?php echo site_url('mmejatebu/comboselect?filter=vw_master_mejatebu:id:kode|nama') ?>",
 		{  selected_value : '<?php echo $this->session->userdata('gilingan');?>', initial_text : ' - Aktifkan Gilingan -' });
+
+  getdata();
+  setInterval(getdata, 60000);
 });
+
+
+function getdata(){
+  $.ajax({
+       type: 'POST', 
+          url: '<?php echo site_url('dashboard/getDashGiling');?>', 
+          dataType : 'html',
+          success: function (data) { 
+            $("#dataText").html(data);
+          }
+        });
+}
 </script>
 	  
