@@ -328,6 +328,10 @@
 					?>
 					<a href="<?php echo site_url('tupahtebang/validasi/'.$id);?>" class="btn btn-sm btn-info"> <i class="fa fa-check	"></i> Validasi </a>
 					<?php
+				}else{
+					?>
+					<a href="<?php echo site_url('tupahtebang/downloadexcel/'.$id);?>" class="btn btn-sm btn-info"> <i class="fa fa-download"></i> Download Excel </a>
+					<?php
 				}
 				?>
 

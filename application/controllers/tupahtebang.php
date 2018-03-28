@@ -225,9 +225,6 @@ INNER JOIN t_selektor c ON c.`id_spta`=b.`id` WHERE a.id_upah_tebang=$id")->resu
 	}
 
 	function downloadexcel($id){
-
-		
-
 		$this->data['coldefadd'] = $this->db->query("select kodekolom,nama_pekerjaan_tma,satuan from m_pekerjaan_tma where status_pekerjaan=1 and jenis=1 order by id_pekerjaan_tma asc")->result();
 		$this->data['coldefrem'] = $this->db->query("select kodekolom,nama_pekerjaan_tma,satuan from m_pekerjaan_tma where status_pekerjaan=1 and jenis=2 order by id_pekerjaan_tma asc")->result();
 		$this->data['colnondefadd'] = $this->db->query("select kodekolom,nama_pekerjaan_tma,satuan from m_pekerjaan_tma where status_pekerjaan=0 and jenis=1 order by id_pekerjaan_tma asc")->result();

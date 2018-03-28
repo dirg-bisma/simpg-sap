@@ -197,7 +197,7 @@ class Mpetanipetak extends SB_Controller
 		if($id !='')
 			if($this->access['is_edit'] ==0) redirect('dashboard',301);	
 
-		//ambil data petani di petak
+		//ambil data petani di petak 
 		$dsn1 = 'mysqli://root:master123456@10.20.1.13/simpg_master';
 		$this->db1 = $this->load->database($dsn1, true);
 		$ax = $this->db1->query("SELECT b.Customer,nama,external_bp,Street,City,recon_att,b.DGroup FROM sap_field a
