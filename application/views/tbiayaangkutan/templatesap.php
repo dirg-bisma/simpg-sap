@@ -1,3 +1,10 @@
+<!--
+test view untuk excel nya
+ -->
+<?php
+
+?>
+
 <style type="text/css">
 	table.tableizer-table {
 		font-size: 12px;
@@ -15,8 +22,67 @@
 		font-weight: bold;
 	}
 </style>
+
+
 <table class="tableizer-table">
 <thead>
+<tr class="tableizer-firstrow">
+<th>Custom Field</th>
+<th>BKPF-BUKRS
+Type: C(04)</th>
+<th>BKPF-BLDAT
+Type: C(08)</th>
+<th>BKPF-BUDAT
+Type: C(08)</th>
+<th>BKPF-GJAHR
+Type: C(04)</th>
+<th>BKPF-MONAT
+Type: C(04)</th>
+<th>BKPF-BLART
+Type: C(02)</th>
+<th>BKPF-BKTXT
+Type: C(25)</th>
+<th>BSEG-BUZEI
+Type: C(03)</th>
+<th>BKPF-WAERS
+Type: C(03)</th>
+<th>BSEG-WRBTR
+Type: C(13)</th>
+<th>BSEG-HKONT
+Type: C(08)</th>
+<th>BSEG-KUNNR
+Type: C(08)</th>
+<th>BSEG-LIFNR
+Type: C(08)</th>
+<th>BSEG-UMSKZ
+Type: C(08)</th>
+<th>BSEG-MWSKZ
+Type: C(02)</th>
+<th>BSEG-VALUT
+Type: C(08)</th>
+<th>BSEG-ZUONR
+Type: C(18)</th>
+<th>BSEG-SGTXT
+Type: C(50)</th>
+<th>BSEG-PRCTR
+Type: C(10)</th>
+<th>BSEG-KOSTL
+Type: C(10)</th>
+<th>BSEG-FISTL
+Type: C(10)</th>
+<th>BSEG-FIPOS
+Type: C(08)</th>
+<th>BSEG-PROJK
+Type: C(99)</th>
+<th>BSEG-ANLN1
+Type: C(99)</th>
+<th>BSEG-ZTERM
+Type: C(04)</th>
+<th>BSEG-ZFBDT
+Type: C(08)</th>
+<th>BSEG-ZLSCH
+Type: C(08)</th>
+</tr>
 <tr class="tableizer-firstrow">
 <th>Sequence No</th>
 <th>Company Code</th>
@@ -47,26 +113,32 @@
 <th>Baseline Date</th>
 <th>Payment Method</th></tr></thead>
 <tbody>
- <tr>
- <td>1</td>
- <td>N011</td>
- <td>20170131</td>
- <td>20170131</td>
- <td>2017</td>
+<?php
+$no=0;
+foreach ($rows as $jurnal) {
+	$no++;
+	if($jurnal->jenis_spta == 'TRUK'){
+		?>
+		<tr>
+ <td><?php echo $no;?></td>
+ <td><?php echo CNF_COMPANYCODE;?></td>
+ <td><?php echo ($jurnal->documentdate);?></td>
+ <td><?php echo ($jurnal->documentdate);?></td>
+ <td><?php echo CNF_TAHUNGILING;?></td>
  <td>1</td>
  <td>ZT</td>
- <td>KODE PETAK</td>
+ <td><?php echo $jurnal->kode_blok;?></td>
  <td>1</td>
  <td>IDR</td>
- <td>8000000</td>
+ <td><?php echo $jurnal->total;?></td>
  <td>&nbsp;</td>
- <td>15000000</td>
- <td>&nbsp;</td>
+ <td><?php echo $jurnal->id_petani_sap;?></td>
+ <td><?php echo $jurnal->kode_vendor;?></td>
  <td>0</td>
  <td>&nbsp;</td>
  <td>&nbsp;</td>
- <td>Upah Tebang</td>
- <td>Upah Tebang</td>
+ <td>Upah Angkutan Truk </td>
+ <td>Upah Angkutan Truk <?php echo $jurnal->kepemilikan;?> Petak No <?php echo $jurnal->kode_blok;?></td>
  <td>&nbsp;</td>
  <td>&nbsp;</td>
  <td>&nbsp;</td>
@@ -78,25 +150,25 @@
  <td>&nbsp;</td>
  </tr>
  <tr>
- <td>1</td>
- <td>N011</td>
- <td>20170131</td>
- <td>20170131</td>
- <td>2017</td>
+ <td><?php echo $no;?></td>
+ <td><?php echo CNF_COMPANYCODE;?></td>
+ <td><?php echo ($jurnal->documentdate);?></td>
+ <td><?php echo ($jurnal->documentdate);?></td>
+ <td><?php echo CNF_TAHUNGILING;?></td>
  <td>1</td>
  <td>ZT</td>
- <td>KODE PETAK</td>
+ <td><?php echo $jurnal->kode_blok;?></td>
  <td>2</td>
  <td>IDR</td>
- <td>-8000000</td>
+ <td><?php echo $jurnal->total*-1;?></td>
  <td>21030116</td>
  <td>&nbsp;</td>
  <td>&nbsp;</td>
  <td>&nbsp;</td>
  <td>&nbsp;</td>
  <td>&nbsp;</td>
- <td>Upah Tebang</td>
- <td>Upah Tebang</td>
+ <td>Upah Angkutan Truk</td>
+ <td>Upah Angkutan Truk <?php echo $jurnal->kepemilikan;?> Petak No <?php echo $jurnal->kode_blok;?></td>
  <td>N11KP05000</td>
  <td>&nbsp;</td>
  <td>&nbsp;</td>
@@ -106,4 +178,77 @@
  <td>&nbsp;</td>
  <td>&nbsp;</td>
  <td></td></tr>
+		<?php
+	}else{
+
+		//lori
+		?>
+		<tr>
+ <td><?php echo $no;?></td>
+ <td><?php echo CNF_COMPANYCODE;?></td>
+ <td><?php echo ($jurnal->documentdate);?></td>
+ <td><?php echo ($jurnal->documentdate);?></td>
+ <td><?php echo CNF_TAHUNGILING;?></td>
+ <td>1</td>
+ <td>ZT</td>
+ <td><?php echo $jurnal->kode_blok;?></td>
+ <td>1</td>
+ <td>IDR</td>
+ <td><?php echo $jurnal->total;?></td>
+ <td>&nbsp;</td>
+ <td><?php echo $jurnal->id_petani_sap;?></td>
+ <td><?php echo $jurnal->kode_vendor;?></td>
+ <td>0</td>
+ <td>&nbsp;</td>
+ <td>&nbsp;</td>
+ <td>Upah Angkutan Lori</td>
+ <td>Upah Angkutan Lori <?php echo $jurnal->kepemilikan;?> Petak No <?php echo $jurnal->kode_blok;?></td>
+ <td>&nbsp;</td>
+ <td>&nbsp;</td>
+ <td>&nbsp;</td>
+ <td>&nbsp;</td>
+ <td>&nbsp;</td>
+ <td>&nbsp;</td>
+ <td>ZT01</td>
+ <td>20150623</td>
+ <td>&nbsp;</td>
+ </tr>
+ <tr>
+ <td><?php echo $no;?></td>
+ <td><?php echo CNF_COMPANYCODE;?></td>
+ <td><?php echo ($jurnal->documentdate);?></td>
+ <td><?php echo ($jurnal->documentdate);?></td>
+ <td><?php echo CNF_TAHUNGILING;?></td>
+ <td>1</td>
+ <td>ZT</td>
+ <td><?php echo $jurnal->kode_blok;?></td>
+ <td>2</td>
+ <td>IDR</td>
+ <td><?php echo $jurnal->total;?></td>
+ <td>51100674</td>
+ <td>&nbsp;</td>
+ <td>&nbsp;</td>
+ <td>&nbsp;</td>
+ <td>&nbsp;</td>
+ <td>&nbsp;</td>
+ <td>Upah Angkutan Lori</td>
+ <td>Upah Angkutan Lori <?php echo $jurnal->kepemilikan;?> Petak No <?php echo $jurnal->kode_blok;?></td>
+ <td>N11KP05000</td>
+ <td>&nbsp;</td>
+ <td>&nbsp;</td>
+ <td>&nbsp;</td>
+ <td>&nbsp;</td>
+ <td>&nbsp;</td>
+ <td>&nbsp;</td>
+ <td>&nbsp;</td>
+ <td></td></tr>
+		
+		<?php
+	}
+	
+}
+?>
+ 
+
+ 
 </tbody></table>

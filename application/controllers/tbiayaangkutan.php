@@ -242,6 +242,26 @@ WHERE e.angkutan_id=$id";
 		$this->data['content'] =  $this->load->view('tbiayaangkutan/view', $this->data ,true);	  
 		$this->load->view('layouts/main',$this->data);
 	}
+
+
+	function downloadexcel($id){
+		$sql = "SELECT a.id,DATE_FORMAT(a.tgl,'%Y%m%d') AS documentdate,c.`jenis_spta`,c.`kode_blok`,SUM(b.`total`) AS total,d.`kode_vendor`,c.`id_petani_sap`,c.kode_kat_lahan as kepemilikan
+FROM t_angkutan a 
+INNER JOIN t_angkutan_detail b ON a.`id`=b.`angkutan_id`
+INNER JOIN t_spta c ON c.`id`=b.`id_spta` 
+INNER JOIN m_vendor d ON d.`id_vendor`=c.`vendor_angkut` WHERE a.id=$id
+GROUP BY a.`id`,c.`jenis_spta`,c.`kode_blok`";
+		$this->data['rows'] = $this->db->query($sql)->result();
+
+
+		$files = 'UA-'.date('YmdHis');
+		header("Content-Type: application/xls");    
+		header("Content-Disposition: attachment; filename=$files.xls");  
+		header("Pragma: no-cache"); 
+		header("Expires: 0");
+
+		echo $this->load->view('tbiayaangkutan/templatesap', $this->data ,true);
+	}
   
 	function add( $id = null ) 
 	{
