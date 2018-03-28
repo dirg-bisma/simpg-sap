@@ -126,9 +126,9 @@
 						{
 							$nm = $kol1->kodekolom;
 							if($kol1->satuan == 1){
-								$add += ($d->$nm*$d->netto);
-								$arradd[$nm][] = $d->$nm*$d->netto;
-							echo '<td style="text-align:right">'.number_format($d->$nm*$d->netto,2).'</td>';
+								$add += ($d->$nm*1);
+								$arradd[$nm][] = $d->$nm*1;
+							echo '<td style="text-align:right">'.number_format($d->$nm*1,2).'</td>';
 							}else{
 								$add += ($d->$nm);
 								$arradd[$nm][] = $d->$nm;
@@ -144,16 +144,16 @@
 						{
 							$nm = $kol1->kodekolom;
 							if($kol1->satuan == 1){
-								$rem += ($d->$nm*$d->netto);
-								$arrrem[$nm][] = $d->$nm*$d->netto;
-							echo '<td style="text-align:right">'.number_format($d->$nm*$d->netto,2).'</td>';
+								$rem += ($d->$nm*1);
+								$arrrem[$nm][] = $d->$nm*1;
+							echo '<td style="text-align:right">'.number_format($d->$nm*1,2).'</td>';
 							}else{
 								$rem += ($d->$nm);
 								$arrrem[$nm][] = $d->$nm;
 							echo '<td style="text-align:right">'.number_format($d->$nm,2).'</td>';
 							}
-							//$rem += ($d->$nm*$d->netto);
-							//$arrrem[$nm][] = $d->$nm*$d->netto;
+							//$rem += ($d->$nm*1);
+							//$arrrem[$nm][] = $d->$nm*1;
 						}
 						
 						$jbersih += ($add-$rem);
@@ -199,35 +199,37 @@
 					</tr>
 				</tfoot>
 				</table>
+
 				
 				<hr />
+				
+				
 				<div style="width:50%;float: left;">
 				<table style="width:100%">
 					<?php
 					$tambahantotal = 0;
 					foreach($detailx as $d){ 
-						echo '';
+						//echo 'r';
 					foreach($colnondefadd as $kol1)
 						{
 							$nm = $kol1->kodekolom;
 							$ttl = 0;
 							echo '<tr><td style="text-align:left">'.$kol1->nama_pekerjaan_tma.'</td>';
 						if($kol1->satuan == 2){
-							echo '<td style="text-align:left"> : '.number_format($no,2).' Truk/Lori</td>';
+							//echo '<td style="text-align:left"> : '.number_format($no,2).' Truk/Lori</td>';
 						}else{
-							echo '<td style="text-align:left"> : '.number_format($jnetto,2).' Kg</td>';
+							//echo '<td style="text-align:left"> : '.number_format($jnetto,2).' Kg</td>';
 						}
-							echo '<td style="text-align:center"> x </td>
-							<td style="text-align:right">'.number_format($d->$nm,2).'</td>
+							echo '<td style="text-align:center">  </td>
 							<td style="text-align:center"> = </td>';
 						if($kol1->satuan == 1){
-							echo '<td style="text-align:right"> '.number_format($jnetto*($d->$nm),2).' </td>
+							echo '<td style="text-align:right"> '.number_format(($d->$nm),2).' </td>
 							</tr>';
-							$tambahantotal += $jnetto*($d->$nm);
+							$tambahantotal += ($d->$nm);
 						}else{
-							echo '<td style="text-align:right"> '.number_format($no*($d->$nm),2).' </td>
+							echo '<td style="text-align:right"> '.number_format(($d->$nm),2).' </td>
 							</tr>';
-							$tambahantotal += $no*($d->$nm);
+							$tambahantotal += ($d->$nm);
 						}
 							
 						}
@@ -236,7 +238,7 @@
 					
 					?>
 					<tr style="border-top:1px solid black">
-					<td colspan="5"> JUMLAH TAMBAHAN <hr /></td>
+					<td colspan="3"> JUMLAH TAMBAHAN <hr /></td>
 					<td style="text-align:right"><?php echo number_format($tambahantotal,2);?><hr /></td>
 				</table>
 				
@@ -251,21 +253,21 @@
 							$ttl = 0;
 							echo '<tr><td style="text-align:left">'.$kol1->nama_pekerjaan_tma.'</td>';
 						if($kol1->satuan == 2){
-							echo '<td style="text-align:left"> : '.number_format($no,2).' Truk/Lori</td>';
+							//echo '<td style="text-align:left"> : '.number_format($no,2).' Truk/Lori</td>';
 						}else{
-							echo '<td style="text-align:left"> : '.number_format($jnetto,2).' Kg</td>';
+							//echo '<td style="text-align:left"> : '.number_format($jnetto,2).' Kg</td>';
 						}
-							echo '<td style="text-align:center"> x </td>
-							<td style="text-align:right">'.number_format($d->$nm,2).'</td>
+							echo '<td style="text-align:center">  </td>
+							
 							<td style="text-align:center"> = </td>';
 						if($kol1->satuan == 1){
-							echo '<td style="text-align:right"> '.number_format($jnetto*($d->$nm),2).' </td>
+							echo '<td style="text-align:right"> '.number_format(($d->$nm),2).' </td>
 							</tr>';
-							$kurangtotal += $jnetto*($d->$nm);
+							$kurangtotal += ($d->$nm);
 						}else{
-							echo '<td style="text-align:right"> '.number_format($no*($d->$nm),2).' </td>
+							echo '<td style="text-align:right"> '.number_format(($d->$nm),2).' </td>
 							</tr>';
-							$kurangtotal += $no*($d->$nm);
+							$kurangtotal += ($d->$nm);
 						}
 							
 						}
@@ -273,11 +275,11 @@
 					}
 					?>
 					<tr style="border-top:1px solid black">
-					<td colspan="5"> JUMLAH PENGURANGAN <hr /></td>
+					<td colspan="3"> JUMLAH PENGURANGAN <hr /></td>
 					<td style="text-align:right"><?php echo number_format($kurangtotal,2);?><hr /></td>
 
 					<tr style="font-size:15px;font-weight:bold">
-					<td colspan="5" style="border-top:1px solid black;"> TOTAL </td>
+					<td colspan="3" style="border-top:1px solid black;"> TOTAL </td>
 					<td style="text-align:right;border-top:1px solid black;"><?php echo number_format($jbersih+$tambahantotal-$kurangtotal,2);?></td>
 				</table>
 				</div>
@@ -331,7 +333,12 @@
 
 	</div>
 </div>
+
+
+
 </section>
+
+
 
 
 	  

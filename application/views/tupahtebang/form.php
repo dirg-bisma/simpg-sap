@@ -283,7 +283,12 @@ $(document).ready(function() {
 				foreach($t as $tb){
 					
 					$nmkol = $tb->kodekolom;
-					$ardet[] = '<input class=\'inlinecs number '.$tb->kodekolom.'\' name=\''.$tb->kodekolom.'[]\' type=\'text\' value=\''.$key->$nmkol.'\' >';
+					if($tb->satuan == 1){
+						$ardet[] = '<input class=\'inlinecs number '.$tb->kodekolom.'\' name=\''.$tb->kodekolom.'[]\' type=\'text\' value=\''.$key->$nmkol/$key->netto.'\' >';
+					}else{
+						$ardet[] = '<input class=\'inlinecs number '.$tb->kodekolom.'\' name=\''.$tb->kodekolom.'[]\' type=\'text\' value=\''.$key->$nmkol.'\' >';
+					}
+					
 				}
 				?>
 				dataset.push(<?php echo $key->id_spta;?>);

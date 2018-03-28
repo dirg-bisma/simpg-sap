@@ -209,7 +209,9 @@ class Tupahtebang extends SB_Controller
 INNER JOIN t_spta b ON a.`id_spta`=b.`id`
 INNER JOIN t_selektor c ON c.`id_spta`=b.`id` WHERE a.id_upah_tebang=$id")->result();
 
-			$this->data['detailx'] = $this->db->query("SELECT a.* FROM `t_upah_tebang_detail` a WHERE a.id_upah_tebang=$id GROUP BY a.`id_upah_tebang`")->result();
+			$this->data['detailx'] = $this->db->query(" SELECT id_upah_tebang,SUM(k1) AS k1,SUM(k2) AS k2,SUM(k3) AS k3,SUM(k4) AS k4,SUM(k5) AS k5,SUM(k6) AS k6,
+ SUM(k7) AS k7,SUM(k8) AS k8,SUM(k9) AS k9,SUM(k10) AS k10,SUM(k11) AS k11,SUM(k12) AS k12,SUM(k13) AS k13,SUM(k14) AS k14,
+ SUM(k15) AS k15,SUM(k16) AS k16,SUM(k17) AS k17,SUM(k18) AS k18,SUM(k19) AS k19,SUM(k20) AS k20 FROM `t_upah_tebang_detail` a WHERE a.id_upah_tebang=$id GROUP BY a.`id_upah_tebang`")->result();
 		} 
 		
 		$this->data['id'] = $id;
@@ -220,6 +222,30 @@ INNER JOIN t_selektor c ON c.`id_spta`=b.`id` WHERE a.id_upah_tebang=$id")->resu
 
 	function printoutrekap(){
 		
+	}
+
+	function downloadexcel($id){
+
+		
+
+		$this->data['coldefadd'] = $this->db->query("select kodekolom,nama_pekerjaan_tma,satuan from m_pekerjaan_tma where status_pekerjaan=1 and jenis=1 order by id_pekerjaan_tma asc")->result();
+		$this->data['coldefrem'] = $this->db->query("select kodekolom,nama_pekerjaan_tma,satuan from m_pekerjaan_tma where status_pekerjaan=1 and jenis=2 order by id_pekerjaan_tma asc")->result();
+		$this->data['colnondefadd'] = $this->db->query("select kodekolom,nama_pekerjaan_tma,satuan from m_pekerjaan_tma where status_pekerjaan=0 and jenis=1 order by id_pekerjaan_tma asc")->result();
+		$this->data['colnondefrem'] = $this->db->query("select kodekolom,nama_pekerjaan_tma,satuan from m_pekerjaan_tma where status_pekerjaan=0 and jenis=2 order by id_pekerjaan_tma asc")->result();
+
+		$rx = $this->data['jurnal'] = $this->db->query("SELECT a.id,a.no_bukti,c.`company_code`,DATE_FORMAT(a.tgl,'%Y%m%d') AS documentdate,DATE_FORMAT(a.tgl,'%Y%m%d') AS postingdate,
+YEAR(NOW()) AS fiscalyear,1 AS fiscalperiod,'ZT' AS documenttype,c.`kode_blok`,c.`kepemilikan`,c.`id_petani_sap`,SUM(k1) AS k1,SUM(k2) AS k2,SUM(k3) AS k3,SUM(k4) AS k4,SUM(k5) AS k5,SUM(k6) AS k6,
+ SUM(k7) AS k7,SUM(k8) AS k8,SUM(k9) AS k9,SUM(k10) AS k10,SUM(k11) AS k11,SUM(k12) AS k12,SUM(k13) AS k13,SUM(k14) AS k14,
+ SUM(k15) AS k15,SUM(k16) AS k16,SUM(k17) AS k17,SUM(k18) AS k18,SUM(k19) AS k19,SUM(k20) AS k20  FROM  t_upah_tebang a 
+INNER JOIN sap_field c ON c.`kode_blok`=a.`kode_blok`
+inner join t_upah_tebang_detail as d on d.id_upah_tebang = a.id  WHERE a.id=$id group by a.id")->row();
+
+		$files = $rx->no_bukti.''.$rx->kode_blok;
+		header("Content-Type: application/xls");    
+header("Content-Disposition: attachment; filename=$files.xls");  
+header("Pragma: no-cache"); 
+header("Expires: 0");
+		echo $this->load->view('tupahtebang/templatesap', $this->data ,true);
 	}
 
 	function show( $id = null) 
@@ -242,14 +268,21 @@ INNER JOIN t_selektor c ON c.`id_spta`=b.`id` WHERE a.id_upah_tebang=$id")->resu
 INNER JOIN t_spta b ON a.`id_spta`=b.`id`
 INNER JOIN t_selektor c ON c.`id_spta`=b.`id` WHERE a.id_upah_tebang=$id")->result();
 
-			$this->data['detailx'] = $this->db->query("SELECT a.* FROM `t_upah_tebang_detail` a WHERE a.id_upah_tebang=$id GROUP BY a.`id_upah_tebang`")->result();
+			$this->data['detailx'] = $this->db->query(" SELECT id_upah_tebang,SUM(k1) AS k1,SUM(k2) AS k2,SUM(k3) AS k3,SUM(k4) AS k4,SUM(k5) AS k5,SUM(k6) AS k6,
+ SUM(k7) AS k7,SUM(k8) AS k8,SUM(k9) AS k9,SUM(k10) AS k10,SUM(k11) AS k11,SUM(k12) AS k12,SUM(k13) AS k13,SUM(k14) AS k14,
+ SUM(k15) AS k15,SUM(k16) AS k16,SUM(k17) AS k17,SUM(k18) AS k18,SUM(k19) AS k19,SUM(k20) AS k20 FROM `t_upah_tebang_detail` a WHERE a.id_upah_tebang=$id GROUP BY a.`id_upah_tebang`")->result();
+
+			
+
 		} else {
 			
 			$this->data['row'] = $this->model->getColumnTable('t_upah_tebang'); 
 		}
 		
 		$this->data['id'] = $id;
-		$this->data['content'] =  $this->load->view('tupahtebang/view', $this->data ,true);	  
+		//
+		$this->data['content'] =  $this->load->view('tupahtebang/view', $this->data ,true);
+		//$this->data['content'] =  $this->load->view('tupahtebang/templatesap', $this->data ,true);	  
 		$this->load->view('layouts/main',$this->data);
 	}
   
@@ -283,6 +316,8 @@ INNER JOIN t_upah_tebang_detail d ON d.`id_spta`=a.`id` WHERE d.id_upah_tebang=$
 	  	$this->load->view('layouts/main', $this->data );
 	
 	}
+
+
 	
 	function save() {
 		//var_dump($_POST);die();
@@ -312,9 +347,16 @@ INNER JOIN t_upah_tebang_detail d ON d.`id_spta`=a.`id` WHERE d.id_upah_tebang=$
 				);
 				
 				foreach($t as $re){
-					$arr = array(
+					if($re->satuan == 1){
+						$arr = array(
+					$re->kodekolom => $_POST[$re->kodekolom][$in]*$_POST['netto'][$in]
+					);
+					}else{
+						$arr = array(
 					$re->kodekolom => $_POST[$re->kodekolom][$in]
 					);
+					}
+					
 					$ax = array_merge($ax,$arr);
 				}
 				$this->db->insert( 't_upah_tebang_detail',$ax);

@@ -13,6 +13,12 @@ class SiteHelpers
 	$tgl = explode('-',$tgl);
 	return $tgl[2].' '.$bln[$tgl[1]].' '.$tgl[0];
   }
+
+  public static function tglsap($tgl){
+  		
+	$tgl = explode('-',$tgl);
+	return $tgl[0].$tgl[1].$tgl[2];
+  }
   
 public static function datereport($tgl){
 	$bln = array('01'=>'Januari','02'=>'Febuari','03'=>'Maret','04'=>'April','05'=>'Mei','06'=>'Juni','07'=>'Juli','08'=>'Agustus','09'=>'September','10'=>'Oktober','11'=>'November','12'=>'Desember');

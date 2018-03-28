@@ -198,9 +198,11 @@ class Mpetanipetak extends SB_Controller
 			if($this->access['is_edit'] ==0) redirect('dashboard',301);	
 
 		//ambil data petani di petak
-		$ax = $this->db->query("SELECT b.Customer,nama,external_bp,Street,City,recon_att,b.Group FROM sap_field a
+		$dsn1 = 'mysqli://root:master123456@10.20.1.13/simpg_master';
+		$this->db1 = $this->load->database($dsn1, true);
+		$ax = $this->db1->query("SELECT b.Customer,nama,external_bp,Street,City,recon_att,b.DGroup FROM sap_field a
 INNER JOIN sap_m_petani b ON a.`id_petani_sap`=b.Customer
- WHERE id_petani_sap != '' GROUP BY id_petani_sap")->result();
+ WHERE id_petani_sap != '' AND a.kode_plant='".CNF_PLANCODE."' GROUP BY id_petani_sap")->result();
 		$totdata = 0;
 		foreach($ax as $ab){
 			$tempdata = array(
@@ -210,7 +212,7 @@ INNER JOIN sap_m_petani b ON a.`id_petani_sap`=b.Customer
 				'alamat_petani' => $ab->Street,
 				'kota_petani' => $ab->City,
 				'reconciliation_account' => $ab->recon_att,
-				'region' => $ab->Group
+				'region' => $ab->DGroup
 			);
 			$ID = $this->model->insertRowUpdate($tempdata , $ab->Customer);
 			$totdata++;
