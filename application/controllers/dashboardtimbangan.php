@@ -58,8 +58,8 @@ class Dashboardtimbangan extends CI_Controller
         $data['lori'] = $result;
         $data['no_trainstat'] = $no_trainstat;
         $data['no_loko'] = $no_loko;
-        var_dump($data);
-       // $this->load->view('dashboardtimbangan/printlori', $data);
+       // var_dump($data);
+        $this->load->view('dashboardtimbangan/printlori', $data);
     }
 
     function datalori()
