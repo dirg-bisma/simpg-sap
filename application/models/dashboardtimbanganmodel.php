@@ -53,7 +53,7 @@ class Dashboardtimbanganmodel extends CI_Model
     public function DataCetakLori($trainstat, $noloko)
     {
         $qry = $this->QryDataCetakTimbang() . " AND b.jenis_spta = 'LORI' 
-        AND a.no_trainstat = '$trainstat' AND c.no_loko = '$noloko' ";
+        AND a.no_trainstat = '$trainstat' AND c.no_loko = '$noloko'";
         $result = $this->db->query($qry);
         $data = array();
         foreach ($result->result() as $tx){

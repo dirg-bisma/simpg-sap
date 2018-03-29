@@ -71,9 +71,9 @@
     </tr>
     </thead>
     <tbody>
-    <?php if(isset($loko)){?>
+    <?php if(isset($lori)){?>
         <?php $i=1; ?>
-        <?php foreach ($loko as $loko_data){ ?>
+        <?php foreach ($lori as $loko_data){ ?>
             <tr>
                 <th><?php echo $i; ?></th>
                 <th><?php echo $loko_data->no_spat; ?></th>
