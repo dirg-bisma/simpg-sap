@@ -75,19 +75,19 @@
         <?php $i=1; ?>
         <?php foreach ($lori as $loko_data){ ?>
             <tr>
-                <th><?php echo $i; ?></th>
-                <th><?php echo $loko_data->no_spat; ?></th>
-                <th><?php echo $loko_data->kepemilikan; ?></th>
-                <th><?php echo $loko_data->kode_blok; ?></th>
-                <th><?php echo $loko_data->nama_petani; ?></th>
-                <th><?php echo $loko_data->no_lori; ?></th>
-                <th><?php echo $loko_data->bruto; ?></th>
-                <th><?php echo $loko_data->tara; ?></th>
-                <th><?php echo $loko_data->netto; ?></th>
-                <th><?php echo $loko_data->timb_bruto_tgl; ?></th>
-                <th><?php echo $loko_data->timb_netto_tgl; ?></th>
-                <th><?php echo $loko_data->no_trainstat; ?></th>
-                <th><?php echo $loko_data->no_loko; ?></th>
+                <td><?php echo $i; ?></td>
+                <td><?php echo $loko_data->no_spat; ?></td>
+                <td><?php echo $loko_data->kepemilikan; ?></td>
+                <td><?php echo $loko_data->kode_blok; ?></td>
+                <td><?php echo $loko_data->nama_petani; ?></td>
+                <td><?php echo $loko_data->no_lori; ?></td>
+                <td><?php echo $loko_data->bruto; ?></td>
+                <td><?php echo $loko_data->tara; ?></td>
+                <td><?php echo $loko_data->netto; ?></td>
+                <td><?php echo $loko_data->timb_bruto_tgl; ?></td>
+                <td><?php echo $loko_data->timb_netto_tgl; ?></td>
+                <td><?php echo $loko_data->no_trainstat; ?></td>
+                <td><?php echo $loko_data->no_loko; ?></td>
             </tr>
             <?php $i++;?>
         <?php } ?>
