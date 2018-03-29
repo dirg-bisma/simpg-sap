@@ -56,7 +56,7 @@ class Apitimbangan extends SB_Controller
             );
         }else{
             $output = array(
-                'result' => [],
+                'result' => array(),
                 'count' => count($result),
                 'msg' => 'data not found',
                 'status' => 'false'
@@ -80,14 +80,14 @@ class Apitimbangan extends SB_Controller
                 }
             }
             $output = array(
-                'result' => [$result],
+                'result' => array($result),
                 'count' => count($result),
                 'msg' => 'success',
                 'status' => 'true'
             );
         }else{
             $output = array(
-                'result' => [],
+                'result' => array(),
                 'count' => count($result),
                 'msg' => 'data not found',
                 'status' => 'false'
@@ -416,7 +416,7 @@ class Apitimbangan extends SB_Controller
             );
         }else{
             $output = array(
-                'result' => [],
+                'result' => array(),
                 'count' => count($result),
                 'msg' => 'data not found',
                 'status' => 'false'
@@ -444,7 +444,7 @@ class Apitimbangan extends SB_Controller
             );
         }else{
             $output = array(
-                'result' => [],
+                'result' => array(),
                 'count' => count($result),
                 'msg' => 'data not found',
                 'status' => 'false'

@@ -30,7 +30,7 @@ class Dashboardtimbangan extends CI_Controller
         if(count($result) > 0){
             $output = array('data' => $result);
         }else{
-            $output = array('data' => []);
+            $output = array('data' => array());
         }
 
         echo json_encode($output);
@@ -43,6 +43,50 @@ class Dashboardtimbangan extends CI_Controller
 
     function formcetaklori()
     {
-        $this->load->view('dashboardtimbangan/formcetaklori');
+        $sql_loko = "SELECT * FROM m_no_loko";
+        $query = $this->db->query($sql_loko);
+        $data['loko'] = $query->result();
+        $this->load->view('dashboardtimbangan/formcetaklori', $data);
+    }
+
+    function printlori()
+    {
+        $no_trainstat = $this->GetPost('no_trainstat');
+        $no_loko = $this->GetPost('no_loko');
+        $this->load->model('dashboardtimbanganmodel');
+        $result = $this->dashboardtimbanganmodel->DataCetakLori($no_trainstat, $no_loko);
+        $data['lori'] = $result;
+        $data['no_trainstat'] = $no_trainstat;
+        $data['no_loko'] = $no_loko;
+        $this->load->view('dashboardtimbangan/printlori', $data);
+    }
+
+    function datalori()
+    {
+        $no_trainstat = $this->GetPost('no_trainstat');
+        $no_loko = $this->GetPost('no_loko');
+        $tgl_timbang = $this->GetPost('tgl_timbang');
+        $this->load->model('dashboardtimbanganmodel');
+        $result = $this->dashboardtimbanganmodel->DataCetakLori($no_trainstat, $no_loko, $tgl_timbang);
+
+        if(count($result) > 0){
+            $output = array('data' => $result);
+        }else{
+            $output = array('data' => array());
+        }
+
+        echo json_encode($output);
+    }
+
+
+    private function GetPost($input){
+        if($this->input->get($input)){
+            $output = $this->input->get($input);
+        }elseif($this->input->post($input)){
+            $output = $this->input->post($input);
+        }else{
+            $output = "";
+        }
+        return $output;
     }
 }
