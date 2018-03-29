@@ -4,8 +4,9 @@
         table.tableizer-table {
             font-size: 12px;
             border: 1px solid #CCC;
-            font-family: Arial, Helvetica, sans-serif;
+            font-family: Monospace;
             width:100%;
+            border-collapse: collapse;
         }
         .tableizer-table td {
             padding: 4px;
@@ -26,7 +27,7 @@
     <tbody>
     <tr>
 
-        <td align="left"  style="font-size:11px">
+        <td align="left"  style="font-size:11px;font-family:Monospace;">
             <b><?=CNF_NAMAPERUSAHAAN;?></b><br />
             <?=CNF_PG;?>
             <?=CNF_ALAMAT;?>
@@ -110,7 +111,7 @@
     </tfoot>
 </table>
 <hr />
-<table style="width:100%">
+<table style="width:100%;font-family: Monospace">
     <tr><td style="width: 60%"><br>
             <br />
             <br />
