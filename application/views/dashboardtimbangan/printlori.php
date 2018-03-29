@@ -95,8 +95,7 @@
             </tr>
             <?php $i++;?>
         <?php } ?>
-    <?php }  ?>
-    <tr>
+        <tr>
                 <td colspan="5">TOTAL </td>
                 <td ><?php echo $totalunit.' LORI '; ?></td>
                 <td></td>
@@ -104,6 +103,8 @@
                 <td><?php echo number_format($totallori); ?> KG</td>
                 <td colspan="4"></td>
             </tr>
+    <?php }  ?>
+    
     </tbody>
     <tfoot>
 
