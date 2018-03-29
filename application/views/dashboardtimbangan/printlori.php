@@ -95,12 +95,12 @@
             </tr>
             <?php $i++;?>
         <?php } ?>
-        <tr>
+            <tr>
                 <td colspan="5">TOTAL </td>
                 <td ><?php echo $totalunit.' LORI '; ?></td>
                 <td></td>
                 <td></td>
-                <td><?php echo number_format($totallori); ?> KG</td>
+                <td style="text-align: right;"><?php echo number_format($totallori); ?> KG</td>
                 <td colspan="4"></td>
             </tr>
     <?php }  ?>
