@@ -50,12 +50,39 @@ class Dashboardtimbanganmodel extends CI_Model
         return $data;
     }
 
-    public function DataCetakLori($trainstat, $noloko)
+    public function PrintDataCetakLori($trainstat, $noloko)
     {
-        $qry = $this->QryDataCetakTimbang() . " AND b.jenis_spta = 'LORI' 
+         $qry = $this->QryDataCetakTimbang() . " AND b.jenis_spta = 'LORI' 
         AND a.no_trainstat = '$trainstat' AND c.no_loko = '$noloko'";
         $result = $this->db->query($qry)->result();
         return $result;
+    }
+
+    public function DataCetakLori($trainstat, $noloko)
+    {
+         $qry = $this->QryDataCetakTimbang() . " AND b.jenis_spta = 'LORI' 
+        AND a.no_trainstat = '$trainstat' AND c.no_loko = '$noloko'";
+        $result = $this->db->query($qry);
+        $data = array();
+        foreach ($result->result() as $tx){
+            $data[] = array(
+                'no' => $tx->no_urut,
+                'no_spat' => $tx->no_spat,
+                'no_angkutan' => $tx->no_angkutan,
+                'tgl_selektor' => $tx->tgl_selektor,
+                'no_trainstat' => $tx->no_trainstat,
+                'no_loko' => $tx->no_loko,
+                'no_lori' => $tx->no_lori,
+                'jenis_spta' => $tx->jenis_spta,
+                'timb_bruto_tgl' => $tx->timb_bruto_tgl,
+                'timb_netto_tgl' => $tx->timb_netto_tgl,
+                'bruto' => $tx->bruto,
+                'tara' => $tx->tara,
+                'netto' => $tx->netto,
+                'waktu_tunggu' => $tx->waktu_tunggu,
+            );
+        }
+        return $data;
     }
 
     public function QryDataSelektor()

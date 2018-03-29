@@ -72,8 +72,11 @@
     </thead>
     <tbody>
     <?php if(isset($lori)){?>
-        <?php $i=1; ?>
-        <?php foreach ($lori as $loko_data){ ?>
+        <?php $i=1;$totalunit=0;$totallori=0; ?>
+        <?php foreach ($lori as $loko_data){ 
+            $totallori+=$loko_data->netto;
+            $totalunit++;
+            ?>
             <tr>
                 <td><?php echo $i; ?></td>
                 <td><?php echo $loko_data->no_spat; ?></td>
@@ -81,9 +84,9 @@
                 <td><?php echo $loko_data->kode_blok; ?></td>
                 <td><?php echo $loko_data->nama_petani; ?></td>
                 <td><?php echo $loko_data->no_lori; ?></td>
-                <td><?php echo $loko_data->bruto; ?></td>
-                <td><?php echo $loko_data->tara; ?></td>
-                <td><?php echo $loko_data->netto; ?></td>
+                <td style="text-align: right;"><?php echo $loko_data->bruto; ?></td>
+                <td style="text-align: right;"><?php echo $loko_data->tara; ?></td>
+                <td style="text-align: right;"><?php echo $loko_data->netto; ?></td>
                 <td><?php echo $loko_data->timb_bruto_tgl; ?></td>
                 <td><?php echo $loko_data->timb_netto_tgl; ?></td>
                 <td><?php echo $loko_data->no_trainstat; ?></td>
@@ -92,6 +95,14 @@
             <?php $i++;?>
         <?php } ?>
     <?php } ?>
+    <tr>
+                <td colspan="5">TOTAL </td>
+                <td ><?php echo $totalunit.' LORI '; ?></td>
+                <td></td>
+                <td></td>
+                <td><?php echo number_format($totallori); ?> KG</td>
+                <td colspan="4"></td>
+            </tr>
     </tbody>
     <tfoot>
 
