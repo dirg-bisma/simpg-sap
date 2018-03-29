@@ -53,7 +53,7 @@
                 { "data": "no_spat" },
                 { "data": "no_angkutan" },
                 { "data": "tgl_selektor" },
-                { "data": "bruto" }
+                { "data": "no_trainstat" }
             ]
         } );
 
