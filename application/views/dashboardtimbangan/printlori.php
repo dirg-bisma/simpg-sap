@@ -94,7 +94,7 @@
             </tr>
             <?php $i++;?>
         <?php } ?>
-    <?php } ?>
+    <?php }  ?>
     <tr>
                 <td colspan="5">TOTAL </td>
                 <td ><?php echo $totalunit.' LORI '; ?></td>
