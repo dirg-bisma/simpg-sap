@@ -67,6 +67,43 @@ class Tanalisarendemen extends SB_Controller
         echo json_encode($output);
 	}
 
+    function gridSelektor(){
+	    $qry = "SELECT 
+                  a.id,
+                  a.`no_spat`,
+                  a.`kode_affd`,
+                  d.`name`
+                FROM
+                  t_spta a 
+                  INNER JOIN t_meja_tebu b 
+                    ON a.`id` = b.`id_spta` 
+                    INNER JOIN t_selektor c ON a.id = c.`id_spta`
+                    INNER JOIN `sap_m_karyawan` d ON c.`persno_mandor_tma` = d.`Persno`
+                WHERE `selektor_status` = 1 AND `ari_status` = 0 AND SUBSTRING(`kode_kat_lahan`, 1,2) = 'TS'";
+        $result = $this->db->query($qry)->result();
+        $data = array();
+        foreach ($result as $dt) {
+            $spta = $dt->no_spat;
+            $row = array();
+            $row[] = $spta;
+            $row[] = $dt->name;
+            $row[] = $dt->kode_affd;
+
+            $btn = '<a href="#" onclick="getDataSPTATS(\''.$spta.'\')"  class="tips "  title="Get Data"><i class="fa  fa-arrow-circle-right"></i>  </a>';
+            $row[] = $btn;
+            $data[] = $row;
+        }
+
+        $output = array(
+            "draw" => $_POST['draw'],
+            "recordsTotal" => 10,
+            "recordsFiltered" => 0,
+            "data" => $data,
+        );
+        //output to json format
+        echo json_encode($output);
+    }
+
 	function grids(){
 		
 		$sort = $this->model->primaryKey; 

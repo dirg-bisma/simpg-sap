@@ -107,7 +107,7 @@ class Apitimbangan extends SB_Controller
             $status_nett = $this->apitimbanganmodel->cekStatusSpat($no_spat, 'timb_netto_status', 1);
 
             $netto = $this->GetPost('netto');
-            $tgl_timbang = date('Y-m-d H:i:s');
+            $tgl_timbang = $this->getDateNow();
             $lokasi_timbang = $this->GetPost('kode_timbangan');
             $ptgs_timbang = $this->GetPost('ptgs_timbang');
 
@@ -242,7 +242,7 @@ class Apitimbangan extends SB_Controller
 
             $tara = $this->GetPost('tara');
             $netto = $this->GetPost('netto');
-            $tgl_timbang = date('Y-m-d H:i:s');
+            $tgl_timbang = $this->getDateNow();
             $lokasi_timbang_2 = $this->GetPost('kode_timbangan');
             $ptgs_timbang_2 = $this->GetPost('ptgs_timbang');
 
@@ -337,9 +337,9 @@ class Apitimbangan extends SB_Controller
                         'tara' => $tara,
                         'netto' => $netto,
                         'netto_final' => $netto,
-                        'tgl_netto' => date('Y-m-d H:i:s'),
-                        'tgl_tara' => date('Y-m-d H:i:s'),
-                        'tgl_bruto' => date('Y-m-d H:i:s'),
+                        'tgl_netto' => $this->getDateNow(),
+                        'tgl_tara' => $this->getDateNow(),
+                        'tgl_bruto' => $this->getDateNow(),
                         'lokasi_timbang_1' => $lokasi_timbang_1,
                         'lokasi_timbang_2' => $lokasi_timbang_1,
                         'ptgs_timbang_1' => $ptgs_timbang_1,
@@ -472,14 +472,14 @@ class Apitimbangan extends SB_Controller
                     $this->db->update('m_lori', array(
                         'tara' => $tara,
                         'usertara' => $ptgs_timbang,
-                        'taradate' => date('Y-m-d H:i:s')
+                        'taradate' => $this->getDateNow()
                     ));
                 }else{
                     $this->db->set(array(
                         'nolori' => $no_lori,
                         'tara' => $tara,
                         'usertara' => $ptgs_timbang,
-                        'taradate' => date('Y-m-d H:i:s')
+                        'taradate' => $this->getDateNow()
                     ));
                     $this->db->insert('m_lori');
                 }
@@ -514,5 +514,13 @@ class Apitimbangan extends SB_Controller
             $output = "";
         }
         return $output;
+    }
+
+    private function getDateNow()
+    {
+        $sql = "SELECT NOW() as sekarang";
+        $query = $this->db->query($sql);
+        $sekarang = $query->row();
+        return $sekarang->sekarang;
     }
 }
