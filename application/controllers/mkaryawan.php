@@ -107,7 +107,7 @@ class Mkaryawan extends SB_Controller
             	$btn .= '<a href='.site_url('mkaryawan/add/'.$dt->$idku).'  class="tips "  title="Edit"><i class="fa  fa-edit"></i>  </a> &nbsp;&nbsp;';
             }
             if($this->access['is_remove'] ==1){
-            	$btn .= '<a href="#" onclick="ConfirmDelete(\''.site_url('mkaryawan/destroy/').'\','.$dt->$idku.')"  class="tips "  title="Delete"><i class="fa  fa-trash"></i>  </a>';
+            	$btn .= '<a href="#" onclick="ConfirmDelete(\''.site_url('mkaryawan/destroy/').'\',\''.$dt->$idku.'\')"  class="tips "  title="Delete"><i class="fa  fa-trash"></i>  </a>';
             	
             }
            
