@@ -47,7 +47,7 @@
 
                         <form action="<?php echo site_url('tanalisarendemen/save/'); ?>" class='form-vertical'
                               parsley-validate='true' novalidate='true' method="post" enctype="multipart/form-data" >
-                            <div class="col-md-3">
+                            <div class="col-md-6">
                                 <div class="form-group  " >
                                     <label for="ipt" class=" control-label "> No SPTA  <span class="asterix"> * </span>  </label>
                                     <input type='text' class='form-control input-sm' placeholder='pastikan crusor disini untuk scan barcode' autocomplete="off"  id='no_spta' onkeyup="getNoSPTA(event,this.value)"  required />
@@ -78,7 +78,7 @@
 
                             </div>
 
-                            <div class="col-md-4">
+                            <div class="col-md-6">
 
                                 <div class="form-group col-md-4 " >
                                     <label for="ipt" class=" control-label "> % Brix  <span class="asterix"> * </span>  </label>
@@ -116,10 +116,7 @@
                             </div>
 
 
-                            <div class="col-md-3">
-
-
-                            </div>
+                            
 
 
 

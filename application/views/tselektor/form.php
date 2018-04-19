@@ -57,11 +57,11 @@
 								 					
 									<div class="form-group col-md-6 " >
 									<label for="ipt" class=" control-label "> No Angkutan   <span class="asterix"> * </span>  </label>									
-									  <input type='text' class='form-control input-sm' name='no_angkutan' style="text-transform:uppercase" placeholder="(No truk/No Lori/No traktor)" required /> 						
+									  <input type='text' class='form-control input-sm' id='no_angkutan' name='no_angkutan' style="text-transform:uppercase" autocomplete="off"  onkeyup="getTara(event,this.value)" placeholder="(No truk/No Lori/No traktor)" required /> 						
 								  </div> 					
 								  <div class="form-group  col-md-6" >
 									<label for="ipt" class=" control-label "> Petugas Angkut   <span class="asterix"> * </span>  </label>									
-									  <input type='text' class='form-control input-sm' style="text-transform:uppercase" name='ptgs_angkutan' placeholder="(Supir/Op. Lori/Op. Traktor)" required /> 						
+									  <input type='text' class='form-control input-sm' id='ptgs_angkutan' style="text-transform:uppercase" name='ptgs_angkutan' placeholder="(Supir/Op. Lori/Op. Traktor)" required /> 						
 								  </div> 
 								  
 
@@ -222,6 +222,26 @@ var idselektor = '<?php echo $this->session->flashdata('idselektor')?>';
 	
 });
 
+function getTara(e,id){
+	noreg = id;
+	
+	if(e.keyCode == 13 && noreg != ''){
+		$.ajax({
+            type: 'POST',
+            url: "<?php echo site_url('tselektor/cektara');?>",
+            data: {noreg:noreg},
+			dataType: 'json',
+            success: function (dat) {
+				if(dat.stt == 1){
+					$('#no_angkutan').val(dat.data.noreg);
+					$('#ptgs_angkutan').val(dat.data.texts);
+				}else{
+					$('#ptgs_angkutan').val('');
+				}
+			}
+		});
+	}
+}
 
 function getNoSPTA(e,nospta){
 	nospta = nospta.toUpperCase();

@@ -62,7 +62,8 @@
 			<center>
 			<b><u><?php echo strtoupper(CNF_NAMAPERUSAHAAN);?></u></b></center>
 			
-			<?php echo $row->deskripsi_blok;?>
+			<?php echo $row->deskripsi_blok;?><br />
+			<?php echo $row->nama_vendor;?>
 		</td>
 		</tr>
 		</table>

@@ -242,6 +242,23 @@ metode_tma FROM t_spta WHERE no_spat = '".$_POST['nospta']."'")->row();
 		}
 		echo json_encode($arr);
 	}
+
+
+	function cektara(){
+		$arr['stt'] = 0;
+		if(isset($_POST['noreg'])){
+			$cek = $this->db->query("SELECT noreg,CONCAT(nama_supir,' ',no_pol,' ',tara,' Kg') AS texts FROM `m_tara_truk`  WHERE noreg = '".$_POST['noreg']."'")->row();
+		$arr['stt'] = 1;
+		if($cek){
+			$arr['stt'] = 1;
+			$arr['data'] = $cek;
+		}else{
+			$arr['stt'] = 0;
+		}
+		
+		}
+		echo json_encode($arr);
+	}
 	
 	
 	function cetak($id){

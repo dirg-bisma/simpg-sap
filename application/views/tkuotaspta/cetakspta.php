@@ -26,7 +26,7 @@
 					$jnsta = 'TAPG';
 				}
 			?>
-		<b><?php echo $jnsta.'<br />'.strtoupper(($row->kepemilikan)).'<br />'.$row->jenis_spta;?></b></td>
+		<b><?php echo $jnsta.'<br />'.strtoupper(($row->kepemilikan)).'<br />'.$row->jenis_spta;?> </b></td>
 		<td style="text-align: center;">
 		
 			<svg class="barcode"
@@ -59,7 +59,8 @@
 			<center>
 			<b><u><?php echo strtoupper(CNF_NAMAPERUSAHAAN);?></u></b></center>
 			
-			<?php echo $row->deskripsi_blok;?>
+			<?php echo $row->deskripsi_blok;?><br />
+			<?php echo $row->nama_vendor;?>
 		</td>
 		</tr>
 		</table>

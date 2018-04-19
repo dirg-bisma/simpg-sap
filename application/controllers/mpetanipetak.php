@@ -188,6 +188,58 @@ class Mpetanipetak extends SB_Controller
 		$this->data['content'] = $this->load->view('mpetanipetak/form',$this->data, true );		
 	  	$this->load->view('layouts/main', $this->data );
 	}
+
+
+	function addupload(){
+		//if($id =='')
+		if($this->access['is_add'] ==0) redirect('dashboard',301);
+
+		$this->data['content'] = $this->load->view('mpetanipetak/formupload',$this->data, true );		
+	  	$this->load->view('layouts/main', $this->data );
+	}
+
+
+	function upload(){
+		include APPPATH."/third_party/PHPExcel/IOFactory.php";
+		try {
+		$objPHPExcel = PHPExcel_IOFactory::load($_FILES['petani_petak']['tmp_name']);
+		} catch(ErrorException $e) {
+			die('Error loading file "'.pathinfo($inputFileName,PATHINFO_BASENAME).'": '.$e->getMessage());
+			exit();
+		}
+
+		$ix = 0;
+		$num=$objPHPExcel->getSheetCount() ;
+		for($r=0;$r<$num;$r++){
+	    	$objPHPExcel->setActiveSheetIndex($r);
+			$allDataInSheet = $objPHPExcel->getActiveSheet()->toArray(null,true,true,true);
+			$arrayCount = count($allDataInSheet);  // Here get total count of row in that Excel sheet
+			//var_dump($allDataInSheet);die();
+			$totupload  = 0;
+			$totdecline = 0;
+			$tmpidsap = "";
+			for($i=2;$i<=$arrayCount;$i++){
+				$tempdata = array(
+					'id_petani_sap' 			=> trim($allDataInSheet[$i]["A"]), 
+					'nama_petani' 				=> trim($allDataInSheet[$i]["C"]), 
+					'no_ktp' 					=> trim($allDataInSheet[$i]["I"]), 
+					'alamat_petani' 			=> trim($allDataInSheet[$i]["H"]), 
+					'kota_petani' 				=> trim($allDataInSheet[$i]["E"]), 
+					'reconciliation_account' 	=> trim($allDataInSheet[$i]["G"]), 
+					'region' 					=> trim($allDataInSheet[$i]["F"])
+				);
+				//var_dump($tempdata);
+				$ID = $this->model->insertRowUpdate($tempdata , trim($allDataInSheet[$i]["A"]));
+				$totupload++;
+			}
+		}
+
+		$this->inputLogs(" Upload data master Petani oleh ".$this->session->userdata('fid').' dengan data '.$totupload.' Berhasil');
+			
+			$this->session->set_flashdata('message',SiteHelpers::alert('success'," Upload data master Petani oleh ".$this->session->userdata('fid').' dengan data '.$totupload.' Berhasil'));
+			
+			redirect( 'mpetanipetak',301);
+	}
   
 	function add( $id = null ) 
 	{

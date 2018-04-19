@@ -189,6 +189,55 @@ class Mvendor extends SB_Controller
 	  	$this->load->view('layouts/main', $this->data );
 	
 	}
+
+
+
+	function addupload(){
+		//if($id =='')
+		if($this->access['is_add'] ==0) redirect('dashboard',301);
+
+		$this->data['content'] = $this->load->view('mvendor/formupload',$this->data, true );		
+	  	$this->load->view('layouts/main', $this->data );
+	}
+
+
+	function upload(){
+		include APPPATH."/third_party/PHPExcel/IOFactory.php";
+		try {
+		$objPHPExcel = PHPExcel_IOFactory::load($_FILES['master_vendor']['tmp_name']);
+		} catch(ErrorException $e) {
+			die('Error loading file "'.pathinfo($inputFileName,PATHINFO_BASENAME).'": '.$e->getMessage());
+			exit();
+		}
+
+		$ix = 0;
+		$num=$objPHPExcel->getSheetCount() ;
+		for($r=0;$r<$num;$r++){
+	    	$objPHPExcel->setActiveSheetIndex($r);
+			$allDataInSheet = $objPHPExcel->getActiveSheet()->toArray(null,true,true,true);
+			$arrayCount = count($allDataInSheet);  // Here get total count of row in that Excel sheet
+			//var_dump($allDataInSheet);die();
+			$totupload  = 0;
+			$totdecline = 0;
+			$tmpidsap = "";
+			for($i=2;$i<=$arrayCount;$i++){
+				$tempdata = array(
+					'nama_vendor' 			=> trim($allDataInSheet[$i]["C"]), 
+					'kode_vendor' 				=> trim($allDataInSheet[$i]["A"]), 
+					'status' 					=> '1'
+				);
+				//var_dump($tempdata);
+				$ID = $this->model->insertRowUpdate($tempdata , trim($allDataInSheet[$i]["A"]));
+				$totupload++;
+			}
+		}
+
+		$this->inputLogs(" Upload data master vendor oleh ".$this->session->userdata('fid').' dengan data '.$totupload.' Berhasil');
+			
+			$this->session->set_flashdata('message',SiteHelpers::alert('success'," Upload data master vendor oleh ".$this->session->userdata('fid').' dengan data '.$totupload.' Berhasil'));
+			
+			redirect( 'mvendor',301);
+	}
 	
 	function save() {
 		
@@ -198,9 +247,9 @@ class Mvendor extends SB_Controller
 		if( $this->form_validation->run() )
 		{
 			$data = $this->validatePost();
-			$ID = $this->model->insertRow($data , $this->input->get_post( 'id_vendor' , true ));
+			$ID = $this->model->insertRowUpdate($data , $this->input->get_post( 'kode_vendor' , true ));
 			// Input logs
-			if( $this->input->get( 'id_vendor' , true ) =='')
+			if( $this->input->get( 'kode_vendor' , true ) =='')
 			{
 				$this->inputLogs("New Entry row with ID : $ID  , Has Been Save Successfull");
 			} else {

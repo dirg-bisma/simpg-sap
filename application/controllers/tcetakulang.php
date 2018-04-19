@@ -229,11 +229,13 @@ class Tcetakulang extends SB_Controller
 
 	function cetakulang($id)
 	{
-		$a = $this->db->query("SELECT no_spat,a.kode_blok,tgl_spta,c.divisi,e.`karyawan`,d.`nama_petani`,f.`name` AS nama_pta,tgl_expired,jenis_spta,tebang_pg,angkut_pg,metode_tma,IF(kode_plant_trasnfer!='',CONCAT(c.`deskripsi_blok`,' TRANSFER DARI ',kode_plant_trasnfer),IF(kode_plant_ke != '', CONCAT(c.`deskripsi_blok`,' TRANSFER KE ',kode_plant_ke),c.`deskripsi_blok`)) AS deskripsi_blok,c.`luas_tanam`,c.`periode`,c.`status_blok`,c.`kepemilikan`,IF(metode_tma=1,'MANUAL',IF(metode_tma=2,'SEMI MEKANISASI','MEKANISASI')) AS txt_metode_tma FROM t_spta a 
+		$a = $this->db->query("SELECT no_spat,a.kode_blok,tgl_spta,c.divisi,e.`karyawan`,d.`nama_petani`,f.`name` AS nama_pta,tgl_expired,jenis_spta,tebang_pg,angkut_pg,metode_tma,IF(kode_plant_trasnfer!='',CONCAT(c.`deskripsi_blok`,' TRANSFER DARI ',kode_plant_trasnfer),IF(kode_plant_ke != '', CONCAT(c.`deskripsi_blok`,' TRANSFER KE ',kode_plant_ke),c.`deskripsi_blok`)) AS deskripsi_blok,c.`luas_tanam`,c.`periode`,c.`status_blok`,c.`kepemilikan`,IF(metode_tma=1,'MANUAL',IF(metode_tma=2,'SEMI MEKANISASI','MEKANISASI')) AS txt_metode_tma,v.nama_vendor FROM t_spta a 
 INNER JOIN sap_field c ON a.kode_blok=c.`kode_blok` 
 INNER JOIN vw_master_afdeling e ON e.`kode_affd`=c.`divisi`
 INNER JOIN sap_m_karyawan f ON f.`Persno`=a.persno_pta
-LEFT JOIN sap_petani d ON d.`id_petani_sap`=c.`id_petani_sap` WHERE a.id='$id'")->result();
+LEFT JOIN sap_petani d ON d.`id_petani_sap`=c.`id_petani_sap`
+LEFT JOIN m_vendor v ON v.id_vendor=a.`vendor_angkut`
+ WHERE a.id='$id' GROUP BY a.`id`")->result();
 		$html = '';$i=1; $tgl = '';
 		foreach($a as $b){
 			$this->data['row'] =$b; 

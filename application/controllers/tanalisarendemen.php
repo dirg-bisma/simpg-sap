@@ -205,6 +205,71 @@ class Tanalisarendemen extends SB_Controller
     
 	  
 	}
+
+	function indexevaluasi(){
+		if($this->access['is_view'] ==0)
+		{ 
+			$this->session->set_flashdata('error',SiteHelpers::alert('error','Your are not allowed to access the page'));
+			redirect('dashboard',301);
+		}	
+		
+		$this->data['tableGrid'] 	= $this->info['config']['grid'];
+
+		// Group users permission
+		$this->data['access']		= $this->access;
+		// Render into template
+		
+		$this->data['content'] = $this->load->view('tanalisarendemen/evaluasiari',$this->data, true );
+		
+    	$this->load->view('layouts/main', $this->data );
+	}
+
+
+	function addupload( $id = null ) 
+	{
+		if($id =='')
+			if($this->access['is_add'] ==0) redirect('dashboard',301);
+
+		if($id !='')
+			if($this->access['is_edit'] ==0) redirect('dashboard',301);	
+
+		
+		$this->data['content'] = $this->load->view('tanalisarendemen/formupload',null, true );		
+	  	$this->load->view('layouts/main', $this->data );
+	
+	}
+
+
+	function upload(){
+		include APPPATH."/third_party/PHPExcel/IOFactory.php";
+		try {
+		$objPHPExcel = PHPExcel_IOFactory::load($_FILES['master_field']['tmp_name']);
+		} catch(ErrorException $e) {
+			die('Error loading file "'.pathinfo($inputFileName,PATHINFO_BASENAME).'": '.$e->getMessage());
+			exit();
+		}
+
+		$ix = 0;
+		$num=$objPHPExcel->getSheetCount() ;
+		$objPHPExcel->setActiveSheetIndex(0);
+		$allDataInSheet = $objPHPExcel->getActiveSheet()->toArray(null,true,true,true);
+		$arrayCount = count($allDataInSheet);  // Here get total count of row in that Excel sheet
+		//var_dump($allDataInSheet);die();
+		$totupload  = 0;
+		$totdecline = 0;
+		$tmpkodepetak = "";
+		for($i=2;$i<=$arrayCount;$i++){
+			
+		}
+		//	die();
+			$this->inputLogs(" Upload data hasil analisa oleh ".$this->session->userdata('fid').' dengan data '.$totupload.' Berhasil dan '.$totdecline.' Gagal keupload. Ket : '.$tmpkodepetak);
+			
+			$this->session->set_flashdata('message',SiteHelpers::alert('success'," Upload data analisa oleh ".$this->session->userdata('fid').' dengan data '.$totupload.' Berhasil dan '.$totdecline.' Gagal keupload'));
+			
+			redirect( 'tanalisarendemen/indexevaluasi',301);
+			
+		
+	}
 	
 	function show( $id = null) 
 	{
