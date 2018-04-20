@@ -116,6 +116,17 @@
 						</select>
 				 </div> 
 			  </div>
+
+			  <div class="form-group">
+				<label for="ipt" class=" control-label col-md-4">Konsep Analisa Rendemen</label>
+				<div class="col-md-8">
+						<select id="cnf_konsep" name="cnf_konsep" class="form-control input-sm">
+							<option value="1" <?php if(CNF_KONSEP == 1) echo 'selected';?> >Jombang Method</option>
+							<option value="2" <?php if(CNF_KONSEP == 2) echo 'selected';?> >Jatiroto Method</option>
+							<option value="3" <?php if(CNF_KONSEP == 3) echo 'selected';?> >Kedawung Method</option>
+						</select>
+				 </div> 
+			  </div>
 			  
 			  <div class="form-group">
 				<label for="ipt" class=" control-label col-md-4">Potongan Rafaksi (%)</label>

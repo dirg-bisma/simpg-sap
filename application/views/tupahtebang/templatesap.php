@@ -145,7 +145,7 @@ Type: C(08)</th>
  <td><?php echo ($jurnal->documentdate);?></td>
  <td><?php echo ($jurnal->postingdate);?></td>
  <td><?php echo CNF_TAHUNGILING;?></td>
- <td>1</td>
+ <td><?php echo ($jurnal->postingmonth);?></td>
  <td>ZT</td>
  <td><?php echo $jurnal->kode_blok;?></td>
  <td>1</td>
@@ -166,7 +166,7 @@ Type: C(08)</th>
  <td>&nbsp;</td>
  <td>&nbsp;</td>
  <td>ZT01</td>
- <td>20150623</td>
+ <td><?php echo ($jurnal->postingdate);?></td>
  <td>&nbsp;</td>
  </tr>
  <tr>
@@ -175,7 +175,7 @@ Type: C(08)</th>
  <td><?php echo ($jurnal->documentdate);?></td>
  <td><?php echo ($jurnal->postingdate);?></td>
  <td><?php echo CNF_TAHUNGILING;?></td>
- <td>1</td>
+ <td><?php echo ($jurnal->postingmonth);?></td>
  <td>ZT</td>
  <td><?php echo $jurnal->kode_blok;?></td>
  <td>2</td>
@@ -208,7 +208,7 @@ Type: C(08)</th>
  <td><?php echo ($jurnal->documentdate);?></td>
  <td><?php echo ($jurnal->postingdate);?></td>
  <td><?php echo CNF_TAHUNGILING;?></td>
- <td>1</td>
+ <td><?php echo ($jurnal->postingmonth);?></td>
  <td>ZT</td>
  <td><?php echo $jurnal->kode_blok;?></td>
  <td>1</td>
@@ -229,7 +229,7 @@ Type: C(08)</th>
  <td>&nbsp;</td>
  <td>&nbsp;</td>
  <td>ZT01</td>
- <td>20150623</td>
+ <td><?php echo ($jurnal->postingdate);?></td>
  <td>&nbsp;</td>
  </tr>
  <tr>
@@ -238,7 +238,7 @@ Type: C(08)</th>
  <td><?php echo ($jurnal->documentdate);?></td>
  <td><?php echo ($jurnal->postingdate);?></td>
  <td><?php echo CNF_TAHUNGILING;?></td>
- <td>1</td>
+ <td><?php echo ($jurnal->postingmonth);?></td>
  <td>ZT</td>
  <td><?php echo $jurnal->kode_blok;?></td>
  <td>2</td>

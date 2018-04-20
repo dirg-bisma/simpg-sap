@@ -125,7 +125,7 @@ foreach ($rows as $jurnal) {
  <td><?php echo ($jurnal->documentdate);?></td>
  <td><?php echo ($jurnal->documentdate);?></td>
  <td><?php echo CNF_TAHUNGILING;?></td>
- <td>1</td>
+ <td><?php echo ($jurnal->postingmonth);?></td>
  <td>ZT</td>
  <td><?php echo $jurnal->kode_blok;?></td>
  <td>1</td>
@@ -133,7 +133,7 @@ foreach ($rows as $jurnal) {
  <td><?php echo $jurnal->total;?></td>
  <td>&nbsp;</td>
  <td><?php echo $jurnal->id_petani_sap;?></td>
- <td><?php echo $jurnal->kode_vendor;?></td>
+ <td>&nbsp;</td>
  <td>0</td>
  <td>&nbsp;</td>
  <td>&nbsp;</td>
@@ -155,7 +155,7 @@ foreach ($rows as $jurnal) {
  <td><?php echo ($jurnal->documentdate);?></td>
  <td><?php echo ($jurnal->documentdate);?></td>
  <td><?php echo CNF_TAHUNGILING;?></td>
- <td>1</td>
+ <td><?php echo ($jurnal->postingmonth);?></td>
  <td>ZT</td>
  <td><?php echo $jurnal->kode_blok;?></td>
  <td>2</td>
@@ -189,7 +189,7 @@ foreach ($rows as $jurnal) {
  <td><?php echo ($jurnal->documentdate);?></td>
  <td><?php echo ($jurnal->documentdate);?></td>
  <td><?php echo CNF_TAHUNGILING;?></td>
- <td>1</td>
+ <td><?php echo ($jurnal->postingmonth);?></td>
  <td>ZT</td>
  <td><?php echo $jurnal->kode_blok;?></td>
  <td>1</td>
@@ -197,7 +197,7 @@ foreach ($rows as $jurnal) {
  <td><?php echo $jurnal->total;?></td>
  <td>&nbsp;</td>
  <td><?php echo $jurnal->id_petani_sap;?></td>
- <td><?php echo $jurnal->kode_vendor;?></td>
+ <td>&nbsp;</td>
  <td>0</td>
  <td>&nbsp;</td>
  <td>&nbsp;</td>
@@ -219,7 +219,7 @@ foreach ($rows as $jurnal) {
  <td><?php echo ($jurnal->documentdate);?></td>
  <td><?php echo ($jurnal->documentdate);?></td>
  <td><?php echo CNF_TAHUNGILING;?></td>
- <td>1</td>
+ <td><?php echo ($jurnal->postingmonth);?></td>
  <td>ZT</td>
  <td><?php echo $jurnal->kode_blok;?></td>
  <td>2</td>

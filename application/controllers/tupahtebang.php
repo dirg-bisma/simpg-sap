@@ -230,7 +230,7 @@ INNER JOIN t_selektor c ON c.`id_spta`=b.`id` WHERE a.id_upah_tebang=$id")->resu
 		$this->data['colnondefadd'] = $this->db->query("select kodekolom,nama_pekerjaan_tma,satuan from m_pekerjaan_tma where status_pekerjaan=0 and jenis=1 order by id_pekerjaan_tma asc")->result();
 		$this->data['colnondefrem'] = $this->db->query("select kodekolom,nama_pekerjaan_tma,satuan from m_pekerjaan_tma where status_pekerjaan=0 and jenis=2 order by id_pekerjaan_tma asc")->result();
 
-		$rx = $this->data['jurnal'] = $this->db->query("SELECT a.id,a.no_bukti,c.`company_code`,DATE_FORMAT(a.tgl,'%Y%m%d') AS documentdate,DATE_FORMAT(a.tgl,'%Y%m%d') AS postingdate,
+		$rx = $this->data['jurnal'] = $this->db->query("SELECT a.id,a.no_bukti,c.`company_code`,DATE_FORMAT(a.tgl,'%Y%m%d') AS documentdate,DATE_FORMAT(a.tgl,'%Y%m%d') AS postingdate,DATE_FORMAT(a.tgl,'%c') AS postingmonth,
 YEAR(NOW()) AS fiscalyear,1 AS fiscalperiod,'ZT' AS documenttype,c.`kode_blok`,c.`kepemilikan`,c.`id_petani_sap`,SUM(k1) AS k1,SUM(k2) AS k2,SUM(k3) AS k3,SUM(k4) AS k4,SUM(k5) AS k5,SUM(k6) AS k6,
  SUM(k7) AS k7,SUM(k8) AS k8,SUM(k9) AS k9,SUM(k10) AS k10,SUM(k11) AS k11,SUM(k12) AS k12,SUM(k13) AS k13,SUM(k14) AS k14,
  SUM(k15) AS k15,SUM(k16) AS k16,SUM(k17) AS k17,SUM(k18) AS k18,SUM(k19) AS k19,SUM(k20) AS k20  FROM  t_upah_tebang a 

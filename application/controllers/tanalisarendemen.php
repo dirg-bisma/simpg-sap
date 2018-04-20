@@ -191,14 +191,41 @@ class Tanalisarendemen extends SB_Controller
 		$this->data['access']		= $this->access;
 		// Render into template
 		
+		//jombangmetod
+
+	if(CNF_KONSEP == 1){
+		if(CNF_METODE == 1){
 		
+		$this->data['content'] = $this->load->view('tanalisarendemen/'.CNF_COMPANYCODE.'/formAri',$this->data, true );
+		}else{
+		$this->data['content'] = $this->load->view('tanalisarendemen/'.CNF_COMPANYCODE.'/form',$this->data, true );
+		}
+	}
+
+
+		//jatmed
+	if(CNF_KONSEP == 2){
+		$this->data['content'] = $this->load->view('tanalisarendemen/'.CNF_COMPANYCODE.'/formjatmed',$this->data, true );
+	}
+
+
+		//kedawungmed
+
+	if(CNF_KONSEP == 3){
+		$this->data['content'] = $this->load->view('tanalisarendemen/'.CNF_COMPANYCODE.'/formkedawung',$this->data, true );
+	}
+
+
+/*
 		
 		if(CNF_METODE == 1){
 		
-		$this->data['content'] = $this->load->view('tanalisarendemen/formAri',$this->data, true );
+		$this->data['content'] = $this->load->view('tanalisarendemen/'.CNF_COMPANYCODE.'/formAri',$this->data, true );
 		}else{
-		$this->data['content'] = $this->load->view('tanalisarendemen/form',$this->data, true );
+		$this->data['content'] = $this->load->view('tanalisarendemen/'.CNF_COMPANYCODE.'/form',$this->data, true );
 		}
+*/
+
 		$this->data['content'] .= $this->load->view('tanalisarendemen/index',$this->data, true );
 		
     	$this->load->view('layouts/main', $this->data );
@@ -326,7 +353,8 @@ class Tanalisarendemen extends SB_Controller
 			$data['ptgs_ari'] = $this->session->userdata('fid');
 			$hk = ($_POST['persen_pol_ari'] / $_POST['persen_brix_ari']) * 100;
 			$nilai_nira = $_POST['persen_pol_ari'] - ( 0.4 * ($_POST['persen_brix_ari'] - $_POST['persen_pol_ari']));
-			$faktor_rendemen = 0.68;
+
+			$faktor_rendemen = $_POST['faktor_rendemen'];
 			$rendemen_ari = $nilai_nira * $faktor_rendemen;
 			
 			$data['hk'] = $hk;

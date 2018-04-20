@@ -245,7 +245,7 @@ WHERE e.angkutan_id=$id";
 
 
 	function downloadexcel($id){
-		$sql = "SELECT a.id,DATE_FORMAT(a.tgl,'%Y%m%d') AS documentdate,c.`jenis_spta`,c.`kode_blok`,SUM(b.`total`) AS total,d.`kode_vendor`,c.`id_petani_sap`,c.kode_kat_lahan as kepemilikan
+		$sql = "SELECT a.id,DATE_FORMAT(a.tgl,'%Y%m%d') AS documentdate,DATE_FORMAT(a.tgl,'%c') AS postingmonth,c.`jenis_spta`,c.`kode_blok`,SUM(b.`total`) AS total,d.`kode_vendor`,c.`id_petani_sap`,c.kode_kat_lahan as kepemilikan
 FROM t_angkutan a 
 INNER JOIN t_angkutan_detail b ON a.`id`=b.`angkutan_id`
 INNER JOIN t_spta c ON c.`id`=b.`id_spta` 
