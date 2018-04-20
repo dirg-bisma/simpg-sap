@@ -61,7 +61,10 @@ foreach ($rows as $key) {
 		if($i > 32){
 			echo '<td bgcolor="yellow">'.$key->$fld.'</td>';
 		}else{
-			echo '<td >'.$key->$fld.'</td>';
+			echo '<td >';
+			if($key->$fld=='') echo '-';
+			else echo $key->$fld;
+			echo '</td>';
 		}
 	}
 	
