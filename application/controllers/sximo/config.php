@@ -63,6 +63,8 @@ class Config extends SB_Controller  {
 			$val .= 	"define('CNF_TAHUNGILING','".$this->input->post('cnf_tahungiling',true)."');\n";
 			$val .= 	"define('CNF_METODE','".$this->input->post('cnf_metode',true)."');\n";
 			$val .= 	"define('CNF_RAFAKSI','".$this->input->post('cnf_rafaksi',true)."');\n";
+			$val .= 	"define('CNF_KONSEP','".$this->input->post('cnf_konsep',true)."');\n";
+			$val .= 	"include 'setpengolahan.php';\n";
 			$val .= 	"?>";
 				
 		$filename = 'setting.php';
