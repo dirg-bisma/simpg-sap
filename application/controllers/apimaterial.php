@@ -278,6 +278,90 @@ class Apimaterial  extends SB_Controller
         }
     }
 
+    function simpantaratruk()
+    {
+
+        $no_pol = $this->GetPost('no_pol');
+        $nama_supir = $this->GetPost('nama_supir');
+        $zona = $this->GetPost('zona');
+        $tara = $this->GetPost('tara');
+        $ptgs_timbang = $this->GetPost('ptgs_timbang');
+
+        if($no_pol !== "" && $tara !== "" && $ptgs_timbang !== ""){
+            $this->load->model('apitimbanganmodel');
+            $result = $this->apitimbanganmodel->TaraLori($no_pol);
+
+            try{
+                if(count($result) > 0){
+                    $where = array('nolori' => $no_pol);
+                    $this->db->where($where);
+                    $this->db->update('m_tara_truk', array(
+                        'tara' => $tara,
+                        'nama_supir' => $nama_supir,
+                        'ptgs_timbang' => $ptgs_timbang,
+                        'tgl_tara' => $this->getDateNow()
+                    ));
+                }else{
+                    $this->db->set(array(
+                        'no_pol' => $no_pol,
+                        'tara' => $tara,
+                        'nama_supir' => $nama_supir,
+                        'usertara' => $ptgs_timbang,
+                        'taradate' => $this->getDateNow()
+                    ));
+                    $this->db->insert('m_tara_truk');
+                }
+                $result = array(
+                    'msg' => "Berhasil simpan data Lori : $no_pol Tara : $tara",
+                    'status' => 'false'
+                );
+                echo json_encode($result);
+            }catch (Exception $ex){
+                $result = array(
+                    'msg' => $ex,
+                    'status' => 'false'
+                );
+                echo json_encode($result);
+            }
+        }else{
+            $result = array(
+                'msg' => 'parameter tidak lengkap',
+                'status' => 'false'
+            );
+            echo json_encode($result);
+        }
+
+    }
+
+    function zonajarak()
+    {
+        $this->load->model('apimaterialmodel');
+        $result = $this->apimaterialmodel->getZonaJarak();
+
+        if(count($result) > 0){
+            foreach ($result[0] as $key => $value) {
+                if (is_null($value)) {
+                    $result[0]->$key = "";
+                }
+            }
+            $output = array(
+                'result' => $result,
+                'count' => count($result),
+                'msg' => 'success',
+                'status' => 'true'
+            );
+        }else{
+            $output = array(
+                'result' => [],
+                'count' => count($result),
+                'msg' => 'data not found',
+                'status' => 'false'
+            );
+        }
+
+        echo json_encode($output);
+    }
+
     private function GetPost($input){
         if($this->input->get($input)){
             $output = $this->input->get($input);
@@ -287,5 +371,13 @@ class Apimaterial  extends SB_Controller
             $output = "";
         }
         return $output;
+    }
+
+    private function getDateNow()
+    {
+        $sql = "SELECT NOW() as sekarang";
+        $query = $this->db->query($sql);
+        $sekarang = $query->row();
+        return $sekarang->sekarang;
     }
 }

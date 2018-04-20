@@ -230,6 +230,113 @@ class Tsbh extends SB_Controller
 	  
 	}
 
+    function akudownload()
+    {
+        if($this->access['is_view'] ==0)
+        {
+            $this->session->set_flashdata('error',SiteHelpers::alert('error','Your are not allowed to access the page'));
+            redirect('dashboard',301);
+        }
+
+        $this->data['tableGrid'] 	= $this->info['config']['grid'];
+
+        // Group users permission
+        $this->data['access']		= $this->access;
+        // Render into template
+
+        $this->data['content'] = $this->load->view('tsbh/akudownload',$this->data, true );
+
+        $this->load->view('layouts/main', $this->data );
+
+    }
+
+    function excelsap($tgl1,$tgl2)
+    {
+        $this->load->model('apisapsbhmodel');
+        $result = $this->apisapsbhmodel->getSbhBeetwen($tgl1,$tgl2);
+        $data['result'] = $result;
+        header("Content-disposition: attachment; filename=".str_replace('-', '',$tgl1).'_sbh_'." ".str_replace('-', '',$tgl2).".xls");
+        header("Content-Type: application/vnd.ms-excel");
+        $this->load->view('apisbh/tpl_excel', $data);
+    }
+
+    function gridssbh($stt,$tgl1,$tgl2){
+
+        $sort = $this->model->primaryKey;
+        $order = 'asc';
+        $filter = "";
+        //$filter = (!is_null($this->input->get('search', true)) ? $this->buildSearch() : '');
+        //order
+        if(isset($_POST['order']))
+        {
+            if(($_POST['order']['0']['column'])==0){
+                $sort = $this->col[($_POST['order']['0']['column'])+1];
+                $order = $_POST['order']['0']['dir'];
+            }else{
+                $sort = $this->col[($_POST['order']['0']['column'])];
+                $order = $_POST['order']['0']['dir'];
+            }
+
+        }
+
+        if($stt != 0){
+            $tx = $stt-1;
+            $filter .= " AND sbh_status = 4 AND tgl_giling BETWEEN '$tgl1' AND '$tgl2'";
+        }else{
+            $filter .= " AND  tgl_giling BETWEEN '$tgl1' AND '$tgl2'";
+        }
+
+
+        if(isset($_POST['search']['value']) && $_POST['search']['value'] != ''){
+            $term = $_POST['search']['value'];
+            $filter .= " AND (no_spat like '%$term%' OR kode_kat_lahan like '%$term%' OR kode_blok  like '%$term%' OR kode_blok  like '%$term%' OR jenis_spta  like '%$term%' OR deskripsi_blok  like '%$term%' OR nama_petani  like '%$term%')";
+        }
+
+        $this->session->set_userdata(array('filt_sbh' => $filter));
+
+        $params = array(
+            'limit'		=> $_POST['start'],
+            'page'		=> $_POST['length'],
+            'sort'		=> $sort ,
+            'order'		=> $order,
+            'params'	=> $filter,
+            'global'	=> (isset($this->access['is_global']) ? $this->access['is_global'] : 0 )
+        );
+        // Get Query
+        $results = $this->model->getRowspdx( $params );
+        $rows = $results['rows'];
+        $total = $results['total'];
+        $totalfil = $results['totalfil'];
+
+        //run data to view
+        $data = array();$no=0;
+        foreach ($rows as $dt) {
+            $row = array();
+            for ($i=0; $i < count($this->col) ; $i++) {
+                $field = $this->col[$i+1];
+                $st = array('0'=>'ARI','1'=>'SBH','2'=>'PENGOLAHAN','3'=>'TANAMAN','4'=>'A.K.U');
+                if($field == 'sbh_status'){
+                    $dt->$field = $st[$dt->$field];
+                }
+                $conn = (isset($this->con[$i+1]) ? $this->con[$i+1] : array() ) ;
+                $row[] = SiteHelpers::gridDisplay($dt->$field , $field , $conn );
+            }
+
+
+            $data[] = $row;
+            $no++;
+        }
+        $output = array(
+            "draw" => $_POST['draw'],
+            "recordsTotal" => $total,
+            "recordsFiltered" => $totalfil,
+            "data" => $data,
+        );
+        //output to json format
+        echo json_encode($output);
+
+    }
+
 	function downloaded($jns,$tgl1,$tgl2){
 		$sort = $this->model->primaryKey; 
 		$order = 'asc';

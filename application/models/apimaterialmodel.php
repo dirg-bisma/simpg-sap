@@ -100,4 +100,18 @@ class apimaterialmodel extends SB_Model
         $result = $this->db->query($sql);
         return $result->result();
     }
+
+    public function getZonaJarak()
+    {
+        $sql = "SELECT * FROM m_biaya_jarak";
+        $result = $this->db->query($sql);
+        return $result->result();
+    }
+
+    public function getAffdeling()
+    {
+        $sql = "SELECT * FROM sap_m_affdeling";
+        $result = $this->db->query($sql);
+        return $result->result();
+    }
 }

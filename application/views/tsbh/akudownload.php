@@ -32,8 +32,8 @@
                     case '12':
                         ?>
 
-                        <li class="active"><a href="<?php echo site_url('tsbh/aku');?>"><i class="fa fa-flag-checkered"></i> Approve AKU </a></li>
-                        <li><a href="<?php echo site_url('tsbh/akudownload');?>"><i class="fa fa-flag-checkered"></i> File SBH untuk SAP  </a></li>
+                        <li><a href="<?php echo site_url('tsbh/aku');?>"><i class="fa fa-flag-checkered"></i> Approve AKU </a></li>
+                        <li class="active"><a href="<?php echo site_url('tsbh/akudownload');?>"><i class="fa fa-flag-checkered"></i> File SBH untuk SAP  </a></li>
                         <?php
                         break;
 
@@ -44,14 +44,14 @@
             </ul>
             <div class="box box-danger">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Download Data SBH untuk SAP</h3>
+                    <h3 class="box-title">Approve Keuangan</h3>
                     <div class="box-tools pull-right">
                         Tanggal Giling : &nbsp;&nbsp;&nbsp;
                         <input type="text" class="date" id="tgl1" value="<?php echo date('Y-m-d');?>">&nbsp;&nbsp;s/d&nbsp;&nbsp;<input type="text" class="date" id="tgl2"  value="<?php echo date('Y-m-d');?>">
                         <a href="javascript:reloadGrid()" class="tips btn btn-xs btn-info"  title="View">
                             <i class="fa fa-search"></i>&nbsp;View </a>
-                        <a href="javascript:approved()" class="tips btn btn-xs btn-danger"  title="View">
-                            <i class="fa fa-check"></i>&nbsp;Approve</a>
+                        <a href="javascript:downloadExcel()" class="tips btn btn-xs btn-danger"  title="View">
+                            <i class="fa fa-download"></i>&nbsp;Download Excel SAP </a>
 
                     </div>
                 </div>
@@ -144,7 +144,7 @@
             "serverSide": true, //Feature control DataTables' server-side processing mode
             // Load data for the table's content from an Ajax source
             "ajax": {
-                "url": "<?php echo site_url('tsbh/grids')?>/4/"+$('#tgl1').val()+'/'+$('#tgl2').val(),
+                "url": "<?php echo site_url('tsbh/gridssbh')?>/4/"+$('#tgl1').val()+'/'+$('#tgl2').val(),
                 "type": "POST"
             },
 
@@ -252,26 +252,16 @@
     function reloadGrid(){
         // $("#gridv").DataTable();
         //table.destroy();
-        table.ajax.url( "<?php echo site_url('tsbh/grids')?>/4/"+$('#tgl1').val()+'/'+$('#tgl2').val() ).load();
+        table.ajax.url( "<?php echo site_url('tsbh/gridssbh')?>/4/"+$('#tgl1').val()+'/'+$('#tgl2').val() ).load();
 
     }
 
-    function approved(){
-        $.ajax({
-            url: "<?php echo site_url('tsbh/approved');?>",
-            type: "POST",
-            data : {stt:3,tgl1:$('#tgl1').val(),tgl2:$('#tgl2').val()},
-            beforeSend: function() {
-                return confirm("Apakah anda yakin approve data ini ?");
-            },
-            success: function(data){
 
-                reloadGrid();
-                alert(data);
-            },
-            error: function(xhr, ajaxOptions, thrownError) {
-                alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
-            }
-        });
+    function downloadExcel(){
+
+        var url = "<?php echo site_url('tsbh/excelsap');?>/"+$('#tgl1').val()+'/'+$('#tgl2').val();
+        window.open(url,'_blank');
     }
+
+
 </script>

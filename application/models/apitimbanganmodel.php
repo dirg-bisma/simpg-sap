@@ -125,11 +125,8 @@ class Apitimbanganmodel extends SB_Model
                   t_spta.id_petani_sap,
                   t_spta.tebang_pg,
                   t_spta.angkut_pg,
-                  t_spta.kode_affd,
-                  t_spta.kode_plant_trasnfer,
                   t_spta.metode_tma,
-                  t_spta.ket,
-                  t_spta.id_jenis_angkutan,
+                  t_spta.kode_affd,
                   t_spta.selektor_status,
                   t_spta.selektor_tgl,
                   t_spta.pintu_masuk_status,
@@ -144,29 +141,14 @@ class Apitimbanganmodel extends SB_Model
                   t_spta.ari_tgl,
                   t_spta.hari_giling,
                   t_spta.tgl_giling,
-                  t_spta.no_urut_analisa_rendemen,
                   sap_petani.`nama_petani` AS nama_petani,
                   pta.`name` AS nama_pta,
                   t_spta.kode_kat_lahan,
                   t_selektor.tgl_tebang,
                   t_selektor.no_angkutan,
                   t_selektor.ptgs_angkutan,
-                  t_selektor.ha_tertebang,
-                  t_selektor.terbakar_sel,
-                  t_selektor.ditolak_sel,
-                  t_selektor.ditolak_alasan,
-                  t_selektor.op_gl,
-                  t_selektor.no_gl,
-                  t_selektor.op_stipping,
-                  t_selektor.no_stipping,
-                  t_selektor.op_hv,
-                  t_selektor.no_hv,
                   t_selektor.no_trainstat,
                   t_selektor.no_urut_timbang,
-                  t_selektor.ptgs_pintumasuk,
-                  t_selektor.tgl_pintumasuk,
-                  t_selektor.tgl_selektor,
-                  t_selektor.ptgs_selektor,
                   sap_field.deskripsi_blok,
                   kkw.`name` AS nama_kkw,
                   t_timbangan.transloading_status,
@@ -189,14 +171,15 @@ class Apitimbanganmodel extends SB_Model
                   t_timbangan.no_lori,
                   t_timbangan.netto_final,
                   t_timbangan.netto_rafaksi,
-                  t_timbangan.rafaksi_prosentis 
+                  t_timbangan.rafaksi_prosentis,
+                  b.`kondisi_tebu` 
                 FROM
                   t_spta 
                   LEFT JOIN sap_petani 
                     ON t_spta.id_petani_sap = sap_petani.`id_petani_sap`
                   LEFT JOIN sap_m_karyawan AS pta 
                     ON t_spta.persno_pta = pta.id_karyawan 
-                  LEFT JOIN t_selektor 
+                  INNER JOIN t_selektor 
                     ON t_selektor.id_spta = t_spta.id 
                   INNER JOIN sap_field 
                     ON t_spta.kode_blok = sap_field.kode_blok 
@@ -204,8 +187,10 @@ class Apitimbanganmodel extends SB_Model
                     ON t_spta.kode_affd = aff1.kode_affd 
                   INNER JOIN sap_m_karyawan AS kkw 
                     ON aff1.Persno = kkw.Persno 
-                  LEFT JOIN t_timbangan 
-                    ON t_spta.id = t_timbangan.id_spat ';
+                  INNER JOIN t_timbangan 
+                    ON t_spta.id = t_timbangan.id_spat 
+                  LEFT JOIN t_meja_tebu AS b 
+		            ON t_spta.id = b.`id_spta` ';
         return $qry;
     }
 

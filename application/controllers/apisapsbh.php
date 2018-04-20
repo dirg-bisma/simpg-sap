@@ -31,6 +31,18 @@ class Apisapsbh extends SB_Controller
         echo json_encode($output);
     }
 
+
+
+    function excel()
+    {
+        $tgl = $this->GetPost('tgl');
+        $result = $this->model->getSbh($tgl);
+        $data['result'] = $result;
+        header("Content-disposition: attachment; filename=".str_replace('-', '',$tgl).'_sbh'." ".date("Y-m-d").".xls");
+        header("Content-Type: application/vnd.ms-excel");
+        $this->load->view('apisbh/tpl_excel', $data);
+    }
+
     private function GetPost($input){
         if($this->input->get($input)){
             $output = $this->input->get($input);
