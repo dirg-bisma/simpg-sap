@@ -1580,7 +1580,7 @@ CREATE TABLE `t_ubah_timbangan` (
   `alasan_perubahan` text,
   `user_pengajuan` varchar(50) DEFAULT NULL,
   `user_validator` varchar(50) DEFAULT NULL,
-  `status_validasi` smallint(1) DEFAULT '0' COMMENT '0=belum;1=sudah;2=ditolak',
+  `status_validasi` smallint(1) DEFAULT '0' COMMENT '0=belum 1=sudah 2=ditolak',
   `tgl_validasi` datetime DEFAULT NULL,
   PRIMARY KEY (`id_ubah_timbangan`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
