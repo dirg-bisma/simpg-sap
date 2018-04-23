@@ -505,6 +505,18 @@ class Apitimbangan extends SB_Controller
 
     }
 
+    function exceltaralori(){
+        $query = "SELECT * FROM m_lori";
+
+        $results = $this->db->query($query)->result();
+        $this->data['rows'] = $results;
+
+        $file = "Master-LORI.xls";
+        header("Content-type: application/vnd.ms-excel");
+        header("Content-Disposition: attachment; filename=$file");
+        echo $this->load->view('mlori/downloadreportexcel',$this->data, true );
+    }
+
     private function GetPost($input){
         if($this->input->get($input)){
             $output = $this->input->get($input);

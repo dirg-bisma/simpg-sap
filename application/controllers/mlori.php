@@ -42,6 +42,21 @@ class Mlori extends SB_Controller
 		
 	}
 
+
+    function excel(){
+        $query = "SELECT * FROM m_lori";
+
+        $results = $this->db->query($query)->result();
+        $this->data['rows'] = $results;
+
+        $file = "Master-LORI.xls";
+        header("Content-type: application/vnd.ms-excel");
+        header("Content-Disposition: attachment; filename=$file");
+        echo $this->load->view('mlori/downloadreportexcel',$this->data, true );
+
+
+    }
+
 	function grids(){
 		
 		$sort = $this->model->primaryKey; 
