@@ -41,7 +41,7 @@
  		<div class="toolbar-line text-center">		
 			
 			<input type="submit" name="submit" class="btn btn-primary btn-sm" value="<?php echo $this->lang->line('core.sb_submit'); ?>" />
-			<a href="<?php echo site_url('mmasterfield');?>" class="btn btn-sm btn-warning"><?php echo $this->lang->line('core.sb_cancel'); ?> </a>
+			<a href="<?php echo site_url('tanalisarendemen/indexevaluasi');?>" class="btn btn-sm btn-warning"><?php echo $this->lang->line('core.sb_cancel'); ?> </a>
  		</div>
 			  		
 		</form>
