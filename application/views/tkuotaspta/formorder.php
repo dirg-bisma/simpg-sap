@@ -84,6 +84,8 @@
 		<select class="form-control" name="jenis_spta" >
 			<option value="TRUK">TRUK</option>
 			<option value="LORI">LORI</option>
+			<option value="ODONG2">ODONG2</option>
+			<option value="TRAKTOR">TRAKTOR</option>
 		</select>
 		<br />
 	</div> 
