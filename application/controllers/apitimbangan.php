@@ -390,6 +390,8 @@ class Apitimbangan extends SB_Controller
         }
     }
 
+
+
     function taralori($no_lori)
     {
         $this->load->model('apitimbanganmodel');
@@ -454,6 +456,26 @@ class Apitimbangan extends SB_Controller
         echo json_encode($output);
     }
 
+    function cektara()
+    {
+        $nolori = $this->GetPost('nolori');
+        $qry = "SELECT * FROM m_lori WHERE nolori = '$nolori'";
+        $row = $this->db->query($qry)->row();
+        if(count($row) == 0){
+            $result = array(
+                'msg' => "No Lori $nolori valid",
+                'status' => 'true'
+            );
+        }else{
+            $result = array(
+                'msg' => "Data No Lori $nolori telah ada dengan tara $row->tara",
+                'status' => 'false'
+            );
+        }
+
+        echo json_encode($result);
+    }
+
     function simpantaralori()
     {
 
@@ -515,6 +537,15 @@ class Apitimbangan extends SB_Controller
         header("Content-type: application/vnd.ms-excel");
         header("Content-Disposition: attachment; filename=$file");
         echo $this->load->view('mlori/downloadreportexcel',$this->data, true );
+    }
+
+    function viewtaralori(){
+        $query = "SELECT * FROM m_lori";
+
+        $results = $this->db->query($query)->result();
+        $this->data['rows'] = $results;
+
+        echo $this->load->view('mlori/downloadreportexcel',$this->data );
     }
 
     private function GetPost($input){
