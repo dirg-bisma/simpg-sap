@@ -560,20 +560,39 @@ try
 		$stt = $_POST['stt'];
 		$tgl1 = $_POST['tgl1'];
 		$tgl2 = $_POST['tgl2'];
+		$cancel = $_POST['cancel'];
+
 		if($stt == 1){
 			//pengolahan
+			$stx = 1;
+			$sty = 2;
+			$sttz = 1;
+			if($cancel == 1){
+				$stx = 2;
+				$sty = 1;
+				$sttz = 0;
+			}
 			$sql = "UPDATE t_ari a 
 INNER JOIN t_spta b ON a.`id_spta`=b.`id`
-SET a.`pengolahan_status`=1,a.`pengolahan_tgl`=NOW(),b.`sbh_status`=2,b.`sbh_tgl`=NOW(),a.`pengolahan_user`='".$this->session->userdata('fid')."'
-WHERE b.`tgl_giling` BETWEEN '".$tgl1."' AND '".$tgl2."' AND b.`sbh_status`=1";
+SET a.`pengolahan_status`=$sttz,a.`pengolahan_tgl`=NOW(),b.`sbh_status`=$sty,b.`sbh_tgl`=NOW(),a.`pengolahan_user`='".$this->session->userdata('fid')."'
+WHERE b.`tgl_giling` BETWEEN '".$tgl1."' AND '".$tgl2."' AND b.`sbh_status`=$stx";
 		}
 
 		if($stt == 2){
 			//tanaman
+			$stx = 2;
+			$sty = 3;
+			$sttz = 1;
+			if($cancel == 1){
+				$stx = 3;
+				$sty = 2;
+				$sttz = 0;
+			}
+
 			$sql = "UPDATE t_ari a 
 INNER JOIN t_spta b ON a.`id_spta`=b.`id`
-SET a.`tanaman_status`=1,a.`tanaman_tgl`=NOW(),b.`sbh_status`=3,b.`sbh_tgl`=NOW(),a.`tanaman_user`='".$this->session->userdata('fid')."'
-WHERE b.`tgl_giling` BETWEEN '".$tgl1."' AND '".$tgl2."' AND b.`sbh_status`=2";
+SET a.`tanaman_status`=$sttz,a.`tanaman_tgl`=NOW(),b.`sbh_status`=$sty,b.`sbh_tgl`=NOW(),a.`tanaman_user`='".$this->session->userdata('fid')."'
+WHERE b.`tgl_giling` BETWEEN '".$tgl1."' AND '".$tgl2."' AND b.`sbh_status`=$stx";
 		}
 
 		if($stt == 3){
@@ -586,7 +605,12 @@ WHERE b.`tgl_giling` BETWEEN '".$tgl1."' AND '".$tgl2."' AND b.`sbh_status`=3";
 
 		$this->db->query($sql);
 		$afftectedRows = $this->db->affected_rows();
-		echo ($afftectedRows/2).' Berhasil di Approve !!';
+		if($cancel == 1){
+			echo ($afftectedRows/2).' Berhasil di Cancel Approve !!';
+		}else{
+			echo ($afftectedRows/2).' Berhasil di Approve !!';	
+		}
+		
 	}
 
 

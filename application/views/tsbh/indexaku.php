@@ -260,7 +260,7 @@
         $.ajax({
             url: "<?php echo site_url('tsbh/approved');?>",
             type: "POST",
-            data : {stt:3,tgl1:$('#tgl1').val(),tgl2:$('#tgl2').val()},
+            data : {stt:3,cancel:0,tgl1:$('#tgl1').val(),tgl2:$('#tgl2').val()},
             beforeSend: function() {
                 return confirm("Apakah anda yakin approve data ini ?");
             },

@@ -51,6 +51,8 @@
 		<i class="fa fa-search"></i>&nbsp;View </a>
 		<a href="javascript:approved()" class="tips btn btn-xs btn-warning"  title="View">
 		<i class="fa fa-check"></i>&nbsp;Approve</a>
+    <a href="javascript:cancelapproved()" class="tips btn btn-xs btn-danger"  title="View">
+    <i class="fa fa-times"></i>&nbsp;Cancel Approve</a>
 		
                   </div>
                 </div>
@@ -256,7 +258,7 @@ function reloadGrid(){
  	$.ajax({
     url: "<?php echo site_url('tsbh/approved');?>",
     type: "POST",
-    data : {stt:2,tgl1:$('#tgl1').val(),tgl2:$('#tgl2').val()},
+    data : {stt:2,cancel:0,tgl1:$('#tgl1').val(),tgl2:$('#tgl2').val()},
     beforeSend: function() {
     	return confirm("Apakah anda yakin approve data ini ?");
     },
@@ -264,6 +266,25 @@ function reloadGrid(){
 
     	reloadGrid();
     	alert(data);
+    },
+    error: function(xhr, ajaxOptions, thrownError) {
+       alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+    }
+});
+ }
+
+ function cancelapproved(){
+  $.ajax({
+    url: "<?php echo site_url('tsbh/approved');?>",
+    type: "POST",
+    data : {stt:2,cancel:1,tgl1:$('#tgl1').val(),tgl2:$('#tgl2').val()},
+    beforeSend: function() {
+      return confirm("Apakah anda yakin approve data ini ?");
+    },
+    success: function(data){
+
+      reloadGrid();
+      alert(data);
     },
     error: function(xhr, ajaxOptions, thrownError) {
        alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
