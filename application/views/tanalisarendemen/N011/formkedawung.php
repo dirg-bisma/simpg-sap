@@ -1,10 +1,10 @@
 <section class="content-header">
     <h1>
         <?php
-        $ar = 'ARI';
+        $ar = 'ARI  (Kedawung Method)';
 
         if(CNF_METODE ==2){
-            $ar = 'CORE SAMPLER';
+            $ar = 'CORE SAMPLER  (Kedawung Method)';
         }
 
         echo $pageTitle .' - '.$ar;?>
@@ -96,12 +96,12 @@
                                 </div>
 
                                 <div class="form-group col-md-4 " >
-                                    <label for="ipt" class=" control-label "> Faktor Rendemen  <span class="asterix"> * </span>  </label>
+                                    <label for="ipt" class=" control-label "> F. Rendemen  <span class="asterix"> * </span>  </label>
                                     <input type='number' class='form-control input-sm' readonly name='faktor_rendemen' value="0.69" />
                                 </div>
 
                                 <div class="form-group col-md-4 " >
-                                    <label for="ipt" class=" control-label "> Faktor Regresi  <span class="asterix"> * </span>  </label>
+                                    <label for="ipt" class=" control-label "> F. Regresi  <span class="asterix"> * </span>  </label>
                                     <input type='number' class='form-control input-sm' readonly name='faktor_regresi' value="0.8541" />
                                 </div>
 

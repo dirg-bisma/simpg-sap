@@ -1,10 +1,10 @@
 <section class="content-header">
     <h1>
         <?php
-        $ar = 'ARI';
+        $ar = 'ARI  (Jatiroto Method)';
 
         if(CNF_METODE ==2){
-            $ar = 'CORE SAMPLER';
+            $ar = 'CORE SAMPLER (Jatiroto Method)';
         }
 
         echo $pageTitle .' - '.$ar;?>
@@ -96,12 +96,12 @@
                                 </div>
 
                                 <div class="form-group col-md-4 " >
-                                    <label for="ipt" class=" control-label "> Faktor Perah  <span class="asterix"> * </span>  </label>
-                                    <input type='number' class='form-control input-sm'  name='faktor_rendemen' required />
+                                    <label for="ipt" class=" control-label "> F. Perah  <span class="asterix"> * </span>  </label>
+                                    <input type='number' class='form-control input-sm' value="<?php echo PN_FAKTOR_PERAH;?>"  name='faktor_rendemen' required />
                                 </div>
 
                                  <div class="form-group col-md-4 " >
-                                    <label for="ipt" class=" control-label "> Faktor Konversi  <span class="asterix"> * </span>  </label>
+                                    <label for="ipt" class=" control-label "> F. Konversi  <span class="asterix"> * </span>  </label>
                                     <input type='number' class='form-control input-sm' value="<?php echo PN_FAKTOR_KONVERSI;?>"  name='faktor_konversi' readonly />
                                 </div>
 

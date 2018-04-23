@@ -97,7 +97,7 @@
 
                                 <div class="form-group col-md-6 " >
                                     <label for="ipt" class=" control-label "> Faktor Rendemen  <span class="asterix"> * </span>  </label>
-                                    <input type='number' class='form-control input-sm'  name='faktor_rendemen' value="0.68" readonly />
+                                    <input type='number' class='form-control input-sm'  name='faktor_rendemen' value="<?php echo PN_FAKTOR_RENDEMEN;?>" readonly />
                                 </div>
 
                             </div>

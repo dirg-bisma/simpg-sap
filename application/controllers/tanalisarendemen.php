@@ -18,7 +18,7 @@ class Tanalisarendemen extends SB_Controller
 		$this->info = $this->model->makeInfo( $this->module);
 		$this->access = $this->model->validAccess($this->info['id']);	
 		$this->data = array_merge( $this->data, array(
-			'pageTitle'	=> 	$this->info['title'],
+			'pageTitle'	=> 	$this->info['title'].' '.date('d M Y'),
 			'pageNote'	=>  $this->info['note'],
 			'pageModule'	=> 'tanalisarendemen',
 		));
@@ -108,7 +108,7 @@ class Tanalisarendemen extends SB_Controller
 		
 		$sort = $this->model->primaryKey; 
 		$order = 'asc';
-		$filter = "";
+		$filter = "AND date(tgl_ari) = date(NOW())";
 		//$filter = (!is_null($this->input->get('search', true)) ? $this->buildSearch() : '');
 		//order 
 		if(isset($_POST['order']))
@@ -133,6 +133,8 @@ class Tanalisarendemen extends SB_Controller
             	}
             }
         }
+
+
 
 		$params = array(
 			'limit'		=> $_POST['start'],
@@ -200,12 +202,15 @@ class Tanalisarendemen extends SB_Controller
 		}else{
 		$this->data['content'] = $this->load->view('tanalisarendemen/'.CNF_COMPANYCODE.'/form',$this->data, true );
 		}
+
+		$this->data['content'] .= $this->load->view('tanalisarendemen/index',$this->data, true );
 	}
 
 
 		//jatmed
 	if(CNF_KONSEP == 2){
 		$this->data['content'] = $this->load->view('tanalisarendemen/'.CNF_COMPANYCODE.'/formjatmed',$this->data, true );
+		$this->data['content'] .= $this->load->view('tanalisarendemen/'.CNF_COMPANYCODE.'/indexjatmed',$this->data, true );
 	}
 
 
@@ -213,6 +218,7 @@ class Tanalisarendemen extends SB_Controller
 
 	if(CNF_KONSEP == 3){
 		$this->data['content'] = $this->load->view('tanalisarendemen/'.CNF_COMPANYCODE.'/formkedawung',$this->data, true );
+		$this->data['content'] .= $this->load->view('tanalisarendemen/'.CNF_COMPANYCODE.'/indexkedawung',$this->data, true );
 	}
 
 
@@ -226,7 +232,7 @@ class Tanalisarendemen extends SB_Controller
 		}
 */
 
-		$this->data['content'] .= $this->load->view('tanalisarendemen/index',$this->data, true );
+		
 		
     	$this->load->view('layouts/main', $this->data );
     

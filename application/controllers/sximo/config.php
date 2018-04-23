@@ -28,6 +28,32 @@ class Config extends SB_Controller  {
 		$this->data['content'] = $this->load->view('sximo/config/index',$this->data, true );		
     	$this->load->view('layouts/main', $this->data );
 	}
+
+	public function settingpengolahan()
+	{
+		$this->data['content'] = $this->load->view('tanalisarendemen/pengolahansetting',$this->data, true );		
+    	$this->load->view('layouts/main', $this->data );
+	}
+
+	public function postSavePengolahan()
+	{
+			$val  =		"<?php \n"; 
+
+			$val .= 	"define('PN_FAKTOR_KONVERSI','".$this->input->post('pn_faktor_konversi',true)."');\n";
+			$val .= 	"define('PN_FAKTOR_RENDEMEN','".$this->input->post('pn_faktor_rendemen',true)."');\n";
+			$val .= 	"define('PN_FAKTOR_PERAH','".$this->input->post('pn_faktor_perah',true)."');\n";
+			$val .= 	"define('PN_UBAH_TERAKHIR','".date('Y-m-d H:i:s')."');\n";
+			$val .= 	"define('PN_USER_UBAH','".$this->session->userdata('fid')."');\n";
+			$val .= 	"?>";
+				
+		$filename = 'setpengolahan.php';
+		file_put_contents( $filename , $val  );
+		$this->session->set_flashdata('message',SiteHelpers::alert('success','Site Setting Has Been Updated'));
+		redirect( site_url('sximo/config/settingpengolahan'));
+	
+	}
+
+
 	
 	public function postSave()
 	{

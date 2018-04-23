@@ -81,7 +81,7 @@
                             <div class="col-md-6">
                                 <div class="form-group col-md-12 " >
                                     <label for="ipt" class=" control-label "> Faktor Perah  <span class="asterix"> * </span>  </label>
-                                    <input type='number' class='form-control input-sm'  name='faktor_rendemen' value=""  />
+                                    <input type='number' class='form-control input-sm'  name='faktor_rendemen' value="<?php echo PN_FAKTOR_PERAH;?>"  />
                                 </div>
 
                                 <div class="form-group col-md-4 " >
