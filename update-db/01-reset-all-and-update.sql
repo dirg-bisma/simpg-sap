@@ -1483,27 +1483,27 @@ CREATE TABLE `t_spta_kuota_tot` (
 
 DROP TABLE IF EXISTS `t_timbang_material`;
 
-CREATE TABLE `t_timbang_material` (
-  `id_t_material` int(11) NOT NULL AUTO_INCREMENT,
-  `no_tiket` varchar(50) NOT NULL COMMENT 'no tiket tergenerate otomatis',
-  `kode_material` varchar(50) DEFAULT NULL COMMENT 'kode material SAP',
-  `nama_material` varchar(150) DEFAULT NULL COMMENT 'ket material',
-  `kode_relasi` varchar(50) DEFAULT NULL COMMENT 'kode customer/suplier',
-  `nama_relasi` varchar(150) DEFAULT NULL COMMENT 'nama customer/suplier',
-  `no_kendaraan` varchar(10) DEFAULT NULL COMMENT 'no kendaraan',
-  `nama_supir` varchar(100) DEFAULT NULL COMMENT 'nama supir',
-  `timbang_1` int(11) DEFAULT NULL,
-  `timbang_2` int(11) DEFAULT NULL,
-  `netto` int(11) DEFAULT NULL,
-  `tgl_timbang_1` datetime DEFAULT NULL COMMENT 'tgl timbang',
-  `tgl_timbang_2` datetime DEFAULT NULL COMMENT 'tgl timbang',
-  `jenis_transaksi` enum('Penerimaan','Pengiriman') DEFAULT NULL COMMENT 'jenis transaksi PO/SO',
-  `no_transaksi` varchar(50) DEFAULT NULL COMMENT 'no dokumen transaksi',
-  `status_timbang_1` smallint(1) DEFAULT '0' COMMENT '0=belum;1=sudah',
-  `status_timbang_2` smallint(1) DEFAULT '0' COMMENT '0=belum;1=sudah',
-  `ptgs_timbang` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`id_t_material`,`no_tiket`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+CREATE TABLE `t_timbang_material`(
+	`id_t_material` int(11) NOT NULL  auto_increment , 
+	`no_tiket` varchar(50) COLLATE latin1_swedish_ci NOT NULL  COMMENT 'no tiket tergenerate otomatis' , 
+	`kode_material` varchar(50) COLLATE latin1_swedish_ci NULL  COMMENT 'kode material SAP' , 
+	`nama_material` varchar(150) COLLATE latin1_swedish_ci NULL  COMMENT 'ket material' , 
+	`kode_relasi` varchar(50) COLLATE latin1_swedish_ci NULL  COMMENT 'kode customer/suplier' , 
+	`nama_relasi` varchar(150) COLLATE latin1_swedish_ci NULL  COMMENT 'nama customer/suplier' , 
+	`no_kendaraan` varchar(10) COLLATE latin1_swedish_ci NULL  COMMENT 'no kendaraan' , 
+	`nama_supir` varchar(100) COLLATE latin1_swedish_ci NULL  COMMENT 'nama supir' , 
+	`timbang_1` int(11) NULL  , 
+	`timbang_2` int(11) NULL  , 
+	`netto` int(11) NULL  , 
+	`tgl_timbang_1` datetime NULL  COMMENT 'tgl timbang' , 
+	`tgl_timbang_2` datetime NULL  COMMENT 'tgl timbang' , 
+	`jenis_transaksi` enum('Penerimaan','Pengiriman') COLLATE latin1_swedish_ci NULL  COMMENT 'jenis transaksi PO/SO' , 
+	`no_transaksi` varchar(50) COLLATE latin1_swedish_ci NULL  COMMENT 'no dokumen transaksi' , 
+	`status_timbang_1` smallint(1) NULL  DEFAULT 0 COMMENT '0=belum 1=sudah' , 
+	`status_timbang_2` smallint(1) NULL  DEFAULT 0 COMMENT '0=belum 1=sudah' , 
+	`ptgs_timbang` varchar(100) COLLATE latin1_swedish_ci NULL  , 
+	PRIMARY KEY (`id_t_material`,`no_tiket`) 
+) ENGINE=MyISAM DEFAULT CHARSET='latin1' COLLATE='latin1_swedish_ci';
 
 /*Data for the table `t_timbang_material` */
 
