@@ -524,7 +524,6 @@ class Apitimbangan extends SB_Controller
             );
             echo json_encode($result);
         }
-
     }
 
     function exceltaralori(){

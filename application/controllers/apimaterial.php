@@ -362,6 +362,18 @@ class Apimaterial  extends SB_Controller
         echo json_encode($output);
     }
 
+    function exceltaratruk(){
+        $query = "SELECT * FROM m_tara_truk";
+
+        $results = $this->db->query($query)->result();
+        $this->data['rows'] = $results;
+
+        $file = "Master-truk.xls";
+        header("Content-type: application/vnd.ms-excel");
+        header("Content-Disposition: attachment; filename=$file");
+        echo $this->load->view('apimaterial/taratrukexcel',$this->data, true );
+    }
+
     private function GetPost($input){
         if($this->input->get($input)){
             $output = $this->input->get($input);
