@@ -1845,44 +1845,6 @@ insert  into `tb_users`(`id`,`group_id`,`username`,`password`,`email`,`first_nam
 insert  into `tb_users`(`id`,`group_id`,`username`,`password`,`email`,`first_name`,`last_name`,`avatar`,`active`,`login_attempt`,`last_login`,`created_at`,`updated_at`,`reminder`,`activation`,`remember_token`,`alamat`,`notlp`,`website`) values (33,14,'opqc','692f7e77f8012634c57c91cf1293cf92','qc@n11.com','Operator','QC',NULL,1,0,NULL,'2018-04-23 18:45:01',NULL,NULL,NULL,NULL,'','','');
 insert  into `tb_users`(`id`,`group_id`,`username`,`password`,`email`,`first_name`,`last_name`,`avatar`,`active`,`login_attempt`,`last_login`,`created_at`,`updated_at`,`reminder`,`activation`,`remember_token`,`alamat`,`notlp`,`website`) values (34,13,'manqc','4790596dc95fbe19a4d6b2ef194a0fc5','manqc@n11.com','Manager','QC',NULL,1,0,'2018-04-23 23:35:11','2018-04-23 23:34:31',NULL,NULL,NULL,NULL,'','','');
 
-/*Table structure for table `updates_filesql` */
-
-DROP TABLE IF EXISTS `updates_filesql`;
-
-CREATE TABLE `updates_filesql` (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
-  `nama_file` varchar(100) DEFAULT NULL,
-  `datesync` datetime DEFAULT NULL,
-  `status_sync` smallint(1) DEFAULT '0',
-  `dateadd` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=latin1;
-
-/*Data for the table `updates_filesql` */
-
-insert  into `updates_filesql`(`id`,`nama_file`,`datesync`,`status_sync`,`dateadd`) values (1,'db_module_group_akses.sql','2018-03-15 11:35:36',1,'2018-03-15 11:33:15');
-insert  into `updates_filesql`(`id`,`nama_file`,`datesync`,`status_sync`,`dateadd`) values (2,'db_simpg.sql','2018-03-15 11:34:24',1,'2018-03-15 11:33:15');
-insert  into `updates_filesql`(`id`,`nama_file`,`datesync`,`status_sync`,`dateadd`) values (3,'db_update_spt_timbangan.sql','2018-03-15 11:46:40',1,'2018-03-15 11:33:15');
-insert  into `updates_filesql`(`id`,`nama_file`,`datesync`,`status_sync`,`dateadd`) values (4,'master_upah_tebang.sql','2018-03-15 11:33:44',1,'2018-03-15 11:33:15');
-insert  into `updates_filesql`(`id`,`nama_file`,`datesync`,`status_sync`,`dateadd`) values (5,'trigger_dan_view.sql','2018-03-15 11:53:50',1,'2018-03-15 11:33:15');
-insert  into `updates_filesql`(`id`,`nama_file`,`datesync`,`status_sync`,`dateadd`) values (6,'master_rafaksi.sql','2018-03-15 12:15:49',1,'2018-03-15 12:15:14');
-insert  into `updates_filesql`(`id`,`nama_file`,`datesync`,`status_sync`,`dateadd`) values (7,'index_id_spta_setiap_transaksi.sql','2018-03-15 21:26:50',1,'2018-03-15 21:25:15');
-insert  into `updates_filesql`(`id`,`nama_file`,`datesync`,`status_sync`,`dateadd`) values (8,'db-update-3digitha.sql','2018-04-23 18:43:29',1,'2018-03-27 13:22:23');
-insert  into `updates_filesql`(`id`,`nama_file`,`datesync`,`status_sync`,`dateadd`) values (9,'hak-akses.sql','2018-04-23 18:43:32',1,'2018-03-27 13:22:23');
-insert  into `updates_filesql`(`id`,`nama_file`,`datesync`,`status_sync`,`dateadd`) values (10,'spt_field.sql',NULL,0,'2018-03-27 13:22:23');
-insert  into `updates_filesql`(`id`,`nama_file`,`datesync`,`status_sync`,`dateadd`) values (11,'user-trial.sql','2018-04-23 18:43:39',1,'2018-03-27 13:22:23');
-insert  into `updates_filesql`(`id`,`nama_file`,`datesync`,`status_sync`,`dateadd`) values (12,'db-lap-jam.sql','2018-04-23 18:39:17',1,'2018-04-17 19:37:07');
-insert  into `updates_filesql`(`id`,`nama_file`,`datesync`,`status_sync`,`dateadd`) values (13,'m_material.sql','2018-04-23 18:39:57',1,'2018-04-17 19:37:07');
-insert  into `updates_filesql`(`id`,`nama_file`,`datesync`,`status_sync`,`dateadd`) values (14,'m_relasi.sql','2018-04-23 18:40:00',1,'2018-04-17 19:37:07');
-insert  into `updates_filesql`(`id`,`nama_file`,`datesync`,`status_sync`,`dateadd`) values (15,'t_timbang_material.sql',NULL,0,'2018-04-17 19:37:07');
-insert  into `updates_filesql`(`id`,`nama_file`,`datesync`,`status_sync`,`dateadd`) values (16,'t_transaksi_material.sql','2018-04-23 18:40:36',1,'2018-04-17 19:37:07');
-insert  into `updates_filesql`(`id`,`nama_file`,`datesync`,`status_sync`,`dateadd`) values (17,'t_ubah_timbang.sql',NULL,0,'2018-04-17 19:37:07');
-insert  into `updates_filesql`(`id`,`nama_file`,`datesync`,`status_sync`,`dateadd`) values (18,'trigger-timbangan.sql',NULL,0,'2018-04-17 19:37:07');
-insert  into `updates_filesql`(`id`,`nama_file`,`datesync`,`status_sync`,`dateadd`) values (19,'trigger-view-baru.sql',NULL,0,'2018-04-17 19:37:07');
-insert  into `updates_filesql`(`id`,`nama_file`,`datesync`,`status_sync`,`dateadd`) values (20,'update-upah-angkutan.sql',NULL,0,'2018-04-17 19:37:07');
-insert  into `updates_filesql`(`id`,`nama_file`,`datesync`,`status_sync`,`dateadd`) values (24,'update_material_ubah_timbang.sql',NULL,0,'2018-04-23 23:20:43');
-insert  into `updates_filesql`(`id`,`nama_file`,`datesync`,`status_sync`,`dateadd`) values (25,'01-reset-all-and-update.sql','2018-04-24 08:23:04',1,'2018-04-24 00:42:15');
-
 /* Trigger structure for table `sap_field_spt` */
 
 DELIMITER $$
