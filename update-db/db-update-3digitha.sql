@@ -1,2 +1,0 @@
-ALTER TABLE `t_selektor` CHANGE `id_selektor` `id_selektor` INT(11) NOT NULL AUTO_INCREMENT COMMENT ' ', CHANGE `ha_tertebang` `ha_tertebang` DOUBLE(10,3) NULL COMMENT 'ha tertebang inputan selektor';
-ALTER TABLE `sap_field` CHANGE `kode_blok` `kode_blok` VARCHAR(20) CHARSET latin1 COLLATE latin1_swedish_ci NOT NULL COMMENT 'N011-KP06-03950\r\n', CHANGE `luas_ha` `luas_ha` DOUBLE(10,3) NULL COMMENT ' 4.000 \r\n', CHANGE `luas_tebang` `luas_tebang` DOUBLE(10,3) DEFAULT 0.0000 NULL COMMENT 'trigger dari selektor';
