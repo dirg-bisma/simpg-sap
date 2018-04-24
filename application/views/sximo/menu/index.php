@@ -135,23 +135,8 @@
 				  <div class="form-group  int-link" >
 					<label for="ipt" class=" control-label col-md-4 text-right"><?php echo $this->lang->line('core.t_module'); ?> </label>
 					<div class="col-md-8">
-					  <select name='module' readonly rows='5' id='module'  class='form-control '    >
-							<option value=""> -- Select Module or Page -- </option>
-							<optgroup label="Module ">
-							<?php foreach($modules as $mod) :?>
-								<option value="<?php echo  $mod->module_name;?>"
-								<?php if($row['module']== $mod->module_name ) echo 'selected="selected"'?>
-								><?php echo  $mod->module_title;?></option>
-							<?php endforeach;?>
-							</optgroup>
-							<optgroup label="Page CMS ">
-							<?php foreach($pages->result() as $page): ?>
-								<option value="<?php echo  $page->alias;?>"
-								<?php if($row['module']== $page->alias ) echo 'selected="selected"'?>
-								>Page : <?php echo  $page->title;?></option>
-							<?php endforeach;?>	
-							</optgroup>						
-					</select> 		
+					 <input type="text" name="module" id="module" value="<?php echo $row['module'];?>" class="form-control" readonly />
+					  		
 					 </div> 
 				  </div> 										
 					
