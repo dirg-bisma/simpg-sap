@@ -184,455 +184,9 @@ CREATE TABLE `m_lori` (
   `usertara` varchar(20) DEFAULT NULL,
   `kode_plant` varchar(5) DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=446 DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 /*Data for the table `m_lori` */
-
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (1,'C','120121',750,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (2,'D','120122',670,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (3,'C','120123',820,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (4,'C','120124',750,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (5,'C','120125',830,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (6,'C','120126',770,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (7,'C','120127',820,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (8,'D','120128',690,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (9,'C','120129',750,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (10,'C','120130',800,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (11,'D','120131',740,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (12,'B','120132',870,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (13,'C','120133',760,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (14,'D','120134',690,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (15,'C','120135',770,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (16,'D','120136',740,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (17,'C','120137',800,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (18,'D','120138',680,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (19,'D','120139',720,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (20,'C','120140',760,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (21,'C','120141',800,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (22,'C','120142',820,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (23,'D','120143',710,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (24,'D','120144',700,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (25,'C','120145',800,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (26,'D','120146',710,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (27,'A','120147',990,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (28,'D','120148',740,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (29,'C','120149',770,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (30,'C','120150',780,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (31,'C','120151',780,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (32,'C','120152',820,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (33,'C','120153',750,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (34,'D','120154',720,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (35,'C','120155',780,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (36,'C','120156',750,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (37,'D','120157',680,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (38,'C','120158',790,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (39,'C','120159',760,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (40,'C','120160',780,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (41,'C','120241',810,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (42,'C','120242',780,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (43,'B','120243',860,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (44,'B','120244',870,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (45,'D','120245',720,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (46,'C','120246',810,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (47,'B','120247',890,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (48,'C','120248',780,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (49,'C','120249',820,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (50,'B','120250',880,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (51,'D','120251',730,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (52,'C','120252',810,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (53,'C','120253',840,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (54,'D','120254',740,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (55,'C','120255',780,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (56,'A','120256',960,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (57,'B','120257',880,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (58,'C','120258',820,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (59,'D','120259',740,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (60,'C','120260',820,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (61,'C','120261',760,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (62,'C','120262',820,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (63,'C','120263',750,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (64,'C','120264',810,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (65,'C','120265',800,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (66,'C','120266',800,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (67,'C','120267',810,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (68,'C','120268',780,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (69,'C','120269',780,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (70,'C','120270',800,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (71,'C','120271',790,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (72,'D','120272',740,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (73,'C','120273',810,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (74,'C','120274',820,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (75,'C','120275',840,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (76,'C','120276',840,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (77,'C','120277',770,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (78,'C','120278',780,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (79,'D','120279',710,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (80,'D','120280',720,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (81,'C','120361',750,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (82,'C','120362',820,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (83,'D','120363',650,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (84,'C','120364',810,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (85,'D','120365',710,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (86,'C','120366',750,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (87,'AA','120367',1110,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (88,'AA','120368',1050,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (89,'C','120369',800,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (90,'C','120370',820,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (91,'D','120371',740,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (92,'D','120372',690,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (93,'C','120373',790,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (94,'D','120374',670,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (95,'B','120375',890,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (96,'C','120376',790,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (97,'D','120377',710,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (98,'C','120378',760,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (99,'D','120379',710,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (100,'C','120380',790,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (101,'C','120381',840,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (102,'C','120382',800,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (103,'D','120383',740,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (104,'C','120384',770,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (105,'D','120385',650,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (106,'D','120386',700,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (107,'D','120387',720,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (108,'C','120388',790,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (109,'C','120389',750,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (110,'C','120390',810,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (111,'C','120161',770,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (112,'C','120162',750,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (113,'C','120163',760,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (114,'C','120164',840,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (115,'A','120165',990,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (116,'B','120166',930,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (117,'D','120167',620,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (118,'B','120168',850,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (119,'D','120169',730,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (120,'C','120170',780,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (121,'C','120171',830,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (122,'C','120172',780,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (123,'C','120173',750,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (124,'C','120174',820,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (125,'C','120175',830,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (126,'C','120176',840,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (127,'C','120177',750,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (128,'D','120178',650,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (129,'B','120179',850,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (130,'D','120180',730,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (131,'D','120181',720,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (132,'D','120182',730,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (133,'C','120183',820,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (134,'D','120184',730,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (135,'B','120185',850,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (136,'C','120186',760,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (137,'D','120187',680,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (138,'D','120188',720,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (139,'D','120189',680,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (140,'C','120190',790,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (141,'C','120191',810,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (142,'C','120192',770,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (143,'C','120193',770,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (144,'C','120194',800,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (145,'C','120195',780,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (146,'AA','120196',1050,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (147,'C','120197',830,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (148,'C','120198',790,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (149,'AA','120199',1080,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (150,'B','120200',940,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (151,'C','120281',760,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (152,'D','120282',680,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (153,'C','120283',770,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (154,'D','120284',740,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (155,'C','120285',770,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (156,'C','120286',820,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (157,'B','120287',850,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (158,'B','120288',900,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (159,'C','120289',830,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (160,'C','120290',790,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (161,'B','120291',940,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (162,'D','120292',710,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (163,'C','120293',830,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (164,'C','120294',820,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (165,'B','120295',850,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (166,'D','120296',700,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (167,'B','120297',850,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (168,'AA','120298',1050,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (169,'D','120299',710,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (170,'C','120300',830,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (171,'D','120301',730,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (172,'C','120302',760,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (173,'D','120303',740,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (174,'C','120304',770,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (175,'D','120305',730,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (176,'B','120306',850,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (177,'D','120307',740,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (178,'C','120308',840,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (179,'C','120309',770,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (180,'AA','120310',1060,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (181,'C','120311',760,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (182,'D','120312',740,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (183,'C','120313',780,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (184,'C','120314',760,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (185,'B','120315',910,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (186,'B','120316',890,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (187,'B','120317',880,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (188,'B','120318',870,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (189,'C','120319',800,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (190,'A','120320',970,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (191,'C','120391',830,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (192,'C','120392',780,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (193,'B','120393',870,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (194,'B','120394',910,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (195,'C','120395',760,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (196,'B','120396',880,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (197,'C','120397',820,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (198,'D','120398',700,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (199,'A','120399',950,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (200,'C','120400',830,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (201,'C','120401',780,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (202,'C','120402',810,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (203,'B','120403',880,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (204,'AA','120404',1100,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (205,'B','120405',860,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (206,'C','120406',800,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (207,'D','120407',740,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (208,'D','120408',670,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (209,'C','120410',760,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (210,'C','120411',830,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (211,'C','120412',770,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (212,'C','120413',780,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (213,'C','120414',790,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (214,'A','120415',1000,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (215,'D','120416',670,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (216,'AA','120417',1080,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (217,'D','120418',740,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (218,'C','120419',760,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (219,'C','120420',790,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (220,'C','120201',840,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (221,'C','120202',750,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (222,'D','120203',650,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (223,'D','120204',720,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (224,'B','120205',890,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (225,'C','120206',790,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (226,'C','120207',770,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (227,'D','120208',720,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (228,'AA','120209',1060,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (229,'D','120210',730,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (230,'C','120211',750,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (231,'D','120212',740,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (232,'C','120213',780,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (233,'C','120214',750,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (234,'C','120215',800,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (235,'C','120216',830,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (236,'D','120217',740,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (237,'C','120218',780,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (238,'C','120219',820,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (239,'C','120220',770,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (240,'D','120221',720,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (241,'D','120222',710,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (242,'C','120223',760,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (243,'A','120224',990,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (244,'A','120225',990,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (245,'D','120226',700,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (246,'C','120227',770,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (247,'C','120228',830,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (248,'B','120229',850,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (249,'C','120230',830,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (250,'C','120231',760,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (251,'C','120232',800,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (252,'D','120233',740,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (253,'B','120234',880,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (254,'B','120235',890,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (255,'C','120236',840,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (256,'C','120237',790,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (257,'C','120238',750,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (258,'C','120239',750,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (259,'D','120240',730,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (260,'C','120321',830,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (261,'B','120322',850,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (262,'D','120323',740,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (263,'C','120324',760,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (264,'D','120325',710,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (265,'C','120326',820,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (266,'B','120327',870,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (267,'C','120328',830,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (268,'D','120329',640,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (269,'C','120330',770,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (270,'C','120331',750,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (271,'B','120332',860,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (272,'C','120333',770,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (273,'A','120334',990,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (274,'C','120335',820,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (275,'C','120336',770,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (276,'D','120337',690,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (277,'B','120338',850,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (278,'A','120339',960,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (279,'C','120340',840,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (280,'C','120341',750,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (281,'B','120342',930,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (282,'B','120343',850,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (283,'D','120344',740,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (284,'B','120345',900,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (285,'D','120346',740,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (286,'B','120347',860,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (287,'C','120348',780,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (288,'C','120349',840,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (289,'B','120350',870,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (290,'C','120351',790,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (291,'C','120352',790,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (292,'C','120353',770,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (293,'D','120354',690,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (294,'B','120355',880,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (295,'B','120356',910,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (296,'C','120357',830,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (297,'C','120358',820,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (298,'D','120359',730,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (299,'C','120360',770,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (300,'D','120421',720,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (301,'B','120422',860,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (302,'D','120423',710,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (303,'D','120424',730,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (304,'C','120425',770,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (305,'C','120426',830,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (306,'C','120427',750,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (307,'C','120428',760,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (308,'D','120429',690,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (309,'C','120430',760,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (310,'C','120431',770,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (311,'C','120432',790,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (312,'C','120433',750,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (313,'D','120434',740,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (314,'C','120435',760,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (315,'C','120436',750,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (316,'B','120437',850,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (317,'C','120438',780,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (318,'D','120439',640,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (319,'D','120440',670,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (320,'D','120441',680,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (321,'D','120442',740,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (322,'B','120443',870,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (323,'A','120444',970,NULL,NULL,NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (324,'B','120112',850,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (325,'C','120041',760,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (326,'C','120015',760,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (327,'C','120060',730,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (328,'C','120059',800,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (329,'C','120057',760,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (330,'C','120065',810,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (331,'C','120064',760,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (332,'C','120063',790,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (333,'B','120095',860,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (334,'C','120094',800,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (335,'C','120093',750,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (336,'C','120096',690,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (337,'C','120098',790,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (338,'C','120062',720,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (339,'B','120061',870,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (340,'C','120046',770,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (341,'C','120038',770,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (342,'C','120039',760,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (343,'B','120045',870,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (344,'A','120044',960,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (345,'C','120043',740,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (346,'C','120042',830,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (347,'C','120058',790,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (348,'C','120072',700,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (349,'B','120066',890,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (350,'C','120030',800,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (351,'C','120001',750,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (352,'C','120002',750,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (353,'C','120003',710,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (354,'C','120004',730,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (355,'C','120005',840,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (356,'C','120006',800,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (357,'C','120007',780,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (358,'B','120008',930,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (359,'C','120009',830,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (360,'C','120010',750,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (361,'C','120016',700,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (362,'C','120017',740,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (363,'B','120014',880,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (364,'C','120036',750,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (365,'B','120035',850,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (366,'C','120011',840,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (367,'C','120012',810,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (368,'A','120013',620,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (369,'C','120018',670,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (370,'C','120019',840,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (371,'B','120020',890,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (372,'C','120021',710,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (373,'C','120022',820,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (374,'C','120023',810,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (375,'C','120024',680,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (376,'C','120025',730,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (377,'B','120026',890,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (378,'C','120027',790,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (379,'C','120028',690,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (380,'C','120029',680,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (381,'C','120031',820,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (382,'C','120032',810,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (383,'C','120033',700,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (384,'C','120034',760,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (385,'C','120037',730,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (386,'C','120040',820,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (387,'C','120073',820,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (388,'C','120097',820,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (389,'C','120048',810,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (390,'C','120047',840,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (391,'B','120049',850,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (392,'C','120050',840,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (393,'C','120051',800,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (394,'C','120052',750,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (395,'A','120053',1050,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (396,'A','120054',1000,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (397,'C','120055',820,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (398,'C','120056',780,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (399,'C','120067',690,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (400,'C','120068',790,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (401,'C','120069',810,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (402,'A','120070',770,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (403,'B','120071',860,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (404,'B','120074',860,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (405,'B','120077',860,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (406,'C','120075',750,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (407,'C','120079',800,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (408,'C','120076',650,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (409,'C','120078',800,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (410,'C','120080',830,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (411,'B','120081',870,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (412,'C','120082',830,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (413,'C','120083',780,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (414,'B','120084',890,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (415,'A','120085',710,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (416,'B','120086',900,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (417,'C','120087',760,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (418,'B','120088',860,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (419,'C','120089',770,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (420,'C','120090',650,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (421,'B','120091',910,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (422,'C','120092',760,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (423,'C','120099',670,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (424,'C','120100',800,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (425,'A','120101',840,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (426,'A','120102',1090,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (427,'B','120103',910,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (428,'C','120104',840,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (429,'B','120105',850,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (430,'C','120106',830,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (431,'C','120107',710,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (432,'B','120108',880,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (433,'C','120109',770,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (434,'C','120110',800,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (435,'C','120111',810,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (436,'C','120113',800,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (437,'C','120114',700,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (438,'C','120115',750,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (439,'A','120116',1090,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (440,'C','120117',770,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (441,'A','120118',1000,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (442,'C','120119',720,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (443,'C','120120',720,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (444,'B','120332',860,'0000-00-00 00:00:00','',NULL);
-insert  into `m_lori`(`id`,`grade`,`nolori`,`tara`,`taradate`,`usertara`,`kode_plant`) values (445,'B','120332',860,'0000-00-00 00:00:00','',NULL);
 
 /*Table structure for table `m_material` */
 
@@ -778,11 +332,9 @@ CREATE TABLE `m_tara_truk` (
   `tara` int(10) DEFAULT NULL,
   `ptgs_timbang` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`id_tara_truk`,`no_pol`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `m_tara_truk` */
-
-insert  into `m_tara_truk`(`id_tara_truk`,`no_pol`,`nama_supir`,`tgl_tara`,`zona`,`tara`,`ptgs_timbang`) values (1,'N1293PU','San','2018-04-11 13:32:25',NULL,3000,NULL);
 
 /*Table structure for table `m_timbangan` */
 
@@ -1208,7 +760,7 @@ CREATE TABLE `t_lap_jam` (
   `id` int(20) NOT NULL AUTO_INCREMENT,
   `jam` varchar(2) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=latin1;
 
 /*Data for the table `t_lap_jam` */
 
@@ -1483,27 +1035,27 @@ CREATE TABLE `t_spta_kuota_tot` (
 
 DROP TABLE IF EXISTS `t_timbang_material`;
 
-CREATE TABLE `t_timbang_material`(
-	`id_t_material` int(11) NOT NULL  auto_increment , 
-	`no_tiket` varchar(50) COLLATE latin1_swedish_ci NOT NULL  COMMENT 'no tiket tergenerate otomatis' , 
-	`kode_material` varchar(50) COLLATE latin1_swedish_ci NULL  COMMENT 'kode material SAP' , 
-	`nama_material` varchar(150) COLLATE latin1_swedish_ci NULL  COMMENT 'ket material' , 
-	`kode_relasi` varchar(50) COLLATE latin1_swedish_ci NULL  COMMENT 'kode customer/suplier' , 
-	`nama_relasi` varchar(150) COLLATE latin1_swedish_ci NULL  COMMENT 'nama customer/suplier' , 
-	`no_kendaraan` varchar(10) COLLATE latin1_swedish_ci NULL  COMMENT 'no kendaraan' , 
-	`nama_supir` varchar(100) COLLATE latin1_swedish_ci NULL  COMMENT 'nama supir' , 
-	`timbang_1` int(11) NULL  , 
-	`timbang_2` int(11) NULL  , 
-	`netto` int(11) NULL  , 
-	`tgl_timbang_1` datetime NULL  COMMENT 'tgl timbang' , 
-	`tgl_timbang_2` datetime NULL  COMMENT 'tgl timbang' , 
-	`jenis_transaksi` enum('Penerimaan','Pengiriman') COLLATE latin1_swedish_ci NULL  COMMENT 'jenis transaksi PO/SO' , 
-	`no_transaksi` varchar(50) COLLATE latin1_swedish_ci NULL  COMMENT 'no dokumen transaksi' , 
-	`status_timbang_1` smallint(1) NULL  DEFAULT 0 COMMENT '0=belum 1=sudah' , 
-	`status_timbang_2` smallint(1) NULL  DEFAULT 0 COMMENT '0=belum 1=sudah' , 
-	`ptgs_timbang` varchar(100) COLLATE latin1_swedish_ci NULL  , 
-	PRIMARY KEY (`id_t_material`,`no_tiket`) 
-) ENGINE=MyISAM DEFAULT CHARSET='latin1' COLLATE='latin1_swedish_ci';
+CREATE TABLE `t_timbang_material` (
+  `id_t_material` int(11) NOT NULL AUTO_INCREMENT,
+  `no_tiket` varchar(50) NOT NULL COMMENT 'no tiket tergenerate otomatis',
+  `kode_material` varchar(50) DEFAULT NULL COMMENT 'kode material SAP',
+  `nama_material` varchar(150) DEFAULT NULL COMMENT 'ket material',
+  `kode_relasi` varchar(50) DEFAULT NULL COMMENT 'kode customer/suplier',
+  `nama_relasi` varchar(150) DEFAULT NULL COMMENT 'nama customer/suplier',
+  `no_kendaraan` varchar(10) DEFAULT NULL COMMENT 'no kendaraan',
+  `nama_supir` varchar(100) DEFAULT NULL COMMENT 'nama supir',
+  `timbang_1` int(11) DEFAULT NULL,
+  `timbang_2` int(11) DEFAULT NULL,
+  `netto` int(11) DEFAULT NULL,
+  `tgl_timbang_1` datetime DEFAULT NULL COMMENT 'tgl timbang',
+  `tgl_timbang_2` datetime DEFAULT NULL COMMENT 'tgl timbang',
+  `jenis_transaksi` enum('Penerimaan','Pengiriman') DEFAULT NULL COMMENT 'jenis transaksi PO/SO',
+  `no_transaksi` varchar(50) DEFAULT NULL COMMENT 'no dokumen transaksi',
+  `status_timbang_1` smallint(1) DEFAULT '0' COMMENT '0=belum 1=sudah',
+  `status_timbang_2` smallint(1) DEFAULT '0' COMMENT '0=belum 1=sudah',
+  `ptgs_timbang` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id_t_material`,`no_tiket`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 /*Data for the table `t_timbang_material` */
 
@@ -1557,7 +1109,7 @@ CREATE TABLE `t_transaksi_material` (
   `keterangan_transaksi` text,
   `jenis_transaksi` enum('Penerimaan','Pengiriman') DEFAULT NULL,
   PRIMARY KEY (`id_transaksi`,`no_transaksi`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `t_transaksi_material` */
 
@@ -1686,7 +1238,7 @@ CREATE TABLE `tb_groups_access` (
   `module_id` int(6) DEFAULT NULL,
   `access_data` text,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=MyISAM AUTO_INCREMENT=720 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+) ENGINE=MyISAM AUTO_INCREMENT=811 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 /*Data for the table `tb_groups_access` */
 
@@ -1695,7 +1247,6 @@ insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) value
 insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (239,2,108,'{\"is_global\":\"1\",\"is_view\":\"1\",\"is_detail\":\"1\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
 insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (221,4,107,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
 insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (220,3,107,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
-insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (576,4,117,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
 insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (214,1,106,'{\"is_global\":\"1\",\"is_view\":\"1\",\"is_detail\":\"1\",\"is_add\":\"1\",\"is_edit\":\"1\",\"is_remove\":\"1\",\"is_excel\":\"1\"}');
 insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (215,2,106,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
 insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (216,3,106,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
@@ -1721,9 +1272,7 @@ insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) value
 insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (531,8,118,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
 insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (530,7,118,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
 insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (529,6,118,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
-insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (575,3,117,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
-insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (574,2,117,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
-insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (573,1,117,'{\"is_global\":\"1\",\"is_view\":\"1\",\"is_detail\":\"1\",\"is_add\":\"1\",\"is_edit\":\"1\",\"is_remove\":\"1\",\"is_excel\":\"1\"}');
+insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (784,14,117,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
 insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (237,4,109,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
 insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (236,3,109,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
 insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (235,2,109,'{\"is_global\":\"1\",\"is_view\":\"1\",\"is_detail\":\"1\",\"is_add\":\"1\",\"is_edit\":\"1\",\"is_remove\":\"1\",\"is_excel\":\"0\"}');
@@ -1796,14 +1345,7 @@ insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) value
 insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (367,6,123,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
 insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (368,7,123,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
 insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (369,8,123,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
-insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (632,13,124,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
-insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (631,12,124,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
-insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (630,11,124,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
-insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (629,10,124,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
-insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (628,9,124,'{\"is_global\":\"1\",\"is_view\":\"1\",\"is_detail\":\"1\",\"is_add\":\"1\",\"is_edit\":\"1\",\"is_remove\":\"1\",\"is_excel\":\"0\"}');
-insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (627,8,124,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
-insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (626,7,124,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
-insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (625,6,124,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
+insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (810,14,124,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
 insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (640,9,125,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
 insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (639,8,125,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
 insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (638,7,125,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
@@ -1812,30 +1354,9 @@ insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) value
 insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (635,3,125,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
 insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (634,2,125,'{\"is_global\":\"1\",\"is_view\":\"1\",\"is_detail\":\"1\",\"is_add\":\"1\",\"is_edit\":\"1\",\"is_remove\":\"1\",\"is_excel\":\"0\"}');
 insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (633,1,125,'{\"is_global\":\"1\",\"is_view\":\"1\",\"is_detail\":\"1\",\"is_add\":\"1\",\"is_edit\":\"1\",\"is_remove\":\"1\",\"is_excel\":\"1\"}');
-insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (568,9,126,'{\"is_global\":\"1\",\"is_view\":\"1\",\"is_detail\":\"1\",\"is_add\":\"1\",\"is_edit\":\"1\",\"is_remove\":\"1\",\"is_excel\":\"0\"}');
-insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (567,8,126,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
-insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (566,7,126,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
-insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (565,6,126,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
-insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (564,4,126,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
-insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (563,3,126,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
-insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (562,2,126,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
-insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (561,1,126,'{\"is_global\":\"1\",\"is_view\":\"1\",\"is_detail\":\"1\",\"is_add\":\"1\",\"is_edit\":\"1\",\"is_remove\":\"1\",\"is_excel\":\"1\"}');
-insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (592,9,127,'{\"is_global\":\"1\",\"is_view\":\"1\",\"is_detail\":\"1\",\"is_add\":\"1\",\"is_edit\":\"1\",\"is_remove\":\"1\",\"is_excel\":\"0\"}');
-insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (591,8,127,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
-insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (590,7,127,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
-insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (589,6,127,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
-insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (588,4,127,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
-insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (587,3,127,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
-insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (586,2,127,'{\"is_global\":\"1\",\"is_view\":\"1\",\"is_detail\":\"1\",\"is_add\":\"1\",\"is_edit\":\"1\",\"is_remove\":\"1\",\"is_excel\":\"0\"}');
-insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (585,1,127,'{\"is_global\":\"1\",\"is_view\":\"1\",\"is_detail\":\"1\",\"is_add\":\"1\",\"is_edit\":\"1\",\"is_remove\":\"1\",\"is_excel\":\"1\"}');
-insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (604,9,128,'{\"is_global\":\"1\",\"is_view\":\"1\",\"is_detail\":\"1\",\"is_add\":\"1\",\"is_edit\":\"1\",\"is_remove\":\"1\",\"is_excel\":\"0\"}');
-insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (603,8,128,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
-insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (602,7,128,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
-insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (601,6,128,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
-insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (600,4,128,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
-insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (599,3,128,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
-insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (598,2,128,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
-insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (597,1,128,'{\"is_global\":\"1\",\"is_view\":\"1\",\"is_detail\":\"1\",\"is_add\":\"1\",\"is_edit\":\"1\",\"is_remove\":\"1\",\"is_excel\":\"1\"}');
+insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (797,14,126,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
+insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (732,14,127,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
+insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (745,14,128,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
 insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (652,9,130,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
 insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (651,8,130,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
 insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (650,7,130,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
@@ -1895,30 +1416,30 @@ insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) value
 insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (546,11,120,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
 insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (547,12,120,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
 insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (548,13,120,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
-insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (569,10,126,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
-insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (570,11,126,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
-insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (571,12,126,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
-insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (572,13,126,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
-insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (577,6,117,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
-insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (578,7,117,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
-insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (579,8,117,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
-insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (580,9,117,'{\"is_global\":\"1\",\"is_view\":\"1\",\"is_detail\":\"1\",\"is_add\":\"1\",\"is_edit\":\"1\",\"is_remove\":\"1\",\"is_excel\":\"0\"}');
-insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (581,10,117,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
-insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (582,11,117,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
-insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (583,12,117,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
-insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (584,13,117,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
-insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (593,10,127,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
-insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (594,11,127,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
-insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (595,12,127,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
-insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (596,13,127,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
-insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (605,10,128,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
-insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (606,11,128,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
-insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (607,12,128,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
-insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (608,13,128,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
-insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (624,4,124,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
-insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (623,3,124,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
-insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (622,2,124,'{\"is_global\":\"1\",\"is_view\":\"1\",\"is_detail\":\"1\",\"is_add\":\"1\",\"is_edit\":\"1\",\"is_remove\":\"1\",\"is_excel\":\"0\"}');
-insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (621,1,124,'{\"is_global\":\"1\",\"is_view\":\"1\",\"is_detail\":\"1\",\"is_add\":\"1\",\"is_edit\":\"1\",\"is_remove\":\"1\",\"is_excel\":\"1\"}');
+insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (796,13,126,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
+insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (795,12,126,'{\"is_global\":\"1\",\"is_view\":\"1\",\"is_detail\":\"1\",\"is_add\":\"1\",\"is_edit\":\"1\",\"is_remove\":\"1\",\"is_excel\":\"0\"}');
+insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (794,11,126,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
+insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (793,10,126,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
+insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (783,13,117,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
+insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (782,12,117,'{\"is_global\":\"1\",\"is_view\":\"1\",\"is_detail\":\"1\",\"is_add\":\"1\",\"is_edit\":\"1\",\"is_remove\":\"1\",\"is_excel\":\"0\"}');
+insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (781,11,117,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
+insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (780,10,117,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
+insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (779,9,117,'{\"is_global\":\"1\",\"is_view\":\"1\",\"is_detail\":\"1\",\"is_add\":\"1\",\"is_edit\":\"1\",\"is_remove\":\"1\",\"is_excel\":\"0\"}');
+insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (778,8,117,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
+insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (777,7,117,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
+insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (776,6,117,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
+insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (731,13,127,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
+insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (730,12,127,'{\"is_global\":\"1\",\"is_view\":\"1\",\"is_detail\":\"1\",\"is_add\":\"1\",\"is_edit\":\"1\",\"is_remove\":\"1\",\"is_excel\":\"0\"}');
+insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (729,11,127,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
+insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (728,10,127,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
+insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (744,13,128,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
+insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (743,12,128,'{\"is_global\":\"1\",\"is_view\":\"1\",\"is_detail\":\"1\",\"is_add\":\"1\",\"is_edit\":\"1\",\"is_remove\":\"1\",\"is_excel\":\"0\"}');
+insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (742,11,128,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
+insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (741,10,128,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
+insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (809,13,124,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
+insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (808,12,124,'{\"is_global\":\"1\",\"is_view\":\"1\",\"is_detail\":\"1\",\"is_add\":\"1\",\"is_edit\":\"1\",\"is_remove\":\"1\",\"is_excel\":\"0\"}');
+insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (807,11,124,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
+insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (806,10,124,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
 insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (641,10,125,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
 insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (642,11,125,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
 insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (643,12,125,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
@@ -1983,10 +1504,10 @@ insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) value
 insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (465,8,120,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
 insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (464,7,120,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
 insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (463,6,120,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
-insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (310,1,117,'{\"is_global\":\"1\",\"is_view\":\"1\",\"is_detail\":\"1\",\"is_add\":\"1\",\"is_edit\":\"1\",\"is_remove\":\"1\",\"is_excel\":\"1\"}');
-insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (311,2,117,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
-insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (312,3,117,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
-insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (313,4,117,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
+insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (775,4,117,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
+insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (774,3,117,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
+insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (773,2,117,'{\"is_global\":\"1\",\"is_view\":\"1\",\"is_detail\":\"1\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
+insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (772,1,117,'{\"is_global\":\"1\",\"is_view\":\"1\",\"is_detail\":\"1\",\"is_add\":\"1\",\"is_edit\":\"1\",\"is_remove\":\"1\",\"is_excel\":\"1\"}');
 insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (322,1,118,'{\"is_global\":\"1\",\"is_view\":\"1\",\"is_detail\":\"1\",\"is_add\":\"1\",\"is_edit\":\"1\",\"is_remove\":\"1\",\"is_excel\":\"1\"}');
 insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (323,2,118,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
 insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (324,3,118,'{\"is_global\":\"1\",\"is_view\":\"1\",\"is_detail\":\"1\",\"is_add\":\"1\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
@@ -2008,25 +1529,25 @@ insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) value
 insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (436,3,130,'{\"is_global\":\"1\",\"is_view\":\"1\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
 insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (435,2,130,'{\"is_global\":\"1\",\"is_view\":\"1\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
 insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (434,1,130,'{\"is_global\":\"1\",\"is_view\":\"1\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"1\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
-insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (417,8,128,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
-insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (416,7,128,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
-insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (415,6,128,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
-insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (414,5,128,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
-insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (413,4,128,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
-insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (412,3,128,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
-insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (411,2,128,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
-insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (410,1,128,'{\"is_global\":\"1\",\"is_view\":\"1\",\"is_detail\":\"1\",\"is_add\":\"1\",\"is_edit\":\"1\",\"is_remove\":\"1\",\"is_excel\":\"1\"}');
-insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (409,8,127,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
-insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (408,7,127,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
-insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (407,6,127,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
-insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (370,1,124,'{\"is_global\":\"1\",\"is_view\":\"1\",\"is_detail\":\"1\",\"is_add\":\"1\",\"is_edit\":\"1\",\"is_remove\":\"1\",\"is_excel\":\"1\"}');
-insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (371,2,124,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
-insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (372,3,124,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
-insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (373,4,124,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
-insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (374,5,124,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
-insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (375,6,124,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
-insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (376,7,124,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
-insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (377,8,124,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
+insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (740,9,128,'{\"is_global\":\"1\",\"is_view\":\"1\",\"is_detail\":\"1\",\"is_add\":\"1\",\"is_edit\":\"1\",\"is_remove\":\"1\",\"is_excel\":\"0\"}');
+insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (739,8,128,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
+insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (738,7,128,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
+insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (737,6,128,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
+insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (736,4,128,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
+insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (735,3,128,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
+insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (734,2,128,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
+insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (733,1,128,'{\"is_global\":\"1\",\"is_view\":\"1\",\"is_detail\":\"1\",\"is_add\":\"1\",\"is_edit\":\"1\",\"is_remove\":\"1\",\"is_excel\":\"1\"}');
+insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (727,9,127,'{\"is_global\":\"1\",\"is_view\":\"1\",\"is_detail\":\"1\",\"is_add\":\"1\",\"is_edit\":\"1\",\"is_remove\":\"1\",\"is_excel\":\"0\"}');
+insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (726,8,127,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
+insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (725,7,127,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
+insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (805,9,124,'{\"is_global\":\"1\",\"is_view\":\"1\",\"is_detail\":\"1\",\"is_add\":\"1\",\"is_edit\":\"1\",\"is_remove\":\"1\",\"is_excel\":\"0\"}');
+insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (804,8,124,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
+insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (803,7,124,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
+insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (802,6,124,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
+insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (801,4,124,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
+insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (800,3,124,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
+insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (799,2,124,'{\"is_global\":\"1\",\"is_view\":\"1\",\"is_detail\":\"1\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
+insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (798,1,124,'{\"is_global\":\"1\",\"is_view\":\"1\",\"is_detail\":\"1\",\"is_add\":\"1\",\"is_edit\":\"1\",\"is_remove\":\"1\",\"is_excel\":\"1\"}');
 insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (378,1,125,'{\"is_global\":\"1\",\"is_view\":\"1\",\"is_detail\":\"1\",\"is_add\":\"1\",\"is_edit\":\"1\",\"is_remove\":\"1\",\"is_excel\":\"1\"}');
 insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (379,2,125,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
 insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (380,3,125,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
@@ -2035,19 +1556,19 @@ insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) value
 insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (383,6,125,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
 insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (384,7,125,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
 insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (385,8,125,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
-insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (386,1,126,'{\"is_global\":\"1\",\"is_view\":\"1\",\"is_detail\":\"1\",\"is_add\":\"1\",\"is_edit\":\"1\",\"is_remove\":\"1\",\"is_excel\":\"1\"}');
-insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (387,2,126,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
-insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (388,3,126,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
-insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (389,4,126,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
-insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (390,5,126,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
-insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (391,6,126,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
-insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (392,7,126,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
-insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (393,8,126,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
-insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (402,1,127,'{\"is_global\":\"1\",\"is_view\":\"1\",\"is_detail\":\"1\",\"is_add\":\"1\",\"is_edit\":\"1\",\"is_remove\":\"1\",\"is_excel\":\"1\"}');
-insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (403,2,127,'{\"is_global\":\"1\",\"is_view\":\"1\",\"is_detail\":\"1\",\"is_add\":\"1\",\"is_edit\":\"1\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
-insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (404,3,127,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
-insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (405,4,127,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
-insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (406,5,127,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
+insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (792,9,126,'{\"is_global\":\"1\",\"is_view\":\"1\",\"is_detail\":\"1\",\"is_add\":\"1\",\"is_edit\":\"1\",\"is_remove\":\"1\",\"is_excel\":\"0\"}');
+insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (791,8,126,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
+insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (790,7,126,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
+insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (789,6,126,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
+insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (788,4,126,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
+insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (787,3,126,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
+insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (786,2,126,'{\"is_global\":\"1\",\"is_view\":\"1\",\"is_detail\":\"1\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
+insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (785,1,126,'{\"is_global\":\"1\",\"is_view\":\"1\",\"is_detail\":\"1\",\"is_add\":\"1\",\"is_edit\":\"1\",\"is_remove\":\"1\",\"is_excel\":\"1\"}');
+insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (724,6,127,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
+insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (723,4,127,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
+insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (722,3,127,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
+insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (721,2,127,'{\"is_global\":\"1\",\"is_view\":\"1\",\"is_detail\":\"1\",\"is_add\":\"1\",\"is_edit\":\"1\",\"is_remove\":\"1\",\"is_excel\":\"0\"}');
+insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (720,1,127,'{\"is_global\":\"1\",\"is_view\":\"1\",\"is_detail\":\"1\",\"is_add\":\"1\",\"is_edit\":\"1\",\"is_remove\":\"1\",\"is_excel\":\"1\"}');
 insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (560,13,138,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
 insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (694,1,135,'{\"is_global\":\"1\",\"is_view\":\"1\",\"is_detail\":\"1\",\"is_add\":\"1\",\"is_edit\":\"1\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
 insert  into `tb_groups_access`(`id`,`group_id`,`module_id`,`access_data`) values (695,2,135,'{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
@@ -2079,7 +1600,6 @@ CREATE TABLE `tb_logs` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
 
 /*Data for the table `tb_logs` */
-
 
 /*Table structure for table `tb_menu` */
 
@@ -2140,14 +1660,14 @@ insert  into `tb_menu`(`menu_id`,`parent_id`,`module`,`url`,`menu_name`,`menu_ty
 insert  into `tb_menu`(`menu_id`,`parent_id`,`module`,`url`,`menu_name`,`menu_type`,`role_id`,`deep`,`ordering`,`position`,`menu_icons`,`active`,`access_data`,`allow_guest`,`menu_lang`,`entry_by`) values (84,82,'mlori','','Data Lori','internal','0',0,2,'sidebar','','1','{\"1\":\"1\",\"2\":\"0\",\"3\":\"0\",\"4\":\"0\",\"6\":\"0\",\"7\":\"0\",\"8\":\"1\",\"9\":\"0\",\"10\":\"0\",\"11\":\"0\",\"12\":\"0\",\"13\":\"0\",\"14\":\"0\"}','0',NULL,'22');
 insert  into `tb_menu`(`menu_id`,`parent_id`,`module`,`url`,`menu_name`,`menu_type`,`role_id`,`deep`,`ordering`,`position`,`menu_icons`,`active`,`access_data`,`allow_guest`,`menu_lang`,`entry_by`) values (85,82,'mtimbangan','','Data Timbangan','internal','0',0,3,'sidebar','','1','{\"1\":\"1\",\"2\":\"0\",\"3\":\"0\",\"4\":\"0\",\"5\":\"0\",\"6\":\"0\",\"7\":\"0\",\"8\":\"0\"}','0',NULL,'22');
 insert  into `tb_menu`(`menu_id`,`parent_id`,`module`,`url`,`menu_name`,`menu_type`,`role_id`,`deep`,`ordering`,`position`,`menu_icons`,`active`,`access_data`,`allow_guest`,`menu_lang`,`entry_by`) values (86,59,'mvendor','','Vendor Angkutan','internal','0',0,2,'sidebar','','1','{\"1\":\"1\",\"2\":\"1\",\"3\":\"0\",\"4\":\"0\",\"6\":\"0\",\"7\":\"0\",\"8\":\"0\",\"9\":\"1\",\"10\":\"0\",\"11\":\"0\",\"12\":\"1\",\"13\":\"0\",\"14\":\"0\"}','0',NULL,'22');
-insert  into `tb_menu`(`menu_id`,`parent_id`,`module`,`url`,`menu_name`,`menu_type`,`role_id`,`deep`,`ordering`,`position`,`menu_icons`,`active`,`access_data`,`allow_guest`,`menu_lang`,`entry_by`) values (87,59,'mjarak','','Master Jarak','internal','0',0,5,'sidebar','','1','{\"1\":\"1\",\"2\":\"0\",\"3\":\"0\",\"4\":\"0\",\"6\":\"0\",\"7\":\"0\",\"8\":\"0\",\"9\":\"1\",\"10\":\"0\",\"11\":\"0\",\"12\":\"1\",\"13\":\"0\",\"14\":\"0\"}','0',NULL,'22');
-insert  into `tb_menu`(`menu_id`,`parent_id`,`module`,`url`,`menu_name`,`menu_type`,`role_id`,`deep`,`ordering`,`position`,`menu_icons`,`active`,`access_data`,`allow_guest`,`menu_lang`,`entry_by`) values (88,59,'tbiayaangkutan','','Proses Upah Angkutan','internal','0',0,7,'sidebar','','1','{\"1\":\"1\",\"2\":\"0\",\"3\":\"0\",\"4\":\"0\",\"6\":\"0\",\"7\":\"0\",\"8\":\"0\",\"9\":\"1\",\"10\":\"0\",\"11\":\"0\",\"12\":\"0\",\"13\":\"0\"}','0',NULL,'22');
-insert  into `tb_menu`(`menu_id`,`parent_id`,`module`,`url`,`menu_name`,`menu_type`,`role_id`,`deep`,`ordering`,`position`,`menu_icons`,`active`,`access_data`,`allow_guest`,`menu_lang`,`entry_by`) values (89,59,'tupahtebang','','Proses Upah Tebang','internal','0',0,6,'sidebar','','1','{\"1\":\"1\",\"2\":\"0\",\"3\":\"0\",\"4\":\"0\",\"6\":\"0\",\"7\":\"0\",\"8\":\"0\",\"9\":\"1\",\"10\":\"0\",\"11\":\"0\",\"12\":\"0\",\"13\":\"0\"}','0',NULL,'22');
+insert  into `tb_menu`(`menu_id`,`parent_id`,`module`,`url`,`menu_name`,`menu_type`,`role_id`,`deep`,`ordering`,`position`,`menu_icons`,`active`,`access_data`,`allow_guest`,`menu_lang`,`entry_by`) values (87,59,'mjarak','','Master Jarak','internal','0',0,5,'sidebar','','1','{\"1\":\"1\",\"2\":\"1\",\"3\":\"0\",\"4\":\"0\",\"6\":\"0\",\"7\":\"0\",\"8\":\"0\",\"9\":\"1\",\"10\":\"0\",\"11\":\"0\",\"12\":\"1\",\"13\":\"0\",\"14\":\"0\"}','0',NULL,'22');
+insert  into `tb_menu`(`menu_id`,`parent_id`,`module`,`url`,`menu_name`,`menu_type`,`role_id`,`deep`,`ordering`,`position`,`menu_icons`,`active`,`access_data`,`allow_guest`,`menu_lang`,`entry_by`) values (88,59,'tbiayaangkutan','','Proses Upah Angkutan','internal','0',0,7,'sidebar','','1','{\"1\":\"1\",\"2\":\"0\",\"3\":\"0\",\"4\":\"0\",\"6\":\"0\",\"7\":\"0\",\"8\":\"0\",\"9\":\"1\",\"10\":\"0\",\"11\":\"0\",\"12\":\"1\",\"13\":\"0\",\"14\":\"0\"}','0',NULL,'22');
+insert  into `tb_menu`(`menu_id`,`parent_id`,`module`,`url`,`menu_name`,`menu_type`,`role_id`,`deep`,`ordering`,`position`,`menu_icons`,`active`,`access_data`,`allow_guest`,`menu_lang`,`entry_by`) values (89,59,'tupahtebang','','Proses Upah Tebang','internal','0',0,6,'sidebar','','1','{\"1\":\"1\",\"2\":\"0\",\"3\":\"0\",\"4\":\"0\",\"6\":\"0\",\"7\":\"0\",\"8\":\"0\",\"9\":\"1\",\"10\":\"0\",\"11\":\"0\",\"12\":\"1\",\"13\":\"0\",\"14\":\"0\"}','0',NULL,'22');
 insert  into `tb_menu`(`menu_id`,`parent_id`,`module`,`url`,`menu_name`,`menu_type`,`role_id`,`deep`,`ordering`,`position`,`menu_icons`,`active`,`access_data`,`allow_guest`,`menu_lang`,`entry_by`) values (90,63,'tevaluasitebang','','Evaluasi Tebang','internal','0',0,3,'sidebar','','1','{\"1\":\"1\",\"2\":\"1\",\"3\":\"0\",\"4\":\"0\",\"6\":\"0\",\"7\":\"0\",\"8\":\"0\",\"9\":\"0\",\"10\":\"0\",\"11\":\"0\",\"12\":\"0\",\"13\":\"0\"}','0',NULL,'22');
 insert  into `tb_menu`(`menu_id`,`parent_id`,`module`,`url`,`menu_name`,`menu_type`,`role_id`,`deep`,`ordering`,`position`,`menu_icons`,`active`,`access_data`,`allow_guest`,`menu_lang`,`entry_by`) values (91,0,'','','Laporan','internal','0',0,12,'sidebar','fa fa-print','1','{\"1\":\"1\",\"2\":\"1\",\"3\":\"1\",\"4\":\"1\",\"5\":\"1\",\"6\":\"1\",\"7\":\"1\",\"8\":\"1\"}','1',NULL,'22');
-insert  into `tb_menu`(`menu_id`,`parent_id`,`module`,`url`,`menu_name`,`menu_type`,`role_id`,`deep`,`ordering`,`position`,`menu_icons`,`active`,`access_data`,`allow_guest`,`menu_lang`,`entry_by`) values (92,91,'','','Laporan Timbangan','internal','0',0,1,'sidebar','','1','{\"1\":\"1\",\"2\":\"1\",\"3\":\"1\",\"4\":\"1\",\"6\":\"1\",\"7\":\"1\",\"8\":\"1\",\"9\":\"1\",\"10\":\"1\",\"11\":\"1\",\"12\":\"1\",\"13\":\"1\",\"14\":\"1\"}','0',NULL,'22');
-insert  into `tb_menu`(`menu_id`,`parent_id`,`module`,`url`,`menu_name`,`menu_type`,`role_id`,`deep`,`ordering`,`position`,`menu_icons`,`active`,`access_data`,`allow_guest`,`menu_lang`,`entry_by`) values (93,91,'','','Laporan A.R.I','internal','0',0,3,'sidebar','','1','{\"1\":\"1\",\"2\":\"0\",\"3\":\"0\",\"4\":\"0\",\"6\":\"1\",\"7\":\"0\",\"8\":\"0\",\"9\":\"0\",\"10\":\"1\",\"11\":\"0\",\"12\":\"0\",\"13\":\"1\",\"14\":\"1\"}','0',NULL,'22');
-insert  into `tb_menu`(`menu_id`,`parent_id`,`module`,`url`,`menu_name`,`menu_type`,`role_id`,`deep`,`ordering`,`position`,`menu_icons`,`active`,`access_data`,`allow_guest`,`menu_lang`,`entry_by`) values (94,91,'','','Laporan Meja Tebu','internal','0',0,2,'sidebar','','1','{\"1\":\"1\",\"2\":\"0\",\"3\":\"1\",\"4\":\"0\",\"6\":\"0\",\"7\":\"0\",\"8\":\"0\",\"9\":\"0\",\"10\":\"0\",\"11\":\"0\",\"12\":\"0\",\"13\":\"1\",\"14\":\"1\"}','0',NULL,'22');
+insert  into `tb_menu`(`menu_id`,`parent_id`,`module`,`url`,`menu_name`,`menu_type`,`role_id`,`deep`,`ordering`,`position`,`menu_icons`,`active`,`access_data`,`allow_guest`,`menu_lang`,`entry_by`) values (92,91,'laporantimbangan','','Laporan Timbangan','internal','0',0,1,'sidebar','','1','{\"1\":\"1\",\"2\":\"1\",\"3\":\"1\",\"4\":\"1\",\"6\":\"1\",\"7\":\"1\",\"8\":\"1\",\"9\":\"1\",\"10\":\"1\",\"11\":\"1\",\"12\":\"1\",\"13\":\"1\",\"14\":\"1\"}','0',NULL,'22');
+insert  into `tb_menu`(`menu_id`,`parent_id`,`module`,`url`,`menu_name`,`menu_type`,`role_id`,`deep`,`ordering`,`position`,`menu_icons`,`active`,`access_data`,`allow_guest`,`menu_lang`,`entry_by`) values (93,91,'laporanari','','Laporan A.R.I','internal','0',0,3,'sidebar','','1','{\"1\":\"1\",\"2\":\"0\",\"3\":\"0\",\"4\":\"0\",\"6\":\"1\",\"7\":\"0\",\"8\":\"0\",\"9\":\"0\",\"10\":\"1\",\"11\":\"0\",\"12\":\"0\",\"13\":\"1\",\"14\":\"1\"}','0',NULL,'22');
+insert  into `tb_menu`(`menu_id`,`parent_id`,`module`,`url`,`menu_name`,`menu_type`,`role_id`,`deep`,`ordering`,`position`,`menu_icons`,`active`,`access_data`,`allow_guest`,`menu_lang`,`entry_by`) values (94,91,'laporanmejatebu','','Laporan Meja Tebu','internal','0',0,2,'sidebar','','1','{\"1\":\"1\",\"2\":\"0\",\"3\":\"1\",\"4\":\"0\",\"6\":\"0\",\"7\":\"0\",\"8\":\"0\",\"9\":\"0\",\"10\":\"0\",\"11\":\"0\",\"12\":\"0\",\"13\":\"1\",\"14\":\"1\"}','0',NULL,'22');
 insert  into `tb_menu`(`menu_id`,`parent_id`,`module`,`url`,`menu_name`,`menu_type`,`role_id`,`deep`,`ordering`,`position`,`menu_icons`,`active`,`access_data`,`allow_guest`,`menu_lang`,`entry_by`) values (95,82,'mkualitastebu','','Master Rafaksi','internal','0',0,NULL,'sidebar','','1','{\"1\":\"1\",\"2\":\"0\",\"3\":\"0\",\"4\":\"0\",\"6\":\"0\",\"7\":\"0\",\"8\":\"0\",\"9\":\"0\",\"10\":\"0\",\"11\":\"0\",\"12\":\"0\"}','0',NULL,'22');
 insert  into `tb_menu`(`menu_id`,`parent_id`,`module`,`url`,`menu_name`,`menu_type`,`role_id`,`deep`,`ordering`,`position`,`menu_icons`,`active`,`access_data`,`allow_guest`,`menu_lang`,`entry_by`) values (96,0,'tspt','','Surat Perintah Tebang','internal','0',0,2,'sidebar','fa fa-file','1','{\"1\":\"1\",\"2\":\"0\",\"3\":\"0\",\"4\":\"0\",\"6\":\"0\",\"7\":\"0\",\"8\":\"0\",\"9\":\"0\",\"10\":\"0\",\"11\":\"0\",\"12\":\"0\",\"13\":\"1\",\"14\":\"1\"}','0',NULL,'22');
 insert  into `tb_menu`(`menu_id`,`parent_id`,`module`,`url`,`menu_name`,`menu_type`,`role_id`,`deep`,`ordering`,`position`,`menu_icons`,`active`,`access_data`,`allow_guest`,`menu_lang`,`entry_by`) values (97,74,'lapproduksi','','Lap. Produksi','internal','0',0,5,'sidebar','','1','{\"1\":\"1\",\"2\":\"0\",\"3\":\"0\",\"4\":\"0\",\"6\":\"0\",\"7\":\"1\",\"8\":\"0\",\"9\":\"0\",\"10\":\"1\",\"11\":\"0\",\"12\":\"0\",\"13\":\"0\",\"14\":\"0\"}','0',NULL,'22');
@@ -2299,19 +1819,19 @@ CREATE TABLE `tb_users` (
 
 /*Data for the table `tb_users` */
 
-insert  into `tb_users`(`id`,`group_id`,`username`,`password`,`email`,`first_name`,`last_name`,`avatar`,`active`,`login_attempt`,`last_login`,`created_at`,`updated_at`,`reminder`,`activation`,`remember_token`,`alamat`,`notlp`,`website`) values (24,2,'optanaman','ae330ea92740001fc2326495f8361182','viddy@gending.co.id','optanaman','gending',NULL,1,0,'2018-03-26 13:06:37','2018-02-27 09:05:44',NULL,NULL,NULL,NULL,'','','');
-insert  into `tb_users`(`id`,`group_id`,`username`,`password`,`email`,`first_name`,`last_name`,`avatar`,`active`,`login_attempt`,`last_login`,`created_at`,`updated_at`,`reminder`,`activation`,`remember_token`,`alamat`,`notlp`,`website`) values (23,8,'optimbangan','e10adc3949ba59abbe56e057f20f883e','ferdy.kruak@gmail.com','Operator Timbangan','-',NULL,1,0,'2018-03-26 13:03:43','2018-02-20 02:32:23',NULL,NULL,NULL,NULL,'','','');
-insert  into `tb_users`(`id`,`group_id`,`username`,`password`,`email`,`first_name`,`last_name`,`avatar`,`active`,`login_attempt`,`last_login`,`created_at`,`updated_at`,`reminder`,`activation`,`remember_token`,`alamat`,`notlp`,`website`) values (22,1,'admin','6797f82f504379e72c59879b12594d39','m@gmail.com','Admin','SIMPG',NULL,1,0,'2018-04-23 23:35:27','2017-06-04 12:07:08',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
-insert  into `tb_users`(`id`,`group_id`,`username`,`password`,`email`,`first_name`,`last_name`,`avatar`,`active`,`login_attempt`,`last_login`,`created_at`,`updated_at`,`reminder`,`activation`,`remember_token`,`alamat`,`notlp`,`website`) values (25,4,'opselektor','23d6b8f2816bb99c8bcb7420be7a8e52','selektor@gending.co.id','opselektor','gending',NULL,1,0,'2018-03-26 12:20:46','2018-03-26 10:28:29',NULL,NULL,NULL,NULL,'','','');
-insert  into `tb_users`(`id`,`group_id`,`username`,`password`,`email`,`first_name`,`last_name`,`avatar`,`active`,`login_attempt`,`last_login`,`created_at`,`updated_at`,`reminder`,`activation`,`remember_token`,`alamat`,`notlp`,`website`) values (26,6,'opari','48d8647ff925daa70f6c3579e19972ae','ari@gending.co.id','opari','gending',NULL,1,0,'2018-03-26 12:45:53','2018-03-26 10:30:37',NULL,NULL,NULL,NULL,'','','');
-insert  into `tb_users`(`id`,`group_id`,`username`,`password`,`email`,`first_name`,`last_name`,`avatar`,`active`,`login_attempt`,`last_login`,`created_at`,`updated_at`,`reminder`,`activation`,`remember_token`,`alamat`,`notlp`,`website`) values (27,3,'opmejatebu','58eed6e38fc6e2d67c24d2c9c0183462','mejatebu@gending.co.id','opmejatebu','gending',NULL,1,0,'2018-03-26 12:43:45','2018-03-26 11:00:15',NULL,NULL,NULL,NULL,'','','');
-insert  into `tb_users`(`id`,`group_id`,`username`,`password`,`email`,`first_name`,`last_name`,`avatar`,`active`,`login_attempt`,`last_login`,`created_at`,`updated_at`,`reminder`,`activation`,`remember_token`,`alamat`,`notlp`,`website`) values (28,9,'opaku','544e73ab44cb20f22ca7a74bd7c0581e','aku@gending.co.id','opaku','gending',NULL,1,0,'2018-03-26 14:40:50','2018-03-26 11:33:43',NULL,NULL,NULL,NULL,'','','');
-insert  into `tb_users`(`id`,`group_id`,`username`,`password`,`email`,`first_name`,`last_name`,`avatar`,`active`,`login_attempt`,`last_login`,`created_at`,`updated_at`,`reminder`,`activation`,`remember_token`,`alamat`,`notlp`,`website`) values (29,7,'oppengolahan','1950f96514e175928f0ff52cd7258b03','pengolahan@gending.com','oppengolahan','gending',NULL,1,0,'2018-03-26 13:03:16','2018-03-26 12:49:59',NULL,NULL,NULL,NULL,'','','');
-insert  into `tb_users`(`id`,`group_id`,`username`,`password`,`email`,`first_name`,`last_name`,`avatar`,`active`,`login_attempt`,`last_login`,`created_at`,`updated_at`,`reminder`,`activation`,`remember_token`,`alamat`,`notlp`,`website`) values (30,10,'manpengolahan','59dfc5a1665ceeed7286ab17a8dfbc58','pengolahan@gending.com','manpengolahan','gending',NULL,1,0,'2018-04-23 23:22:16','2018-03-26 12:50:53',NULL,NULL,NULL,NULL,'','','');
-insert  into `tb_users`(`id`,`group_id`,`username`,`password`,`email`,`first_name`,`last_name`,`avatar`,`active`,`login_attempt`,`last_login`,`created_at`,`updated_at`,`reminder`,`activation`,`remember_token`,`alamat`,`notlp`,`website`) values (31,11,'mantanaman','bead0df270a51ef70dfb9c155948454b','manpengolahan@gending.com','mantanaman','gending',NULL,1,0,'2018-04-23 23:32:37','2018-03-26 12:51:42',NULL,NULL,NULL,NULL,'','','');
-insert  into `tb_users`(`id`,`group_id`,`username`,`password`,`email`,`first_name`,`last_name`,`avatar`,`active`,`login_attempt`,`last_login`,`created_at`,`updated_at`,`reminder`,`activation`,`remember_token`,`alamat`,`notlp`,`website`) values (32,12,'manaku','bf4dfc9c32ce7d5d739b896eb0588ac2','manaku@gending.com','manaku','manaku',NULL,1,0,NULL,'2018-03-26 12:52:09',NULL,NULL,NULL,NULL,'','','');
-insert  into `tb_users`(`id`,`group_id`,`username`,`password`,`email`,`first_name`,`last_name`,`avatar`,`active`,`login_attempt`,`last_login`,`created_at`,`updated_at`,`reminder`,`activation`,`remember_token`,`alamat`,`notlp`,`website`) values (33,14,'opqc','692f7e77f8012634c57c91cf1293cf92','qc@n11.com','op','qc',NULL,1,0,NULL,'2018-04-23 18:45:01',NULL,NULL,NULL,NULL,'','','');
-insert  into `tb_users`(`id`,`group_id`,`username`,`password`,`email`,`first_name`,`last_name`,`avatar`,`active`,`login_attempt`,`last_login`,`created_at`,`updated_at`,`reminder`,`activation`,`remember_token`,`alamat`,`notlp`,`website`) values (34,13,'manqc','4790596dc95fbe19a4d6b2ef194a0fc5','qc@man.com','Manager','QC',NULL,1,0,'2018-04-23 23:35:11','2018-04-23 23:34:31',NULL,NULL,NULL,NULL,'','','');
+insert  into `tb_users`(`id`,`group_id`,`username`,`password`,`email`,`first_name`,`last_name`,`avatar`,`active`,`login_attempt`,`last_login`,`created_at`,`updated_at`,`reminder`,`activation`,`remember_token`,`alamat`,`notlp`,`website`) values (24,2,'optanaman','ae330ea92740001fc2326495f8361182','tanaman@n11.com','Operator','Tanaman',NULL,1,0,'2018-04-24 08:21:45','2018-02-27 09:05:44',NULL,NULL,NULL,NULL,'','','');
+insert  into `tb_users`(`id`,`group_id`,`username`,`password`,`email`,`first_name`,`last_name`,`avatar`,`active`,`login_attempt`,`last_login`,`created_at`,`updated_at`,`reminder`,`activation`,`remember_token`,`alamat`,`notlp`,`website`) values (23,8,'optimbangan','466ab75f9c08521801ea5f01f2a13f7a','timbangan@n11.com','Operator','Timbangan',NULL,1,0,'2018-03-26 13:03:43','2018-02-20 02:32:23',NULL,NULL,NULL,NULL,'','','');
+insert  into `tb_users`(`id`,`group_id`,`username`,`password`,`email`,`first_name`,`last_name`,`avatar`,`active`,`login_attempt`,`last_login`,`created_at`,`updated_at`,`reminder`,`activation`,`remember_token`,`alamat`,`notlp`,`website`) values (22,1,'admin','6094547ccbab476d60ef35f65e40babc','admin@simpg.co.id','Admin','SIMPG',NULL,1,0,'2018-04-24 08:16:15','2017-06-04 12:07:08',NULL,NULL,NULL,NULL,'','','');
+insert  into `tb_users`(`id`,`group_id`,`username`,`password`,`email`,`first_name`,`last_name`,`avatar`,`active`,`login_attempt`,`last_login`,`created_at`,`updated_at`,`reminder`,`activation`,`remember_token`,`alamat`,`notlp`,`website`) values (25,4,'opselektor','23d6b8f2816bb99c8bcb7420be7a8e52','selektor@n11.com','Operator','Selektor',NULL,1,0,'2018-03-26 12:20:46','2018-03-26 10:28:29',NULL,NULL,NULL,NULL,'','','');
+insert  into `tb_users`(`id`,`group_id`,`username`,`password`,`email`,`first_name`,`last_name`,`avatar`,`active`,`login_attempt`,`last_login`,`created_at`,`updated_at`,`reminder`,`activation`,`remember_token`,`alamat`,`notlp`,`website`) values (26,6,'opari','48d8647ff925daa70f6c3579e19972ae','ari@n11.com','Operator','Ari',NULL,1,0,'2018-04-24 08:15:32','2018-03-26 10:30:37',NULL,NULL,NULL,NULL,'','','');
+insert  into `tb_users`(`id`,`group_id`,`username`,`password`,`email`,`first_name`,`last_name`,`avatar`,`active`,`login_attempt`,`last_login`,`created_at`,`updated_at`,`reminder`,`activation`,`remember_token`,`alamat`,`notlp`,`website`) values (27,3,'opmejatebu','58eed6e38fc6e2d67c24d2c9c0183462','mejatebu@n11.com','Operator','Meja Tebu',NULL,1,0,'2018-03-26 12:43:45','2018-03-26 11:00:15',NULL,NULL,NULL,NULL,'','','');
+insert  into `tb_users`(`id`,`group_id`,`username`,`password`,`email`,`first_name`,`last_name`,`avatar`,`active`,`login_attempt`,`last_login`,`created_at`,`updated_at`,`reminder`,`activation`,`remember_token`,`alamat`,`notlp`,`website`) values (28,9,'opaku','544e73ab44cb20f22ca7a74bd7c0581e','aku@n11.com','Operator','AKU',NULL,1,0,'2018-03-26 14:40:50','2018-03-26 11:33:43',NULL,NULL,NULL,NULL,'','','');
+insert  into `tb_users`(`id`,`group_id`,`username`,`password`,`email`,`first_name`,`last_name`,`avatar`,`active`,`login_attempt`,`last_login`,`created_at`,`updated_at`,`reminder`,`activation`,`remember_token`,`alamat`,`notlp`,`website`) values (29,7,'oppengolahan','1950f96514e175928f0ff52cd7258b03','pengolahan@n11.com','Operator','Pengolahan',NULL,1,0,'2018-03-26 13:03:16','2018-03-26 12:49:59',NULL,NULL,NULL,NULL,'','','');
+insert  into `tb_users`(`id`,`group_id`,`username`,`password`,`email`,`first_name`,`last_name`,`avatar`,`active`,`login_attempt`,`last_login`,`created_at`,`updated_at`,`reminder`,`activation`,`remember_token`,`alamat`,`notlp`,`website`) values (30,10,'manpengolahan','59dfc5a1665ceeed7286ab17a8dfbc58','pengolahan@n11.com','Manajer','Pengolahan',NULL,1,0,'2018-04-23 23:22:16','2018-03-26 12:50:53',NULL,NULL,NULL,NULL,'','','');
+insert  into `tb_users`(`id`,`group_id`,`username`,`password`,`email`,`first_name`,`last_name`,`avatar`,`active`,`login_attempt`,`last_login`,`created_at`,`updated_at`,`reminder`,`activation`,`remember_token`,`alamat`,`notlp`,`website`) values (31,11,'mantanaman','bead0df270a51ef70dfb9c155948454b','mantanaman@n11.com','Manajer','Tanaman',NULL,1,0,'2018-04-23 23:32:37','2018-03-26 12:51:42',NULL,NULL,NULL,NULL,'','','');
+insert  into `tb_users`(`id`,`group_id`,`username`,`password`,`email`,`first_name`,`last_name`,`avatar`,`active`,`login_attempt`,`last_login`,`created_at`,`updated_at`,`reminder`,`activation`,`remember_token`,`alamat`,`notlp`,`website`) values (32,12,'manaku','bf4dfc9c32ce7d5d739b896eb0588ac2','manaku@n11.com','Manajer','AKU',NULL,1,0,NULL,'2018-03-26 12:52:09',NULL,NULL,NULL,NULL,'','','');
+insert  into `tb_users`(`id`,`group_id`,`username`,`password`,`email`,`first_name`,`last_name`,`avatar`,`active`,`login_attempt`,`last_login`,`created_at`,`updated_at`,`reminder`,`activation`,`remember_token`,`alamat`,`notlp`,`website`) values (33,14,'opqc','692f7e77f8012634c57c91cf1293cf92','qc@n11.com','Operator','QC',NULL,1,0,NULL,'2018-04-23 18:45:01',NULL,NULL,NULL,NULL,'','','');
+insert  into `tb_users`(`id`,`group_id`,`username`,`password`,`email`,`first_name`,`last_name`,`avatar`,`active`,`login_attempt`,`last_login`,`created_at`,`updated_at`,`reminder`,`activation`,`remember_token`,`alamat`,`notlp`,`website`) values (34,13,'manqc','4790596dc95fbe19a4d6b2ef194a0fc5','manqc@n11.com','Manager','QC',NULL,1,0,'2018-04-23 23:35:11','2018-04-23 23:34:31',NULL,NULL,NULL,NULL,'','','');
 
 /*Table structure for table `updates_filesql` */
 
@@ -2324,7 +1844,7 @@ CREATE TABLE `updates_filesql` (
   `status_sync` smallint(1) DEFAULT '0',
   `dateadd` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=latin1;
 
 /*Data for the table `updates_filesql` */
 
@@ -2349,6 +1869,7 @@ insert  into `updates_filesql`(`id`,`nama_file`,`datesync`,`status_sync`,`datead
 insert  into `updates_filesql`(`id`,`nama_file`,`datesync`,`status_sync`,`dateadd`) values (19,'trigger-view-baru.sql',NULL,0,'2018-04-17 19:37:07');
 insert  into `updates_filesql`(`id`,`nama_file`,`datesync`,`status_sync`,`dateadd`) values (20,'update-upah-angkutan.sql',NULL,0,'2018-04-17 19:37:07');
 insert  into `updates_filesql`(`id`,`nama_file`,`datesync`,`status_sync`,`dateadd`) values (24,'update_material_ubah_timbang.sql',NULL,0,'2018-04-23 23:20:43');
+insert  into `updates_filesql`(`id`,`nama_file`,`datesync`,`status_sync`,`dateadd`) values (25,'01-reset-all-and-update.sql',NULL,0,'2018-04-24 00:42:15');
 
 /* Trigger structure for table `sap_field_spt` */
 
@@ -2356,8 +1877,8 @@ DELIMITER $$
 
 /*!50003 DROP TRIGGER*//*!50032 IF EXISTS */ /*!50003 `tr_spt_insert` */$$
 
-/*!50003 CREATE */ /*!50003 TRIGGER `tr_spt_insert` AFTER INSERT ON `sap_field_spt` FOR EACH ROW BEGIN
-	update sap_field set spt_status = 1, spt_tgl = now() where kode_blok = NEW.no_petak;
+/*!50003 CREATE */ /*!50003 TRIGGER `tr_spt_insert` AFTER INSERT ON `sap_field_spt` FOR EACH ROW BEGIN
+	update sap_field set spt_status = 1, spt_tgl = now() where kode_blok = NEW.no_petak;
     END */$$
 
 
@@ -2369,11 +1890,11 @@ DELIMITER $$
 
 /*!50003 DROP TRIGGER*//*!50032 IF EXISTS */ /*!50003 `tr_ari_insert` */$$
 
-/*!50003 CREATE */ /*!50003 TRIGGER `tr_ari_insert` AFTER INSERT ON `t_ari` FOR EACH ROW BEGIN
-	declare nourut int;
-	SELECT IFNULL(MAX(no_urut_analisa_rendemen),0)+1 into nourut FROM t_spta b WHERE date(ari_tgl)=date(NEW.tgl_ari);
-	update t_spta set ari_status=if(NEW.ditolak_ari = 1,2,1),ari_tgl=NEW.tgl_ari,
-	no_urut_analisa_rendemen = if(no_urut_analisa_rendemen=0,nourut,no_urut_analisa_rendemen) where id=NEW.id_spta;
+/*!50003 CREATE */ /*!50003 TRIGGER `tr_ari_insert` AFTER INSERT ON `t_ari` FOR EACH ROW BEGIN
+	declare nourut int;
+	SELECT IFNULL(MAX(no_urut_analisa_rendemen),0)+1 into nourut FROM t_spta b WHERE date(ari_tgl)=date(NEW.tgl_ari);
+	update t_spta set ari_status=if(NEW.ditolak_ari = 1,2,1),ari_tgl=NEW.tgl_ari,
+	no_urut_analisa_rendemen = if(no_urut_analisa_rendemen=0,nourut,no_urut_analisa_rendemen) where id=NEW.id_spta;
     END */$$
 
 
@@ -2385,36 +1906,36 @@ DELIMITER $$
 
 /*!50003 DROP TRIGGER*//*!50032 IF EXISTS */ /*!50003 `tr_mejatebu_insert` */$$
 
-/*!50003 CREATE */ /*!50003 TRIGGER `tr_mejatebu_insert` AFTER INSERT ON `t_meja_tebu` FOR EACH ROW BEGIN
-	declare nourut int;
-	declare nettostatus int;
-	DECLARE temp_persen DOUBLE;
-	DECLARE temp_tglmejatebu DATETIME;
-	DECLARE temp_noblok VARCHAR(20);
-	DECLARE temp_netto_final double;
-	
-	
-	
-	SELECT IFNULL(MAX(no_urut_analisa_rendemen),0)+1,timb_netto_status into nourut,nettostatus FROM t_meja_tebu a JOIN t_spta b ON a.id_spta=b.id WHERE gilingan=NEW.gilingan AND b.hari_giling=get_hari_giling();
-	update t_spta set meja_tebu_status=1,meja_tebu_tgl=NEW.tgl_meja_tebu,hari_giling=get_hari_giling(),tgl_giling=get_tgl_giling(),
-	no_urut_analisa_rendemen = IF(no_urut_analisa_rendemen=0,nourut,no_urut_analisa_rendemen)
-	 where id=NEW.id_spta;
-	 
-	 if nettostatus = 1 then
-		SELECT IF(a.`rafraksi_aktif`=1,b.`persen_rafaksi`,0) INTO temp_persen FROM t_meja_tebu a INNER JOIN m_rafaksi b ON a.`kondisi_tebu`=b.`nilai` WHERE a.id_spta = NEW.id_spta;
-		update t_timbangan set netto_final = (netto - (temp_persen*netto/100)),
-		netto_rafaksi = (temp_persen*netto/100),
-		rafaksi_prosentis = temp_persen,
-		tgl_rafaksi = now() where id_spat = NEW.id_spta; 
-		SELECT kode_blok INTO temp_noblok FROM t_spta WHERE id=NEW.id_spta;
-		
-		SElect netto_final into temp_netto_final FROM t_timbangan WHERE id_spat = NEW.id_spta; 
-		UPDATE sap_field SET total_tebang = (total_tebang+temp_netto_final) WHERE kode_blok=temp_noblok;
-		
-		
-	 end if;
-	 
-	 
+/*!50003 CREATE */ /*!50003 TRIGGER `tr_mejatebu_insert` AFTER INSERT ON `t_meja_tebu` FOR EACH ROW BEGIN
+	declare nourut int;
+	declare nettostatus int;
+	DECLARE temp_persen DOUBLE;
+	DECLARE temp_tglmejatebu DATETIME;
+	DECLARE temp_noblok VARCHAR(20);
+	DECLARE temp_netto_final double;
+	
+	
+	
+	SELECT IFNULL(MAX(no_urut_analisa_rendemen),0)+1,timb_netto_status into nourut,nettostatus FROM t_meja_tebu a JOIN t_spta b ON a.id_spta=b.id WHERE gilingan=NEW.gilingan AND b.hari_giling=get_hari_giling();
+	update t_spta set meja_tebu_status=1,meja_tebu_tgl=NEW.tgl_meja_tebu,hari_giling=get_hari_giling(),tgl_giling=get_tgl_giling(),
+	no_urut_analisa_rendemen = IF(no_urut_analisa_rendemen=0,nourut,no_urut_analisa_rendemen)
+	 where id=NEW.id_spta;
+	 
+	 if nettostatus = 1 then
+		SELECT IF(a.`rafraksi_aktif`=1,b.`persen_rafaksi`,0) INTO temp_persen FROM t_meja_tebu a INNER JOIN m_rafaksi b ON a.`kondisi_tebu`=b.`nilai` WHERE a.id_spta = NEW.id_spta;
+		update t_timbangan set netto_final = (netto - (temp_persen*netto/100)),
+		netto_rafaksi = (temp_persen*netto/100),
+		rafaksi_prosentis = temp_persen,
+		tgl_rafaksi = now() where id_spat = NEW.id_spta; 
+		SELECT kode_blok INTO temp_noblok FROM t_spta WHERE id=NEW.id_spta;
+		
+		SElect netto_final into temp_netto_final FROM t_timbangan WHERE id_spat = NEW.id_spta; 
+		UPDATE sap_field SET total_tebang = (total_tebang+temp_netto_final) WHERE kode_blok=temp_noblok;
+		
+		
+	 end if;
+	 
+	 
     END */$$
 
 
@@ -2426,11 +1947,11 @@ DELIMITER $$
 
 /*!50003 DROP TRIGGER*//*!50032 IF EXISTS */ /*!50003 `tr_selektor_insert` */$$
 
-/*!50003 CREATE */ /*!50003 TRIGGER `tr_selektor_insert` AFTER INSERT ON `t_selektor` FOR EACH ROW BEGIN
-    declare temp_noblok varchar(20);
-	
-	update t_spta set selektor_status=if(NEW.ditolak_sel=1,2,1),selektor_tgl=NEW.tgl_selektor WHERE id=NEW.id_spta;
-	 
+/*!50003 CREATE */ /*!50003 TRIGGER `tr_selektor_insert` AFTER INSERT ON `t_selektor` FOR EACH ROW BEGIN
+    declare temp_noblok varchar(20);
+	
+	update t_spta set selektor_status=if(NEW.ditolak_sel=1,2,1),selektor_tgl=NEW.tgl_selektor WHERE id=NEW.id_spta;
+	 
     END */$$
 
 
@@ -2442,12 +1963,12 @@ DELIMITER $$
 
 /*!50003 DROP TRIGGER*//*!50032 IF EXISTS */ /*!50003 `tr_selektor_update` */$$
 
-/*!50003 CREATE */ /*!50003 TRIGGER `tr_selektor_update` AFTER UPDATE ON `t_selektor` FOR EACH ROW BEGIN
-    DECLARE temp_noblok VARCHAR(20);
-    if NEW.tanaman_status = 1 then
-	SELECT kode_blok INTO temp_noblok FROM t_spta WHERE id=NEW.id_spta;
-	UPDATE sap_field SET luas_tebang = luas_tebang+NEW.ha_tertebang WHERE kode_blok=temp_noblok;
-    end if;
+/*!50003 CREATE */ /*!50003 TRIGGER `tr_selektor_update` AFTER UPDATE ON `t_selektor` FOR EACH ROW BEGIN
+    DECLARE temp_noblok VARCHAR(20);
+    if NEW.tanaman_status = 1 then
+	SELECT kode_blok INTO temp_noblok FROM t_spta WHERE id=NEW.id_spta;
+	UPDATE sap_field SET luas_tebang = luas_tebang+NEW.ha_tertebang WHERE kode_blok=temp_noblok;
+    end if;
     END */$$
 
 
@@ -2459,10 +1980,10 @@ DELIMITER $$
 
 /*!50003 DROP TRIGGER*//*!50032 IF EXISTS */ /*!50003 `tr_gen_no_spta` */$$
 
-/*!50003 CREATE */ /*!50003 TRIGGER `tr_gen_no_spta` BEFORE INSERT ON `t_spta` FOR EACH ROW BEGIN
-	DECLARE nilaimax INT;
-	SELECT IFNULL(MAX(RIGHT(no_spat,4))+1,1) into nilaimax FROM `t_spta` WHERE tgl_spta = NEW.tgl_spta;
-	SET NEW.no_spat = CONCAT(NEW.kode_plant,'-',DATE_FORMAT(DATE(NEW.tgl_spta),'%d%m%Y'),'-',LPAD(nilaimax,4,'0'));
+/*!50003 CREATE */ /*!50003 TRIGGER `tr_gen_no_spta` BEFORE INSERT ON `t_spta` FOR EACH ROW BEGIN
+	DECLARE nilaimax INT;
+	SELECT IFNULL(MAX(RIGHT(no_spat,4))+1,1) into nilaimax FROM `t_spta` WHERE tgl_spta = NEW.tgl_spta;
+	SET NEW.no_spat = CONCAT(NEW.kode_plant,'-',DATE_FORMAT(DATE(NEW.tgl_spta),'%d%m%Y'),'-',LPAD(nilaimax,4,'0'));
     END */$$
 
 
@@ -2474,11 +1995,11 @@ DELIMITER $$
 
 /*!50003 DROP TRIGGER*//*!50032 IF EXISTS */ /*!50003 `tr_tiket_material` */$$
 
-/*!50003 CREATE */ /*!50003 TRIGGER `tr_tiket_material` BEFORE INSERT ON `t_timbang_material` FOR EACH ROW BEGIN
-DECLARE nilaimax INT;
-	SELECT IFNULL(MAX(RIGHT(no_tiket,4))+1,1) INTO nilaimax FROM `t_timbang_material` WHERE DATE(tgl_timbang_1) = DATE(NOW());
-	SET NEW.no_tiket = CONCAT(DATE_FORMAT(DATE(NEW.tgl_timbang_1),'%d%m%Y'),'-MT-',LPAD(nilaimax,4,'0'));
-	
+/*!50003 CREATE */ /*!50003 TRIGGER `tr_tiket_material` BEFORE INSERT ON `t_timbang_material` FOR EACH ROW BEGIN
+DECLARE nilaimax INT;
+	SELECT IFNULL(MAX(RIGHT(no_tiket,4))+1,1) INTO nilaimax FROM `t_timbang_material` WHERE DATE(tgl_timbang_1) = DATE(NOW());
+	SET NEW.no_tiket = CONCAT(DATE_FORMAT(DATE(NEW.tgl_timbang_1),'%d%m%Y'),'-MT-',LPAD(nilaimax,4,'0'));
+	
     END */$$
 
 
@@ -2490,22 +2011,22 @@ DELIMITER $$
 
 /*!50003 DROP TRIGGER*//*!50032 IF EXISTS */ /*!50003 `tr_timbangan_insert` */$$
 
-/*!50003 CREATE */ /*!50003 TRIGGER `tr_timbangan_insert` AFTER INSERT ON `t_timbangan` FOR EACH ROW BEGIN
-    DECLARE temp_noblok VARCHAR(20);
-	if NEW.netto != 0 and NEW.bruto = 0 then
-	/*jika timbang langsung netto*/
-		SELECT kode_blok INTO temp_noblok FROM t_spta WHERE id=NEW.id_spat;
-		update t_spta set timb_bruto_status=1,timb_bruto_tgl=NEW.tgl_bruto,timb_netto_status=1,timb_netto_tgl=NEW.tgl_netto where id = NEW.id_spat;
-		
-	elseif NEW.netto != 0 AND NEW.bruto != 0 THEN
-	/*jika timbang langsung netto*/
-		SELECT kode_blok INTO temp_noblok FROM t_spta WHERE id=NEW.id_spat;
-		UPDATE t_spta SET timb_bruto_status=1,timb_bruto_tgl=NEW.tgl_bruto,timb_netto_status=1,timb_netto_tgl=NEW.tgl_netto WHERE id = NEW.id_spat;
-		
-	ELSEIF NEW.netto = 0 and NEW.bruto != 0 then
-	/*jika timbang bruto - tara*/
-		UPDATE t_spta SET timb_bruto_status=1,timb_bruto_tgl=NEW.tgl_bruto WHERE id = NEW.id_spat;
-	end if;
+/*!50003 CREATE */ /*!50003 TRIGGER `tr_timbangan_insert` AFTER INSERT ON `t_timbangan` FOR EACH ROW BEGIN
+    DECLARE temp_noblok VARCHAR(20);
+	if NEW.netto != 0 and NEW.bruto = 0 then
+	/*jika timbang langsung netto*/
+		SELECT kode_blok INTO temp_noblok FROM t_spta WHERE id=NEW.id_spat;
+		update t_spta set timb_bruto_status=1,timb_bruto_tgl=NEW.tgl_bruto,timb_netto_status=1,timb_netto_tgl=NEW.tgl_netto where id = NEW.id_spat;
+		
+	elseif NEW.netto != 0 AND NEW.bruto != 0 THEN
+	/*jika timbang langsung netto*/
+		SELECT kode_blok INTO temp_noblok FROM t_spta WHERE id=NEW.id_spat;
+		UPDATE t_spta SET timb_bruto_status=1,timb_bruto_tgl=NEW.tgl_bruto,timb_netto_status=1,timb_netto_tgl=NEW.tgl_netto WHERE id = NEW.id_spat;
+		
+	ELSEIF NEW.netto = 0 and NEW.bruto != 0 then
+	/*jika timbang bruto - tara*/
+		UPDATE t_spta SET timb_bruto_status=1,timb_bruto_tgl=NEW.tgl_bruto WHERE id = NEW.id_spat;
+	end if;
     END */$$
 
 
@@ -2517,24 +2038,24 @@ DELIMITER $$
 
 /*!50003 DROP TRIGGER*//*!50032 IF EXISTS */ /*!50003 `tr_timbangan_update` */$$
 
-/*!50003 CREATE */ /*!50003 TRIGGER `tr_timbangan_update` BEFORE UPDATE ON `t_timbangan` FOR EACH ROW BEGIN
-    DECLARE temp_noblok VARCHAR(20);
-    declare temp_persen double;
-    declare temp_tglmejatebu datetime;
-    DECLARE statusmejatebu int;
-	if NEW.netto != 0 then
-		SELECT kode_blok,meja_tebu_tgl,meja_tebu_status INTO temp_noblok,temp_tglmejatebu,statusmejatebu FROM t_spta WHERE id=NEW.id_spat;
-		
-		if statusmejatebu = 1 then
-		SELECT IF(a.`rafraksi_aktif`=1,b.`persen_rafaksi`,0) into temp_persen FROM t_meja_tebu a INNER JOIN m_rafaksi b ON a.`kondisi_tebu`=b.`nilai` where a.id_spta = NEW.id_spat;
-		UPDATE t_spta SET timb_netto_status=1,timb_netto_tgl=NEW.tgl_netto WHERE id = NEW.id_spat;
-		set NEW.rafaksi_prosentis = temp_persen;
-		SET NEW.netto_rafaksi = (NEW.netto*temp_persen)/100;
-		set NEW.netto_final = NEW.netto -  (NEW.netto*temp_persen)/100;
-		SET NEW.tgl_rafaksi = temp_tglmejatebu;
-		UPDATE sap_field SET total_tebang = (total_tebang+NEW.netto_final) WHERE kode_blok=temp_noblok;
-		end if;
-	end if;
+/*!50003 CREATE */ /*!50003 TRIGGER `tr_timbangan_update` BEFORE UPDATE ON `t_timbangan` FOR EACH ROW BEGIN
+    DECLARE temp_noblok VARCHAR(20);
+    declare temp_persen double;
+    declare temp_tglmejatebu datetime;
+    DECLARE statusmejatebu int;
+	if NEW.netto != 0 then
+		SELECT kode_blok,meja_tebu_tgl,meja_tebu_status INTO temp_noblok,temp_tglmejatebu,statusmejatebu FROM t_spta WHERE id=NEW.id_spat;
+		
+		if statusmejatebu = 1 then
+		SELECT IF(a.`rafraksi_aktif`=1,b.`persen_rafaksi`,0) into temp_persen FROM t_meja_tebu a INNER JOIN m_rafaksi b ON a.`kondisi_tebu`=b.`nilai` where a.id_spta = NEW.id_spat;
+		UPDATE t_spta SET timb_netto_status=1,timb_netto_tgl=NEW.tgl_netto WHERE id = NEW.id_spat;
+		set NEW.rafaksi_prosentis = temp_persen;
+		SET NEW.netto_rafaksi = (NEW.netto*temp_persen)/100;
+		set NEW.netto_final = NEW.netto -  (NEW.netto*temp_persen)/100;
+		SET NEW.tgl_rafaksi = temp_tglmejatebu;
+		UPDATE sap_field SET total_tebang = (total_tebang+NEW.netto_final) WHERE kode_blok=temp_noblok;
+		end if;
+	end if;
     END */$$
 
 
@@ -2546,11 +2067,11 @@ DELIMITER $$
 
 /*!50003 DROP TRIGGER*//*!50032 IF EXISTS */ /*!50003 `tr_no_ajuan_timbangan` */$$
 
-/*!50003 CREATE */ /*!50003 TRIGGER `tr_no_ajuan_timbangan` BEFORE INSERT ON `t_ubah_timbangan` FOR EACH ROW BEGIN
-DECLARE nilaimax INT;
-	SELECT IFNULL(MAX(RIGHT(no_ajuan,4))+1,1) INTO nilaimax FROM `t_ubah_timbangan` WHERE DATE(tgl_perubahan) = DATE(NOW());
-	SET NEW.no_ajuan = CONCAT('PG-',DATE_FORMAT(DATE(Now()),'%d%m%Y'),'-AJN-',LPAD(nilaimax,4,'0'));
-	SET new.tgl_perubahan = NOW();
+/*!50003 CREATE */ /*!50003 TRIGGER `tr_no_ajuan_timbangan` BEFORE INSERT ON `t_ubah_timbangan` FOR EACH ROW BEGIN
+DECLARE nilaimax INT;
+	SELECT IFNULL(MAX(RIGHT(no_ajuan,4))+1,1) INTO nilaimax FROM `t_ubah_timbangan` WHERE DATE(tgl_perubahan) = DATE(NOW());
+	SET NEW.no_ajuan = CONCAT('PG-',DATE_FORMAT(DATE(Now()),'%d%m%Y'),'-AJN-',LPAD(nilaimax,4,'0'));
+	SET new.tgl_perubahan = NOW();
     END */$$
 
 
@@ -2562,10 +2083,10 @@ DELIMITER ;
 DELIMITER $$
 
 /*!50003 CREATE FUNCTION `get_hablur_ari`(netto double,rendemen double(10,2)) RETURNS double
-BEGIN
-    declare hasil double;
-    set hasil = netto*rendemen/100;
-	return ROUND_UP(hasil,2);
+BEGIN
+    declare hasil double;
+    set hasil = netto*rendemen/100;
+	return ROUND_UP(hasil,2);
     END */$$
 DELIMITER ;
 
@@ -2575,20 +2096,20 @@ DELIMITER ;
 DELIMITER $$
 
 /*!50003 CREATE FUNCTION `get_hari_giling`() RETURNS int(11)
-BEGIN
-	declare hargil int;
-	declare temptgl date;
-	declare temphargil int;
-	
-	select ifnull(max(tgl_giling),get_tgl_giling()) into temptgl from t_spta;
-	
-	set temphargil = datediff(get_tgl_giling(),temptgl);
-	if temphargil = 0 then
-		set temphargil = 1;
-	end if;
-	
-	SELECT IFNULL(MAX(hari_giling),(SELECT IFNULL(MAX(hari_giling),0) FROM t_spta)+temphargil) into hargil FROM t_spta WHERE tgl_giling=get_tgl_giling();
-	return hargil;
+BEGIN
+	declare hargil int;
+	declare temptgl date;
+	declare temphargil int;
+	
+	select ifnull(max(tgl_giling),get_tgl_giling()) into temptgl from t_spta;
+	
+	set temphargil = datediff(get_tgl_giling(),temptgl);
+	if temphargil = 0 then
+		set temphargil = 1;
+	end if;
+	
+	SELECT IFNULL(MAX(hari_giling),(SELECT IFNULL(MAX(hari_giling),0) FROM t_spta)+temphargil) into hargil FROM t_spta WHERE tgl_giling=get_tgl_giling();
+	return hargil;
     END */$$
 DELIMITER ;
 
@@ -2598,17 +2119,17 @@ DELIMITER ;
 DELIMITER $$
 
 /*!50003 CREATE FUNCTION `get_kode_kat_lahan_ptp`(`_ket_sap` VARCHAR(10),`_jenis_tanah_sap` VARCHAR(10),`_status_blok_sap` VARCHAR(10)) RETURNS varchar(10) CHARSET latin1
-BEGIN
-	#Routine body goes here...
-	DECLARE _kode_kat_ptp VARCHAR(10);
-SELECT 
-    a.kode_kat_ptp INTO _kode_kat_ptp
-  FROM
-    m_kat_lahan_ptp as a
-  WHERE kat_sap = _ket_sap 
-    AND `jenis_tanah_sap` LIKE CONCAT('%', TRIM(IFNULL(_jenis_tanah_sap, '')), '%') 
-    AND `status_blok_sap` LIKE CONCAT('%', TRIM(IFNULL(_status_blok_sap, '')), '%');
-	RETURN _kode_kat_ptp;
+BEGIN
+	#Routine body goes here...
+	DECLARE _kode_kat_ptp VARCHAR(10);
+SELECT 
+    a.kode_kat_ptp INTO _kode_kat_ptp
+  FROM
+    m_kat_lahan_ptp as a
+  WHERE kat_sap = _ket_sap 
+    AND `jenis_tanah_sap` LIKE CONCAT('%', TRIM(IFNULL(_jenis_tanah_sap, '')), '%') 
+    AND `status_blok_sap` LIKE CONCAT('%', TRIM(IFNULL(_status_blok_sap, '')), '%');
+	RETURN _kode_kat_ptp;
 END */$$
 DELIMITER ;
 
@@ -2618,11 +2139,11 @@ DELIMITER ;
 DELIMITER $$
 
 /*!50003 CREATE FUNCTION `get_tgl_giling`() RETURNS date
-BEGIN
-	DECLARE tgl date;
-	SELECT IF(STR_TO_DATE(now(),'%Y-%m-%d %H:%i:%s') < STR_TO_DATE(CONCAT(DATE(now()),' 06:59:59'),'%Y-%m-%d %H:%i:%s'),
-STR_TO_DATE(NOW(),'%Y-%m-%d') - INTERVAL 1 DAY, STR_TO_DATE(NOW(),'%Y-%m-%d')) into tgl;
-	return tgl;
+BEGIN
+	DECLARE tgl date;
+	SELECT IF(STR_TO_DATE(now(),'%Y-%m-%d %H:%i:%s') < STR_TO_DATE(CONCAT(DATE(now()),' 06:59:59'),'%Y-%m-%d %H:%i:%s'),
+STR_TO_DATE(NOW(),'%Y-%m-%d') - INTERVAL 1 DAY, STR_TO_DATE(NOW(),'%Y-%m-%d')) into tgl;
+	return tgl;
     END */$$
 DELIMITER ;
 
@@ -2632,17 +2153,17 @@ DELIMITER ;
 DELIMITER $$
 
 /*!50003 CREATE FUNCTION `NewProc`(`_ket_sap` VARCHAR(10),`_jenis_tanah_sap` VARCHAR(10),`_status_blok_sap` VARCHAR(10)) RETURNS int(11)
-BEGIN
-	#Routine body goes here...
-	DECLARE _kode_kat_ptp VARCHAR(10);
-SELECT 
-    a.kode_kat_ptp INTO _kode_kat_ptp
-  FROM
-    m_kat_lahan_ptp as a
-  WHERE kat_sap = _ket_sap 
-    AND `jenis_tanah_sap` LIKE CONCAT(TRIM(IFNULL(_jenis_tanah_sap, '')), '%') 
-    AND `status_blok_sap` LIKE CONCAT(TRIM(IFNULL(_status_blok_sap, '')), '%');
-	RETURN _kode_kat_ptp;
+BEGIN
+	#Routine body goes here...
+	DECLARE _kode_kat_ptp VARCHAR(10);
+SELECT 
+    a.kode_kat_ptp INTO _kode_kat_ptp
+  FROM
+    m_kat_lahan_ptp as a
+  WHERE kat_sap = _ket_sap 
+    AND `jenis_tanah_sap` LIKE CONCAT(TRIM(IFNULL(_jenis_tanah_sap, '')), '%') 
+    AND `status_blok_sap` LIKE CONCAT(TRIM(IFNULL(_status_blok_sap, '')), '%');
+	RETURN _kode_kat_ptp;
 END */$$
 DELIMITER ;
 
@@ -2653,9 +2174,9 @@ DELIMITER $$
 
 /*!50003 CREATE FUNCTION `ROUND_UP`(num DECIMAL(32,16), places INT) RETURNS decimal(32,2)
     DETERMINISTIC
-RETURN CASE WHEN num < 0
-THEN - ceil(abs(num) * power(10, places)) / power(10, places)
-ELSE ceil(abs(num) * power(10, places)) / power(10, places)
+RETURN CASE WHEN num < 0
+THEN - ceil(abs(num) * power(10, places)) / power(10, places)
+ELSE ceil(abs(num) * power(10, places)) / power(10, places)
 END */$$
 DELIMITER ;
 
@@ -2665,37 +2186,37 @@ DELIMITER ;
 DELIMITER $$
 
 /*!50003 CREATE FUNCTION `get_rendemen_bagihasil_ptr`( vkat varchar(2), vrendemen double(10,2)) RETURNS double(10,4)
-BEGIN
-	/* jika rendemen < = 6 bagihasil = 66 % */
-	/* jika rendemen >  6 bagihasil = 66 % dan < = 7.99 => 66% + (selisih dari 6 * 70%)*/
-	/* jika rendemen >=  8 bagihasil =  66% + (selisih dari 6 * 75%)*/
-	declare hslrendemen double(10,4);
-	DECLARE temphslrendemen1 DOUBLE(10,4);
-	DECLARE temphslrendemen2 DOUBLE(10,4);
-	DECLARE temphslrendemen3 DOUBLE(10,4);
-	declare selisih double(10,2);
-	
-	
-	if vkat = 'TR' then
-	if vrendemen <= 6 then
-		set hslrendemen = vrendemen * 66 / 100;
-	elseif vrendemen > 6 and vrendemen <= 8 then
-		set temphslrendemen1  = 6.00 * 66 / 100;
-		set selisih = vrendemen - 6.00;
-		SET temphslrendemen2  = selisih * 70 / 100;
-		set hslrendemen = temphslrendemen1+temphslrendemen2;
-	elseif vrendemen > 8 then
-		SET temphslrendemen1  = 6.00 * 66 / 100;
-		set temphslrendemen2 = 2.00 * 70 / 100;
-		SET selisih = vrendemen - 8.00;
-		SET temphslrendemen3  = selisih * 75 / 100;
-		SET hslrendemen = temphslrendemen1+temphslrendemen2+temphslrendemen3;
-	end if;
-	else
-	 set hslrendemen = 0;
-	end if;
-	
-	return hslrendemen;
+BEGIN
+	/* jika rendemen < = 6 bagihasil = 66 % */
+	/* jika rendemen >  6 bagihasil = 66 % dan < = 7.99 => 66% + (selisih dari 6 * 70%)*/
+	/* jika rendemen >=  8 bagihasil =  66% + (selisih dari 6 * 75%)*/
+	declare hslrendemen double(10,4);
+	DECLARE temphslrendemen1 DOUBLE(10,4);
+	DECLARE temphslrendemen2 DOUBLE(10,4);
+	DECLARE temphslrendemen3 DOUBLE(10,4);
+	declare selisih double(10,2);
+	
+	
+	if vkat = 'TR' then
+	if vrendemen <= 6 then
+		set hslrendemen = vrendemen * 66 / 100;
+	elseif vrendemen > 6 and vrendemen <= 8 then
+		set temphslrendemen1  = 6.00 * 66 / 100;
+		set selisih = vrendemen - 6.00;
+		SET temphslrendemen2  = selisih * 70 / 100;
+		set hslrendemen = temphslrendemen1+temphslrendemen2;
+	elseif vrendemen > 8 then
+		SET temphslrendemen1  = 6.00 * 66 / 100;
+		set temphslrendemen2 = 2.00 * 70 / 100;
+		SET selisih = vrendemen - 8.00;
+		SET temphslrendemen3  = selisih * 75 / 100;
+		SET hslrendemen = temphslrendemen1+temphslrendemen2+temphslrendemen3;
+	end if;
+	else
+	 set hslrendemen = 0;
+	end if;
+	
+	return hslrendemen;
     END */$$
 DELIMITER ;
 
