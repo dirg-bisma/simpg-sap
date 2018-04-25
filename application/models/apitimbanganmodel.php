@@ -178,7 +178,7 @@ class Apitimbanganmodel extends SB_Model
                   LEFT JOIN sap_petani 
                     ON t_spta.id_petani_sap = sap_petani.`id_petani_sap`
                   LEFT JOIN sap_m_karyawan AS pta 
-                    ON t_spta.persno_pta = pta.id_karyawan 
+                    ON t_spta.persno_pta = pta.Persno 
                   LEFT JOIN t_selektor 
                     ON t_selektor.id_spta = t_spta.id 
                   INNER JOIN sap_field 

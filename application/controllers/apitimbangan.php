@@ -297,7 +297,7 @@ class Apitimbangan extends SB_Controller
 
 
                 $this->db->where(array('id' => $id_spat[0]->id));
-                $this->db->update('t_spta', array('timb_netto_status' => "1"));
+                $this->db->update('t_spta', array('timb_netto_status' => "1", 'timb_netto_tgl' => $tgl_timbang));
 
                 $result = array(
                     'msg' => $this->GetPost('no_spat'),
@@ -363,6 +363,9 @@ class Apitimbangan extends SB_Controller
                     $tgl_timbang = date('Y-m-d H:i:s');
                     $this->db->set($data);
                     $this->db->insert('t_timbangan');
+
+                    $this->db->where(array('id' => $id_spat[0]->id));
+                    $this->db->update('t_spta', array('timb_netto_status' => "1", 'timb_netto_tgl' => $tgl_timbang));
 
                     $this->inputLogs("t_timbangan:insert=id_spat:".$id_spat[0]->id."bruto:$bruto;tara:$tara;
                     netto:$netto;netto_final:$netto;tgl_netto:$tgl_timbang;tgl_tara:$tgl_timbang;tgl_bruto:$tgl_timbang;
