@@ -157,7 +157,7 @@ class Apitimbangan extends SB_Controller
                 $this->db->set($data);
                 $this->db->insert('t_timbangan');
 
-                $this->db->where(array('id_spat' => $id_spat[0]->id));
+                $this->db->where(array('id' => $id_spat[0]->id));
                 $this->db->update('t_spta', array("timb_netto_status" => "1"));
 
                 $this->inputLogs("t_timbangan:insert=id:".$id_spat[0]->id.";");
@@ -211,7 +211,7 @@ class Apitimbangan extends SB_Controller
                 $this->db->set($data);
                 $this->db->insert('t_timbangan');
 
-                $this->db->where(array('id_spat' => $id_spat[0]->id));
+                $this->db->where(array('id' => $id_spat[0]->id));
                 $this->db->update('t_spta', array('timb_bruto_status' => "1"));
 
                 $result = array(
@@ -296,7 +296,7 @@ class Apitimbangan extends SB_Controller
                 $this->apitimbanganmodel->UpdateNetto($where, $data_netto);
 
 
-                $this->db->where(array('id_spat' => $id_spat[0]->id));
+                $this->db->where(array('id' => $id_spat[0]->id));
                 $this->db->update('t_spta', array('timb_netto_status' => "1"));
 
                 $result = array(
