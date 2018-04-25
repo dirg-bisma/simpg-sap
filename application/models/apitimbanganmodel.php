@@ -179,7 +179,7 @@ class Apitimbanganmodel extends SB_Model
                     ON t_spta.id_petani_sap = sap_petani.`id_petani_sap`
                   LEFT JOIN sap_m_karyawan AS pta 
                     ON t_spta.persno_pta = pta.id_karyawan 
-                  INNER JOIN t_selektor 
+                  LEFT JOIN t_selektor 
                     ON t_selektor.id_spta = t_spta.id 
                   INNER JOIN sap_field 
                     ON t_spta.kode_blok = sap_field.kode_blok 
@@ -187,10 +187,10 @@ class Apitimbanganmodel extends SB_Model
                     ON t_spta.kode_affd = aff1.kode_affd 
                   INNER JOIN sap_m_karyawan AS kkw 
                     ON aff1.Persno = kkw.Persno 
-                  INNER JOIN t_timbangan 
+                  LEFT JOIN t_timbangan 
                     ON t_spta.id = t_timbangan.id_spat 
                   LEFT JOIN t_meja_tebu AS b 
-		            ON t_spta.id = b.`id_spta` ';
+                ON t_spta.id = b.`id_spta`';
         return $qry;
     }
 
