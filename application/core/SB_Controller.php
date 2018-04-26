@@ -378,7 +378,7 @@ class SB_Controller extends CI_Controller
 			'ipaddress'	=> $this->input->ip_address(),
 			'note'		=> $note.' Oleh : '.$user
 		);
-		 $this->db->insert( 'tb_logs',$data);		;
+		 $this->db->insert( 'tb_logs',$data);
 
 	}
 

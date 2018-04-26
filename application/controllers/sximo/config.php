@@ -48,6 +48,24 @@ class Config extends SB_Controller  {
 				
 		$filename = 'setpengolahan.php';
 		file_put_contents( $filename , $val  );
+
+		$tes  =		"\n"; 
+			$tes .= 	"FAKTOR_KONVERSI = ".$this->input->post('pn_faktor_konversi',true)."\n";
+			$tes .= 	"FAKTOR_RENDEMEN = ".$this->input->post('pn_faktor_rendemen',true)."\n";
+			$tes .= 	"FAKTOR_PERAH = ".$this->input->post('pn_faktor_perah',true)."\n";
+			
+		$user = $this->session->userdata('fid');
+
+		$data = array(
+			'module'	=> 'settingpengolahan',
+			'task'		=> 'save',
+			'user_id'	=> $this->session->userdata('uid'),
+			'ipaddress'	=> $this->input->ip_address(),
+			'note'		=> 'Rubah Setting Pengolahan dengan data '.$tes.' Oleh : '.$user
+		);
+		 $this->db->insert( 'tb_logs',$data);
+
+
 		$this->session->set_flashdata('message',SiteHelpers::alert('success','Site Setting Has Been Updated'));
 		redirect( site_url('sximo/config/settingpengolahan'));
 	
@@ -95,6 +113,18 @@ class Config extends SB_Controller  {
 				
 		$filename = 'setting.php';
 		file_put_contents( $filename , $val  );
+
+		$user = $this->session->userdata('fid');
+		$data = array(
+			'module'	=> 'settingaplikasi',
+			'task'		=> 'save',
+			'user_id'	=> $this->session->userdata('uid'),
+			'ipaddress'	=> $this->input->ip_address(),
+			'note'		=> 'Rubah Setting Aplikasi dengan data '.$val.' Oleh : '.$user
+		);
+		$this->db->insert( 'tb_logs',$data);
+
+
 		$this->session->set_flashdata('message',SiteHelpers::alert('success','Site Setting Has Been Updated'));
 		redirect( site_url('sximo/config'));
 	
