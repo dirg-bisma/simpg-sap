@@ -1,8 +1,5 @@
 <?php usort($tableGrid, "SiteHelpers::_sort"); ?>
 
-
-
-
 <section class="content">
     <div class="row">
 

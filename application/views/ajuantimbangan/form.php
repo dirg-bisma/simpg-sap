@@ -9,6 +9,13 @@
     </ol>
 </section>
 
+<?php
+$ubah="";
+if ($row['status_validasi'] == "1"){
+    $ubah = "readonly";
+}
+?>
+
 <section class="content">
     <div class="row">
         <div class="col-xs-12">
@@ -43,7 +50,7 @@
                             <div class="form-group  " >
                                 <label for="No Spat" class=" control-label col-md-4 text-left"> No Spat <span class="asterix"> * </span></label>
                                 <div class="col-md-8">
-                                    <input type='text' onkeyup="getNoSPTA(event,this.value)" class='form-control input-sm' placeholder='no spat' value='<?php echo $row['no_spat'];?>' name='no_spat'  id='no_spat'  /> <br />
+                                    <input type='text' onkeyup="getNoSPTA(event,this.value)" class='form-control input-sm' placeholder='no spat' value='<?php echo $row['no_spat'];?>' name='no_spat'  id='no_spat'  <?php echo $ubah;?> /> <br />
                                     <i> <small></small></i>
                                 </div>
                             </div>
@@ -100,24 +107,26 @@
                                     <i> <small></small></i>
                                 </div>
                             </div>
+
+
                             <div class="form-group  " >
                                 <label for="Bruto Perubahan" class=" control-label col-md-4 text-left"> Bruto Perubahan <span class="asterix"> * </span>  </label>
                                 <div class="col-md-8">
-                                    <input type='text' class='form-control input-sm' placeholder='' value='<?php echo $row['bruto_perubahan'];?>' name='bruto_perubahan'   /> <br />
+                                    <input type='text' class='form-control input-sm' placeholder='' value='<?php echo $row['bruto_perubahan'];?>' name='bruto_perubahan'   <?php echo $ubah;?>/> <br />
                                     <i> <small></small></i>
                                 </div>
                             </div>
                             <div class="form-group  " >
                                 <label for="Tara Perubahan" class=" control-label col-md-4 text-left"> Tara Perubahan <span class="asterix"> * </span> </label>
                                 <div class="col-md-8">
-                                    <input type='text' class='form-control input-sm' placeholder='' value='<?php echo $row['tara_perubahan'];?>' name='tara_perubahan'   /> <br />
+                                    <input type='text' class='form-control input-sm' placeholder='' value='<?php echo $row['tara_perubahan'];?>' name='tara_perubahan'   <?php echo $ubah;?>/> <br />
                                     <i> <small></small></i>
                                 </div>
                             </div>
                             <div class="form-group  " >
                                 <label for="Netto Perubahan" class=" control-label col-md-4 text-left"> Netto Perubahan <span class="asterix"> * </span> </label>
                                 <div class="col-md-8">
-                                    <input type='text' class='form-control input-sm' placeholder='' value='<?php echo $row['netto_perubahan'];?>' name='netto_perubahan'   /> <br />
+                                    <input type='text' class='form-control input-sm' placeholder='' value='<?php echo $row['netto_perubahan'];?>' name='netto_perubahan'   <?php echo $ubah;?>/> <br />
                                     <i> <small></small></i>
                                 </div>
                             </div>
@@ -131,8 +140,7 @@
                             <div class="form-group  " >
                                 <label for="Alasan Perubahan" class=" control-label col-md-4 text-left"> Alasan Perubahan <span class="asterix"> * </span> </label>
                                 <div class="col-md-8">
-									  <textarea name='alasan_perubahan' rows='2' id='alasan_perubahan' class='form-control input-sm '
-                                      ><?php echo $row['alasan_perubahan'] ;?></textarea> <br />
+									  <textarea name='alasan_perubahan' rows='2' id='alasan_perubahan' class='form-control input-sm ' <?php echo $ubah;?>><?php echo $row['alasan_perubahan'] ;?></textarea> <br />
                                     <i> <small></small></i>
                                 </div>
                             </div>
@@ -194,6 +202,9 @@
 
     });
 
+    <?php
+
+    if (isset($row['id_ubah_timbangan'])){ ?>
     function setNoSPTA(nospta) {
         $.ajax({
             type: 'POST',
@@ -201,26 +212,22 @@
             data: {nospta:nospta},
             dataType: 'json',
             success: function (dat) {
-                if(dat.stt == 1){
-                    $('#bruto_awal').val(dat.data.bruto);
-                    $('#tara_awal').val(dat.data.tara);
-                    $('#netto_awal').val(dat.data.netto);
-                    if(dat.data.nama != null)
-                    {
-                        nama = dat.data.nama;
-                    }else{
-                        nama = '-'
-                    }
-                    $('#no_petak_petani').val(dat.data.kode_blok+' ('+dat.data.kode_kat_lahan+')'+' / '+nama);
-                    $('#no_kend_supir').val(dat.data.no_angkutan+' / '+dat.data.ptgs_angkutan);
-                    $('#id_spat').val(dat.data.id);
+                if(dat.data.nama != null)
+                {
+                    nama = dat.data.nama;
                 }else{
-                    alert('data timbangan dengan No SPTA '+nospta+' sudah tidak dapat di ganti')
+                    nama = '-'
                 }
-
+                $('#no_petak_petani').val(dat.data.kode_blok+' ('+dat.data.kode_kat_lahan+')'+' / '+nama);
+                $('#no_kend_supir').val(dat.data.no_angkutan+' / '+dat.data.ptgs_angkutan);
+                $('#id_spat').val(dat.data.id);
             }
         });
     }
+    <?php }
+    ?>
+
+
 
     function getNoSPTA(e,nospta){
         nospta = nospta.toUpperCase();

@@ -238,6 +238,34 @@ class Ajuantimbangan extends SB_Controller
 		
 	}
 
+	function adminvalidasi($id)
+    {
+        if($this->access['is_remove'] ==0)
+        {
+            $this->session->set_flashdata('error',SiteHelpers::alert('error','Anda tidak berhak merubah data'));
+            redirect('dashboard',301);
+        }
+
+        $qry = "SELECT * FROM t_ubah_timbangan WHERE id_ubah_timbangan = '$id'";
+        $result = $this->db->query($qry)->row();
+
+        if($result->status_validasi == '0'){
+            $this->db->where(array('id_spat' => $result->id_spat));
+            $this->db->update('t_timbangan',array(
+                'bruto' => $result->bruto_perubahan,
+                'tara' => $result->tara_perubahan,
+                'netto' => $result->netto_perubahan
+            ));
+
+            $this->session->set_flashdata('message',SiteHelpers::alert('success','Data no SPTA '.$result->no_spat.' Telah dirubah'));
+            redirect('ajuantimbangan',301);
+        }else{
+            $this->session->set_flashdata('error',SiteHelpers::alert('error','Data no SPTA '.$result->no_spat.' Telah divalidasi'));
+            redirect('ajuantimbangan',301);
+        }
+
+    }
+
     function cekspta(){
         $arr['stt'] = 0;
         if($this->GetPost('nospta') != ""){
