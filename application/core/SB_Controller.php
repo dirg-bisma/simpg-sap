@@ -369,12 +369,14 @@ class SB_Controller extends CI_Controller
 
 	function inputLogs( $note = NULL)
 	{
+		$user = $this->session->userdata('fid');
+
 		$data = array(
 			'module'	=> $this->uri->segment(1),
 			'task'		=> $this->uri->segment(2),
 			'user_id'	=> $this->session->userdata('uid'),
 			'ipaddress'	=> $this->input->ip_address(),
-			'note'		=> $note
+			'note'		=> $note.' Oleh : '.$user
 		);
 		 $this->db->insert( 'tb_logs',$data);		;
 
