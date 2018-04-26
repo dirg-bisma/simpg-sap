@@ -21,6 +21,7 @@
                         ?>
                         <li><a href="<?php echo site_url('tsbh/upload');?>"><i class="fa fa-upload"></i> Upload SBH  </a></li>
                         <li><a href="<?php echo site_url('tsbh/pengolahan');?>"><i class="fa fa-check-square"></i> Approve Pengolahan </a></li>
+                        <li class="active"><a href="<?php echo site_url('tsbh/akudownload');?>"><i class="fa fa-flag-checkered"></i> File SBH untuk SAP  </a></li>
                         <?php
                         break;
                     case '11':
@@ -33,7 +34,7 @@
                         ?>
 
                         <li><a href="<?php echo site_url('tsbh/aku');?>"><i class="fa fa-flag-checkered"></i> Approve AKU </a></li>
-                        <li class="active"><a href="<?php echo site_url('tsbh/akudownload');?>"><i class="fa fa-flag-checkered"></i> File SBH untuk SAP  </a></li>
+
                         <?php
                         break;
 

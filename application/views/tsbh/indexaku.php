@@ -33,7 +33,7 @@
                         ?>
 
                         <li class="active"><a href="<?php echo site_url('tsbh/aku');?>"><i class="fa fa-flag-checkered"></i> Approve AKU </a></li>
-                        <li><a href="<?php echo site_url('tsbh/akudownload');?>"><i class="fa fa-flag-checkered"></i> File SBH untuk SAP  </a></li>
+
                         <?php
                         break;
 

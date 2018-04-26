@@ -230,7 +230,7 @@ class Tsbh extends SB_Controller
 	  
 	}
 
-    function akudownload()
+    function pengdownload()
     {
         if($this->access['is_view'] ==0)
         {
@@ -244,7 +244,7 @@ class Tsbh extends SB_Controller
         $this->data['access']		= $this->access;
         // Render into template
 
-        $this->data['content'] = $this->load->view('tsbh/akudownload',$this->data, true );
+        $this->data['content'] = $this->load->view('tsbh/pengdownload',$this->data, true );
 
         $this->load->view('layouts/main', $this->data );
 

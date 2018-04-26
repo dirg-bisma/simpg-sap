@@ -1,8 +1,8 @@
 <?php 
 define('CNF_APPNAME','SIMPG');
 define('CNF_NAMAPERUSAHAAN','PT. Perkebunan Nusantara XI');
-define('CNF_PG','PG. SEMBORO');
-define('CNF_ALAMAT','Km 54 Semboro');
+define('CNF_PG','PG. PANJI');
+define('CNF_ALAMAT','SITUBONDO');
 define('CNF_METAKEY','');
 define('CNF_METADESC','');
 define('CNF_GROUP','');
@@ -24,9 +24,11 @@ define('CNF_LOGINTW','');
 define('CNF_LOGINTW_ID','fJbc2gx4tIG1ZLzNTbYAaCfpy');
 define('CNF_LOGINTW_SECRET','XvTc0DF83s1rjKy7zgT0zD6ilgCOSod4DLjNubUMByU1cPsgPT');
 define('CNF_COMPANYCODE','N011');
-define('CNF_PLANCODE','KP11');
+define('CNF_PLANCODE','KP14');
 define('CNF_TAHUNTANAM','2017');
 define('CNF_TAHUNGILING','2018');
-define('CNF_METODE','2');
+define('CNF_METODE','1');
 define('CNF_RAFAKSI','1');
+define('CNF_KONSEP','1');
+include 'setpengolahan.php';
 ?>
