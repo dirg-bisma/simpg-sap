@@ -34,21 +34,49 @@ class laporanmejatebu extends SB_Controller
         $bln  = $_REQUEST['bln'];
         $thn  = $_REQUEST['thn'];
         $rjns = $_REQUEST['rjns'];
-        //$jns  = $_REQUEST['jns'];
+        $jns  = $_REQUEST['jns'];
 
         if($rjns == 1) {
-            $wh .= " AND date(meja_tebu_tgl) between '$tgl1' and '$tgl2'";
+            $wh .= " AND date(tgl_giling) between '$tgl1' and '$tgl2'";
             $this->data['title'] = 	"PERIODE ".SiteHelpers::datereport($tgl1)." s/d ".SiteHelpers::datereport($tgl2);
         }
         if($rjns == 2) {
-            $wh .= " AND MONTH(meja_tebu_tgl) = '$bln' and YEAR(a.meja_tebu_tgl) = '$thn'";
+            $wh .= " AND MONTH(tgl_giling) = '$bln' and YEAR(tgl_giling) = '$thn'";
             $this->data['title'] = 	"BULAN ".SiteHelpers::blnreport($bln)." TAHUN ".$thn;
         }
         if($rjns == 3) {
-            $wh .= " AND  YEAR(meja_tebu_tgl) = '$thn'";
+            $wh .= " AND  YEAR(tgl_giling) = '$thn'";
             $this->data['title'] = 	"TAHUN ".$thn;
         }
 
+        if(isset($_REQUEST['excel']) && $_REQUEST['excel'] == 1){
+                $file = "Laporan Meja Tebu - PERIODE ".SiteHelpers::datereport($tgl1)." s/d ".SiteHelpers::datereport($tgl2).".xls";
+                header("Content-type: application/vnd.ms-excel");
+                header("Content-Disposition: attachment; filename=$file");
+            }
+
+        if($jns == 1){
+        $sql = "SELECT
+  `b`.`no_spat`           AS `no_spat`,
+  `b`.`kode_blok`         AS `kode_blok`,
+  `e`.`deskripsi_blok`    AS `deskripsi_blok`,
+  `b`.`kode_kat_lahan`    AS `kode_kat_lahan`,
+  `c`.`name`              AS `mandor`,
+   b.`jenis_spta`,
+   b.kode_affd,
+   a.*,b.hari_giling,b.tgl_giling,a1.tgl_meja_tebu,a1.kondisi_tebu,a1.kode_meja_tebu
+FROM t_meja_tebu a1 
+     INNER JOIN `t_selektor` `a` ON a1.id_spta=a.id_spta
+     INNER JOIN `t_spta` `b` ON `a`.`id_spta` = `b`.`id`
+     INNER JOIN `sap_m_karyawan` `c`  ON `c`.`Persno` = CONVERT(`a`.`persno_mandor_tma` USING utf8)
+     INNER JOIN `sap_field` `e` ON `e`.`kode_blok` = `b`.`kode_blok` $wh GROUP BY b.`id`
+ORDER BY `a1`.`tgl_meja_tebu` ASC";
+
+        $result = $this->db->query($sql)->result();
+
+        $this->data['result'] = $result;
+        $this->load->view('laporanmejatebu/perspta',$this->data);
+        }else{
         $sql = "SELECT 
                 a.`kode_blok`,
                 d.`deskripsi_blok`,
@@ -76,6 +104,7 @@ class laporanmejatebu extends SB_Controller
         $this->data['result'] = $result;
         $this->load->view('laporanmejatebu/print',$this->data);
 
+        }
     }
 
 

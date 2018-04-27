@@ -49,7 +49,7 @@
                               parsley-validate='true' novalidate='true' method="post" enctype="multipart/form-data" >
                             <div class="col-md-6">
                                 <div class="form-group  " >
-                                <input type='hidden' name='faktor_rendemen'  id='faktor_rendemen'  value="0.68" />
+                                
                                     <label for="ipt" class=" control-label "> No SPTA  <span class="asterix"> * </span>  </label>
                                     <input type='text' class='form-control input-sm' placeholder='pastikan crusor disini untuk scan barcode' autocomplete="off"  id='no_spta' onkeyup="getNoSPTA(event,this.value)"  required />
                                 </div>
@@ -78,7 +78,11 @@
                                 </div>
 
                             </div>
-
+                            <div class="form-group col-md-6 " >
+                                    <label for="ipt" class=" control-label "> Faktor Rendemen  <span class="asterix"> * </span>  </label>
+                                    <input type='number' class='form-control input-sm'  name='faktor_rendemen' value="<?php echo PN_FAKTOR_RENDEMEN;?>" readonly />
+                                </div>
+                                
                             <div class="col-md-6">
 
                                 <div class="form-group col-md-4 " >

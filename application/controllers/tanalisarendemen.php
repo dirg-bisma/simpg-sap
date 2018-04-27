@@ -75,8 +75,6 @@ class Tanalisarendemen extends SB_Controller
                   d.`name`
                 FROM
                   t_spta a 
-                  INNER JOIN t_meja_tebu b 
-                    ON a.`id` = b.`id_spta` 
                     INNER JOIN t_selektor c ON a.id = c.`id_spta`
                     INNER JOIN `sap_m_karyawan` d ON c.`persno_mandor_tma` = d.`Persno`
                 WHERE `selektor_status` = 1 AND `ari_status` = 0 AND SUBSTRING(`kode_kat_lahan`, 1,2) = 'TS'";
@@ -155,11 +153,47 @@ class Tanalisarendemen extends SB_Controller
 		foreach ($rows as $dt) {
             $row = array();
             $row[] = $no+1;
+            /*
             for ($i=0; $i < count($this->col) ; $i++) { 
             		$field = $this->col[$i+1];
             		$conn = (isset($this->con[$i+1]) ? $this->con[$i+1] : array() ) ;
 					$row[] = SiteHelpers::gridDisplay($dt->$field , $field , $conn );
             }
+            */
+            if(CNF_COMPANYCODE == 'N011'){
+            	if(CNF_KONSEP == 1){
+            		//jombang metode
+            		$row[] = $dt->no_spat;
+            		$row[] = $dt->tgl_ari;
+            		$row[] = $dt->persen_brix_ari;
+            		$row[] = $dt->persen_pol_ari;
+            		$row[] = $dt->ph_ari;
+            		$row[] = $dt->hk;
+            		$row[] = $dt->nilai_nira;
+            		$row[] = $dt->rendemen_ari;
+            		$row[] = $dt->ptgs_ari;
+
+            	}else if(CNF_KONSEP == 2){
+            		//jatoroto metode
+            		$row[] = $dt->no_spat;
+            		$row[] = $dt->tgl_ari;
+            		$row[] = $dt->persen_brix_ari;
+            		$row[] = $dt->persen_pol_ari;
+            		$row[] = $dt->ph_ari;
+            		$row[] = $dt->hk;
+            		$row[] = $dt->nilai_nira;
+            		$row[] = $dt->rendemen_ari;
+            		$row[] = $dt->ptgs_ari;
+
+            	}else if(CNF_KONSEP == 3){
+            		//kedawung metode
+
+            	}
+            }
+
+            //JATIROTO METODE
+
+            //KEDAWUNG METODE
  
             //add html for action
             $btn ='';
@@ -168,6 +202,7 @@ class Tanalisarendemen extends SB_Controller
             $data[] = $row;
             $no++;
         }
+
          $output = array(
                         "draw" => $_POST['draw'],
                         "recordsTotal" => $total,
@@ -203,7 +238,7 @@ class Tanalisarendemen extends SB_Controller
 		$this->data['content'] = $this->load->view('tanalisarendemen/'.CNF_COMPANYCODE.'/form',$this->data, true );
 		}
 
-		$this->data['content'] .= $this->load->view('tanalisarendemen/index',$this->data, true );
+		$this->data['content'] .= $this->load->view('tanalisarendemen/'.CNF_COMPANYCODE.'/index',$this->data, true );
 	}
 
 
@@ -357,16 +392,105 @@ class Tanalisarendemen extends SB_Controller
 			$data = $this->validatePost();
 			$data['tgl_ari'] = $_POST['tgl_ari'].' '.$_POST['jam_ari'];
 			$data['ptgs_ari'] = $this->session->userdata('fid');
+
+			//default hitungan hk.. semua sama
 			$hk = ($_POST['persen_pol_ari'] / $_POST['persen_brix_ari']) * 100;
 			$nilai_nira = $_POST['persen_pol_ari'] - ( 0.4 * ($_POST['persen_brix_ari'] - $_POST['persen_pol_ari']));
 
+
 			$faktor_rendemen = $_POST['faktor_rendemen'];
-			$rendemen_ari = $nilai_nira * $faktor_rendemen;
 			
+			
+
+
+			//PTPN 11
+			/*
+			hitungan rendemen jatiroto method
+			faktor perah asumsi sama dengan faktor rendemen
+			R awal = nilai_nira * faktor_perah;
+			R hasil = R awal * faktor konversi;
+			*/
+			//N11 jatmed start
+			if(CNF_COMPANYCODE == 'N011' && CNF_KONSEP == 2){
+				$rawal = $nilai_nira * $faktor_rendemen;
+				$data['rendemen_individu'] = $rawal;
+				$rendemen_ari = $rawal * $_POST['faktor_konversi'];
+			}
+			//jatmed end
+
+			/*
+			hitungan rendemen jomed method
+			R = nilai_nira * faktor_rendemen;
+			*/
+
+			//N11 jombang metode start
+			if(CNF_COMPANYCODE == 'N011' && CNF_KONSEP == 1){
+
+				$rendemen_ari = $nilai_nira * $faktor_rendemen;
+			}
+			//N11 jombang metode end
+
+			/*
+			hitungan rendemen kedawung method
+			nilai nira kedawung = nilai nira jomed * faktor regresi;
+			R = nilai_nira kedawung * faktor_rendemen;
+			*/
+
+			//N11 Kedawung metode start
+			if(CNF_COMPANYCODE == 'N011' && CNF_KONSEP == 3){
+
+			}
+			//N11 Kedawung metode end
+
+
+			
+
+			//PTPN 9 
+			/*
+			all PG
+			jomed rendemen
+			faktor rendemen = 0.66
+			
+			sama dengan ptpn 11 tanpa kelebihan 8
+			66 dan 34
+			*/
+
+			if(CNF_COMPANYCODE == 'N009'){
+				$rendemen_ari = $nilai_nira * $faktor_rendemen;
+			}
+
+			//PTPN 14
+			/*
+			all PG
+			jomed rendemen
+			faktor rendemen = faktor perah = periodik
+			sama dengan ptpn 11 tanpa kelebihan 8
+			66 dan 34
+			*/
+			if(CNF_COMPANYCODE == 'N014'){
+				$rendemen_ari = $nilai_nira * $faktor_rendemen;
+			}
+
+			//PTPN 7
+			/*
+			all PG
+			jomed rendemen
+			faktor rendemen = faktor perah = dinamis per analisa
+			sama dengan ptpn 11 tanpa kelebihan 8
+			55 dan 45
+			*/
+			if(CNF_COMPANYCODE == 'N007'){
+				$rendemen_ari = $nilai_nira * $faktor_rendemen;
+			}
+
+
+
 			$data['hk'] = $hk;
 			$data['nilai_nira'] = $nilai_nira;
 			$data['faktor_rendemen'] = $faktor_rendemen;
 			$data['rendemen_ari'] = $rendemen_ari;
+
+			
 			
 			
 			$ID = $this->model->insertRow($data , $this->input->get_post( 'id_ari' , true ));

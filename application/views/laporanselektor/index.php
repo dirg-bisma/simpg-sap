@@ -3,7 +3,7 @@
             <div class="col-xs-12">
               <div class="box box-danger">
               	<div class="box-header with-border">
-                  <h3 class="box-title">Laporan Harian Timbangan</h3>
+                  <h3 class="box-title">Laporan Harian Selektor</h3>
                   <div class="box-tools pull-right">
  	
 		
@@ -55,15 +55,6 @@
 							<input type='text' class='form-control date input-sm' readonly placeholder='' value='<?php echo date('Y-m-d');?>' id='tgl1'  /> </td><td class="period" align="center"> s/d </td>
 						<td style="padding:5px" class="period"><input type='text' class='form-control date input-sm' readonly placeholder='' value='<?php echo date('Y-m-d');?>' id='tgl2'  /> </td>
 
-						
-
-						<td valign="center"> Jenis Laporan </td>
-						<td style="padding:5px" width="200px">
-							<select id='jns' rows='5' 
-							class=' form-control'  required >
-							<option value='1'>Per Petak</option>
-							<option value='2' selected>Per SPTA</option>
-						</select> </td>
 
 						<td valign="center"> Kategori </td>
 						<td style="padding:5px" width="200px">
@@ -73,18 +64,6 @@
 							<option value='TS'>TS</option>
 							<option value='TR'>TR</option>
 						</select> </td>
-
-						<td valign="center"> Tebangan </td>
-						<td style="padding:5px" width="200px">
-							<select id='tebangan' rows='5' 
-							class=' form-control'  required >
-							<option value=''>- SEMUA -</option>
-							<option value='00'>TAS</option>
-							<option value='11'>TAPG</option>
-							<option value='01'>TSAPG</option>
-							<option value='10'>TPGAS</option>
-						</select> </td>
-						<tr>
 
 						<td valign="center"> Angkutan </td>
 						<td style="padding:5px" width="200px">
@@ -96,6 +75,10 @@
 							<option value='ODONG2'>ODONG2</option>
 							<option value='TRAKTOR'>TRAKTOR</option>
 						</select> </td>
+
+						<tr>
+
+						
 
 						<td valign="center"> Afdeling </td>
 						<td style="padding:5px" width="200px">
@@ -109,10 +92,9 @@
 						</td>
 							
 
-						<td valign="center" colspan="2">
-						<input type="button" onclick="getReport()" class="btn btn-info btn-sm" value="View " />
-						<input type="button" class="btn btn-warning btn-sm" onclick="printContent('report')"  value="Cetak " />
-						<input type="button" onclick="getReportExcel()" class="btn btn-danger btn-sm" value="Excel " />
+						<td valign="center" colspan="2"><input type="button" onclick="getReport()" class="btn btn-info btn-sm" value="View " />
+							<input type="button" class="btn btn-warning btn-sm" onclick="printContent('report')"  value="Cetak " />
+							<input type="button" onclick="getReportExcel()" class="btn btn-danger btn-sm" value="Excel " />
 			 </td>
 						</tr>
 						
@@ -158,10 +140,9 @@ function getReport(){
 	$.ajax({
 	 	type 	: "POST",
 	 	datatype: "json",
-	 	url 	: "<?php echo site_url('laporantimbangan/printlaporan'); ?>",
+	 	url 	: "<?php echo site_url('laporanselektor/printlaporan'); ?>",
 	 	data 	: {tgl1:$('#tgl1').val(),tgl2:$('#tgl2').val(),
-	 	sup:$('#sup').val(),jns:$('#jns').val()
-	 	,bln:$('#bln').val(),thn:$('#thn').val(),rjns:$('#rjns').val(),tebangan:$('#tebangan').val()
+	 	sup:$('#sup').val(),bln:$('#bln').val(),thn:$('#thn').val(),rjns:$('#rjns').val()
 	 	,kat:$('#kat').val(),angkutan:$('#angkutan').val(),divisi:$('#divisi').val(),kode_blok:$('#kode_blok').val()
 	 	},
 	 	success	: function(data){
@@ -172,8 +153,7 @@ function getReport(){
 
 function getReportExcel(){
 var myData = {tgl1:$('#tgl1').val(),tgl2:$('#tgl2').val(),
-	 	sup:$('#sup').val(),jns:$('#jns').val()
-	 	,bln:$('#bln').val(),thn:$('#thn').val(),rjns:$('#rjns').val(),tebangan:$('#tebangan').val()
+	 	sup:$('#sup').val(),bln:$('#bln').val(),thn:$('#thn').val(),rjns:$('#rjns').val()
 	 	,kat:$('#kat').val(),angkutan:$('#angkutan').val(),divisi:$('#divisi').val(),kode_blok:$('#kode_blok').val()
 	 	};
 var out = [];
@@ -184,10 +164,11 @@ for (var key in myData) {
 
 var urlx = out.join('&');
 
-	var url = "<?php echo site_url('laporantimbangan/printlaporan'); ?>?"+urlx+"&excel=1";
+	var url = "<?php echo site_url('laporanselektor/printlaporan'); ?>?"+urlx+"&excel=1";
 	window.open(url);
 
 }
+
 $(document).on({
     ajaxStart: function() { ajaxindicatorstart('loading data.. please wait..');    },
      ajaxStop: function() {ajaxindicatorstop(); }    

@@ -81,6 +81,12 @@ class Laporantimbangan extends SB_Controller
 
 
 		
+		if(isset($_REQUEST['excel']) && $_REQUEST['excel'] == 1){
+				$file = "Laporan Timbangan - PERIODE ".SiteHelpers::datereport($tgl1)." s/d ".SiteHelpers::datereport($tgl2).".xls";
+				header("Content-type: application/vnd.ms-excel");
+				header("Content-Disposition: attachment; filename=$file");
+			}
+
 		if($jns == 1){
 		$sql = "SELECT a.`kode_blok`,d.`deskripsi_blok`,e.`nama_petani`,a.`kode_kat_lahan`,SUM(a.`truk`) AS truk,SUM(a.`lori`) AS lori,SUM(a.`odong2`) AS odong2,SUM(a.`traktor`) AS traktor,
 d.`luas_ha`,SUM(b.ha_tertebang) AS tertebang,

@@ -22,8 +22,8 @@
 	 <div class="table-responsive">
     <table class="table table-bordered display" id="gridv">
         <thead>
-			<tr>
-				<th> No </th>
+      <tr>
+        <th> No </th>
         <th> SPTA </th>
         <th> Tgl </th>
         <th> % Brix </th>
@@ -33,7 +33,7 @@
         <th> N.Nira </th>
         <th> R.Ari </th>
         <th> User </th>
-			  </tr>
+        </tr>
         </thead>
 
         

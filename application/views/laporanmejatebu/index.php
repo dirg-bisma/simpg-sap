@@ -55,9 +55,16 @@
                                             <input type='text' class='form-control date input-sm' readonly placeholder='' value='<?php echo date('Y-m-d');?>' id='tgl1'  /> </td><td class="period"> s/d </td>
                                         <td style="padding:5px" class="period"><input type='text' class='form-control date input-sm' readonly placeholder='' value='<?php echo date('Y-m-d');?>' id='tgl2'  /> </td>
 
-
+                                        <td valign="center"> Jenis Laporan </td>
+                        <td style="padding:5px" width="200px">
+                            <select id='jns' rows='5' 
+                            class=' form-control'  required >
+                            <option value='1' selected>Per SPTA</option>
+                            <option value='2'>Per Petak</option>
+                        </select> </td>
                                         <td valign="center"><input type="button" onclick="getReport()" class="btn btn-info btn-sm" value="View " />
                                             <input type="button" class="btn btn-warning btn-sm" onclick="printContent('report')"  value="Cetak " />
+                                            <input type="button" onclick="getReportExcel()" class="btn btn-danger btn-sm" value="Excel " />
                                         </td>
                                     </tr>
                                 </table>
@@ -109,6 +116,23 @@
             }
         });
     }
+
+    function getReportExcel(){
+var myData = {tgl1:$('#tgl1').val(),tgl2:$('#tgl2').val(),
+                sup:$('#sup').val(),jns:$('#jns').val()
+                ,bln:$('#bln').val(),thn:$('#thn').val(),rjns:$('#rjns').val()};
+var out = [];
+
+for (var key in myData) {
+    out.push(key + '=' + encodeURIComponent(myData[key]));
+}
+
+var urlx = out.join('&');
+
+    var url = "<?php echo site_url('laporanmejatebu/printlaporan'); ?>?"+urlx+"&excel=1";
+    window.open(url);
+
+}
     $(document).on({
         ajaxStart: function() { ajaxindicatorstart('loading data.. please wait..');    },
         ajaxStop: function() {ajaxindicatorstop(); }

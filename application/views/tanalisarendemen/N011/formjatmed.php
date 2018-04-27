@@ -25,9 +25,9 @@
                         <table class="table table-bordered display" id="gridvx">
                             <thead>
                             <tr>
-                                <th width="10px">X</th>
                                 <th>No SPTA</th>
-                                <th>Tgl</th>
+                                <th>Mandor</th>
+                                <th>Affd</th>
                                 <th width="20px">ACT</th>
                             </tr>
                             </thead>
@@ -215,7 +215,7 @@
 
             // Load data for the table's content from an Ajax source
             "ajax": {
-                "url": "<?php echo site_url('tanalisarendemen/gridMejaTebu')?>",
+                "url": "<?php echo site_url('tanalisarendemen/gridSelektor')?>",
                 "type": "POST"
             },
 
@@ -228,4 +228,52 @@
             ]
         });
     });
+
+
+    function getDataSPTATS(nospta){
+        var x = nospta.split("-");
+        if(x[0] == '<?php echo CNF_PLANCODE;?>' && nospta.length == 18){
+            $.ajax({
+                type: 'POST',
+                url: "<?php echo site_url('tanalisarendemen/cekspta');?>",
+                data: {nospta:nospta},
+                dataType: 'json',
+                success: function (dat) {
+                    if(dat.stt == 1){
+
+                        if(dat.data.point_cek == 1 && dat.data.stt == 0){
+                            if(dat.data.kondisi_tebu == 'D' || dat.data.kondisi_tebu == 'E'){
+                                $('#no_spta').val(nospta+' / '+dat.data.kondisi_tebu);
+                            }else{
+                                $('#no_spta').val(nospta);
+                            }
+
+                            $('#afdeling').val(dat.data.kode_affd);
+                            $('#kode_petak').val(dat.data.kode_blok);
+                            $('#id_spta').val(dat.data.id);
+                            $('#kategori').val(dat.data.kode_kat_lahan);
+                            $('#no_spta').attr('readonly',true);
+                            $('#persen_brix_ari').focus();
+                        }else{
+
+                            var al = dat.data.point_cek;
+                            if(dat.data.point_cek == 1){
+                                al = dat.data.stt;
+                            }
+                            alert(al);
+
+                            $('#no_spta').val('');
+                        }
+
+                    }else{
+                        alert('Data SPTA '+nospta+' Tidak ditemukan dalam database kami! silahkan hubungi Bagian Tanaman <?php echo CNF_PG;?>');
+                        $('#no_spta').val('');
+                    }
+                }
+            });
+        }else{
+            alert('No SPTA tidak sesuai format / tidak dikeluarkan oleh <?php echo CNF_PG;?>');
+            $('#no_spta').val('');
+        }
+    }
 </script>

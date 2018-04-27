@@ -21,13 +21,13 @@
 <tbody>
 <tr>
 
-<td align="left"  style="font-size:11px">
+<td align="left"  style="font-size:11px" colspan="4">
 <b><?=CNF_NAMAPERUSAHAAN;?></b><br />
 	<?=CNF_PG;?> 
 	<?=CNF_ALAMAT;?>
 </td>
-<td align="center" style="font-size:13px" >
-LAPORAN TIMBANGAN HARIAN PER SPTA<br />
+<td align="center" style="font-size:13px" colspan="4">
+LAPORAN TIMBANGAN PER SPTA<br />
 <?=$title;?> 
 </td>
 </tr>
@@ -62,7 +62,7 @@ $gtruk = 0;$glori = 0;$gha = 0;$gnetto = 0;$gtha = 0;$godong2 = 0;$gtraktor = 0;
 	 }
 	 
 	 if($kat != $r->stt_ta_text){
-		echo '<tr><td colspan="15" ><b>'.$r->stt_ta_text.'</b></td><tr>';
+		echo '<tr><td colspan="17" ><b>'.$r->stt_ta_text.'</b></td></tr>';
 		$kat = $r->stt_ta_text;
 	 }
 	 
