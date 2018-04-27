@@ -200,7 +200,7 @@ class Mkaryawan extends SB_Controller
 		if( $this->form_validation->run() )
 		{
 			$data = $this->validatePost();
-			$ID = $this->model->insertRow($data , $this->input->get_post( 'Persno' , true ));
+			$ID = $this->model->insertRow($data , $this->input->get_post( 'id_karyawan' , true ));
 			// Input logs
 			if( $this->input->get( 'id_karyawan' , true ) =='') 
 			{
