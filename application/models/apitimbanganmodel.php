@@ -124,13 +124,26 @@ class Apitimbanganmodel extends SB_Model
     public function Angkutan()
     {
         $data = array(
-            ['angkutan' => ''],
             ['angkutan' =>'TRUK'],
             ['angkutan' =>'LORI'],
             ['angkutan' =>'ODONG2'],
             ['angkutan' =>'TRAKTOR']
         );
 
+        return $data;
+    }
+
+    public function DataTahun()
+    {
+        $tahun = date('Y');
+        $satu = 1; $dua = 2;
+        $data = array(
+            ['tahun' => "".($tahun-$dua).""],
+            ['tahun' => "".($tahun-$satu).""],
+            ['tahun' => $tahun],
+            ['tahun' => "".($tahun+$satu).""],
+            ['tahun' => "".($tahun+$dua).""]
+        );
         return $data;
     }
 

@@ -45,7 +45,7 @@ class Laporantimbangan extends SB_Controller
 			$this->data['title'] = 	"PERIODE ".SiteHelpers::datereport($tgl1)." s/d ".SiteHelpers::datereport($tgl2).' <br />';	
 		}
 		if($rjns == 2) {
-			$wh .= " AND MONTH(timb_netto_tgl) = '$bln' and YEAR(a.timb_netto_tgl) = '$thn'";
+			$wh .= " AND MONTH(timb_netto_tgl) = '$bln' and YEAR(timb_netto_tgl) = '$thn'";
 			$this->data['title'] = 	"BULAN ".SiteHelpers::blnreport($bln)." TAHUN ".$thn.' <br />';
 		}
 		if($rjns == 3) {

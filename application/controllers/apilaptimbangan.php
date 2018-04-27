@@ -105,6 +105,33 @@ class apilaptimbangan extends SB_Controller
         echo json_encode($output);
     }
 
+    function tahunlap()
+    {
+        $this->load->model('apitimbanganmodel');
+        $result = $this->apitimbanganmodel->DataTahun();
+        if(count($result) > 0){
+            foreach ($result[0] as $key => $value) {
+                if (is_null($value)) {
+                    $result[0]->$key = "";
+                }
+            }
+            $output = array(
+                'result' => $result,
+                'count' => count($result),
+                'msg' => 'success',
+                'status' => 'true'
+            );
+        }else{
+            $output = array(
+                'result' => array(),
+                'count' => count($result),
+                'msg' => 'data not found',
+                'status' => 'false'
+            );
+        }
+        echo json_encode($output);
+    }
+
     function printlaporan(){
         $wh = 'WHERE 0=0';
         $wh2 = 'WHERE 0=0';
@@ -129,7 +156,7 @@ class apilaptimbangan extends SB_Controller
             $this->data['title'] = 	"PERIODE ".SiteHelpers::datereport($tgl1)." s/d ".SiteHelpers::datereport($tgl2).' <br />';
         }
         if($rjns == 2) {
-            $wh .= " AND MONTH(timb_netto_tgl) = '$bln' and YEAR(a.timb_netto_tgl) = '$thn'";
+            $wh .= " AND MONTH(timb_netto_tgl) = '$bln' and YEAR(timb_netto_tgl) = '$thn'";
             $this->data['title'] = 	"BULAN ".SiteHelpers::blnreport($bln)." TAHUN ".$thn.' <br />';
         }
         if($rjns == 3) {
@@ -164,6 +191,12 @@ class apilaptimbangan extends SB_Controller
         }
 
 
+
+        if(isset($_REQUEST['excel']) && $_REQUEST['excel'] == 1){
+            $file = "Laporan Timbangan - PERIODE ".SiteHelpers::datereport($tgl1)." s/d ".SiteHelpers::datereport($tgl2).".xls";
+            header("Content-type: application/vnd.ms-excel");
+            header("Content-Disposition: attachment; filename=$file");
+        }
 
         if($jns == 1){
             $sql = "SELECT a.`kode_blok`,d.`deskripsi_blok`,e.`nama_petani`,a.`kode_kat_lahan`,SUM(a.`truk`) AS truk,SUM(a.`lori`) AS lori,SUM(a.`odong2`) AS odong2,SUM(a.`traktor`) AS traktor,

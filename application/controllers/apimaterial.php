@@ -241,7 +241,7 @@ class Apimaterial  extends SB_Controller
                 $data = array(
                     'no_transaksi' => $no_transaksi,
                     'keterangan_transaksi' => $keterangan_transaksi,
-                    'jenis_transaksi' => $jenis_transaksi
+                    'jenis_transaksi' => $jenis_transaksi_post
                 );
 
                 $this->db->set($data);
@@ -256,7 +256,7 @@ class Apimaterial  extends SB_Controller
 
                 $data = array(
                     'keterangan_transaksi' => $keterangan_transaksi,
-                    'jenis_transaksi' => $jenis_transaksi
+                    'jenis_transaksi' => $jenis_transaksi_post
                 );
 
                 $this->db->where(array('no_transaksi' => $no_transaksi));
