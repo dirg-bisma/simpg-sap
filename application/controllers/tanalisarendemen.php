@@ -187,6 +187,15 @@ class Tanalisarendemen extends SB_Controller
 
             	}else if(CNF_KONSEP == 3){
             		//kedawung metode
+            		$row[] = $dt->no_spat;
+            		$row[] = $dt->tgl_ari;
+            		$row[] = $dt->persen_brix_ari;
+            		$row[] = $dt->persen_pol_ari;
+            		$row[] = $dt->ph_ari;
+            		$row[] = $dt->hk;
+            		$row[] = $dt->nilai_nira;
+            		$row[] = $dt->rendemen_ari;
+            		$row[] = $dt->ptgs_ari;
 
             	}
             }
@@ -438,7 +447,8 @@ class Tanalisarendemen extends SB_Controller
 
 			//N11 Kedawung metode start
 			if(CNF_COMPANYCODE == 'N011' && CNF_KONSEP == 3){
-
+				$nilai_nira = $nilai_nira * $_POST['faktor_regresi'];
+				$rendemen_ari = $nilai_nira * $faktor_rendemen;
 			}
 			//N11 Kedawung metode end
 

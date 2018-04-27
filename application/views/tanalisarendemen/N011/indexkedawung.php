@@ -23,14 +23,17 @@
     <table class="table table-bordered display" id="gridv">
         <thead>
 			<tr>
-				<th> No </th>
-
-				<?php foreach ($tableGrid as $k => $t) : ?>
-					<?php if($t['view'] =='1'): ?>
-						<th><?php echo $t['label'] ?></th>
-					<?php endif; ?>
-				<?php endforeach; ?>
-			  </tr>
+        <th> No </th>
+        <th> SPTA </th>
+        <th> Tgl </th>
+        <th> % Brix </th>
+        <th> % Pol </th>
+        <th> pH </th>
+        <th> H.k </th>
+        <th> N.Nira </th>
+        <th> R.Ari </th>
+        <th> User </th>
+        </tr>
         </thead>
 
         
