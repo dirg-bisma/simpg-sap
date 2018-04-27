@@ -1,7 +1,5 @@
 DELIMITER $$
 
-USE `simpg_ptpn`$$
-
 DROP TRIGGER /*!50032 IF EXISTS */ `tr_no_ajuan_timbangan`$$
 
 CREATE
