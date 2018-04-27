@@ -23,17 +23,17 @@
     <table class="table table-bordered display" id="gridv">
         <thead>
 			<tr>
-				<th> No </th>
+        <th> No </th>
         <th> SPTA </th>
         <th> Tgl </th>
         <th> % Brix </th>
         <th> % Pol </th>
         <th> pH </th>
-        <th> H.k </th>
+        <!--th> H.k </th>
         <th> N.Nira </th>
-        <th> R.Ari </th>
+        <th> R.Ari </th-->
         <th> User </th>
-			  </tr>
+        </tr>
         </thead>
 
         

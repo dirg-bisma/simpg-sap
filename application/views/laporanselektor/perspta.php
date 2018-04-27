@@ -21,12 +21,12 @@
 <tbody>
 <tr>
 
-<td align="left"  style="font-size:11px">
+<td align="left"  style="font-size:11px" colspan="6">
 <b><?=CNF_NAMAPERUSAHAAN;?></b><br />
 	<?=CNF_PG;?> 
 	<?=CNF_ALAMAT;?>
 </td>
-<td align="center" style="font-size:13px" >
+<td align="center" style="font-size:13px" colspan="5">
 LAPORAN SELEKTOR HARIAN<br />
 <?=$title;?> 
 </td>

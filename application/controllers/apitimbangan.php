@@ -157,8 +157,7 @@ class Apitimbangan extends SB_Controller
                 $this->db->set($data);
                 $this->db->insert('t_timbangan');
 
-                $this->db->where(array('id' => $id_spat[0]->id));
-                $this->db->update('t_spta', array("timb_netto_status" => "1"));
+                 $this->db->query("UPDATE t_spta SET timb_bruto_status=1,timb_bruto_tgl='$tgl_timbang',timb_netto_status=1,timb_netto_tgl='$tgl_timbang',tgl_timbang=get_tgl_giling() WHERE id='".$id_spat[0]->id."'");
 
                 $this->inputLogs("t_timbangan:insert=id:".$id_spat[0]->id.";");
 
@@ -296,8 +295,7 @@ class Apitimbangan extends SB_Controller
                 $this->apitimbanganmodel->UpdateNetto($where, $data_netto);
 
 
-                $this->db->where(array('id' => $id_spat[0]->id));
-                $this->db->update('t_spta', array('timb_netto_status' => "1", 'timb_netto_tgl' => $tgl_timbang));
+                $this->db->query("UPDATE t_spta SET timb_netto_status=1,timb_netto_tgl='$tgl_timbang',tgl_timbang=get_tgl_giling() WHERE id='".$id_spat[0]->id."'");
 
                 $result = array(
                     'msg' => $this->GetPost('no_spat'),
@@ -364,9 +362,8 @@ class Apitimbangan extends SB_Controller
                     $this->db->set($data);
                     $this->db->insert('t_timbangan');
 
-                    $this->db->where(array('id' => $id_spat[0]->id));
-                    $this->db->update('t_spta', array('timb_netto_status' => "1", 'timb_netto_tgl' => $tgl_timbang));
-
+                     $this->db->query("UPDATE t_spta SET timb_bruto_status=1,timb_bruto_tgl='$tgl_timbang',timb_netto_status=1,timb_netto_tgl='$tgl_timbang',tgl_timbang=get_tgl_giling() WHERE id='".$id_spat[0]->id."'");
+                     
                     $this->inputLogs("t_timbangan:insert=id_spat:".$id_spat[0]->id."bruto:$bruto;tara:$tara;
                     netto:$netto;netto_final:$netto;tgl_netto:$tgl_timbang;tgl_tara:$tgl_timbang;tgl_bruto:$tgl_timbang;
                     lokasi_timbang_1:$lokasi_timbang_1;lokasi_timbang_2:$lokasi_timbang_1;ptgs_timbang_1:$ptgs_timbang_1;

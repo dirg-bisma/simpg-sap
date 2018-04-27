@@ -168,9 +168,9 @@ class Tanalisarendemen extends SB_Controller
             		$row[] = $dt->persen_brix_ari;
             		$row[] = $dt->persen_pol_ari;
             		$row[] = $dt->ph_ari;
-            		$row[] = $dt->hk;
+            		/*$row[] = $dt->hk;
             		$row[] = $dt->nilai_nira;
-            		$row[] = $dt->rendemen_ari;
+            		$row[] = $dt->rendemen_ari;*/
             		$row[] = $dt->ptgs_ari;
 
             	}else if(CNF_KONSEP == 2){
@@ -180,9 +180,9 @@ class Tanalisarendemen extends SB_Controller
             		$row[] = $dt->persen_brix_ari;
             		$row[] = $dt->persen_pol_ari;
             		$row[] = $dt->ph_ari;
-            		$row[] = $dt->hk;
+            		/*$row[] = $dt->hk;
             		$row[] = $dt->nilai_nira;
-            		$row[] = $dt->rendemen_ari;
+            		$row[] = $dt->rendemen_ari;*/
             		$row[] = $dt->ptgs_ari;
 
             	}else if(CNF_KONSEP == 3){
@@ -192,9 +192,9 @@ class Tanalisarendemen extends SB_Controller
             		$row[] = $dt->persen_brix_ari;
             		$row[] = $dt->persen_pol_ari;
             		$row[] = $dt->ph_ari;
-            		$row[] = $dt->hk;
+            		/*$row[] = $dt->hk;
             		$row[] = $dt->nilai_nira;
-            		$row[] = $dt->rendemen_ari;
+            		$row[] = $dt->rendemen_ari;*/
             		$row[] = $dt->ptgs_ari;
 
             	}

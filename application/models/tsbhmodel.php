@@ -96,6 +96,8 @@ class Tsbhmodel extends SB_Model
   `f`.`hk`              AS `hk`,
   `f`.`nilai_nira`      AS `nilai_nira`,
   `f`.`faktor_rendemen` AS `faktor_rendemen`,
+  f.rendemen_individu,
+  f.faktor_konversi,
   `f`.`rendemen_ari`    AS `rendemen_ari`,
   ROUND(IF((`f`.`hablur_ari` = 0),((`f`.`rendemen_ari` * `d`.`netto_final`) / 100),`f`.`hablur_ari`),2) AS `hablur_ari`,
   ROUND(IF((`f`.`gula_total` = 0),(IF((`f`.`hablur_ari` = 0),ROUND(IF((`f`.`hablur_ari` = 0),((`f`.`rendemen_ari` * `d`.`netto_final`) / 100),`f`.`hablur_ari`),2),`f`.`hablur_ari`) * 1.003),`f`.`gula_total`),2) AS `gula_total`,

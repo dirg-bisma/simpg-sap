@@ -134,7 +134,8 @@ class Tsbh extends SB_Controller
 		$this->data['access']		= $this->access;
 		// Render into template
 		
-		$this->data['content'] = $this->load->view('tsbh/index',$this->data, true );
+			$this->data['content'] = $this->load->view('tsbh/index',$this->data, true );
+
 		
     	$this->load->view('layouts/main', $this->data );
     
@@ -378,7 +379,12 @@ class Tsbh extends SB_Controller
 		$file = "SBH-".$this->data['title'].".xls";
 			header("Content-type: application/vnd.ms-excel");
 			header("Content-Disposition: attachment; filename=$file");
-		echo $this->load->view('tsbh/downloadtemplate',$this->data, true );
+
+			if(CNF_KONSEP == 2){
+				echo $this->load->view('tsbh/downloadtemplatejat',$this->data, true );
+			}else{
+				echo $this->load->view('tsbh/downloadtemplate',$this->data, true );
+			}
 		}
 
 		if($jns == 3){
@@ -420,33 +426,34 @@ try
 				
 				if($Key > 2){
 					if(trim($Row[1]) != ''){
-						$tempdataari = array(
-					
-					'id_ari'	 	=> trim($Row[1]), 
-					'id_spta' 		=> trim($Row[0]), 
-					'persen_brix_ari' 		=> trim($Row[34]), 
-					'persen_pol_ari' 		=> trim($Row[35]), 
-					'ph_ari' 		=> trim($Row[36]), 
-					'hk' 			=> trim($Row[37]), 
-					'nilai_nira' 	=> trim($Row[38]), 
-					'faktor_rendemen' 		=> trim($Row[39]), 
-					'rendemen_ari' 	=> trim($Row[40]), 
-					'hablur_ari' 	=> trim($Row[41]), 
-					'gula_total' 	=> trim($Row[42]), 
-					'tetes_total' 	=> trim($Row[43]), 
-					'rendemen_ptr' 	=> trim($Row[44]), 
-					'gula_ptr' 		=> trim($Row[45]), 
-					'tetes_ptr' 	=> trim($Row[46]), 
-					'gula_pg' 		=> trim($Row[47]), 
-					'tetes_pg' 		=> trim($Row[48]),
-					'sbh_ari_status'				=> '1',
-					'sbh_ari_user'				=> $this->session->userdata('fid'),
-					'sbh_ari_tgl'				=> date('Y-m-d H:i:s')
-				);
+
+
+					$tempdataari = array(
+						'id_ari'	 		=> trim($Row[1]), 
+						'id_spta' 			=> trim($Row[0]), 
+						'persen_brix_ari' 	=> trim($Row[34]), 
+						'persen_pol_ari' 	=> trim($Row[35]), 
+						'ph_ari' 			=> trim($Row[36]), 
+						'hk' 				=> trim($Row[37]), 
+						'nilai_nira' 		=> trim($Row[38]), 
+						'faktor_rendemen' 	=> trim($Row[39]), 
+						'rendemen_ari' 		=> trim($Row[40]), 
+						'hablur_ari' 		=> trim($Row[41]), 
+						'gula_total' 		=> trim($Row[42]), 
+						'tetes_total' 		=> trim($Row[43]), 
+						'rendemen_ptr' 		=> trim($Row[44]), 
+						'gula_ptr' 			=> trim($Row[45]), 
+						'tetes_ptr' 		=> trim($Row[46]), 
+						'gula_pg' 			=> trim($Row[47]), 
+						'tetes_pg' 			=> trim($Row[48]),
+						'sbh_ari_status'	=> '1',
+						'sbh_ari_user'		=> $this->session->userdata('fid'),
+						'sbh_ari_tgl'		=> date('Y-m-d H:i:s')
+					);
 
 			$tempspta = array(
-					'sbh_status' => '1',
-					'sbh_tgl'	=> date('Y-m-d H:i:s')
+					'sbh_status' 	=> '1',
+					'sbh_tgl'		=> date('Y-m-d H:i:s')
 				);
 
 			$this->db->where('id_ari', trim($Row[1]));
