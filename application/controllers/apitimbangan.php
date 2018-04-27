@@ -442,6 +442,8 @@ class Apitimbangan extends SB_Controller
         echo json_encode($output);
     }
 
+
+
     public function cetaklori($train_stat, $no_loko)
     {
         $this->load->model('apitimbanganmodel');

@@ -114,6 +114,36 @@ class Apitimbanganmodel extends SB_Model
         return $spat;
     }
 
+    public function listAfd()
+    {
+        $qry = "SELECT * FROM sap_m_affdeling";
+        $result = $this->db->query($qry)->result();
+        return $result;
+    }
+
+    public function Angkutan()
+    {
+        $data = array(
+            ['angkutan' => ''],
+            ['angkutan' =>'TRUK'],
+            ['angkutan' =>'LORI'],
+            ['angkutan' =>'ODONG2'],
+            ['angkutan' =>'TRAKTOR']
+        );
+
+        return $data;
+    }
+
+    public function jenisLaporan()
+    {
+        $data = array(
+            ['id'=> '1','jenis' => 'Per PETAK'],
+            ['id'=> '2','jenis' => 'Per SPTA'],
+        );
+
+        return $data;
+    }
+
     private function Query()
     {
         $qry = 'SELECT 

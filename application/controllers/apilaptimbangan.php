@@ -24,6 +24,87 @@ class apilaptimbangan extends SB_Controller
         $this->load->view('layouts/cetak',$this->data);
     }
 
+    function afdlist()
+    {
+        $this->load->model('apitimbanganmodel');
+        $result = $this->apitimbanganmodel->listAfd();
+        if(count($result) > 0){
+            foreach ($result[0] as $key => $value) {
+                if (is_null($value)) {
+                    $result[0]->$key = "";
+                }
+            }
+            $output = array(
+                'result' => $result,
+                'count' => count($result),
+                'msg' => 'success',
+                'status' => 'true'
+            );
+        }else{
+            $output = array(
+                'result' => array(),
+                'count' => count($result),
+                'msg' => 'data not found',
+                'status' => 'false'
+            );
+        }
+        echo json_encode($output);
+    }
+
+    function jenisangkutan()
+    {
+        $this->load->model('apitimbanganmodel');
+        $result = $this->apitimbanganmodel->Angkutan();
+        if(count($result) > 0){
+            foreach ($result[0] as $key => $value) {
+                if (is_null($value)) {
+                    $result[0]->$key = "";
+                }
+            }
+            $output = array(
+                'result' => $result,
+                'count' => count($result),
+                'msg' => 'success',
+                'status' => 'true'
+            );
+        }else{
+            $output = array(
+                'result' => array(),
+                'count' => count($result),
+                'msg' => 'data not found',
+                'status' => 'false'
+            );
+        }
+        echo json_encode($output);
+    }
+
+    function jenislaporan()
+    {
+        $this->load->model('apitimbanganmodel');
+        $result = $this->apitimbanganmodel->jenisLaporan();
+        if(count($result) > 0){
+            foreach ($result[0] as $key => $value) {
+                if (is_null($value)) {
+                    $result[0]->$key = "";
+                }
+            }
+            $output = array(
+                'result' => $result,
+                'count' => count($result),
+                'msg' => 'success',
+                'status' => 'true'
+            );
+        }else{
+            $output = array(
+                'result' => array(),
+                'count' => count($result),
+                'msg' => 'data not found',
+                'status' => 'false'
+            );
+        }
+        echo json_encode($output);
+    }
+
     function printlaporan(){
         $wh = 'WHERE 0=0';
         $wh2 = 'WHERE 0=0';
