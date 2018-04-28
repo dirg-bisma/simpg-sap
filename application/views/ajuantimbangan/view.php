@@ -119,8 +119,9 @@
                         </table>
                     </div>
                     <a href="<?php echo site_url('ajuantimbangan');?>" class="btn btn-sm btn-warning"> << Back </a>
+                    <?php if($row['status_validasi'] == "0"){?>
                     <a href="<?php echo site_url('ajuantimbangan/adminvalidasi/'.$row['id_ubah_timbangan']);?>" class="btn btn-sm btn-danger pull-right"> Setujui </a>
-
+                    <?php }?>
                 </div>
             </div>
 
