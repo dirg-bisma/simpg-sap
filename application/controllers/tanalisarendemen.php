@@ -167,7 +167,7 @@ class Tanalisarendemen extends SB_Controller
             $no++;
         }
 
-        var_dump($data);die();
+        //var_dump($data);die();
 
          $output = array(
                         "draw" => $_POST['draw'],
