@@ -153,64 +153,21 @@ class Tanalisarendemen extends SB_Controller
 		foreach ($rows as $dt) {
             $row = array();
             $row[] = $no+1;
-            /*
-            for ($i=0; $i < count($this->col) ; $i++) { 
-            		$field = $this->col[$i+1];
-            		$conn = (isset($this->con[$i+1]) ? $this->con[$i+1] : array() ) ;
-					$row[] = SiteHelpers::gridDisplay($dt->$field , $field , $conn );
-            }
-            */
-            if(CNF_COMPANYCODE == 'N011'){
-            	if(CNF_KONSEP == 1){
-            		//jombang metode
-            		$row[] = $dt->no_spat;
-            		$row[] = $dt->tgl_ari;
-            		$row[] = $dt->persen_brix_ari;
-            		$row[] = $dt->persen_pol_ari;
-            		$row[] = $dt->ph_ari;
+            $row[] = $dt->no_spat;
+            $row[] = $dt->tgl_ari;
+            $row[] = $dt->persen_brix_ari;
+            $row[] = $dt->persen_pol_ari;
+            $row[] = $dt->ph_ari;
             		/*$row[] = $dt->hk;
             		$row[] = $dt->nilai_nira;
             		$row[] = $dt->rendemen_ari;*/
-            		$row[] = $dt->ptgs_ari;
-
-            	}else if(CNF_KONSEP == 2){
-            		//jatoroto metode
-            		$row[] = $dt->no_spat;
-            		$row[] = $dt->tgl_ari;
-            		$row[] = $dt->persen_brix_ari;
-            		$row[] = $dt->persen_pol_ari;
-            		$row[] = $dt->ph_ari;
-            		/*$row[] = $dt->hk;
-            		$row[] = $dt->nilai_nira;
-            		$row[] = $dt->rendemen_ari;*/
-            		$row[] = $dt->ptgs_ari;
-
-            	}else if(CNF_KONSEP == 3){
-            		//kedawung metode
-            		$row[] = $dt->no_spat;
-            		$row[] = $dt->tgl_ari;
-            		$row[] = $dt->persen_brix_ari;
-            		$row[] = $dt->persen_pol_ari;
-            		$row[] = $dt->ph_ari;
-            		/*$row[] = $dt->hk;
-            		$row[] = $dt->nilai_nira;
-            		$row[] = $dt->rendemen_ari;*/
-            		$row[] = $dt->ptgs_ari;
-
-            	}
-            }
-
-            //JATIROTO METODE
-
-            //KEDAWUNG METODE
- 
-            //add html for action
-            $btn ='';
-			$idku = $this->model->primaryKey;
-            
+            $row[] = $dt->ptgs_ari;
+          
             $data[] = $row;
             $no++;
         }
+
+        var_dump($data);die();
 
          $output = array(
                         "draw" => $_POST['draw'],

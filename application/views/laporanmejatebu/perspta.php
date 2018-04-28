@@ -74,7 +74,7 @@ $akt = 0;
 	 <td><?php echo $r->tgl_tebang;?></td>
 	 <td><?php echo $r->tgl_selektor;?></td>
 	 <td><?php echo $r->tgl_meja_tebu;?></td>
-	 <?
+	 <?php
 	$no++;
 	$akt++;
  }
