@@ -152,15 +152,15 @@ class apilaptimbangan extends SB_Controller
 
 
         if($rjns == 1) {
-            $wh .= " AND date(timb_netto_tgl) between '$tgl1' and '$tgl2'";
+            $wh .= " AND date(tgl_timbang) between '$tgl1' and '$tgl2'";
             $this->data['title'] = 	"PERIODE ".SiteHelpers::datereport($tgl1)." s/d ".SiteHelpers::datereport($tgl2).' <br />';
         }
         if($rjns == 2) {
-            $wh .= " AND MONTH(timb_netto_tgl) = '$bln' and YEAR(timb_netto_tgl) = '$thn'";
+            $wh .= " AND MONTH(tgl_timbang) = '$bln' and YEAR(tgl_timbang) = '$thn'";
             $this->data['title'] = 	"BULAN ".SiteHelpers::blnreport($bln)." TAHUN ".$thn.' <br />';
         }
         if($rjns == 3) {
-            $wh .= " AND  YEAR(timb_netto_tgl) = '$thn'";
+            $wh .= " AND  YEAR(tgl_timbang) = '$thn'";
             $this->data['title'] = 	"TAHUN ".$thn.' <br />';
         }
 
