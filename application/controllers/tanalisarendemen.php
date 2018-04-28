@@ -38,7 +38,7 @@ class Tanalisarendemen extends SB_Controller
 			
 		}
 		
-		//if(!$this->session->userdata('logged_in')) redirect('user/login',301);
+		if(!$this->session->userdata('logged_in')) redirect('user/login',301);
 		
 	}
 	
