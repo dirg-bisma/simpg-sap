@@ -254,7 +254,8 @@ class Ajuantimbangan extends SB_Controller
             $this->db->update('t_timbangan',array(
                 'bruto' => $result->bruto_perubahan,
                 'tara' => $result->tara_perubahan,
-                'netto' => $result->netto_perubahan
+                'netto' => $result->netto_perubahan,
+                'netto_final' => $result->netto_perubahan
             ));
 
             $this->session->set_flashdata('message',SiteHelpers::alert('success','Data no SPTA '.$result->no_spat.' Telah dirubah'));
