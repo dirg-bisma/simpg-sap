@@ -35,14 +35,43 @@ LAPORAN ANALISA ARI<br />
 <hr />
 <table class="tableizer-table">
 <thead><tr class="tableizer-firstrow">
-<th>JAM</th><th>NO SPTA</th><th>NO PETAK</th><th>PETANI</th><th>QTY TEBU</th><th>TRUK</th><th>LORI</th><th>KATEGORI</th><th>% BRIX</th><th>% POL</th><th>pH</th><th>HKNPP</th><th>N.NIRA</th><th>R.ARI</th><th>HABLUR</th></tr></thead>
+<th>NO</th><th>JAM</th><th>AFD</th><th>NO SPTA</th><th>NO PETAK</th><th>KEBUN</th><th>PETANI</th><th>QTY TEBU</th><th>TRUK</th><th>LORI</th><th>KATEGORI</th><th>% BRIX</th><th>% POL</th><th>pH</th><th>HKNPP</th><th>N.NIRA</th><th>R.ARI</th></tr></thead>
 <tbody>
 <?php
+$no=0;
+$kodemt = '';
+$akt = 0;
  foreach($result as $r){
-	 echo '<tr><td> '.$r->tgl_analisa.' </td><td> '.$r->no_spat.' </td><td> '.$r->kode_blok.' </td><td> '.$r->nama_petani.' </td><td align="right"> '.number_format($r->netto_final,0).'</td><td align="center"> '.$r->truk.' </td><td align="center"> '.$r->lori.' </td><td align="center"> '.$r->kode_kat_lahan.' </td><td align="right"> '.number_format($r->persen_brix_ari,2).' </td><td align="right"> '.number_format($r->persen_pol_ari,2).' </td><td align="right"> '.number_format($r->ph_ari,2).' </td><td align="right"> '.number_format($r->hk,2).' </td><td align="right"> '.number_format($r->nilai_nira,2).' </td><td align="right"> '.number_format($r->rendemen_ari,2).' </td><td align="right"> '.number_format($r->hablur_ari,2).' </td></tr>';
+ 	$no++;
+
+ 	if($kodemt != $r->kode_affd && $no != 1){
+		?>
+		<tr style="font-weight:bold;background:#3c8dbc;color:white">
+<td colspan="7"> JUMLAH <?php echo  $kodemt.' ('.$akt.')';?> </td>
+<td  align="right">  <?php echo number_format($r->netto_final,0); ?> </td>
+<td colspan="8">  </td></tr>
+		<?php
+		$akt = 0;
+	 }
+	 
+	 if($kodemt != $r->kode_affd){
+		echo '<tr><td colspan="17" ><b>'.$r->kode_affd.'</b></td></tr>';
+		$kodemt = $r->kode_affd;
+	 }
+
+	 echo '<tr><td>'.($no).'</td><td> '.$r->tgl_analisa.' </td><td> '.$r->kode_affd.' </td><td> '.$r->no_spat.' </td><td> '.$r->kode_blok.' </td><td> '.$r->deskripsi_blok.' </td><td> '.$r->nama_petani.' </td><td align="right"> '.number_format($r->netto_final,0).'</td><td align="center"> '.$r->truk.' </td><td align="center"> '.$r->lori.' </td><td align="center"> '.$r->kode_kat_lahan.' </td><td align="right"> '.number_format($r->persen_brix_ari,2).' </td><td align="right"> '.number_format($r->persen_pol_ari,2).' </td><td align="right"> '.number_format($r->ph_ari,2).' </td><td align="right"> '.number_format($r->hk,2).' </td><td align="right"> '.number_format($r->nilai_nira,2).' </td><td align="right"> '.number_format($r->rendemen_ari,2).' </td></tr>';
+	 $akt++;
 	 
  }
 ?>
+<tr style="font-weight:bold;background:#3c8dbc;color:white">
+<td colspan="7"> JUMLAH <?php echo  $kodemt.' ('.$akt.')';?> </td>
+<td  align="right">  <?php echo number_format(0,0); ?> </td>
+<td colspan="9">  </td></tr>
+<tr style="font-weight:bold;background:#3c8dbc;color:white">
+<td colspan="7"> GRAND JUMLAH <?php echo  ' ('.$akt.')';?> </td>
+<td align="right">  <?php echo number_format(0,0); ?> </td>
+<td colspan="9">  </td></tr>
 </tbody>
 </table>
 <hr />
