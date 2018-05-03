@@ -347,9 +347,9 @@ SET a.`upah_angkut_status`=".$ID.",a.`upah_angkut_tgl` = NOW() WHERE b.`angkutan
 		$d = $this->db->query("SELECT id_jarak,keterangan,biaya FROM `m_biaya_jarak` ORDER BY km_min")->result();
 		foreach ($d as $kp) {
 			if($kp->id_jarak == $id){
-			$htm .= '<option value="'.$kp->id_jarak.'" selected biaya="'.$kp->biaya.'">'.$kp->keterangan.'</option>';
+			$htm .= '<option value="'.$kp->id_jarak.'" disabled selected biaya="'.$kp->biaya.'">'.$kp->keterangan.'</option>';
 		}else{
-			$htm .= '<option value="'.$kp->id_jarak.'" biaya="'.$kp->biaya.'">'.$kp->keterangan.'</option>';
+			$htm .= '<option value="'.$kp->id_jarak.'" disabled biaya="'.$kp->biaya.'">'.$kp->keterangan.'</option>';
 		}
 		}
 
@@ -382,7 +382,9 @@ WHERE a.timb_netto_status = 1 AND a.upah_angkut_status = $id_angkutan";
 				<td> ".$tf->deskripsi_blok." </td>
 				<td> ".$tf->no_angkutan." </td>
 				<td class='number'> ".number_format($tf->netto,0)." </td>
-				<td> <select style='width:100px;height:25px' onchange='changebiaya(".$tf->id.")' name='tarif[]' id='tarif-".$tf->id."' >".$this->generateSelect($tf->id_jarak)."</select> </td>
+				<td> 
+
+				<select style='width:100px;height:25px' onchange='changebiaya(".$tf->id.")' name='tarif[]' id='tarif-".$tf->id."' >".$this->generateSelect($tf->id_jarak)."</select> </td>
 				<td ><input type='text' class='form-control input-sm number' style='width:100px;height:25px'  readonly name='tarif_n[]' id='tarif_n-".$tf->id."' value='".$tf->tarif."' /></td>
 				<td ><input type='text' class='form-control input-sm number jmlh' readonly name='jmlh[]'  id='jmlh-".$tf->id."' value='".$tf->jumlah."' /></td>
 			  </tr>";

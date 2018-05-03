@@ -47,7 +47,7 @@ class Tdetailkuotakkwmodel extends SB_Model
 		
 		
 		$rows = array();
-		$query = $this->db->query( "SELECT * FROM (SELECT
+		$sqltest = "SELECT * FROM (SELECT
   IFNULL(`b`.`id`,0)   AS `idkuotakkw`,
   `a`.`divisi`         AS `divisi`,
   `a`.`kode_blok`      AS `kode_blok`,
@@ -63,21 +63,16 @@ class Tdetailkuotakkwmodel extends SB_Model
 FROM (`sap_field` `a`
    LEFT JOIN (SELECT * FROM `t_spta_kuota_tot` WHERE id_spta_kuota_kkw=$idx) `b`
      ON ((`a`.`kode_blok` = `b`.`kode_blok`)))) as ax WHERE 0=0 AND ax.spt_status =1
-			{$params} ". $this->queryGroup() ." {$orderConditional}  {$limitConditional} ");
+			{$params} ". $this->queryGroup() ." {$orderConditional}  {$limitConditional} ";
+		$query = $this->db->query($sqltest);
 		$result = $query->result();
 		$query->free_result();
-
-		if($key =='' ) { $key ='*'; } else { $key = $table.".".$key ; }
-		$counter_select = preg_replace( '/[\s]*SELECT(.*)FROM/Usi', 'SELECT count('.$key.') as total FROM ( SELECT '.$key.' FROM ', $this->querySelect() );
+		
 		//echo 	$counter_select; exit;
-		$query = $this->db->query( $counter_select . $this->queryWhere()." ". $this->queryGroup().') as '.$table);
+		$query = $this->db->query( 'SELECT count(idkuotakkw) as total FROM ('.$sqltest.') as '.$table);
 		$res = $query->result();
 		// var_dump($counter_select . $this->queryWhere()." {$params} ". $this->queryGroup());exit;
 		$total = $res[0]->total;
-
-		$query = $this->db->query( $counter_select . $this->queryWhere()." {$params} ". $this->queryGroup().') as '.$table);
-		$res = $query->result();
-		// var_dump($counter_select . $this->queryWhere()." {$params} ". $this->queryGroup());exit;
 		$totalfil = $res[0]->total;
 		$query->free_result();
 

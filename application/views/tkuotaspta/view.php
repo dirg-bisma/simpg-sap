@@ -172,6 +172,13 @@ function formOrder(idkuotadetail,kodepetak){
 	SximoModal('<?php echo site_url('tkuotaspta/order');?>/'+idkuotadetail+'/'+kodepetak+'/'+idk+'/'+idsptakuota+'/<?php echo $row['tgl_spta'];?>','Order SPTA');
 }
 
+
+function cetaksptaperpetak(petak){
+	var url = '<?php echo site_url('tkuotaspta/cetaksptapetak');?>/<?php echo $row['tgl_spta'];?>/'+petak;
+	var win = window.open(url, '_blank');
+			win.focus();
+}
+
 function refreshKkw(){
 	var html = "";
 	$.ajax({
@@ -192,7 +199,7 @@ function reloadgrid(idkuotakkw=idk,afd=afdx) {
 		if(table!='') table.destroy();
         table = $('#gridv').DataTable({
           "paging": true,
-          "lengthChange": false,
+          "lengthChange": true,
           "searching": true,
           "ordering": true,
           "info": true,

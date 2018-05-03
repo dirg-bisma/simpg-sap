@@ -396,7 +396,7 @@ WHERE 0=0 AND cetak_spta_status=0 $wh GROUP BY a.`id`")->result();
 				$html .= $this->load->view('tkuotaspta/cetakspta',$this->data, true);
 			//}
 
-			if($i == 3){
+			if($i == CNF_HAL){
 				$html .= '<p style="page-break-after: always;">&nbsp;</p>';
 				$i=0;
 			}
@@ -408,6 +408,80 @@ WHERE 0=0 AND cetak_spta_status=0 $wh GROUP BY a.`id`")->result();
 		$this->data['tgl'] = $tgl;
 		$this->data['pta'] = $pta;
 		$this->data['kat'] = $kat;
+		$this->data['petak'] = '';
+		$this->data['afd'] = '';
+		$this->load->view('layouts/kosong', $this->data );
+	}
+
+
+	function cetaksptapetak($tgl,$petak){
+		$wh = " AND a.tgl_spta='$tgl' AND a.kode_blok='$petak'";
+		
+		$a = $this->db->query("SELECT no_spat,a.kode_blok,jenis_spta,tgl_spta,c.divisi,e.`karyawan`,d.`nama_petani`,f.`name` AS nama_pta,tgl_expired,tebang_pg,angkut_pg,metode_tma,IF(kode_plant_trasnfer!='',CONCAT(c.`deskripsi_blok`,' TRANSFER DARI ',kode_plant_trasnfer),IF(kode_plant_ke != '', CONCAT(c.`deskripsi_blok`,' TRANSFER KE ',kode_plant_ke),c.`deskripsi_blok`)) AS deskripsi_blok,c.`luas_tanam`,c.`periode`,c.`status_blok`,c.`kepemilikan`,IF(metode_tma=1,'MANUAL',IF(metode_tma=2,'SEMI MEKANISASI','MEKANISASI')) AS txt_metode_tma,v.nama_vendor FROM t_spta a 
+INNER JOIN sap_field c ON a.kode_blok=c.`kode_blok` 
+INNER JOIN vw_master_afdeling e ON e.`kode_affd`=c.`divisi`
+INNER JOIN sap_m_karyawan f ON f.`Persno`=a.persno_pta
+LEFT JOIN sap_petani d ON d.`id_petani_sap`=c.`id_petani_sap` 
+LEFT JOIN m_vendor v ON v.id_vendor=a.`vendor_angkut`
+WHERE 0=0 AND cetak_spta_status=0 $wh GROUP BY a.`id`")->result();
+		$html = '';$i=1;
+		foreach($a as $b){
+			$this->data['row'] =$b; 
+			//$this->data['barcode'] = '<img src="'.$this->generateBarcode($b->no_spat).'">';
+			//for($i=0;$i<100;$i++){
+				$html .= $this->load->view('tkuotaspta/cetakspta',$this->data, true);
+			//}
+
+			if($i == CNF_HAL){
+				$html .= '<p style="page-break-after: always;">&nbsp;</p>';
+				$i=0;
+			}
+			$i++;
+		}
+		
+		$this->data['content'] = $html;
+		$this->data['title'] = 'Cetak SPTA';
+		$this->data['tgl'] = $tgl;
+		$this->data['pta'] = '';
+		$this->data['kat'] = 'X';
+		$this->data['petak'] = $petak;
+		$this->data['afd'] = '';
+		$this->load->view('layouts/kosong', $this->data );
+	}
+
+
+	function cetaksptaafd($tgl,$afd){
+		$wh .= " AND a.tgl_spta='$tgl' AND c.divisi='$afd'";
+		
+		$a = $this->db->query("SELECT no_spat,a.kode_blok,jenis_spta,tgl_spta,c.divisi,e.`karyawan`,d.`nama_petani`,f.`name` AS nama_pta,tgl_expired,tebang_pg,angkut_pg,metode_tma,IF(kode_plant_trasnfer!='',CONCAT(c.`deskripsi_blok`,' TRANSFER DARI ',kode_plant_trasnfer),IF(kode_plant_ke != '', CONCAT(c.`deskripsi_blok`,' TRANSFER KE ',kode_plant_ke),c.`deskripsi_blok`)) AS deskripsi_blok,c.`luas_tanam`,c.`periode`,c.`status_blok`,c.`kepemilikan`,IF(metode_tma=1,'MANUAL',IF(metode_tma=2,'SEMI MEKANISASI','MEKANISASI')) AS txt_metode_tma,v.nama_vendor FROM t_spta a 
+INNER JOIN sap_field c ON a.kode_blok=c.`kode_blok` 
+INNER JOIN vw_master_afdeling e ON e.`kode_affd`=c.`divisi`
+INNER JOIN sap_m_karyawan f ON f.`Persno`=a.persno_pta
+LEFT JOIN sap_petani d ON d.`id_petani_sap`=c.`id_petani_sap` 
+LEFT JOIN m_vendor v ON v.id_vendor=a.`vendor_angkut`
+WHERE 0=0 AND cetak_spta_status=0 $wh GROUP BY a.`id`")->result();
+		$html = '';$i=1;
+		foreach($a as $b){
+			$this->data['row'] =$b; 
+			//$this->data['barcode'] = '<img src="'.$this->generateBarcode($b->no_spat).'">';
+			//for($i=0;$i<100;$i++){
+				$html .= $this->load->view('tkuotaspta/cetakspta',$this->data, true);
+			//}
+
+			if($i == CNF_HAL){
+				$html .= '<p style="page-break-after: always;">&nbsp;</p>';
+				$i=0;
+			}
+			$i++;
+		}
+		
+		$this->data['content'] = $html;
+		$this->data['title'] = 'Cetak SPTA';
+		$this->data['tgl'] = $tgl;
+		$this->data['pta'] = '';
+		$this->data['kat'] = 'X';
+		$this->data['petak'] = '';
+		$this->data['afd'] = $afd;
 		$this->load->view('layouts/kosong', $this->data );
 	}
 	
@@ -416,9 +490,14 @@ WHERE 0=0 AND cetak_spta_status=0 $wh GROUP BY a.`id`")->result();
 			$kat = $_POST['kat'];
 			$tgl = $_POST['tgl_spta'];
 			$pta = $_POST['pta'];
-			$wh = " AND kode_kat_lahan LIKE '$kat%'";
-			if($kat == 'X') $wh = '';
-			$wh .= " AND tgl_spta='$tgl' AND persno_pta='$pta'";
+			$afd = $_POST['afd'];
+			$petak = $_POST['petak'];
+			$wh = "AND tgl_spta='$tgl'";
+			
+			if($kat != 'X') $wh .= " AND kode_kat_lahan LIKE '$kat%'";
+			if($pta != '') $wh .= "  AND persno_pta='$pta'";
+			if($afd != '') $wh .= "  AND kode_affd='$afd'";
+			if($petak != '') $wh .= "  AND kode_blok='$petak'";
 			
 			
 			

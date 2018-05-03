@@ -138,6 +138,17 @@
 				 </div> 
 			  </div>
 			  
+			  <div class="form-group">
+				<label for="ipt" class=" control-label col-md-4">SPTA Per Halaman</label>
+				<div class="col-md-8">
+						<select id="cnf_hal" name="cnf_hal" class="form-control input-sm">
+							<option value="1" <?php if(CNF_HAL == 1) echo 'selected';?> >1 Spta Per halaman</option>
+							<option value="2" <?php if(CNF_HAL == 2) echo 'selected';?> >2 Spta Per halaman</option>
+							<option value="3" <?php if(CNF_HAL == 3) echo 'selected';?> >3 Spta Per halaman</option>
+						</select>
+				 </div> 
+			  </div>
+
 		  </fieldset>
 
 

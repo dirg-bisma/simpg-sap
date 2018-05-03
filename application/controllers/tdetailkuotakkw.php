@@ -108,6 +108,9 @@ class Tdetailkuotakkw extends SB_Controller
 			$idku = $this->model->primaryKey;
             if($dt->aff_tebang == 0){
             	$btn .= '<a href="javascript:formOrder(\''.$dt->idkuotakkw.'\',\''.$dt->kode_blok.'\')"  class="tips "  title="Order SPTA"><i class="fa  fa-search"></i>  </a> &nbsp;&nbsp;'; 
+            	if($dt->kuota_spta > 0){
+            	$btn .= '<a href="javascript:cetaksptaperpetak(\''.$dt->kode_blok.'\')"  class="tips "  title="Cetak SPTA Per Petak"><i class="fa  fa-print"></i>  </a> &nbsp;&nbsp;'; 
+            	}
             }else{
             	$btn .= "Sudah Aff";
             }

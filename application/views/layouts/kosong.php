@@ -31,7 +31,7 @@ function updateStatusCetak(){
 	$.ajax({
             type: 'POST',
             url: "<?php echo site_url('tkuotaspta/updatestatuscetak');?>",
-            data: {tgl_spta:"<?php echo $tgl;?>",pta:"<?php echo $pta;?>",kat:"<?php echo $kat;?>"},
+            data: {tgl_spta:"<?php echo $tgl;?>",pta:"<?php echo $pta;?>",kat:"<?php echo $kat;?>",afd:"<?php echo $afd;?>",petak:"<?php echo $petak;?>"},
             success: function (data) {
                 //if(data=='ok'){
 					       setTimeout(function () { window.print();}, 2000);

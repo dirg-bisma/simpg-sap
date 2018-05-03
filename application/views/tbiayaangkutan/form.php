@@ -152,6 +152,7 @@ function getDetail(e,nospta){
 	nospta = nospta.toUpperCase();
 	
 	if(e.keyCode == 13){
+		if(nospta == '') $('#bodytable').html('');
 	var vendor = $('#vendor_id').val();
 	var tglawal = $('#tgl_awal').val();
 	var tglakhir = $('#tgl_akhir').val();
