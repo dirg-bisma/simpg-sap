@@ -162,6 +162,56 @@
                                             </td>
                                             <td><?php echo $sum_lap_ts->sum_qty_tetes_ptr; ?></td>
                                         </tr>
+                                        <?php if($tdat_ts->kode_kat_ptp == "TS-TR"){?>
+                                            <?php
+                                            $data_lap_timb_transfer = $ci->lapproduksimodel->VwKategoriByTimbanganTransfer($tdat_ts->kode_kat_ptp, $hari_giling);
+
+                                            ?>
+                                            <?php foreach($data_lap_timb_transfer as $rowLap_tim_transfer) {?>
+                                                <?php
+                                                $data_lap_ari_transfer = $ci->lapproduksimodel->VwKategoriByAriTransfer($tdat_ts->kode_kat_ptp, $rowLap_tim_transfer->kode_plant_trasnfer, $hari_giling);
+                                                ?>
+                                            <tr>
+                                                <td> -- <?php echo $rowLap_tim_transfer->nama_plant." (".$rowLap_tim_transfer->kode_plant_trasnfer.")"; ?>
+                                                    <input type="hidden" name="trans_kode_kat_lahan_<?php echo replaceKat($tdat_ts->kode_kat_ptp)."_".$rowLap_tim_transfer->kode_plant_trasnfer;?>" value="<?php echo $tdat_ts->kat_sap; ?>">
+                                                    <input type="hidden" name="trans_kat_ptpn_<?php echo replaceKat($tdat_ts->kode_kat_ptp)."_".$rowLap_tim_transfer->kode_plant_trasnfer;?>" value="<?php echo $tdat_ts->kode_kat_ptp; ?>">
+                                                    <input type="hidden" name="trans_kat_kepemilikan_<?php echo replaceKat($tdat_ts->kode_kat_ptp)."_".$rowLap_tim_transfer->kode_plant_trasnfer;?>" value="TS">
+                                                </td>
+                                                <td><?php echo $rowLap_tim_transfer->ha_tertebang_field; ?>
+                                                    <input type="hidden" name="trans_ha_tertebang_<?php echo replaceKat($tdat_ts->kode_kat_ptp)."_".$rowLap_tim_transfer->kode_plant_trasnfer;?>" value="<?php echo $rowLap_tim_transfer->ha_tertebang_field; ?>">
+                                                </td>
+                                                <td></td>
+                                                <td><?php echo number_format($rowLap_tim_transfer->netto); ?>
+                                                    <input type="hidden" name="trans_qty_tertebang_<?php echo replaceKat($tdat_ts->kode_kat_ptp)."_".$rowLap_tim_transfer->kode_plant_trasnfer;?>" value="<?php echo $rowLap_tim_transfer->netto; ?>">
+                                                </td>
+                                                <td></td>
+                                                <td><?php echo $data_lap_ari_transfer->ha_tertebang_field; ?>
+                                                    <input type="hidden" name="trans_ha_digiling_<?php echo replaceKat($tdat_ts->kode_kat_ptp)."_".$rowLap_tim_transfer->kode_plant_trasnfer;?>" value="<?php echo $data_lap_ari_transfer->ha_tertebang_field; ?>">
+                                                </td>
+                                                <td></td>
+                                                <td><?php echo number_format($data_lap_ari_transfer->netto); ?>
+                                                    <input type="hidden" name="trans_qty_digiling_<?php echo replaceKat($tdat_ts->kode_kat_ptp)."_".$rowLap_tim_transfer->kode_plant_trasnfer;?>" value="<?php echo $data_lap_ari_transfer->netto; ?>">
+                                                </td>
+                                                <td></td>
+                                                <td><?php echo number_format($data_lap_ari_transfer->hablur); ?>
+                                                    <input type="hidden" name="trans_qty_kristal_<?php echo replaceKat($tdat_ts->kode_kat_ptp)."_".$rowLap_tim_transfer->kode_plant_trasnfer;?>" value="<?php echo $data_lap_ari_transfer->hablur; ?>">
+                                                </td>
+                                                <td></td>
+                                                <td><?php echo $data_lap_ari_transfer->rendemen_total; ?>
+                                                    <input type="hidden" name="trans_rendemen_<?php echo replaceKat($tdat_ts->kode_kat_ptp)."_".$rowLap_tim_transfer->kode_plant_trasnfer;?>" value="<?php echo $data_lap_ari_transfer->rendemen_total; ?>">
+                                                </td>
+                                                <td></td>
+                                                <td><?php echo number_format($data_lap_ari_transfer->gula_ptr); ?>
+                                                    <input type="hidden" name="trans_qty_gula_ptr_<?php echo replaceKat($tdat_ts->kode_kat_ptp)."_".$rowLap_tim_transfer->kode_plant_trasnfer;?>" value="<?php echo $data_lap_ari_transfer->gula_ptr; ?>">
+                                                </td>
+                                                <td></td>
+                                                <td><?php echo number_format($data_lap_ari_transfer->tetes_ptr); ?>
+                                                    <input type="hidden" name="trans_qty_tetes_ptr_<?php echo replaceKat($tdat_ts->kode_kat_ptp)."_".$rowLap_tim_transfer->kode_plant_trasnfer;?>" value="<?php echo $data_lap_ari_transfer->tetes_ptr; ?>">
+                                                </td>
+                                                <td></td>
+                                            </tr>
+                                            <?php }?>
+                                        <?php }?>
                                     <?php } ?>
                                     <tr style="background-color: #9d9d9d">
                                         <td><strong>TOTAL TS</strong></td>
@@ -260,6 +310,154 @@
                                             </td>
                                             <td><?php echo $sum_lap_tr->sum_qty_tetes_ptr; ?></td>
                                         </tr>
+
+                                        <?php if($tdat_tr->kode_kat_ptp == "TR-TR"){?>
+                                            <?php
+                                            $data_lap_timb_transfer = $ci->lapproduksimodel->VwKategoriByTimbanganTransfer($tdat_tr->kode_kat_ptp, $hari_giling);
+                                            ?>
+                                            <?php foreach($data_lap_timb_transfer as $rowLap_tim_transfer) {?>
+                                                <?php
+                                                $data_lap_ari_transfer = $ci->lapproduksimodel->VwKategoriByAriTransfer($tdat_tr->kode_kat_ptp, $rowLap_tim_transfer->kode_plant_trasnfer, $hari_giling);
+                                                ?>
+                                                <tr>
+                                                    <td> -- <?php echo $rowLap_tim_transfer->nama_plant." (".$rowLap_tim_transfer->kode_plant_trasnfer.")"; ?></td>
+                                                    <input type="hidden" name="trans_kode_kat_lahan_<?php echo replaceKat($tdat_tr->kode_kat_ptp)."_".$rowLap_tim_transfer->kode_plant_trasnfer;?>" value="<?php echo $tdat_tr->kat_sap; ?>">
+                                                    <input type="hidden" name="trans_kat_ptpn_<?php echo replaceKat($tdat_tr->kode_kat_ptp)."_".$rowLap_tim_transfer->kode_plant_trasnfer;?>" value="<?php echo $tdat_tr->kode_kat_ptp; ?>">
+                                                    <input type="hidden" name="trans_kat_kepemilikan_<?php echo replaceKat($tdat_tr->kode_kat_ptp)."_".$rowLap_tim_transfer->kode_plant_trasnfer;?>" value="TR">
+                                                    <td><?php echo $rowLap_tim_transfer->ha_tertebang_field; ?>
+                                                        <input type="hidden" name="trans_ha_tertebang_<?php echo replaceKat($tdat_tr->kode_kat_ptp)."_".$rowLap_tim_transfer->kode_plant_trasnfer;?>" value="<?php echo $rowLap_tim_transfer->ha_tertebang_field; ?>">
+                                                    </td>
+                                                    <td></td>
+                                                    <td><?php echo number_format($rowLap_tim_transfer->netto); ?>
+                                                        <input type="hidden" name="trans_qty_tertebang_<?php echo replaceKat($tdat_tr->kode_kat_ptp)."_".$rowLap_tim_transfer->kode_plant_trasnfer;?>" value="<?php echo $rowLap_tim_transfer->netto; ?>">
+                                                    </td>
+                                                    <td></td>
+                                                    <td><?php echo $data_lap_ari_transfer->ha_tertebang_field; ?>
+                                                        <input type="hidden" name="trans_ha_digiling_<?php echo replaceKat($tdat_tr->kode_kat_ptp)."_".$rowLap_tim_transfer->kode_plant_trasnfer;?>" value="<?php echo $data_lap_ari_transfer->ha_tertebang_field; ?>">
+                                                    </td>
+                                                    <td></td>
+                                                    <td><?php echo number_format($data_lap_ari_transfer->netto); ?>
+                                                        <input type="hidden" name="trans_qty_digiling_<?php echo replaceKat($tdat_tr->kode_kat_ptp)."_".$rowLap_tim_transfer->kode_plant_trasnfer;?>" value="<?php echo $data_lap_ari_transfer->netto; ?>">
+                                                    </td>
+                                                    <td></td>
+                                                    <td><?php echo number_format($data_lap_ari_transfer->hablur); ?>
+                                                        <input type="hidden" name="trans_qty_kristal_<?php echo replaceKat($tdat_tr->kode_kat_ptp)."_".$rowLap_tim_transfer->kode_plant_trasnfer;?>" value="<?php echo $data_lap_ari_transfer->hablur; ?>">
+                                                    </td>
+                                                    <td></td>
+                                                    <td><?php echo $data_lap_ari_transfer->rendemen_total; ?>
+                                                        <input type="hidden" name="trans_rendemen_<?php echo replaceKat($tdat_tr->kode_kat_ptp)."_".$rowLap_tim_transfer->kode_plant_trasnfer;?>" value="<?php echo $data_lap_ari_transfer->rendemen_total; ?>">
+                                                    </td>
+                                                    <td></td>
+                                                    <td><?php echo number_format($data_lap_ari_transfer->gula_ptr); ?>
+                                                        <input type="hidden" name="trans_qty_gula_ptr_<?php echo replaceKat($tdat_tr->kode_kat_ptp)."_".$rowLap_tim_transfer->kode_plant_trasnfer;?>" value="<?php echo $data_lap_ari_transfer->gula_ptr; ?>">
+                                                    </td>
+                                                    <td></td>
+                                                    <td><?php echo number_format($data_lap_ari_transfer->tetes_ptr); ?>
+                                                        <input type="hidden" name="trans_qty_tetes_ptr_<?php echo replaceKat($tdat_tr->kode_kat_ptp)."_".$rowLap_tim_transfer->kode_plant_trasnfer;?>" value="<?php echo $data_lap_ari_transfer->tetes_ptr; ?>">
+                                                    </td>
+                                                    <td></td>
+                                                </tr>
+                                            <?php }?>
+                                        <?php }?>
+
+                                        <?php if($tdat_tr->kode_kat_ptp == "TR-TK"){?>
+                                            <?php
+                                            $data_lap_timb_transfer = $ci->lapproduksimodel->VwKategoriByTimbanganTransfer($tdat_tr->kode_kat_ptp, $hari_giling);
+                                            ?>
+                                            <?php foreach($data_lap_timb_transfer as $rowLap_tim_transfer) {?>
+                                                <?php
+                                                $data_lap_ari_transfer = $ci->lapproduksimodel->VwKategoriByAriTransfer($tdat_tr->kode_kat_ptp, $rowLap_tim_transfer->kode_plant_trasnfer, $hari_giling);
+                                                ?>
+                                                <tr>
+                                                    <td> -- <?php echo $rowLap_tim_transfer->nama_plant." (".$rowLap_tim_transfer->kode_plant_trasnfer.")"; ?></td>
+                                                    <input type="hidden" name="trans_kode_kat_lahan_<?php echo replaceKat($tdat_tr->kode_kat_ptp)."_".$rowLap_tim_transfer->kode_plant_trasnfer;?>" value="<?php echo $tdat_tr->kat_sap; ?>">
+                                                    <input type="hidden" name="trans_kat_ptpn_<?php echo replaceKat($tdat_tr->kode_kat_ptp)."_".$rowLap_tim_transfer->kode_plant_trasnfer;?>" value="<?php echo $tdat_tr->kode_kat_ptp; ?>">
+                                                    <input type="hidden" name="trans_kat_kepemilikan_<?php echo replaceKat($tdat_tr->kode_kat_ptp)."_".$rowLap_tim_transfer->kode_plant_trasnfer;?>" value="TR">
+                                                    <td><?php echo $rowLap_tim_transfer->ha_tertebang_field; ?>
+                                                        <input type="hidden" name="trans_ha_tertebang_<?php echo replaceKat($tdat_tr->kode_kat_ptp)."_".$rowLap_tim_transfer->kode_plant_trasnfer;?>" value="<?php echo $rowLap_tim_transfer->ha_tertebang_field; ?>">
+                                                    </td>
+                                                    <td></td>
+                                                    <td><?php echo number_format($rowLap_tim_transfer->netto); ?>
+                                                        <input type="hidden" name="trans_qty_tertebang_<?php echo replaceKat($tdat_tr->kode_kat_ptp)."_".$rowLap_tim_transfer->kode_plant_trasnfer;?>" value="<?php echo $rowLap_tim_transfer->netto; ?>">
+                                                    </td>
+                                                    <td></td>
+                                                    <td><?php echo $data_lap_ari_transfer->ha_tertebang_field; ?>
+                                                        <input type="hidden" name="trans_ha_digiling_<?php echo replaceKat($tdat_tr->kode_kat_ptp)."_".$rowLap_tim_transfer->kode_plant_trasnfer;?>" value="<?php echo $data_lap_ari_transfer->ha_tertebang_field; ?>">
+                                                    </td>
+                                                    <td></td>
+                                                    <td><?php echo number_format($data_lap_ari_transfer->netto); ?>
+                                                        <input type="hidden" name="trans_qty_digiling_<?php echo replaceKat($tdat_tr->kode_kat_ptp)."_".$rowLap_tim_transfer->kode_plant_trasnfer;?>" value="<?php echo $data_lap_ari_transfer->netto; ?>">
+                                                    </td>
+                                                    <td></td>
+                                                    <td><?php echo number_format($data_lap_ari_transfer->hablur); ?>
+                                                        <input type="hidden" name="trans_qty_kristal_<?php echo replaceKat($tdat_tr->kode_kat_ptp)."_".$rowLap_tim_transfer->kode_plant_trasnfer;?>" value="<?php echo $data_lap_ari_transfer->hablur; ?>">
+                                                    </td>
+                                                    <td></td>
+                                                    <td><?php echo $data_lap_ari_transfer->rendemen_total; ?>
+                                                        <input type="hidden" name="trans_rendemen_<?php echo replaceKat($tdat_tr->kode_kat_ptp)."_".$rowLap_tim_transfer->kode_plant_trasnfer;?>" value="<?php echo $data_lap_ari_transfer->rendemen_total; ?>">
+                                                    </td>
+                                                    <td></td>
+                                                    <td><?php echo number_format($data_lap_ari_transfer->gula_ptr); ?>
+                                                        <input type="hidden" name="trans_qty_gula_ptr_<?php echo replaceKat($tdat_tr->kode_kat_ptp)."_".$rowLap_tim_transfer->kode_plant_trasnfer;?>" value="<?php echo $data_lap_ari_transfer->gula_ptr; ?>">
+                                                    </td>
+                                                    <td></td>
+                                                    <td><?php echo number_format($data_lap_ari_transfer->tetes_ptr); ?>
+                                                        <input type="hidden" name="trans_qty_tetes_ptr_<?php echo replaceKat($tdat_tr->kode_kat_ptp)."_".$rowLap_tim_transfer->kode_plant_trasnfer;?>" value="<?php echo $data_lap_ari_transfer->tetes_ptr; ?>">
+                                                    </td>
+                                                    <td></td>
+                                                </tr>
+                                            <?php }?>
+                                        <?php }?>
+
+                                        <?php if($tdat_tr->kode_kat_ptp == "TR-TM"){?>
+                                            <?php
+                                            $data_lap_timb_transfer = $ci->lapproduksimodel->VwKategoriByTimbanganTransfer($tdat_tr->kode_kat_ptp, $hari_giling);
+                                            ?>
+                                            <?php foreach($data_lap_timb_transfer as $rowLap_tim_transfer) {?>
+                                                <?php
+                                                $data_lap_ari_transfer = $ci->lapproduksimodel->VwKategoriByAriTransfer($tdat_tr->kode_kat_ptp, $rowLap_tim_transfer->kode_plant_trasnfer, $hari_giling);
+                                                ?>
+                                                <tr>
+                                                    <td> -- <?php echo $rowLap_tim_transfer->nama_plant." (".$rowLap_tim_transfer->kode_plant_trasnfer.")"; ?></td>
+                                                    <input type="hidden" name="trans_kode_kat_lahan_<?php echo replaceKat($tdat_tr->kode_kat_ptp)."_".$rowLap_tim_transfer->kode_plant_trasnfer;?>" value="<?php echo $tdat_tr->kat_sap; ?>">
+                                                    <input type="hidden" name="trans_kat_ptpn_<?php echo replaceKat($tdat_tr->kode_kat_ptp)."_".$rowLap_tim_transfer->kode_plant_trasnfer;?>" value="<?php echo $tdat_tr->kode_kat_ptp; ?>">
+                                                    <input type="hidden" name="trans_kat_kepemilikan_<?php echo replaceKat($tdat_tr->kode_kat_ptp)."_".$rowLap_tim_transfer->kode_plant_trasnfer;?>" value="TR">
+                                                    <td><?php echo $rowLap_tim_transfer->ha_tertebang_field; ?>
+                                                        <input type="hidden" name="trans_ha_tertebang_<?php echo replaceKat($tdat_tr->kode_kat_ptp)."_".$rowLap_tim_transfer->kode_plant_trasnfer;?>" value="<?php echo $rowLap_tim_transfer->ha_tertebang_field; ?>">
+                                                    </td>
+                                                    <td></td>
+                                                    <td><?php echo number_format($rowLap_tim_transfer->netto); ?>
+                                                        <input type="hidden" name="trans_qty_tertebang_<?php echo replaceKat($tdat_tr->kode_kat_ptp)."_".$rowLap_tim_transfer->kode_plant_trasnfer;?>" value="<?php echo $rowLap_tim_transfer->netto; ?>">
+                                                    </td>
+                                                    <td></td>
+                                                    <td><?php echo $data_lap_ari_transfer->ha_tertebang_field; ?>
+                                                        <input type="hidden" name="trans_ha_digiling_<?php echo replaceKat($tdat_tr->kode_kat_ptp)."_".$rowLap_tim_transfer->kode_plant_trasnfer;?>" value="<?php echo $data_lap_ari_transfer->ha_tertebang_field; ?>">
+                                                    </td>
+                                                    <td></td>
+                                                    <td><?php echo number_format($data_lap_ari_transfer->netto); ?>
+                                                        <input type="hidden" name="trans_qty_digiling_<?php echo replaceKat($tdat_tr->kode_kat_ptp)."_".$rowLap_tim_transfer->kode_plant_trasnfer;?>" value="<?php echo $data_lap_ari_transfer->netto; ?>">
+                                                    </td>
+                                                    <td></td>
+                                                    <td><?php echo number_format($data_lap_ari_transfer->hablur); ?>
+                                                        <input type="hidden" name="trans_qty_kristal_<?php echo replaceKat($tdat_tr->kode_kat_ptp)."_".$rowLap_tim_transfer->kode_plant_trasnfer;?>" value="<?php echo $data_lap_ari_transfer->hablur; ?>">
+                                                    </td>
+                                                    <td></td>
+                                                    <td><?php echo $data_lap_ari_transfer->rendemen_total; ?>
+                                                        <input type="hidden" name="trans_rendemen_<?php echo replaceKat($tdat_tr->kode_kat_ptp)."_".$rowLap_tim_transfer->kode_plant_trasnfer;?>" value="<?php echo $data_lap_ari_transfer->rendemen_total; ?>">
+                                                    </td>
+                                                    <td></td>
+                                                    <td><?php echo number_format($data_lap_ari_transfer->gula_ptr); ?>
+                                                        <input type="hidden" name="trans_qty_gula_ptr_<?php echo replaceKat($tdat_tr->kode_kat_ptp)."_".$rowLap_tim_transfer->kode_plant_trasnfer;?>" value="<?php echo $data_lap_ari_transfer->gula_ptr; ?>">
+                                                    </td>
+                                                    <td></td>
+                                                    <td><?php echo number_format($data_lap_ari_transfer->tetes_ptr); ?>
+                                                        <input type="hidden" name="trans_qty_tetes_ptr_<?php echo replaceKat($tdat_tr->kode_kat_ptp)."_".$rowLap_tim_transfer->kode_plant_trasnfer;?>" value="<?php echo $data_lap_ari_transfer->tetes_ptr; ?>">
+                                                    </td>
+                                                    <td></td>
+                                                </tr>
+                                            <?php }?>
+                                        <?php }?>
+
                                     <?php } ?>
                                     <tr style="background-color: #9d9d9d">
                                         <td><strong>TOTAL TR</strong></td>
@@ -293,7 +491,7 @@
                                         <div class="form-group" >
                                             <label for="Tgl Laporan Produksi" class=" control-label col-md-4 text-left"> Tgl Lap. Produksi </label>
                                             <div class="col-md-8">
-                                                <input type='text' class='form-control input-sm date' placeholder='' value='<?php echo $tgl_giling->tgl_giling; ?>' name='tgl_laporan_produksi'/> <br />
+                                                <input type='text' class='form-control input-sm date' placeholder='' value='<?php echo date('Y-m-d'); ?>' name='tgl_laporan_produksi'/> <br />
                                                 <input type='hidden' class='form-control input-sm date' placeholder='' value='<?php echo $hari_giling; ?>' name='hari_giling'/> <br />
                                                 <i> <small></small></i>
                                             </div>

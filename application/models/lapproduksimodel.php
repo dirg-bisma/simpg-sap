@@ -155,6 +155,70 @@ class Lapproduksimodel extends SB_Model
         $result = $this->db->query($qry);
         return $result->row();
     }
+
+    public function VwKategoriByTimbanganTransfer($kategori, $hari)
+    {
+        $qry = "SELECT 
+                a.kat_ptp,
+                a.`kode_plant_trasnfer`,
+                b.`nama_plant`,
+                a.`hari_giling`,
+                SUM(a.ha_tertebang_selektor) AS ha_tertebang_selektor,
+                SUM(a.`luas_ditebang_field`) AS ha_tertebang_field,
+                SUM(a.netto) AS netto
+                FROM vw_spta_luas_field_sap_kat_ptp AS a
+                INNER JOIN sap_plant AS b ON b.`kode_plant` = a.`kode_plant_trasnfer`
+                WHERE a.`kat_ptp` = '$kategori' AND a.`hari_giling` = '$hari'
+                AND a.timb_netto_status = 1
+                GROUP BY a.`kode_plant_trasnfer`";
+        $result = $this->db->query($qry);
+        return $result->result();
+    }
+
+    public function VwKategoriByAriTransfer($kategori, $kode_plant, $hari)
+    {
+        $qry = "SELECT 
+              a.kat_ptp,
+              a.`kode_plant_trasnfer`,
+              b.`nama_plant`,
+              SUM(a.ha_tertebang_selektor) AS ha_tertebang_selektor,
+              SUM(a.`luas_ditebang_field`) AS ha_tertebang_field,
+              a.`hari_giling`,
+              SUM(a.netto) AS netto,
+              SUM(a.gula_ptr) AS gula_ptr,
+              SUM(a.tetes_ptr) AS tetes_ptr,
+              SUM(a.hablur_ari) AS hablur,
+              ROUND(
+                (
+                  (SUM(a.`hablur_ari`) / SUM(a.`netto`)) * 100
+                ),
+                2
+              ) AS rendemen_total 
+            FROM
+              vw_spta_luas_field_sap_kat_ptp AS a 
+              INNER JOIN sap_plant AS b 
+                ON b.`kode_plant` = a.`kode_plant_trasnfer` 
+            WHERE a.`kode_plant_trasnfer` = '$kode_plant' 
+              AND a.`kat_ptp` = '$kategori'
+              AND a.`hari_giling` = '$hari' 
+              AND a.ari_status = 1 
+            GROUP BY a.`kode_plant_trasnfer` ";
+        $result = $this->db->query($qry);
+        return $result->row();
+    }
+
+    public function PlantKategoriByTimbanganTransfer($kategori, $hari)
+    {
+        $qry = "SELECT 
+                a.`kode_plant_trasnfer`
+                FROM vw_spta_luas_field_sap_kat_ptp AS a
+                INNER JOIN sap_plant AS b ON b.`kode_plant` = a.`kode_plant_trasnfer`
+                WHERE a.`kat_ptp` = '$kategori' AND a.`hari_giling` = '$hari'
+                AND a.timb_netto_status = 1
+                GROUP BY a.`kode_plant_trasnfer`";
+        $result = $this->db->query($qry);
+        return $result->result();
+    }
 }
 
 ?>

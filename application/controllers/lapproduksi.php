@@ -227,6 +227,35 @@ class Lapproduksi extends SB_Controller
                     'qty_gula_ptr' => $this->input->post('qty_gula_ptr_'.$this->replaceKat($kode_kat->kode_kat_ptp)),
                     'qty_tetes_ptr' => $this->input->post('qty_tetes_ptr_'.$this->replaceKat($kode_kat->kode_kat_ptp)),
                 );
+                if($kode_kat->kode_kat_ptp == "TS-TR" || $kode_kat->kode_kat_ptp == "TR-TK" || $kode_kat->kode_kat_ptp == "TR-TM" || $kode_kat->kode_kat_ptp == "TR-TR"){
+                    $result_plant = $this->model->PlantKategoriByTimbanganTransfer($kode_kat->kode_kat_ptp, $this->input->post('hari_giling'));
+                    foreach($result_plant as $row_plant){
+                        $data_trans = array(
+                            'tgl_laporan_produksi_trans' => $this->input->post('tgl_laporan_produksi'),
+                            'hari_giling' => $this->input->post('hari_giling'),
+                            'kode_kat_lahan' => $this->input->post('trans_kode_kat_lahan_'.$this->replaceKat($kode_kat->kode_kat_ptp)."_".$row_plant->kode_plant_trasnfer),
+                            'kat_ptpn' => $this->input->post('trans_kat_ptpn_'.$this->replaceKat($kode_kat->kode_kat_ptp)."_".$row_plant->kode_plant_trasnfer),
+                            'kat_kepemilikan' => $this->input->post('trans_kat_kepemilikan_'.$this->replaceKat($kode_kat->kode_kat_ptp)."_".$row_plant->kode_plant_trasnfer),
+                            'plant' => $row_plant->kode_plant_trasnfer,
+                            'ha_tertebang' => $this->input->post('trans_ha_tertebang_'.$this->replaceKat($kode_kat->kode_kat_ptp)."_".$row_plant->kode_plant_trasnfer),
+                            'qty_tertebang' => $this->input->post('trans_qty_tertebang_'.$this->replaceKat($kode_kat->kode_kat_ptp)."_".$row_plant->kode_plant_trasnfer),
+                            'ha_digiling' => $this->input->post('trans_ha_digiling_'.$this->replaceKat($kode_kat->kode_kat_ptp)."_".$row_plant->kode_plant_trasnfer),
+                            'qty_digiling' => $this->input->post('trans_qty_digiling_'.$this->replaceKat($kode_kat->kode_kat_ptp)."_".$row_plant->kode_plant_trasnfer),
+                            'qty_kristal' => $this->input->post('trans_qty_kristal_'.$this->replaceKat($kode_kat->kode_kat_ptp)."_".$row_plant->kode_plant_trasnfer),
+                            'rendemen' => $this->input->post('trans_rendemen_'.$this->replaceKat($kode_kat->kode_kat_ptp)."_".$row_plant->kode_plant_trasnfer),
+                            'qty_gula_ptr' => $this->input->post('trans_qty_gula_ptr_'.$this->replaceKat($kode_kat->kode_kat_ptp)."_".$row_plant->kode_plant_trasnfer),
+                            'qty_tetes_ptr' => $this->input->post('trans_qty_tetes_ptr_'.$this->replaceKat($kode_kat->kode_kat_ptp)."_".$row_plant->kode_plant_trasnfer),
+                        );
+
+                        $this->load->model('Laptransproduksimodel');
+                        $cek_trans = $this->Laptransproduksimodel->CekLaporanExist($kode_kat->kode_kat_ptp, $row_plant->kode_plant_trasnfer, $this->input->post('hari_giling'));
+                        if($cek_trans == 0){
+                            $this->Laptransproduksimodel->Insert($data_trans);
+                        }else{
+                            $this->Laptransproduksimodel->Update($this->replaceKat($kode_kat->kode_kat_ptp), $row_plant->kode_plant_trasnfer, $this->input->post('hari_giling'), $data_trans);
+                        }
+                    }
+                }
 
                 if($cek == 0){
                     $this->model->Insert($data);
