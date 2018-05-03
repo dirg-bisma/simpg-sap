@@ -29,7 +29,7 @@ class Laporanari extends SB_Controller
 		
 		$sql = "SELECT DATE_FORMAT(tgl_ari,'%d-%m-%Y %H:%i') AS tgl_analisa,
 b.`no_spat`,b.`kode_blok`,f.`nama_petani`,d.`netto_final`,IF(b.`jenis_spta`='TRUK',c.`no_angkutan`,'-') AS truk,IF(b.`jenis_spta`='LORI',c.`no_angkutan`,'-') AS lori ,
-b.`kode_kat_lahan`,a.`persen_brix_ari`,a.`persen_pol_ari`,a.`ph_ari`,a.`hk`,a.`nilai_nira`,a.`rendemen_ari`,a.`hablur_ari`
+b.`kode_kat_lahan`,a.`persen_brix_ari`,a.`persen_pol_ari`,a.`ph_ari`,a.`hk`,a.`nilai_nira`,a.`rendemen_ari`,a.`hablur_ari`,e.deskripsi_blok,b.kode_affd
 FROM t_ari a 
 INNER JOIN t_spta b ON a.`id_spta`=b.`id`
 INNER JOIN t_selektor c ON c.`id_spta`=a.`id_spta`
