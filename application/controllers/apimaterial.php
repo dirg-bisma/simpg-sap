@@ -287,16 +287,19 @@ class Apimaterial  extends SB_Controller
         $tara = $this->GetPost('tara');
         $ptgs_timbang = $this->GetPost('ptgs_timbang');
 
+        $row_zona = $this->db->query("select * from m_biaya_jarak where kode_jarak = '$zona'")->row();
+
         if($no_pol !== "" && $tara !== "" && $ptgs_timbang !== ""){
             $this->load->model('apitimbanganmodel');
             $result = $this->apitimbanganmodel->TaraLori($no_pol);
 
             try{
                 if(count($result) > 0){
-                    $where = array('nolori' => $no_pol);
+                    $where = array('no_pol' => $no_pol);
                     $this->db->where($where);
                     $this->db->update('m_tara_truk', array(
                         'tara' => $tara,
+                        'zona' => $row_zona->id_jarak,
                         'nama_supir' => $nama_supir,
                         'ptgs_timbang' => $ptgs_timbang,
                         'tgl_tara' => $this->getDateNow()
@@ -305,14 +308,15 @@ class Apimaterial  extends SB_Controller
                     $this->db->set(array(
                         'no_pol' => $no_pol,
                         'tara' => $tara,
+                        'zona' => $row_zona->id_jarak,
                         'nama_supir' => $nama_supir,
-                        'usertara' => $ptgs_timbang,
-                        'taradate' => $this->getDateNow()
+                        'ptgs_timbang' => $ptgs_timbang,
+                        'tgl_tara' => $this->getDateNow()
                     ));
                     $this->db->insert('m_tara_truk');
                 }
                 $result = array(
-                    'msg' => "Berhasil simpan data Lori : $no_pol Tara : $tara",
+                    'msg' => "Berhasil simpan data No Pol : $no_pol Tara : $tara",
                     'status' => 'false'
                 );
                 echo json_encode($result);
@@ -362,8 +366,11 @@ class Apimaterial  extends SB_Controller
         echo json_encode($output);
     }
 
+
+
     function exceltaratruk(){
-        $query = "SELECT * FROM m_tara_truk";
+        $query = "SELECT a.*, b.* FROM m_tara_truk as a 
+                  inner join m_biaya_jarak as b on b.id_jarak = a.zona";
 
         $results = $this->db->query($query)->result();
         $this->data['rows'] = $results;

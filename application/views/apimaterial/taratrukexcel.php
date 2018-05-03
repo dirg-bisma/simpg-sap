@@ -40,8 +40,9 @@
         <th>Supir</th>
         <th>Tanggal</th>
         <th>Zona</th>
+        <th>Km Max</th>
+        <th>Km Min</th>
         <th>Tara</th>
-        <th>Tanggal</th>
         <th>Operator</th>
     </tr>
     </thead>
@@ -50,11 +51,13 @@
     foreach ($rows as $key) {
         ?>
         <tr>
-            <td><?php echo $key->id;?></td>
+            <td><?php echo $key->id_tara_truk;?></td>
             <td><?php echo $key->no_pol;?></td>
             <td><?php echo $key->nama_supir;?></td>
             <td><?php echo $key->tgl_tara;?></td>
-            <td><?php echo $key->zona;?></td>
+            <td><?php echo $key->kode_jarak;?></td>
+            <td><?php echo $key->km_min;?></td>
+            <td><?php echo $key->km_max;?></td>
             <td><?php echo $key->tara;?></td>
             <td><?php echo $key->ptgs_timbang;?></td>
         </tr>
