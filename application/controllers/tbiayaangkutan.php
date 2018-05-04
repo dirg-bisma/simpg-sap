@@ -244,17 +244,25 @@ WHERE e.angkutan_id=$id";
 	}
 
 
-	function downloadexcel($id){
-		$sql = "SELECT a.id,DATE_FORMAT(a.tgl,'%Y%m%d') AS documentdate,DATE_FORMAT(a.tgl,'%c') AS postingmonth,c.`jenis_spta`,c.`kode_blok`,SUM(b.`total`) AS total,d.`kode_vendor`,c.`id_petani_sap`,c.kode_kat_lahan as kepemilikan
+	function downloadexcel($tgl1,$tgl2){
+
+		$filter = " WHERE 0=0 AND a.tgl BETWEEN '$tgl1' AND '$tgl2' AND a.status=1";
+
+		$sql = "SELECT a.id,DATE_FORMAT(a.tgl,'%d%m%Y') AS katdate,DATE_FORMAT(a.tgl,'%Y%m%d') AS documentdate,DATE_FORMAT(a.tgl,'%c') AS postingmonth,c.`jenis_spta`,c.`kode_blok`,SUM(b.`total`) AS total,d.`kode_vendor`,c.`id_petani_sap`,c.kode_kat_lahan as kepemilikan,LEFT(c.kode_kat_lahan,2) as katkode
 FROM t_angkutan a 
 INNER JOIN t_angkutan_detail b ON a.`id`=b.`angkutan_id`
 INNER JOIN t_spta c ON c.`id`=b.`id_spta` 
-INNER JOIN m_vendor d ON d.`id_vendor`=c.`vendor_angkut` WHERE a.id=$id
-GROUP BY a.`id`,c.`jenis_spta`,c.`kode_blok`";
+INNER JOIN m_vendor d ON d.`id_vendor`=c.`vendor_angkut` $filter
+GROUP BY a.`tgl`,c.`jenis_spta`,c.`kode_blok`";
 		$this->data['rows'] = $this->db->query($sql)->result();
 
 
-		$files = 'UA-'.date('YmdHis');
+		$files = "UA-".$tgl1.'-'.date('His');
+
+		$this->db->query("UPDATE t_angkutan a SET a.status=2 $filter");
+
+		$this->inputLogs("Upah Angkut Tgl ".$tgl1." Generate Excel files menjadi ".$files.".xls");
+
 		header("Content-Type: application/xls");    
 		header("Content-Disposition: attachment; filename=$files.xls");  
 		header("Pragma: no-cache"); 
@@ -278,6 +286,8 @@ GROUP BY a.`id`,c.`jenis_spta`,c.`kode_blok`";
 		} else {
 			$this->data['row'] = $this->model->getColumnTable('t_angkutan'); 
 			$this->data['row']['tgl'] = date('Y-m-d');
+			$this->data['row']['tgl_awal'] = date('Y-m-d');
+			$this->data['row']['tgl_akhir'] = date('Y-m-d');
 		}
 	
 		$this->data['id'] = $id;
@@ -347,9 +357,9 @@ SET a.`upah_angkut_status`=".$ID.",a.`upah_angkut_tgl` = NOW() WHERE b.`angkutan
 		$d = $this->db->query("SELECT id_jarak,keterangan,biaya FROM `m_biaya_jarak` ORDER BY km_min")->result();
 		foreach ($d as $kp) {
 			if($kp->id_jarak == $id){
-			$htm .= '<option value="'.$kp->id_jarak.'" disabled selected biaya="'.$kp->biaya.'">'.$kp->keterangan.'</option>';
+			$htm .= '<option value="'.$kp->id_jarak.'"  selected biaya="'.$kp->biaya.'">'.$kp->keterangan.'</option>';
 		}else{
-			$htm .= '<option value="'.$kp->id_jarak.'" disabled biaya="'.$kp->biaya.'">'.$kp->keterangan.'</option>';
+			$htm .= '<option value="'.$kp->id_jarak.'"  biaya="'.$kp->biaya.'">'.$kp->keterangan.'</option>';
 		}
 		}
 
@@ -476,6 +486,8 @@ WHERE a.timb_netto_status = 1 AND a.upah_angkut_status = 0 AND a.angkut_pg=1 AND
 	  	}
 			
 		$this->model->destroy($_POST['id']);
+		$this->db->query("DELETE FROM t_angkutan_detail WHERE angkutan_id = '".$_POST['id']."'");
+		$this->db->query("UPDATE t_spta SET upah_angkut_status=0,upah_angkut_tgl='' where upah_angkut_status = '".$_POST['id']."'");
 		$this->inputLogs("ID : ".$_POST['id']."  , Has Been Removed Successfull");
 		echo "ID : ".$_POST['id']."  , berhasil dihapus !!";
 		

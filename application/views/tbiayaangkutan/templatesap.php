@@ -132,12 +132,17 @@ foreach ($rows as $jurnal) {
  <td>IDR</td>
  <td><?php echo $jurnal->total;?></td>
  <td>&nbsp;</td>
- <td><?php echo $jurnal->id_petani_sap;?></td>
+ <td>
+ <?php 
+if($jurnal->katkode == 'TR') echo $jurnal->id_petani_sap;
+ ?></td>
  <td>&nbsp;</td>
- <td>0</td>
+ <td><?php 
+if($jurnal->katkode == 'TR') echo '0';
+ ?></td>
  <td>&nbsp;</td>
  <td>&nbsp;</td>
- <td>Upah Angkutan Truk </td>
+ <td><?php echo CNF_PLANCODE.'UAT'.$jurnal->katkode.''.$jurnal->katdate;?></td>
  <td>Upah Angkutan Truk <?php echo $jurnal->kepemilikan;?> Petak No <?php echo $jurnal->kode_blok;?></td>
  <td>&nbsp;</td>
  <td>&nbsp;</td>
@@ -146,7 +151,7 @@ foreach ($rows as $jurnal) {
  <td>&nbsp;</td>
  <td>&nbsp;</td>
  <td>ZT01</td>
- <td>20150623</td>
+ <td><?php echo ($jurnal->documentdate);?></td>
  <td>&nbsp;</td>
  </tr>
  <tr>
@@ -161,15 +166,27 @@ foreach ($rows as $jurnal) {
  <td>2</td>
  <td>IDR</td>
  <td><?php echo $jurnal->total*-1;?></td>
- <td>21030116</td>
+ <td><?php 
+if($jurnal->katkode == 'TR') echo '21030116'; else echo '21030116';
+ ?></td>
  <td>&nbsp;</td>
  <td>&nbsp;</td>
  <td>&nbsp;</td>
  <td>&nbsp;</td>
  <td>&nbsp;</td>
- <td>Upah Angkutan Truk</td>
+ <td><?php echo CNF_PLANCODE.'UAT'.$jurnal->katkode.''.$jurnal->katdate;?></td>
  <td>Upah Angkutan Truk <?php echo $jurnal->kepemilikan;?> Petak No <?php echo $jurnal->kode_blok;?></td>
- <td>N11KP05000</td>
+ <?php
+ if(CNF_COMPANYCODE == 'N011'){
+ ?>
+ <td><?php echo str_replace('0','',CNF_COMPANYCODE).''.CNF_PLANCODE?>000</td>
+ <?php
+}else{
+?>
+ <td><?php echo CNF_PLANCODE;?>100000</td>
+ <?php	
+}
+ ?>
  <td>&nbsp;</td>
  <td>&nbsp;</td>
  <td>&nbsp;</td>
@@ -195,13 +212,19 @@ foreach ($rows as $jurnal) {
  <td>1</td>
  <td>IDR</td>
  <td><?php echo $jurnal->total;?></td>
+ <td><?php 
+if($jurnal->katkode == 'TS') echo '51100153';
+ ?></td>
+ <td><?php 
+if($jurnal->katkode == 'TR') echo $jurnal->id_petani_sap;
+ ?></td>
  <td>&nbsp;</td>
- <td><?php echo $jurnal->id_petani_sap;?></td>
+ <td><?php 
+if($jurnal->katkode == 'TR') echo '0';
+ ?></td>
  <td>&nbsp;</td>
- <td>0</td>
  <td>&nbsp;</td>
- <td>&nbsp;</td>
- <td>Upah Angkutan Lori</td>
+ <td><?php echo CNF_PLANCODE.'UAL'.$jurnal->katkode.''.$jurnal->katdate;?></td>
  <td>Upah Angkutan Lori <?php echo $jurnal->kepemilikan;?> Petak No <?php echo $jurnal->kode_blok;?></td>
  <td>&nbsp;</td>
  <td>&nbsp;</td>
@@ -210,7 +233,7 @@ foreach ($rows as $jurnal) {
  <td>&nbsp;</td>
  <td>&nbsp;</td>
  <td>ZT01</td>
- <td>20150623</td>
+ <td><?php echo ($jurnal->documentdate);?></td>
  <td>&nbsp;</td>
  </tr>
  <tr>
@@ -224,17 +247,29 @@ foreach ($rows as $jurnal) {
  <td><?php echo $jurnal->kode_blok;?></td>
  <td>2</td>
  <td>IDR</td>
- <td><?php echo $jurnal->total;?></td>
- <td>51100674</td>
+ <td><?php echo $jurnal->total*-1;;?></td>
+ <td><?php 
+if($jurnal->katkode == 'TR') echo '51100611'; else echo '51100153';
+ ?></td>
  <td>&nbsp;</td>
  <td>&nbsp;</td>
  <td>&nbsp;</td>
  <td>&nbsp;</td>
  <td>&nbsp;</td>
- <td>Upah Angkutan Lori</td>
+ <td><?php echo CNF_PLANCODE.'UAL'.$jurnal->katkode.''.$jurnal->katdate;?></td>
  <td>Upah Angkutan Lori <?php echo $jurnal->kepemilikan;?> Petak No <?php echo $jurnal->kode_blok;?></td>
- <td>N11KP05000</td>
- <td>&nbsp;</td>
+ <?php
+ if(CNF_COMPANYCODE == 'N011'){
+ ?>
+ <td><?php echo str_replace('0','',CNF_COMPANYCODE).''.CNF_PLANCODE?>000</td>
+ <?php
+}else{
+?>
+ <td><?php echo CNF_PLANCODE;?>100000</td>
+ <?php	
+}
+ ?>
+ <td><?php echo str_replace('0','',CNF_COMPANYCODE).''.str_replace('P','',CNF_PLANCODE);?>0102</td>
  <td>&nbsp;</td>
  <td>&nbsp;</td>
  <td>&nbsp;</td>

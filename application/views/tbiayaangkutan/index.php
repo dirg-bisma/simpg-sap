@@ -27,6 +27,9 @@
     <a href="javascript:printreport(1)" class="tips btn btn-xs btn-danger"  title="View">
     <i class="fa fa-print"></i>&nbsp;Print Bukti </a>
 
+    <a href="javascript:downloadexcel()" class="tips btn btn-xs btn-success"  title="View">
+    <i class="fa fa-download"></i>&nbsp;Download Excel </a>
+
     <!--a href="javascript:printreport(2)" class="tips btn btn-xs btn-success"  title="View">
     <i class="fa fa-file"></i>&nbsp;Print Rekapitulasi </a-->
 
@@ -124,5 +127,11 @@ $(document).ready(function(){
    if(a == 1){
       window.open("<?php echo site_url('tbiayaangkutan/printbukti')?>/"+$('#tgl1').val()+"/"+$('#tgl2').val()+"?vendor="+$('#vendor_id').val(),"_blank");
    }
+ }
+
+ function downloadexcel(){
+   
+      window.open("<?php echo site_url('tbiayaangkutan/downloadexcel')?>/"+$('#tgl1').val()+"/"+$('#tgl2').val()+"?vendor="+$('#vendor_id').val(),"_blank");
+   
  }
 </script>

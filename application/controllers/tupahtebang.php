@@ -224,25 +224,41 @@ INNER JOIN t_selektor c ON c.`id_spta`=b.`id` WHERE a.id_upah_tebang=$id")->resu
 		
 	}
 
-	function downloadexcel($id){
+	function downloadexcel($tgl){
+
+		$tgl2 = $_GET['tgl2'];
+		$filter = " WHERE 0=0 AND tgl BETWEEN '$tgl' AND '$tgl2'  AND a.status=1 ";
+        
+        $pta = $_GET['pta'];
+        $mandor = $_GET['mandor'];
+
+        if($pta != '') $filter .= " AND persno_pta = '$pta'";
+        if($mandor != '') $filter .= " AND persno_mandor = '$mandor'";
+
 		$this->data['coldefadd'] = $this->db->query("select kodekolom,nama_pekerjaan_tma,satuan from m_pekerjaan_tma where status_pekerjaan=1 and jenis=1 order by id_pekerjaan_tma asc")->result();
 		$this->data['coldefrem'] = $this->db->query("select kodekolom,nama_pekerjaan_tma,satuan from m_pekerjaan_tma where status_pekerjaan=1 and jenis=2 order by id_pekerjaan_tma asc")->result();
 		$this->data['colnondefadd'] = $this->db->query("select kodekolom,nama_pekerjaan_tma,satuan from m_pekerjaan_tma where status_pekerjaan=0 and jenis=1 order by id_pekerjaan_tma asc")->result();
 		$this->data['colnondefrem'] = $this->db->query("select kodekolom,nama_pekerjaan_tma,satuan from m_pekerjaan_tma where status_pekerjaan=0 and jenis=2 order by id_pekerjaan_tma asc")->result();
 
-		$rx = $this->data['jurnal'] = $this->db->query("SELECT a.id,a.no_bukti,c.`company_code`,DATE_FORMAT(a.tgl,'%Y%m%d') AS documentdate,DATE_FORMAT(a.tgl,'%Y%m%d') AS postingdate,DATE_FORMAT(a.tgl,'%c') AS postingmonth,
+		$this->data['jurnals'] = $this->db->query("SELECT a.id,a.no_bukti,LEFT(c.kepemilikan,2) as katkode,DATE_FORMAT(a.tgl,'%d%m%Y') AS katdate,c.`company_code`,DATE_FORMAT(a.tgl,'%Y%m%d') AS documentdate,DATE_FORMAT(a.tgl,'%Y%m%d') AS postingdate,DATE_FORMAT(a.tgl,'%c') AS postingmonth,
 YEAR(NOW()) AS fiscalyear,1 AS fiscalperiod,'ZT' AS documenttype,c.`kode_blok`,c.`kepemilikan`,c.`id_petani_sap`,SUM(k1) AS k1,SUM(k2) AS k2,SUM(k3) AS k3,SUM(k4) AS k4,SUM(k5) AS k5,SUM(k6) AS k6,
  SUM(k7) AS k7,SUM(k8) AS k8,SUM(k9) AS k9,SUM(k10) AS k10,SUM(k11) AS k11,SUM(k12) AS k12,SUM(k13) AS k13,SUM(k14) AS k14,
  SUM(k15) AS k15,SUM(k16) AS k16,SUM(k17) AS k17,SUM(k18) AS k18,SUM(k19) AS k19,SUM(k20) AS k20  FROM  t_upah_tebang a 
 INNER JOIN sap_field c ON c.`kode_blok`=a.`kode_blok`
-inner join t_upah_tebang_detail as d on d.id_upah_tebang = a.id  WHERE a.id=$id group by a.id")->row();
+inner join t_upah_tebang_detail as d on d.id_upah_tebang = a.id $filter group by a.tgl,a.kode_blok")->result();
 
-		$files = $rx->no_bukti.''.$rx->kode_blok;
-		header("Content-Type: application/xls");    
+		$files = "UT-".$tgl.'-'.date('His');
+
+		$wh2 = " WHERE 0=0 AND tgl BETWEEN '$tgl' AND '$tgl2'  AND status=1 ";
+		$this->db->query("UPDATE t_upah_tebang SET status=2,keterangan=concat(keterangan,' - ','File ".$files.".xls Pada ".date('Y-m-d H:i:s')."') $wh2 ");
+
+		$this->inputLogs("Upah Tebang Tgl ".$tgl." Generate Excel files menjadi ".$files.".xls");
+header("Content-Type: application/xls");    
 header("Content-Disposition: attachment; filename=$files.xls");  
 header("Pragma: no-cache"); 
 header("Expires: 0");
 		echo $this->load->view('tupahtebang/templatesap', $this->data ,true);
+
 	}
 
 	function show( $id = null) 
@@ -362,7 +378,7 @@ INNER JOIN t_upah_tebang_detail d ON d.`id_spta`=a.`id` WHERE d.id_upah_tebang=$
 			// Input logs
 			if( $this->input->get( 'id' , true ) =='')
 			{
-				$this->inputLogs("New Entry row with ID : $ID  , Has Been Save Successfull");
+				$this->inputLogs("New Entry row with ID : $ID  , Upah Tebang berhasil di simpan");
 			} else {
 				$this->inputLogs(" ID : $ID  , Has Been Changed Successfull");
 			}
@@ -397,7 +413,8 @@ SET a.`upah_tebang_status`=".$ID.",a.`upah_tebang_tgl` = NOW() WHERE b.`id_upah_
 			
 		$this->model->destroy($_POST['id']);
 		$this->db->query("DELETE FROM t_upah_tebang_detail where id_upah_tebang = '".$_POST['id']."'");
-		$this->inputLogs("ID : ".$_POST['id']."  , Has Been Removed Successfull");
+		$this->db->query("UPDATE t_spta SET upah_tebang_status=0,upah_tebang_tgl='' where upah_tebang_status = '".$_POST['id']."'");
+		$this->inputLogs("ID : ".$_POST['id']."  , Upah Tebang Dihapus");
 		echo "ID : ".$_POST['id']."  , berhasil dihapus !!";
 		
 	}

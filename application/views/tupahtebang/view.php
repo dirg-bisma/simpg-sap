@@ -58,6 +58,11 @@
 </style>
 				<table style="width:100%;font-size:10px" >
 				<tr>
+					<td>Petani</td><td> : </td><td><?php echo $row['nama_petani'];?></td>
+					<td style="text-align:center;border-left:1px solid black;border-right:1px solid black;">PERIODE TANGGAL <?php echo SiteHelpers::daterpt($row['tgl']);?></td>
+					<td style="padding-left:10px;">No Bukti</td><td> : </td><td> <?php echo $row['no_bukti'];?> </td><td></td>
+				</tr>
+				<tr>
 					<td style="width:10%;">Petak</td><td> : </td><td style="width:20%;"><?php echo $row['kode_blok'];?></td>
 					<td style="font-size:13px;text-align:center;border-left:1px solid black;border-right:1px solid black;"><?php echo strtoupper(CNF_NAMAPERUSAHAAN);?></td>
 					<td style="width:8%;padding-left:10px;">Jml. Ha</td><td> : </td><td style="width:15%;"><?php echo $row['luas_ha'];?></td>
@@ -72,11 +77,7 @@
 					<td style="text-align:center;border-left:1px solid black;border-right:1px solid black;">DAFTAR UPAH HARIAN</td>
 					<td style="padding-left:10px;">Mandor</td><td> : </td><td><?php echo $row['mandor'];?></td>
 				</tr>
-				<tr>
-					<td>Petani</td><td> : </td><td><?php echo $row['nama_petani'];?></td>
-					<td style="text-align:center;border-left:1px solid black;border-right:1px solid black;">PERIODE TANGGAL <?php echo SiteHelpers::daterpt($row['tgl']);?></td>
-					<td style="padding-left:10px;">-</td><td> - </td><td></td>
-				</tr>
+				
 				</table>
 				<table class="tableizer-table">
 				<thead><tr>
@@ -239,7 +240,7 @@
 					?>
 					<tr style="border-top:1px solid black">
 					<td colspan="3"> JUMLAH TAMBAHAN <hr /></td>
-					<td style="text-align:right"><?php echo number_format($tambahantotal,2);?><hr /></td>
+					<td style="text-align:right"><?php echo number_format($tambahantotal,2);?><hr /></td></tr>
 				</table>
 				
 				<table style="width:100%">
@@ -277,10 +278,18 @@
 					<tr style="border-top:1px solid black">
 					<td colspan="3"> JUMLAH PENGURANGAN <hr /></td>
 					<td style="text-align:right"><?php echo number_format($kurangtotal,2);?><hr /></td>
+					</tr>
 
 					<tr style="font-size:15px;font-weight:bold">
 					<td colspan="3" style="border-top:1px solid black;"> TOTAL </td>
 					<td style="text-align:right;border-top:1px solid black;"><?php echo number_format($jbersih+$tambahantotal-$kurangtotal,2);?></td>
+					</tr>
+
+					<tr style="font-size:12px;">
+					<td colspan="4" style="border-top:1px solid black;">
+					<br /><i> Keterangan : <?php echo $row['keterangan'];?></i> </td>
+					</tr>
+
 				</table>
 				</div>
 				<div style="width:50%;float: left;">
@@ -327,10 +336,6 @@
 				if($row['status'] == 0){
 					?>
 					<a href="<?php echo site_url('tupahtebang/validasi/'.$id);?>" class="btn btn-sm btn-info"> <i class="fa fa-check	"></i> Validasi </a>
-					<?php
-				}else{
-					?>
-					<a href="<?php echo site_url('tupahtebang/downloadexcel/'.$id);?>" class="btn btn-sm btn-info"> <i class="fa fa-download"></i> Download Excel </a>
 					<?php
 				}
 				?>

@@ -1,36 +1,6 @@
 <!--
 test view untuk excel nya
  -->
-<?php
-
-$nominalupah = 0;
-$nominalpremi = 0;
-foreach($coldefadd as $kol1)
-{
-	$nm = $kol1->kodekolom;
-	$nominalupah += $jurnal->$nm;
-}
-
-foreach($coldefrem as $kol1)
-{
-	$nm = $kol1->kodekolom;
-	$nominalupah -= $jurnal->$nm;
-}
-
-foreach($colnondefadd as $kol1)
-{
-	$nm = $kol1->kodekolom;
-	$nominalpremi += $jurnal->$nm;
-}
-
-foreach($colnondefrem as $kol1)
-{
-	$nm = $kol1->kodekolom;
-	$nominalpremi -= $jurnal->$nm;
-}
-
-?>
-
 <style type="text/css">
 	table.tableizer-table {
 		font-size: 12px;
@@ -138,9 +108,42 @@ Type: C(08)</th>
 <th>Payment Terms</th>
 <th>Baseline Date</th>
 <th>Payment Method</th></tr></thead>
+<?php
+$s8 = 1;
+foreach ($jurnals as $jurnal) {
+	
+$nominalupah = 0;
+$nominalpremi = 0;
+foreach($coldefadd as $kol1)
+{
+	$nm = $kol1->kodekolom;
+	$nominalupah += $jurnal->$nm;
+}
+
+foreach($coldefrem as $kol1)
+{
+	$nm = $kol1->kodekolom;
+	$nominalupah -= $jurnal->$nm;
+}
+
+foreach($colnondefadd as $kol1)
+{
+	$nm = $kol1->kodekolom;
+	$nominalpremi += $jurnal->$nm;
+}
+
+foreach($colnondefrem as $kol1)
+{
+	$nm = $kol1->kodekolom;
+	$nominalpremi -= $jurnal->$nm;
+}
+
+?>
+
+
 <tbody>
  <tr>
- <td>1</td>
+ <td><?php echo $s8;?></td>
  <td><?php echo CNF_COMPANYCODE;?></td>
  <td><?php echo ($jurnal->documentdate);?></td>
  <td><?php echo ($jurnal->postingdate);?></td>
@@ -151,13 +154,13 @@ Type: C(08)</th>
  <td>1</td>
  <td>IDR</td>
  <td><?php echo $nominalupah;?></td>
+ <td><?php  if($jurnal->id_petani_sap=='') echo '51100722';?></td>
+ <td><?php  echo $jurnal->id_petani_sap;?></td>
  <td>&nbsp;</td>
- <td><?php echo $jurnal->id_petani_sap;?></td>
- <td>&nbsp;</td>
- <td>8</td>
+ <td><?php  if($jurnal->id_petani_sap!='') echo '8';?></td>
  <td>&nbsp;</td>
  <td>&nbsp;</td>
- <td>Upah Tebang</td>
+ <td><?php echo CNF_PLANCODE.'UT'.$jurnal->katkode.''.$jurnal->katdate;?></td>
  <td>Upah Tebang <?php echo $jurnal->kepemilikan;?> Petak No <?php echo $jurnal->kode_blok;?></td>
  <td>&nbsp;</td>
  <td>&nbsp;</td>
@@ -170,7 +173,7 @@ Type: C(08)</th>
  <td>&nbsp;</td>
  </tr>
  <tr>
- <td>1</td>
+ <td><?php echo $s8;?></td>
  <td><?php echo CNF_COMPANYCODE;?></td>
  <td><?php echo ($jurnal->documentdate);?></td>
  <td><?php echo ($jurnal->postingdate);?></td>
@@ -181,15 +184,25 @@ Type: C(08)</th>
  <td>2</td>
  <td>IDR</td>
  <td><?php echo $nominalupah*-1;?></td>
- <td>21030078	</td>
+ <td>21030078</td>
  <td>&nbsp;</td>
  <td>&nbsp;</td>
  <td>&nbsp;</td>
  <td>&nbsp;</td>
  <td>&nbsp;</td>
- <td>Upah Tebang</td>
+ <td><?php echo CNF_PLANCODE.'UT'.$jurnal->katkode.''.$jurnal->katdate;?></td>
  <td>Upah Tebang <?php echo $jurnal->kepemilikan;?> Petak No <?php echo $jurnal->kode_blok;?></td>
- <td>N11KP05000</td>
+ <?php
+ if(CNF_COMPANYCODE == 'N011'){
+ ?>
+ <td><?php echo str_replace('0','',CNF_COMPANYCODE).''.CNF_PLANCODE?>000</td>
+ <?php
+}else{
+?>
+ <td><?php echo CNF_PLANCODE;?>100000</td>
+ <?php	
+}
+ ?>
  <td>&nbsp;</td>
  <td>&nbsp;</td>
  <td>&nbsp;</td>
@@ -201,9 +214,10 @@ Type: C(08)</th>
 
  <?php
  	if($nominalpremi != 0){
+ 		$s8++;
  		?>
  		<tr>
- <td>2</td>
+ <td><?php echo $s8;?></td>
  <td><?php echo CNF_COMPANYCODE;?></td>
  <td><?php echo ($jurnal->documentdate);?></td>
  <td><?php echo ($jurnal->postingdate);?></td>
@@ -214,13 +228,13 @@ Type: C(08)</th>
  <td>1</td>
  <td>IDR</td>
  <td><?php echo $nominalpremi;?></td>
+ <td><?php  if($jurnal->id_petani_sap=='') echo '51100723';?></td>
+ <td><?php  echo $jurnal->id_petani_sap;?></td>
  <td>&nbsp;</td>
- <td><?php echo $jurnal->id_petani_sap;?></td>
- <td>&nbsp;</td>
- <td>9</td>
+ <td><?php  if($jurnal->id_petani_sap!='') echo '9';?></td>
  <td>&nbsp;</td>
  <td>&nbsp;</td>
- <td>Premi Tebang</td>
+ <td><?php echo CNF_PLANCODE.'UT'.$jurnal->katkode.''.$jurnal->katdate;?></td>
  <td>Premi Tebang <?php echo $jurnal->kepemilikan;?> Petak No <?php echo $jurnal->kode_blok;?></td>
  <td>&nbsp;</td>
  <td>&nbsp;</td>
@@ -233,7 +247,7 @@ Type: C(08)</th>
  <td>&nbsp;</td>
  </tr>
  <tr>
- <td>2</td>
+ <td><?php echo $s8;?></td>
  <td><?php echo CNF_COMPANYCODE;?></td>
  <td><?php echo ($jurnal->documentdate);?></td>
  <td><?php echo ($jurnal->postingdate);?></td>
@@ -250,9 +264,19 @@ Type: C(08)</th>
  <td>&nbsp;</td>
  <td>&nbsp;</td>
  <td>&nbsp;</td>
- <td>Premi Tebang</td>
+ <td><?php echo CNF_PLANCODE.'UT'.$jurnal->katkode.''.$jurnal->katdate;?></td>
  <td>Premi Tebang <?php echo $jurnal->kepemilikan;?> Petak No <?php echo $jurnal->kode_blok;?></td>
- <td>N11KP05000</td>
+<?php
+ if(CNF_COMPANYCODE == 'N011'){
+ ?>
+ <td><?php echo str_replace('0','',CNF_COMPANYCODE).''.CNF_PLANCODE?>000</td>
+ <?php
+}else{
+?>
+ <td><?php echo CNF_PLANCODE;?>100000</td>
+ <?php	
+}
+ ?>
  <td>&nbsp;</td>
  <td>&nbsp;</td>
  <td>&nbsp;</td>
@@ -264,4 +288,9 @@ Type: C(08)</th>
  		<?php
  	}
  ?>
-</tbody></table>
+</tbody>
+<?php
+$s8++;
+}
+?>
+</table>
