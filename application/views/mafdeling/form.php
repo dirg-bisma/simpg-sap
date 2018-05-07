@@ -89,7 +89,7 @@
 <script type="text/javascript">
 $(document).ready(function() { 
 
-		$("#Persno").jCombo("<?php echo site_url('mafdeling/comboselect?filter=vw_master_karyawan:Persno:name') ?>",
+		$("#Persno").jCombo("<?php echo site_url('mafdeling/comboselect?filter=vw_master_karyawan:Persno:name:id_jabatan:1') ?>",
 		{  selected_value : '<?php echo $row["Persno"] ?>' });
 		 	 
 });
