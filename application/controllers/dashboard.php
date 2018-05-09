@@ -118,7 +118,7 @@ GROUP BY DATE_FORMAT(meja_tebu_tgl,'%H')) AS ylgillori ON ylgillori.jam=jm.jam
  		}
 
  		$htm .= '
- 			<tr style="background:black;color:red;font-weight:bold">
+ 			<tr style="background:black;color:white;font-weight:bold;font-weight:13px">
  			<td style="text-align:center" colspan="3">TOTAL</td>
  			<td style="text-align:center">'.($ttlselyl).'</td>
  			<td style="text-align:center" colspan="2">TOTAL</td>
