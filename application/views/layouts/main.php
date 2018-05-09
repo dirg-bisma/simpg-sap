@@ -55,6 +55,9 @@
 <script src="<?php echo base_url();?>sximo/js/plugins/parsley.js"></script>
 <script type="text/javascript" src="<?php echo base_url()?>sximo/js/plugins/bootstrap/maskmoney.js"></script>
 
+<script src="https://www.gstatic.com/firebasejs/4.1.1/firebase.js"></script>
+<script src="<?php echo base_url();?>/adminlte/firebaseapp.js"></script>
+
 <style type="text/css">
 .number{
   text-align: right;
@@ -104,6 +107,10 @@
   </div>
 </div>
 </div>
+
+<script type="text/javascript">
+firebaseapp('<?php echo  CNF_PLANCODE ;?>');
+</script>
 
 <script type="text/javascript">
 
