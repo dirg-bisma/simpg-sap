@@ -133,6 +133,12 @@ GROUP BY DATE_FORMAT(meja_tebu_tgl,'%H')) AS ylgillori ON ylgillori.jam=jm.jam
 
         $ax = $this->db->query($sql)->result();
         $htm = '';
+        $ttlselyl = 0;
+        $ttlselhi = 0;
+        $ttltimbyl = 0;
+        $ttltimbhi = 0;
+        $ttlgilyl = 0;
+        $ttlgilhi = 0;
         foreach ($ax as $rw) {
             $htm .= '
  			<tr>
@@ -155,7 +161,29 @@ GROUP BY DATE_FORMAT(meja_tebu_tgl,'%H')) AS ylgillori ON ylgillori.jam=jm.jam
  			<td style="text-align:center">'.number_format($rw->giltruk/1000,2).'</td>
  			<td style="text-align:center">'.number_format($rw->gillori/1000,2).'</td>
  			<td style="text-align:center">'.number_format(($rw->giltruk+$rw->gillori)/1000,2).'</td></tr>';
+
+            $ttlselyl = $ttlselyl+($rw->ylstruk+$rw->ylslori);
+            $ttlselhi = $ttlselhi+($rw->struk+$rw->slori);
+            $ttltimbyl = $ttltimbyl+(($rw->yltimlori+$rw->yltimtruk)/1000);
+            $ttltimbhi = $ttltimbhi+(($rw->timlori+$rw->timtruk)/1000);
+            $ttlgilyl = $ttlgilyl+(($rw->ylgillori+$rw->ylgiltruk)/1000);
+            $ttlgilhi = $ttlgilhi+(($rw->giltruk+$rw->gillori)/1000);
         }
+
+        $htm .= '
+ 			<tr style="background:black;color:white;font-weight:bold;font-weight:13px">
+ 			<td style="text-align:center" colspan="3">TOTAL</td>
+ 			<td style="text-align:center">'.($ttlselyl).'</td>
+ 			<td style="text-align:center" colspan="2">TOTAL</td>
+ 			<td style="text-align:center">'.($ttlselhi).'</td>
+ 			<td style="text-align:center" colspan="2">TOTAL</td>
+ 			<td style="text-align:center">'.number_format($ttltimbyl,2).'</td>
+ 			<td style="text-align:center" colspan="2">TOTAL</td>
+ 			<td style="text-align:center">'.number_format($ttltimbhi,2).'</td>
+ 			<td style="text-align:center" colspan="2">TOTAL</td>
+ 			<td style="text-align:center">'.number_format($ttlgilyl,2).'</td>
+ 			<td style="text-align:center" colspan="2">TOTAL</td>
+ 			<td style="text-align:center">'.number_format($ttlgilhi,2).'</td></tr>';
 
         echo $htm;
     }
