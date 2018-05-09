@@ -85,6 +85,46 @@ class apimaterialmodel extends SB_Model
         return $result->result();
     }
 
+    public function getTimbangBynoTransaksi($no_transaksi)
+    {
+        $sql = "SELECT a.* FROM t_timbang_material AS a WHERE a.`no_transaksi` = '$no_transaksi'";
+
+        $result = $this->db->query($sql);
+        return $result->result();
+    }
+
+    public function getLaporanNoTransaksi($tgl1, $tgl2)
+    {
+        $sql = "SELECT a.* FROM t_transaksi_material AS a WHERE a.`date_create` BETWEEN '$tgl1' AND '$tgl2' ";
+
+        $result = $this->db->query($sql);
+        return $result->result();
+    }
+
+    public function getLaporanTimbangByTgl($tgl1, $tgl2)
+    {
+        $sql = "SELECT a.* FROM t_timbang_material AS a WHERE a.`tgl_timbang_2` BETWEEN '$tgl1' AND '$tgl2' ";
+
+        $result = $this->db->query($sql);
+        return $result->result();
+    }
+
+    public function getNoTransaksiTimbangByTgl($tgl1, $tgl2)
+    {
+        $sql = "SELECT a.no_transaksi FROM t_timbang_material AS a WHERE a.`tgl_timbang_2` BETWEEN '$tgl1' AND '$tgl2' GROUP BY no_transaksi";
+
+        $result = $this->db->query($sql);
+        return $result->result();
+    }
+
+    public function getNoTransaksiTimbang1()
+    {
+        $sql = "SELECT a.* FROM t_timbang_material AS a WHERE a.`status_timbang_2` = 0";
+
+        $result = $this->db->query($sql);
+        return $result->result();
+    }
+
     public function getTmaterialMaterial($search_material)
     {
         $sql = "SELECT a.* FROM t_timbang_material AS a WHERE a.`kode_material` LIKE '%$search_material%' OR a.nama_material LIKE '%$search_material%'";

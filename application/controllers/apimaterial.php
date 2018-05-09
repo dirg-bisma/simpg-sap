@@ -228,12 +228,6 @@ class Apimaterial  extends SB_Controller
             $keterangan_transaksi = $this->GetPost('keterangan_transaksi');
             $jenis_transaksi_post = $this->GetPost('jenis_transaksi');
 
-            if($jenis_transaksi_post == 'Penerimaan'){
-                $jenis_transaksi = 'in';
-            }else{
-                $jenis_transaksi = 'out';
-            }
-
             $transaksi = $this->apimaterialmodel->getTTransaksiByNo($no_transaksi);
 
             if(count($transaksi) == 0){
@@ -241,7 +235,8 @@ class Apimaterial  extends SB_Controller
                 $data = array(
                     'no_transaksi' => $no_transaksi,
                     'keterangan_transaksi' => $keterangan_transaksi,
-                    'jenis_transaksi' => $jenis_transaksi_post
+                    'jenis_transaksi' => $jenis_transaksi_post,
+                    'date_create' => $this->getDateNow()
                 );
 
                 $this->db->set($data);
@@ -379,6 +374,54 @@ class Apimaterial  extends SB_Controller
         header("Content-type: application/vnd.ms-excel");
         header("Content-Disposition: attachment; filename=$file");
         echo $this->load->view('apimaterial/taratrukexcel',$this->data, true );
+    }
+
+    function laporanbyno()
+    {
+        $search = $this->GetPost('q');
+        $this->load->model('apimaterialmodel');
+        $result = $this->apimaterialmodel->getTimbangBynoTransaksi($search);
+
+        $this->data['result'] = $result;
+        $this->data['title'] = $search;
+        echo $this->load->view('apimaterial/laporanbyno',$this->data);
+    }
+
+    function laporantransaksibytgl()
+    {
+        $tgl1 = $this->GetPost('tgl1');
+        $tgl2 = $this->GetPost('tgl2');
+        $this->load->model('apimaterialmodel');
+        $result = $this->apimaterialmodel->getLaporanNoTransaksi($tgl1, $tgl2);
+
+        $this->data['result'] = $result;
+        $this->data['tgl1'] = $tgl1;
+        $this->data['tgl2'] = $tgl2;
+        echo $this->load->view('apimaterial/laporantransaksibytgl',$this->data);
+    }
+
+    function laporantimbanganbytgl()
+    {
+        $tgl1 = $this->GetPost('tgl1');
+        $tgl2 = $this->GetPost('tgl2');
+        $this->load->model('apimaterialmodel');
+        $transaksi = $this->apimaterialmodel->getNoTransaksiTimbangByTgl($tgl1, $tgl2);
+        $result = $this->apimaterialmodel->getLaporanTimbangByTgl($tgl1, $tgl2);
+
+        $this->data['transaksi'] = $transaksi;
+        $this->data['result'] = $result;
+        $this->data['tgl1'] = $tgl1;
+        $this->data['tgl2'] = $tgl2;
+        echo $this->load->view('apimaterial/laporantimbanganbytgl',$this->data);
+    }
+
+    function laporantimbangantimbangsatu()
+    {
+        $this->load->model('apimaterialmodel');
+        $result = $this->apimaterialmodel->getNoTransaksiTimbang1();
+
+        $this->data['result'] = $result;
+        echo $this->load->view('apimaterial/laptimbangsatu',$this->data);
     }
 
     private function GetPost($input){

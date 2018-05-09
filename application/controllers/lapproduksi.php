@@ -213,7 +213,7 @@ class Lapproduksi extends SB_Controller
 
                 $cek = $this->model->CekLaporanExist($kode_kat->kode_kat_ptp, $this->input->post('hari_giling'));
                 $data = array(
-                    'tgl_laporan_produksi' => $this->input->post('tgl_laporan_produksi'),
+                    //'tgl_laporan_produksi' => $this->input->post('tgl_laporan_produksi'),
                     'hari_giling' => $this->input->post('hari_giling'),
                     'kode_kat_lahan' => $this->input->post('kode_kat_lahan_'.$this->replaceKat($kode_kat->kode_kat_ptp)),
                     'kat_ptpn' => $this->input->post('kat_ptpn_'.$this->replaceKat($kode_kat->kode_kat_ptp)),
@@ -231,7 +231,7 @@ class Lapproduksi extends SB_Controller
                     $result_plant = $this->model->PlantKategoriByTimbanganTransfer($kode_kat->kode_kat_ptp, $this->input->post('hari_giling'));
                     foreach($result_plant as $row_plant){
                         $data_trans = array(
-                            'tgl_laporan_produksi_trans' => $this->input->post('tgl_laporan_produksi'),
+                            //'tgl_laporan_produksi_trans' => $this->input->post('tgl_laporan_produksi'),
                             'hari_giling' => $this->input->post('hari_giling'),
                             'kode_kat_lahan' => $this->input->post('trans_kode_kat_lahan_'.$this->replaceKat($kode_kat->kode_kat_ptp)."_".$row_plant->kode_plant_trasnfer),
                             'kat_ptpn' => $this->input->post('trans_kat_ptpn_'.$this->replaceKat($kode_kat->kode_kat_ptp)."_".$row_plant->kode_plant_trasnfer),
