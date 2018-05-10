@@ -156,7 +156,35 @@ class Lapproduksimodel extends SB_Model
         return $result->row();
     }
 
-    public function VwKategoriByTimbanganTransfer($kategori, $hari)
+    public function SumLapTrans($plant, $kat, $hari)
+    {
+        $qry = "SELECT 
+                SUM(a.`ha_tertebang`) AS sum_ha_tertebang,
+                SUM(a.`qty_tertebang`) AS sum_qty_tertebang,
+                SUM(a.`ha_digiling`) AS sum_ha_digiiling,
+                SUM(a.`qty_digiling`) AS sum_qty_digiling,
+                SUM(a.`qty_kristal`) AS sum_qty_kristal,
+                ROUND(((SUM(a.`qty_kristal`)/SUM(a.`qty_digiling`))*100), 2) AS total_rendemen,
+                SUM(a.`qty_gula_ptr`) AS sum_qty_gula_ptr,
+                SUM(a.qty_tetes_ptr) AS sum_qty_tetes_ptr
+                 FROM `t_lap_produksi_pengolahan_trans` AS a
+                WHERE a.hari_giling < $hari AND a.kat_ptpn = '$kat' AND a.plant = '$plant'";
+        $result = $this->db->query($qry);
+        return $result->row();
+    }
+
+    public function GroupPlant($kat)
+    {
+        $qry = "SELECT a.kode_plant_trasnfer, b.nama_plant 
+                FROM vw_spta_luas_field_sap_kat_ptp as a
+                INNER JOIN sap_plant AS b ON b.`kode_plant` = a.`kode_plant_trasnfer`
+                WHERE kode_kat_lahan = '$kat'
+                GROUP BY kode_plant_trasnfer";
+        $result = $this->db->query($qry);
+        return $result->result();
+    }
+
+    public function VwKategoriByTimbanganTransfer($kategori, $kode_plant, $hari)
     {
         $qry = "SELECT 
                 a.kat_ptp,
@@ -168,11 +196,12 @@ class Lapproduksimodel extends SB_Model
                 SUM(a.netto) AS netto
                 FROM vw_spta_luas_field_sap_kat_ptp AS a
                 INNER JOIN sap_plant AS b ON b.`kode_plant` = a.`kode_plant_trasnfer`
-                WHERE a.`kat_ptp` = '$kategori' AND a.`hari_giling` = '$hari'
+                WHERE a.`kat_ptp` = '$kategori' AND a.`hari_giling` = '$hari' AND 
+                a.`kode_plant_trasnfer` = '$kode_plant'
                 AND a.timb_netto_status = 1
                 GROUP BY a.`kode_plant_trasnfer`";
         $result = $this->db->query($qry);
-        return $result->result();
+        return $result->row();
     }
 
     public function VwKategoriByAriTransfer($kategori, $kode_plant, $hari)

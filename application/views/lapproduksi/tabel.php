@@ -163,51 +163,68 @@
                                         </tr>
                                         <?php if($tdat_ts->kode_kat_ptp == "TS-TR"){?>
                                             <?php
-                                            $data_lap_timb_transfer = $ci->lapproduksimodel->VwKategoriByTimbanganTransfer($tdat_ts->kode_kat_ptp, $hari_giling);
-
+                                            $data_group_plant = $ci->lapproduksimodel->GroupPlant($tdat_ts->kode_kat_ptp);
                                             ?>
-                                            <?php foreach($data_lap_timb_transfer as $rowLap_tim_transfer) {?>
+                                            <?php foreach($data_group_plant as $row_plant) {?>
                                                 <?php
-                                                $data_lap_ari_transfer = $ci->lapproduksimodel->VwKategoriByAriTransfer($tdat_ts->kode_kat_ptp, $rowLap_tim_transfer->kode_plant_trasnfer, $hari_giling);
+                                                $ari_transfer = $ci->lapproduksimodel->VwKategoriByAriTransfer($tdat_ts->kode_kat_ptp, $row_plant->kode_plant_trasnfer, $hari_giling);
+                                                $timb_transfer = $ci->lapproduksimodel->VwKategoriByTimbanganTransfer($tdat_ts->kode_kat_ptp, $row_plant->kode_plant_trasnfer, $hari_giling);
+                                                $sum_transfer = $ci->lapproduksimodel->SumLapTrans($tdat_ts->kode_kat_ptp, $row_plant->kode_plant_trasnfer, $hari_giling);
                                                 ?>
                                             <tr>
-                                                <td> -- <?php echo $rowLap_tim_transfer->nama_plant." (".$rowLap_tim_transfer->kode_plant_trasnfer.")"; ?>
-                                                    <input type="hidden" name="trans_kode_kat_lahan_<?php echo replaceKat($tdat_ts->kode_kat_ptp)."_".$rowLap_tim_transfer->kode_plant_trasnfer;?>" value="<?php echo $tdat_ts->kat_sap; ?>">
-                                                    <input type="hidden" name="trans_kat_ptpn_<?php echo replaceKat($tdat_ts->kode_kat_ptp)."_".$rowLap_tim_transfer->kode_plant_trasnfer;?>" value="<?php echo $tdat_ts->kode_kat_ptp; ?>">
-                                                    <input type="hidden" name="trans_kat_kepemilikan_<?php echo replaceKat($tdat_ts->kode_kat_ptp)."_".$rowLap_tim_transfer->kode_plant_trasnfer;?>" value="TS">
+                                                <td> -- <?php echo $row_plant->nama_plant." (".$row_plant->kode_plant_trasnfer.")"; ?>
+                                                    <input type="hidden" name="trans_kode_kat_lahan_<?php echo replaceKat($tdat_ts->kode_kat_ptp)."_".$row_plant->kode_plant_trasnfer;?>" value="<?php echo $tdat_ts->kat_sap; ?>">
+                                                    <input type="hidden" name="trans_kat_ptpn_<?php echo replaceKat($tdat_ts->kode_kat_ptp)."_".$row_plant->kode_plant_trasnfer;?>" value="<?php echo $tdat_ts->kode_kat_ptp; ?>">
+                                                    <input type="hidden" name="trans_kat_kepemilikan_<?php echo replaceKat($tdat_ts->kode_kat_ptp)."_".$row_plant->kode_plant_trasnfer;?>" value="TS">
                                                 </td>
-                                                <td><?php echo $rowLap_tim_transfer->ha_tertebang_field; ?>
-                                                    <input type="hidden" name="trans_ha_tertebang_<?php echo replaceKat($tdat_ts->kode_kat_ptp)."_".$rowLap_tim_transfer->kode_plant_trasnfer;?>" value="<?php echo $rowLap_tim_transfer->ha_tertebang_field; ?>">
+                                                <td><?php echo isset($timb_transfer->ha_tertebang_field) ? $timb_transfer->ha_tertebang_field : "-"; ?>
+                                                    <?php if(isset($timb_transfer->ha_tertebang_field)){?>
+                                                    <input type="hidden" name="trans_ha_tertebang_<?php echo replaceKat($tdat_ts->kode_kat_ptp)."_".$row_plant->kode_plant_trasnfer;?>" value="<?php echo $timb_transfer->ha_tertebang_field; ?>">
+                                                    <?php }?>
                                                 </td>
-                                                <td></td>
-                                                <td><?php echo number_format($rowLap_tim_transfer->netto); ?>
-                                                    <input type="hidden" name="trans_qty_tertebang_<?php echo replaceKat($tdat_ts->kode_kat_ptp)."_".$rowLap_tim_transfer->kode_plant_trasnfer;?>" value="<?php echo $rowLap_tim_transfer->netto; ?>">
+                                                <td><?php echo isset($sum_transfer->sum_ha_tertebang) ? $sum_transfer->sum_ha_tertebang : "-"; ?></td>
+                                                <td><?php echo isset($timb_transfer->netto) ? number_format($timb_transfer->netto) : "-"; ?>
+                                                    <?php if(isset($timb_transfer->netto)){?>
+                                                    <input type="hidden" name="trans_qty_tertebang_<?php echo replaceKat($tdat_ts->kode_kat_ptp)."_".$row_plant->kode_plant_trasnfer;?>" value="<?php echo $timb_transfer->netto; ?>">
+                                                    <?php } ?>
                                                 </td>
-                                                <td></td>
-                                                <td><?php echo $data_lap_ari_transfer->ha_tertebang_field; ?>
-                                                    <input type="hidden" name="trans_ha_digiling_<?php echo replaceKat($tdat_ts->kode_kat_ptp)."_".$rowLap_tim_transfer->kode_plant_trasnfer;?>" value="<?php echo $data_lap_ari_transfer->ha_tertebang_field; ?>">
+                                                <td><?php echo isset($sum_transfer->sum_qty_tertebang) ? $sum_transfer->sum_qty_tertebang : "-"; ?></td>
+                                                <td><?php echo isset($ari_transfer->ha_tertebang_field) ? $ari_transfer->ha_tertebang_field : "-"; ?>
+                                                    <?php if(isset($ari_transfer->ha_tertebang_field)){?>
+                                                    <input type="hidden" name="trans_ha_digiling_<?php echo replaceKat($tdat_ts->kode_kat_ptp)."_".$row_plant->kode_plant_trasnfer;?>" value="<?php echo $ari_transfer->ha_tertebang_field; ?>">
+                                                    <?php } ?>
                                                 </td>
-                                                <td></td>
-                                                <td><?php echo number_format($data_lap_ari_transfer->netto); ?>
-                                                    <input type="hidden" name="trans_qty_digiling_<?php echo replaceKat($tdat_ts->kode_kat_ptp)."_".$rowLap_tim_transfer->kode_plant_trasnfer;?>" value="<?php echo $data_lap_ari_transfer->netto; ?>">
+                                                <td><?php echo isset($sum_transfer->sum_ha_digiiling) ? $sum_transfer->sum_ha_digiiling : "-"; ?></td>
+                                                <td><?php echo isset($ari_transfer->netto) ? number_format($ari_transfer->netto) : "-"; ?>
+                                                    <?php if(isset($ari_transfer->netto)){?>
+                                                    <input type="hidden" name="trans_qty_digiling_<?php echo replaceKat($tdat_ts->kode_kat_ptp)."_".$row_plant->kode_plant_trasnfer;?>" value="<?php echo $ari_transfer->netto; ?>">
+                                                    <?php } ?>
                                                 </td>
-                                                <td></td>
-                                                <td><?php echo number_format($data_lap_ari_transfer->hablur); ?>
-                                                    <input type="hidden" name="trans_qty_kristal_<?php echo replaceKat($tdat_ts->kode_kat_ptp)."_".$rowLap_tim_transfer->kode_plant_trasnfer;?>" value="<?php echo $data_lap_ari_transfer->hablur; ?>">
+                                                <td><?php echo isset($sum_transfer->sum_qty_digiling) ? $sum_transfer->sum_qty_digiling : "-"; ?></td>
+                                                <td><?php echo isset($ari_transfer->hablur) ? number_format($ari_transfer->hablur) : "-"; ?>
+                                                    <?php if(isset($ari_transfer->hablur)){?>
+                                                    <input type="hidden" name="trans_qty_kristal_<?php echo replaceKat($tdat_ts->kode_kat_ptp)."_".$row_plant->kode_plant_trasnfer;?>" value="<?php echo $ari_transfer->hablur; ?>">
+                                                    <?php } ?>
                                                 </td>
-                                                <td></td>
-                                                <td><?php echo $data_lap_ari_transfer->rendemen_total; ?>
-                                                    <input type="hidden" name="trans_rendemen_<?php echo replaceKat($tdat_ts->kode_kat_ptp)."_".$rowLap_tim_transfer->kode_plant_trasnfer;?>" value="<?php echo $data_lap_ari_transfer->rendemen_total; ?>">
+                                                <td><?php echo isset($sum_transfer->sum_qty_kristal) ? $sum_transfer->sum_qty_kristal : "-  "; ?></td>
+                                                <td><?php echo isset($ari_transfer->rendemen_total) ? $ari_transfer->rendemen_total : "-"; ?>
+                                                    <?php if(isset($ari_transfer->rendemen_total)){?>
+                                                    <input type="hidden" name="trans_rendemen_<?php echo replaceKat($tdat_ts->kode_kat_ptp)."_".$row_plant->kode_plant_trasnfer;?>" value="<?php echo $ari_transfer->rendemen_total; ?>">
+                                                    <?php } ?>
                                                 </td>
-                                                <td></td>
-                                                <td><?php echo number_format($data_lap_ari_transfer->gula_ptr); ?>
-                                                    <input type="hidden" name="trans_qty_gula_ptr_<?php echo replaceKat($tdat_ts->kode_kat_ptp)."_".$rowLap_tim_transfer->kode_plant_trasnfer;?>" value="<?php echo $data_lap_ari_transfer->gula_ptr; ?>">
+                                                <td><?php echo isset($sum_transfer->total_rendemen) ? $sum_transfer->total_rendemen : "-"; ?></td>
+                                                <td><?php echo isset($ari_transfer->gula_ptr) ? number_format($ari_transfer->gula_ptr) : "-"; ?>
+                                                    <?php if(isset($ari_transfer->gula_ptr)){?>
+                                                    <input type="hidden" name="trans_qty_gula_ptr_<?php echo replaceKat($tdat_ts->kode_kat_ptp)."_".$row_plant->kode_plant_trasnfer;?>" value="<?php echo $ari_transfer->gula_ptr; ?>">
+                                                    <?php } ?>
                                                 </td>
-                                                <td></td>
-                                                <td><?php echo number_format($data_lap_ari_transfer->tetes_ptr); ?>
-                                                    <input type="hidden" name="trans_qty_tetes_ptr_<?php echo replaceKat($tdat_ts->kode_kat_ptp)."_".$rowLap_tim_transfer->kode_plant_trasnfer;?>" value="<?php echo $data_lap_ari_transfer->tetes_ptr; ?>">
+                                                <td><?php echo isset($sum_transfer->sum_qty_gula_ptr) ? $sum_transfer->sum_qty_gula_ptr : "-"; ?></td>
+                                                <td><?php echo isset($ari_transfer->tetes_ptr) ? number_format($ari_transfer->tetes_ptr) : "-"; ?>
+                                                    <?php if(isset($ari_transfer->tetes_ptr)){?>
+                                                    <input type="hidden" name="trans_qty_tetes_ptr_<?php echo replaceKat($tdat_ts->kode_kat_ptp)."_".$row_plant->kode_plant_trasnfer;?>" value="<?php echo $ari_transfer->tetes_ptr; ?>">
+                                                    <?php } ?>
                                                 </td>
-                                                <td></td>
+                                                <td><?php echo isset($sum_transfer->sum_qty_tetes_ptr) ? $sum_transfer->sum_qty_tetes_ptr : "-"; ?></td>
                                             </tr>
                                             <?php }?>
                                         <?php }?>
@@ -312,147 +329,201 @@
 
                                         <?php if($tdat_tr->kode_kat_ptp == "TR-TR"){?>
                                             <?php
-                                            $data_lap_timb_transfer = $ci->lapproduksimodel->VwKategoriByTimbanganTransfer($tdat_tr->kode_kat_ptp, $hari_giling);
+                                            $data_group_plant = $ci->lapproduksimodel->GroupPlant($tdat_tr->kode_kat_ptp);
                                             ?>
-                                            <?php foreach($data_lap_timb_transfer as $rowLap_tim_transfer) {?>
+                                            <?php foreach($data_group_plant as $row_plant) { ?>
                                                 <?php
-                                                $data_lap_ari_transfer = $ci->lapproduksimodel->VwKategoriByAriTransfer($tdat_tr->kode_kat_ptp, $rowLap_tim_transfer->kode_plant_trasnfer, $hari_giling);
+                                                $timb_transfer = $ci->lapproduksimodel->VwKategoriByTimbanganTransfer($tdat_tr->kode_kat_ptp, $row_plant->kode_plant_trasnfer, $hari_giling);
+                                                $ari_transfer = $ci->lapproduksimodel->VwKategoriByAriTransfer($tdat_tr->kode_kat_ptp, $row_plant->kode_plant_trasnfer, $hari_giling);
+                                                $sum_transfer = $ci->lapproduksimodel->SumLapTrans($tdat_tr->kode_kat_ptp, $row_plant->kode_plant_trasnfer, $hari_giling);
                                                 ?>
                                                 <tr>
-                                                    <td> -- <?php echo $rowLap_tim_transfer->nama_plant." (".$rowLap_tim_transfer->kode_plant_trasnfer.")"; ?></td>
-                                                    <input type="hidden" name="trans_kode_kat_lahan_<?php echo replaceKat($tdat_tr->kode_kat_ptp)."_".$rowLap_tim_transfer->kode_plant_trasnfer;?>" value="<?php echo $tdat_tr->kat_sap; ?>">
-                                                    <input type="hidden" name="trans_kat_ptpn_<?php echo replaceKat($tdat_tr->kode_kat_ptp)."_".$rowLap_tim_transfer->kode_plant_trasnfer;?>" value="<?php echo $tdat_tr->kode_kat_ptp; ?>">
-                                                    <input type="hidden" name="trans_kat_kepemilikan_<?php echo replaceKat($tdat_tr->kode_kat_ptp)."_".$rowLap_tim_transfer->kode_plant_trasnfer;?>" value="TR">
-                                                    <td><?php echo $rowLap_tim_transfer->ha_tertebang_field; ?>
-                                                        <input type="hidden" name="trans_ha_tertebang_<?php echo replaceKat($tdat_tr->kode_kat_ptp)."_".$rowLap_tim_transfer->kode_plant_trasnfer;?>" value="<?php echo $rowLap_tim_transfer->ha_tertebang_field; ?>">
+                                                    <td> -- <?php echo $row_plant->nama_plant." (".$row_plant->kode_plant_trasnfer.")"; ?></td>
+                                                    <input type="hidden" name="trans_kode_kat_lahan_<?php echo replaceKat($tdat_tr->kode_kat_ptp)."_".$row_plant->kode_plant_trasnfer;?>" value="<?php echo $tdat_tr->kat_sap; ?>">
+                                                    <input type="hidden" name="trans_kat_ptpn_<?php echo replaceKat($tdat_tr->kode_kat_ptp)."_".$row_plant->kode_plant_trasnfer;?>" value="<?php echo $tdat_tr->kode_kat_ptp; ?>">
+                                                    <input type="hidden" name="trans_kat_kepemilikan_<?php echo replaceKat($tdat_tr->kode_kat_ptp)."_".$row_plant->kode_plant_trasnfer;?>" value="TR">
+                                                    <td><?php echo isset($timb_transfer->ha_tertebang_field) ? $timb_transfer->ha_tertebang_field : "-"; ?>
+                                                        <?php if(isset($timb_transfer->ha_tertebang_field)){ ?>
+                                                        <input type="hidden" name="trans_ha_tertebang_<?php echo replaceKat($tdat_tr->kode_kat_ptp)."_".$row_plant->kode_plant_trasnfer;?>" value="<?php echo $timb_transfer->ha_tertebang_field; ?>">
+                                                        <?php } ?>
                                                     </td>
-                                                    <td></td>
-                                                    <td><?php echo number_format($rowLap_tim_transfer->netto); ?>
-                                                        <input type="hidden" name="trans_qty_tertebang_<?php echo replaceKat($tdat_tr->kode_kat_ptp)."_".$rowLap_tim_transfer->kode_plant_trasnfer;?>" value="<?php echo $rowLap_tim_transfer->netto; ?>">
+                                                    <td><?php echo isset($sum_transfer->sum_ha_tertebang) ? $sum_transfer->sum_ha_tertebang : "-"; ?></td>
+                                                    <td><?php echo isset($timb_transfer->netto) ? number_format($timb_transfer->netto) : "-"; ?>
+                                                        <?php if(isset($timb_transfer->netto)){ ?>
+                                                        <input type="hidden" name="trans_qty_tertebang_<?php echo replaceKat($tdat_tr->kode_kat_ptp)."_".$row_plant->kode_plant_trasnfer;?>" value="<?php echo $timb_transfer->netto; ?>">
+                                                        <?php } ?>
                                                     </td>
-                                                    <td></td>
-                                                    <td><?php echo $data_lap_ari_transfer->ha_tertebang_field; ?>
-                                                        <input type="hidden" name="trans_ha_digiling_<?php echo replaceKat($tdat_tr->kode_kat_ptp)."_".$rowLap_tim_transfer->kode_plant_trasnfer;?>" value="<?php echo $data_lap_ari_transfer->ha_tertebang_field; ?>">
+                                                    <td><?php echo isset($sum_transfer->sum_qty_tertebang) ? $sum_transfer->sum_qty_tertebang : "-"; ?></td>
+                                                    <td><?php echo isset($ari_transfer->ha_tertebang_field) ? $ari_transfer->ha_tertebang_field : "-"; ?>
+                                                        <?php if(isset($ari_transfer->ha_tertebang_field)) { ?>
+                                                        <input type="hidden" name="trans_ha_digiling_<?php echo replaceKat($tdat_tr->kode_kat_ptp)."_".$row_plant->kode_plant_trasnfer;?>" value="<?php echo $ari_transfer->ha_tertebang_field; ?>">
+                                                        <?php } ?>
                                                     </td>
-                                                    <td></td>
-                                                    <td><?php echo number_format($data_lap_ari_transfer->netto); ?>
-                                                        <input type="hidden" name="trans_qty_digiling_<?php echo replaceKat($tdat_tr->kode_kat_ptp)."_".$rowLap_tim_transfer->kode_plant_trasnfer;?>" value="<?php echo $data_lap_ari_transfer->netto; ?>">
+                                                    <td><?php echo isset($sum_transfer->sum_ha_digiiling) ? $sum_transfer->sum_ha_digiiling : "-"; ?></td>
+                                                    <td><?php echo isset($ari_transfer->netto) ? number_format($ari_transfer->netto) : "-"; ?>
+                                                        <?php if(isset($ari_transfer->netto)) { ?>
+                                                        <input type="hidden" name="trans_qty_digiling_<?php echo replaceKat($tdat_tr->kode_kat_ptp)."_".$row_plant->kode_plant_trasnfer;?>" value="<?php echo $ari_transfer->netto; ?>">
+                                                        <?php } ?>
                                                     </td>
-                                                    <td></td>
-                                                    <td><?php echo number_format($data_lap_ari_transfer->hablur); ?>
-                                                        <input type="hidden" name="trans_qty_kristal_<?php echo replaceKat($tdat_tr->kode_kat_ptp)."_".$rowLap_tim_transfer->kode_plant_trasnfer;?>" value="<?php echo $data_lap_ari_transfer->hablur; ?>">
+                                                    <td><?php echo isset($sum_transfer->sum_qty_digiling) ? $sum_transfer->sum_qty_digiling : "-"; ?></td>
+                                                    <td><?php echo isset($ari_transfer->hablur) ? number_format($ari_transfer->hablur) : "-"; ?>
+                                                        <?php if(isset($ari_transfer->hablur)) { ?>
+                                                        <input type="hidden" name="trans_qty_kristal_<?php echo replaceKat($tdat_tr->kode_kat_ptp)."_".$row_plant->kode_plant_trasnfer;?>" value="<?php echo $ari_transfer->hablur; ?>">
+                                                        <?php } ?>
                                                     </td>
-                                                    <td></td>
-                                                    <td><?php echo $data_lap_ari_transfer->rendemen_total; ?>
-                                                        <input type="hidden" name="trans_rendemen_<?php echo replaceKat($tdat_tr->kode_kat_ptp)."_".$rowLap_tim_transfer->kode_plant_trasnfer;?>" value="<?php echo $data_lap_ari_transfer->rendemen_total; ?>">
+                                                    <td><?php echo isset($sum_transfer->sum_qty_kristal) ? $sum_transfer->sum_qty_kristal : "-"; ?></td>
+                                                    <td><?php echo isset($ari_transfer->rendemen_total) ? $ari_transfer->rendemen_total : "-"; ?>
+                                                        <?php if(isset($ari_transfer->rendemen_total)) { ?>
+                                                        <input type="hidden" name="trans_rendemen_<?php echo replaceKat($tdat_tr->kode_kat_ptp)."_".$row_plant->kode_plant_trasnfer;?>" value="<?php echo $ari_transfer->rendemen_total; ?>">
+                                                        <?php } ?>
                                                     </td>
-                                                    <td></td>
-                                                    <td><?php echo number_format($data_lap_ari_transfer->gula_ptr); ?>
-                                                        <input type="hidden" name="trans_qty_gula_ptr_<?php echo replaceKat($tdat_tr->kode_kat_ptp)."_".$rowLap_tim_transfer->kode_plant_trasnfer;?>" value="<?php echo $data_lap_ari_transfer->gula_ptr; ?>">
+                                                    <td><?php echo isset($sum_transfer->total_rendemen) ? $sum_transfer->total_rendemen : "-"; ?></td>
+                                                    <td><?php echo isset($ari_transfer->gula_ptr) ? number_format($ari_transfer->gula_ptr) : "-"; ?>
+                                                        <?php if(isset($ari_transfer->gula_ptr)) { ?>
+                                                        <input type="hidden" name="trans_qty_gula_ptr_<?php echo replaceKat($tdat_tr->kode_kat_ptp)."_".$row_plant->kode_plant_trasnfer;?>" value="<?php echo $ari_transfer->gula_ptr; ?>">
+                                                        <?php } ?>
                                                     </td>
-                                                    <td></td>
-                                                    <td><?php echo number_format($data_lap_ari_transfer->tetes_ptr); ?>
-                                                        <input type="hidden" name="trans_qty_tetes_ptr_<?php echo replaceKat($tdat_tr->kode_kat_ptp)."_".$rowLap_tim_transfer->kode_plant_trasnfer;?>" value="<?php echo $data_lap_ari_transfer->tetes_ptr; ?>">
+                                                    <td><?php echo isset($sum_transfer->sum_qty_gula_ptr) ? $sum_transfer->sum_qty_gula_ptr : "-"; ?></td>
+                                                    <td><?php echo isset($ari_transfer->tetes_ptr) ? number_format($ari_transfer->tetes_ptr) : "-"; ?>
+                                                        <?php if(isset($ari_transfer->tetes_ptr)){ ?>
+                                                        <input type="hidden" name="trans_qty_tetes_ptr_<?php echo replaceKat($tdat_tr->kode_kat_ptp)."_".$row_plant->kode_plant_trasnfer;?>" value="<?php echo $ari_transfer->tetes_ptr; ?>">
+                                                        <?php } ?>
                                                     </td>
-                                                    <td></td>
+                                                    <td><?php echo isset($sum_transfer->sum_qty_tetes_ptr) ? $sum_transfer->sum_qty_tetes_ptr : "-"; ?></td>
                                                 </tr>
                                             <?php }?>
-                                        <?php }?>
+                                        <?php } ?>
 
                                         <?php if($tdat_tr->kode_kat_ptp == "TR-TK"){?>
                                             <?php
-                                            $data_lap_timb_transfer = $ci->lapproduksimodel->VwKategoriByTimbanganTransfer($tdat_tr->kode_kat_ptp, $hari_giling);
+                                            $data_group_plant = $ci->lapproduksimodel->GroupPlant($tdat_tr->kode_kat_ptp);
                                             ?>
-                                            <?php foreach($data_lap_timb_transfer as $rowLap_tim_transfer) {?>
+                                            <?php foreach($data_group_plant as $row_plant) { ?>
                                                 <?php
-                                                $data_lap_ari_transfer = $ci->lapproduksimodel->VwKategoriByAriTransfer($tdat_tr->kode_kat_ptp, $rowLap_tim_transfer->kode_plant_trasnfer, $hari_giling);
+                                                $timb_transfer = $ci->lapproduksimodel->VwKategoriByTimbanganTransfer($tdat_tr->kode_kat_ptp, $row_plant->kode_plant_trasnfer, $hari_giling);
+                                                $ari_transfer = $ci->lapproduksimodel->VwKategoriByAriTransfer($tdat_tr->kode_kat_ptp, $row_plant->kode_plant_trasnfer, $hari_giling);
+                                                $sum_transfer = $ci->lapproduksimodel->SumLapTrans($tdat_tr->kode_kat_ptp, $row_plant->kode_plant_trasnfer, $hari_giling);
                                                 ?>
                                                 <tr>
-                                                    <td> -- <?php echo $rowLap_tim_transfer->nama_plant." (".$rowLap_tim_transfer->kode_plant_trasnfer.")"; ?></td>
-                                                    <input type="hidden" name="trans_kode_kat_lahan_<?php echo replaceKat($tdat_tr->kode_kat_ptp)."_".$rowLap_tim_transfer->kode_plant_trasnfer;?>" value="<?php echo $tdat_tr->kat_sap; ?>">
-                                                    <input type="hidden" name="trans_kat_ptpn_<?php echo replaceKat($tdat_tr->kode_kat_ptp)."_".$rowLap_tim_transfer->kode_plant_trasnfer;?>" value="<?php echo $tdat_tr->kode_kat_ptp; ?>">
-                                                    <input type="hidden" name="trans_kat_kepemilikan_<?php echo replaceKat($tdat_tr->kode_kat_ptp)."_".$rowLap_tim_transfer->kode_plant_trasnfer;?>" value="TR">
-                                                    <td><?php echo $rowLap_tim_transfer->ha_tertebang_field; ?>
-                                                        <input type="hidden" name="trans_ha_tertebang_<?php echo replaceKat($tdat_tr->kode_kat_ptp)."_".$rowLap_tim_transfer->kode_plant_trasnfer;?>" value="<?php echo $rowLap_tim_transfer->ha_tertebang_field; ?>">
+                                                    <td> -- <?php echo $row_plant->nama_plant." (".$row_plant->kode_plant_trasnfer.")"; ?></td>
+                                                    <input type="hidden" name="trans_kode_kat_lahan_<?php echo replaceKat($tdat_tr->kode_kat_ptp)."_".$row_plant->kode_plant_trasnfer;?>" value="<?php echo $tdat_tr->kat_sap; ?>">
+                                                    <input type="hidden" name="trans_kat_ptpn_<?php echo replaceKat($tdat_tr->kode_kat_ptp)."_".$row_plant->kode_plant_trasnfer;?>" value="<?php echo $tdat_tr->kode_kat_ptp; ?>">
+                                                    <input type="hidden" name="trans_kat_kepemilikan_<?php echo replaceKat($tdat_tr->kode_kat_ptp)."_".$row_plant->kode_plant_trasnfer;?>" value="TR">
+                                                    <td><?php echo isset($timb_transfer->ha_tertebang_field) ? $timb_transfer->ha_tertebang_field : "-"; ?>
+                                                        <?php if(isset($timb_transfer->ha_tertebang_field)){ ?>
+                                                            <input type="hidden" name="trans_ha_tertebang_<?php echo replaceKat($tdat_tr->kode_kat_ptp)."_".$row_plant->kode_plant_trasnfer;?>" value="<?php echo $timb_transfer->ha_tertebang_field; ?>">
+                                                        <?php } ?>
                                                     </td>
-                                                    <td></td>
-                                                    <td><?php echo number_format($rowLap_tim_transfer->netto); ?>
-                                                        <input type="hidden" name="trans_qty_tertebang_<?php echo replaceKat($tdat_tr->kode_kat_ptp)."_".$rowLap_tim_transfer->kode_plant_trasnfer;?>" value="<?php echo $rowLap_tim_transfer->netto; ?>">
+                                                    <td><?php echo isset($sum_transfer->sum_ha_tertebang) ? $sum_transfer->sum_ha_tertebang : "-"; ?></td>
+                                                    <td><?php echo isset($timb_transfer->netto) ? number_format($timb_transfer->netto) : "-"; ?>
+                                                        <?php if(isset($timb_transfer->netto)){ ?>
+                                                            <input type="hidden" name="trans_qty_tertebang_<?php echo replaceKat($tdat_tr->kode_kat_ptp)."_".$row_plant->kode_plant_trasnfer;?>" value="<?php echo $timb_transfer->netto; ?>">
+                                                        <?php } ?>
                                                     </td>
-                                                    <td></td>
-                                                    <td><?php echo $data_lap_ari_transfer->ha_tertebang_field; ?>
-                                                        <input type="hidden" name="trans_ha_digiling_<?php echo replaceKat($tdat_tr->kode_kat_ptp)."_".$rowLap_tim_transfer->kode_plant_trasnfer;?>" value="<?php echo $data_lap_ari_transfer->ha_tertebang_field; ?>">
+                                                    <td><?php echo isset($sum_transfer->sum_qty_tertebang) ? $sum_transfer->sum_qty_tertebang : "-"; ?></td>
+                                                    <td><?php echo isset($ari_transfer->ha_tertebang_field) ? $ari_transfer->ha_tertebang_field : "-"; ?>
+                                                        <?php if(isset($ari_transfer->ha_tertebang_field)) { ?>
+                                                            <input type="hidden" name="trans_ha_digiling_<?php echo replaceKat($tdat_tr->kode_kat_ptp)."_".$row_plant->kode_plant_trasnfer;?>" value="<?php echo $ari_transfer->ha_tertebang_field; ?>">
+                                                        <?php } ?>
                                                     </td>
-                                                    <td></td>
-                                                    <td><?php echo number_format($data_lap_ari_transfer->netto); ?>
-                                                        <input type="hidden" name="trans_qty_digiling_<?php echo replaceKat($tdat_tr->kode_kat_ptp)."_".$rowLap_tim_transfer->kode_plant_trasnfer;?>" value="<?php echo $data_lap_ari_transfer->netto; ?>">
+                                                    <td><?php echo isset($sum_transfer->sum_ha_digiiling) ? $sum_transfer->sum_ha_digiiling : "-"; ?></td>
+                                                    <td><?php echo isset($ari_transfer->netto) ? number_format($ari_transfer->netto) : "-"; ?>
+                                                        <?php if(isset($ari_transfer->netto)) { ?>
+                                                            <input type="hidden" name="trans_qty_digiling_<?php echo replaceKat($tdat_tr->kode_kat_ptp)."_".$row_plant->kode_plant_trasnfer;?>" value="<?php echo $ari_transfer->netto; ?>">
+                                                        <?php } ?>
                                                     </td>
-                                                    <td></td>
-                                                    <td><?php echo number_format($data_lap_ari_transfer->hablur); ?>
-                                                        <input type="hidden" name="trans_qty_kristal_<?php echo replaceKat($tdat_tr->kode_kat_ptp)."_".$rowLap_tim_transfer->kode_plant_trasnfer;?>" value="<?php echo $data_lap_ari_transfer->hablur; ?>">
+                                                    <td><?php echo isset($sum_transfer->sum_qty_digiling) ? $sum_transfer->sum_qty_digiling : "-"; ?></td>
+                                                    <td><?php echo isset($ari_transfer->hablur) ? number_format($ari_transfer->hablur) : "-"; ?>
+                                                        <?php if(isset($ari_transfer->hablur)) { ?>
+                                                            <input type="hidden" name="trans_qty_kristal_<?php echo replaceKat($tdat_tr->kode_kat_ptp)."_".$row_plant->kode_plant_trasnfer;?>" value="<?php echo $ari_transfer->hablur; ?>">
+                                                        <?php } ?>
                                                     </td>
-                                                    <td></td>
-                                                    <td><?php echo $data_lap_ari_transfer->rendemen_total; ?>
-                                                        <input type="hidden" name="trans_rendemen_<?php echo replaceKat($tdat_tr->kode_kat_ptp)."_".$rowLap_tim_transfer->kode_plant_trasnfer;?>" value="<?php echo $data_lap_ari_transfer->rendemen_total; ?>">
+                                                    <td><?php echo isset($sum_transfer->sum_qty_kristal) ? $sum_transfer->sum_qty_kristal : "-"; ?></td>
+                                                    <td><?php echo isset($ari_transfer->rendemen_total) ? $ari_transfer->rendemen_total : "-"; ?>
+                                                        <?php if(isset($ari_transfer->rendemen_total)) { ?>
+                                                            <input type="hidden" name="trans_rendemen_<?php echo replaceKat($tdat_tr->kode_kat_ptp)."_".$row_plant->kode_plant_trasnfer;?>" value="<?php echo $ari_transfer->rendemen_total; ?>">
+                                                        <?php } ?>
                                                     </td>
-                                                    <td></td>
-                                                    <td><?php echo number_format($data_lap_ari_transfer->gula_ptr); ?>
-                                                        <input type="hidden" name="trans_qty_gula_ptr_<?php echo replaceKat($tdat_tr->kode_kat_ptp)."_".$rowLap_tim_transfer->kode_plant_trasnfer;?>" value="<?php echo $data_lap_ari_transfer->gula_ptr; ?>">
+                                                    <td><?php echo isset($sum_transfer->total_rendemen) ? $sum_transfer->total_rendemen : "-"; ?></td>
+                                                    <td><?php echo isset($ari_transfer->gula_ptr) ? number_format($ari_transfer->gula_ptr) : "-"; ?>
+                                                        <?php if(isset($ari_transfer->gula_ptr)) { ?>
+                                                            <input type="hidden" name="trans_qty_gula_ptr_<?php echo replaceKat($tdat_tr->kode_kat_ptp)."_".$row_plant->kode_plant_trasnfer;?>" value="<?php echo $ari_transfer->gula_ptr; ?>">
+                                                        <?php } ?>
                                                     </td>
-                                                    <td></td>
-                                                    <td><?php echo number_format($data_lap_ari_transfer->tetes_ptr); ?>
-                                                        <input type="hidden" name="trans_qty_tetes_ptr_<?php echo replaceKat($tdat_tr->kode_kat_ptp)."_".$rowLap_tim_transfer->kode_plant_trasnfer;?>" value="<?php echo $data_lap_ari_transfer->tetes_ptr; ?>">
+                                                    <td><?php echo isset($sum_transfer->sum_qty_gula_ptr) ? $sum_transfer->sum_qty_gula_ptr : "-"; ?></td>
+                                                    <td><?php echo isset($ari_transfer->tetes_ptr) ? number_format($ari_transfer->tetes_ptr) : "-"; ?>
+                                                        <?php if(isset($ari_transfer->tetes_ptr)){ ?>
+                                                            <input type="hidden" name="trans_qty_tetes_ptr_<?php echo replaceKat($tdat_tr->kode_kat_ptp)."_".$row_plant->kode_plant_trasnfer;?>" value="<?php echo $ari_transfer->tetes_ptr; ?>">
+                                                        <?php } ?>
                                                     </td>
-                                                    <td></td>
+                                                    <td><?php echo isset($sum_transfer->sum_qty_tetes_ptr) ? $sum_transfer->sum_qty_tetes_ptr : "-"; ?></td>
                                                 </tr>
                                             <?php }?>
                                         <?php }?>
 
                                         <?php if($tdat_tr->kode_kat_ptp == "TR-TM"){?>
                                             <?php
-                                            $data_lap_timb_transfer = $ci->lapproduksimodel->VwKategoriByTimbanganTransfer($tdat_tr->kode_kat_ptp, $hari_giling);
+                                            $data_group_plant = $ci->lapproduksimodel->GroupPlant($tdat_tr->kode_kat_ptp);
                                             ?>
-                                            <?php foreach($data_lap_timb_transfer as $rowLap_tim_transfer) {?>
+                                            <?php foreach($data_group_plant as $row_plant) { ?>
                                                 <?php
-                                                $data_lap_ari_transfer = $ci->lapproduksimodel->VwKategoriByAriTransfer($tdat_tr->kode_kat_ptp, $rowLap_tim_transfer->kode_plant_trasnfer, $hari_giling);
+                                                $timb_transfer = $ci->lapproduksimodel->VwKategoriByTimbanganTransfer($tdat_tr->kode_kat_ptp, $row_plant->kode_plant_trasnfer, $hari_giling);
+                                                $ari_transfer = $ci->lapproduksimodel->VwKategoriByAriTransfer($tdat_tr->kode_kat_ptp, $row_plant->kode_plant_trasnfer, $hari_giling);
+                                                $sum_transfer = $ci->lapproduksimodel->SumLapTrans($tdat_tr->kode_kat_ptp, $row_plant->kode_plant_trasnfer, $hari_giling);
                                                 ?>
                                                 <tr>
-                                                    <td> -- <?php echo $rowLap_tim_transfer->nama_plant." (".$rowLap_tim_transfer->kode_plant_trasnfer.")"; ?></td>
-                                                    <input type="hidden" name="trans_kode_kat_lahan_<?php echo replaceKat($tdat_tr->kode_kat_ptp)."_".$rowLap_tim_transfer->kode_plant_trasnfer;?>" value="<?php echo $tdat_tr->kat_sap; ?>">
-                                                    <input type="hidden" name="trans_kat_ptpn_<?php echo replaceKat($tdat_tr->kode_kat_ptp)."_".$rowLap_tim_transfer->kode_plant_trasnfer;?>" value="<?php echo $tdat_tr->kode_kat_ptp; ?>">
-                                                    <input type="hidden" name="trans_kat_kepemilikan_<?php echo replaceKat($tdat_tr->kode_kat_ptp)."_".$rowLap_tim_transfer->kode_plant_trasnfer;?>" value="TR">
-                                                    <td><?php echo $rowLap_tim_transfer->ha_tertebang_field; ?>
-                                                        <input type="hidden" name="trans_ha_tertebang_<?php echo replaceKat($tdat_tr->kode_kat_ptp)."_".$rowLap_tim_transfer->kode_plant_trasnfer;?>" value="<?php echo $rowLap_tim_transfer->ha_tertebang_field; ?>">
+                                                    <td> -- <?php echo $row_plant->nama_plant." (".$row_plant->kode_plant_trasnfer.")"; ?></td>
+                                                    <input type="hidden" name="trans_kode_kat_lahan_<?php echo replaceKat($tdat_tr->kode_kat_ptp)."_".$row_plant->kode_plant_trasnfer;?>" value="<?php echo $tdat_tr->kat_sap; ?>">
+                                                    <input type="hidden" name="trans_kat_ptpn_<?php echo replaceKat($tdat_tr->kode_kat_ptp)."_".$row_plant->kode_plant_trasnfer;?>" value="<?php echo $tdat_tr->kode_kat_ptp; ?>">
+                                                    <input type="hidden" name="trans_kat_kepemilikan_<?php echo replaceKat($tdat_tr->kode_kat_ptp)."_".$row_plant->kode_plant_trasnfer;?>" value="TR">
+                                                    <td><?php echo isset($timb_transfer->ha_tertebang_field) ? $timb_transfer->ha_tertebang_field : "-"; ?>
+                                                        <?php if(isset($timb_transfer->ha_tertebang_field)){ ?>
+                                                            <input type="hidden" name="trans_ha_tertebang_<?php echo replaceKat($tdat_tr->kode_kat_ptp)."_".$row_plant->kode_plant_trasnfer;?>" value="<?php echo $timb_transfer->ha_tertebang_field; ?>">
+                                                        <?php } ?>
                                                     </td>
-                                                    <td></td>
-                                                    <td><?php echo number_format($rowLap_tim_transfer->netto); ?>
-                                                        <input type="hidden" name="trans_qty_tertebang_<?php echo replaceKat($tdat_tr->kode_kat_ptp)."_".$rowLap_tim_transfer->kode_plant_trasnfer;?>" value="<?php echo $rowLap_tim_transfer->netto; ?>">
+                                                    <td><?php echo isset($sum_transfer->sum_ha_tertebang) ? $sum_transfer->sum_ha_tertebang : "-"; ?></td>
+                                                    <td><?php echo isset($timb_transfer->netto) ? number_format($timb_transfer->netto) : "-"; ?>
+                                                        <?php if(isset($timb_transfer->netto)){ ?>
+                                                            <input type="hidden" name="trans_qty_tertebang_<?php echo replaceKat($tdat_tr->kode_kat_ptp)."_".$row_plant->kode_plant_trasnfer;?>" value="<?php echo $timb_transfer->netto; ?>">
+                                                        <?php } ?>
                                                     </td>
-                                                    <td></td>
-                                                    <td><?php echo $data_lap_ari_transfer->ha_tertebang_field; ?>
-                                                        <input type="hidden" name="trans_ha_digiling_<?php echo replaceKat($tdat_tr->kode_kat_ptp)."_".$rowLap_tim_transfer->kode_plant_trasnfer;?>" value="<?php echo $data_lap_ari_transfer->ha_tertebang_field; ?>">
+                                                    <td><?php echo isset($sum_transfer->sum_qty_tertebang) ? $sum_transfer->sum_qty_tertebang : "-"; ?></td>
+                                                    <td><?php echo isset($ari_transfer->ha_tertebang_field) ? $ari_transfer->ha_tertebang_field : "-"; ?>
+                                                        <?php if(isset($ari_transfer->ha_tertebang_field)) { ?>
+                                                            <input type="hidden" name="trans_ha_digiling_<?php echo replaceKat($tdat_tr->kode_kat_ptp)."_".$row_plant->kode_plant_trasnfer;?>" value="<?php echo $ari_transfer->ha_tertebang_field; ?>">
+                                                        <?php } ?>
                                                     </td>
-                                                    <td></td>
-                                                    <td><?php echo number_format($data_lap_ari_transfer->netto); ?>
-                                                        <input type="hidden" name="trans_qty_digiling_<?php echo replaceKat($tdat_tr->kode_kat_ptp)."_".$rowLap_tim_transfer->kode_plant_trasnfer;?>" value="<?php echo $data_lap_ari_transfer->netto; ?>">
+                                                    <td><?php echo isset($sum_transfer->sum_ha_digiiling) ? $sum_transfer->sum_ha_digiiling : "-"; ?></td>
+                                                    <td><?php echo isset($ari_transfer->netto) ? number_format($ari_transfer->netto) : "-"; ?>
+                                                        <?php if(isset($ari_transfer->netto)) { ?>
+                                                            <input type="hidden" name="trans_qty_digiling_<?php echo replaceKat($tdat_tr->kode_kat_ptp)."_".$row_plant->kode_plant_trasnfer;?>" value="<?php echo $ari_transfer->netto; ?>">
+                                                        <?php } ?>
                                                     </td>
-                                                    <td></td>
-                                                    <td><?php echo number_format($data_lap_ari_transfer->hablur); ?>
-                                                        <input type="hidden" name="trans_qty_kristal_<?php echo replaceKat($tdat_tr->kode_kat_ptp)."_".$rowLap_tim_transfer->kode_plant_trasnfer;?>" value="<?php echo $data_lap_ari_transfer->hablur; ?>">
+                                                    <td><?php echo isset($sum_transfer->sum_qty_digiling) ? $sum_transfer->sum_qty_digiling : "-"; ?></td>
+                                                    <td><?php echo isset($ari_transfer->hablur) ? number_format($ari_transfer->hablur) : "-"; ?>
+                                                        <?php if(isset($ari_transfer->hablur)) { ?>
+                                                            <input type="hidden" name="trans_qty_kristal_<?php echo replaceKat($tdat_tr->kode_kat_ptp)."_".$row_plant->kode_plant_trasnfer;?>" value="<?php echo $ari_transfer->hablur; ?>">
+                                                        <?php } ?>
                                                     </td>
-                                                    <td></td>
-                                                    <td><?php echo $data_lap_ari_transfer->rendemen_total; ?>
-                                                        <input type="hidden" name="trans_rendemen_<?php echo replaceKat($tdat_tr->kode_kat_ptp)."_".$rowLap_tim_transfer->kode_plant_trasnfer;?>" value="<?php echo $data_lap_ari_transfer->rendemen_total; ?>">
+                                                    <td><?php echo isset($sum_transfer->sum_qty_kristal) ? $sum_transfer->sum_qty_kristal : "-"; ?></td>
+                                                    <td><?php echo isset($ari_transfer->rendemen_total) ? $ari_transfer->rendemen_total : "-"; ?>
+                                                        <?php if(isset($ari_transfer->rendemen_total)) { ?>
+                                                            <input type="hidden" name="trans_rendemen_<?php echo replaceKat($tdat_tr->kode_kat_ptp)."_".$row_plant->kode_plant_trasnfer;?>" value="<?php echo $ari_transfer->rendemen_total; ?>">
+                                                        <?php } ?>
                                                     </td>
-                                                    <td></td>
-                                                    <td><?php echo number_format($data_lap_ari_transfer->gula_ptr); ?>
-                                                        <input type="hidden" name="trans_qty_gula_ptr_<?php echo replaceKat($tdat_tr->kode_kat_ptp)."_".$rowLap_tim_transfer->kode_plant_trasnfer;?>" value="<?php echo $data_lap_ari_transfer->gula_ptr; ?>">
+                                                    <td><?php echo isset($sum_transfer->total_rendemen) ? $sum_transfer->total_rendemen : "-"; ?></td>
+                                                    <td><?php echo isset($ari_transfer->gula_ptr) ? number_format($ari_transfer->gula_ptr) : "-"; ?>
+                                                        <?php if(isset($ari_transfer->gula_ptr)) { ?>
+                                                            <input type="hidden" name="trans_qty_gula_ptr_<?php echo replaceKat($tdat_tr->kode_kat_ptp)."_".$row_plant->kode_plant_trasnfer;?>" value="<?php echo $ari_transfer->gula_ptr; ?>">
+                                                        <?php } ?>
                                                     </td>
-                                                    <td></td>
-                                                    <td><?php echo number_format($data_lap_ari_transfer->tetes_ptr); ?>
-                                                        <input type="hidden" name="trans_qty_tetes_ptr_<?php echo replaceKat($tdat_tr->kode_kat_ptp)."_".$rowLap_tim_transfer->kode_plant_trasnfer;?>" value="<?php echo $data_lap_ari_transfer->tetes_ptr; ?>">
+                                                    <td><?php echo isset($sum_transfer->sum_qty_gula_ptr) ? $sum_transfer->sum_qty_gula_ptr : "-"; ?></td>
+                                                    <td><?php echo isset($ari_transfer->tetes_ptr) ? number_format($ari_transfer->tetes_ptr) : "-"; ?>
+                                                        <?php if(isset($ari_transfer->tetes_ptr)){ ?>
+                                                            <input type="hidden" name="trans_qty_tetes_ptr_<?php echo replaceKat($tdat_tr->kode_kat_ptp)."_".$row_plant->kode_plant_trasnfer;?>" value="<?php echo $ari_transfer->tetes_ptr; ?>">
+                                                        <?php } ?>
                                                     </td>
-                                                    <td></td>
+                                                    <td><?php echo isset($sum_transfer->sum_qty_tetes_ptr) ? $sum_transfer->sum_qty_tetes_ptr : "-"; ?></td>
                                                 </tr>
                                             <?php }?>
                                         <?php }?>
@@ -486,20 +557,10 @@
                                 <hr>
                                 <div class="col-md-12">
                                     <div class='form-horizontal'>
-                                        <div class="col-md-6">
-                                        <div class="form-group" >
-                                            <label for="Tgl Laporan Produksi" class=" control-label col-md-4 text-left"> Tgl Lap. Produksi </label>
-                                            <div class="col-md-8">
-                                                <input type='text' class='form-control input-sm date' placeholder='' value='<?php echo date('Y-m-d'); ?>' name='tgl_laporan_produksi'/> <br />
-                                                <input type='hidden' class='form-control input-sm date' placeholder='' value='<?php echo $hari_giling; ?>' name='hari_giling'/> <br />
-                                                <i> <small></small></i>
-                                            </div>
-                                        </div>
-                                        </div>
-                                        <div class="col-md-6">
+                                        <div class="col-md-12">
                                             <div class="form-group" >
                                                 <div class="toolbar-line text-center">
-                                                    <button type="submit" class="btn btn-primary">SIMPAN</button>
+                                                    <button type="submit" class="btn btn-primary">POSTING</button>
                                                 </div>
                                             </div>
                                         </div>
