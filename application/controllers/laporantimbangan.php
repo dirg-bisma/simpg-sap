@@ -80,6 +80,8 @@ class Laporantimbangan extends SB_Controller
 		}
 
 
+
+
 		
 		if(isset($_REQUEST['excel']) && $_REQUEST['excel'] == 1){
 				$file = "Laporan Timbangan - PERIODE ".SiteHelpers::datereport($tgl1)." s/d ".SiteHelpers::datereport($tgl2).".xls";

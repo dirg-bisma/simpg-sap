@@ -71,7 +71,7 @@ $gtruk = 0;$glori = 0;$gha = 0;$gnetto = 0;$gtha = 0;$godong2 = 0;$gtraktor = 0;
 	 if($kat != $r->stt_ta_text && $i != 0){
 		?>
 		<tr style="font-weight:bold;background:#3c8dbc;color:white">
-<td colspan="9"> JUMLAH <?php echo $kat;?> </td><td align="center"><?php echo $truk;?></td><td align="center"><?php echo $lori;?></td><td align="center"><?php echo $odong2;?></td><td align="center"><?php echo $traktor;?></td><td align="right"><?php echo number_format($ha,4);?></td><td align="right"><?php echo number_format($netto,0);?></td><td></td><td align="right"></td></tr>
+<td colspan="9"> JUMLAH <?php echo $kat;?> </td><td align="center"><?php echo $truk;?></td><td align="center"><?php echo $lori;?></td><td align="center"><?php echo $odong2;?></td><td align="center"><?php echo $traktor;?></td><td align="right"><?php echo number_format($ha,4);?></td><td align="right"><?php echo number_format($netto,0);?></td><td></td><td align="right"></td><td></td></tr>
 		<?php
 		$truk = 0;$lori = 0;$ha = 0;$netto = 0;$tha = 0;$i=0; $odong2 = 0;$traktor = 0;
 	 }
@@ -102,7 +102,7 @@ $gtruk = 0;$glori = 0;$gha = 0;$gnetto = 0;$gtha = 0;$godong2 = 0;$gtraktor = 0;
  }
 ?>
 <tr style="font-weight:bold;background:#3c8dbc;color:white">
-<td colspan="9"> JUMLAH <?php echo $kat;?> </td><td align="center"><?php echo $truk;?></td><td align="center"><?php echo $lori;?></td><td align="center"><?php echo $odong2;?></td><td align="center"><?php echo $traktor;?></td><td align="right"><?php echo number_format($ha,4);?></td><td align="right"><?php echo number_format($netto,0);?></td><td></td><td align="right"><td></td></td></tr>
+<td colspan="9"> JUMLAH <?php echo $kat;?> </td><td align="center"><?php echo $truk;?></td><td align="center"><?php echo $lori;?></td><td align="center"><?php echo $odong2;?></td><td align="center"><?php echo $traktor;?></td><td align="right"><?php echo number_format($ha,4);?></td><td align="right"><?php echo number_format($netto,0);?></td><td></td><td align="right"></td><td></td></tr>
 </tbody>
 <tfoot><tr style="font-weight:bold;background:#104E8B;color:white">
     <td colspan="9"> GRAND TOTAL </td><td align="center"><?php echo $gtruk;?></td><td align="center"><?php echo $glori;?></td><td align="center"><?php echo $godong2;?></td><td align="center"><?php echo $gtraktor;?></td><td align="right"><?php echo number_format($gha,4);?></td><td align="right"><?php echo number_format($gnetto,0);?></td><td></td><td align="right"></td><td></td></tr></tfoot>
