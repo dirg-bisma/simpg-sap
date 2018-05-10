@@ -109,7 +109,13 @@
 </div>
 
 <script type="text/javascript">
-firebaseapp('<?php echo  CNF_PLANCODE ;?>');
+<?php
+if(md5(CNF_PLANCODE) == CNF_KEYSYNC){
+?>
+  firebaseapp('<?php echo  CNF_PLANCODE ;?>');
+<?php
+}
+?>
 </script>
 
 <script type="text/javascript">
