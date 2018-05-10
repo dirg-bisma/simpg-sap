@@ -6,27 +6,76 @@ class Senddatatoserver extends CI_Controller {
 	public function syncByLog()
 	{
 		$result = $this->db->query('SELECT * FROM tb_logs_sync_process where t_status = 0')->result();
+		
+		$sptaid = array(); $sptalogid = array();
+		$selid = array(); $sellogid = array();
+		$timid = array(); $timlogid = array();
+		$mtid = array(); $mtlogid = array();
+		$ariid = array(); $arilogid = array();
+		
 		foreach ($result as $key => $value) {
 			if ($value->t_table === "t_spta") {
-				$this->gett_spta($value->t_id);
+				//$arr['spta'][] = $value->t_id;
+				array_push($sptaid,$value->t_id);
+				array_push($sptalogid,$value->id);
+				
 			}else if ($value->t_table === "t_selektor") {
-				$this->gett_selektor($value->t_id);
+				//$this->gett_selektor($value->t_id,$value->id);
+				array_push($selid,$value->t_id);
+				array_push($sellogid,$value->id);
+				
 			}else if ($value->t_table === "t_timbangan") {
-				$this->gett_timbangan($value->t_id);
+				//$this->gett_timbangan($value->t_id,$value->id);
+				array_push($timid,$value->t_id);
+				array_push($timlogid,$value->id);
+				
 			}else if ($value->t_table === "t_meja_tebu") {
-				$this->gett_meja_tebu($value->t_id);
+				//$this->gett_meja_tebu($value->t_id);
+				array_push($mtid,$value->t_id);
+				array_push($mtlogid,$value->id);
+				
 			}else if ($value->t_table === "t_ari") {
-				$this->gett_ari($value->t_id);
+				//$this->gett_ari($value->t_id,$value->id);
+				array_push($ariid,$value->t_id);
+				array_push($arilogid,$value->id);
+				
 			}
-		$this->db->update('tb_logs_sync_process', array('t_status'=>1), array('id'=>$value->id));
 		}
-
+		
+		
+		if (!empty($sptaid)) {
+			$this->gett_spta($sptaid,$sptalogid); 
+		}
+		
+		if (!empty($selid)) {
+			$this->gett_selektor($selid,$sellogid);
+		}
+		
+		if (!empty($timid)) {
+			$this->gett_timbangan($timid,$timlogid);
+		}
+		
+		if (!empty($mtid)) {
+			$this->gett_meja_tebu($mtid,$mtlogid);
+		}
+		
+		if (!empty($ariid)) {
+			$this->gett_ari($ariid,$arilogid);
+		}
+		
+		
+		
+		
 	}
 
-	public function getViewSBH($id)
+	public function gett_spta($id,$idlog)
 	{
-		$result = $this->db->query('SELECT * FROM vw_sbh_data where id='.$id)->result();
-		$url = 'http://localhost/simpgdb/index.php/dashboard/UploadSbh';
+		$id = implode(",", $id);
+		$idlog = implode(",", $idlog);
+		
+		if($id != ''){
+		$result = $this->db->query('SELECT * FROM t_spta where id IN ('.$id.')')->result();
+		$url= 'http://devproduksi.ptpn11.co.id/simpgdb/index.php/dashboard/Uploadt_spta/'.CNF_COMPANYCODE.'/'.CNF_PLANCODE;
 	    $ch = curl_init($url);
 	    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 	    curl_setopt($ch, CURLOPT_POST, true);
@@ -35,31 +84,31 @@ class Senddatatoserver extends CI_Controller {
 	    );
 	    curl_setopt($ch, CURLOPT_POSTFIELDS, $post); 
 	    $response = curl_exec($ch);
+		
+		
+		// Check HTTP status code
+		if (!curl_errno($ch)) {
+		  switch ($http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE)) {
+			case 200:  # OK
+				$this->db->query("UPDATE tb_logs_sync_process SET t_status=1 WHERE id IN (".$idlog.")");
+			break;
+		  }
+		}
+		
 	    echo $response;
 	    curl_close($ch);
+		}
+		
 
 	}
-
-	public function gett_spta($id)
-	{
-		$result = $this->db->query('SELECT * FROM t_spta where id='.$id)->result();
-		$url= 'http://localhost/simpgdb/index.php/dashboard/Uploadt_spta';
-	    $ch = curl_init($url);
-	    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-	    curl_setopt($ch, CURLOPT_POST, true);
-	    $post = array(
-	        "data" => base64_encode(json_encode($result))
-	    );
-	    curl_setopt($ch, CURLOPT_POSTFIELDS, $post); 
-	    $response = curl_exec($ch);
-	    echo $response;
-	    curl_close($ch);
-
-	}
-	public function gett_selektor($id)
+	public function gett_selektor($id,$idlog)
 		{
+			$id = implode(",", $id);
+			$idlog = implode(",", $idlog);
+		
+		if($id != ''){
 			$result = $this->db->query('SELECT * FROM t_selektor where id_spta='.$id)->result();
-			$url = 'http://localhost/simpgdb/index.php/dashboard/Uploadt_selektor';
+			$url = 'http://devproduksi.ptpn11.co.id/simpgdb/index.php/dashboard/Uploadt_selektor/'.CNF_COMPANYCODE.'/'.CNF_PLANCODE;
 		    $ch = curl_init($url);
 		    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 		    curl_setopt($ch, CURLOPT_POST, true);
@@ -68,14 +117,29 @@ class Senddatatoserver extends CI_Controller {
 		    );
 		    curl_setopt($ch, CURLOPT_POSTFIELDS, $post); 
 		    $response = curl_exec($ch);
+			
+			// Check HTTP status code
+		if (!curl_errno($ch)) {
+		  switch ($http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE)) {
+			case 200:  # OK
+				$this->db->query("UPDATE tb_logs_sync_process SET t_status=1 WHERE id IN (".$idlog.")");
+			break;
+		  }
+		}
+		
 		    echo $response;
 		    curl_close($ch);
+		}
 
 		}
-	public function gett_timbangan($id)
+	public function gett_timbangan($id,$idlog)
 		{
+			$id = implode(",", $id);
+			$idlog = implode(",", $idlog);
+		
+		if($id != ''){
 			$result = $this->db->query('SELECT * FROM t_timbangan where id_spat='.$id)->result();
-			$url = 'http://localhost/simpgdb/index.php/dashboard/Uploadt_timbangan';
+			$url = 'http://devproduksi.ptpn11.co.id/simpgdb/index.php/dashboard/Uploadt_timbangan/'.CNF_COMPANYCODE.'/'.CNF_PLANCODE;
 		    $ch = curl_init($url);
 		    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 		    curl_setopt($ch, CURLOPT_POST, true);
@@ -84,14 +148,30 @@ class Senddatatoserver extends CI_Controller {
 		    );
 		    curl_setopt($ch, CURLOPT_POSTFIELDS, $post); 
 		    $response = curl_exec($ch);
+			
+			// Check HTTP status code
+		if (!curl_errno($ch)) {
+		  switch ($http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE)) {
+			case 200:  # OK
+				$this->db->query("UPDATE tb_logs_sync_process SET t_status=1 WHERE id IN (".$idlog.")");
+			break;
+		  }
+		}
+		
 		    echo $response;
 		    curl_close($ch);
+		}
 
 		}
-	public function gett_meja_tebu($id)
+	public function gett_meja_tebu($id,$idlog)
 		{
-			$result = $this->db->query('SELECT * FROM t_meja_tebu where id_spat='.$id)->result();
-			$url = 'http://localhost/simpgdb/index.php/dashboard/Uploadt_meja_tebu';
+			$id = implode(",", $id);
+			$idlog = implode(",", $idlog);
+			
+			if($id != ''){
+		
+			$result = $this->db->query('SELECT * FROM t_meja_tebu where id_spta='.$id)->result();
+			$url = 'http://devproduksi.ptpn11.co.id/simpgdb/index.php/dashboard/Uploadt_meja_tebu/'.CNF_COMPANYCODE.'/'.CNF_PLANCODE;
 		    $ch = curl_init($url);
 		    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 		    curl_setopt($ch, CURLOPT_POST, true);
@@ -100,14 +180,29 @@ class Senddatatoserver extends CI_Controller {
 		    );
 		    curl_setopt($ch, CURLOPT_POSTFIELDS, $post); 
 		    $response = curl_exec($ch);
+			
+			// Check HTTP status code
+		if (!curl_errno($ch)) {
+		  switch ($http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE)) {
+			case 200:  # OK
+				$this->db->query("UPDATE tb_logs_sync_process SET t_status=1 WHERE id IN (".$idlog.")");
+			break;
+		  }
+		}
+		
 		    echo $response;
 		    curl_close($ch);
+			}
 
 		}
-	public function gett_ari($id)
+	public function gett_ari($id,$idlog)
 		{
-			$result = $this->db->query('SELECT * FROM t_ari where id_spat='.$id)->result();
-			$url = 'http://localhost/simpgdb/index.php/dashboard/Uploadt_ari';
+			$id = implode(",", $id);
+			$idlog = implode(",", $idlog);
+			
+			if($id != ''){
+			$result = $this->db->query('SELECT * FROM t_ari where id_spta='.$id)->result();
+			$url = 'http://devproduksi.ptpn11.co.id/simpgdb/index.php/dashboard/Uploadt_ari/'.CNF_COMPANYCODE.'/'.CNF_PLANCODE;
 		    $ch = curl_init($url);
 		    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 		    curl_setopt($ch, CURLOPT_POST, true);
@@ -116,8 +211,19 @@ class Senddatatoserver extends CI_Controller {
 		    );
 		    curl_setopt($ch, CURLOPT_POSTFIELDS, $post); 
 		    $response = curl_exec($ch);
+			
+			// Check HTTP status code
+		if (!curl_errno($ch)) {
+		  switch ($http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE)) {
+			case 200:  # OK
+				$this->db->query("UPDATE tb_logs_sync_process SET t_status=1 WHERE id IN (".$idlog.")");
+			break;
+		  }
+		}
+		
 		    echo $response;
 		    curl_close($ch);
+			}
 
 		}
 
