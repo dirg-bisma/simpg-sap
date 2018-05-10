@@ -87,7 +87,7 @@ class Senddatatoserver extends CI_Controller {
 		if (!curl_errno($ch)) {
 		  switch ($http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE)) {
 			case 200:  # OK
-				$this->db->query("DELETE FROM tb_logs_sync_process");
+				$this->db->query("DELETE FROM tb_logs_sync_process WHERE id IN (".$idlog.")");
 			break;
 		  }
 		}
@@ -118,7 +118,7 @@ class Senddatatoserver extends CI_Controller {
 		if (!curl_errno($ch)) {
 		  switch ($http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE)) {
 			case 200:  # OK
-				$this->db->query("DELETE FROM tb_logs_sync_process");
+				$this->db->query("DELETE FROM tb_logs_sync_process WHERE id IN (".$idlog.")");
 			break;
 		  }
 		}
@@ -148,7 +148,7 @@ class Senddatatoserver extends CI_Controller {
 		if (!curl_errno($ch)) {
 		  switch ($http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE)) {
 			case 200:  # OK
-				$this->db->query("DELETE FROM tb_logs_sync_process");
+				$this->db->query("DELETE FROM tb_logs_sync_process WHERE id IN (".$idlog.")");
 			break;
 		  }
 		}
@@ -179,7 +179,7 @@ class Senddatatoserver extends CI_Controller {
 		if (!curl_errno($ch)) {
 		  switch ($http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE)) {
 			case 200:  # OK
-				$this->db->query("DELETE FROM tb_logs_sync_process");
+				$this->db->query("DELETE FROM tb_logs_sync_process WHERE id IN (".$idlog.")");
 			break;
 		  }
 		}
@@ -209,7 +209,7 @@ class Senddatatoserver extends CI_Controller {
 		if (!curl_errno($ch)) {
 		  switch ($http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE)) {
 			case 200:  # OK
-				$this->db->query("DELETE FROM tb_logs_sync_process");
+				$this->db->query("DELETE FROM tb_logs_sync_process WHERE id IN (".$idlog.")");
 			break;
 		  }
 		}
