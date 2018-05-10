@@ -87,7 +87,7 @@ class Senddatatoserver extends CI_Controller {
 		if (!curl_errno($ch)) {
 		  switch ($http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE)) {
 			case 200:  # OK
-				$this->db->query("UPDATE tb_logs_sync_process SET t_status=1 WHERE id IN (".$idlog.")");
+				$this->db->query("DELETE FROM tb_logs_sync_process");
 			break;
 		  }
 		}
@@ -118,7 +118,7 @@ class Senddatatoserver extends CI_Controller {
 		if (!curl_errno($ch)) {
 		  switch ($http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE)) {
 			case 200:  # OK
-				$this->db->query("UPDATE tb_logs_sync_process SET t_status=1 WHERE id IN (".$idlog.")");
+				$this->db->query("DELETE FROM tb_logs_sync_process");
 			break;
 		  }
 		}
@@ -148,7 +148,7 @@ class Senddatatoserver extends CI_Controller {
 		if (!curl_errno($ch)) {
 		  switch ($http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE)) {
 			case 200:  # OK
-				$this->db->query("UPDATE tb_logs_sync_process SET t_status=1 WHERE id IN (".$idlog.")");
+				$this->db->query("DELETE FROM tb_logs_sync_process");
 			break;
 		  }
 		}
@@ -179,7 +179,7 @@ class Senddatatoserver extends CI_Controller {
 		if (!curl_errno($ch)) {
 		  switch ($http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE)) {
 			case 200:  # OK
-				$this->db->query("UPDATE tb_logs_sync_process SET t_status=1 WHERE id IN (".$idlog.")");
+				$this->db->query("DELETE FROM tb_logs_sync_process");
 			break;
 		  }
 		}
@@ -209,7 +209,7 @@ class Senddatatoserver extends CI_Controller {
 		if (!curl_errno($ch)) {
 		  switch ($http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE)) {
 			case 200:  # OK
-				$this->db->query("UPDATE tb_logs_sync_process SET t_status=1 WHERE id IN (".$idlog.")");
+				$this->db->query("DELETE FROM tb_logs_sync_process");
 			break;
 		  }
 		}
