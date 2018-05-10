@@ -156,7 +156,7 @@ class Lapproduksimodel extends SB_Model
         return $result->row();
     }
 
-    public function SumLapTrans($plant, $kat, $hari)
+    public function SumLapTrans($kat, $plant,  $hari)
     {
         $qry = "SELECT 
                 SUM(a.`ha_tertebang`) AS sum_ha_tertebang,
