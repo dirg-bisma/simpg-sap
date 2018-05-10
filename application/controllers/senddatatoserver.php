@@ -1,8 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
 class Senddatatoserver extends CI_Controller {
-
 	public function syncByLog()
 	{
 		$result = $this->db->query('SELECT * FROM tb_logs_sync_process where t_status = 0')->result();
@@ -67,7 +65,6 @@ class Senddatatoserver extends CI_Controller {
 		
 		
 	}
-
 	public function gett_spta($id,$idlog)
 	{
 		$id = implode(",", $id);
@@ -99,7 +96,6 @@ class Senddatatoserver extends CI_Controller {
 	    curl_close($ch);
 		}
 		
-
 	}
 	public function gett_selektor($id,$idlog)
 		{
@@ -107,7 +103,7 @@ class Senddatatoserver extends CI_Controller {
 			$idlog = implode(",", $idlog);
 		
 		if($id != ''){
-			$result = $this->db->query('SELECT * FROM t_selektor where id_spta='.$id)->result();
+			$result = $this->db->query('SELECT * FROM t_selektor where id_spta  IN ('.$id.')')->result();
 			$url = 'http://devproduksi.ptpn11.co.id/simpgdb/index.php/dashboard/Uploadt_selektor/'.CNF_COMPANYCODE.'/'.CNF_PLANCODE;
 		    $ch = curl_init($url);
 		    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -130,7 +126,6 @@ class Senddatatoserver extends CI_Controller {
 		    echo $response;
 		    curl_close($ch);
 		}
-
 		}
 	public function gett_timbangan($id,$idlog)
 		{
@@ -138,7 +133,7 @@ class Senddatatoserver extends CI_Controller {
 			$idlog = implode(",", $idlog);
 		
 		if($id != ''){
-			$result = $this->db->query('SELECT * FROM t_timbangan where id_spat='.$id)->result();
+			$result = $this->db->query('SELECT * FROM t_timbangan where id_spat IN ('.$id.')')->result();
 			$url = 'http://devproduksi.ptpn11.co.id/simpgdb/index.php/dashboard/Uploadt_timbangan/'.CNF_COMPANYCODE.'/'.CNF_PLANCODE;
 		    $ch = curl_init($url);
 		    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -161,7 +156,6 @@ class Senddatatoserver extends CI_Controller {
 		    echo $response;
 		    curl_close($ch);
 		}
-
 		}
 	public function gett_meja_tebu($id,$idlog)
 		{
@@ -170,7 +164,7 @@ class Senddatatoserver extends CI_Controller {
 			
 			if($id != ''){
 		
-			$result = $this->db->query('SELECT * FROM t_meja_tebu where id_spta='.$id)->result();
+			$result = $this->db->query('SELECT * FROM t_meja_tebu where id_spta IN ('.$id.')')->result();
 			$url = 'http://devproduksi.ptpn11.co.id/simpgdb/index.php/dashboard/Uploadt_meja_tebu/'.CNF_COMPANYCODE.'/'.CNF_PLANCODE;
 		    $ch = curl_init($url);
 		    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -193,7 +187,6 @@ class Senddatatoserver extends CI_Controller {
 		    echo $response;
 		    curl_close($ch);
 			}
-
 		}
 	public function gett_ari($id,$idlog)
 		{
@@ -201,7 +194,7 @@ class Senddatatoserver extends CI_Controller {
 			$idlog = implode(",", $idlog);
 			
 			if($id != ''){
-			$result = $this->db->query('SELECT * FROM t_ari where id_spta='.$id)->result();
+			$result = $this->db->query('SELECT * FROM t_ari where id_spta IN ('.$id.')')->result();
 			$url = 'http://devproduksi.ptpn11.co.id/simpgdb/index.php/dashboard/Uploadt_ari/'.CNF_COMPANYCODE.'/'.CNF_PLANCODE;
 		    $ch = curl_init($url);
 		    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -224,10 +217,7 @@ class Senddatatoserver extends CI_Controller {
 		    echo $response;
 		    curl_close($ch);
 			}
-
 		}
-
 }
-
 /* End of file senddatatoserver.php */
 /* Location: .//C/Users/hendrik/AppData/Local/Temp/fz3temp-1/senddatatoserver.php */
