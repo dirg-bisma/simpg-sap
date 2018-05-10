@@ -24,6 +24,19 @@ CREATE TABLE `tb_logs_sync_done` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=610 DEFAULT CHARSET=latin1;
 
+/*Table structure for table `tb_logs_sync_process` */
+
+DROP TABLE IF EXISTS `tb_logs_sync_process`;
+
+CREATE TABLE `tb_logs_sync_process` (
+  `id` int(100) NOT NULL AUTO_INCREMENT,
+  `t_table` varchar(100) DEFAULT NULL,
+  `t_id` int(50) DEFAULT NULL,
+  `tgl_inp` datetime DEFAULT NULL,
+  `t_status` smallint(1) DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=52 DEFAULT CHARSET=latin1;
+
 /* Trigger structure for table `sap_field_spt` */
 
 DELIMITER $$
