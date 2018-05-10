@@ -109,6 +109,7 @@ class Config extends SB_Controller  {
 			$val .= 	"define('CNF_RAFAKSI','".$this->input->post('cnf_rafaksi',true)."');\n";
 			$val .= 	"define('CNF_KONSEP','".$this->input->post('cnf_konsep',true)."');\n";
 			$val .= 	"define('CNF_HAL','".$this->input->post('cnf_hal',true)."');\n";
+			$val .= 	"define('CNF_KEYSYNC','".$this->input->post('cnf_keysync',true)."');\n";
 			$val .= 	"include 'setpengolahan.php';\n";
 			$val .= 	"?>";
 				

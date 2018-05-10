@@ -72,6 +72,12 @@
 			</div>
 		</div>
 
+		<div class="form-group">
+				<label for="ipt" class=" control-label col-md-4">KEY TOKEN</label>
+				<div class="col-md-8">
+						<input name="cnf_keysync" type="text" id="cnf_keysync" class="form-control input-sm" value="<?php echo  CNF_KEYSYNC ;?>" />
+				 </div>
+			  </div>
 
 			</fieldset>
 
