@@ -49,20 +49,16 @@ LEFT JOIN (SELECT COUNT(id_spta) AS ttl,CONVERT(DATE_FORMAT(a.tgl_selektor,'%H')
 INNER JOIN t_spta b ON a.`id_spta`=b.`id` WHERE a.`tgl_urut`=DATE_ADD(get_tgl_giling(),INTERVAL -1 DAY) AND b.`jenis_spta`='LORI' 
 GROUP BY DATE_FORMAT(a.tgl_selektor,'%H')) AS ylsllori ON ylsllori.jam=jm.jam 
 LEFT JOIN (SELECT SUM(netto_final) AS ttl,CONVERT(DATE_FORMAT(b.timb_netto_tgl,'%H') USING utf8) AS jam FROM t_timbangan a
-INNER JOIN t_spta b ON a.`id_spat`=b.`id` WHERE IF(STR_TO_DATE(timb_netto_tgl,'%Y-%m-%d %H:%i:%s') < STR_TO_DATE(CONCAT(DATE(timb_netto_tgl),' 06:59:59'),'%Y-%m-%d %H:%i:%s'),
-STR_TO_DATE(timb_netto_tgl,'%Y-%m-%d') - INTERVAL 1 DAY, STR_TO_DATE(timb_netto_tgl,'%Y-%m-%d'))=get_tgl_giling() AND b.`jenis_spta`='TRUK' 
+INNER JOIN t_spta b ON a.`id_spat`=b.`id` WHERE b.tgl_timbang=get_tgl_giling() AND b.`jenis_spta`='TRUK' 
 GROUP BY DATE_FORMAT(b.timb_netto_tgl,'%H')) AS timtruk ON timtruk.jam=jm.jam
 LEFT JOIN (SELECT SUM(netto_final) AS ttl,CONVERT(DATE_FORMAT(b.timb_netto_tgl,'%H') USING utf8) AS jam FROM t_timbangan a
-INNER JOIN t_spta b ON a.`id_spat`=b.`id` WHERE IF(STR_TO_DATE(timb_netto_tgl,'%Y-%m-%d %H:%i:%s') < STR_TO_DATE(CONCAT(DATE(timb_netto_tgl),' 06:59:59'),'%Y-%m-%d %H:%i:%s'),
-STR_TO_DATE(timb_netto_tgl,'%Y-%m-%d') - INTERVAL 1 DAY, STR_TO_DATE(timb_netto_tgl,'%Y-%m-%d'))=get_tgl_giling() AND b.`jenis_spta`='LORI' 
+INNER JOIN t_spta b ON a.`id_spat`=b.`id` WHERE b.tgl_timbang=get_tgl_giling() AND b.`jenis_spta`='LORI' 
 GROUP BY DATE_FORMAT(b.timb_netto_tgl,'%H')) AS timlori ON timlori.jam=jm.jam
 LEFT JOIN (SELECT SUM(netto_final) AS ttl,CONVERT(DATE_FORMAT(b.timb_netto_tgl,'%H') USING utf8) AS jam FROM t_timbangan a
-INNER JOIN t_spta b ON a.`id_spat`=b.`id` WHERE IF(STR_TO_DATE(timb_netto_tgl,'%Y-%m-%d %H:%i:%s') < STR_TO_DATE(CONCAT(DATE(timb_netto_tgl),' 06:59:59'),'%Y-%m-%d %H:%i:%s'),
-STR_TO_DATE(timb_netto_tgl,'%Y-%m-%d') - INTERVAL 1 DAY, STR_TO_DATE(timb_netto_tgl,'%Y-%m-%d'))=DATE_ADD(get_tgl_giling(),INTERVAL -1 DAY) AND b.`jenis_spta`='TRUK' 
+INNER JOIN t_spta b ON a.`id_spat`=b.`id` WHERE b.tgl_timbang=DATE_ADD(get_tgl_giling(),INTERVAL -1 DAY) AND b.`jenis_spta`='TRUK' 
 GROUP BY DATE_FORMAT(b.timb_netto_tgl,'%H')) AS yltimtruk ON yltimtruk.jam=jm.jam
 LEFT JOIN (SELECT SUM(netto_final) AS ttl,CONVERT(DATE_FORMAT(b.timb_netto_tgl,'%H') USING utf8) AS jam FROM t_timbangan a
-INNER JOIN t_spta b ON a.`id_spat`=b.`id` WHERE IF(STR_TO_DATE(timb_netto_tgl,'%Y-%m-%d %H:%i:%s') < STR_TO_DATE(CONCAT(DATE(timb_netto_tgl),' 06:59:59'),'%Y-%m-%d %H:%i:%s'),
-STR_TO_DATE(timb_netto_tgl,'%Y-%m-%d') - INTERVAL 1 DAY, STR_TO_DATE(timb_netto_tgl,'%Y-%m-%d'))=DATE_ADD(get_tgl_giling(),INTERVAL -1 DAY) AND b.`jenis_spta`='LORI' 
+INNER JOIN t_spta b ON a.`id_spat`=b.`id` WHERE b.tgl_timbang=DATE_ADD(get_tgl_giling(),INTERVAL -1 DAY) AND b.`jenis_spta`='LORI' 
 GROUP BY DATE_FORMAT(b.timb_netto_tgl,'%H')) AS yltimlori ON yltimlori.jam=jm.jam
 LEFT JOIN (SELECT SUM(netto_final) AS ttl,CONVERT(DATE_FORMAT(b.meja_tebu_tgl,'%H') USING utf8) AS jam FROM t_timbangan a
 INNER JOIN t_spta b ON a.`id_spat`=b.`id` WHERE b.`tgl_giling`=get_tgl_giling() AND b.`jenis_spta`='TRUK' 
