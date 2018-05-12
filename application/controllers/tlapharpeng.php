@@ -148,13 +148,24 @@ class Tlapharpeng extends SB_Controller
             $this->session->set_flashdata('error',SiteHelpers::alert('error','Your are not allowed to access the page'));
             redirect('dashboard',301);
         }
+        $hari_giling = $this->input->post('hari_giling');
+        $this->data['hari_giling'] = $hari_giling;
 
-        //var_dump($_POST);die();
+        $this->data['lap_sd_ts'] = $this->model->SumLapProTs($hari_giling);
+        $this->data['lap_hi_ts'] = $this->model->lapProTs($hari_giling);
+        $this->data['lap_yl_ts'] = $this->model->lapProTs($hari_giling-1);
 
-        $this->db->where('tahun_giling', CNF_TAHUNGILING);
-        $this->db->select('*');
-        $this->data['data_kemarin'] = $this->db->get('vw_lap_har_pengolahan_sum')->row();
+        $this->data['lap_sd_ts_sdr'] = $this->model->SumLapProTsSdr($hari_giling);
+        $this->data['lap_hi_ts_sdr'] = $this->model->lapProTsSdr($hari_giling);
+        $this->data['lap_yl_ts_sdr'] = $this->model->lapProTsSdr($hari_giling-1);
 
+        $this->data['lap_sd_tr'] = $this->model->SumLapProTr($hari_giling);
+        $this->data['lap_hi_tr'] = $this->model->lapProTr($hari_giling);
+        $this->data['lap_yl_tr'] = $this->model->lapProTr($hari_giling-1);
+
+        $this->data['lap_harian_hi'] = $this->model->ByHariGiling($hari_giling, CNF_TAHUNGILING);
+        $this->data['lap_harian_yl'] = $this->model->ByHariGiling($hari_giling-1, CNF_TAHUNGILING);
+        $this->data['lap_harian_sd'] = $this->model->ByHariGilingSd($hari_giling, CNF_TAHUNGILING);
 
         $this->data['content'] =  $this->load->view('tlapharpeng/form-laporan', $this->data ,true);
         $this->load->view('layouts/main', $this->data );

@@ -83,7 +83,7 @@ $gtruk = 0;$glori = 0;$gha = 0;$gnetto = 0;$gtha = 0;$godong2 = 0;$gtraktor = 0;
 	 
 	 echo '<tr><td> '.($i+1).' </td><td> '.$r->no_spat.' </td><td> '.$r->divisi.' </td><td> '.$r->kode_blok.' </td><td> '.$r->deskripsi_blok.' </td><td> '.$r->nama_petani.' </td><td> '.$r->kode_kat_lahan.'</td><td> '.$r->no_angkutan.'</td><td> '.$r->no_transloading.'</td><td align="center"> '.$r->truk.' </td><td align="center"> '.$r->lori.' </td><td align="center"> '.$r->odong2.' </td><td align="center"> '.$r->traktor.' </td><td align="right"> '.$r->tertebang.' </td>
 <td align="right"> '.number_format($r->netto,0).' </td>
-<td align="center"> '.$r->lokasi_tembang_1." - ".$r->lokasi_tembang_2.' </td>
+<td align="center"> '.$r->lokasi_timbang_1." - ".$r->lokasi_timbang_2.' </td>
 <td align="center"> '.$r->stt_ta_text.' </td><td align="right"> '.$r->timb_netto_tgl.' </td></tr>';
 	 $truk += $r->truk;
 	$lori += $r->lori;

@@ -84,9 +84,22 @@ class Lapproduksimodel extends SB_Model
 
     public function getKodeKat($jenis)
     {
-        $sql = "SELECT * FROM `m_kat_lahan_ptp` 
-				WHERE tipe_kat_lahan = '$jenis'    
-				ORDER BY id_kat_ptp";
+        $sql = "SELECT 
+                  b.`kepemilikan` as kat_sap,
+                  `get_kode_kat_lahan_ptp` (
+                    `b`.`kepemilikan`,
+                    `b`.`jenis_tanah`,
+                    `b`.`status_blok`
+                  ) AS `kode_kat_ptp`,
+                  LEFT(b.`kepemilikan`, 2) AS jenis 
+                FROM
+                  sap_field AS b 
+                  WHERE LEFT(b.`kepemilikan`, 2) = '$jenis'
+                GROUP BY `get_kode_kat_lahan_ptp` (
+                    `b`.`kepemilikan`,
+                    `b`.`jenis_tanah`,
+                    `b`.`status_blok`
+                  ) ";
         $result = $this->db->query($sql);
         return $result->result();
     }
@@ -156,7 +169,7 @@ class Lapproduksimodel extends SB_Model
         return $result->row();
     }
 
-    public function SumLapTrans($kat, $plant,  $hari)
+    public function SumLapTrans($kat, $plant, $hari)
     {
         $qry = "SELECT 
                 SUM(a.`ha_tertebang`) AS sum_ha_tertebang,
@@ -247,6 +260,14 @@ class Lapproduksimodel extends SB_Model
                 GROUP BY a.`kode_plant_trasnfer`";
         $result = $this->db->query($qry);
         return $result->result();
+    }
+
+    public function ValidasiHaTertebang($hari_gliing)
+    {
+            $qry = "UPDATE t_selektor AS a
+                    INNER JOIN t_spta AS b ON b.`id` =a.`id_spta`
+                    SET tanaman_status = 1 WHERE b.`hari_giling` = $hari_gliing";
+            $this->db->query($qry);
     }
 }
 

@@ -1,3 +1,5 @@
+setting.php
+setting.php
 .idea
 .idea/*.*
 /set-up/*.*
@@ -7,5 +9,4 @@ set-up/*.*
 /starting
 index.php
 index
-/setting.php
-setting.php
+

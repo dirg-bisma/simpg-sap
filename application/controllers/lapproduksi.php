@@ -157,15 +157,9 @@ class Lapproduksi extends SB_Controller
 			redirect('dashboard',301);
 	  	}
 
-        $this->data['tableGrid'] 	= $this->info['config']['grid'];
-
-        // Group users permission
-        $this->data['access']		= $this->access;
-        // Render into template
         $this->data['access']		= $this->access;
         $this->data['kode_kat_ts'] = $this->model->getKodeKat("TS");
         $this->data['kode_kat_tr'] = $this->model->getKodeKat("TR");
-        $this->data['kode_kat_by_spat'] = $this->model->getKodeKatBySpat("ksat_spat");
         // Render into template
         if($this->input->post('hari_giling') == "")
         {
@@ -183,6 +177,25 @@ class Lapproduksi extends SB_Controller
 
         $this->load->view('layouts/main', $this->data );
 	}
+
+	function exceldwonload(){
+
+        $this->data['kode_kat_ts'] = $this->model->getKodeKat("TS");
+        $this->data['kode_kat_tr'] = $this->model->getKodeKat("TR");
+        // Render into template
+        if($this->GetPost('hari_giling') == "")
+        {
+            $this->session->set_flashdata('error',SiteHelpers::alert('error','Hari giling tidak ada'));
+            redirect('lapproduksi',301);
+        }
+        $hari_giling = $this->GetPost('hari_giling');
+        $this->data['hari_giling'] = $hari_giling;
+
+        $file = "lap_produksi-$hari_giling.xls";
+        header("Content-type: application/vnd.ms-excel");
+        header("Content-Disposition: attachment; filename=$file");
+        echo $this->load->view('lapproduksi/excel',$this->data, true );
+    }
 
 	function add( $id = null )
 	{
@@ -203,6 +216,8 @@ class Lapproduksi extends SB_Controller
 		$this->data['id'] = $id;
 		$this->data['content'] = $this->load->view('lapproduksi/form',$this->data, true );
 	  	$this->load->view('layouts/main', $this->data );
+
+
 
 	}
 
@@ -263,6 +278,8 @@ class Lapproduksi extends SB_Controller
                 }else{
                     $this->model->Update($this->replaceKat($kode_kat->kode_kat_ptp), $this->input->post('hari_giling'), $data);
                 }
+
+                $this->model->ValidasiHaTertebang($this->input->post('hari_giling'));
             }
 
         }
@@ -288,6 +305,17 @@ class Lapproduksi extends SB_Controller
 		echo "ID : ".$_POST['id']."  , berhasil dihapus !!";
 
 	}
+
+    private function GetPost($input){
+        if($this->input->get($input)){
+            $output = $this->input->get($input);
+        }elseif($this->input->post($input)){
+            $output = $this->input->post($input);
+        }else{
+            $output = "";
+        }
+        return $output;
+    }
 
 
 }

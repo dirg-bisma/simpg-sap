@@ -1,6 +1,6 @@
 <section class="content-header">
     <h1>
-        <?php echo $pageTitle ;?>
+        <?php echo $pageTitle ;?> Hari Giling ke - <?php echo $hari_giling;?>
     </h1>
     <ol class="breadcrumb">
         <li><i class="fa fa-dashboard"></i><a href="<?php echo site_url('dashboard') ?>"> Dashboard </a></li>
@@ -35,9 +35,6 @@
                                 height:25px;padding:10px;
                             }
                         </style>
-
-
-
                         <table class="tableizer-table">
                             <thead>
                             <tr class="tableizer-firstrow">
@@ -49,125 +46,129 @@
                             </thead>
                             <tbody>
                             <tr style="color:red;font-weight:bold">
-                                <td width="250px"> HEKTAR DITEBANG (Ha) </td>
-                                <td>&nbsp;</td>
-                                <td>&nbsp;</td>
-                                <td>&nbsp;</td>
+                                <td width="250px"> HEKTAR DITEBANG </td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
                             </tr>
                             <tr>
                                 <td> TS </td>
-                                <td> - </td>
-                                <td> 60.752 </td>
-                                <td> 60.752 </td>
+                                <td><?php echo number_format($lap_hi_ts->sum_ha_tertebang, 2); ?></td>
+                                <td><?php echo number_format($lap_yl_ts->sum_ha_tertebang, 2); ?></td>
+                                <td><?php echo number_format($lap_sd_ts->sum_ha_tertebang, 2); ?></td>
                             </tr>
                             <tr>
                                 <td> TS SAUDARA </td>
-                                <td> - </td>
-                                <td> 44.370 </td>
-                                <td> 44.370 </td>
+                                <td> <?php echo number_format($lap_hi_ts_sdr->sum_ha_tertebang, 2); ?> </td>
+                                <td> <?php echo number_format($lap_yl_ts_sdr->sum_ha_tertebang, 2); ?> </td>
+                                <td> <?php echo number_format($lap_sd_ts_sdr->sum_ha_tertebang, 2); ?> </td>
                             </tr>
                             <tr>
                                 <td> TR </td>
-                                <td> - </td>
-                                <td> 1,701.604 </td>
-                                <td> 1,701.604 </td>
+                                <td> <?php echo number_format($lap_hi_tr->sum_ha_tertebang,2); ?> </td>
+                                <td> <?php echo number_format($lap_yl_tr->sum_ha_tertebang,2); ?> </td>
+                                <td> <?php echo number_format($lap_sd_tr->sum_ha_tertebang,2); ?> </td>
                             </tr>
                             <tr bgcolor="#3c8dbc" style="color:white;font-weight:bold">
                                 <td> TOTAL </td>
-                                <td> - </td>
-                                <td> 1,806.726 </td>
-                                <td> 1,806.726 </td>
+                                <td> <?php echo number_format(($lap_hi_ts->sum_ha_tertebang+$lap_hi_ts_sdr->sum_ha_tertebang+$lap_hi_tr->sum_ha_tertebang),2);?> </td>
+                                <td> <?php echo number_format(($lap_yl_ts->sum_ha_tertebang+$lap_yl_ts_sdr->sum_ha_tertebang+$lap_yl_tr->sum_ha_tertebang),2);?> </td>
+                                <td> <?php echo number_format(($lap_sd_ts->sum_ha_tertebang+$lap_sd_ts_sdr->sum_ha_tertebang+$lap_sd_tr->sum_ha_tertebang),2);?> </td>
                             </tr>
                             <tr style="color:red;font-weight:bold">
-                                <td> TEBU DITEBANG (Ton) </td>
+                                <td> TEBU DITEBANG </td>
                                 <td>&nbsp;</td>
                                 <td>&nbsp;</td>
                                 <td>&nbsp;</td>
                             </tr>
                             <tr>
                                 <td> TS </td>
-                                <td> - </td>
-                                <td> 6,153.1 </td>
-                                <td> 6,153.1 </td>
+                                <td><?php echo number_format($lap_hi_ts->sum_qty_tertebang, 2); ?></td>
+                                <td><?php echo number_format($lap_yl_ts->sum_qty_tertebang, 2); ?></td>
+                                <td><?php echo number_format($lap_sd_ts->sum_qty_tertebang, 2); ?></td>
                             </tr>
                             <tr>
                                 <td> TS SAUDARA </td>
-                                <td> - </td>
-                                <td> 3,059.0 </td>
-                                <td> 3,059.0 </td>
+                                <td><?php echo number_format($lap_hi_ts_sdr->sum_qty_tertebang, 2); ?></td>
+                                <td><?php echo number_format($lap_yl_ts_sdr->sum_qty_tertebang, 2); ?></td>
+                                <td><?php echo number_format($lap_sd_ts_sdr->sum_qty_tertebang, 2); ?></td>
                             </tr>
                             <tr>
                                 <td> TR </td>
-                                <td> - </td>
-                                <td> 167,883.3 </td>
-                                <td> 167,883.3 </td>
+                                <td><?php echo number_format($lap_hi_tr->sum_qty_tertebang, 2); ?></td>
+                                <td><?php echo number_format($lap_yl_tr->sum_qty_tertebang, 2); ?></td>
+                                <td><?php echo number_format($lap_sd_tr->sum_qty_tertebang, 2); ?></td>
                             </tr>
                             <tr bgcolor="#3c8dbc" style="color:white;font-weight:bold">
                                 <td> TOTAL </td>
-                                <td> - </td>
-                                <td> 177,095.27 </td>
-                                <td> 177,095.27 </td>
+                                <td> <?php echo number_format(($lap_hi_ts->sum_qty_tertebang+$lap_hi_ts_sdr->sum_qty_tertebang+$lap_hi_tr->sum_qty_tertebang), 2);?> </td>
+                                <td> <?php echo number_format(($lap_yl_ts->sum_qty_tertebang+$lap_yl_ts_sdr->sum_qty_tertebang+$lap_yl_tr->sum_qty_tertebang), 2);?> </td>
+                                <td> <?php echo number_format(($lap_sd_ts->sum_qty_tertebang+$lap_sd_ts_sdr->sum_qty_tertebang+$lap_sd_tr->sum_qty_tertebang), 2);?> </td>
                             </tr>
                             <tr style="color:red;font-weight:bold">
-                                <td> HEKTAR DIGILING (Ha) </td>
+                                <td> HEKTAR DIGILING </td>
                                 <td>&nbsp;</td>
                                 <td>&nbsp;</td>
                                 <td>&nbsp;</td>
                             </tr>
                             <tr>
                                 <td> TS </td>
-                                <td> - </td>
-                                <td> 61.472 </td>
-                                <td> 61.472 </td>
+                                <td><?php echo number_format($lap_hi_ts->sum_ha_digiiling, 2); ?></td>
+                                <td><?php echo number_format($lap_yl_ts->sum_ha_digiiling, 2); ?></td>
+                                <td><?php echo number_format($lap_sd_ts->sum_ha_digiiling, 2); ?></td>
                             </tr>
                             <tr>
                                 <td> TS SAUDARA </td>
-                                <td> - </td>
-                                <td> 44.370 </td>
-                                <td> 44.370 </td>
+                                <td><?php echo number_format($lap_hi_ts_sdr->sum_ha_digiiling, 2); ?></td>
+                                <td><?php echo number_format($lap_yl_ts_sdr->sum_ha_digiiling, 2); ?></td>
+                                <td><?php echo number_format($lap_sd_ts_sdr->sum_ha_digiiling, 2); ?></td>
                             </tr>
                             <tr>
                                 <td> TR </td>
-                                <td> - </td>
-                                <td> 1,701.604 </td>
-                                <td> 1,701.604 </td>
+                                <td><?php echo number_format($lap_hi_tr->sum_qty_tertebang, 2); ?></td>
+                                <td><?php echo number_format($lap_yl_tr->sum_qty_tertebang, 2); ?></td>
+                                <td><?php echo number_format($lap_sd_tr->sum_qty_tertebang, 2); ?></td>
                             </tr>
                             <tr bgcolor="#3c8dbc" style="color:white;font-weight:bold">
                                 <td> TOTAL </td>
-                                <td> - </td>
-                                <td> 1,807.446 </td>
-                                <td> 1,807.446 </td>
+                                <td> <?php echo number_format(($lap_hi_ts->sum_qty_tertebang+$lap_hi_ts_sdr->sum_qty_tertebang+$lap_hi_tr->sum_qty_tertebang), 2);?> </td>
+                                <td> <?php echo number_format(($lap_yl_ts->sum_qty_tertebang+$lap_yl_ts_sdr->sum_qty_tertebang+$lap_yl_tr->sum_qty_tertebang), 2);?> </td>
+                                <td> <?php echo number_format(($lap_sd_ts->sum_qty_tertebang+$lap_sd_ts_sdr->sum_qty_tertebang+$lap_sd_tr->sum_qty_tertebang), 2);?> </td>
                             </tr>
                             <tr style="color:red;font-weight:bold">
-                                <td> TEBU DIGILING (Ton) </td>
+                                <td> TEBU DIGILING </td>
                                 <td>&nbsp;</td>
                                 <td>&nbsp;</td>
                                 <td>&nbsp;</td>
                             </tr>
                             <tr>
                                 <td> TS </td>
-                                <td> 3,000.00 </td>
-                                <td> 6,153.1 </td>
-                                <td> 6,153.1 </td>
+                                <td><?php echo number_format($lap_hi_ts->sum_qty_digiling, 2); ?></td>
+                                <td><?php echo number_format($lap_yl_ts->sum_qty_digiling, 2); ?></td>
+                                <td><?php echo number_format($lap_sd_ts->sum_qty_digiling, 2); ?></td>
                             </tr>
                             <tr>
                                 <td> TS SAUDARA </td>
-                                <td> - </td>
-                                <td> 3,059.0 </td>
-                                <td> 3,059.0 </td>
+                                <td><?php echo number_format($lap_hi_ts_sdr->sum_qty_digiling, 2); ?></td>
+                                <td><?php echo number_format($lap_yl_ts_sdr->sum_qty_digiling, 2); ?></td>
+                                <td><?php echo number_format($lap_sd_ts_sdr->sum_qty_digiling, 2); ?></td>
                             </tr>
                             <tr>
                                 <td> TR </td>
-                                <td> - </td>
-                                <td> 167,883 </td>
-                                <td> 167,883.3 </td>
+                                <td><?php echo number_format($lap_hi_tr->sum_qty_digiling, 2); ?></td>
+                                <td><?php echo number_format($lap_yl_tr->sum_qty_digiling, 2); ?></td>
+                                <td><?php echo number_format($lap_sd_tr->sum_qty_digiling, 2); ?></td>
                             </tr>
                             <tr bgcolor="#3c8dbc" style="color:white;font-weight:bold">
                                 <td> TOTAL </td>
-                                <td> 3,000.00 </td>
-                                <td> 177,095.3 </td>
-                                <td> 177,095.27 </td>
+                                <td> <?php echo number_format(($lap_hi_ts->sum_qty_digiling+$lap_hi_ts_sdr->sum_qty_digiling+$lap_hi_tr->sum_qty_digiling), 2);?> </td>
+                                <td> <?php echo number_format(($lap_yl_ts->sum_qty_digiling+$lap_yl_ts_sdr->sum_qty_digiling+$lap_yl_tr->sum_qty_digiling), 2);?> </td>
+                                <td> <?php echo number_format(($lap_sd_ts->sum_qty_digiling+$lap_sd_ts_sdr->sum_qty_digiling+$lap_sd_tr->sum_qty_digiling), 2);?> </td>
                             </tr>
+                            <?php $total_qty_digiling_hi = (($lap_hi_ts->sum_qty_digiling+$lap_hi_ts_sdr->sum_qty_digiling+$lap_hi_tr->sum_qty_digiling));?>
+                            <?php $total_qty_digiling_yl = (($lap_yl_ts->sum_qty_digiling+$lap_yl_ts_sdr->sum_qty_digiling+$lap_yl_tr->sum_qty_digiling));?>
+                            <?php $total_qty_digiling_sd = (($lap_sd_ts->sum_qty_digiling+$lap_sd_ts_sdr->sum_qty_digiling+$lap_sd_tr->sum_qty_digiling));?>
+
                             <tr style="color:red;font-weight:bold">
                                 <td> KRISTAL </td>
                                 <td>&nbsp;</td>
@@ -176,61 +177,101 @@
                             </tr>
                             <tr>
                                 <td> TS </td>
-                                <td> - </td>
-                                <td> 521.8 </td>
-                                <td> 521.765 </td>
+                                <td><?php echo number_format($lap_hi_ts->sum_qty_kristal, 2); ?></td>
+                                <td><?php echo number_format($lap_yl_ts->sum_qty_kristal, 2); ?></td>
+                                <td><?php echo number_format($lap_sd_ts->sum_qty_kristal, 2); ?></td>
                             </tr>
                             <tr>
                                 <td> TS SAUDARA </td>
-                                <td> - </td>
-                                <td> 211.52 </td>
-                                <td> 211.521 </td>
+                                <td><?php echo number_format($lap_hi_ts_sdr->sum_qty_kristal, 2); ?></td>
+                                <td><?php echo number_format($lap_yl_ts_sdr->sum_qty_kristal, 2); ?></td>
+                                <td><?php echo number_format($lap_sd_ts_sdr->sum_qty_kristal, 2); ?></td>
                             </tr>
                             <tr>
                                 <td> TR </td>
-                                <td> - </td>
-                                <td> 11,283.12 </td>
-                                <td> 11,283.121 </td>
+                                <td><?php echo number_format($lap_hi_tr->sum_qty_kristal, 2); ?></td>
+                                <td><?php echo number_format($lap_yl_tr->sum_qty_kristal, 2); ?></td>
+                                <td><?php echo number_format($lap_sd_tr->sum_qty_kristal, 2); ?></td>
                             </tr>
                             <tr bgcolor="#3c8dbc" style="color:white;font-weight:bold">
                                 <td> TOTAL </td>
-                                <td> - </td>
-                                <td> 12,016.4 </td>
-                                <td> 12,016.406 </td>
+                                <td> <?php echo number_format(($lap_hi_ts->sum_qty_kristal+$lap_hi_ts_sdr->sum_qty_kristal+$lap_hi_tr->sum_qty_kristal), 2);?> </td>
+                                <td> <?php echo number_format(($lap_yl_ts->sum_qty_kristal+$lap_yl_ts_sdr->sum_qty_kristal+$lap_yl_tr->sum_qty_kristal), 2);?> </td>
+                                <td> <?php echo number_format(($lap_sd_ts->sum_qty_kristal+$lap_sd_ts_sdr->sum_qty_kristal+$lap_sd_tr->sum_qty_kristal), 2);?> </td>
                             </tr>
+                            <?php $total_kristal_hi = (($lap_hi_ts->sum_qty_kristal+$lap_hi_ts_sdr->sum_qty_kristal+$lap_hi_tr->sum_qty_kristal));?>
+                            <?php $total_kristal_yl = (($lap_yl_ts->sum_qty_kristal+$lap_yl_ts_sdr->sum_qty_kristal+$lap_yl_tr->sum_qty_kristal));?>
+                            <?php $total_kristal_sd = (($lap_sd_ts->sum_qty_kristal+$lap_sd_ts_sdr->sum_qty_kristal+$lap_sd_tr->sum_qty_kristal));?>
                             <tr style="color:red;font-weight:bold">
                                 <td> RENDEMEN </td>
                                 <td>&nbsp;</td>
                                 <td>&nbsp;</td>
                                 <td>&nbsp;</td>
                             </tr>
+                            <?php if(isset($lap_hi_ts->sum_qty_kristal) && isset($lap_hi_ts->sum_qty_digiling)){?>
+                            <?php $rend_hi_ts = (($lap_hi_ts->sum_qty_kristal/$lap_hi_ts->sum_qty_digiling)*100);?>
+                            <?php }else{ $rend_hi_ts = 0;}?>
+                            <?php if(isset($lap_yl_ts->sum_qty_kristal) && isset($lap_yl_ts->sum_qty_digiling)){?>
+                                <?php $rend_yl_ts = (($lap_yl_ts->sum_qty_kristal/$lap_yl_ts->sum_qty_digiling)*100);?>
+                            <?php }else{ $rend_yl_ts = 0;}?>
+                            <?php if(isset($lap_sd_ts->sum_qty_kristal) && isset($lap_sd_ts->sum_qty_digiling)){?>
+                                <?php $rend_sd_ts = (($lap_hi_ts->sum_qty_kristal/$lap_sd_ts->sum_qty_digiling)*100);?>
+                            <?php }else{ $rend_sd_ts = 0;}?>
                             <tr>
                                 <td> TS </td>
-                                <td> - </td>
-                                <td> 8.48 </td>
-                                <td> 8.48 </td>
+                                <td> <?php echo round($rend_hi_ts,2); ?> </td>
+                                <td> <?php echo round($rend_yl_ts,2); ?> </td>
+                                <td> <?php echo round($rend_sd_ts,2); ?> </td>
                             </tr>
+                            <?php if(isset($lap_hi_ts_sdr->sum_qty_kristal) && isset($lap_hi_ts_sdr->sum_qty_digiling)){?>
+                                <?php $rend_hi_ts_sdr = (($lap_hi_ts_sdr->sum_qty_kristal/$lap_hi_ts_sdr->sum_qty_digiling)*100);?>
+                            <?php }else{ $rend_hi_ts_sdr = 0;}?>
+                            <?php if(isset($lap_yl_ts_sdr->sum_qty_kristal) && isset($lap_yl_ts_sdr->sum_qty_digiling)){?>
+                                <?php $rend_yl_ts_sdr = (($lap_yl_ts_sdr->sum_qty_kristal/$lap_yl_ts_sdr->sum_qty_digiling)*100);?>
+                            <?php }else{ $rend_yl_ts_sdr = 0;}?>
+                            <?php if(isset($lap_sd_ts_sdr->sum_qty_kristal) && isset($lap_sd_ts_sdr->sum_qty_digiling)){?>
+                                <?php $rend_sd_ts_sdr = (($lap_sd_ts_sdr->sum_qty_kristal/$lap_sd_ts_sdr->sum_qty_digiling)*100);?>
+                            <?php }else{ $rend_sd_ts_sdr = 0;}?>
                             <tr>
                                 <td> TS SAUDARA </td>
-                                <td> - </td>
-                                <td> 6.92 </td>
-                                <td> 6.92 </td>
+                                <td> <?php echo round($rend_hi_ts_sdr,2); ?> </td>
+                                <td> <?php echo round($rend_yl_ts_sdr,2); ?> </td>
+                                <td> <?php echo round($rend_sd_ts_sdr,2); ?> </td>
                             </tr>
+                            <?php if(isset($lap_hi_tr->sum_qty_kristal) && isset($lap_hi_tr->sum_qty_digiling)){?>
+                                <?php $rend_hi_tr = (($lap_hi_tr->sum_qty_kristal/$lap_hi_tr->sum_qty_digiling)*100);?>
+                            <?php }else{ $rend_hi_tr = 0;}?>
+                            <?php if(isset($lap_yl_tr->sum_qty_kristal) && isset($lap_yl_tr->sum_qty_digiling)){?>
+                                <?php $rend_yl_tr = (($lap_hi_tr->sum_qty_kristal/$lap_yl_tr->sum_qty_digiling)*100);?>
+                            <?php }else{ $rend_yl_tr = 0;}?>
+                            <?php if(isset($lap_sd_tr->sum_qty_kristal) && isset($lap_sd_tr->sum_qty_digiling)){?>
+                                <?php $rend_sd_tr = (($lap_sd_tr->sum_qty_kristal/$lap_sd_tr->sum_qty_digiling)*100);?>
+                            <?php }else{ $rend_sd_tr = 0;}?>
                             <tr>
                                 <td> TR </td>
-                                <td> - </td>
-                                <td> 6.72 </td>
-                                <td> 6.72 </td>
+                                <td> <?php echo round($rend_hi_tr,2); ?> </td>
+                                <td> <?php echo round($rend_yl_tr,2); ?> </td>
+                                <td> <?php echo round($rend_sd_tr,2); ?> </td>
                             </tr>
+                            <?php if($total_kristal_hi != 0 && $total_qty_digiling_hi != 0){?>
+                                <?php $total_rend_hi = (($total_kristal_hi/$total_qty_digiling_hi)*100);?>
+                            <?php }else{ $total_rend_hi = 0;}?>
+                            <?php if($total_kristal_yl != 0 && $total_qty_digiling_yl != 0){?>
+                                <?php $total_rend_yl = (($total_kristal_yl/$total_qty_digiling_yl)*100);?>
+                            <?php }else{ $total_rend_yl = 0;}?>
+                            <?php if($total_kristal_sd != 0 && $total_qty_digiling_sd != 0){?>
+                                <?php $total_rend_sd = (($total_kristal_sd/$total_qty_digiling_sd)*100);?>
+                            <?php }else{ $total_rend_sd = 0;}?>
                             <tr bgcolor="#3c8dbc" style="color:white;font-weight:bold">
                                 <td> TOTAL </td>
-                                <td> - </td>
-                                <td> 6.79 </td>
-                                <td> 6.7853 </td>
+                                <td> <?php echo round($total_rend_hi,2); ?> </td>
+                                <td> <?php echo round($total_rend_yl,2); ?> </td>
+                                <td> <?php echo round($total_rend_sd,2); ?> </td>
                             </tr>
+
                             <tr style="color:red;font-weight:bold" >
                                 <td> GULA BAGI HASIL </td>
-                                <td>&nbsp;</td>
+                                <td></td>
                                 <td>&nbsp;</td>
                                 <td>&nbsp;</td>
                             </tr>
@@ -314,10 +355,6 @@
                             </tr>
                             </tbody>
                         </table>
-
-
-
-
                     </div>
                 </div>
             </div>
@@ -344,7 +381,12 @@
                                 <tr>
                                     <td width="250px"> Jam berht.A </td>
                                     <td><input type="text" id="jam_berhenti_a" name="jam_berhenti_a" class='form-control input-sm' value="<?php echo @$data->jam_berhenti_a;?>"/></td>
-                                    <td> <?php echo @$data_kemarin->jam_berhenti_a_sum;?> </td>
+                                    <td>
+                                        <?php if(isset($data_kemarin->jam_berhenti_a_sum)){?>
+                                            <?php echo @$data_kemarin->jam_berhenti_a_sum;?>
+                                            <input type="text" id="jam_berhenti_a" name="jam_berhenti_a" class='form-control input-sm' value="<?php echo @$data->jam_berhenti_a;?>"/>
+                                        <?php }?>
+                                    </td>
                                     <td> <input type="text" class="form-control input-sm" id="jam_ber_a_sdhi" readonly/> </td>
                                 </tr>
                                 <tr>
