@@ -24,28 +24,28 @@
                           parsley-validate='true' novalidate='true' method="post" enctype="multipart/form-data" >
 
                         <div class="col-md-12">
-                            <div class="form-group  " >
+                            <div class="form-group  col-md-4" >
                                 <label for="Hari Giling" class=" control-label col-md-4 text-left"> Hari Giling </label>
                                 <div class="col-md-8">
                                     <input type='text' class='form-control input-sm' placeholder='' value='<?php echo $hari_giling->hari;?>' name='hari_giling'   /> <br />
                                     <i> <small></small></i>
                                 </div>
                             </div>
-                            <div class="form-group  " >
+                            <div class="form-group col-md-4 " >
                                 <label for="Tahun Giling" class=" control-label col-md-4 text-left"> Tahun Giling </label>
                                 <div class="col-md-8">
                                     <input type='text' class='form-control input-sm' placeholder='' value='<?php echo CNF_TAHUNGILING;?>' name='tahun_giling'   readonly/> <br />
                                     <i> <small></small></i>
                                 </div>
                             </div>
+                        
+
+
+                            <div class="form-group col-md-4 " >
+                            <input type="submit" name="submit" class="btn btn-primary btn-sm" value="Kirim" />
+                            <a href="<?php echo site_url('tlapharpeng');?>" class="btn btn-sm btn-warning"><?php echo $this->lang->line('core.sb_cancel'); ?> </a>
                         </div>
 
-                        <div style="clear:both"></div>
-
-                        <div class="toolbar-line text-center">
-
-                            <input type="submit" name="submit" class="btn btn-primary btn-sm" value="KIRIM" />
-                            <a href="<?php echo site_url('tlapharpeng');?>" class="btn btn-sm btn-warning"><?php echo $this->lang->line('core.sb_cancel'); ?> </a>
                         </div>
 
                     </form>

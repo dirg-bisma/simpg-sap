@@ -149,6 +149,8 @@ class Tlapharpeng extends SB_Controller
             redirect('dashboard',301);
         }
 
+        //var_dump($_POST);die();
+
         $this->db->where('tahun_giling', CNF_TAHUNGILING);
         $this->db->select('*');
         $this->data['data_kemarin'] = $this->db->get('vw_lap_har_pengolahan_sum')->row();

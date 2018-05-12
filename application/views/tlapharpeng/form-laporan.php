@@ -49,7 +49,7 @@
                             </thead>
                             <tbody>
                             <tr style="color:red;font-weight:bold">
-                                <td width="250px"> HEKTAR DITEBANG </td>
+                                <td width="250px"> HEKTAR DITEBANG (Ha) </td>
                                 <td>&nbsp;</td>
                                 <td>&nbsp;</td>
                                 <td>&nbsp;</td>
@@ -79,7 +79,7 @@
                                 <td> 1,806.726 </td>
                             </tr>
                             <tr style="color:red;font-weight:bold">
-                                <td> TEBU DITEBANG </td>
+                                <td> TEBU DITEBANG (Ton) </td>
                                 <td>&nbsp;</td>
                                 <td>&nbsp;</td>
                                 <td>&nbsp;</td>
@@ -109,7 +109,7 @@
                                 <td> 177,095.27 </td>
                             </tr>
                             <tr style="color:red;font-weight:bold">
-                                <td> HEKTAR DIGILING </td>
+                                <td> HEKTAR DIGILING (Ha) </td>
                                 <td>&nbsp;</td>
                                 <td>&nbsp;</td>
                                 <td>&nbsp;</td>
@@ -139,7 +139,7 @@
                                 <td> 1,807.446 </td>
                             </tr>
                             <tr style="color:red;font-weight:bold">
-                                <td> TEBU DIGILING </td>
+                                <td> TEBU DIGILING (Ton) </td>
                                 <td>&nbsp;</td>
                                 <td>&nbsp;</td>
                                 <td>&nbsp;</td>
