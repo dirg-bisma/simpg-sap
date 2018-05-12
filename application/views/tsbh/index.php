@@ -83,7 +83,8 @@
                                         <th id ='hatebang'></th>
                                         <th colspan="15" style="background: #dd4b39;color:white"> Jumlah </th>
                                         <th></th>
-                                        <th colspan="8" style="background: #dd4b39;color:white"> Jumlah </th>
+                                        <th colspan="7" style="background: #dd4b39;color:white"> Jumlah </th>
+                                        <th></th>
                                         <th></th>
                                         <th></th>
                                         <th></th>
@@ -228,6 +229,8 @@
                     return x;
                 },0 );
 
+                var rendtotal = (hablur/netto)*100;
+
 
 
                 // ttx = parseFloat(ttx);
@@ -235,6 +238,7 @@
                 // Update footer
                 $( api.column( 14 ).footer() ).html(ha.toFixed(4));
                 $( api.column( 30 ).footer() ).html(netto.toFixed(0));
+                $( api.column( 38 ).footer() ).html(rendtotal.toFixed(2));
                 $( api.column( 39 ).footer() ).html(hablur.toFixed(2));
                 $( api.column( 40 ).footer() ).html(gtt.toFixed(2));
                 $( api.column( 41 ).footer() ).html(ttt.toFixed(2));
