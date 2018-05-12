@@ -81,7 +81,8 @@ class Tspt extends SB_Controller
 			'global'	=> (isset($this->access['is_global']) ? $this->access['is_global'] : 0 )
 		);
 		// Get Query 
-		$results = $this->model->getRows( $params );
+		$results = $this->model->getRowspdx( $params );
+		//var_dump($results);die();
 		$rows = $results['rows'];
 		$total = $results['total'];
 		$totalfil = $results['totalfil'];
