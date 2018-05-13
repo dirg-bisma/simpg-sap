@@ -166,15 +166,20 @@ class Lapproduksi extends SB_Controller
             $this->session->set_flashdata('error',SiteHelpers::alert('error','Hari giling tidak ada'));
             redirect('lapproduksi',301);
         }
-        $tgl_giling = $this->input->post('hari_giling');
-        $this->data['hari_giling'] = $tgl_giling;
+        $hari_giling = $this->input->post('hari_giling');
+        $this->data['hari_giling'] = $hari_giling;
 
+        $this->data['data_lap_timb'] = $this->model->VwByHariByTimbangan($hari_giling);
+        $this->data['data_lap_ari'] = $this->model->VwByHariByAri($hari_giling);
+        $this->data['sum_lap_hari'] = $this->model->SumLapHari($hari_giling);
+        $this->data['timb_trans'] = $this->model->VwHariByTimbanganTransfer($hari_giling);
+        $this->data['ari_trans'] = $this->model->VwHariByAriTransfer($hari_giling);
+        $this->data['plant_trans'] = $this->model->GroupPlant($hari_giling);
+        $this->data['sum_trans'] = $this->model->SumLapTrans($hari_giling);
 
-        $qry_tgl_giling = $this->db->query("SELECT (get_tgl_giling() - INTERVAL (get_hari_giling() - 18) DAY) AS tgl_giling");
-        $this->data['tgl_giling'] = $qry_tgl_giling->row();
+        //$this->load->view('lapproduksi/test', $this->data);
 
         $this->data['content'] = $this->load->view('lapproduksi/tabel',$this->data, true );
-
         $this->load->view('layouts/main', $this->data );
 	}
 
@@ -191,10 +196,19 @@ class Lapproduksi extends SB_Controller
         $hari_giling = $this->GetPost('hari_giling');
         $this->data['hari_giling'] = $hari_giling;
 
+        $this->data['data_lap_timb'] = $this->model->VwByHariByTimbangan($hari_giling);
+        $this->data['data_lap_ari'] = $this->model->VwByHariByAri($hari_giling);
+        $this->data['sum_lap_hari'] = $this->model->SumLapHari($hari_giling);
+        $this->data['timb_trans'] = $this->model->VwHariByTimbanganTransfer($hari_giling);
+        $this->data['ari_trans'] = $this->model->VwHariByAriTransfer($hari_giling);
+        $this->data['plant_trans'] = $this->model->GroupPlant($hari_giling);
+        $this->data['sum_trans'] = $this->model->SumLapTrans($hari_giling);
+
         $file = "lap_produksi-$hari_giling.xls";
         header("Content-type: application/vnd.ms-excel");
         header("Content-Disposition: attachment; filename=$file");
         echo $this->load->view('lapproduksi/excel',$this->data, true );
+        //$this->load->view('lapproduksi/excel/excel',$this->data );
     }
 
 	function add( $id = null )
@@ -228,7 +242,7 @@ class Lapproduksi extends SB_Controller
 
                 $cek = $this->model->CekLaporanExist($kode_kat->kode_kat_ptp, $this->input->post('hari_giling'));
                 $data = array(
-                    //'tgl_laporan_produksi' => $this->input->post('tgl_laporan_produksi'),
+                    'tgl_laporan_produksi' => $this->getDateNow(),
                     'hari_giling' => $this->input->post('hari_giling'),
                     'kode_kat_lahan' => $this->input->post('kode_kat_lahan_'.$this->replaceKat($kode_kat->kode_kat_ptp)),
                     'kat_ptpn' => $this->input->post('kat_ptpn_'.$this->replaceKat($kode_kat->kode_kat_ptp)),
@@ -246,7 +260,7 @@ class Lapproduksi extends SB_Controller
                     $result_plant = $this->model->PlantKategoriByTimbanganTransfer($kode_kat->kode_kat_ptp, $this->input->post('hari_giling'));
                     foreach($result_plant as $row_plant){
                         $data_trans = array(
-                            //'tgl_laporan_produksi_trans' => $this->input->post('tgl_laporan_produksi'),
+                            'tgl_laporan_produksi_trans' => $this->getDateNow(),
                             'hari_giling' => $this->input->post('hari_giling'),
                             'kode_kat_lahan' => $this->input->post('trans_kode_kat_lahan_'.$this->replaceKat($kode_kat->kode_kat_ptp)."_".$row_plant->kode_plant_trasnfer),
                             'kat_ptpn' => $this->input->post('trans_kat_ptpn_'.$this->replaceKat($kode_kat->kode_kat_ptp)."_".$row_plant->kode_plant_trasnfer),
@@ -279,12 +293,13 @@ class Lapproduksi extends SB_Controller
                     $this->model->Update($this->replaceKat($kode_kat->kode_kat_ptp), $this->input->post('hari_giling'), $data);
                 }
 
-                $this->model->ValidasiHaTertebang($this->input->post('hari_giling'));
+                //$this->model->ValidasiHaTertebang($this->input->post('hari_giling'));
             }
 
         }
         $this->session->set_flashdata('message',SiteHelpers::alert('success','Data Berhasil di Simpan'));
         redirect('lapproduksi',301);
+        //echo json_encode($_POST);
 	}
 
     private function replaceKat($kat){
@@ -315,6 +330,14 @@ class Lapproduksi extends SB_Controller
             $output = "";
         }
         return $output;
+    }
+
+    private function getDateNow()
+    {
+        $sql = "SELECT NOW() as sekarang";
+        $query = $this->db->query($sql);
+        $sekarang = $query->row();
+        return $sekarang->sekarang;
     }
 
 
