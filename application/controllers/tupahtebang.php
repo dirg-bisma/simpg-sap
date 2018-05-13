@@ -429,9 +429,9 @@ SET a.`upah_tebang_status`=".$ID.",a.`upah_tebang_tgl` = NOW() WHERE b.`id_upah_
 		$tglb = $_POST['tglb'];
 		$jtebangan = $_POST['jenis_tebangan'];
 		
-		$wh = " AND a.kode_blok='$kodeblok' AND a.persno_pta='$pta' and b.persno_mandor_tma='$mandor' AND a.metode_tma = '$jtebangan'  and date(a.timb_netto_tgl) BETWEEN '$tgla' and '$tglb'";
+		$wh = " AND a.kode_blok='$kodeblok' AND a.persno_pta='$pta' and b.persno_mandor_tma='$mandor' AND a.metode_tma = '$jtebangan'  and date(a.tgl_timbang) BETWEEN '$tgla' and '$tglb'";
 		
-		$sql = "SELECT a.id,a.`persno_pta`,a.metode_tma,a.kode_blok,b.persno_mandor_tma,a.`no_spat`,a.`kode_kat_lahan`,c.`netto` as netto_final, b.no_angkutan,a1.`deskripsi_blok`,date(a.`timb_netto_tgl`) as tgl_timb,a.`jenis_spta`,a.upah_tebang_status,b.terbakar_sel,b.tgl_tebang,b.tgl_selektor,d.kondisi_tebu FROM t_spta a
+		$sql = "SELECT a.id,a.`persno_pta`,a.metode_tma,a.kode_blok,b.persno_mandor_tma,a.`no_spat`,a.`kode_kat_lahan`,c.`netto` as netto_final, b.no_angkutan,a1.`deskripsi_blok`,date(a.`tgl_timbang`) as tgl_timb,a.`jenis_spta`,a.upah_tebang_status,b.terbakar_sel,b.tgl_tebang,b.tgl_selektor,d.kondisi_tebu FROM t_spta a
 INNER JOIN sap_field a1 ON a1.`kode_blok`=a.`kode_blok`
 INNER JOIN t_selektor b ON a.id=b.id_spta
 INNER JOIN t_timbangan c ON c.`id_spat`=a.`id`
