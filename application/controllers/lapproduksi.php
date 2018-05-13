@@ -204,10 +204,11 @@ class Lapproduksi extends SB_Controller
         $this->data['plant_trans'] = $this->model->GroupPlant($hari_giling);
         $this->data['sum_trans'] = $this->model->SumLapTrans($hari_giling);
 
-        $file = "lap_produksi-$hari_giling.xls";
+        $kp = CNF_PLANCODE;
+        $file = "lap_produksi-$kp-hari-$hari_giling.xls";
         header("Content-type: application/vnd.ms-excel");
         header("Content-Disposition: attachment; filename=$file");
-        echo $this->load->view('lapproduksi/excel',$this->data, true );
+        echo $this->load->view('lapproduksi/excel/excel',$this->data, true );
         //$this->load->view('lapproduksi/excel/excel',$this->data );
     }
 
@@ -230,9 +231,6 @@ class Lapproduksi extends SB_Controller
 		$this->data['id'] = $id;
 		$this->data['content'] = $this->load->view('lapproduksi/form',$this->data, true );
 	  	$this->load->view('layouts/main', $this->data );
-
-
-
 	}
 
 	function save() {
@@ -281,7 +279,7 @@ class Lapproduksi extends SB_Controller
                         if($cek_trans == 0){
                             $this->Laptransproduksimodel->Insert($data_trans);
                         }else{
-                            $this->Laptransproduksimodel->Update($this->replaceKat($kode_kat->kode_kat_ptp), $row_plant->kode_plant_trasnfer, $this->input->post('hari_giling'), $data_trans);
+                            $this->Laptransproduksimodel->Update($kode_kat->kode_kat_ptp, $row_plant->kode_plant_trasnfer, $this->input->post('hari_giling'), $data_trans);
                         }
                     }
                 }
@@ -290,7 +288,7 @@ class Lapproduksi extends SB_Controller
                     $this->model->Insert($data);
 
                 }else{
-                    $this->model->Update($this->replaceKat($kode_kat->kode_kat_ptp), $this->input->post('hari_giling'), $data);
+                    $this->model->Update($kode_kat->kode_kat_ptp, $this->input->post('hari_giling'), $data);
                 }
 
                 //$this->model->ValidasiHaTertebang($this->input->post('hari_giling'));
