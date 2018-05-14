@@ -208,7 +208,7 @@ class Lapproduksi extends SB_Controller
         $file = "lap_produksi-$kp-hari-$hari_giling.xls";
         header("Content-type: application/vnd.ms-excel");
         header("Content-Disposition: attachment; filename=$file");
-        echo $this->load->view('lapproduksi/excel/excel',$this->data, true );
+        echo $this->load->view('lapproduksi/excel',$this->data, true );
         //$this->load->view('lapproduksi/excel/excel',$this->data );
     }
 

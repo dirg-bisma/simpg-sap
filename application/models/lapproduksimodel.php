@@ -278,7 +278,8 @@ class Lapproduksimodel extends SB_Model
                   a.`hari_giling`,
                   SUM(a.ha_tertebang_selektor) AS ha_tertebang_selektor,
                   SUM(a.`luas_ditebang_field`) AS ha_tertebang_field,
-                  SUM(a.netto)/1000 AS netto 
+                  SUM(a.netto)/1000 AS netto, 
+                  SUM(a.netto) AS netto_kg
                 FROM
                   vw_laporan_prod AS a 
                   INNER JOIN sap_plant AS b 
@@ -305,6 +306,10 @@ class Lapproduksimodel extends SB_Model
               SUM(a.gula_ptr)/1000 AS gula_ptr,
               SUM(a.tetes_ptr)/1000 AS tetes_ptr,
               SUM(a.hablur_ari)/1000 AS hablur,
+              SUM(a.netto) AS netto_kg,
+              SUM(a.gula_ptr) AS gula_ptr_kg,
+              SUM(a.tetes_ptr) AS tetes_ptr_kg,
+              SUM(a.hablur_ari) AS hablur_kg,
               ROUND(
                 (
                   (SUM(a.`hablur_ari`) / SUM(a.`netto`)) * 100

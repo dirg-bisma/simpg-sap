@@ -49,7 +49,7 @@ $all_sd_total_tetes_ptr = 0;
         <div class="col-xs-12">
             <div class="box box-danger">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Laporan Produksi Hari Giling ke <?php echo $hari_giling;?></h3>
+                    <h3 class="box-title">Laporan Produksi <?php echo CNF_PG; ?> Hari Giling ke <?php echo $hari_giling;?></h3>
                     <div class="box-tools pull-right">
 
 
@@ -66,11 +66,7 @@ $all_sd_total_tetes_ptr = 0;
                                     <div class="table-responsive">
                                         <input type="hidden" name="hari_giling" value="<?php echo $hari_giling; ?>">
                                         <?php
-                                        function replaceKat($kat){
-                                            $result = str_replace(" ", "_", $kat);
-                                            $output = str_replace("-", "_", $result);
-                                            return $output;
-                                        }
+                                        include "excel/tpl_replace.php"
                                         ?>
                                         <table class="tableizer-table" border="1">
                                             <thead>
@@ -106,7 +102,7 @@ $all_sd_total_tetes_ptr = 0;
                                             </thead>
                                             <tbody>
 
-                                            <?php require_once "ts_lokal.php"; ?>
+                                            <?php require_once "excel/ts_lokal.php"; ?>
                                             <?php
                                             $all_total_ha_ditebang += $total_ha_ditebang;
                                             $all_total_qty_ditebang += $total_qty_ditebang;
@@ -128,7 +124,7 @@ $all_sd_total_tetes_ptr = 0;
                                             $all_sd_total_gula_ptr += $sd_total_gula_ptr;
                                             $all_sd_total_tetes_ptr += $sd_total_tetes_ptr;
                                             ?>
-                                            <?php require_once "ts_tr.php";?>
+                                            <?php require_once "excel/ts_tr.php";?>
                                             <?php
                                             $all_total_ha_ditebang += $total_ha_ditebang;
                                             $all_total_qty_ditebang += $total_qty_ditebang;
@@ -150,7 +146,7 @@ $all_sd_total_tetes_ptr = 0;
                                             $all_sd_total_gula_ptr += $sd_total_gula_ptr;
                                             $all_sd_total_tetes_ptr += $sd_total_tetes_ptr;
                                             ?>
-                                            <?php require_once "spt.php"; ?>
+                                            <?php require_once "excel/spt.php"; ?>
                                             <?php
                                             $all_total_ha_ditebang += $total_ha_ditebang;
                                             $all_total_qty_ditebang += $total_qty_ditebang;
@@ -178,22 +174,22 @@ $all_sd_total_tetes_ptr = 0;
                                                 <td><strong>JUMLAH TS</strong></td>
                                                 <td style="text-align: right"><strong><?php echo number_format($all_total_ha_ditebang, 2); ?></strong></td>
                                                 <td style="text-align: right"><strong><?php echo $all_sd_total_ha_ditebang == 0 ? number_format($all_total_ha_ditebang, 2) : number_format($all_sd_total_ha_ditebang+$all_total_ha_ditebang, 2); ?></strong></td>
-                                                <td style="text-align: right"><strong><?php echo number_format($all_total_qty_ditebang,2); ?></strong></td>
-                                                <td style="text-align: right"><strong><?php echo $all_sd_total_qty_ditebang == 0 ? number_format($all_total_qty_ditebang, 2) : number_format($all_sd_total_qty_ditebang+$all_total_qty_ditebang,2); ?></strong></td>
+                                                <td style="text-align: right"><strong><?php echo number_format($all_total_qty_ditebang/1000,2); ?></strong></td>
+                                                <td style="text-align: right"><strong><?php echo $all_sd_total_qty_ditebang == 0 ? number_format($all_total_qty_ditebang/1000, 2) : number_format($all_sd_total_qty_ditebang+$all_total_qty_ditebang/1000,2); ?></strong></td>
                                                 <td style="text-align: right"><strong><?php echo number_format($all_total_ha_digiling,2);?></strong></td>
                                                 <td style="text-align: right"><strong><?php echo $all_sd_total_ha_digiling == 0 ? number_format($all_total_ha_digiling,2) : number_format($all_sd_total_ha_digiling+$all_total_ha_digiling,2); ?></strong></td>
-                                                <td style="text-align: right"><strong><?php echo number_format($all_total_qty_digiling,2); ?></strong></td>
-                                                <td style="text-align: right"><strong><?php echo $all_sd_total_qty_digiling == 0 ? number_format($all_total_qty_digiling,2) : number_format($all_sd_total_qty_digiling+$all_total_qty_digiling,2); ?></strong></td>
-                                                <td style="text-align: right"><strong><?php echo number_format($all_total_hablur,2); ?></strong></td>
-                                                <td style="text-align: right"><strong><?php echo $all_sd_total_hablur == 0 ? number_format($all_total_hablur,2) : number_format($all_sd_total_hablur+$all_total_hablur,2); ?></strong></td>
+                                                <td style="text-align: right"><strong><?php echo number_format($all_total_qty_digiling/1000,2); ?></strong></td>
+                                                <td style="text-align: right"><strong><?php echo $all_sd_total_qty_digiling == 0 ? number_format($all_total_qty_digiling/1000,2) : number_format($all_sd_total_qty_digiling+$all_total_qty_digiling/1000,2); ?></strong></td>
+                                                <td style="text-align: right"><strong><?php echo number_format($all_total_hablur/1000,2); ?></strong></td>
+                                                <td style="text-align: right"><strong><?php echo $all_sd_total_hablur == 0 ? number_format($all_total_hablur/1000,2) : number_format($all_sd_total_hablur+$all_total_hablur/1000,2); ?></strong></td>
                                                 <td style="text-align: right"><strong><?php echo @number_format(($all_total_hablur_kg/$all_total_qty_digiling_kg)*100,2,'.',''); ?></strong></td>
                                                 <?php $hablur_sd = $all_sd_total_hablur_kg+$all_total_hablur_kg; ?>
                                                 <?php $digiling_sd = $all_sd_total_qty_digiling_kg+$all_total_qty_digiling_kg; ?>
                                                 <td style="text-align: right"><strong><?php echo @number_format(($hablur_sd/$digiling_sd)*100,2,'.',''); ?></strong></td>
-                                                <td style="text-align: right"><strong><?php echo number_format($all_total_gula_ptr,2); ?></strong></td>
-                                                <td style="text-align: right"><strong><?php echo $all_sd_total_gula_ptr == 0 ? number_format($all_total_gula_ptr, 2) : number_format($all_sd_total_gula_ptr+$all_total_gula_ptr,2); ?></strong></td>
-                                                <td style="text-align: right"><strong><?php echo number_format($all_total_tetes_ptr,2);?></strong></td>
-                                                <td style="text-align: right"><strong><?php echo $all_sd_total_tetes_ptr == 0 ? number_format($all_total_tetes_ptr,2) : number_format($all_sd_total_tetes_ptr+$all_total_tetes_ptr,2);?></strong></td>
+                                                <td style="text-align: right"><strong><?php echo number_format($all_total_gula_ptr/1000,2); ?></strong></td>
+                                                <td style="text-align: right"><strong><?php echo $all_sd_total_gula_ptr == 0 ? number_format($all_total_gula_ptr/1000, 2) : number_format($all_sd_total_gula_ptr+$all_total_gula_ptr/1000,2); ?></strong></td>
+                                                <td style="text-align: right"><strong><?php echo number_format($all_total_tetes_ptr/1000,2);?></strong></td>
+                                                <td style="text-align: right"><strong><?php echo $all_sd_total_tetes_ptr == 0 ? number_format($all_total_tetes_ptr/1000,2) : number_format($all_sd_total_tetes_ptr+$all_total_tetes_ptr/1000,2);?></strong></td>
                                             </tr>
 
                                             <?php
@@ -218,7 +214,7 @@ $all_sd_total_tetes_ptr = 0;
                                             $tot_tr_sd_total_tetes_ptr = 0;
 
                                             ?>
-                                            <?php require_once "tr_lokal.php"; ?>
+                                            <?php require_once "excel/tr_lokal.php"; ?>
                                             <?php
                                             $tot_tr_total_ha_ditebang += $total_ha_ditebang;
                                             $tot_tr_total_qty_ditebang += $total_qty_ditebang;
@@ -264,7 +260,7 @@ $all_sd_total_tetes_ptr = 0;
 
                                             ?>
 
-                                            <?php require_once "tr_tk.php"; ?>
+                                            <?php require_once "excel/tr_tk.php"; ?>
                                             <?php
                                             $tot_tr_total_ha_ditebang += $total_ha_ditebang;
                                             $tot_tr_total_qty_ditebang += $total_qty_ditebang;
@@ -313,44 +309,44 @@ $all_sd_total_tetes_ptr = 0;
                                                 <td><strong>JUMLAH TR</strong></td>
                                                 <td style="text-align: right"><strong><?php echo number_format($tot_tr_total_ha_ditebang, 2); ?></strong></td>
                                                 <td style="text-align: right"><strong><?php echo $tot_tr_sd_total_ha_ditebang == 0 ? number_format($tot_tr_total_ha_ditebang, 2) : number_format($all_sd_total_ha_ditebang+$all_total_ha_ditebang, 2); ?></strong></td>
-                                                <td style="text-align: right"><strong><?php echo number_format($tot_tr_total_qty_ditebang,2); ?></strong></td>
-                                                <td style="text-align: right"><strong><?php echo $tot_tr_sd_total_qty_ditebang == 0 ? number_format($tot_tr_total_qty_ditebang, 2) : number_format($tot_tr_sd_total_qty_ditebang+$all_total_qty_ditebang,2); ?></strong></td>
+                                                <td style="text-align: right"><strong><?php echo number_format($tot_tr_total_qty_ditebang/1000,2); ?></strong></td>
+                                                <td style="text-align: right"><strong><?php echo $tot_tr_sd_total_qty_ditebang == 0 ? number_format($tot_tr_total_qty_ditebang/1000, 2) : number_format($tot_tr_sd_total_qty_ditebang+$all_total_qty_ditebang/1000,2); ?></strong></td>
                                                 <td style="text-align: right"><strong><?php echo number_format($tot_tr_total_ha_digiling,2);?></strong></td>
                                                 <td style="text-align: right"><strong><?php echo $tot_tr_sd_total_ha_digiling == 0 ? number_format($tot_tr_total_ha_digiling,2) : number_format($tot_tr_sd_total_ha_digiling+$all_total_ha_digiling,2); ?></strong></td>
-                                                <td style="text-align: right"><strong><?php echo number_format($tot_tr_total_qty_digiling,2); ?></strong></td>
-                                                <td style="text-align: right"><strong><?php echo $tot_tr_sd_total_qty_digiling == 0 ? number_format($tot_tr_total_qty_digiling,2) : number_format($tot_tr_sd_total_qty_digiling+$all_total_qty_digiling,2); ?></strong></td>
-                                                <td style="text-align: right"><strong><?php echo number_format($tot_tr_total_hablur,2); ?></strong></td>
-                                                <td style="text-align: right"><strong><?php echo $tot_tr_sd_total_hablur == 0 ? number_format($tot_tr_total_hablur,2) : number_format($tot_tr_sd_total_hablur+$all_total_hablur,2); ?></strong></td>
+                                                <td style="text-align: right"><strong><?php echo number_format($tot_tr_total_qty_digiling/1000,2); ?></strong></td>
+                                                <td style="text-align: right"><strong><?php echo $tot_tr_sd_total_qty_digiling == 0 ? number_format($tot_tr_total_qty_digiling/1000,2) : number_format($tot_tr_sd_total_qty_digiling+$all_total_qty_digiling/1000,2); ?></strong></td>
+                                                <td style="text-align: right"><strong><?php echo number_format($tot_tr_total_hablur/1000,2); ?></strong></td>
+                                                <td style="text-align: right"><strong><?php echo $tot_tr_sd_total_hablur == 0 ? number_format($tot_tr_total_hablur/1000,2) : number_format($tot_tr_sd_total_hablur+$all_total_hablur/1000,2); ?></strong></td>
                                                 <td style="text-align: right"><strong><?php echo @number_format(($tot_tr_total_hablur_kg/$tot_tr_total_qty_digiling_kg)*100,2,'.',''); ?></strong></td>
                                                 <?php $hablur_sd = $tot_tr_sd_total_hablur_kg+$tot_tr_total_hablur_kg; ?>
                                                 <?php $digiling_sd = $tot_tr_sd_total_qty_digiling_kg+$tot_tr_total_qty_digiling_kg; ?>
                                                 <td style="text-align: right"><strong><?php echo @number_format(($hablur_sd/$digiling_sd)*100,2,'.',''); ?></strong></td>
-                                                <td style="text-align: right"><strong><?php echo number_format($all_total_gula_ptr,2); ?></strong></td>
-                                                <td style="text-align: right"><strong><?php echo $tot_tr_sd_total_gula_ptr == 0 ? number_format($tot_tr_total_gula_ptr, 2) : number_format($tot_tr_sd_total_gula_ptr+$all_total_gula_ptr,2); ?></strong></td>
-                                                <td style="text-align: right"><strong><?php echo number_format($all_total_tetes_ptr,2);?></strong></td>
-                                                <td style="text-align: right"><strong><?php echo $tot_tr_sd_total_tetes_ptr == 0 ? number_format($tot_tr_total_tetes_ptr,2) : number_format($tot_tr_sd_total_tetes_ptr+$all_total_tetes_ptr,2);?></strong></td>
+                                                <td style="text-align: right"><strong><?php echo number_format($all_total_gula_ptr/1000,2); ?></strong></td>
+                                                <td style="text-align: right"><strong><?php echo $tot_tr_sd_total_gula_ptr == 0 ? number_format($tot_tr_total_gula_ptr/1000, 2) : number_format($tot_tr_sd_total_gula_ptr+$all_total_gula_ptr/1000,2); ?></strong></td>
+                                                <td style="text-align: right"><strong><?php echo number_format($all_total_tetes_ptr/1000,2);?></strong></td>
+                                                <td style="text-align: right"><strong><?php echo $tot_tr_sd_total_tetes_ptr == 0 ? number_format($tot_tr_total_tetes_ptr/1000,2) : number_format($tot_tr_sd_total_tetes_ptr+$all_total_tetes_ptr/1000,2);?></strong></td>
                                             </tr>
 
                                             <tr style="background-color: #00c0ef">
                                                 <td><strong>TOTAL KESELURUHAN</strong></td>
                                                 <td style="text-align: right"><strong><?php echo number_format($all_total_ha_ditebang, 2); ?></strong></td>
                                                 <td style="text-align: right"><strong><?php echo $all_sd_total_ha_ditebang == 0 ? number_format($all_total_ha_ditebang, 2) : number_format($all_sd_total_ha_ditebang+$all_total_ha_ditebang, 2); ?></strong></td>
-                                                <td style="text-align: right"><strong><?php echo number_format($all_total_qty_ditebang,2); ?></strong></td>
-                                                <td style="text-align: right"><strong><?php echo $all_sd_total_qty_ditebang == 0 ? number_format($all_total_qty_ditebang, 2) : number_format($all_sd_total_qty_ditebang+$all_total_qty_ditebang,2); ?></strong></td>
+                                                <td style="text-align: right"><strong><?php echo number_format($all_total_qty_ditebang/1000,2); ?></strong></td>
+                                                <td style="text-align: right"><strong><?php echo $all_sd_total_qty_ditebang == 0 ? number_format($all_total_qty_ditebang/1000, 2) : number_format($all_sd_total_qty_ditebang+$all_total_qty_ditebang/1000,2); ?></strong></td>
                                                 <td style="text-align: right"><strong><?php echo number_format($all_total_ha_digiling,2);?></strong></td>
                                                 <td style="text-align: right"><strong><?php echo $all_sd_total_ha_digiling == 0 ? number_format($all_total_ha_digiling,2) : number_format($all_sd_total_ha_digiling+$all_total_ha_digiling,2); ?></strong></td>
-                                                <td style="text-align: right"><strong><?php echo number_format($all_total_qty_digiling,2); ?></strong></td>
-                                                <td style="text-align: right"><strong><?php echo $all_sd_total_qty_digiling == 0 ? number_format($all_total_qty_digiling,2) : number_format($all_sd_total_qty_digiling+$all_total_qty_digiling,2); ?></strong></td>
-                                                <td style="text-align: right"><strong><?php echo number_format($all_total_hablur,2); ?></strong></td>
-                                                <td style="text-align: right"><strong><?php echo $all_sd_total_hablur == 0 ? number_format($all_total_hablur,2) : number_format($all_sd_total_hablur+$all_total_hablur,2); ?></strong></td>
+                                                <td style="text-align: right"><strong><?php echo number_format($all_total_qty_digiling/1000,2); ?></strong></td>
+                                                <td style="text-align: right"><strong><?php echo $all_sd_total_qty_digiling == 0 ? number_format($all_total_qty_digiling/1000,2) : number_format($all_sd_total_qty_digiling+$all_total_qty_digiling/1000,2); ?></strong></td>
+                                                <td style="text-align: right"><strong><?php echo number_format($all_total_hablur/1000,2); ?></strong></td>
+                                                <td style="text-align: right"><strong><?php echo $all_sd_total_hablur == 0 ? number_format($all_total_hablur/1000,2) : number_format($all_sd_total_hablur+$all_total_hablur/1000,2); ?></strong></td>
                                                 <td style="text-align: right"><strong><?php echo @number_format(($all_total_hablur_kg/$all_total_qty_digiling_kg)*100,2,'.',''); ?></strong></td>
                                                 <?php $hablur_sd = $all_sd_total_hablur_kg+$all_total_hablur_kg; ?>
                                                 <?php $digiling_sd = $all_sd_total_qty_digiling_kg+$all_total_qty_digiling_kg; ?>
                                                 <td style="text-align: right"><strong><?php echo @number_format(($hablur_sd/$digiling_sd)*100,2,'.',''); ?></strong></td>
-                                                <td style="text-align: right"><strong><?php echo number_format($all_total_gula_ptr,2); ?></strong></td>
-                                                <td style="text-align: right"><strong><?php echo $all_sd_total_gula_ptr == 0 ? number_format($all_total_gula_ptr, 2) : number_format($all_sd_total_gula_ptr+$all_total_gula_ptr,2); ?></strong></td>
-                                                <td style="text-align: right"><strong><?php echo number_format($all_total_tetes_ptr,2);?></strong></td>
-                                                <td style="text-align: right"><strong><?php echo $all_sd_total_tetes_ptr == 0 ? number_format($all_total_tetes_ptr,2) : number_format($all_sd_total_tetes_ptr+$all_total_tetes_ptr,2);?></strong></td>
+                                                <td style="text-align: right"><strong><?php echo number_format($all_total_gula_ptr/1000,2); ?></strong></td>
+                                                <td style="text-align: right"><strong><?php echo $all_sd_total_gula_ptr == 0 ? number_format($all_total_gula_ptr/1000, 2) : number_format($all_sd_total_gula_ptr+$all_total_gula_ptr/1000,2); ?></strong></td>
+                                                <td style="text-align: right"><strong><?php echo number_format($all_total_tetes_ptr/1000,2);?></strong></td>
+                                                <td style="text-align: right"><strong><?php echo $all_sd_total_tetes_ptr == 0 ? number_format($all_total_tetes_ptr/1000,2) : number_format($all_sd_total_tetes_ptr+$all_total_tetes_ptr/1000,2);?></strong></td>
                                             </tr>
 
                                             <tr style="background-color: #104E8B;" class="tableizer-firstrow">
