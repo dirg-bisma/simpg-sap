@@ -16,7 +16,8 @@
               <div class="box box-danger">
               	<div class="box-header with-border">
                   <h3 class="box-title">&nbsp;</h3>
-                  <div class="box-tools pull-right">
+                  <center>
+                  <div class="col-md-12">
  	  Tanggal : &nbsp;&nbsp;&nbsp;
     <input type="text" class="date" style="text-align: center" id="tgl1" readonly value="<?php echo date('Y-m-d');?>">&nbsp;s/d&nbsp;
     <input type="text" class="date" style="text-align: center" id="tgl2" readonly value="<?php echo date('Y-m-d');?>">&nbsp;&nbsp;
@@ -24,16 +25,24 @@
     <select id="pta" class="select21" style="height: 24px"></select>&nbsp;&nbsp;
     Mandor : &nbsp;&nbsp;&nbsp;
     <select id="mandor" class="select21" style="height: 24px"></select>&nbsp;&nbsp;
+    </div>
+    </center>
+    <center>
+    <div style="col-md-12">
+    <hr />
     <a href="javascript:reloadGrid()" class="tips btn btn-xs btn-warning"  title="View">
     <i class="fa fa-search"></i>&nbsp;View </a>
 
 
-    <a href="javascript:printreport(1)" class="tips btn btn-xs btn-danger"  title="View">
+    <a href="javascript:printreport(1)" class="tips btn btn-xs btn-danger"  title="Print">
     <i class="fa fa-print"></i>&nbsp;Print Bukti </a>
 
 
-    <a href="javascript:downloadexcel()" class="tips btn btn-xs btn-success"  title="View">
+    <a href="javascript:downloadexcel()" class="tips btn btn-xs btn-info"  title="Download">
     <i class="fa fa-download"></i>&nbsp;Download Excel </a>
+
+    <a href="<?php echo site_url('laporanrekapupahtebang');?>" target="_blank" class="tips btn btn-xs btn-success"  title="Rekap">
+    <i class="fa fa-file"></i>&nbsp;Rekapitulasi </a>
 
     <!--a href="javascript:printreport(2)" class="tips btn btn-xs btn-success"  title="View">
     <i class="fa fa-file"></i>&nbsp;Print Rekapitulasi </a-->
@@ -42,6 +51,7 @@
 		<i class="fa fa-plus"></i>&nbsp;<?php echo $this->lang->line('core.btn_new'); ?> (F2) </a>
 		<?php endif;?>
                   </div>
+                  </center>
                 </div>
 
 	 <div class="box-body">
