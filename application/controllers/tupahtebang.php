@@ -274,6 +274,11 @@ header("Expires: 0");
 			$this->data['coldefrem'] = $this->db->query("select kodekolom,nama_pekerjaan_tma,satuan from m_pekerjaan_tma where status_pekerjaan=1 and jenis=2 order by id_pekerjaan_tma asc")->result();
 			$this->data['colnondefadd'] = $this->db->query("select kodekolom,nama_pekerjaan_tma,satuan from m_pekerjaan_tma where status_pekerjaan=0 and jenis=1 order by id_pekerjaan_tma asc")->result();
 			$this->data['colnondefrem'] = $this->db->query("select kodekolom,nama_pekerjaan_tma,satuan from m_pekerjaan_tma where status_pekerjaan=0 and jenis=2 order by id_pekerjaan_tma asc")->result();
+
+
+			$this->data['coldefadd1'] = $this->db->query("select kodekolom,nama_pekerjaan_tma,satuan from m_pekerjaan_tma where status_pekerjaan!=2 and jenis=1 order by id_pekerjaan_tma asc")->result();
+			$this->data['coldefrem1'] = $this->db->query("select kodekolom,nama_pekerjaan_tma,satuan from m_pekerjaan_tma where status_pekerjaan!=2 and jenis=2 order by id_pekerjaan_tma asc")->result();
+
 		if($row)
 		{
 			$this->data['row'] =  $row;
@@ -432,8 +437,7 @@ SET a.`upah_tebang_status`=".$ID.",a.`upah_tebang_tgl` = NOW() WHERE b.`id_upah_
 		
 		$wh = " AND a.kode_blok='$kodeblok' AND a.persno_pta='$pta' and b.persno_mandor_tma='$mandor' AND a.metode_tma = '$jtebangan'  and date(a.tgl_timbang) BETWEEN '$tgla' and '$tglb'";
 		
-		$sql = "SELECT a.id,a.`persno_pta`,a.metode_tma,a.kode_blok,b.persno_mandor_tma,a.`no_spat`,a.`kode_kat_lahan`,c.`netto` as netto_final, b.no_angkutan,a1.`deskripsi_blok`,date(a.`tgl_timbang`) as tgl_timb,a.`jenis_spta`,a.upah_tebang_status,b.terbakar_sel,b.tgl_tebang,b.tgl_selektor,d.kondisi_tebu FROM t_spta a
-INNER JOIN sap_field a1 ON a1.`kode_blok`=a.`kode_blok`
+		$sql = "SELECT a.id,a.`persno_pta`,a.metode_tma,a.kode_blok,b.persno_mandor_tma,a.`no_spat`,a.`kode_kat_lahan`,c.`netto` as netto_final, b.no_angkutan,date(a.`tgl_timbang`) as tgl_timb,a.`jenis_spta`,a.upah_tebang_status,b.terbakar_sel,b.tgl_tebang,b.tgl_selektor,d.kondisi_tebu FROM t_spta a
 INNER JOIN t_selektor b ON a.id=b.id_spta
 INNER JOIN t_timbangan c ON c.`id_spat`=a.`id`
 LEFT JOIN t_meja_tebu d ON d.id_spta=a.id

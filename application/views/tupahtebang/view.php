@@ -159,7 +159,7 @@
 						
 						$jbersih += ($add-$rem);
 
-						$this->db->query("UPDATE t_upah_tebang_detail SET total_upah='$add',total_potongan='$rem',total_bersih='".($add-$rem)."' where id='".$d->id."'");
+
 					?>
 					<td style="text-align:right"><?php echo number_format($add-$rem,2);?></td>
 					<td style="text-align:center"><?php echo $d->timb_netto_tgl;?></td>
@@ -211,8 +211,10 @@
 				<table style="width:100%">
 					<?php
 					$tambahantotal = 0;
+					$aradd = array();
 					foreach($detailx as $d){ 
 						//echo 'r';
+						$tmbt= 0;
 					foreach($colnondefadd as $kol1)
 						{
 							$nm = $kol1->kodekolom;
@@ -234,8 +236,9 @@
 							</tr>';
 							$tambahantotal += ($d->$nm);
 						}
-							
+							$tmbt += ($d->$nm);
 						}
+							
 						}
 						
 					
@@ -248,12 +251,15 @@
 				<table style="width:100%">
 					<?php
 					$kurangtotal = 0;
+					$arrem = array();
 					foreach($detailx as $d){
 						echo '';
+						$krgt = 0;
 					foreach($colnondefrem as $kol1)
 						{
 							$nm = $kol1->kodekolom;
 							$ttl = 0;
+							$krgt += ($d->$nm);
 							echo '<tr><td style="text-align:left">'.$kol1->nama_pekerjaan_tma.'</td>';
 						if($kol1->satuan == 2){
 							//echo '<td style="text-align:left"> : '.number_format($no,2).' Truk/Lori</td>';
@@ -274,8 +280,29 @@
 						}
 							
 						}
+
 						
+
 					}
+
+					foreach ($detail as $ue) {
+						$upah=0;$potg=0;
+						foreach($coldefadd1 as $kol1)
+						{
+							$nm = $kol1->kodekolom;
+							$upah += $ue->$nm;
+						}
+						foreach($coldefrem1 as $kol1)
+						{
+							$nm = $kol1->kodekolom;
+							$potg += $ue->$nm;
+						}
+
+							$brsh = $upah-$potg;
+							$this->db->query("UPDATE t_upah_tebang_detail SET total_upah='$upah',total_potongan='$potg',total_bersih='".$brsh."' where id='".$ue->id."'");
+					}
+
+					
 					?>
 					<tr style="border-top:1px solid black">
 					<td colspan="3"> JUMLAH PENGURANGAN <hr /></td>

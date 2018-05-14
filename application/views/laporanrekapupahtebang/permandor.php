@@ -227,13 +227,15 @@ REKAPITULASI UPAH TEBANG<br />
 					<td style="text-align:right"><?php echo number_format($add-$rem,2);?></td>
 					</tr>
 						<?php
+
+						
 					}
 				?>
 					
 				</tbody>
 				<?
 				if(isset($arradd['k1'])){
-					
+
 				?>
 					<tr style="background-color: #104E8B;color: white;">
 						<th colspan="3"> JUMLAH <?php echo $mandor;?></th>
@@ -297,10 +299,11 @@ REKAPITULASI UPAH TEBANG<br />
 						}
 
 
+
 					?>
 					<th style="text-align:right"><?php echo number_format($tjbersih,2);?></th>
-					<td style="background-color: red;color: white;font-weight: bold"><?php echo number_format($sttlyl,2);?></td>
-							<td style="background-color: red;color: white;font-weight: bold;text-align: right;"><?php echo number_format($sttlsd,2);?></td>
+					<td style="background-color: red;color: white;font-weight: bold"><?php echo number_format($allsisalalu,2);?></td>
+							<td style="background-color: red;color: white;font-weight: bold;text-align: right;"><?php echo number_format($allsisasemua,2);?></td>
 					</tr>
 					<?php
 					}

@@ -84,7 +84,17 @@ INNER JOIN t_selektor d ON d.`id_spta`=c.`id`
 INNER JOIN sap_m_karyawan e ON e.`Persno`=a.`persno_mandor`
 INNER JOIN sap_m_karyawan f ON f.`Persno`=c.`persno_pta` $wh
 ORDER BY d.`persno_mandor_tma`")->result();
+			$rt = $this->db->query("SELECT SUM(a1.`total_bersih`) AS total 
+				FROM t_upah_tebang_detail a1 
+				INNER JOIN t_upah_tebang b1 ON a1.`id_upah_tebang`=b1.`id` WHERE b1.tgl < '$tgl2'")->row();
+
+			$rx = $this->db->query("SELECT SUM(a1.`total_bersih`) AS total 
+				FROM t_upah_tebang_detail a1 
+				INNER JOIN t_upah_tebang b1 ON a1.`id_upah_tebang`=b1.`id` WHERE b1.tgl <= '$tgl2'")->row();
+
 			$this->data['detail'] = $result;
+			$this->data['allsisalalu'] = $rt->total;
+			$this->data['allsisasemua'] = $rx->total;
 		$this->load->view('laporanrekapupahtebang/permandor',$this->data);
 		}else{
 			$result = $this->db->query("SELECT no_bukti,a.`kode_blok`,c.`no_spat`,e.`name` AS mandor_nama,f.`name` AS pta_nama,d.`no_angkutan`,b.*
@@ -93,7 +103,7 @@ INNER JOIN t_upah_tebang_detail b ON a.`id`=b.`id_upah_tebang`
 INNER JOIN t_spta c ON c.`id`=b.`id_spta`
 INNER JOIN t_selektor d ON d.`id_spta`=c.`id` 
 INNER JOIN sap_m_karyawan e ON e.`Persno`=a.`persno_mandor`
-INNER JOIN sap_m_karyawan f ON f.`Persno`=c.`persno_pta`  
+INNER JOIN sap_m_karyawan f ON f.`Persno`=c.`persno_pta`  $wh
 ORDER BY a.`no_bukti`")->result();
 			$this->data['detail'] = $result;
 		$this->load->view('laporanrekapupahtebang/pertransaksi',$this->data);
