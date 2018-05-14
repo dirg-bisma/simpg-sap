@@ -344,7 +344,7 @@ class Tsbh extends SB_Controller
 
 		$filter = " AND  tgl_giling BETWEEN '$tgl1' AND '$tgl2'";
 		if($jns == 2){
-			$filter .= " AND sbh_status < 2";	
+			$filter .= " AND sbh_status <= 2";	
 		}
 		if($jns == 3){
 			$filter .= " AND sbh_status = 1";
