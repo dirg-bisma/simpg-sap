@@ -107,7 +107,20 @@
     <?php endif;?>
   </li>
 <?php endforeach;?>   
-
+<?php
+  if(CNF_METODE == '2' && CNF_COMPANYCODE == 'N007' && $this->session->userdata('gid') == 6){
+    ?>
+    <li class="treeview ">
+   
+    <a href="<?php echo site_url('tanalisarendemen/indexevaluasi');?>">
+      <i class="fa fa-building-o"></i> <span class="nav-label">
+      Upload Evaluasi ARI
+      </span><i class="fa fa-angle-left pull-right"></i> 
+    </a> 
+      </li>
+    <?php
+  }
+?>
 
             <!--li class="treeview">
               <a href="#">

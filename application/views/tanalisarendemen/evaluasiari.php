@@ -34,10 +34,6 @@
         <th> % Brix </th>
         <th> % Pol </th>
         <th> pH </th>
-        <th> Hk </th>
-        <th> NNPP </th>
-        <th> KNPP </th>
-        <th> R.s </th>
         <th> User </th>
 
 			

@@ -290,15 +290,43 @@ class Tanalisarendemen extends SB_Controller
 		$arrayCount = count($allDataInSheet);  // Here get total count of row in that Excel sheet
 		//var_dump($allDataInSheet);die();
 		$totupload  = 0;
-		$totdecline = 0;
+		$tots = 0;
 		$tmpkodepetak = "";
 		for($i=2;$i<=$arrayCount;$i++){
+			$brix = trim($allDataInSheet[$i]["G"]);
+			$pol = trim($allDataInSheet[$i]["J"]);
+			$ph = trim($allDataInSheet[$i]["K"]);
+			$tgl = trim($allDataInSheet[$i]["A"]);
+			$jam = trim($allDataInSheet[$i]["B"]);
+
+			if($brix !=0){
+			$hk = ($pol / $brix) * 100;
+			$nilai_nira = $pol - ( 0.4 * ($brix - $pol));
+			$rendemen_ari = $nilai_nira * PN_FAKTOR_RENDEMEN;
+
+			$sql = $this->db->query("UPDATE t_ari a INNER JOIN t_spta b ON a.`id_spta`=b.`id` SET 
+a.`persen_brix_ari`= '".$brix."',
+a.`persen_pol_ari`= '".$pol."',
+a.`hk`= '".$hk."',
+a.`nilai_nira`= '".$nilai_nira."',
+a.`rendemen_ari`= '".$rendemen_ari."',
+a.`ph_ari`= '".$ph."',
+a.`tgl_ari` = '".$tgl." ".$jam."'
+WHERE b.`no_spat`='".trim($allDataInSheet[$i]["C"])."' AND a.sbh_ari_status=0");
 			
+		$aft = $this->db->affected_rows();
+		if($aft==1){
+		 $tots++;
+		}else{
+			$tmpkodepetak .= ",".trim($allDataInSheet[$i]["C"]);
+		}
+		}
+		$totupload++;
 		}
 		//	die();
-			$this->inputLogs(" Upload data hasil analisa oleh ".$this->session->userdata('fid').' dengan data '.$totupload.' Berhasil dan '.$totdecline.' Gagal keupload. Ket : '.$tmpkodepetak);
+			$this->inputLogs(" Upload data hasil analisa oleh ".$this->session->userdata('fid').' dengan data '.$totupload.' Row.. Berhasil Teranalisa '.$tots.', Gagal Teranalisa SPTA : '.$tmpkodepetak.' Karena Belum Masuk coresampler');
 			
-			$this->session->set_flashdata('message',SiteHelpers::alert('success'," Upload data analisa oleh ".$this->session->userdata('fid').' dengan data '.$totupload.' Berhasil dan '.$totdecline.' Gagal keupload'));
+			$this->session->set_flashdata('message',SiteHelpers::alert('success'," Upload data hasil analisa oleh ".$this->session->userdata('fid').' dengan data '.$totupload.' Row.. Berhasil Teranalisa '.$tots.', Gagal Teranalisa SPTA : '.$tmpkodepetak.' Karena Belum Masuk coresampler'));
 			
 			redirect( 'tanalisarendemen/indexevaluasi',301);
 			
@@ -360,9 +388,13 @@ class Tanalisarendemen extends SB_Controller
 			$data['ptgs_ari'] = $this->session->userdata('fid');
 
 			//default hitungan hk.. semua sama
+			if($_POST['persen_brix_ari'] != 0){
 			$hk = ($_POST['persen_pol_ari'] / $_POST['persen_brix_ari']) * 100;
 			$nilai_nira = $_POST['persen_pol_ari'] - ( 0.4 * ($_POST['persen_brix_ari'] - $_POST['persen_pol_ari']));
-
+			}else{
+				$hk=0;
+				$nilai_nira =0;
+			}
 
 			$faktor_rendemen = $_POST['faktor_rendemen'];
 			
