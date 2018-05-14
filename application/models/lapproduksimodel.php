@@ -50,7 +50,6 @@ class Lapproduksimodel extends SB_Model
         return $count->jumlah;
     }
 
-
     public function getKodeKatBySpat($jenis)
     {
         $sql = "SELECT 
@@ -148,8 +147,9 @@ class Lapproduksimodel extends SB_Model
 				a.`hari_giling`,
 				SUM(a.ha_tertebang_selektor) AS ha_tertebang_selektor,
 				SUM(a.`luas_ditebang_field`) AS ha_tertebang_field,
-				SUM(a.netto)/1000 AS netto
-				FROM vw_spta_luas_field_sap_kat_ptp AS a
+				SUM(a.netto)/1000 AS netto,
+				SUM(a.netto) AS netto_kg
+				FROM vw_laporan_prod AS a
 				WHERE a.`hari_giling` = $hari
 				AND a.timb_netto_status = 1
 				GROUP BY kat_ptp";
@@ -170,7 +170,7 @@ class Lapproduksimodel extends SB_Model
 				SUM(a.tetes_ptr)/1000 AS tetes_ptr,
 				SUM(a.hablur_ari)/1000 AS hablur,
                 ROUND(((SUM(a.`hablur_ari`)/SUM(a.`netto`))*100), 2) AS rendemen_total
-				FROM vw_spta_luas_field_sap_kat_ptp AS a
+				FROM vw_laporan_prod AS a
 				WHERE a.`kat_ptp` = '$kategori' AND a.`hari_giling` = '$hari'
 				AND a.sbh_status = 1
 				GROUP BY kat_ptp";
@@ -189,8 +189,12 @@ class Lapproduksimodel extends SB_Model
 				SUM(a.gula_ptr)/1000 AS gula_ptr,
 				SUM(a.tetes_ptr)/1000 AS tetes_ptr,
 				SUM(a.hablur_ari)/1000 AS hablur,
+				SUM(a.netto) AS netto_kg,
+				SUM(a.gula_ptr) AS gula_ptr_kg,
+				SUM(a.tetes_ptr) AS tetes_ptr_kg,
+				SUM(a.hablur_ari) AS hablur_kg,
                 ROUND(((SUM(a.`hablur_ari`)/SUM(a.`netto`))*100), 2) AS rendemen_total
-				FROM vw_spta_luas_field_sap_kat_ptp AS a
+				FROM vw_laporan_prod AS a
 				WHERE a.`hari_giling` = $hari
 				AND a.sbh_status = 1
 				GROUP BY kat_ptp";
@@ -220,13 +224,13 @@ class Lapproduksimodel extends SB_Model
         $qry = "SELECT 
                 a.kat_ptpn,
                 SUM(a.`ha_tertebang`) AS sum_ha_tertebang,
-                SUM(a.`qty_tertebang`) AS sum_qty_tertebang,
+                SUM(a.`qty_tertebang`)/1000 AS sum_qty_tertebang,
                 SUM(a.`ha_digiling`) AS sum_ha_digiiling,
-                SUM(a.`qty_digiling`) AS sum_qty_digiling,
-                SUM(a.`qty_kristal`) AS sum_qty_kristal,
+                SUM(a.`qty_digiling`)/1000 AS sum_qty_digiling,
+                SUM(a.`qty_kristal`)/1000 AS sum_qty_kristal,
                 ROUND(((SUM(a.`qty_kristal`)/SUM(a.`qty_digiling`))*100), 2) AS total_rendemen,
-                SUM(a.`qty_gula_ptr`) AS sum_qty_gula_ptr,
-                SUM(a.qty_tetes_ptr) AS sum_qty_tetes_ptr
+                SUM(a.`qty_gula_ptr`)/1000 AS sum_qty_gula_ptr,
+                SUM(a.qty_tetes_ptr)/1000 AS sum_qty_tetes_ptr
                  FROM `t_lap_produksi_pengolahan` AS a
                 WHERE a.hari_giling < $hari GROUP BY kat_ptpn ";
         $result = $this->db->query($qry);
@@ -240,13 +244,13 @@ class Lapproduksimodel extends SB_Model
                 a.`plant` as kode_plant_trasnfer,
                 a.`kat_ptpn`,
                 SUM(a.`ha_tertebang`) AS sum_ha_tertebang,
-                SUM(a.`qty_tertebang`) AS sum_qty_tertebang,
+                SUM(a.`qty_tertebang`)/1000 AS sum_qty_tertebang,
                 SUM(a.`ha_digiling`) AS sum_ha_digiiling,
-                SUM(a.`qty_digiling`) AS sum_qty_digiling,
-                SUM(a.`qty_kristal`) AS sum_qty_kristal,
+                SUM(a.`qty_digiling`)/1000 AS sum_qty_digiling,
+                SUM(a.`qty_kristal`)/1000 AS sum_qty_kristal,
                 ROUND(((SUM(a.`qty_kristal`)/SUM(a.`qty_digiling`))*100), 2) AS total_rendemen,
-                SUM(a.`qty_gula_ptr`) AS sum_qty_gula_ptr,
-                SUM(a.qty_tetes_ptr) AS sum_qty_tetes_ptr
+                SUM(a.`qty_gula_ptr`)/1000 AS sum_qty_gula_ptr,
+                SUM(a.qty_tetes_ptr)/1000 AS sum_qty_tetes_ptr
                 FROM `t_lap_produksi_pengolahan_trans` AS a
                 WHERE a.hari_giling < $hari
                 GROUP BY a.kat_ptpn, a.plant ";
@@ -276,7 +280,7 @@ class Lapproduksimodel extends SB_Model
                   SUM(a.`luas_ditebang_field`) AS ha_tertebang_field,
                   SUM(a.netto)/1000 AS netto 
                 FROM
-                  vw_spta_luas_field_sap_kat_ptp AS a 
+                  vw_laporan_prod AS a 
                   INNER JOIN sap_plant AS b 
                     ON b.`kode_plant` = a.`kode_plant_trasnfer` 
                 WHERE a.`hari_giling` = $hari
@@ -308,7 +312,7 @@ class Lapproduksimodel extends SB_Model
                 2
               ) AS rendemen_total 
             FROM
-              vw_spta_luas_field_sap_kat_ptp AS a 
+              vw_laporan_prod AS a 
               INNER JOIN sap_plant AS b 
                 ON b.`kode_plant` = a.`kode_plant_trasnfer` 
             WHERE a.`kode_plant_trasnfer` != '' 
@@ -323,7 +327,7 @@ class Lapproduksimodel extends SB_Model
     {
         $qry = "SELECT 
                 a.`kode_plant_trasnfer`
-                FROM vw_spta_luas_field_sap_kat_ptp AS a
+                FROM vw_laporan_prod AS a
                 INNER JOIN sap_plant AS b ON b.`kode_plant` = a.`kode_plant_trasnfer`
                 WHERE a.`kat_ptp` = '$kategori' AND a.`hari_giling` = '$hari'
                 AND a.timb_netto_status = 1

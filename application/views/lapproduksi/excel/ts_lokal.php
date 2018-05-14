@@ -1,5 +1,29 @@
-<?php foreach ($kode_kat_tr as $row_kode_kat){?>
-    <?php if($row_kode_kat->kode_kat_ptp === "TR-TM"){?>
+<?php
+$total_ha_ditebang = 0;
+$total_qty_ditebang = 0;
+$total_ha_digiling = 0;
+$total_qty_digiling = 0;
+$total_qty_digiling_kg = 0;
+$total_hablur = 0;
+$total_hablur_kg = 0;
+$total_gula_ptr = 0;
+$total_tetes_ptr = 0;
+
+$sd_total_ha_ditebang = 0;
+$sd_total_qty_ditebang = 0;
+$sd_total_ha_digiling = 0;
+$sd_total_qty_digiling = 0;
+$sd_total_qty_digiling_kg = 0;
+$sd_total_hablur = 0;
+$sd_total_hablur_kg = 0;
+$sd_total_gula_ptr = 0;
+$sd_total_tetes_ptr = 0;
+?>
+<tr>
+    <td style="text-align: center;background-color: #00c0ef" colspan="17">TS LOKAL</td>
+</tr>
+<?php foreach ($kode_kat_ts as $row_kode_kat){?>
+    <?php if($row_kode_kat->kode_kat_ptp != "TS-TR" && $row_kode_kat->kode_kat_ptp != "TS-SP" && $row_kode_kat->kode_kat_ptp != "TS-ST"){?>
         <tr>
             <td><?php echo $row_kode_kat->kode_kat_ptp;?></td>
             <!----------------------HI HA TERTEBANG----------------->
@@ -189,179 +213,9 @@
         </tr>
     <?php } ?>
 <?php } ?>
-<!-----------------------------------------TR-TTK------------------------------------------------------>
-
-<?php foreach($plant_trans as $row_trans){?>
-    <tr>
-        <td> -- <?php echo $row_trans->nama_plant." (".$row_trans->kode_plant_trasnfer.")"; ?></td>
-        <?php $hi_nilai_trans = 0;?>
-        <!------------------HI HA TERTEBANG TRANS----------------->
-        <?php $status = 0; ?>
-        <?php foreach ($timb_trans as $row_trans_timb ){?>
-            <?php if("TR-TM" == $row_trans_timb->kat_ptp && $row_trans->kode_plant_trasnfer == $row_trans_timb->kode_plant_trasnfer){?>
-                <td style="text-align: right"><?php echo number_format($row_trans_timb->ha_tertebang_selektor,2 ); ?></td>
-                <?php $hi_nilai_trans = $row_trans_timb->ha_tertebang_selektor;?>
-                <?php $status = 1; } ?>
-        <?php } ?>
-        <?php if($status == 0){ echo "<td style=\"text-align: right\"> 0.00</td>"; }?>
-
-        <!------------------SD HA TERTEBANG TRANS----------------->
-        <?php $status = 0; ?>
-        <?php foreach ($sum_trans as $row_trans_sd ){?>
-            <?php if("TR-TM" == $row_trans_sd->kat_ptpn && $row_trans->kode_plant_trasnfer == $row_trans_sd->kode_plant_trasnfer){?>
-                <td style="text-align: right"><?php echo number_format($row_trans_sd->sum_ha_tertebang,2 ); ?></td>
-                <?php $status = 1; } ?>
-        <?php } ?>
-        <?php if($status == 0){ echo "<td style=\"text-align: right\">".number_format($hi_nilai_trans, 2)."</td>"; }?>
-
-        <!------------------HI QTY TEREBANG TRANS----------------->
-        <?php $status = 0; ?>
-        <?php foreach ($timb_trans as $row_trans_timb ){?>
-            <?php if("TR-TM" == $row_trans_timb->kat_ptp && $row_trans->kode_plant_trasnfer == $row_trans_timb->kode_plant_trasnfer){?>
-                <td style="text-align: right"><?php echo number_format($row_trans_timb->netto,2 ); ?></td>
-                <?php $hi_nilai_trans = $row_trans_timb->netto; ?>
-                <?php $status = 1; } ?>
-        <?php } ?>
-        <?php if($status == 0){ echo "<td style=\"text-align: right\">0.00</td>"; }?>
-
-        <!------------------SD QTY TERTEBANG TRANS----------------->
-        <?php $status = 0; ?>
-        <?php foreach ($sum_trans as $row_trans_sd ){?>
-            <?php if("TR-TM" == $row_trans_sd->kat_ptpn && $row_trans->kode_plant_trasnfer == $row_trans_sd->kode_plant_trasnfer){?>
-                <td style="text-align: right"><?php echo number_format($row_trans_sd->sum_qty_tertebang,2 ); ?></td>
-                <?php $status = 1; } ?>
-        <?php } ?>
-        <?php if($status == 0){ echo "<td style=\"text-align: right\">".number_format($hi_nilai_trans, 2)."</td>"; }?>
-
-        <!------------------HI HA TERGILING TRANS----------------->
-        <?php $status = 0; ?>
-        <?php foreach ($ari_trans as $row_trans_ari ){?>
-            <?php if("TR-TM" == $row_trans_ari->kat_ptp && $row_trans->kode_plant_trasnfer == $row_trans_ari->kode_plant_trasnfer){?>
-                <td style="text-align: right"><?php echo number_format($row_trans_ari->ha_tertebang_selektor,2 ); ?></td>
-                <?php $hi_nilai_trans = $row_trans_ari->ha_tertebang_selektor; ?>
-                <?php $status = 1; } ?>
-        <?php } ?>
-        <?php if($status == 0){ echo "<td style=\"text-align: right\">0.00</td>"; }?>
-
-        <!------------------SD HA TERGILING TRANS----------------->
-        <?php $status = 0; ?>
-        <?php foreach ($sum_trans as $row_trans_sd ){?>
-            <?php if("TR-TM" == $row_trans_sd->kat_ptpn && $row_trans->kode_plant_trasnfer == $row_trans_sd->kode_plant_trasnfer){?>
-                <td style="text-align: right"><?php echo number_format($row_trans_sd->sum_ha_digiiling,2 ); ?></td>
-                <?php $status = 1; } ?>
-        <?php } ?>
-        <?php if($status == 0){ echo "<td style=\"text-align: right\">".number_format($hi_nilai_trans, 2)."</td>"; }?>
-
-        <!------------------HI QTY TERGILING TRANS----------------->
-        <?php $status = 0; ?>
-        <?php $hi_tergiling_trans = 0; ?>
-        <?php foreach ($ari_trans as $row_trans_ari ){?>
-            <?php if("TR-TM" == $row_trans_ari->kat_ptp && $row_trans->kode_plant_trasnfer == $row_trans_ari->kode_plant_trasnfer){?>
-                <td style="text-align: right"><?php echo number_format($row_trans_ari->netto,2 ); ?></td>
-                <?php $hi_nilai_trans = $row_trans_ari->netto; ?>
-                <?php $hi_tergiling_trans = $row_trans_ari->netto; ?>
-                <?php $status = 1; } ?>
-        <?php } ?>
-        <?php if($status == 0){ echo "<td style=\"text-align: right\">0.00</td>"; }?>
-        <!------------------SD QTY TERGILING TRANS----------------->
-        <?php $status = 0; ?>
-        <?php $trans_qty_tergiling_sd = 0; ?>
-        <?php foreach ($sum_trans as $row_trans_sd ){?>
-            <?php if("TR-TM" == $row_trans_sd->kat_ptpn && $row_trans->kode_plant_trasnfer == $row_trans_sd->kode_plant_trasnfer){?>
-                <td style="text-align: right"><?php echo number_format($row_trans_sd->sum_qty_digiling,2 ); ?></td>
-                <?php $trans_qty_tergiling_sd = $row_trans_sd->sum_qty_digiling; ?>
-                <?php $status = 1; } ?>
-        <?php } ?>
-        <?php if($status == 0){ echo "<td style=\"text-align: right\">".number_format($hi_nilai_trans, 2)."</td>"; }?>
-        <!------------------HI QTY KRISTAL TRANS----------------->
-        <?php $status = 0; ?>
-        <?php $hi_qty_kristal = 0; ?>
-        <?php foreach ($ari_trans as $row_trans_ari ){?>
-            <?php if("TR-TM" == $row_trans_ari->kat_ptp && $row_trans->kode_plant_trasnfer == $row_trans_ari->kode_plant_trasnfer){?>
-                <td style="text-align: right"><?php echo number_format($row_trans_ari->hablur,2 ); ?></td>
-                <?php $hi_nilai_trans = $row_trans_ari->hablur; ?>
-                <?php $hi_qty_kristal = $row_trans_ari->hablur; ?>
-                <?php $status = 1; } ?>
-        <?php } ?>
-        <?php if($status == 0){ echo "<td style=\"text-align: right\">0.00</td>"; }?>
-        <!------------------SD QTY KRISTAL TRANS----------------->
-        <?php $status = 0; ?>
-        <?php $trans_qty_kristal_sd = 0; ?>
-        <?php foreach ($sum_trans as $row_trans_sd ){?>
-            <?php if("TR-TM" == $row_trans_sd->kat_ptpn && $row_trans->kode_plant_trasnfer == $row_trans_sd->kode_plant_trasnfer){?>
-                <td style="text-align: right"><?php echo number_format($row_trans_sd->sum_qty_kristal,2 ); ?></td>
-                <?php $trans_qty_kristal_sd = $row_trans_sd->sum_qty_kristal; ?>
-                <?php $status = 1; } ?>
-        <?php } ?>
-        <?php if($status == 0){ echo "<td style=\"text-align: right\">".number_format($hi_nilai_trans, 2)."</td>"; }?>
-        <!------------------HI RENDEMEN TRANS----------------->
-        <?php $qty_kristal_trans = 0; ?>
-        <?php foreach ($ari_trans as $row_trans_ari ){?>
-            <?php if("TR-TM" == $row_trans_ari->kat_ptp && $row_trans->kode_plant_trasnfer == $row_trans_ari->kode_plant_trasnfer){?>
-                <?php $rendemen = ($row_trans_ari->hablur/$row_trans_ari->netto)*100;?>
-                <td style="text-align: right"><?php echo number_format($rendemen,2 ); ?></td>
-                <?php $qty_kristal_trans = 1; } ?>
-        <?php } ?>
-        <?php if($qty_kristal_trans == 0){ echo "<td style=\"text-align: right\">0.00</td>"; }?>
-        <!------------------SD RENDEMEN TRANS----------------->
-        <?php $_rend_trans_sd = 0; ?>
-        <?php foreach ($sum_trans as $row_trans_sd ){?>
-            <?php if("TR-TM" == $row_trans_sd->kat_ptpn && $row_trans->kode_plant_trasnfer == $row_trans_sd->kode_plant_trasnfer){?>
-                <?php if($sd_qty_kristal_sd != 0){?>
-                    <?php $rend_sd_trans = (($trans_qty_kristal_sd+$hi_qty_kristal)/($trans_qty_tergiling_sd+$hi_tergiling_trans)*100);?>
-                    <td style="text-align: right"><?php echo number_format($rend_sd_trans,2 ); ?></td>
-                    <?php $_rend_trans_sd = 1; } ?>
-            <?php } ?>
-        <?php } ?>
-        <?php if($_rend_trans_sd == 0){?>
-            <?php if($hi_tergiling_trans != 0){ ?>
-                <?php $hi_rend = $hi_qty_kristal/$hi_tergiling_trans*100;?>
-                <td style="text-align: right"><?php echo number_format($hi_rend,2 ); ?></td>
-            <?php }else{ ?>
-                <td style="text-align: right">0.00</td>
-            <?php }?>
-        <?php } ?>
-        <!------------------HI GULA PTR TRANS----------------->
-        <?php $status = 0; ?>
-        <?php $hi_nilai_trans = 0; ?>
-        <?php foreach ($ari_trans as $row_trans_ari ){?>
-            <?php if("TR-TM" == $row_trans_ari->kat_ptp && $row_trans->kode_plant_trasnfer == $row_trans_ari->kode_plant_trasnfer){?>
-                <td style="text-align: right"><?php echo number_format($row_trans_ari->gula_ptr,2 ); ?></td>
-                <?php $hi_nilai_trans = $row_trans_ari->gula_ptr; ?>
-                <?php $status = 1; } ?>
-        <?php } ?>
-        <?php if($status == 0){ echo "<td style=\"text-align: right\">0.00</td>"; }?>
-        <!------------------SD GULA PTR TRANS----------------->
-        <?php $status = 0; ?>
-        <?php foreach ($sum_trans as $row_trans_sd ){?>
-            <?php if("TR-TM" == $row_trans_sd->kat_ptpn && $row_trans->kode_plant_trasnfer == $row_trans_sd->kode_plant_trasnfer){?>
-                <td style="text-align: right"><?php echo number_format($row_trans_sd->sum_qty_gula_ptr,2 ); ?></td>
-                <?php $status = 1; } ?>
-        <?php } ?>
-        <?php if($status == 0){ echo "<td style=\"text-align: right\">".number_format($hi_nilai_trans, 2)."</td>"; }?>
-        <!------------------HI TETES PTR TRANS----------------->
-        <?php $status = 0; ?>
-        <?php $hi_nilai_trans = 0; ?>
-        <?php foreach ($ari_trans as $row_trans_ari ){?>
-            <?php if("TR-TM" == $row_trans_ari->kat_ptp && $row_trans->kode_plant_trasnfer == $row_trans_ari->kode_plant_trasnfer){?>
-                <td style="text-align: right"><?php echo number_format($row_trans_ari->tetes_ptr,2 ); ?></td>
-                <?php $hi_nilai_trans = $row_trans_ari->tetes_ptr; ?>
-                <?php $status = 1; } ?>
-        <?php } ?>
-        <?php if($status == 0){ echo "<td style=\"text-align: right\">0.00</td>"; }?>
-        <!------------------SD TETES PTR TRANS----------------->
-        <?php $status = 0; ?>
-        <?php foreach ($sum_trans as $row_trans_sd ){?>
-            <?php if("TR-TM" == $row_trans_sd->kat_ptpn && $row_trans->kode_plant_trasnfer == $row_trans_sd->kode_plant_trasnfer){?>
-                <td style="text-align: right"><?php echo number_format($row_trans_sd->sum_qty_tetes_ptr,2 ); ?></td>
-                <?php $status = 1; } ?>
-        <?php } ?>
-        <?php if($status == 0){ echo "<td style=\"text-align: right\">".number_format($hi_nilai_trans, 2)."</td>"; }?>
-    </tr>
-<?php } ?>
 
 <tr style="background-color: #9d9d9d">
-    <td>TOTAL TS SAUDARA </td>
+    <td>TOTAL TS LOKAL </td>
     <td style="text-align: right"><?php echo number_format($total_ha_ditebang, 2); ?></td>
     <td style="text-align: right"><?php echo $sd_total_ha_ditebang == 0 ? number_format($total_ha_ditebang, 2) : number_format($sd_total_ha_ditebang+$total_ha_ditebang, 2); ?></td>
     <td style="text-align: right"><?php echo number_format($total_qty_ditebang,2); ?></td>
@@ -381,3 +235,4 @@
     <td style="text-align: right"><?php echo number_format($total_tetes_ptr,2);?></td>
     <td style="text-align: right"><?php echo $sd_total_tetes_ptr == 0 ? number_format($total_tetes_ptr,2) : number_format($sd_total_tetes_ptr+$total_tetes_ptr,2);?></td>
 </tr>
+
