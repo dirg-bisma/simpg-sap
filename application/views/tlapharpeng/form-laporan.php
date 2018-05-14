@@ -278,26 +278,26 @@
                             <tr>
                                 <td> TS </td>
                                 <td> - </td>
-                                <td> 523.3 </td>
-                                <td> 523.3 </td>
+                                <td>  </td>
+                                <td>  </td>
                             </tr>
                             <tr>
                                 <td> EKS. TS SAUDARA </td>
                                 <td> - </td>
-                                <td> 212.2 </td>
-                                <td> 212.2 </td>
+                                <td>  </td>
+                                <td>  </td>
                             </tr>
                             <tr>
                                 <td> EKS . TR </td>
                                 <td> - </td>
-                                <td> 3,729.5 </td>
-                                <td> 3,729.5 </td>
+                                <td>  </td>
+                                <td>  </td>
                             </tr>
                             <tr>
                                 <td> MILIK PG </td>
                                 <td> - </td>
-                                <td> 4,465.0 </td>
-                                <td> 4,465.0 </td>
+                                <td>  </td>
+                                <td>  </td>
                             </tr>
                             <tr>
                                 <td> MILIK TS SAUDARA </td>
@@ -308,14 +308,14 @@
                             <tr>
                                 <td> MILIK TR </td>
                                 <td> - </td>
-                                <td> 7,522.4 </td>
-                                <td> 7,522.4 </td>
+                                <td>  </td>
+                                <td>  </td>
                             </tr>
                             <tr bgcolor="#3c8dbc" style="color:white;font-weight:bold">
                                 <td> TOTAL </td>
                                 <td> - </td>
-                                <td> 11,987.4 </td>
-                                <td> 11,987.5 </td>
+                                <td>  </td>
+                                <td>  </td>
                             </tr>
                             <tr style="color:red;font-weight:bold">
                                 <td> TEBU TERBAKAR </td>
@@ -332,20 +332,20 @@
                             <tr>
                                 <td> TS SAUDARA </td>
                                 <td><input type="text" id="tebu_terbakar_ts_saudara" name="tebu_terbakar_ts_saudara"></td>
-                                <td> 322.0 </td>
-                                <td> 322.0 </td>
+                                <td>  </td>
+                                <td>  </td>
                             </tr>
                             <tr>
                                 <td> TR </td>
                                 <td><input type="text" id="tebu_terbakar_tr" name="tebu_terbakar_tr"></td>
-                                <td> 7,088.02 </td>
-                                <td> 7,088.02 </td>
+                                <td>  </td>
+                                <td>  </td>
                             </tr>
                             <tr bgcolor="#3c8dbc" style="color:white;font-weight:bold">
                                 <td> TOTAL </td>
                                 <td> - </td>
-                                <td> 7,409.97 </td>
-                                <td> 7,409.97 </td>
+                                <td>  </td>
+                                <td>  </td>
                             </tr>
                             <tr>
                                 <td>&nbsp;</td>
@@ -410,14 +410,14 @@
                                 <tr>
                                     <td> Jam gil. </td>
                                     <td> <input type="text" class="form-control input-sm" id="jam_gil" readonly/></td>
-                                    <td> 3,491.17 </td>
-                                    <td> 3,488.17 </td>
+                                    <td>  </td>
+                                    <td> </td>
                                 </tr>
                                 <tr>
                                     <td> Jam kamp. </td>
                                     <td><input type="text" id="jam_kampanye" name="jam_kampanye" class='form-control input-sm' value="<?php echo @$data->jam_kampanye?>"/> </td>
                                     <td> <?php echo @$data_kemarin->jam_kampanye_sum;?></td>
-                                    <td> 3,654.48 </td>
+                                    <td>  </td>
                                 </tr>
                                 <tr>
                                     <td>&nbsp;</td>
@@ -429,13 +429,13 @@
                                     <td> K.I.S. </td>
                                     <td><input type="text" id="kis" name="kis" class='form-control input-sm' value="<?php echo @$data->kis;?>"/> </td>
                                     <td> <?php echo @$data_kemarin->kis_sum;?> </td>
-                                    <td> 1,163.0 </td>
+                                    <td>  </td>
                                 </tr>
                                 <tr>
                                     <td> K.E.S. </td>
                                     <td><input type="text" id="kes" name="kes" class='form-control input-sm' value="<?php echo @$data->kes;?>"/></td>
                                     <td> <?php echo @$data_kemarin->kes_sum;?> </td>
-                                    <td> 1,218.5 </td>
+                                    <td>  </td>
                                 </tr>
                                 <tr>
                                     <td>&nbsp;</td>
@@ -445,21 +445,21 @@
                                 </tr>
                                 <tr>
                                     <td> A% J.gl. </td>
-                                    <td> (66.67)</td>
-                                    <td> 0.57 </td>
-                                    <td> 0.63 </td>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td> </td>
                                 </tr>
                                 <tr>
                                     <td> B% J.gl. </td>
-                                    <td> (100.00)</td>
-                                    <td> 4.05 </td>
-                                    <td> 4.14 </td>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td> </td>
                                 </tr>
                                 <tr>
                                     <td> A  +  B </td>
-                                    <td> (166.67)</td>
-                                    <td> 4.62 </td>
-                                    <td> 4.77 </td>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td> </td>
                                 </tr>
                                 <tr>
                                     <td>&nbsp;</td>
@@ -471,25 +471,25 @@
                                     <td>  Prod. Gula </td>
                                     <td><input type="text" id="prod_gula" name="prod_gula" class='form-control input-sm' value="<?php echo @$data->prod_gula;?>"/> </td>
                                     <td> <?php echo @$data_kemarin->prod_gula_sum;?> </td>
-                                    <td> 11,987.5 </td>
+                                    <td>  </td>
                                 </tr>
                                 <tr>
                                     <td>  Ex.Sisan  </td>
                                     <td><input type="text" id="ex_sisan_gula" name="ex_sisan_gula" class='form-control input-sm' value="<?php echo @$data->ex_sisan_gula;?>"/></td>
                                     <td> <?php echo @$data_kemarin->ex_sisan_gula_sum;?></td>
-                                    <td> 73.4 </td>
+                                    <td>  </td>
                                 </tr>
                                 <tr>
                                     <td>  Jumlah </td>
-                                    <td> 99.956 </td>
-                                    <td> 12,060.9 </td>
-                                    <td> 12,060.9 </td>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td> </td>
                                 </tr>
                                 <tr>
                                     <td> Sisan diolah </td>
                                     <td><input type="text" id="sisan_diolah" name="sisan_diolah" class='form-control input-sm' value="<?php echo @$data->sisan_diolah;?>"/></td>
                                     <td> <?php echo @$data_kemarin->sisan_diolah_sum;?> </td>
-                                    <td> 87.8 </td>
+                                    <td> </td>
                                 </tr>
                                 <tr>
                                     <td>&nbsp;</td>
@@ -501,43 +501,43 @@
                                     <td> Prod. Tetes </td>
                                     <td><input type="text" id="prod_tetes" name="prod_tetes" class='form-control input-sm' value="<?php echo @$data->prod_tetes;?>"/></td>
                                     <td> <?php echo @$data_kemarin->prod_tetes_sum;?> </td>
-                                    <td> 8,328.0 </td>
+                                    <td> </td>
                                 </tr>
                                 <tr>
                                     <td> Ex.Sisan  </td>
                                     <td><input type="text" id="ex_sisan_tetes" name="ex_sisan_tetes" class='form-control input-sm' value="<?php echo @$data->ex_sisan_tetes;?>"/></td>
                                     <td> <?php echo @$data_kemarin->ex_sisan_tetes_sum;?> </td>
-                                    <td> 13.0 </td>
+                                    <td> </td>
                                 </tr>
                                 <tr>
                                     <td> STO Tetes  </td>
                                     <td><input type="text" id="sto_tetes" name="sto_tetes" class='form-control input-sm' value="<?php echo @$data->sto_tetes;?>"/></td>
                                     <td> <?php echo @$data_kemarin->sto_tetes_sum;?> </td>
-                                    <td> 1,290.2 </td>
+                                    <td> </td>
                                 </tr>
                                 <tr>
                                     <td> Ex. Tetes Repro Tahun Lalu </td>
                                     <td><input type="text" id="tetes_repro_tll" name="sto_tetes" class='form-control input-sm' value="<?php echo @$data->tetes_repor_tll;?>"/></td>
                                     <td> <?php echo @$data_kemarin->sto_tetes_sum;?> </td>
-                                    <td> 10.7 </td>
+                                    <td> </td>
                                 </tr>
                                 <tr>
                                     <td>  Jumlah </td>
                                     <td> - </td>
-                                    <td> 9,641.9 </td>
-                                    <td> 9,641.9 </td>
+                                    <td> </td>
+                                    <td> </td>
                                 </tr>
                                 <tr>
                                     <td> BBA </td>
                                     <td><input type="text" id="bba" name="bba" class='form-control input-sm' value="<?php echo @$data->bba_sum;?>"/></td>
                                     <td> <?php echo @$data_kemarin->bba_sum;?> </td>
-                                    <td> 5,250.3 </td>
+                                    <td> </td>
                                 </tr>
                                 <tr>
                                     <td> RUPIAH BBA </td>
                                     <td><input type="text" id="rupiah_bba" name="rupiah_bba" class='form-control input-sm' value="<?php echo @$data->rupiah_bba;?>"/></td>
                                     <td> <?php echo @$data_kemarin->rupiah_bba_sum;?> </td>
-                                    <td> 1,379,325 </td>
+                                    <td> </td>
                                 </tr>
                                 <tr>
                                     <td>&nbsp;</td>
@@ -549,7 +549,7 @@
                                     <td> GULA REPRO tahun lalu </td>
                                     <td><input type="text" id="gula_repro_tll" name="gula_repro_tll" class='form-control input-sm' value="<?php echo @$data->gula_repo_ttl;?>"/></td>
                                     <td> <?php echo @$data_kemarin->gula_repo_ttl_sum;?> </td>
-                                    <td> 61.10 </td>
+                                    <td> </td>
                                 </tr>
                                 <tr>
                                     <td> RAW SUGAR </td>
@@ -561,7 +561,7 @@
                                     <td> GULA REPRO tahun ini </td>
                                     <td><input type="text" id="gula_repro_th_ini" name="gula_repro_th_ini" class='form-control input-sm' value="<?php echo @$data->gula_repro_th_ini_sum;?>"/></td>
                                     <td> <?php echo @$data_kemarin->gula_repro_th_ini_sum;?> </td>
-                                    <td> 19.00 </td>
+                                    <td> </td>
                                 </tr>
                                 <tr>
                                     <td>&nbsp;</td>
@@ -573,13 +573,13 @@
                                     <td>  TON AMPAS </td>
                                     <td><input type="text" id="ton_ampas" name="ton_ampas" class='form-control input-sm' value="<?php echo @$data->ton_ampas;?>"/></td>
                                     <td> <?php echo @$data_kemarin->ton_ampas_sum;?> </td>
-                                    <td> 20.00 </td>
+                                    <td> </td>
                                 </tr>
                                 <tr>
                                     <td> % Pol AMPAS </td>
                                     <td><input type="text" id="persen_pol_ampas" name="persen_pol_ampas" class='form-control input-sm' value="<?php echo @$data->persen_pol_ampas;?>"/></td>
                                     <td> <?php echo @$data_kemarin->persen_pol_ampas_sum;?> </td>
-                                    <td> 21.00 </td>
+                                    <td> </td>
                                 </tr>
                                 <tr>
                                     <td>&nbsp;</td>
@@ -591,13 +591,13 @@
                                     <td> TON BLOTONG </td>
                                     <td><input type="text" id="ton_blotong" name="ton_blotong" class='form-control input-sm' value="<?php echo @$data->ton_blotong_sum;?>"/></td>
                                     <td> <?php echo @$data_kemarin->ton_blotong_sum;?> </td>
-                                    <td> 22.00 </td>
+                                    <td> </td>
                                 </tr>
                                 <tr>
                                     <td> % POL BLOTONG </td>
                                     <td><input type="text" id="persen_pol_blotong" name="persen_pol_blotong" class='form-control input-sm' value="<?php echo @$data->persen_pol_blotong;?>"/></td>
                                     <td> <?php echo @$data_kemarin->persen_pol_blotong_sum;?> </td>
-                                    <td> 23.00 </td>
+                                    <td> </td>
                                 </tr>
                                 <tr>
                                     <td>&nbsp;</td>
@@ -609,13 +609,13 @@
                                     <td> TON POL DALAM HASIL + TAKSASI </td>
                                     <td><input type="text" id="ton_pol_dlm_hasil_plus_taksasi" name="ton_pol_dlm_hasil_plus_taksasi" class='form-control input-sm' value="<?php echo @$data->ton_pol_dlm_hasil_plus_taksasi;?>"/></td>
                                     <td> <?php echo @$data_kemarin->ton_pol_dlm_hasil_plus_taksasi_sum;?> </td>
-                                    <td> 24.00 </td>
+                                    <td> </td>
                                 </tr>
                                 <tr>
                                     <td> % POL DALAM HASIL + TAKSASI </td>
                                     <td><input type="text" id="persen_pol_dlm_hasil_plus_taksasi" name="persen_pol_dlm_hasil_plus_taksasi" class='form-control input-sm' value="<?php echo @$data->persen_pol_dlm_hasil_plus_taksasi;?>"/></td>
                                     <td> <?php echo @$data_kemarin->persen_pol_dlm_hasil_plus_taksasi_sum;?> </td>
-                                    <td> 25.00 </td>
+                                    <td> </td>
                                 </tr>
                                 <tr>
                                     <td>&nbsp;</td>
