@@ -41,6 +41,7 @@ LAPORAN ANALISA ARI<br />
 $no=0;
 $kodemt = '';
 $akt = 0;
+$nettofinal = 0;
  foreach($result as $r){
  	$no++;
 
@@ -48,10 +49,11 @@ $akt = 0;
 		?>
 		<tr style="font-weight:bold;background:#3c8dbc;color:white">
 <td colspan="7"> JUMLAH <?php echo  $kodemt.' ('.$akt.')';?> </td>
-<td  align="right">  <?php echo number_format($r->netto_final,0); ?> </td>
+<td  align="right">  <?php echo number_format($nettofinal,0); ?> </td>
 <td colspan="8">  </td></tr>
 		<?php
 		$akt = 0;
+		$nettofinal = 0;
 	 }
 	 
 	 if($kodemt != $r->kode_affd){
@@ -61,6 +63,7 @@ $akt = 0;
 
 	 echo '<tr><td>'.($no).'</td><td> '.$r->tgl_analisa.' </td><td> '.$r->kode_affd.' </td><td> '.$r->no_spat.' </td><td> '.$r->kode_blok.' </td><td> '.$r->deskripsi_blok.' </td><td> '.$r->nama_petani.' </td><td align="right"> '.number_format($r->netto_final,0).'</td><td align="center"> '.$r->truk.' </td><td align="center"> '.$r->lori.' </td><td align="center"> '.$r->kode_kat_lahan.' </td><td align="right"> '.number_format($r->persen_brix_ari,2).' </td><td align="right"> '.number_format($r->persen_pol_ari,2).' </td><td align="right"> '.number_format($r->ph_ari,2).' </td><td align="right"> '.number_format($r->hk,2).' </td><td align="right"> '.number_format($r->nilai_nira,2).' </td><td align="right"> '.number_format($r->rendemen_ari,2).' </td></tr>';
 	 $akt++;
+	 $nettofinal+=$r->netto_final;
 	 
  }
 ?>
