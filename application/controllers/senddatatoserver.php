@@ -42,7 +42,7 @@ class Senddatatoserver extends CI_Controller {
 		
 		
 		if (!empty($sptaid)) {
-			#$this->gett_spta($sptaid,$sptalogid); 
+			$this->gett_spta($sptaid,$sptalogid); 
 		}
 		
 		if (!empty($selid)) {
