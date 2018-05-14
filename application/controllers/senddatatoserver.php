@@ -42,23 +42,23 @@ class Senddatatoserver extends CI_Controller {
 		
 		
 		if (!empty($sptaid)) {
-			$this->gett_spta($sptaid,$sptalogid); 
+			#$this->gett_spta($sptaid,$sptalogid); 
 		}
 		
 		if (!empty($selid)) {
-			$this->gett_selektor($selid,$sellogid);
+			#$this->gett_selektor($selid,$sellogid);
 		}
 		
 		if (!empty($timid)) {
-			$this->gett_timbangan($timid,$timlogid);
+			#$this->gett_timbangan($timid,$timlogid);
 		}
 		
 		if (!empty($mtid)) {
-			$this->gett_meja_tebu($mtid,$mtlogid);
+			#$this->gett_meja_tebu($mtid,$mtlogid);
 		}
 		
 		if (!empty($ariid)) {
-			$this->gett_ari($ariid,$arilogid);
+			#$this->gett_ari($ariid,$arilogid);
 		}
 		
 		
