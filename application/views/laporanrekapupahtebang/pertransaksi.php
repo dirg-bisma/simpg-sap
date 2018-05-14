@@ -207,7 +207,7 @@ REKAPITULASI UPAH TEBANG<br />
 							//$rem += ($d->$nm*1);
 							//$arrrem[$nm][] = $d->$nm*1;
 						}
-						$this->db->query("UPDATE t_upah_tebang_detail SET total_upah='$add',total_potongan='$rem',total_bersih='".($add-$rem)."' where id='".$d->id."'");
+						
 						
 						$jbersih += ($add-$rem);
 						$tjbersih += ($add-$rem);

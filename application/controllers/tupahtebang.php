@@ -321,9 +321,10 @@ INNER JOIN t_upah_tebang_detail d ON d.`id_spta`=a.`id` WHERE d.id_upah_tebang=$
 			$this->data['detail'] =  $b;
 		} else {
 			$this->data['row'] = $this->model->getColumnTable('t_upah_tebang'); 
+			$this->data['row']['tgl'] = date('Y-m-d');
 		}
 		
-		$this->data['row']['tgl'] = date('Y-m-d');
+		
 		$this->data['id'] = $id;
 		$this->data['content'] = $this->load->view('tupahtebang/form',$this->data, true );		
 	  	$this->load->view('layouts/main', $this->data );
@@ -389,9 +390,9 @@ SET a.`upah_tebang_status`=".$ID.",a.`upah_tebang_tgl` = NOW() WHERE b.`id_upah_
 			$this->session->set_flashdata('message',SiteHelpers::alert('success'," Data has been saved succesfuly !"));
 			if($this->input->post('apply'))
 			{
-				redirect( 'tupahtebang/add/'.$ID,301);
+				redirect( 'tupahtebang/show/'.$ID,301);
 			} else {
-				redirect( 'tupahtebang',301);
+				redirect( 'tupahtebang/show/'.$ID,301);
 			}			
 			
 			

@@ -158,6 +158,8 @@
 						}
 						
 						$jbersih += ($add-$rem);
+
+						$this->db->query("UPDATE t_upah_tebang_detail SET total_upah='$add',total_potongan='$rem',total_bersih='".($add-$rem)."' where id='".$d->id."'");
 					?>
 					<td style="text-align:right"><?php echo number_format($add-$rem,2);?></td>
 					<td style="text-align:center"><?php echo $d->timb_netto_tgl;?></td>
