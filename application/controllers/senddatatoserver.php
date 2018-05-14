@@ -46,19 +46,19 @@ class Senddatatoserver extends CI_Controller {
 		}
 		
 		if (!empty($selid)) {
-			#$this->gett_selektor($selid,$sellogid);
+			$this->gett_selektor($selid,$sellogid);
 		}
 		
 		if (!empty($timid)) {
-			#$this->gett_timbangan($timid,$timlogid);
+			$this->gett_timbangan($timid,$timlogid);
 		}
 		
 		if (!empty($mtid)) {
-			#$this->gett_meja_tebu($mtid,$mtlogid);
+			$this->gett_meja_tebu($mtid,$mtlogid);
 		}
 		
 		if (!empty($ariid)) {
-			#$this->gett_ari($ariid,$arilogid);
+			$this->gett_ari($ariid,$arilogid);
 		}
 		
 		
@@ -75,7 +75,7 @@ class Senddatatoserver extends CI_Controller {
 		$datax = json_encode($result->result());
 		$result->free_result();
 
-		$url= 'http://devproduksi.ptpn11.co.id/simpgdb/index.php/dashboard/Uploadt_spta/'.CNF_COMPANYCODE.'/'.CNF_PLANCODE;
+		$url= 'http://10.20.1.13/simpgdb/index.php/dashboard/Uploadt_spta/'.CNF_COMPANYCODE.'/'.CNF_PLANCODE;
 	    $ch = curl_init($url);
 	    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 	    curl_setopt($ch, CURLOPT_POST, true);
