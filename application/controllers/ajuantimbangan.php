@@ -258,6 +258,12 @@ class Ajuantimbangan extends SB_Controller
                 'netto_final' => $result->netto_perubahan
             ));
 
+            $this->db->where(array('id_ubah_timbangan' => $id));
+            $this->db->update('t_ubah_timbangan', array(
+                'status_validasi' => 1,
+                'tgl_validasi' => $this->getDateNow()
+            ));
+
             $this->session->set_flashdata('message',SiteHelpers::alert('success','Data no SPTA '.$result->no_spat.' Telah dirubah'));
             redirect('ajuantimbangan',301);
         }else{
@@ -314,5 +320,13 @@ class Ajuantimbangan extends SB_Controller
             $output = "";
         }
         return $output;
+    }
+
+    private function getDateNow()
+    {
+        $sql = "SELECT NOW() as sekarang";
+        $query = $this->db->query($sql);
+        $sekarang = $query->row();
+        return $sekarang->sekarang;
     }
 }
