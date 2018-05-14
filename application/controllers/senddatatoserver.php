@@ -71,13 +71,16 @@ class Senddatatoserver extends CI_Controller {
 		$idlog = implode(",", $idlog);
 		
 		if($id != ''){
-		$result = $this->db->query('SELECT * FROM t_spta where id IN ('.$id.')')->result();
+		$result = $this->db->query('SELECT * FROM t_spta where id IN ('.$id.')');
+		$datax = json_encode($result->result());
+		$result->free_result();
+
 		$url= 'http://devproduksi.ptpn11.co.id/simpgdb/index.php/dashboard/Uploadt_spta/'.CNF_COMPANYCODE.'/'.CNF_PLANCODE;
 	    $ch = curl_init($url);
 	    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 	    curl_setopt($ch, CURLOPT_POST, true);
 	    $post = array(
-	        "data" => base64_encode(json_encode($result))
+	        "data" => base64_encode($datax)
 	    );
 	    curl_setopt($ch, CURLOPT_POSTFIELDS, $post); 
 	    $response = curl_exec($ch);
@@ -87,7 +90,8 @@ class Senddatatoserver extends CI_Controller {
 		if (!curl_errno($ch)) {
 		  switch ($http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE)) {
 			case 200:  # OK
-				$this->db->query("DELETE FROM tb_logs_sync_process WHERE id IN (".$idlog.")");
+				 $a = $this->db->query("DELETE FROM tb_logs_sync_process WHERE id IN (".$idlog.")");
+				 $a->free_result();
 			break;
 		  }
 		}
@@ -103,13 +107,16 @@ class Senddatatoserver extends CI_Controller {
 			$idlog = implode(",", $idlog);
 		
 		if($id != ''){
-			$result = $this->db->query('SELECT * FROM t_selektor where id_spta  IN ('.$id.')')->result();
+			$result = $this->db->query('SELECT * FROM t_selektor where id_spta  IN ('.$id.')');
+			$datax = json_encode($result->result());
+			$result->free_result();
+
 			$url = 'http://devproduksi.ptpn11.co.id/simpgdb/index.php/dashboard/Uploadt_selektor/'.CNF_COMPANYCODE.'/'.CNF_PLANCODE;
 		    $ch = curl_init($url);
 		    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 		    curl_setopt($ch, CURLOPT_POST, true);
 		    $post = array(
-		        "data" => base64_encode(json_encode($result))
+		        "data" => base64_encode($datax)
 		    );
 		    curl_setopt($ch, CURLOPT_POSTFIELDS, $post); 
 		    $response = curl_exec($ch);
@@ -118,7 +125,8 @@ class Senddatatoserver extends CI_Controller {
 		if (!curl_errno($ch)) {
 		  switch ($http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE)) {
 			case 200:  # OK
-				$this->db->query("DELETE FROM tb_logs_sync_process WHERE id IN (".$idlog.")");
+				$a = $this->db->query("DELETE FROM tb_logs_sync_process WHERE id IN (".$idlog.")");
+				 $a->free_result();
 			break;
 		  }
 		}
@@ -133,13 +141,15 @@ class Senddatatoserver extends CI_Controller {
 			$idlog = implode(",", $idlog);
 		
 		if($id != ''){
-			$result = $this->db->query('SELECT * FROM t_timbangan where id_spat IN ('.$id.')')->result();
+			$result = $this->db->query('SELECT * FROM t_timbangan where id_spat IN ('.$id.')');
+			$datax = json_encode($result->result());
+			$result->free_result();
 			$url = 'http://devproduksi.ptpn11.co.id/simpgdb/index.php/dashboard/Uploadt_timbangan/'.CNF_COMPANYCODE.'/'.CNF_PLANCODE;
 		    $ch = curl_init($url);
 		    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 		    curl_setopt($ch, CURLOPT_POST, true);
 		    $post = array(
-		        "data" => base64_encode(json_encode($result))
+		        "data" => base64_encode($datax)
 		    );
 		    curl_setopt($ch, CURLOPT_POSTFIELDS, $post); 
 		    $response = curl_exec($ch);
@@ -148,7 +158,8 @@ class Senddatatoserver extends CI_Controller {
 		if (!curl_errno($ch)) {
 		  switch ($http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE)) {
 			case 200:  # OK
-				$this->db->query("DELETE FROM tb_logs_sync_process WHERE id IN (".$idlog.")");
+				$a = $this->db->query("DELETE FROM tb_logs_sync_process WHERE id IN (".$idlog.")");
+				 $a->free_result();
 			break;
 		  }
 		}
@@ -165,12 +176,14 @@ class Senddatatoserver extends CI_Controller {
 			if($id != ''){
 		
 			$result = $this->db->query('SELECT * FROM t_meja_tebu where id_spta IN ('.$id.')')->result();
+			$datax = json_encode($result->result());
+			$result->free_result();
 			$url = 'http://devproduksi.ptpn11.co.id/simpgdb/index.php/dashboard/Uploadt_meja_tebu/'.CNF_COMPANYCODE.'/'.CNF_PLANCODE;
 		    $ch = curl_init($url);
 		    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 		    curl_setopt($ch, CURLOPT_POST, true);
 		    $post = array(
-		        "data" => base64_encode(json_encode($result))
+		        "data" => base64_encode($datax)
 		    );
 		    curl_setopt($ch, CURLOPT_POSTFIELDS, $post); 
 		    $response = curl_exec($ch);
@@ -179,7 +192,8 @@ class Senddatatoserver extends CI_Controller {
 		if (!curl_errno($ch)) {
 		  switch ($http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE)) {
 			case 200:  # OK
-				$this->db->query("DELETE FROM tb_logs_sync_process WHERE id IN (".$idlog.")");
+				$a = $this->db->query("DELETE FROM tb_logs_sync_process WHERE id IN (".$idlog.")");
+				 $a->free_result();
 			break;
 		  }
 		}
@@ -194,13 +208,15 @@ class Senddatatoserver extends CI_Controller {
 			$idlog = implode(",", $idlog);
 			
 			if($id != ''){
-			$result = $this->db->query('SELECT * FROM t_ari where id_spta IN ('.$id.')')->result();
+			$result = $this->db->query('SELECT * FROM t_ari where id_spta IN ('.$id.')');
+			$datax = json_encode($result->result());
+			$result->free_result();
 			$url = 'http://devproduksi.ptpn11.co.id/simpgdb/index.php/dashboard/Uploadt_ari/'.CNF_COMPANYCODE.'/'.CNF_PLANCODE;
 		    $ch = curl_init($url);
 		    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 		    curl_setopt($ch, CURLOPT_POST, true);
 		    $post = array(
-		        "data" => base64_encode(json_encode($result))
+		        "data" => base64_encode($datax)
 		    );
 		    curl_setopt($ch, CURLOPT_POSTFIELDS, $post); 
 		    $response = curl_exec($ch);
@@ -209,7 +225,8 @@ class Senddatatoserver extends CI_Controller {
 		if (!curl_errno($ch)) {
 		  switch ($http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE)) {
 			case 200:  # OK
-				$this->db->query("DELETE FROM tb_logs_sync_process WHERE id IN (".$idlog.")");
+				$a = $this->db->query("DELETE FROM tb_logs_sync_process WHERE id IN (".$idlog.")");
+				 $a->free_result();
 			break;
 		  }
 		}
