@@ -361,7 +361,7 @@
 <?php } ?>
 
 <tr style="background-color: #9d9d9d">
-    <td>TOTAL TS SAUDARA </td>
+    <td>TOTAL TR SAUDARA </td>
     <td style="text-align: right"><?php echo number_format($total_ha_ditebang, 2); ?></td>
     <td style="text-align: right"><?php echo $sd_total_ha_ditebang == 0 ? number_format($total_ha_ditebang, 2) : number_format($sd_total_ha_ditebang+$total_ha_ditebang, 2); ?></td>
     <td style="text-align: right"><?php echo number_format($total_qty_ditebang,2); ?></td>
