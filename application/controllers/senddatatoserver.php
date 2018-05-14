@@ -175,7 +175,7 @@ class Senddatatoserver extends CI_Controller {
 			
 			if($id != ''){
 		
-			$result = $this->db->query('SELECT * FROM t_meja_tebu where id_spta IN ('.$id.')')->result();
+			$result = $this->db->query('SELECT * FROM t_meja_tebu where id_spta IN ('.$id.')');
 			$datax = json_encode($result->result());
 			$result->free_result();
 			$url = 'http://devproduksi.ptpn11.co.id/simpgdb/index.php/dashboard/Uploadt_meja_tebu/'.CNF_COMPANYCODE.'/'.CNF_PLANCODE;
