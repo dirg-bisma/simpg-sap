@@ -49,6 +49,7 @@ $akt = 0;
 <td colspan="18"> JUMLAH <?php echo  $kodemt.' ('.$akt.')';?> </td></tr>
 		<?php
 		$akt = 0;
+		$nettofinal = 0;
 	 }
 	 
 	 if($kodemt != $r->kode_meja_tebu){
@@ -66,7 +67,7 @@ $akt = 0;
 	 <td><?php echo $r->kode_kat_lahan;?></td>
 	 <td><?php echo $r->jenis_spta;?></td>
 	 <td><?php echo $r->no_angkutan;?></td>
-	 <td><?php echo $r->netto;?></td>
+	 <td><?php echo number_format($r->netto,0);?></td>
 	 <td><?php echo $r->brix_sel;?></td>
 	 <td><?php echo $r->ph_sel;?></td>
 	 <td><?php echo $r->terbakar_sel;?></td>
@@ -78,13 +79,20 @@ $akt = 0;
 	 <?php
 	$no++;
 	$akt++;
+	$nettofinal+=$r->netto;
  }
 ?>
 </tbody>
 <tr style="font-weight:bold;background:#3c8dbc;color:white">
-<td colspan="18" align="center"> JUMLAH <?php echo $kodemt;?> (<?php echo $akt;?>) </td></tr>
+<td colspan="9" align="center"> JUMLAH <?php echo $kodemt;?> (<?php echo $akt;?>) </td>
+<td align="center"> <?php echo number_format($nettofinal,0); ?> </td>
+<td style="font-weight:bold;background:#3c8dbc;color:white" colspan="8"></td>
+</tr>
 <tfoot><tr style="font-weight:bold;background:#104E8B;color:white">
-<td colspan="18" align="center"> TOTAL SEMUA (<?php echo $no-1;?>) </td></tr></tfoot>
+<td colspan="9" align="center"> TOTAL SEMUA (<?php echo $no-1;?>) </td>
+<td align="center"> <?php echo number_format($nettofinal,0); ?> </td>
+<td style="font-weight:bold;background:#104E8B;color:white" colspan="8"></td>
+</tr></tfoot>
 </table>
 <hr />
 <table style="width:100%">
