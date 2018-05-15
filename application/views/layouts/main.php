@@ -112,7 +112,7 @@
 <?php
 if(md5(CNF_PLANCODE) == CNF_KEYSYNC){
 ?>
-  firebaseapp('<?php echo  CNF_PLANCODE ;?>');
+  firebaseapp('<?php echo  CNF_PLANCODE ;?>','<?php echo site_url("senddatatoserver/syncByLog")?>');
 <?php
 }
 ?>
