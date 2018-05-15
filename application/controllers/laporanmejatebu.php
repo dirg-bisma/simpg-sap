@@ -64,10 +64,11 @@ class laporanmejatebu extends SB_Controller
   `c`.`name`              AS `mandor`,
    b.`jenis_spta`,
    b.kode_affd,
-   a.*,b.hari_giling,b.tgl_giling,a1.tgl_meja_tebu,a1.kondisi_tebu,a1.kode_meja_tebu
+   a.*,d.netto,b.hari_giling,b.tgl_giling,a1.tgl_meja_tebu,a1.kondisi_tebu,a1.kode_meja_tebu
 FROM t_meja_tebu a1 
      INNER JOIN `t_selektor` `a` ON a1.id_spta=a.id_spta
      INNER JOIN `t_spta` `b` ON `a`.`id_spta` = `b`.`id`
+     INNER JOIN t_timbangan d on b.id = d.id_spat
      INNER JOIN `sap_m_karyawan` `c`  ON `c`.`Persno` = CONVERT(`a`.`persno_mandor_tma` USING utf8)
      INNER JOIN `sap_field` `e` ON `e`.`kode_blok` = `b`.`kode_blok` $wh GROUP BY b.`id`
 ORDER BY `a1`.`tgl_meja_tebu` ASC";
