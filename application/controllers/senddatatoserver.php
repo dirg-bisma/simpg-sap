@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Senddatatoserver extends CI_Controller {
 	public function syncByLog()
 	{
-		$result = $this->db->query('SELECT * FROM tb_logs_sync_process where t_status = 0 limit 10')->result();
+		$result = $this->db->query('SELECT * FROM tb_logs_sync_process where t_status = 0 limit 100')->result();
 		
 		$sptaid = array(); $sptalogid = array();
 		$selid = array(); $sellogid = array();
