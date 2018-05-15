@@ -58,7 +58,7 @@ class Senddatatoserver extends CI_Controller {
 		}
 		
 		if (!empty($ariid)) {
-			$this->gett_ari($ariid,$arilogid);
+			$this->gett_ari($ariid,$arilogid); 
 		}
 		
 		
