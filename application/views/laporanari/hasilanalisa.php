@@ -69,11 +69,11 @@ $nettofinal = 0;
 ?>
 <tr style="font-weight:bold;background:#3c8dbc;color:white">
 <td colspan="7"> JUMLAH <?php echo  $kodemt.' ('.$akt.')';?> </td>
-<td  align="right">  <?php echo number_format(0,0); ?> </td>
+<td  align="right">  <?php echo number_format($nettofinal,0); ?> </td>
 <td colspan="9">  </td></tr>
 <tr style="font-weight:bold;background:#3c8dbc;color:white">
 <td colspan="7"> GRAND JUMLAH <?php echo  ' ('.$akt.')';?> </td>
-<td align="right">  <?php echo number_format(0,0); ?> </td>
+<td align="right">  <?php echo number_format($nettofinal,0); ?> </td>
 <td colspan="9">  </td></tr>
 </tbody>
 </table>

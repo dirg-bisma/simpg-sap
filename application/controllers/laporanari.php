@@ -25,6 +25,11 @@ class Laporanari extends SB_Controller
 		$wh = 'WHERE 0=0';
 
 		$tglgiling = $_REQUEST['tglgiling'];
+		if(isset($_REQUEST['excel']) && $_REQUEST['excel'] == 1){
+			$file = "Laporan ARI AFDELING - PERIODE ".SiteHelpers::datereport($tglgiling).".xls";
+			header("Content-type: application/vnd.ms-excel");
+			header("Content-Disposition: attachment; filename=$file");
+		}
 		$this->data['title'] = 'TANGGAL GILING '.SiteHelpers::daterpt($tglgiling);
 		
 		$sql = "SELECT DATE_FORMAT(tgl_ari,'%d-%m-%Y %H:%i') AS tgl_analisa,
@@ -42,8 +47,40 @@ $result = $this->db->query($sql)->result();
 		
 		$this->data['result'] = $result;
 		$this->load->view('laporanari/hasilanalisa',$this->data);
+	}
+
+	function printlaporanspat(){
+		$wh = 'WHERE 0=0';
+
+		$tglgiling = $_REQUEST['tglgiling'];
+
+		if(isset($_REQUEST['excel']) && $_REQUEST['excel'] == 1){
+			$file = "Laporan ARI SPAT - PERIODE ".SiteHelpers::datereport($tglgiling).".xls";
+			header("Content-type: application/vnd.ms-excel");
+			header("Content-Disposition: attachment; filename=$file");
+		}
 		
+		$this->data['title'] = 'TANGGAL GILING '.SiteHelpers::daterpt($tglgiling);
+
+		$sql = "select 
+		  a.no_urut_analisa_rendemen,
+		  a.meja_tebu_tgl,
+		  a.no_spat,
+		  a.kode_blok,
+		  b.no_angkutan,	
+		  c.netto,
+		  d.persen_brix_ari,
+		  d.persen_pol_ari
+		from
+		t_spta a
+		inner join t_selektor b on a.id = b.id_spta
+		inner join t_timbangan c on a.id = c.id_spat
+		inner join t_ari d on a.id = d.id_spta
+		where Date(a.meja_tebu_tgl) = '2018-05-10'
+		order by a.no_urut_analisa_rendemen";
+		$result = $this->db->query($sql)->result();
 		
-		
+		$this->data['result'] = $result;
+		$this->load->view('laporanari/hasilanalisaspat',$this->data);
 	}
 }
