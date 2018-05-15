@@ -146,11 +146,11 @@ class SB_Model extends CI_Model
 	{
 		if(isset($params[3]) AND !empty($params[4]) ){
 			$table = $params[0];
-				$query = $this->db->get_where( $table , array( $params[3] => $params[4] ), 200, 0);
+				$query = $this->db->get_where( $table , array( $params[3] => $params[4] ), 1000, 0);
 			if(isset($params[5]) AND !empty($params[6]) ){
-				$query = $this->db->get_where( $table , array( $params[3] => $params[4],$params[5] => $params[6] ), 200, 0);
+				$query = $this->db->get_where( $table , array( $params[3] => $params[4],$params[5] => $params[6] ), 1000, 0);
 			}if(isset($params[7]) AND !empty($params[8]) ){
-				$query = $this->db->get_where( $table , array( $params[7] => $params[8],$params[3] => $params[4],$params[5] => $params[6] ), 200, 0);
+				$query = $this->db->get_where( $table , array( $params[7] => $params[8],$params[3] => $params[4],$params[5] => $params[6] ), 1000, 0);
 			}
 			$rows = $query->result();
 		}else{

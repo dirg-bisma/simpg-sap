@@ -83,8 +83,8 @@
 								  <div class="form-group  " >
 								  
 									<label for="ipt" class=" control-label "> Mandor Tebang / Renteng  <span class="asterix"> * </span>  </label>									
-									  <select name='persno_mandor_tma' rows='5' id='persno_mandor_tma' code='{$persno_mandor_tma}' 
-							class='form-control input-sm  ' style='width: 100%;' required  ></select> 						
+									  <select name='persno_mandor_tma'  rows='5' id='persno_mandor_tma' code='{$persno_mandor_tma}' 
+							class='form-control input-sm  select2' style='width: 100%;' required  ></select> 						
 								  </div> 
 
 								   <div class="form-group  " >
