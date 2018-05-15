@@ -91,7 +91,7 @@ class Senddatatoserver extends CI_Controller {
 		  switch ($http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE)) {
 			case 200:  # OK
 				 $a = $this->db->query("DELETE FROM tb_logs_sync_process WHERE id IN (".$idlog.")");
-				 $a->free_result();
+				// $a->free_result();
 			break;
 		  }
 		}
@@ -126,7 +126,7 @@ class Senddatatoserver extends CI_Controller {
 		  switch ($http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE)) {
 			case 200:  # OK
 				$a = $this->db->query("DELETE FROM tb_logs_sync_process WHERE id IN (".$idlog.")");
-				 $a->free_result();
+				// $a->free_result();
 			break;
 		  }
 		}
@@ -159,7 +159,7 @@ class Senddatatoserver extends CI_Controller {
 		  switch ($http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE)) {
 			case 200:  # OK
 				$a = $this->db->query("DELETE FROM tb_logs_sync_process WHERE id IN (".$idlog.")");
-				 $a->free_result();
+				// $a->free_result();
 			break;
 		  }
 		}
@@ -193,7 +193,7 @@ class Senddatatoserver extends CI_Controller {
 		  switch ($http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE)) {
 			case 200:  # OK
 				$a = $this->db->query("DELETE FROM tb_logs_sync_process WHERE id IN (".$idlog.")");
-				 $a->free_result();
+				// $a->free_result();
 			break;
 		  }
 		}
@@ -226,7 +226,7 @@ class Senddatatoserver extends CI_Controller {
 		  switch ($http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE)) {
 			case 200:  # OK
 				$a = $this->db->query("DELETE FROM tb_logs_sync_process WHERE id IN (".$idlog.")");
-				 $a->free_result();
+				// $a->free_result();
 			break;
 		  }
 		}
