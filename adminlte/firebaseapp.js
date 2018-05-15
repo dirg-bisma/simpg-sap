@@ -1,6 +1,6 @@
-var path_sync = '/simpg/index.php/senddatatoserver/syncByLog';
-var hostname = "http://"+document.location.hostname;
-function firebaseapp(plant) {
+//var path_sync = '/simpg/index.php/senddatatoserver/syncByLog';
+//var hostname = "http://"+document.location.hostname;
+function firebaseapp(plant,syncurl) {
   var _0x7506=["\x41\x49\x7A\x61\x53\x79\x44\x35\x54\x44\x41\x50\x44\x64\x4D\x6D\x4A\x61\x77\x59\x42\x69\x70\x5A\x68\x53\x7A\x68\x79\x53\x53\x4F\x49\x6E\x64\x78\x34\x55\x73","\x73\x69\x6D\x70\x67\x2D\x36\x32\x32\x61\x36\x2E\x66\x69\x72\x65\x62\x61\x73\x65\x69\x6F\x2E\x63\x6F\x6D","\x68\x74\x74\x70\x73\x3A\x2F\x2F\x73\x69\x6D\x70\x67\x2D\x36\x32\x32\x61\x36\x2E\x66\x69\x72\x65\x62\x61\x73\x65\x69\x6F\x2E\x63\x6F\x6D\x2F","\x73\x69\x6D\x70\x67\x2D\x36\x32\x32\x61\x36\x2E\x61\x70\x70\x73\x70\x6F\x74\x2E\x63\x6F\x6D","\x69\x6E\x69\x74\x69\x61\x6C\x69\x7A\x65\x41\x70\x70","\x75\x73\x65\x72\x73\x2F","\x2F\x63\x6F\x6E\x6E\x65\x63\x74\x69\x6F\x6E\x73","\x72\x65\x66","\x64\x61\x74\x61\x62\x61\x73\x65","\x2F\x6C\x61\x73\x74\x4F\x6E\x6C\x69\x6E\x65","\x2E\x69\x6E\x66\x6F\x2F\x63\x6F\x6E\x6E\x65\x63\x74\x65\x64"];var config={apiKey:_0x7506[0],authDomain:_0x7506[1],databaseURL:_0x7506[2],storageBucket:_0x7506[3]};firebase[_0x7506[4]](config);var myConnectionsRef=firebase[_0x7506[8]]()[_0x7506[7]](_0x7506[5]+ plant+ _0x7506[6]);var lastOnlineRef=firebase[_0x7506[8]]()[_0x7506[7]](_0x7506[5]+ plant+ _0x7506[9]);var connectedRef=firebase[_0x7506[8]]()[_0x7506[7]](_0x7506[10])
   
 
@@ -22,7 +22,7 @@ function firebaseapp(plant) {
                 isupload: false
              });
 
-              $.get( hostname+path_sync, function( data ) {});
+              $.get( syncurl, function( data ) {});
           }
     });
 
@@ -30,7 +30,7 @@ function firebaseapp(plant) {
       connectedRefAutoSync.on("value", function(snap) {
         if (snap.val().autosync === true) {
                 setInterval(function() {
-                    $.get( hostname+path_sync, function( data ) {});
+                    $.get( syncurl, function( data ) {});
                 }, snap.val().timeautosync);
         }        
   });
