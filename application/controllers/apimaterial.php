@@ -387,6 +387,17 @@ class Apimaterial  extends SB_Controller
         echo $this->load->view('apimaterial/laporanbyno',$this->data);
     }
 
+    function laporanbynojson()
+    {
+        $search = $this->GetPost('q');
+        $this->load->model('apimaterialmodel');
+        $result = $this->apimaterialmodel->getTimbangBynoTransaksiNoId($search);
+
+        $count = count($result);
+        $data = array('result'=>$result,'count'=>$count,'msg'=>'success');
+        echo json_encode($data);
+    }
+
     function laporantransaksibytgl()
     {
         $tgl1 = $this->GetPost('tgl1');
@@ -413,6 +424,29 @@ class Apimaterial  extends SB_Controller
         $this->data['tgl1'] = $tgl1;
         $this->data['tgl2'] = $tgl2;
         echo $this->load->view('apimaterial/laporantimbanganbytgl',$this->data);
+    }
+
+    function laporantimbanganbytgljson()
+    {
+        $tgl1 = $this->GetPost('tgl1');
+        $tgl2 = $this->GetPost('tgl2');
+        $this->load->model('apimaterialmodel');
+        $result = $this->apimaterialmodel->getLaporanTimbangByTglNoId($tgl1, $tgl2);
+
+        $count = count($result);
+        $data = array('result'=>$result,'count'=>$count,'msg'=>'success');
+        echo json_encode($data);
+    }
+
+
+    function blumtimbangkedua()
+    {
+        $this->load->model('apimaterialmodel');
+        $result = $this->apimaterialmodel->getTimbangByTimbang1();
+
+        $count = count($result);
+        $data = array('result'=>$result,'count'=>$count,'msg'=>'success');
+        echo json_encode($data);
     }
 
     function laporantimbangantimbangsatu()

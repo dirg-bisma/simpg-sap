@@ -93,6 +93,49 @@ class apimaterialmodel extends SB_Model
         return $result->result();
     }
 
+    public function getTimbangBynoTransaksiNoId($no_transaksi)
+    {
+        $sql = "SELECT a.no_tiket,
+                a.kode_material,
+                a.nama_material,
+                a.kode_relasi,
+                a.nama_relasi,
+                a.no_kendaraan,
+                a.nama_supir,
+                a.timbang_1,
+                a.timbang_2,
+                a.netto,
+                a.tgl_timbang_1,
+                a.tgl_timbang_2,
+                a.jenis_transaksi,
+                a.no_transaksi,
+                a.status_timbang_1,
+                a.status_timbang_2,
+                a.ptgs_timbang FROM t_timbang_material AS a WHERE a.`no_transaksi` = '$no_transaksi'";
+
+        $result = $this->db->query($sql);
+        return $result->result();
+    }
+
+    public function getTimbangByTimbang1()
+    {
+        $sql = "SELECT a.no_tiket,
+                a.kode_material,
+                a.nama_material,
+                a.kode_relasi,
+                a.nama_relasi,
+                a.no_kendaraan,
+                a.nama_supir,
+                a.timbang_1,
+                a.tgl_timbang_1,
+                a.jenis_transaksi,
+                a.no_transaksi,
+                a.status_timbang_1 FROM t_timbang_material AS a WHERE a.`status_timbang_2` =''";
+
+        $result = $this->db->query($sql);
+        return $result->result();
+    }
+
     public function getLaporanNoTransaksi($tgl1, $tgl2)
     {
         $sql = "SELECT a.* FROM t_transaksi_material AS a WHERE a.`date_create` BETWEEN '$tgl1' AND '$tgl2' ";
@@ -108,6 +151,31 @@ class apimaterialmodel extends SB_Model
         $result = $this->db->query($sql);
         return $result->result();
     }
+
+    public function getLaporanTimbangByTglNoId($tgl1, $tgl2)
+    {
+        $sql = "SELECT a.no_tiket,
+                a.kode_material,
+                a.nama_material,
+                a.kode_relasi,
+                a.nama_relasi,
+                a.no_kendaraan,
+                a.nama_supir,
+                a.timbang_1,
+                a.timbang_2,
+                a.netto,
+                a.tgl_timbang_1,
+                a.tgl_timbang_2,
+                a.jenis_transaksi,
+                a.no_transaksi,
+                a.status_timbang_1,
+                a.status_timbang_2,
+                a.ptgs_timbang FROM t_timbang_material AS a WHERE a.`tgl_timbang_2` BETWEEN '$tgl1' AND '$tgl2' ";
+
+        $result = $this->db->query($sql);
+        return $result->result();
+    }
+
 
     public function getNoTransaksiTimbangByTgl($tgl1, $tgl2)
     {
