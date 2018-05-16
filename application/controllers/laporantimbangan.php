@@ -90,7 +90,8 @@ class Laporantimbangan extends SB_Controller
 			}
 
 		if($jns == 1){
-		$sql = "SELECT a.`kode_blok`,d.`deskripsi_blok`,e.`nama_petani`,a.`kode_kat_lahan`,SUM(a.`truk`) AS truk,SUM(a.`lori`) AS lori,SUM(a.`odong2`) AS odong2,SUM(a.`traktor`) AS traktor,
+		$sql = "SELECT a.`kode_blok`,d.`deskripsi_blok`,e.`nama_petani`,   o.name AS mandor,
+  w.name AS pta, a.`kode_kat_lahan`,SUM(a.`truk`) AS truk,SUM(a.`lori`) AS lori,SUM(a.`odong2`) AS odong2,SUM(a.`traktor`) AS traktor,
 d.`luas_ha`,SUM(b.ha_tertebang) AS tertebang, c.lokasi_timbang_1 AS lokasi_tembang_1, c.lokasi_timbang_2 AS lokasi_tembang_2,
 SUM(c.`netto_final`) AS netto, c.lokasi_timbang_1,c.lokasi_timbang_2,
 (d.luas_ha-(SUM(b.ha_tertebang))) AS sisa FROM 
@@ -98,7 +99,10 @@ SUM(c.`netto_final`) AS netto, c.lokasi_timbang_1,c.lokasi_timbang_2,
 INNER JOIN t_selektor b ON b.`id_spta`=a.`id`
 INNER JOIN t_timbangan c ON c.`id_spat`=a.`id`
 INNER JOIN sap_field d ON d.`kode_blok`=a.`kode_blok`
-LEFT JOIN sap_petani e ON e.`id_petani_sap`=a.`id_petani_sap` $wh2 GROUP BY a.`kode_blok`";
+LEFT JOIN sap_petani e ON e.`id_petani_sap`=a.`id_petani_sap`  INNER JOIN sap_m_karyawan o 
+    ON o.Persno = b.persno_mandor_tma
+  INNER JOIN sap_m_karyawan w 
+    ON w.Persno = a.persno_pta  $wh2 GROUP BY a.`kode_blok`";
 $result = $this->db->query($sql)->result();
 		
 		$this->data['result'] = $result;
