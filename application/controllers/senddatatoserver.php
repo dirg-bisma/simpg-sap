@@ -11,7 +11,7 @@ class Senddatatoserver extends CI_Controller {
 		$mtid = array(); $mtlogid = array();
 		$ariid = array(); $arilogid = array();
 		
-		foreach ($result as $key => $value) {
+		foreach ($result as $key => $value) { 
 			if ($value->t_table === "t_spta") {
 				//$arr['spta'][] = $value->t_id;
 				array_push($sptaid,$value->t_id);
@@ -67,6 +67,11 @@ class Senddatatoserver extends CI_Controller {
 	}
 	public function gett_spta($id,$idlog)
 	{
+		if(CNF_COMPANYCODE == 'N011'){
+			$hostx = 'devproduksi.ptpn11.co.id';
+		}else{
+			$hostx = 'devproduksi.ptpn11.co.id';
+		}
 		$id = implode(",", $id);
 		$idlog = implode(",", $idlog);
 		
@@ -75,7 +80,7 @@ class Senddatatoserver extends CI_Controller {
 		$datax = json_encode($result->result());
 		$result->free_result();
 
-		$url= 'http://devproduksi.ptpn11.co.id/simpgdb/index.php/dashboard/Uploadt_spta/'.CNF_COMPANYCODE.'/'.CNF_PLANCODE;
+		$url= 'http://'.$hostx.'/simpgdb/index.php/dashboard/Uploadt_spta/'.CNF_COMPANYCODE.'/'.CNF_PLANCODE;
 	    $ch = curl_init($url);
 	    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 	    curl_setopt($ch, CURLOPT_POST, true);
@@ -103,6 +108,11 @@ class Senddatatoserver extends CI_Controller {
 	}
 	public function gett_selektor($id,$idlog)
 		{
+			if(CNF_COMPANYCODE == 'N011'){
+			$hostx = 'devproduksi.ptpn11.co.id';
+		}else{
+			$hostx = 'devproduksi.ptpn11.co.id';
+		}
 			$id = implode(",", $id);
 			$idlog = implode(",", $idlog);
 		
@@ -111,7 +121,7 @@ class Senddatatoserver extends CI_Controller {
 			$datax = json_encode($result->result());
 			$result->free_result();
 
-			$url = 'http://devproduksi.ptpn11.co.id/simpgdb/index.php/dashboard/Uploadt_selektor/'.CNF_COMPANYCODE.'/'.CNF_PLANCODE;
+			$url = 'http://'.$hostx.'/simpgdb/index.php/dashboard/Uploadt_selektor/'.CNF_COMPANYCODE.'/'.CNF_PLANCODE;
 		    $ch = curl_init($url);
 		    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 		    curl_setopt($ch, CURLOPT_POST, true);
@@ -137,6 +147,12 @@ class Senddatatoserver extends CI_Controller {
 		}
 	public function gett_timbangan($id,$idlog)
 		{
+			if(CNF_COMPANYCODE == 'N011'){
+			$hostx = 'devproduksi.ptpn11.co.id';
+		}else{
+			$hostx = 'devproduksi.ptpn11.co.id';
+		}
+
 			$id = implode(",", $id);
 			$idlog = implode(",", $idlog);
 		
@@ -144,7 +160,7 @@ class Senddatatoserver extends CI_Controller {
 			$result = $this->db->query('SELECT * FROM t_timbangan where id_spat IN ('.$id.')');
 			$datax = json_encode($result->result());
 			$result->free_result();
-			$url = 'http://devproduksi.ptpn11.co.id/simpgdb/index.php/dashboard/Uploadt_timbangan/'.CNF_COMPANYCODE.'/'.CNF_PLANCODE;
+			$url = 'http://'.$hostx.'/simpgdb/index.php/dashboard/Uploadt_timbangan/'.CNF_COMPANYCODE.'/'.CNF_PLANCODE;
 		    $ch = curl_init($url);
 		    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 		    curl_setopt($ch, CURLOPT_POST, true);
@@ -170,6 +186,11 @@ class Senddatatoserver extends CI_Controller {
 		}
 	public function gett_meja_tebu($id,$idlog)
 		{
+			if(CNF_COMPANYCODE == 'N011'){
+			$hostx = 'devproduksi.ptpn11.co.id';
+		}else{
+			$hostx = 'devproduksi.ptpn11.co.id';
+		}
 			$id = implode(",", $id);
 			$idlog = implode(",", $idlog);
 			
@@ -178,7 +199,7 @@ class Senddatatoserver extends CI_Controller {
 			$result = $this->db->query('SELECT * FROM t_meja_tebu where id_spta IN ('.$id.')');
 			$datax = json_encode($result->result());
 			$result->free_result();
-			$url = 'http://devproduksi.ptpn11.co.id/simpgdb/index.php/dashboard/Uploadt_meja_tebu/'.CNF_COMPANYCODE.'/'.CNF_PLANCODE;
+			$url = 'http://'.$hostx.'/simpgdb/index.php/dashboard/Uploadt_meja_tebu/'.CNF_COMPANYCODE.'/'.CNF_PLANCODE;
 		    $ch = curl_init($url);
 		    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 		    curl_setopt($ch, CURLOPT_POST, true);
@@ -204,6 +225,12 @@ class Senddatatoserver extends CI_Controller {
 		}
 	public function gett_ari($id,$idlog)
 		{
+			if(CNF_COMPANYCODE == 'N011'){
+			$hostx = 'devproduksi.ptpn11.co.id';
+		}else{
+			$hostx = 'devproduksi.ptpn11.co.id';
+		}
+
 			$id = implode(",", $id);
 			$idlog = implode(",", $idlog);
 			
@@ -211,7 +238,7 @@ class Senddatatoserver extends CI_Controller {
 			$result = $this->db->query('SELECT * FROM t_ari where id_spta IN ('.$id.')');
 			$datax = json_encode($result->result());
 			$result->free_result();
-			$url = 'http://devproduksi.ptpn11.co.id/simpgdb/index.php/dashboard/Uploadt_ari/'.CNF_COMPANYCODE.'/'.CNF_PLANCODE;
+			$url = 'http://'.$hostx.'/simpgdb/index.php/dashboard/Uploadt_ari/'.CNF_COMPANYCODE.'/'.CNF_PLANCODE;
 		    $ch = curl_init($url);
 		    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 		    curl_setopt($ch, CURLOPT_POST, true);
