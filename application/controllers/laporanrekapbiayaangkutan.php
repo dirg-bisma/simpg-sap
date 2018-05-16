@@ -9,6 +9,11 @@ class Laporanrekapbiayaangkutan extends SB_Controller
 
 	function __construct() {
 		parent::__construct();	
+
+		$this->load->model('tbiayaangkutanmodel');
+		$this->model = $this->tbiayaangkutanmodel;
+		$idx = $this->model->primaryKey;
+		
 		$this->data = array_merge( $this->data, array(
 			'pageTitle'	=> 	'Laporan',
 			'pageNote'	=>  'SIM PG',
@@ -19,6 +24,81 @@ class Laporanrekapbiayaangkutan extends SB_Controller
 	function index(){
 		$this->data['content'] =  $this->load->view('laporanrekapbiayaangkutan/index', $this->data ,true);	  
 		$this->load->view('layouts/main',$this->data);
+	}
+
+	function show() 
+	{		
+			error_reporting(0);
+			$tgl2 = $_REQUEST['tgl2'];
+			$angkutan = $_REQUEST['angkutan'];
+			$kat = $_REQUEST['kat'];
+			$jns = $_REQUEST['jns'];
+
+			$whkat ="";
+			$whangkut ="";
+			$whvendor ="";
+
+			if (!empty($jns)) {
+				$whvendor = "AND a.vendor_angkut = $jns ";
+			}
+
+			$sql = "SELECT 
+					  a.id,
+					  f.id AS id_angkutan,
+					  a.no_spat,
+					  a.kode_blok,
+					  sf.`deskripsi_blok`,
+					  a.vendor_angkut,
+					  c.`no_angkutan`,
+					  DATE_FORMAT(
+					    a.timb_netto_tgl,
+					    '%d/%m/%Y Jam %H:%i'
+					  ) AS txt_tgl_timb,
+					  a.timb_netto_tgl AS tgl_timbang,
+					  b.`netto`,
+					  d.`keterangan`,
+					  d.`biaya` AS tarif,
+					  (d.`biaya` * b.`netto`) AS jumlah,
+					  e.total,
+  					  f.nama_vendor 
+					FROM
+					  t_spta a 
+					  INNER JOIN sap_field sf 
+					    ON sf.`kode_blok` = a.kode_blok 
+					  INNER JOIN t_selektor c 
+					    ON c.`id_spta` = a.id 
+					  INNER JOIN t_timbangan b 
+					    ON a.id = b.`id_spat` 
+					  INNER JOIN m_biaya_jarak d 
+					    ON d.`id_jarak` = a.jarak_id 
+					  INNER JOIN t_angkutan_detail e 
+					    ON e.id_spta = a.id 
+					  INNER JOIN vw_upah_angkut f 
+					    ON f.vendor_id = a.vendor_angkut
+					    AND f.tgl = '$tgl2'
+					
+					   WHERE LEFT(a.kode_kat_lahan, 2) = '$kat'
+					  AND a.jenis_spta = '$angkutan'  
+					  $whvendor
+					  GROUP BY a.id order by a.vendor_angkut";
+			$data_query =  $this->db->query($sql)->result();
+			$this->data['detail'] =  $data_query;
+
+			if (!empty($data_query)) {
+				$id = $data_query[0]->id_angkutan;
+			}else{
+				$id = null;
+			}
+			$row = $this->model->getRow($id);
+		if($row)
+		{
+			$this->data['row'] =  $row;
+		} else {
+			$this->data['row'] = $this->model->getColumnTable('vw_upah_angkut'); 
+		}
+		
+		$this->data['id'] = $id;	  
+		$this->load->view('laporanrekapbiayaangkutan/view',$this->data);
 	}
 	
 	function printlaporan(){
