@@ -76,7 +76,7 @@ $result = $this->db->query($sql)->result();
 		inner join t_selektor b on a.id = b.id_spta
 		inner join t_timbangan c on a.id = c.id_spat
 		inner join t_ari d on a.id = d.id_spta
-		where Date(a.meja_tebu_tgl) = '$tglgiling'
+		where Date(a.tgl_giling) = '$tglgiling'
 		order by a.no_urut_analisa_rendemen";
 		$result = $this->db->query($sql)->result();
 		
