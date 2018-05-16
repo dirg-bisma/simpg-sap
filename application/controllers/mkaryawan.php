@@ -233,10 +233,16 @@ class Mkaryawan extends SB_Controller
 		{ 
 			echo "err : maaf anda tidak memiliki hak untuk menghapus data";
 	  	}
-			
-		$this->model->destroy($_POST['id']);
-		$this->inputLogs("ID : ".$_POST['id']."  , Has Been Removed Successfull");
-		echo "ID : ".$_POST['id']."  , berhasil dihapus !!";
+
+	    $a = $this->db->query('SELECT persno_mandor_tma FROM t_selektor WHERE persno_mandor_tma="'.$_POST['id'].'"')->row();
+
+	    if(!$a){
+	    	$this->model->destroy($_POST['id']);
+	    	$this->inputLogs("ID : ".$_POST['id']."  , Has Been Removed Successfull");
+			echo "ID : ".$_POST['id']."  , berhasil dihapus !!";
+	    }else{
+			echo "ID : ".$_POST['id']."  , Gagal dihapus karena sudah ada transaksi menggunakan Karyawan ini !!";
+	    }
 		
 	}
 
