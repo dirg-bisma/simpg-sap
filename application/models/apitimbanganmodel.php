@@ -163,7 +163,7 @@ class Apitimbanganmodel extends SB_Model
                   t_spta.id,
                   t_spta.no_spat,
                   t_spta.kode_plant,
-                  CONCAT(t_spta.kode_blok, ' (',CONCAT(IF(t_spta.metode_tma=1,'MANUAL ',IF(t_spta.metode_tma=2,'SEMI MEKANISASI ','MEKANISASI '))),
+                  CONCAT(t_spta.kode_blok, ' (',CONCAT(IF(t_spta.metode_tma=1,'MNL ',IF(t_spta.metode_tma=2,'SMK ','MK '))),
                   IF(t_spta.angkut_pg = 1, CONCAT(' - ',bj.keterangan,')'),')')) AS kode_blok,
                   t_spta.persno_pta,
                   t_spta.id_petani_sap,
