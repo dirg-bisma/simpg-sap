@@ -41,6 +41,7 @@ LAPORAN MEJA TEBU HARIAN<br />
 $no=1;
 $kodemt = '';
 $akt = 0;
+$nettofinal=0;
  foreach($result as $r){
 
  		if($kodemt != $r->kode_meja_tebu && $no != 1){
