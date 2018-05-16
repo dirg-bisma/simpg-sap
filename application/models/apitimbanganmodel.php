@@ -159,7 +159,7 @@ class Apitimbanganmodel extends SB_Model
 
     private function Query()
     {
-        $qry = 'SELECT 
+        $qry = "SELECT 
                   t_spta.id,
                   t_spta.no_spat,
                   t_spta.kode_plant,
@@ -185,7 +185,8 @@ class Apitimbanganmodel extends SB_Model
                   t_spta.hari_giling,
                   t_spta.tgl_giling,
                   sap_petani.`nama_petani` AS nama_petani,
-                  CONCAT(pta.`name`, \'-(\', cc.name,\')\') AS nama_pta,
+                  CONCAT(pta.`name`, '-(', cc.name,') ',CONCAT(IF(t_spta.metode_tma=1,'MANUAL ',IF(t_spta.metode_tma=2,'SEMI MEKANISASI ','MEKANISASI '))),
+                  IF(t_spta.angkut_pg = 1, bj.keterangan,'')) AS nama_pta,
                   t_spta.kode_kat_lahan,
                   t_selektor.tgl_tebang,
                   t_selektor.no_angkutan,
@@ -236,7 +237,8 @@ class Apitimbanganmodel extends SB_Model
                     ON t_spta.id = b.`id_spta`
                   INNER JOIN sap_m_karyawan AS cc 
                     ON t_selektor.`persno_mandor_tma` = cc.Persno
-';
+                  LEFT JOIN m_biaya_jarak AS bj
+        ON bj.id_jarak = t_spta.jarak_id";
         return $qry;
     }
 
