@@ -43,6 +43,8 @@ LAPORAN TIMBANGAN PER SPTA<br />
     <th>KEBUN</th>
     <th>NAMA PETANI</th>
     <th>KATEGORI</th>
+    <th>MANDOR</th>
+    <th>PTA</th>
     <th>No Truk</th>
     <th>No Trans</th>
     <th>TRUK</th>
@@ -81,7 +83,7 @@ $gtruk = 0;$glori = 0;$gha = 0;$gnetto = 0;$gtha = 0;$godong2 = 0;$gtraktor = 0;
 		$kat = $r->stt_ta_text;
 	 }
 	 
-	 echo '<tr><td> '.($i+1).' </td><td> '.$r->no_spat.' </td><td> '.$r->divisi.' </td><td> '.$r->kode_blok.' </td><td> '.$r->deskripsi_blok.' </td><td> '.$r->nama_petani.' </td><td> '.$r->kode_kat_lahan.'</td><td> '.$r->no_angkutan.'</td><td> '.$r->no_transloading.'</td><td align="center"> '.$r->truk.' </td><td align="center"> '.$r->lori.' </td><td align="center"> '.$r->odong2.' </td><td align="center"> '.$r->traktor.' </td><td align="right"> '.$r->tertebang.' </td>
+	 echo '<tr><td> '.($i+1).' </td><td> '.$r->no_spat.' </td><td> '.$r->divisi.' </td><td> '.$r->kode_blok.' </td><td> '.$r->deskripsi_blok.' </td><td> '.$r->nama_petani.' </td><td> '.$r->kode_kat_lahan.'</td><td> '.$r->mandor.'</td><td> '.$r->pta.'</td><td> '.$r->no_angkutan.'</td><td> '.$r->no_transloading.'</td><td align="center"> '.$r->truk.' </td><td align="center"> '.$r->lori.' </td><td align="center"> '.$r->odong2.' </td><td align="center"> '.$r->traktor.' </td><td align="right"> '.$r->tertebang.' </td>
 <td align="right"> '.number_format($r->netto,0).' </td>
 <td align="center"> '.$r->lokasi_timbang_1." - ".$r->lokasi_timbang_2.' </td>
 <td align="center"> '.$r->stt_ta_text.' </td><td align="right"> '.$r->timb_netto_tgl.' </td></tr>';
@@ -102,10 +104,10 @@ $gtruk = 0;$glori = 0;$gha = 0;$gnetto = 0;$gtha = 0;$godong2 = 0;$gtraktor = 0;
  }
 ?>
 <tr style="font-weight:bold;background:#3c8dbc;color:white">
-<td colspan="9"> JUMLAH <?php echo $kat;?> </td><td align="center"><?php echo $truk;?></td><td align="center"><?php echo $lori;?></td><td align="center"><?php echo $odong2;?></td><td align="center"><?php echo $traktor;?></td><td align="right"><?php echo number_format($ha,4);?></td><td align="right"><?php echo number_format($netto,0);?></td><td></td><td align="right"></td><td></td></tr>
+<td colspan="11"> JUMLAH <?php echo $kat;?> </td><td align="center"><?php echo $truk;?></td><td align="center"><?php echo $lori;?></td><td align="center"><?php echo $odong2;?></td><td align="center"><?php echo $traktor;?></td><td align="right"><?php echo number_format($ha,4);?></td><td align="right"><?php echo number_format($netto,0);?></td><td></td><td align="right"></td><td></td></tr>
 </tbody>
 <tfoot><tr style="font-weight:bold;background:#104E8B;color:white">
-    <td colspan="9"> GRAND TOTAL </td><td align="center"><?php echo $gtruk;?></td><td align="center"><?php echo $glori;?></td><td align="center"><?php echo $godong2;?></td><td align="center"><?php echo $gtraktor;?></td><td align="right"><?php echo number_format($gha,4);?></td><td align="right"><?php echo number_format($gnetto,0);?></td><td></td><td align="right"></td><td></td></tr></tfoot>
+    <td colspan="11"> GRAND TOTAL </td><td align="center"><?php echo $gtruk;?></td><td align="center"><?php echo $glori;?></td><td align="center"><?php echo $godong2;?></td><td align="center"><?php echo $gtraktor;?></td><td align="right"><?php echo number_format($gha,4);?></td><td align="right"><?php echo number_format($gnetto,0);?></td><td></td><td align="right"></td><td></td></tr></tfoot>
 </table>
 <hr />
 <table style="width:100%">
