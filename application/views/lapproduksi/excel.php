@@ -19,30 +19,50 @@
     }
 </style>
 <?php
+/**------------------------------TS------------------*/
+$all_hi_ts_ha_ditebang = 0;
+$all_hi_ts_qty_ditebang = 0;
+$all_hi_ts_ha_digiling = 0;
+$all_hi_ts_qty_digiling = 0;
+$all_hi_ts_kristal = 0;
+$all_hi_ts_gula_ptr = 0;
+$all_hi_ts_tetes_ptr = 0;
+
+$all_sd_ts_ha_ditebang = 0;
+$all_sd_ts_qty_ditebang = 0;
+$all_sd_ts_ha_digiling = 0;
+$all_sd_ts_qty_digiling = 0;
+$all_sd_ts_kristal = 0;
+$all_sd_ts_gula_ptr = 0;
+$all_sd_ts_tetes_ptr = 0;
+/**------------------------------TS------------------*/
+
+/**------------------------------TR------------------*/
+$all_hi_tr_ha_ditebang = 0;
+$all_hi_tr_qty_ditebang = 0;
+$all_hi_tr_ha_digiling = 0;
+$all_hi_tr_qty_digiling = 0;
+$all_hi_tr_kristal = 0;
+$all_hi_tr_gula_ptr = 0;
+$all_hi_tr_tetes_ptr = 0;
+
+$all_sd_tr_ha_ditebang = 0;
+$all_sd_tr_qty_ditebang = 0;
+$all_sd_tr_ha_digiling = 0;
+$all_sd_tr_qty_digiling = 0;
+$all_sd_tr_kristal = 0;
+$all_sd_tr_gula_ptr = 0;
+$all_sd_tr_tetes_ptr = 0;
+/**------------------------------TR------------------*/
 
 
-$all_total_ha_ditebang = 0;
-$all_total_qty_ditebang = 0;
-$all_total_ha_digiling = 0;
-$all_total_qty_digiling = 0;
-$all_total_qty_digiling_kg = 0;
-$all_total_hablur = 0;
-$all_total_hablur_kg = 0;
-$all_total_gula_ptr = 0;
-$all_total_tetes_ptr = 0;
-
-$all_sd_total_ha_ditebang = 0;
-$all_sd_total_qty_ditebang = 0;
-$all_sd_total_ha_digiling = 0;
-$all_sd_total_qty_digiling = 0;
-$all_sd_total_qty_digiling_kg = 0;
-$all_sd_total_hablur = 0;
-$all_sd_total_hablur_kg = 0;
-$all_sd_total_gula_ptr = 0;
-$all_sd_total_tetes_ptr = 0;
-
-
+function replaceKat($kat){
+    $result = str_replace(" ", "_", $kat);
+    $output = str_replace("-", "_", $result);
+    return $output;
+}
 ?>
+
 
 <section class="content">
     <div class="row">
@@ -65,9 +85,8 @@ $all_sd_total_tetes_ptr = 0;
                                 <form action="<?php echo site_url("lapproduksi/save");?>" method="post">
                                     <div class="table-responsive">
                                         <input type="hidden" name="hari_giling" value="<?php echo $hari_giling; ?>">
-                                        <?php
-                                        include "excel/tpl_replace.php"
-                                        ?>
+
+
                                         <table class="tableizer-table" border="1">
                                             <thead>
                                             <tr style="background-color: #104E8B" class="tableizer-firstrow">
@@ -102,252 +121,99 @@ $all_sd_total_tetes_ptr = 0;
                                             </thead>
                                             <tbody>
 
-                                            <?php require_once "excel/ts_lokal.php"; ?>
-                                            <?php
-                                            $all_total_ha_ditebang += $total_ha_ditebang;
-                                            $all_total_qty_ditebang += $total_qty_ditebang;
-                                            $all_total_ha_digiling += $total_ha_digiling;
-                                            $all_total_qty_digiling += $total_qty_digiling;
-                                            $all_total_qty_digiling_kg += $total_qty_digiling_kg;
-                                            $all_total_hablur += $total_hablur;
-                                            $all_total_hablur_kg += $total_hablur_kg;
-                                            $all_total_gula_ptr += $total_gula_ptr;
-                                            $all_total_tetes_ptr += $total_tetes_ptr;
-
-                                            $all_sd_total_ha_ditebang += $sd_total_ha_ditebang;
-                                            $all_sd_total_qty_ditebang += $sd_total_qty_ditebang;
-                                            $all_sd_total_ha_digiling += $sd_total_ha_digiling;
-                                            $all_sd_total_qty_digiling += $sd_total_qty_digiling;
-                                            $all_sd_total_qty_digiling_kg += $sd_total_qty_digiling_kg;
-                                            $all_sd_total_hablur += $sd_total_hablur;
-                                            $all_sd_total_hablur_kg += $sd_total_hablur_kg;
-                                            $all_sd_total_gula_ptr += $sd_total_gula_ptr;
-                                            $all_sd_total_tetes_ptr += $sd_total_tetes_ptr;
-                                            ?>
-                                            <?php require_once "excel/ts_tr.php";?>
-                                            <?php
-                                            $all_total_ha_ditebang += $total_ha_ditebang;
-                                            $all_total_qty_ditebang += $total_qty_ditebang;
-                                            $all_total_ha_digiling += $total_ha_digiling;
-                                            $all_total_qty_digiling += $total_qty_digiling;
-                                            $all_total_qty_digiling_kg += $total_qty_digiling_kg;
-                                            $all_total_hablur += $total_hablur;
-                                            $all_total_hablur_kg += $total_hablur_kg;
-                                            $all_total_gula_ptr += $total_gula_ptr;
-                                            $all_total_tetes_ptr += $total_tetes_ptr;
-
-                                            $all_sd_total_ha_ditebang += $sd_total_ha_ditebang;
-                                            $all_sd_total_qty_ditebang += $sd_total_qty_ditebang;
-                                            $all_sd_total_ha_digiling += $sd_total_ha_digiling;
-                                            $all_sd_total_qty_digiling += $sd_total_qty_digiling;
-                                            $all_sd_total_qty_digiling_kg += $sd_total_qty_digiling_kg;
-                                            $all_sd_total_hablur += $sd_total_hablur;
-                                            $all_sd_total_hablur_kg += $sd_total_hablur_kg;
-                                            $all_sd_total_gula_ptr += $sd_total_gula_ptr;
-                                            $all_sd_total_tetes_ptr += $sd_total_tetes_ptr;
-                                            ?>
-                                            <?php require_once "excel/spt.php"; ?>
-                                            <?php
-                                            $all_total_ha_ditebang += $total_ha_ditebang;
-                                            $all_total_qty_ditebang += $total_qty_ditebang;
-                                            $all_total_ha_digiling += $total_ha_digiling;
-                                            $all_total_qty_digiling += $total_qty_digiling;
-                                            $all_total_qty_digiling_kg += $total_qty_digiling_kg;
-                                            $all_total_hablur += $total_hablur;
-                                            $all_total_hablur_kg += $total_hablur_kg;
-                                            $all_total_gula_ptr += $total_gula_ptr;
-                                            $all_total_tetes_ptr += $total_tetes_ptr;
-
-                                            $all_sd_total_ha_ditebang += $sd_total_ha_ditebang;
-                                            $all_sd_total_qty_ditebang += $sd_total_qty_ditebang;
-                                            $all_sd_total_ha_digiling += $sd_total_ha_digiling;
-                                            $all_sd_total_qty_digiling += $sd_total_qty_digiling;
-                                            $all_sd_total_qty_digiling_kg += $sd_total_qty_digiling_kg;
-                                            $all_sd_total_hablur += $sd_total_hablur;
-                                            $all_sd_total_hablur_kg += $sd_total_hablur_kg;
-                                            $all_sd_total_gula_ptr += $sd_total_gula_ptr;
-                                            $all_sd_total_tetes_ptr += $sd_total_tetes_ptr;
-
-                                            ?>
-
-                                            <tr style="background-color: #00e765">
-                                                <td><strong>JUMLAH TS</strong></td>
-                                                <td style="text-align: right"><strong><?php echo number_format($all_total_ha_ditebang, 2); ?></strong></td>
-                                                <td style="text-align: right"><strong><?php echo $all_sd_total_ha_ditebang == 0 ? number_format($all_total_ha_ditebang, 2) : number_format($all_sd_total_ha_ditebang+$all_total_ha_ditebang, 2); ?></strong></td>
-                                                <td style="text-align: right"><strong><?php echo number_format($all_total_qty_ditebang/1000,2); ?></strong></td>
-                                                <td style="text-align: right"><strong><?php echo $all_sd_total_qty_ditebang == 0 ? number_format($all_total_qty_ditebang/1000, 2) : number_format($all_sd_total_qty_ditebang+$all_total_qty_ditebang/1000,2); ?></strong></td>
-                                                <td style="text-align: right"><strong><?php echo number_format($all_total_ha_digiling,2);?></strong></td>
-                                                <td style="text-align: right"><strong><?php echo $all_sd_total_ha_digiling == 0 ? number_format($all_total_ha_digiling,2) : number_format($all_sd_total_ha_digiling+$all_total_ha_digiling,2); ?></strong></td>
-                                                <td style="text-align: right"><strong><?php echo number_format($all_total_qty_digiling/1000,2); ?></strong></td>
-                                                <td style="text-align: right"><strong><?php echo $all_sd_total_qty_digiling == 0 ? number_format($all_total_qty_digiling/1000,2) : number_format($all_sd_total_qty_digiling+$all_total_qty_digiling/1000,2); ?></strong></td>
-                                                <td style="text-align: right"><strong><?php echo number_format($all_total_hablur/1000,2); ?></strong></td>
-                                                <td style="text-align: right"><strong><?php echo $all_sd_total_hablur == 0 ? number_format($all_total_hablur/1000,2) : number_format($all_sd_total_hablur+$all_total_hablur/1000,2); ?></strong></td>
-                                                <td style="text-align: right"><strong><?php echo @number_format(($all_total_hablur_kg/$all_total_qty_digiling_kg)*100,2,'.',''); ?></strong></td>
-                                                <?php $hablur_sd = $all_sd_total_hablur_kg+$all_total_hablur_kg; ?>
-                                                <?php $digiling_sd = $all_sd_total_qty_digiling_kg+$all_total_qty_digiling_kg; ?>
-                                                <td style="text-align: right"><strong><?php echo @number_format(($hablur_sd/$digiling_sd)*100,2,'.',''); ?></strong></td>
-                                                <td style="text-align: right"><strong><?php echo number_format($all_total_gula_ptr/1000,2); ?></strong></td>
-                                                <td style="text-align: right"><strong><?php echo $all_sd_total_gula_ptr == 0 ? number_format($all_total_gula_ptr/1000, 2) : number_format($all_sd_total_gula_ptr+$all_total_gula_ptr/1000,2); ?></strong></td>
-                                                <td style="text-align: right"><strong><?php echo number_format($all_total_tetes_ptr/1000,2);?></strong></td>
-                                                <td style="text-align: right"><strong><?php echo $all_sd_total_tetes_ptr == 0 ? number_format($all_total_tetes_ptr/1000,2) : number_format($all_sd_total_tetes_ptr+$all_total_tetes_ptr/1000,2);?></strong></td>
-                                            </tr>
+                                            <?php include "excel/ts_lokal.php"; ?>
+                                            <?php include "excel/ts_saudara.php"; ?>
+                                            <?php include "excel/ts_spt.php"; ?>
 
                                             <?php
-                                            $tot_tr_total_ha_ditebang = 0;
-                                            $tot_tr_total_qty_ditebang = 0;
-                                            $tot_tr_total_ha_digiling = 0;
-                                            $tot_tr_total_qty_digiling = 0;
-                                            $tot_tr_total_qty_digiling_kg = 0;
-                                            $tot_tr_total_hablur = 0;
-                                            $tot_tr_total_hablur_kg = 0;
-                                            $tot_tr_total_gula_ptr = 0;
-                                            $tot_tr_total_tetes_ptr = 0;
+                                            $tpl_h_ini_ha_ditebang   = $all_hi_ts_ha_ditebang;
+                                            $tpl_h_ini_qty_ditebang  = $all_hi_ts_qty_ditebang;
+                                            $tpl_h_ini_ha_digiling   = $all_hi_ts_ha_digiling;
+                                            $tpl_h_ini_qty_digiling  = $all_hi_ts_qty_digiling;
+                                            $tpl_h_ini_kristal       = $all_hi_ts_kristal;
+                                            $tpl_h_ini_gula_ptr      = $all_hi_ts_gula_ptr;
+                                            $tpl_h_ini_tetes_ptr     = $all_hi_ts_tetes_ptr;
 
-                                            $tot_tr_sd_total_ha_ditebang = 0;
-                                            $tot_tr_sd_total_qty_ditebang = 0;
-                                            $tot_tr_sd_total_ha_digiling = 0;
-                                            $tot_tr_sd_total_qty_digiling = 0;
-                                            $tot_tr_sd_total_qty_digiling_kg = 0;
-                                            $tot_tr_sd_total_hablur = 0;
-                                            $tot_tr_sd_total_hablur_kg = 0;
-                                            $tot_tr_sd_total_gula_ptr = 0;
-                                            $tot_tr_sd_total_tetes_ptr = 0;
-
+                                            $tpl_s_dgn_ha_ditebang   = $all_sd_ts_ha_ditebang;
+                                            $tpl_s_dgn_qty_ditebang  = $all_sd_ts_qty_ditebang;
+                                            $tpl_s_dgn_ha_digiling   = $all_sd_ts_ha_digiling;
+                                            $tpl_s_dgn_qty_digiling  = $all_sd_ts_qty_digiling;
+                                            $tpl_s_dgn_kristal       = $all_sd_ts_kristal;
+                                            $tpl_s_dgn_gula_ptr      = $all_sd_ts_gula_ptr;
+                                            $tpl_s_dgn_tetes_ptr     = $all_sd_ts_tetes_ptr;
                                             ?>
-                                            <?php require_once "excel/tr_lokal.php"; ?>
+
+                                            <?php $title_tpl = "TOTAL TS"?>
+                                            <?php $color = "#00e765"?>
+                                            <?php include "excel/tpl_sum.php";?>
+
+                                            <!-------------------------------BATAS TS----------------------->
+
+                                            <?php include "excel/tr_lokal.php"; ?>
+                                            <?php include "excel/tr_saudara.php"; ?>
+
                                             <?php
-                                            $tot_tr_total_ha_ditebang += $total_ha_ditebang;
-                                            $tot_tr_total_qty_ditebang += $total_qty_ditebang;
-                                            $tot_tr_total_ha_digiling += $total_ha_digiling;
-                                            $tot_tr_total_qty_digiling += $total_qty_digiling;
-                                            $tot_tr_total_qty_digiling_kg += $total_qty_digiling_kg;
-                                            $tot_tr_total_hablur += $total_hablur;
-                                            $tot_tr_total_hablur_kg += $total_hablur_kg;
-                                            $tot_tr_total_gula_ptr += $total_gula_ptr;
-                                            $tot_tr_total_tetes_ptr += $total_tetes_ptr;
+                                            $tpl_h_ini_ha_ditebang   = $all_hi_tr_ha_ditebang;
+                                            $tpl_h_ini_qty_ditebang  = $all_hi_tr_qty_ditebang;
+                                            $tpl_h_ini_ha_digiling   = $all_hi_tr_ha_digiling;
+                                            $tpl_h_ini_qty_digiling  = $all_hi_tr_qty_digiling;
+                                            $tpl_h_ini_kristal       = $all_hi_tr_kristal;
+                                            $tpl_h_ini_gula_ptr      = $all_hi_tr_gula_ptr;
+                                            $tpl_h_ini_tetes_ptr     = $all_hi_tr_tetes_ptr;
 
-                                            $tot_tr_sd_total_ha_ditebang += $sd_total_ha_ditebang;
-                                            $tot_tr_sd_total_qty_ditebang += $sd_total_qty_ditebang;
-                                            $tot_tr_sd_total_ha_digiling += $sd_total_ha_digiling;
-                                            $tot_tr_sd_total_qty_digiling += $sd_total_qty_digiling;
-                                            $tot_tr_sd_total_qty_digiling_kg += $sd_total_qty_digiling_kg;
-                                            $tot_tr_sd_total_hablur += $sd_total_hablur;
-                                            $tot_tr_sd_total_hablur_kg += $sd_total_hablur_kg;
-                                            $tot_tr_sd_total_gula_ptr += $sd_total_gula_ptr;
-                                            $tot_tr_sd_total_tetes_ptr += $sd_total_tetes_ptr;
-
+                                            $tpl_s_dgn_ha_ditebang   = $all_sd_tr_ha_ditebang;
+                                            $tpl_s_dgn_qty_ditebang  = $all_sd_tr_qty_ditebang;
+                                            $tpl_s_dgn_ha_digiling   = $all_sd_tr_ha_digiling;
+                                            $tpl_s_dgn_qty_digiling  = $all_sd_tr_qty_digiling;
+                                            $tpl_s_dgn_kristal       = $all_sd_tr_kristal;
+                                            $tpl_s_dgn_gula_ptr      = $all_sd_tr_gula_ptr;
+                                            $tpl_s_dgn_tetes_ptr     = $all_sd_tr_tetes_ptr;
                                             ?>
+
+                                            <?php $title_tpl = "TOTAL TR"?>
+                                            <?php $color = "#00e765"?>
+                                            <?php include "excel/tpl_sum.php";?>
+
+
                                             <?php
-                                            $all_total_ha_ditebang += $total_ha_ditebang;
-                                            $all_total_qty_ditebang += $total_qty_ditebang;
-                                            $all_total_ha_digiling += $total_ha_digiling;
-                                            $all_total_qty_digiling += $total_qty_digiling;
-                                            $all_total_qty_digiling_kg += $total_qty_digiling_kg;
-                                            $all_total_hablur += $total_hablur;
-                                            $all_total_hablur_kg += $total_hablur_kg;
-                                            $all_total_gula_ptr += $total_gula_ptr;
-                                            $all_total_tetes_ptr += $total_tetes_ptr;
+                                            $tpl_h_ini_ha_ditebang   += $all_hi_ts_ha_ditebang;
+                                            $tpl_h_ini_qty_ditebang  += $all_hi_ts_qty_ditebang;
+                                            $tpl_h_ini_ha_digiling   += $all_hi_ts_ha_digiling;
+                                            $tpl_h_ini_qty_digiling  += $all_hi_ts_qty_digiling;
+                                            $tpl_h_ini_kristal       += $all_hi_ts_kristal;
+                                            $tpl_h_ini_gula_ptr      += $all_hi_ts_gula_ptr;
+                                            $tpl_h_ini_tetes_ptr     += $all_hi_ts_tetes_ptr;
 
-                                            $all_sd_total_ha_ditebang += $sd_total_ha_ditebang;
-                                            $all_sd_total_qty_ditebang += $sd_total_qty_ditebang;
-                                            $all_sd_total_ha_digiling += $sd_total_ha_digiling;
-                                            $all_sd_total_qty_digiling += $sd_total_qty_digiling;
-                                            $all_sd_total_qty_digiling_kg += $sd_total_qty_digiling_kg;
-                                            $all_sd_total_hablur += $sd_total_hablur;
-                                            $all_sd_total_hablur_kg += $sd_total_hablur_kg;
-                                            $all_sd_total_gula_ptr += $sd_total_gula_ptr;
-                                            $all_sd_total_tetes_ptr += $sd_total_tetes_ptr;
+                                            $tpl_s_dgn_ha_ditebang   += $all_sd_ts_ha_ditebang;
+                                            $tpl_s_dgn_qty_ditebang  += $all_sd_ts_qty_ditebang;
+                                            $tpl_s_dgn_ha_digiling   += $all_sd_ts_ha_digiling;
+                                            $tpl_s_dgn_qty_digiling  += $all_sd_ts_qty_digiling;
+                                            $tpl_s_dgn_kristal       += $all_sd_ts_kristal;
+                                            $tpl_s_dgn_gula_ptr      += $all_sd_ts_gula_ptr;
+                                            $tpl_s_dgn_tetes_ptr     += $all_sd_ts_tetes_ptr;
 
+                                            $tpl_h_ini_ha_ditebang   += $all_hi_tr_ha_ditebang;
+                                            $tpl_h_ini_qty_ditebang  += $all_hi_tr_qty_ditebang;
+                                            $tpl_h_ini_ha_digiling   += $all_hi_tr_ha_digiling;
+                                            $tpl_h_ini_qty_digiling  += $all_hi_tr_qty_digiling;
+                                            $tpl_h_ini_kristal       += $all_hi_tr_kristal;
+                                            $tpl_h_ini_gula_ptr      += $all_hi_tr_gula_ptr;
+                                            $tpl_h_ini_tetes_ptr     += $all_hi_tr_tetes_ptr;
+
+                                            $tpl_s_dgn_ha_ditebang   += $all_sd_tr_ha_ditebang;
+                                            $tpl_s_dgn_qty_ditebang  += $all_sd_tr_qty_ditebang;
+                                            $tpl_s_dgn_ha_digiling   += $all_sd_tr_ha_digiling;
+                                            $tpl_s_dgn_qty_digiling  += $all_sd_tr_qty_digiling;
+                                            $tpl_s_dgn_kristal       += $all_sd_tr_kristal;
+                                            $tpl_s_dgn_gula_ptr      += $all_sd_tr_gula_ptr;
+                                            $tpl_s_dgn_tetes_ptr     += $all_sd_tr_tetes_ptr;
                                             ?>
 
-                                            <?php require_once "excel/tr_tk.php"; ?>
-                                            <?php
-                                            $tot_tr_total_ha_ditebang += $total_ha_ditebang;
-                                            $tot_tr_total_qty_ditebang += $total_qty_ditebang;
-                                            $tot_tr_total_ha_digiling += $total_ha_digiling;
-                                            $tot_tr_total_qty_digiling += $total_qty_digiling;
-                                            $tot_tr_total_qty_digiling_kg += $total_qty_digiling_kg;
-                                            $tot_tr_total_hablur += $total_hablur;
-                                            $tot_tr_total_hablur_kg += $total_hablur_kg;
-                                            $tot_tr_total_gula_ptr += $total_gula_ptr;
-                                            $tot_tr_total_tetes_ptr += $total_tetes_ptr;
+                                            <?php $title_tpl = "JUMLAH TOTAL"?>
+                                            <?php $color = "#ABC6DD"?>
+                                            <?php include "excel/tpl_sum.php";?>
 
-                                            $tot_tr_sd_total_ha_ditebang += $sd_total_ha_ditebang;
-                                            $tot_tr_sd_total_qty_ditebang += $sd_total_qty_ditebang;
-                                            $tot_tr_sd_total_ha_digiling += $sd_total_ha_digiling;
-                                            $tot_tr_sd_total_qty_digiling += $sd_total_qty_digiling;
-                                            $tot_tr_sd_total_qty_digiling_kg += $sd_total_qty_digiling_kg;
-                                            $tot_tr_sd_total_hablur += $sd_total_hablur;
-                                            $tot_tr_sd_total_hablur_kg += $sd_total_hablur_kg;
-                                            $tot_tr_sd_total_gula_ptr += $sd_total_gula_ptr;
-                                            $tot_tr_sd_total_tetes_ptr += $sd_total_tetes_ptr;
 
-                                            ?>
-                                            <?php
-                                            $all_total_ha_ditebang += $total_ha_ditebang;
-                                            $all_total_qty_ditebang += $total_qty_ditebang;
-                                            $all_total_ha_digiling += $total_ha_digiling;
-                                            $all_total_qty_digiling += $total_qty_digiling;
-                                            $all_total_qty_digiling_kg += $total_qty_digiling_kg;
-                                            $all_total_hablur += $total_hablur;
-                                            $all_total_hablur_kg += $total_hablur_kg;
-                                            $all_total_gula_ptr += $total_gula_ptr;
-                                            $all_total_tetes_ptr += $total_tetes_ptr;
-
-                                            $all_sd_total_ha_ditebang += $sd_total_ha_ditebang;
-                                            $all_sd_total_qty_ditebang += $sd_total_qty_ditebang;
-                                            $all_sd_total_ha_digiling += $sd_total_ha_digiling;
-                                            $all_sd_total_qty_digiling += $sd_total_qty_digiling;
-                                            $all_sd_total_qty_digiling_kg += $sd_total_qty_digiling_kg;
-                                            $all_sd_total_hablur += $sd_total_hablur;
-                                            $all_sd_total_hablur_kg += $sd_total_hablur_kg;
-                                            $all_sd_total_gula_ptr += $sd_total_gula_ptr;
-                                            $all_sd_total_tetes_ptr += $sd_total_tetes_ptr;
-                                            ?>
-
-                                            <tr style="background-color: #00e765">
-                                                <td><strong>JUMLAH TR</strong></td>
-                                                <td style="text-align: right"><strong><?php echo number_format($tot_tr_total_ha_ditebang, 2); ?></strong></td>
-                                                <td style="text-align: right"><strong><?php echo $tot_tr_sd_total_ha_ditebang == 0 ? number_format($tot_tr_total_ha_ditebang, 2) : number_format($all_sd_total_ha_ditebang+$all_total_ha_ditebang, 2); ?></strong></td>
-                                                <td style="text-align: right"><strong><?php echo number_format($tot_tr_total_qty_ditebang/1000,2); ?></strong></td>
-                                                <td style="text-align: right"><strong><?php echo $tot_tr_sd_total_qty_ditebang == 0 ? number_format($tot_tr_total_qty_ditebang/1000, 2) : number_format($tot_tr_sd_total_qty_ditebang+$all_total_qty_ditebang/1000,2); ?></strong></td>
-                                                <td style="text-align: right"><strong><?php echo number_format($tot_tr_total_ha_digiling,2);?></strong></td>
-                                                <td style="text-align: right"><strong><?php echo $tot_tr_sd_total_ha_digiling == 0 ? number_format($tot_tr_total_ha_digiling,2) : number_format($tot_tr_sd_total_ha_digiling+$all_total_ha_digiling,2); ?></strong></td>
-                                                <td style="text-align: right"><strong><?php echo number_format($tot_tr_total_qty_digiling/1000,2); ?></strong></td>
-                                                <td style="text-align: right"><strong><?php echo $tot_tr_sd_total_qty_digiling == 0 ? number_format($tot_tr_total_qty_digiling/1000,2) : number_format($tot_tr_sd_total_qty_digiling+$all_total_qty_digiling/1000,2); ?></strong></td>
-                                                <td style="text-align: right"><strong><?php echo number_format($tot_tr_total_hablur/1000,2); ?></strong></td>
-                                                <td style="text-align: right"><strong><?php echo $tot_tr_sd_total_hablur == 0 ? number_format($tot_tr_total_hablur/1000,2) : number_format($tot_tr_sd_total_hablur+$all_total_hablur/1000,2); ?></strong></td>
-                                                <td style="text-align: right"><strong><?php echo @number_format(($tot_tr_total_hablur_kg/$tot_tr_total_qty_digiling_kg)*100,2,'.',''); ?></strong></td>
-                                                <?php $hablur_sd = $tot_tr_sd_total_hablur_kg+$tot_tr_total_hablur_kg; ?>
-                                                <?php $digiling_sd = $tot_tr_sd_total_qty_digiling_kg+$tot_tr_total_qty_digiling_kg; ?>
-                                                <td style="text-align: right"><strong><?php echo @number_format(($hablur_sd/$digiling_sd)*100,2,'.',''); ?></strong></td>
-                                                <td style="text-align: right"><strong><?php echo number_format($all_total_gula_ptr/1000,2); ?></strong></td>
-                                                <td style="text-align: right"><strong><?php echo $tot_tr_sd_total_gula_ptr == 0 ? number_format($tot_tr_total_gula_ptr/1000, 2) : number_format($tot_tr_sd_total_gula_ptr+$all_total_gula_ptr/1000,2); ?></strong></td>
-                                                <td style="text-align: right"><strong><?php echo number_format($all_total_tetes_ptr/1000,2);?></strong></td>
-                                                <td style="text-align: right"><strong><?php echo $tot_tr_sd_total_tetes_ptr == 0 ? number_format($tot_tr_total_tetes_ptr/1000,2) : number_format($tot_tr_sd_total_tetes_ptr+$all_total_tetes_ptr/1000,2);?></strong></td>
-                                            </tr>
-
-                                            <tr style="background-color: #00c0ef">
-                                                <td><strong>TOTAL KESELURUHAN</strong></td>
-                                                <td style="text-align: right"><strong><?php echo number_format($all_total_ha_ditebang, 2); ?></strong></td>
-                                                <td style="text-align: right"><strong><?php echo $all_sd_total_ha_ditebang == 0 ? number_format($all_total_ha_ditebang, 2) : number_format($all_sd_total_ha_ditebang+$all_total_ha_ditebang, 2); ?></strong></td>
-                                                <td style="text-align: right"><strong><?php echo number_format($all_total_qty_ditebang/1000,2); ?></strong></td>
-                                                <td style="text-align: right"><strong><?php echo $all_sd_total_qty_ditebang == 0 ? number_format($all_total_qty_ditebang/1000, 2) : number_format($all_sd_total_qty_ditebang+$all_total_qty_ditebang/1000,2); ?></strong></td>
-                                                <td style="text-align: right"><strong><?php echo number_format($all_total_ha_digiling,2);?></strong></td>
-                                                <td style="text-align: right"><strong><?php echo $all_sd_total_ha_digiling == 0 ? number_format($all_total_ha_digiling,2) : number_format($all_sd_total_ha_digiling+$all_total_ha_digiling,2); ?></strong></td>
-                                                <td style="text-align: right"><strong><?php echo number_format($all_total_qty_digiling/1000,2); ?></strong></td>
-                                                <td style="text-align: right"><strong><?php echo $all_sd_total_qty_digiling == 0 ? number_format($all_total_qty_digiling/1000,2) : number_format($all_sd_total_qty_digiling+$all_total_qty_digiling/1000,2); ?></strong></td>
-                                                <td style="text-align: right"><strong><?php echo number_format($all_total_hablur/1000,2); ?></strong></td>
-                                                <td style="text-align: right"><strong><?php echo $all_sd_total_hablur == 0 ? number_format($all_total_hablur/1000,2) : number_format($all_sd_total_hablur+$all_total_hablur/1000,2); ?></strong></td>
-                                                <td style="text-align: right"><strong><?php echo @number_format(($all_total_hablur_kg/$all_total_qty_digiling_kg)*100,2,'.',''); ?></strong></td>
-                                                <?php $hablur_sd = $all_sd_total_hablur_kg+$all_total_hablur_kg; ?>
-                                                <?php $digiling_sd = $all_sd_total_qty_digiling_kg+$all_total_qty_digiling_kg; ?>
-                                                <td style="text-align: right"><strong><?php echo @number_format(($hablur_sd/$digiling_sd)*100,2,'.',''); ?></strong></td>
-                                                <td style="text-align: right"><strong><?php echo number_format($all_total_gula_ptr/1000,2); ?></strong></td>
-                                                <td style="text-align: right"><strong><?php echo $all_sd_total_gula_ptr == 0 ? number_format($all_total_gula_ptr/1000, 2) : number_format($all_sd_total_gula_ptr+$all_total_gula_ptr/1000,2); ?></strong></td>
-                                                <td style="text-align: right"><strong><?php echo number_format($all_total_tetes_ptr/1000,2);?></strong></td>
-                                                <td style="text-align: right"><strong><?php echo $all_sd_total_tetes_ptr == 0 ? number_format($all_total_tetes_ptr/1000,2) : number_format($all_sd_total_tetes_ptr+$all_total_tetes_ptr/1000,2);?></strong></td>
-                                            </tr>
 
                                             <tr style="background-color: #104E8B;" class="tableizer-firstrow">
 
@@ -386,9 +252,6 @@ $all_sd_total_tetes_ptr = 0;
 
                                         <div style="clear:both"></div>
                                     </div>
-
-                                    <div style="clear:both"></div>
-                                    <hr>
 
                                 </form>
                             </div>

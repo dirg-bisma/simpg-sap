@@ -224,13 +224,13 @@ class Lapproduksimodel extends SB_Model
         $qry = "SELECT 
                 a.kat_ptpn,
                 SUM(a.`ha_tertebang`) AS sum_ha_tertebang,
-                SUM(a.`qty_tertebang`)/1000 AS sum_qty_tertebang,
+                SUM(a.`qty_tertebang`) AS sum_qty_tertebang,
                 SUM(a.`ha_digiling`) AS sum_ha_digiiling,
-                SUM(a.`qty_digiling`)/1000 AS sum_qty_digiling,
-                SUM(a.`qty_kristal`)/1000 AS sum_qty_kristal,
+                SUM(a.`qty_digiling`) AS sum_qty_digiling,
+                SUM(a.`qty_kristal`) AS sum_qty_kristal,
                 ROUND(((SUM(a.`qty_kristal`)/SUM(a.`qty_digiling`))*100), 2) AS total_rendemen,
-                SUM(a.`qty_gula_ptr`)/1000 AS sum_qty_gula_ptr,
-                SUM(a.qty_tetes_ptr)/1000 AS sum_qty_tetes_ptr
+                SUM(a.`qty_gula_ptr`) AS sum_qty_gula_ptr,
+                SUM(a.qty_tetes_ptr) AS sum_qty_tetes_ptr
                  FROM `t_lap_produksi_pengolahan` AS a
                 WHERE a.hari_giling < $hari GROUP BY kat_ptpn ";
         $result = $this->db->query($qry);
