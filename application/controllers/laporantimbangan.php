@@ -24,6 +24,8 @@ class Laporantimbangan extends SB_Controller
 	function printlaporan(){
 		$wh = 'WHERE 0=0';
 		$wh2 = 'WHERE 0=0';
+		$slfield = "";
+		$vn7 = "";
 
 		$tgl1 = $_REQUEST['tgl1'];
 		$tgl2 = $_REQUEST['tgl2'];
@@ -90,8 +92,14 @@ class Laporantimbangan extends SB_Controller
 			}
 
 		if($jns == 1){
-		$sql = "SELECT a.`kode_blok`,d.`deskripsi_blok`,e.`nama_petani`,   o.name AS mandor,
-  w.name AS pta, a.`kode_kat_lahan`,SUM(a.`truk`) AS truk,SUM(a.`lori`) AS lori,SUM(a.`odong2`) AS odong2,SUM(a.`traktor`) AS traktor,
+			if(CNF_COMPANYCODE == 'N007'){
+				$slfield = "b.no_hv,b.op_hv,b.no_stipping,b.op_stipping,b.no_gl,b.op_gl,";
+				$vn7 = "perpetakn7";	
+			}else{
+				$vn7 = "perpetak";
+			}
+		$sql = "SELECT a.`kode_blok`,d.`deskripsi_blok`,e.`nama_petani`,   b.persno_mandor_tma ,o.name AS mandor, a.persno_pta,
+  w.name AS pta, $slfield a.`kode_kat_lahan`,SUM(a.`truk`) AS truk,SUM(a.`lori`) AS lori,SUM(a.`odong2`) AS odong2,SUM(a.`traktor`) AS traktor,
 d.`luas_ha`,SUM(b.ha_tertebang) AS tertebang, c.lokasi_timbang_1 AS lokasi_tembang_1, c.lokasi_timbang_2 AS lokasi_tembang_2,
 SUM(c.`netto_final`) AS netto, c.lokasi_timbang_1,c.lokasi_timbang_2,
 (d.luas_ha-(SUM(b.ha_tertebang))) AS sisa FROM 
@@ -106,10 +114,16 @@ LEFT JOIN sap_petani e ON e.`id_petani_sap`=a.`id_petani_sap`  INNER JOIN sap_m_
 $result = $this->db->query($sql)->result();
 		
 		$this->data['result'] = $result;
-		$this->load->view('laporantimbangan/perpetak',$this->data);
+		$this->load->view('laporantimbangan/'.$vn7,$this->data);
 		}else{
-			$sql = "SELECT a.no_spat,a.`kode_blok`,d.`deskripsi_blok`,d.divisi,e.`nama_petani`, o.name AS mandor,
-  w.name AS pta, a.`kode_kat_lahan`,b.no_angkutan,c.no_transloading,SUM(a.`truk`) AS truk,SUM(a.`lori`) AS lori,SUM(a.`odong2`) AS odong2,SUM(a.`traktor`) AS traktor,
+			if(CNF_COMPANYCODE == 'N007'){
+				$slfield = "b.no_hv,b.op_hv,b.no_stipping,b.op_stipping,b.no_gl,b.op_gl,";
+				$vn7 = "persptan7";	
+			}else{
+				$vn7 = "perspta";
+			}
+			$sql = "SELECT a.no_spat,a.`kode_blok`,d.`deskripsi_blok`,d.divisi,e.`nama_petani`, b.persno_mandor_tma ,o.name AS mandor, a.persno_pta,
+  w.name AS pta, $slfield a.`kode_kat_lahan`,b.no_angkutan,c.no_transloading,SUM(a.`truk`) AS truk,SUM(a.`lori`) AS lori,SUM(a.`odong2`) AS odong2,SUM(a.`traktor`) AS traktor,
 d.`luas_ha`,SUM(b.ha_tertebang) AS tertebang, c.lokasi_timbang_1 AS lokasi_tembang_1, c.lokasi_timbang_2 AS lokasi_tembang_2,
 SUM(c.`netto_final`) AS netto, c.lokasi_timbang_1,c.lokasi_timbang_2,
 a.stt_ta,
@@ -126,7 +140,7 @@ LEFT JOIN sap_petani e ON e.`id_petani_sap`=a.`id_petani_sap` INNER JOIN sap_m_k
 $result = $this->db->query($sql)->result();
 		
 		$this->data['result'] = $result;
-		$this->load->view('laporantimbangan/perspta',$this->data);
+		$this->load->view('laporantimbangan/'.$vn7,$this->data);
 		}
 		
 		
