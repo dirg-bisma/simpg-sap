@@ -40,8 +40,9 @@ LAPORAN ANALISA ARI<br />
 <?php
 $no=0;
 $kodemt = '';
-$akt = 0;
+$akt = 0;$jakt=0;
 $nettofinal = 0;
+$jnettofinal = 0;
  foreach($result as $r){
  	$no++;
 
@@ -64,13 +65,18 @@ $nettofinal = 0;
 	 echo '<tr><td>'.($no).'</td><td> '.$r->tgl_analisa.' </td><td> '.$r->kode_affd.' </td><td> '.$r->no_spat.' </td><td> '.$r->kode_blok.' </td><td> '.$r->deskripsi_blok.' </td><td> '.$r->nama_petani.' </td><td align="right"> '.number_format($r->netto_final,0).'</td><td align="center"> '.$r->truk.' </td><td align="center"> '.$r->lori.' </td><td align="center"> '.$r->kode_kat_lahan.' </td><td align="center"> '.$r->kondisi_tebu.' </td><td align="right"> '.number_format($r->persen_brix_ari,2).' </td><td align="right"> '.number_format($r->persen_pol_ari,2).' </td><td align="right"> '.number_format($r->ph_ari,2).' </td><td align="right"> '.number_format($r->hk,2).' </td><td align="right"> '.number_format($r->nilai_nira,2).' </td><td align="right"> '.number_format($r->rendemen_ari,2).' </td></tr>';
 	 $akt++;
 	 $nettofinal+=$r->netto_final;
-	 
+	 $jakt++;
+	 $jnettofinal+=$r->netto_final;
  }
 ?>
-
 <tr style="font-weight:bold;background:#3c8dbc;color:white">
-<td colspan="7"> GRAND JUMLAH <?php echo  ' ('.$akt.')';?> </td>
-<td align="right">  <?php echo number_format($nettofinal,0); ?> </td>
+<td colspan="7"> JUMLAH <?php echo  $kodemt.' ('.$akt.')';?> </td>
+<td  align="right">  <?php echo number_format($nettofinal,0); ?> </td>
+<td colspan="10">  </td></tr>
+
+<tr style="font-weight:bold;background:red;color:white">
+<td colspan="7"> GRAND JUMLAH <?php echo  ' ('.$jakt.')';?> </td>
+<td align="right">  <?php echo number_format($jnettofinal,0); ?> </td>
 <td colspan="10">  </td></tr>
 </tbody>
 </table>
