@@ -31,6 +31,16 @@ class Dashboard extends SB_Controller {
 		redirect('dashboard');
 	}
 
+	public function getDevGiling(){
+        $qry_hargil = "SELECT get_tgl_giling() AS tgl_giling";
+        $result = $this->db->query($qry_hargil)->row();
+        $hargil = $result->tgl_giling;
+        $c = curl_init('http://devproduksi.ptpn11.co.id/simpgdb/index.php/Apigiling/gilingperjam?tgl='.$hargil.'&CC='.CNF_COMPANYCODE.'&PC='.CNF_PLANCODE);
+        curl_setopt($c, CURLOPT_RETURNTRANSFER, true);
+        $html = curl_exec($c);
+        echo $html;
+    }
+
 	public function getDashGiling()
 	{ /*
 		$sql = "SELECT get_tgl_giling() AS tgl,jm.jam,IFNULL(ylsltruk.ttl,0) AS ylstruk,IFNULL(ylsllori.ttl,0) AS ylslori,IFNULL(sltruk.ttl,0) AS struk,IFNULL(sllori.ttl,0) AS slori,

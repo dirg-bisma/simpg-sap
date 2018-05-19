@@ -248,8 +248,8 @@ $(document).ready(function(){
 
 function getdata(){
   $.ajax({
-       type: 'POST', 
-          url: '<?php echo site_url('dashboard/getDashGiling');?>', 
+       type: 'POST',
+          url: '<?php echo site_url('dashboard/getDevGiling');?>',
           dataType : 'html',
           success: function (data) { 
             $("#dataText").html(data);
