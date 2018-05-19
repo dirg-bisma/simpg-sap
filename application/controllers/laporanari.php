@@ -43,7 +43,7 @@ INNER JOIN sap_field e ON e.`kode_blok`=b.`kode_blok`
 INNER JOIN t_meja_tebu e1 on e1.id_spta = b.id
 LEFT JOIN sap_petani f ON f.`id_petani_sap`=e.`id_petani_sap`
 WHERE 0=0 AND b.tgl_giling = '$tglgiling' 
-GROUP BY b.id ORDER BY tgl_ari ASC";
+GROUP BY b.id ORDER BY kode_affd ASC";
 $result = $this->db->query($sql)->result();
 		
 		$this->data['result'] = $result;

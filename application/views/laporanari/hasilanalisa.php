@@ -50,14 +50,14 @@ $nettofinal = 0;
 		<tr style="font-weight:bold;background:#3c8dbc;color:white">
 <td colspan="7"> JUMLAH <?php echo  $kodemt.' ('.$akt.')';?> </td>
 <td  align="right">  <?php echo number_format($nettofinal,0); ?> </td>
-<td colspan="8">  </td></tr>
+<td colspan="10">  </td></tr>
 		<?php
 		$akt = 0;
 		$nettofinal = 0;
 	 }
 	 
 	 if($kodemt != $r->kode_affd){
-		echo '<tr><td colspan="17" ><b>'.$r->kode_affd.'</b></td></tr>';
+		echo '<tr><td colspan="18" ><b>'.$r->kode_affd.'</b></td></tr>';
 		$kodemt = $r->kode_affd;
 	 }
 
