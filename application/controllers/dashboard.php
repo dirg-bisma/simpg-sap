@@ -42,7 +42,7 @@ class Dashboard extends SB_Controller {
     }
 
 	public function getDashGiling()
-	{ /*
+	{ 
 		$sql = "SELECT get_tgl_giling() AS tgl,jm.jam,IFNULL(ylsltruk.ttl,0) AS ylstruk,IFNULL(ylsllori.ttl,0) AS ylslori,IFNULL(sltruk.ttl,0) AS struk,IFNULL(sllori.ttl,0) AS slori,
 IFNULL(yltimtruk.ttl,0) AS yltimtruk,IFNULL(yltimlori.ttl,0) AS yltimlori,IFNULL(timtruk.ttl,0) AS timtruk,IFNULL(timlori.ttl,0) AS timlori,
 IFNULL(ylgiltruk.ttl,0) AS ylgiltruk,IFNULL(ylgillori.ttl,0) AS ylgillori,IFNULL(giltruk.ttl,0) AS giltruk,IFNULL(gillori.ttl,0) AS gillori FROM t_lap_jam jm 
@@ -139,7 +139,7 @@ GROUP BY DATE_FORMAT(meja_tebu_tgl,'%H')) AS ylgillori ON ylgillori.jam=jm.jam
  			<td style="text-align:center">'.number_format($ttlgilhi,2).'</td></tr>';
 
  		echo $htm;
- 		*/
+ 		
 	}
 	
 	

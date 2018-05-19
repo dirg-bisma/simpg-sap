@@ -242,7 +242,7 @@ $(document).ready(function(){
 		{  selected_value : '<?php echo $this->session->userdata('gilingan');?>', initial_text : ' - Aktifkan Gilingan -' });
 
   getdata();
-  setInterval(getdata, 60000);
+ // setInterval(getdata, 60000);
 });
 
 
