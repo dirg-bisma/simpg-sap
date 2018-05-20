@@ -31,8 +31,21 @@ class Laporanari extends SB_Controller
 			header("Content-Disposition: attachment; filename=$file");
 		}
 		$this->data['title'] = 'TANGGAL GILING '.SiteHelpers::daterpt($tglgiling);
-		
+		if(CNF_METODE ==1){
 		$sql = "SELECT DATE_FORMAT(tgl_ari,'%d-%m-%Y %H:%i') AS tgl_analisa,
+b.`no_spat`,b.`kode_blok`,f.`nama_petani`,d.`netto_final`,IF(b.`jenis_spta`='TRUK',c.`no_angkutan`,'-') AS truk,IF(b.`jenis_spta`='LORI',c.`no_angkutan`,'-') AS lori ,
+b.`kode_kat_lahan`,a.`persen_brix_ari`,a.`persen_pol_ari`,a.`ph_ari`,a.`hk`,a.`nilai_nira`,a.`rendemen_ari`,a.`hablur_ari`,e.deskripsi_blok,b.kode_affd,e1.kondisi_tebu
+FROM t_ari a 
+INNER JOIN t_spta b ON a.`id_spta`=b.`id`
+INNER JOIN t_selektor c ON c.`id_spta`=a.`id_spta`
+INNER JOIN t_timbangan d ON d.`id_spat`=b.`id`
+INNER JOIN sap_field e ON e.`kode_blok`=b.`kode_blok` 
+INNER JOIN t_meja_tebu e1 on e1.id_spta = b.id
+LEFT JOIN sap_petani f ON f.`id_petani_sap`=e.`id_petani_sap`
+WHERE 0=0 AND b.tgl_giling = '$tglgiling' 
+GROUP BY b.id ORDER BY kode_affd ASC";
+}else{
+	$sql = "SELECT DATE_FORMAT(tgl_ari,'%d-%m-%Y %H:%i') AS tgl_analisa,
 b.`no_spat`,b.`kode_blok`,f.`nama_petani`,d.`netto_final`,IF(b.`jenis_spta`='TRUK',c.`no_angkutan`,'-') AS truk,IF(b.`jenis_spta`='LORI',c.`no_angkutan`,'-') AS lori ,
 b.`kode_kat_lahan`,a.`persen_brix_ari`,a.`persen_pol_ari`,a.`ph_ari`,a.`hk`,a.`nilai_nira`,a.`rendemen_ari`,a.`hablur_ari`,e.deskripsi_blok,b.kode_affd,e1.kondisi_tebu
 FROM t_ari a 
@@ -42,8 +55,9 @@ INNER JOIN t_timbangan d ON d.`id_spat`=b.`id`
 INNER JOIN sap_field e ON e.`kode_blok`=b.`kode_blok` 
 LEFT JOIN t_meja_tebu e1 on e1.id_spta = b.id
 LEFT JOIN sap_petani f ON f.`id_petani_sap`=e.`id_petani_sap`
-WHERE 0=0 AND b.tgl_giling = '$tglgiling' 
+WHERE 0=0 AND b.tgl_timbang = '$tglgiling' 
 GROUP BY b.id ORDER BY kode_affd ASC";
+}
 $result = $this->db->query($sql)->result();
 		
 		$this->data['result'] = $result;
@@ -63,7 +77,26 @@ $result = $this->db->query($sql)->result();
 		
 		$this->data['title'] = 'TANGGAL GILING '.SiteHelpers::daterpt($tglgiling);
 
-		$sql = "select 
+		if(CNF_METODE ==1){
+			$sql = "select 
+		  a.no_urut_analisa_rendemen,
+		  a.meja_tebu_tgl,
+		  a.no_spat,
+		  a.kode_blok,
+		  b.no_angkutan,	
+		  c.netto,
+		  d.persen_brix_ari,
+		  d.persen_pol_ari,d.rendemen_individu,e1.kondisi_tebu
+		from
+		t_spta a
+		inner join t_selektor b on a.id = b.id_spta
+		inner join t_timbangan c on a.id = c.id_spat
+		inner join t_ari d on a.id = d.id_spta
+		INNER JOIN t_meja_tebu e1 on e1.id_spta = a.id
+		where Date(a.tgl_giling) = '$tglgiling'
+		order by a.no_urut_analisa_rendemen";
+		}else{
+			$sql = "select 
 		  a.no_urut_analisa_rendemen,
 		  a.meja_tebu_tgl,
 		  a.no_spat,
@@ -78,8 +111,10 @@ $result = $this->db->query($sql)->result();
 		inner join t_timbangan c on a.id = c.id_spat
 		inner join t_ari d on a.id = d.id_spta
 		LEFT JOIN t_meja_tebu e1 on e1.id_spta = a.id
-		where Date(a.tgl_giling) = '$tglgiling'
-		order by a.no_urut_analisa_rendemen";
+		where Date(a.tgl_timbang) = '$tglgiling'
+		order by a.tgl_ari ASC";
+		}
+		
 		$result = $this->db->query($sql)->result();
 		
 		$this->data['result'] = $result;
