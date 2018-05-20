@@ -40,7 +40,7 @@ INNER JOIN t_spta b ON a.`id_spta`=b.`id`
 INNER JOIN t_selektor c ON c.`id_spta`=a.`id_spta`
 INNER JOIN t_timbangan d ON d.`id_spat`=b.`id`
 INNER JOIN sap_field e ON e.`kode_blok`=b.`kode_blok` 
-INNER JOIN t_meja_tebu e1 on e1.id_spta = b.id
+LEFT JOIN t_meja_tebu e1 on e1.id_spta = b.id
 LEFT JOIN sap_petani f ON f.`id_petani_sap`=e.`id_petani_sap`
 WHERE 0=0 AND b.tgl_giling = '$tglgiling' 
 GROUP BY b.id ORDER BY kode_affd ASC";
@@ -77,7 +77,7 @@ $result = $this->db->query($sql)->result();
 		inner join t_selektor b on a.id = b.id_spta
 		inner join t_timbangan c on a.id = c.id_spat
 		inner join t_ari d on a.id = d.id_spta
-		INNER JOIN t_meja_tebu e1 on e1.id_spta = a.id
+		LEFT JOIN t_meja_tebu e1 on e1.id_spta = a.id
 		where Date(a.tgl_giling) = '$tglgiling'
 		order by a.no_urut_analisa_rendemen";
 		$result = $this->db->query($sql)->result();

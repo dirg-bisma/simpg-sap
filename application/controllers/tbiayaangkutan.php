@@ -339,7 +339,7 @@ SET a.`upah_angkut_status`=".$ID.",a.`upah_angkut_tgl` = NOW() WHERE b.`angkutan
 			// Redirect after save	
 			$this->session->set_flashdata('message',SiteHelpers::alert('success'," Data has been saved succesfuly !"));
 			
-			redirect( 'tbiayaangkutan',301);
+			redirect( 'tbiayaangkutan/show/'.$ID,301);
 					
 			
 			
