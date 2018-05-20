@@ -112,7 +112,7 @@ $result = $this->db->query($sql)->result();
 		inner join t_ari d on a.id = d.id_spta
 		LEFT JOIN t_meja_tebu e1 on e1.id_spta = a.id
 		where Date(a.tgl_timbang) = '$tglgiling'
-		order by a.tgl_ari ASC";
+		order by d.tgl_ari ASC";
 		}
 		
 		$result = $this->db->query($sql)->result();
