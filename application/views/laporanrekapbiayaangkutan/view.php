@@ -116,17 +116,15 @@
 				<tr>
 					<th style="text-align: center" colspan="9">JUMLAH ( <?php echo $no-1;?> TRUK/LORI )</th>
 					<th style="text-align: right; "><?php echo number_format($ttl);?></th>
-				</tr>
+				</tr>				
 				<?php }
 				$grandno++;
 				$grandttl += $val->total;
 				} ?>
-				<tfoot>
-					<tr>
-						<th style="text-align: center" colspan="9">JUMLAH ( <?php echo $grandno-1;?> TRUK/LORI )</th>
-						<th style="text-align: right; "><?php echo number_format($grandttl);?></th>
-					</tr>
-				</tfoot>
+				<tr>
+					<th style="text-align: center" colspan="9">JUMLAH ( <?php echo $grandno-1;?> TRUK/LORI )</th>
+					<th style="text-align: right; "><?php echo number_format($grandttl);?></th>
+				</tr>
 				</table>
 
 

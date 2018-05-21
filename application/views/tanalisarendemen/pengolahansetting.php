@@ -25,6 +25,13 @@
 
 			<fieldset > <legend>Setting Pengolahan </legend>
 
+			<div class="form-group">
+				<label for="ipt" class=" control-label col-md-4">Tgl Awal Giling</label>
+				<div class="col-md-8">
+						<input name="pn_awal_giling" type="text" id="pn_awal_giling" class="form-control input-sm number date" value="<?php  echo PN_AWAL_GILING;  ?>" readonly />
+				 </div>
+			  </div>
+
 		 <div class="form-group">
 				<label for="ipt" class=" control-label col-md-4">Faktor Konversi</label>
 				<div class="col-md-8">

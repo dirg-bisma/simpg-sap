@@ -135,6 +135,8 @@ class apilaptimbangan extends SB_Controller
     function printlaporan(){
         $wh = 'WHERE 0=0';
         $wh2 = 'WHERE 0=0';
+        $slfield = "";
+        $vn7 = "";
 
         $tgl1 = $_REQUEST['tgl1'];
         $tgl2 = $_REQUEST['tgl2'];
@@ -192,6 +194,8 @@ class apilaptimbangan extends SB_Controller
 
 
 
+
+
         if(isset($_REQUEST['excel']) && $_REQUEST['excel'] == 1){
             $file = "Laporan Timbangan - PERIODE ".SiteHelpers::datereport($tgl1)." s/d ".SiteHelpers::datereport($tgl2).".xls";
             header("Content-type: application/vnd.ms-excel");
@@ -199,23 +203,40 @@ class apilaptimbangan extends SB_Controller
         }
 
         if($jns == 1){
-            $sql = "SELECT a.`kode_blok`,d.`deskripsi_blok`,e.`nama_petani`,a.`kode_kat_lahan`,SUM(a.`truk`) AS truk,SUM(a.`lori`) AS lori,SUM(a.`odong2`) AS odong2,SUM(a.`traktor`) AS traktor,
-d.`luas_ha`,SUM(b.ha_tertebang) AS tertebang, c.lokasi_timbang_1, c.lokasi_timbang_2,
-SUM(c.`netto_final`) AS netto,
+            if(CNF_COMPANYCODE == 'N007'){
+                $slfield = "b.no_hv,b.op_hv,b.no_stipping,b.op_stipping,b.no_gl,b.op_gl,";
+                $vn7 = "perpetakn7";
+            }else{
+                $vn7 = "perpetak";
+            }
+            $sql = "SELECT a.`kode_blok`,d.`deskripsi_blok`,e.`nama_petani`,   b.persno_mandor_tma ,o.name AS mandor, a.persno_pta,
+  w.name AS pta, $slfield a.`kode_kat_lahan`,SUM(a.`truk`) AS truk,SUM(a.`lori`) AS lori,SUM(a.`odong2`) AS odong2,SUM(a.`traktor`) AS traktor,
+d.`luas_ha`,SUM(b.ha_tertebang) AS tertebang, c.lokasi_timbang_1 AS lokasi_tembang_1, c.lokasi_timbang_2 AS lokasi_tembang_2,
+SUM(c.`netto_final`) AS netto, c.lokasi_timbang_1,c.lokasi_timbang_2,
 (d.luas_ha-(SUM(b.ha_tertebang))) AS sisa FROM 
 (SELECT *,IF(jenis_spta='TRUK',1,0) AS truk,IF(jenis_spta='LORI',1,0) AS lori,IF(jenis_spta='ODONG2',1,0) AS odong2,IF(jenis_spta='TRAKTOR',1,0) AS traktor FROM t_spta $wh) AS a
 INNER JOIN t_selektor b ON b.`id_spta`=a.`id`
 INNER JOIN t_timbangan c ON c.`id_spat`=a.`id`
 INNER JOIN sap_field d ON d.`kode_blok`=a.`kode_blok`
-LEFT JOIN sap_petani e ON e.`id_petani_sap`=a.`id_petani_sap` $wh2 GROUP BY a.`kode_blok`";
+LEFT JOIN sap_petani e ON e.`id_petani_sap`=a.`id_petani_sap`  INNER JOIN sap_m_karyawan o 
+    ON o.Persno = b.persno_mandor_tma
+  INNER JOIN sap_m_karyawan w 
+    ON w.Persno = a.persno_pta  $wh2 GROUP BY a.`kode_blok`";
             $result = $this->db->query($sql)->result();
 
             $this->data['result'] = $result;
-            $this->load->view('laporantimbangan/perpetak',$this->data);
+            $this->load->view('laporantimbangan/'.$vn7,$this->data);
         }else{
-            $sql = "SELECT a.no_spat,a.`kode_blok`,d.`deskripsi_blok`,d.divisi,e.`nama_petani`,a.`kode_kat_lahan`,b.no_angkutan,c.no_transloading,SUM(a.`truk`) AS truk,SUM(a.`lori`) AS lori,SUM(a.`odong2`) AS odong2,SUM(a.`traktor`) AS traktor,
-d.`luas_ha`,SUM(b.ha_tertebang) AS tertebang, c.lokasi_timbang_1, c.lokasi_timbang_2,
-SUM(c.`netto_final`) AS netto,
+            if(CNF_COMPANYCODE == 'N007'){
+                $slfield = "b.no_hv,b.op_hv,b.no_stipping,b.op_stipping,b.no_gl,b.op_gl,";
+                $vn7 = "persptan7";
+            }else{
+                $vn7 = "perspta";
+            }
+            $sql = "SELECT a.no_spat,a.`kode_blok`,d.`deskripsi_blok`,d.divisi,e.`nama_petani`, b.persno_mandor_tma ,o.name AS mandor, a.persno_pta,
+  w.name AS pta, $slfield a.`kode_kat_lahan`,b.no_angkutan,c.no_transloading,SUM(a.`truk`) AS truk,SUM(a.`lori`) AS lori,SUM(a.`odong2`) AS odong2,SUM(a.`traktor`) AS traktor,
+d.`luas_ha`,SUM(b.ha_tertebang) AS tertebang, c.lokasi_timbang_1 AS lokasi_tembang_1, c.lokasi_timbang_2 AS lokasi_tembang_2,
+SUM(c.`netto_final`) AS netto, c.lokasi_timbang_1,c.lokasi_timbang_2,
 a.stt_ta,
 IF(a.stt_ta = '11','TAPG',IF(a.stt_ta = '10','TPGAS',IF(a.stt_ta='01','TSAPG','TAS'))) AS stt_ta_text,
 (d.luas_ha-(SUM(b.ha_tertebang))) AS sisa,a.`timb_netto_tgl` FROM 
@@ -223,11 +244,14 @@ IF(a.stt_ta = '11','TAPG',IF(a.stt_ta = '10','TPGAS',IF(a.stt_ta='01','TSAPG','T
 INNER JOIN t_selektor b ON b.`id_spta`=a.`id`
 INNER JOIN t_timbangan c ON c.`id_spat`=a.`id`
 INNER JOIN sap_field d ON d.`kode_blok`=a.`kode_blok`
-LEFT JOIN sap_petani e ON e.`id_petani_sap`=a.`id_petani_sap` $wh2 GROUP BY a.`id` ORDER BY a.stt_ta";
+LEFT JOIN sap_petani e ON e.`id_petani_sap`=a.`id_petani_sap` INNER JOIN sap_m_karyawan o 
+    ON o.Persno = b.persno_mandor_tma
+  INNER JOIN sap_m_karyawan w 
+    ON w.Persno = a.persno_pta $wh2 GROUP BY a.`id` ORDER BY a.stt_ta";
             $result = $this->db->query($sql)->result();
 
             $this->data['result'] = $result;
-            $this->load->view('laporantimbangan/perspta',$this->data);
+            $this->load->view('laporantimbangan/'.$vn7,$this->data);
         }
 
 

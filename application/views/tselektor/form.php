@@ -306,10 +306,16 @@ function cekha(a){
 	if(a > 0.9){
 		alert('Hektar tidak boleh melebihi 0.9 hektar');
 		$('#hektar_tertebang').val(0);
+	}else if(a < 0){
+		alert('Hektar tidak boleh kurang dari 0 hektar');
+		$('#hektar_tertebang').val(0);
 	}
 }else{
-	if(a > 0.15){
-		alert('Hektar tidak boleh melebihi 0.15 hektar');
+	if(a > 0.20){
+		alert('Hektar tidak boleh melebihi 0.2 hektar');
+		$('#hektar_tertebang').val(0);
+	}else if(a < 0){
+		alert('Hektar tidak boleh kurang dari 0 hektar');
 		$('#hektar_tertebang').val(0);
 	}
 }

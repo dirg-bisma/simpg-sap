@@ -39,6 +39,7 @@ class Config extends SB_Controller  {
 	{
 			$val  =		"<?php \n"; 
 
+			$val .= 	"define('PN_AWAL_GILING','".$this->input->post('pn_awal_giling',true)."');\n";
 			$val .= 	"define('PN_FAKTOR_KONVERSI','".$this->input->post('pn_faktor_konversi',true)."');\n";
 			$val .= 	"define('PN_FAKTOR_RENDEMEN','".$this->input->post('pn_faktor_rendemen',true)."');\n";
 			$val .= 	"define('PN_FAKTOR_PERAH','".$this->input->post('pn_faktor_perah',true)."');\n";
@@ -64,6 +65,17 @@ class Config extends SB_Controller  {
 			'note'		=> 'Rubah Setting Pengolahan dengan data '.$tes.' Oleh : '.$user
 		);
 		 $this->db->insert( 'tb_logs',$data);
+
+		 $this->db->query("delete from tb_setting");
+		 $dtx = array(
+		 		'awal_giling' => $this->input->post('pn_awal_giling',true),
+		 		'faktor_konv' => $this->input->post('pn_faktor_konversi',true),
+		 		'faktor_rend' => $this->input->post('pn_faktor_rendemen',true),
+		 		'faktor_perah' => $this->input->post('pn_faktor_perah',true),
+		 		'log_simpan' => date('Y-m-d H:i:s'),
+		 		'log_user'=>$this->session->userdata('uid')
+		 	);
+		  $this->db->insert( 'tb_setting',$dtx);
 
 
 		$this->session->set_flashdata('message',SiteHelpers::alert('success','Site Setting Has Been Updated'));

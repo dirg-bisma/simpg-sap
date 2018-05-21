@@ -40,6 +40,9 @@
   jsbarcode-width="1"
   jsbarcode-fontSize="12">
 </svg> 
+<center>
+			<?php echo $row->nama_vendor;?>
+</center>
 		</td>
 		<td style="width:45%" rowspan="6" valign="top" >
 		

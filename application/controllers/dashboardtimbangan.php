@@ -15,7 +15,7 @@ class Dashboardtimbangan extends CI_Controller
 
     function index()
     {
-        $this->load->view('dashboardtimbangan/dashboard');
+        //$this->load->view('dashboardtimbangan/dashboard');
     }
 
     function listdata()

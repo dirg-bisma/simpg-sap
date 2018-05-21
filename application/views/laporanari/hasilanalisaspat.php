@@ -42,6 +42,7 @@ LAPORAN ANALISA ARI<br />
 		<th>KODE BLOK</th>
 		<th>NO KENDARAAN</th>
 		<th>NETTO</th>
+		<th>MUT TEBU</th>
 		<th>% BRIX</th>
 		<th>% POL</th>
 	</tr>
@@ -62,6 +63,7 @@ $nettofinal = 0;
 				<td> '.$r->kode_blok.' </td>
 				<td align="center"> '.$r->no_angkutan.' </td>
 				<td align="right"> '.number_format($r->netto,0).'</td>
+				<td align="center"> '.$r->kondisi_tebu.' </td>
 				<td align="right"> '.number_format($r->persen_brix_ari,2).' </td>
 				<td align="right"> '.number_format($r->persen_pol_ari,2).' </td>
 			</tr>';
