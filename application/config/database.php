@@ -50,10 +50,8 @@ $active_record = TRUE;
 
 $db['default']['hostname'] = 'localhost';
 $db['default']['username'] = 'root';
-// $db['default']['password'] = '123456';
-// $db['default']['database'] = 'simpg_ptpn';
-$db['default']['password'] = '';
-$db['default']['database'] = 'simpg';
+$db['default']['password'] = '123456';
+$db['default']['database'] = 'simpg_ptpn';
 $db['default']['dbdriver'] = 'mysqli';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;
