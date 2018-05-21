@@ -101,7 +101,7 @@ class Laporantimbangan extends SB_Controller
 		$sql = "SELECT a.`kode_blok`,d.`deskripsi_blok`,e.`nama_petani`,   b.persno_mandor_tma ,o.name AS mandor, a.persno_pta,
   w.name AS pta, $slfield a.`kode_kat_lahan`,SUM(a.`truk`) AS truk,SUM(a.`lori`) AS lori,SUM(a.`odong2`) AS odong2,SUM(a.`traktor`) AS traktor,
 d.`luas_ha`,SUM(b.ha_tertebang) AS tertebang, c.lokasi_timbang_1 AS lokasi_tembang_1, c.lokasi_timbang_2 AS lokasi_tembang_2,
-c.netto_final AS netto, c.lokasi_timbang_1,c.lokasi_timbang_2,
+SUM(c.netto_final) AS netto, c.lokasi_timbang_1,c.lokasi_timbang_2,
 (d.luas_ha-(SUM(b.ha_tertebang))) AS sisa FROM 
 (SELECT *,IF(jenis_spta='TRUK',1,0) AS truk,IF(jenis_spta='LORI',1,0) AS lori,IF(jenis_spta='ODONG2',1,0) AS odong2,IF(jenis_spta='TRAKTOR',1,0) AS traktor FROM t_spta $wh) AS a
 INNER JOIN t_selektor b ON b.`id_spta`=a.`id`
@@ -125,7 +125,7 @@ $result = $this->db->query($sql)->result();
 			$sql = "SELECT a.no_spat,a.`kode_blok`,d.`deskripsi_blok`,d.divisi,e.`nama_petani`, b.persno_mandor_tma ,o.name AS mandor, a.persno_pta,
   w.name AS pta, $slfield a.`kode_kat_lahan`,b.no_angkutan,c.no_transloading,SUM(a.`truk`) AS truk,SUM(a.`lori`) AS lori,SUM(a.`odong2`) AS odong2,SUM(a.`traktor`) AS traktor,
 d.`luas_ha`,SUM(b.ha_tertebang) AS tertebang, c.lokasi_timbang_1 AS lokasi_tembang_1, c.lokasi_timbang_2 AS lokasi_tembang_2,
-SUM(c.`netto_final`) AS netto, c.lokasi_timbang_1,c.lokasi_timbang_2,
+c.`netto_final` AS netto, c.lokasi_timbang_1,c.lokasi_timbang_2,
 a.stt_ta,
 IF (a.metode_tma = 1, \"MANUAL\", IF (a.metode_tma = 2 , \"SEMI MEKANISASI\", IF(a.metode_tma = 3, \"MEKANISASI\", ''))) AS metode_tma,
   s.`kode_jarak`,
