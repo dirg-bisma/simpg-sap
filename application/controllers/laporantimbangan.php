@@ -101,7 +101,7 @@ class Laporantimbangan extends SB_Controller
 		$sql = "SELECT a.`kode_blok`,d.`deskripsi_blok`,e.`nama_petani`,   b.persno_mandor_tma ,o.name AS mandor, a.persno_pta,
   w.name AS pta, $slfield a.`kode_kat_lahan`,SUM(a.`truk`) AS truk,SUM(a.`lori`) AS lori,SUM(a.`odong2`) AS odong2,SUM(a.`traktor`) AS traktor,
 d.`luas_ha`,SUM(b.ha_tertebang) AS tertebang, c.lokasi_timbang_1 AS lokasi_tembang_1, c.lokasi_timbang_2 AS lokasi_tembang_2,
-SUM(c.`netto_final`) AS netto, c.lokasi_timbang_1,c.lokasi_timbang_2,
+c.`netto_final` AS netto, c.lokasi_timbang_1,c.lokasi_timbang_2,
 (d.luas_ha-(SUM(b.ha_tertebang))) AS sisa FROM 
 (SELECT *,IF(jenis_spta='TRUK',1,0) AS truk,IF(jenis_spta='LORI',1,0) AS lori,IF(jenis_spta='ODONG2',1,0) AS odong2,IF(jenis_spta='TRAKTOR',1,0) AS traktor FROM t_spta $wh) AS a
 INNER JOIN t_selektor b ON b.`id_spta`=a.`id`
