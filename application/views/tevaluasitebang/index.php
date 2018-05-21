@@ -170,6 +170,7 @@
     });
 
     function updatehektar(id){
+        if($('#ha_'+id).val() > 0){
         $.ajax({
             method  : "POST",
             url		:	"<?php echo site_url('tevaluasitebang/updatehektar');?>",
@@ -179,6 +180,9 @@
                 tables.ajax.reload();
             }
         });
+    }else{
+        alert('Ha Tidak boleh 0 atau kurang dari 0');
+    }
     }
 
     function setaff(kodepetak){
