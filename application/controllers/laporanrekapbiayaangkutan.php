@@ -38,9 +38,16 @@ class Laporanrekapbiayaangkutan extends SB_Controller
 			$whangkut ="";
 			$whvendor ="";
 
+			if (!empty($kat)) {
+				$whkat = "WHERE LEFT(a.kode_kat_lahan, 2) = '$kat' ";
+			}
+			if (!empty($angkutan)) {
+				$whangkut = "AND a.jenis_spta = '$angkutan' ";
+			}
 			if (!empty($jns)) {
 				$whvendor = "AND a.vendor_angkut = $jns ";
 			}
+
 
 			$sql = "SELECT 
 					  a.id,
@@ -76,9 +83,8 @@ class Laporanrekapbiayaangkutan extends SB_Controller
 					  INNER JOIN vw_upah_angkut f 
 					    ON f.vendor_id = a.vendor_angkut
 					    AND f.tgl = '$tgl2'
-					
-					   WHERE LEFT(a.kode_kat_lahan, 2) = '$kat'
-					  AND a.jenis_spta = '$angkutan'  
+					  $whkat
+					  $whangkut  
 					  $whvendor
 					  GROUP BY a.id order by a.vendor_angkut";
 			$data_query =  $this->db->query($sql)->result();
