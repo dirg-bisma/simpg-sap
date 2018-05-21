@@ -241,7 +241,7 @@ $(document).ready(function(){
 	$("#mejatebu").jCombo("<?php echo site_url('mmejatebu/comboselect?filter=vw_master_mejatebu:id:kode|nama') ?>",
 		{  selected_value : '<?php echo $this->session->userdata('gilingan');?>', initial_text : ' - Aktifkan Gilingan -' });
 
-  getdata();
+  //getdata();
  // setInterval(getdata, 60000);
 });
 

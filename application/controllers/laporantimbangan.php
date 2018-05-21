@@ -127,6 +127,9 @@ $result = $this->db->query($sql)->result();
 d.`luas_ha`,SUM(b.ha_tertebang) AS tertebang, c.lokasi_timbang_1 AS lokasi_tembang_1, c.lokasi_timbang_2 AS lokasi_tembang_2,
 SUM(c.`netto_final`) AS netto, c.lokasi_timbang_1,c.lokasi_timbang_2,
 a.stt_ta,
+IF (a.metode_tma = 1, \"MANUAL\", IF (a.metode_tma = 2 , \"SEMI MEKANISASI\", IF(a.metode_tma = 3, \"MEKANISASI\", ''))) AS metode_tma,
+  s.`kode_jarak`,
+  s.`keterangan`,
 IF(a.stt_ta = '11','TAPG',IF(a.stt_ta = '10','TPGAS',IF(a.stt_ta='01','TSAPG','TAS'))) AS stt_ta_text,
 (d.luas_ha-(SUM(b.ha_tertebang))) AS sisa,a.`timb_netto_tgl` FROM 
 (SELECT *,CONCAT(tebang_pg,angkut_pg) AS stt_ta,IF(jenis_spta='TRUK',1,0) AS truk,IF(jenis_spta='LORI',1,0) AS lori,IF(jenis_spta='ODONG2',1,0) AS odong2,IF(jenis_spta='TRAKTOR',1,0) AS traktor FROM t_spta $wh) AS a
@@ -135,6 +138,8 @@ INNER JOIN t_timbangan c ON c.`id_spat`=a.`id`
 INNER JOIN sap_field d ON d.`kode_blok`=a.`kode_blok`
 LEFT JOIN sap_petani e ON e.`id_petani_sap`=a.`id_petani_sap` INNER JOIN sap_m_karyawan o 
     ON o.Persno = b.persno_mandor_tma
+    LEFT JOIN m_biaya_jarak s
+    ON s.`id_jarak` = a.jarak_id 
   INNER JOIN sap_m_karyawan w 
     ON w.Persno = a.persno_pta $wh2 GROUP BY a.`id` ORDER BY a.stt_ta";
 $result = $this->db->query($sql)->result();
