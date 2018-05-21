@@ -133,8 +133,7 @@ function getReport(){
 	 	type 	: "POST",
 	 	datatype: "json",
 	 	url 	: "<?php echo site_url('laporanrekapbiayaangkutan/show'); ?>",
-	 	data 	: {tgl2:$('#tgl2').val(),angkutan:$('#angkutan').val(),kat:$('#kat').val(),jns:$('#vendor_id').val()
-	 	},
+	 	data 	: {tgl2:$('#tgl2').val(),angkutan:$('#angkutan').val(),kat:$('#kat').val(),jns:$('#vendor_id').val()},
 	 	success	: function(data){
 	 		$('#report').html(data);
 	 	}
@@ -142,9 +141,7 @@ function getReport(){
 }
 
 function getReportExcel(){
-var myData = {tgl1:$('#tgl1').val(),tgl2:$('#tgl2').val(),angkutan:$('#angkutan').val(),
-	 	sup:$('#sup').val(),bln:$('#bln').val(),thn:$('#thn').val(),rjns:$('#rjns').val()
-	 	,kat:$('#kat').val(),jns:$('#jns').val()};
+var myData = {tgl2:$('#tgl2').val(),angkutan:$('#angkutan').val(),kat:$('#kat').val(),jns:$('#vendor_id').val()};
 var out = [];
 
 for (var key in myData) {

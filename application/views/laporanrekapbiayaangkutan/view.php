@@ -62,6 +62,8 @@
 
 				<?php 
 				$par = "";
+				$grandno=1;
+				$grandttl = 0;
 				foreach ($detail as $key => $val) {
 				$par = $detail[$key-1]->vendor_angkut;
 				if ($par != $val->vendor_angkut ) {
@@ -111,16 +113,21 @@
 					}
 					?>
 				</tbody>
-				<tfoot>
 				<tr>
-					<th style="text-align: center" colspan="9">JUMLAH ( <?php echo $no-1;?> TRUK )</th>
+					<th style="text-align: center" colspan="9">JUMLAH ( <?php echo $no-1;?> TRUK/LORI )</th>
 					<th style="text-align: right; "><?php echo number_format($ttl);?></th>
+				</tr>				
+				<?php }
+				$grandno++;
+				$grandttl += $val->total;
+				} ?>
+				<tr>
+					<th style="text-align: center" colspan="9">JUMLAH ( <?php echo $grandno-1;?> TRUK/LORI )</th>
+					<th style="text-align: right; "><?php echo number_format($grandttl);?></th>
 				</tr>
-				</tfoot>
 				</table>
-				<br />
-				<?php }} ?>
-				
+
+
 				<i style="font-size: 10px">Dicetak Pada Tanggal <?php echo date('Y-m-d H:i:s');?></i>
 				<hr />
 		

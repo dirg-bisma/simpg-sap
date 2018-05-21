@@ -241,7 +241,7 @@ $(document).ready(function(){
 	$("#mejatebu").jCombo("<?php echo site_url('mmejatebu/comboselect?filter=vw_master_mejatebu:id:kode|nama') ?>",
 		{  selected_value : '<?php echo $this->session->userdata('gilingan');?>', initial_text : ' - Aktifkan Gilingan -' });
 
-  //getdata();
+  getdata();
  // setInterval(getdata, 60000);
 });
 
@@ -249,7 +249,7 @@ $(document).ready(function(){
 function getdata(){
   $.ajax({
        type: 'POST',
-          url: '<?php echo site_url('dashboard/getDevGiling');?>',
+          url: '<?php echo site_url('dashboard/getDashGiling');?>', 
           dataType : 'html',
           success: function (data) { 
             $("#dataText").html(data);
