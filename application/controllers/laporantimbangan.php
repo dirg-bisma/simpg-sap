@@ -130,6 +130,7 @@ a.stt_ta,
 IF (a.metode_tma = 1, \"MANUAL\", IF (a.metode_tma = 2 , \"SEMI MEKANISASI\", IF(a.metode_tma = 3, \"MEKANISASI\", ''))) AS metode_tma,
   s.`kode_jarak`,
   s.`keterangan`,
+  IF(b.`terbakar_sel` = 1, 'TERBAKAR', IF(b.`terbakar_sel` = 0, \"HIJAU\", \"-\")) AS terbakar_sel,
 IF(a.stt_ta = '11','TAPG',IF(a.stt_ta = '10','TPGAS',IF(a.stt_ta='01','TSAPG','TAS'))) AS stt_ta_text,
 (d.luas_ha-(SUM(b.ha_tertebang))) AS sisa,a.`timb_netto_tgl` FROM 
 (SELECT *,CONCAT(tebang_pg,angkut_pg) AS stt_ta,IF(jenis_spta='TRUK',1,0) AS truk,IF(jenis_spta='LORI',1,0) AS lori,IF(jenis_spta='ODONG2',1,0) AS odong2,IF(jenis_spta='TRAKTOR',1,0) AS traktor FROM t_spta $wh) AS a
