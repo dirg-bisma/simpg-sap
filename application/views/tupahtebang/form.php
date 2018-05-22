@@ -1,3 +1,6 @@
+<link rel="stylesheet" href="<?php echo base_url();?>/adminlte/plugins/toast/toast.css">
+<script src="<?php echo base_url();?>/adminlte/plugins/toast/toast.js"></script>
+
 <?php
 
 $t = $this->db->query("SELECT * FROM m_pekerjaan_tma where status_pekerjaan != 2 ORDER BY id_pekerjaan_tma ASC")->result();
@@ -84,6 +87,7 @@ $t = $this->db->query("SELECT * FROM m_pekerjaan_tma where status_pekerjaan != 2
 		</table>
       </div>
       <div class="modal-footer">
+        <button type="button" class="btn btn-primary" onclick="addall()">Pilih Semua</button>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>
     </div>
@@ -358,7 +362,14 @@ function cariData(){
         });
       });
 	  
+function addall(){
+	$(".addrowall").each(function(n,el) {
+		var urlx = $(this).attr('href');
+		//console.log(urlx);
+		 eval(urlx.replace('javascript:',''));
 
+	});
+}
 	  
 	  
 function addrow(id,nospta,noken,jenis,netto,terbakar,nilaitebu,tebang,masuk,tebangan){
@@ -366,9 +377,35 @@ function addrow(id,nospta,noken,jenis,netto,terbakar,nilaitebu,tebang,masuk,teba
 		dataset.push(id);
 		datasetx.push(["<a href='javascript:removeData(\""+id+"\")'> del</a>",nospta,noken,jenis,"<input type='text' name='netto[]' readonly value='"+netto+"' class='inlinecs number'><input type='hidden' readonly name='idx[]' value='"+id+"'>",tebangan,terbakar,nilaitebu,tebang,masuk,
 		<?php echo '"'.implode('","', $arkolom).'"' ?>]);
+
+		$.toast({
+                heading: 'Pemberitahuan',
+                textAlign: 'center',
+                text:"Berhasil Ditambahkan no spta "+nospta  ,
+                icon: 'info',
+                loader: true,        // Change it to false to disable loader
+                loaderBg: '#9EC600',
+                hideAfter: 2000,
+                showHideTransition: 'slide',
+                position: 'top-right',  // To change the background
+            });
+
+
 	}
 	else {
 	  console.log("Sudah Pernah Ditambahkan");
+	  $.toast({
+                heading: 'Pemberitahuan',
+                textAlign: 'center',
+                text:"SPTA Sudah Ditambahkan "+nospta ,
+                icon: 'error',
+                loader: true,        // Change it to false to disable loader
+                loaderBg: '#9EC600',
+                hideAfter: 2000,
+                showHideTransition: 'slide',
+                position: 'bottom-right',  // To change the background
+            });
+
 	}
 	
 	table.clear(); 
