@@ -122,8 +122,8 @@ foreach($coldefadd as $kol1)
 
 foreach($coldefrem as $kol1)
 {
-	$nm = $kol1->kodekolom;
-	$nominalupah -= $jurnal->$nm;
+	//$nm = $kol1->kodekolom;
+	//$nominalupah -= $jurnal->$nm;
 }
 
 foreach($colnondefadd as $kol1)
@@ -134,8 +134,8 @@ foreach($colnondefadd as $kol1)
 
 foreach($colnondefrem as $kol1)
 {
-	$nm = $kol1->kodekolom;
-	$nominalpremi -= $jurnal->$nm;
+	//$nm = $kol1->kodekolom;
+	//$nominalpremi -= $jurnal->$nm;
 }
 
 ?>

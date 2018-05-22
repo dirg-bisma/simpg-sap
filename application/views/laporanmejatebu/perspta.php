@@ -50,7 +50,7 @@ $nettofinal=0;
 <td colspan="18"> JUMLAH <?php echo  $kodemt.' ('.$akt.')';?> </td></tr>
 		<?php
 		$akt = 0;
-		$nettofinal = 0;
+		//$nettofinal = 0;
 	 }
 	 
 	 if($kodemt != $r->kode_meja_tebu){
@@ -85,9 +85,7 @@ $nettofinal=0;
 ?>
 </tbody>
 <tr style="font-weight:bold;background:#3c8dbc;color:white">
-<td colspan="9" align="center"> JUMLAH <?php echo $kodemt;?> (<?php echo $akt;?>) </td>
-<td align="center"> <?php echo number_format($nettofinal,0); ?> </td>
-<td style="font-weight:bold;background:#3c8dbc;color:white" colspan="8"></td>
+<td colspan="18" align="center"> JUMLAH <?php echo $kodemt;?> (<?php echo $akt;?>) </td>
 </tr>
 <tfoot><tr style="font-weight:bold;background:#104E8B;color:white">
 <td colspan="9" align="center"> TOTAL SEMUA (<?php echo $no-1;?>) </td>

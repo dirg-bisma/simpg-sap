@@ -258,7 +258,7 @@ $(document).ready(function() {
 		$("#persno_pta").jCombo("<?php echo site_url('tupahtebang/comboselect?filter=sap_m_karyawan:Persno:name:id_jabatan:2') ?>",
 		{  selected_value : '<?php echo $row["persno_pta"] ?>' });
 		
-		$("#persno_mandor").jCombo("<?php echo site_url('tupahtebang/comboselect?filter=sap_m_karyawan:Persno:name:id_jabatan:3') ?>",
+		$("#persno_mandor").jCombo("<?php echo site_url('tupahtebang/comboselect?filter=sap_m_karyawan:Persno:name|Persno:id_jabatan:3') ?>",
 		{  selected_value : '<?php echo $row["persno_mandor"] ?>' });
 		$('#modal-upah').modal('hide');  
 

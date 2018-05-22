@@ -103,7 +103,7 @@ REKAPITULASI UPAH TEBANG<br />
 						$tarrrem = array(array());
 					foreach($detail as $d){
 
-						if($mandor != $d->mandor_nama){
+						if($mandor != $d->persno_mandor){
 
 
 							if($temno != 0){
@@ -150,11 +150,11 @@ REKAPITULASI UPAH TEBANG<br />
 							}
 
 							?>
-							<tr style="background-color: red;color: white;font-weight: bold"><td colspan="3"><?php echo $d->mandor_nama;?></td>
+							<tr style="background-color: red;color: white;font-weight: bold"><td colspan="3"><?php echo $d->mandor_nama;?> <?php echo $d->persno_mandor;?></td>
 							
 							</tr>
 							<?php
-							$mandor = $d->mandor_nama;
+							$mandor = $d->persno_mandor;
 							$ttlyl = $d->ttlyl;
 							$no=0;
 							$arradd = array(array());

@@ -53,7 +53,7 @@
 				<tr>
 					<td>Kategori</td><td> : </td><td><?php echo $row['kepemilikan'];?></td>
 					<td style="text-align:center;border-left:1px solid black;border-right:1px solid black;">DAFTAR UPAH HARIAN</td>
-					<td style="padding-left:10px;">Mandor</td><td> : </td><td><?php echo $row['mandor'];?></td>
+					<td style="padding-left:10px;">Mandor</td><td> : </td><td><?php echo $row['mandor'];?> / <?php echo $row['persno_mandor'];?></td>
 				</tr>
 				<tr>
 					<td>Petani</td><td> : </td><td><?php echo $row['nama_petani'];?></td>

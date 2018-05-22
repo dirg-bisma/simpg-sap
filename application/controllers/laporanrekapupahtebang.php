@@ -76,7 +76,7 @@ class Laporanrekapupahtebang extends SB_Controller
 				INNER JOIN t_upah_tebang b1 ON a1.`id_upah_tebang`=b1.`id`
 				INNER JOIN t_spta c1 ON c1.`id`=a1.`id_spta` 
 				WHERE b1.persno_mandor=a.`persno_mandor` AND b1.tgl < '$tgl2' $wh2  GROUP BY b1.`persno_mandor`),0) AS ttlyl,
-a.`kode_blok`,c.`no_spat`,e.`name` AS mandor_nama,f.`name` AS pta_nama,d.`no_angkutan`,b.*
+a.`kode_blok`,c.`no_spat`,a.persno_mandor,e.`name` AS mandor_nama,f.`name` AS pta_nama,d.`no_angkutan`,b.*
  FROM t_upah_tebang a 
 INNER JOIN t_upah_tebang_detail b ON a.`id`=b.`id_upah_tebang`
 INNER JOIN t_spta c ON c.`id`=b.`id_spta`
@@ -95,9 +95,36 @@ ORDER BY d.`persno_mandor_tma`")->result();
 			$this->data['detail'] = $result;
 			$this->data['allsisalalu'] = $rt->total;
 			$this->data['allsisasemua'] = $rx->total;
+
 		$this->load->view('laporanrekapupahtebang/permandor',$this->data);
+		}else if($jns == 3){
+			$result = $this->db->query("SELECT IFNULL((SELECT SUM(a1.`total_bersih`) AS total 
+				FROM t_upah_tebang_detail a1 
+				INNER JOIN t_upah_tebang b1 ON a1.`id_upah_tebang`=b1.`id`
+				INNER JOIN t_spta c1 ON c1.`id`=a1.`id_spta` 
+				WHERE b1.persno_mandor=a.`persno_mandor` AND b1.tgl < '$tgl2' $wh2  GROUP BY b1.`persno_mandor`),0) AS ttlyl,
+a.`kode_blok`,c.`no_spat`,a.persno_mandor,e.`name` AS mandor_nama,f.`name` AS pta_nama,d.`no_angkutan`,b.*
+ FROM t_upah_tebang a 
+INNER JOIN t_upah_tebang_detail b ON a.`id`=b.`id_upah_tebang`
+INNER JOIN t_spta c ON c.`id`=b.`id_spta`
+INNER JOIN t_selektor d ON d.`id_spta`=c.`id` 
+INNER JOIN sap_m_karyawan e ON e.`Persno`=a.`persno_mandor`
+INNER JOIN sap_m_karyawan f ON f.`Persno`=c.`persno_pta` $wh
+ORDER BY d.`persno_mandor_tma`")->result();
+			$rt = $this->db->query("SELECT SUM(a1.`total_bersih`) AS total 
+				FROM t_upah_tebang_detail a1 
+				INNER JOIN t_upah_tebang b1 ON a1.`id_upah_tebang`=b1.`id` WHERE b1.tgl < '$tgl2'")->row();
+
+			$rx = $this->db->query("SELECT SUM(a1.`total_bersih`) AS total 
+				FROM t_upah_tebang_detail a1 
+				INNER JOIN t_upah_tebang b1 ON a1.`id_upah_tebang`=b1.`id` WHERE b1.tgl <= '$tgl2'")->row();
+
+			$this->data['detail'] = $result;
+			$this->data['allsisalalu'] = $rt->total;
+			$this->data['allsisasemua'] = $rx->total;
+		$this->load->view('laporanrekapupahtebang/permandorrekap',$this->data);
 		}else{
-			$result = $this->db->query("SELECT no_bukti,a.`kode_blok`,c.`no_spat`,e.`name` AS mandor_nama,f.`name` AS pta_nama,d.`no_angkutan`,b.*
+			$result = $this->db->query("SELECT no_bukti,a.`kode_blok`,c.`no_spat`,a.persno_mandor,e.`name` AS mandor_nama,f.`name` AS pta_nama,d.`no_angkutan`,b.*
  FROM t_upah_tebang a 
 INNER JOIN t_upah_tebang_detail b ON a.`id`=b.`id_upah_tebang`
 INNER JOIN t_spta c ON c.`id`=b.`id_spta`
