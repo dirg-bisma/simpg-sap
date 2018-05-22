@@ -118,6 +118,7 @@ $no=0;
 foreach ($rows as $jurnal) {
 	$no++;
 	if($jurnal->jenis_spta == 'TRUK'){
+		if($jurnal->jenis_spta == 'TRUK' && $jurnal->katkode == 'TR'){
 		?>
 		<tr>
  <td><?php echo $no;?></td>
@@ -196,6 +197,7 @@ if($jurnal->katkode == 'TR') echo '21030116'; else echo '21030116';
  <td>&nbsp;</td>
  <td></td></tr>
 		<?php
+	}
 	}else{
 
 		//lori

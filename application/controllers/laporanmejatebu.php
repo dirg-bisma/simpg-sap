@@ -71,7 +71,7 @@ FROM t_meja_tebu a1
      INNER JOIN t_timbangan d on b.id = d.id_spat
      INNER JOIN `sap_m_karyawan` `c`  ON `c`.`Persno` = CONVERT(`a`.`persno_mandor_tma` USING utf8)
      INNER JOIN `sap_field` `e` ON `e`.`kode_blok` = `b`.`kode_blok` $wh GROUP BY b.`id`
-ORDER BY `a1`.`tgl_meja_tebu` ASC";
+ORDER BY `a1`.`tgl_meja_tebu`,a1.kode_meja_tebu ASC";
 
         $result = $this->db->query($sql)->result();
 

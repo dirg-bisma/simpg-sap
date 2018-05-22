@@ -81,6 +81,7 @@
 							class=' form-control'  required >
 							<option value='1'>Per Mandor</option>
 							<option value='2'>Per Transaksi</option>
+							<option value='3'>Per Mandor Rekap</option>
 						</select> </td>
 
 						
