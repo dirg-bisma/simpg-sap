@@ -66,6 +66,7 @@ $t = $this->db->query("SELECT * FROM m_pekerjaan_tma where status_pekerjaan != 2
         <table class="table table-bordered" id="datax" >
 		<thead>
 		<tr>
+			<th>No</th>
 			<th>x</th>
 			<th>Kode Blok</th>
 			<th>No SPTA</th>

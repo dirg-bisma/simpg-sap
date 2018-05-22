@@ -444,7 +444,7 @@ LEFT JOIN t_meja_tebu d ON d.id_spta=a.id
 WHERE a.`timb_netto_status` = 1 AND a.`tebang_pg`=1 $wh GROUP BY a.id";
 		
 		$th = $this->db->query($sql)->result();
-		$htm = "";
+		$htm = "";$no=1;
 		$arter = array('1'=>'Ya','0'=>'Tidak');
 				$arterx = array('1'=>'Manual','2'=>'Semi Mekanisasi','3'=>'Mekanisasi');
 		foreach($th as $tb){
@@ -452,8 +452,11 @@ WHERE a.`timb_netto_status` = 1 AND a.`tebang_pg`=1 $wh GROUP BY a.id";
 			$r = 'javascript:addrow("'.$tb->id.'","'.$tb->no_spat.'","'.$tb->no_angkutan.'","'.$tb->jenis_spta.'","'.$tb->netto_final.'","'.$arter[$tb->terbakar_sel].'","'.$tb->kondisi_tebu.'","'.$tb->tgl_tebang.'","'.$tb->tgl_selektor.'","'.$arterx[$tb->metode_tma].'")';
 			$htm .= "<tr>";
 			if($tb->upah_tebang_status == 0){
+				$htm .= "<td>".$no."</td>";
 				$htm .= "<td><a href='".$r."' class='addrowall'><i class='fa fa-send'></i></a></td>";
+				$no++;
 			}else{
+				$htm .= "<td>-</td>";
 				$htm .= "<td>-</td>";
 			}
 				
