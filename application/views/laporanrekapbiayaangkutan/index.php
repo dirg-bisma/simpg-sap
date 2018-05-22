@@ -150,7 +150,7 @@ for (var key in myData) {
 
 var urlx = out.join('&');
 
-	var url = "<?php echo site_url('laporanrekapbiayaangkutan/printlaporan'); ?>?"+urlx+"&excel=1";
+	var url = "<?php echo site_url('laporanrekapbiayaangkutan/show'); ?>?"+urlx+"&excel=1";
 	window.open(url);
 
 }
