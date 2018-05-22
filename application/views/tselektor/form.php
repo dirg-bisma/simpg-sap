@@ -311,8 +311,8 @@ function cekha(a){
 		$('#hektar_tertebang').val(0);
 	}
 }else{
-	if(a > 0.20){
-		alert('Hektar tidak boleh melebihi 0.2 hektar');
+	if(a > 0.90){
+		alert('Hektar tidak boleh melebihi 0.9 hektar');
 		$('#hektar_tertebang').val(0);
 	}else if(a < 0){
 		alert('Hektar tidak boleh kurang dari 0 hektar');
