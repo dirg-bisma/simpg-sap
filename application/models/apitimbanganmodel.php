@@ -49,7 +49,15 @@ class Apitimbanganmodel extends SB_Model
 
     public function TaraLori($no_lori)
     {
-        $sql = "SELECT * FROM m_lori WHERE nolori = '$no_lori'";
+        $sql = "SELECT 
+                  id,
+                  IFNULL(grade, '-') AS grade,
+                  tara,
+                  IFNULL(taradate, '-') AS taradate,
+                  IFNULL(usertara, '-') AS usertara,
+                  IFNULL(kode_plant, '-') AS kode_plant 
+                FROM
+              m_lori  WHERE nolori = '$no_lori'";
         $lori = $this->db->query($sql);
         return $lori->row();
     }

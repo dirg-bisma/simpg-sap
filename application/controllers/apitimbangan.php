@@ -402,14 +402,32 @@ class Apitimbangan extends SB_Controller
         }
     }
 
-
-
     function taralori($no_lori)
     {
         $this->load->model('apitimbanganmodel');
         $result = $this->apitimbanganmodel->TaraLori($no_lori);
 
         echo json_encode($result);
+    }
+
+    function validasilori($no_lori)
+    {
+        $this->load->model('apitimbanganmodel');
+        $result = $this->apitimbanganmodel->TaraLori($no_lori);
+        if(count($result) > 0){
+            $output = array(
+                'result' => $result,
+                'msg' => 'success',
+                'status' => 'true'
+            );
+        }else{
+            $output = array(
+                'result' => array(),
+                'msg' => 'error',
+                'status' => 'false'
+            );
+        }
+        echo json_encode($output);
     }
 
     function noloko()
@@ -538,6 +556,31 @@ class Apitimbangan extends SB_Controller
             );
             echo json_encode($result);
         }
+    }
+
+    function updatenolori()
+    {
+        $no_spat = $this->GetPost('no_spat');
+        $no_lori = $this->GetPost('no_lori');
+        $train_stat = $this->GetPost('train_stat');
+        try{
+            $qry = "SELECT * FROM t_spta WHERE no_spat = '$no_spat'";
+            $result = $this->db->query($qry)->row();
+
+            $this->db->where(array('id_spta' => $result->id));
+            $this->db->update('t_selektor', array(
+                'no_angkutan' => $no_lori,
+                'no_trainstat' => $train_stat
+            ));
+            $result = array(
+                'msg' => "SPAT $no_spat Terupdate",
+                'status' => 'true'
+            );
+            echo json_encode($result);
+        }catch (Exception $ex){
+
+        }
+
     }
 
     function exceltaralori(){
