@@ -81,7 +81,8 @@
 	<div class="form-group  " >
 	<label for="Company Code" class=" control-label col-md-4 text-left"> JENIS SPTA <span class="asterix"> * </span></label>
 	<div class="col-md-8">
-		<select class="form-control" name="jenis_spta" >
+		<select class="form-control" name="jenis_spta" id="jenis_spta" >
+			<option value="">- PILIH JENIS ANGKUTAN -</option>
 			<option value="TRUK">TRUK</option>
 			<option value="LORI">LORI</option>
 			<option value="ODONG2">ODONG2</option>
@@ -164,7 +165,7 @@ $(document).ready(function(){
 			tempJarakPilih = true;
 		}
 		
-		if($('#kuota_tot').val()!='' && $('#kuota_tot').val()!='0' && $('#persno_pta').val()!='' && tempJarakPilih){
+		if($('#kuota_tot').val()!='' && $('#kuota_tot').val()!='0' && $('#jenis_spta').val()!='' && $('#persno_pta').val()!='' && tempJarakPilih){
 			
         $.ajax({
             type: frm.attr('method'),
