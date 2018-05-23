@@ -35,7 +35,7 @@ LAPORAN MEJA TEBU HARIAN<br />
 <hr />
 <table class="tableizer-table">
 <thead><tr class="tableizer-firstrow">
-<th>NO</th><th>NO SPTA</th><th>AFD</th><th>Mandor</th><th>No Petak</th><th>Kebun</th><th>Kategori</th><th>Angkutan</th><th>No Angkutan</th><th>Netto</th><th>Brix</th><th>pH</th><th>Terbakar</th><th>Kualitas</th><th>Ha Tertebang</th><th>Tebang</th><th>Selektor</th><th>Meja Tebu</th></tr></thead>
+<th>NO</th><th>NO SPTA</th><th>AFD</th><th>Mandor</th><th>No Petak</th><th>Kebun</th><th>Kategori</th><th>Angkutan</th><th>No Angkutan</th><th>transloading</th><th>Netto</th><th>Brix</th><th>pH</th><th>Terbakar</th><th>Kualitas</th><th>Ha Tertebang</th><th>Tebang</th><th>Selektor</th><th>Meja Tebu</th></tr></thead>
 <tbody>
 <?php
 $no=1;
@@ -46,15 +46,13 @@ $nettofinal=0;
 
  		if($kodemt != $r->kode_meja_tebu && $no != 1){
 		?>
-		<tr style="font-weight:bold;background:#3c8dbc;color:white">
-<td colspan="18"> JUMLAH <?php echo  $kodemt.' ('.$akt.')';?> </td></tr>
 		<?php
 		$akt = 0;
 		//$nettofinal = 0;
 	 }
 	 
 	 if($kodemt != $r->kode_meja_tebu){
-		echo '<tr><td colspan="18" ><b>'.$r->kode_meja_tebu.'</b></td></tr>';
+		//echo '<tr><td colspan="19" ><b>'.$r->kode_meja_tebu.'</b></td></tr>';
 		$kodemt = $r->kode_meja_tebu;
 	 }
 	 ?>
@@ -68,6 +66,7 @@ $nettofinal=0;
 	 <td><?php echo $r->kode_kat_lahan;?></td>
 	 <td><?php echo $r->jenis_spta;?></td>
 	 <td><?php echo $r->no_angkutan;?></td>
+	 <td><?php echo $r->no_transloading;?></td>
 	 <td><?php echo number_format($r->netto,0);?></td>
 	 <td><?php echo $r->brix_sel;?></td>
 	 <td><?php echo $r->ph_sel;?></td>
@@ -84,11 +83,9 @@ $nettofinal=0;
  }
 ?>
 </tbody>
-<tr style="font-weight:bold;background:#3c8dbc;color:white">
-<td colspan="18" align="center"> JUMLAH <?php echo $kodemt;?> (<?php echo $akt;?>) </td>
-</tr>
+
 <tfoot><tr style="font-weight:bold;background:#104E8B;color:white">
-<td colspan="9" align="center"> TOTAL SEMUA (<?php echo $no-1;?>) </td>
+<td colspan="10" align="center"> TOTAL SEMUA (<?php echo $no-1;?>) </td>
 <td align="center"> <?php echo number_format($nettofinal,0); ?> </td>
 <td style="font-weight:bold;background:#104E8B;color:white" colspan="8"></td>
 </tr></tfoot>

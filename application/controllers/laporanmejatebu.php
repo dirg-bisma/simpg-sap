@@ -64,7 +64,7 @@ class laporanmejatebu extends SB_Controller
   `c`.`name`              AS `mandor`,
    b.`jenis_spta`,
    b.kode_affd,
-   a.*,d.netto,b.hari_giling,b.tgl_giling,a1.tgl_meja_tebu,a1.kondisi_tebu,a1.kode_meja_tebu
+   a.*,d.netto,d.no_transloading,b.hari_giling,b.tgl_giling,a1.tgl_meja_tebu,a1.kondisi_tebu,a1.kode_meja_tebu
 FROM t_meja_tebu a1 
      INNER JOIN `t_selektor` `a` ON a1.id_spta=a.id_spta
      INNER JOIN `t_spta` `b` ON `a`.`id_spta` = `b`.`id`

@@ -71,10 +71,16 @@ $tha = 0;
 	$netto += $r->netto;
 	$tha += $r->netto/$r->tertebang;
  }
+
+
+$tonhatotal = 0;
+ if($ha != ''){
+ 	$tonhatotal = $netto/$ha;
+ }
 ?>
 </tbody>
 <tfoot><tr style="font-weight:bold;background:#3c8dbc;color:white">
-<td colspan="6"> JUMLAH </td><td align="center"><?php echo $truk;?></td><td align="center"><?php echo $lori;?></td><td align="center"><?php echo $odong2;?></td><td align="center"><?php echo $traktor;?></td><td align="right"><?php echo $ha;?></td><td align="right"><?php echo number_format($netto,0);?></td><td></td><td align="right"><?php echo number_format($tha,0);?></td></tr></tfoot>
+<td colspan="6"> JUMLAH </td><td align="center"><?php echo $truk;?></td><td align="center"><?php echo $lori;?></td><td align="center"><?php echo $odong2;?></td><td align="center"><?php echo $traktor;?></td><td align="right"><?php echo $ha;?></td><td align="right"><?php echo number_format($netto,0);?></td><td></td><td align="right"><?php echo number_format($tonhatotal,0);?></td></tr></tfoot>
 </table>
 <hr />
 <table style="width:100%">
