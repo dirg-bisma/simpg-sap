@@ -27,6 +27,7 @@
             <th>No Urut Selektor</th>
             <th>SPTA</th>
             <th>No Lori</th>
+            <th>Tara</th>
             <th>Tgl Selektor</th>
             <th>No Trainstat</th>
         </tr>
@@ -35,7 +36,8 @@
         <tr>
             <th>No Urut Selektor</th>
             <th>SPTA</th>
-            <th>No Kend.</th>
+            <th>No Lori.</th>
+            <th>Tara</th>
             <th>Tgl Selektor</th>
             <th>No Trainstat</th>
         </tr>
@@ -52,6 +54,7 @@
                 { "data": "no" },
                 { "data": "no_spat" },
                 { "data": "no_angkutan" },
+                { "data": "tara" },
                 { "data": "tgl_selektor" },
                 { "data": "no_trainstat" }
             ]

@@ -34,7 +34,7 @@ class Dashboardtimbanganmodel extends CI_Model
 
     public function AntrianLori()
     {
-        $qry = $this->QryDataSelektor() . " AND b.jenis_spta = 'LORI' LIMIT 100";
+        $qry = $this->QryDataSelektorLori() . " AND b.jenis_spta = 'LORI' LIMIT 100";
         $result = $this->db->query($qry);
         $data = array();
         foreach ($result->result() as $tx){
@@ -42,6 +42,7 @@ class Dashboardtimbanganmodel extends CI_Model
                 'no' => $tx->no_urut,
                 'no_spat' => $tx->no_spat,
                 'no_angkutan' => $tx->no_angkutan,
+                'tara' => $tx->tara,
                 'tgl_selektor' => $tx->tgl_selektor,
                 'no_trainstat' => $tx->no_trainstat,
                 'jenis_spta' => $tx->jenis_spta,
@@ -83,6 +84,25 @@ class Dashboardtimbanganmodel extends CI_Model
             );
         }
         return $data;
+    }
+
+    public function QryDataSelektorLori()
+    {
+        $qry = "SELECT a.`no_urut`, b.`no_spat`, a.`no_angkutan`, d.tara,
+                a.`tgl_selektor`, IFNULL(b.`timb_bruto_tgl`,'-') AS timb_bruto_tgl, IFNULL(c.`bruto`,0) AS bruto, b.`jenis_spta`,
+                a.`no_trainstat`, a.`no_urut`, a.`no_urut_timbang`,
+                IFNULL(CONCAT(
+                FLOOR(HOUR(TIMEDIFF(NOW(), b.`timb_bruto_tgl`)) / 24), ' h ',
+                MOD(HOUR(TIMEDIFF(NOW(), b.`timb_bruto_tgl`)), 24), ' j ',
+                MINUTE(TIMEDIFF(NOW(), b.`timb_bruto_tgl`)), ' m'), '-') AS waktu_tunggu
+                FROM t_selektor a
+                INNER JOIN t_spta AS b ON b.id = a.`id_spta`
+                LEFT JOIN t_timbangan AS c ON c.`id_spat` = a.`id_spta`
+                LEFT JOIN m_lori AS d ON d.nolori = a.no_angkutan
+                WHERE NOT (b.`timb_netto_status` = 1) AND
+                (a.`tgl_selektor` >= NOW() - INTERVAL 2 DAY)";
+
+        return $qry;
     }
 
     public function QryDataSelektor()

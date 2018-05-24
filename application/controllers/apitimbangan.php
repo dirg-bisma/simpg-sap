@@ -107,6 +107,7 @@ class Apitimbangan extends SB_Controller
             $status_nett = $this->apitimbanganmodel->cekStatusSpat($no_spat, 'timb_netto_status', 1);
 
             $netto = $this->GetPost('netto');
+            $multi_sling = $this->GetPost('multi_sling');
             $tgl_timbang = $this->getDateNow();
             $lokasi_timbang = $this->GetPost('kode_timbangan');
             $ptgs_timbang = $this->GetPost('ptgs_timbang');
@@ -118,6 +119,7 @@ class Apitimbangan extends SB_Controller
                     'tara' => "0",
                     'netto' => $netto,
                     'netto_final' => $netto,
+                    'multi_sling' => $multi_sling,
                     'tgl_netto' => $tgl_timbang,
                     'tgl_tara' => $tgl_timbang,
                     'tgl_bruto' => $tgl_timbang,
