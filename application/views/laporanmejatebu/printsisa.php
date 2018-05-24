@@ -33,6 +33,7 @@ LAPORAN TEBU TERSEDIA <br />
 </tr>
 </table>
 <hr />
+dicetak pada <?php echo date('Y-m-d H:i:s');?>
 <table class="tableizer-table">
 <thead>
 
