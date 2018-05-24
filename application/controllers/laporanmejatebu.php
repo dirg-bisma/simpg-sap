@@ -130,7 +130,7 @@ ORDER BY `a1`.`tgl_meja_tebu`,a1.kode_meja_tebu ASC";
             INNER JOIN t_selektor c ON c.id_spta=a.id 
             INNER JOIN sap_field d ON d.kode_blok=a.kode_blok
             LEFT JOIN sap_petani e ON e.`id_petani_sap`=d.`id_petani_sap`
-            WHERE a.tgl_timbang <= '$tgl1' AND (ISNULL(a.tgl_giling)) ORDER BY a.selektor_tgl ASC")->result();
+            WHERE a.tgl_timbang <= '$tgl1' AND (ISNULL(a.tgl_giling) OR a.tgl_giling = '$tgl1') ORDER BY a.selektor_tgl ASC")->result();
 
         $this->data['timbangsd'] = $sqltimbang;
         $this->data['gilingsd'] = $sqlgiling;
