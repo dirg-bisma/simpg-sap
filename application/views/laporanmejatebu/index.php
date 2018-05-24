@@ -19,8 +19,8 @@
                             <div class="sbox-content" style="padding:10px" >
                                 <table witdh="100%">
                                     <tr>
-                                        <td style="padding:5px" width="150px">
-                                            <select id="rjns" class=" form-control">
+                                        <td style="padding:5px;" width="150px" class="tgljns">
+                                            <select id="rjns" class=" form-control" >
                                                 <option value="1">PERIODE</option>
                                                 <option value="2">BULANAN</option>
                                                 <option value="3">TAHUNAN</option>
@@ -52,15 +52,16 @@
                                             </select>
                                         </td>
                                         <td class="period">
-                                            <input type='text' class='form-control date input-sm' readonly placeholder='' value='<?php echo date('Y-m-d');?>' id='tgl1'  /> </td><td class="period"> s/d </td>
+                                            <input type='text' class='form-control date input-sm' readonly placeholder='' value='<?php echo date('Y-m-d');?>' id='tgl1'  /> </td><td class="period sdx"> s/d </td>
                                         <td style="padding:5px" class="period"><input type='text' class='form-control date input-sm' readonly placeholder='' value='<?php echo date('Y-m-d');?>' id='tgl2'  /> </td>
 
                                         <td valign="center"> Jenis Laporan </td>
                         <td style="padding:5px" width="200px">
                             <select id='jns' rows='5' 
-                            class=' form-control'  required >
-                            <option value='1' selected>Per SPTA</option>
-                            <option value='2'>Per Petak</option>
+                            class=' form-control' onchange="gantijenis(this.value)" required >
+                            <option value='1' selected>Meja Tebu Per SPTA</option>
+                            <option value='2'>Meja Tebu Per Petak</option>
+                            <option value='3'>Sisa Pagi / Tebu Siap Giling</option>
                         </select> </td>
                                         <td valign="center"><input type="button" onclick="getReport()" class="btn btn-info btn-sm" value="View " />
                                             <input type="button" class="btn btn-warning btn-sm" onclick="printContent('report')"  value="Cetak " />
@@ -83,8 +84,21 @@
 </section>
 
 <script type="text/javascript">
+    function gantijenis(valx){
+        if(valx == 3){
+            $('.sdx').hide();
+            $('#tgl2').hide();
+        }else{
+            $('.sdx').show();
+            $('#tgl2').show();
+
+        }
+    }
+
+
     $(document).ready(function(){
         //getReport();
+        $('.tgljns').hide();
 
         $('.bulan').hide();$('.tahun').hide();
         //	$("#bln").select2("val", "<?=date('n');?>");

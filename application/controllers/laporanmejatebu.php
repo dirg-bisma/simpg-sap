@@ -77,8 +77,9 @@ ORDER BY `a1`.`tgl_meja_tebu`,a1.kode_meja_tebu ASC";
 
         $this->data['result'] = $result;
         $this->load->view('laporanmejatebu/perspta',$this->data);
-        }else{
+        }else if($jns == 2){
         $sql = "SELECT 
+            `a`.`no_spat`
                 a.`kode_blok`,
                 d.`deskripsi_blok`,
                 e.`nama_petani`,
@@ -104,6 +105,37 @@ ORDER BY `a1`.`tgl_meja_tebu`,a1.kode_meja_tebu ASC";
 
         $this->data['result'] = $result;
         $this->load->view('laporanmejatebu/print',$this->data);
+
+        }else{
+            $this->data['title'] =  "TANGGAL ".SiteHelpers::datereport($tgl1);
+            $this->data['titlex'] =  "TANGGAL ".SiteHelpers::datereport(date('Y-m-d', strtotime("-1 day")));
+            $sqltimbang = $this->db->query("select sum(netto_final) as total from t_timbangan a inner join t_spta b on a.id_spat=b.id where b.tgl_timbang < '$tgl1'")->row();
+            $sqlgiling = $this->db->query("select sum(netto_final) as total from t_timbangan a inner join t_spta b on a.id_spat=b.id where b.meja_tebu_status=1 and b.tgl_giling < '$tgl1'")->row();
+            $sqlspa = $this->db->query("SELECT SQL_NO_CACHE 
+                no_spat,
+            a.`kode_blok`,
+            a.kode_affd,
+                d.`deskripsi_blok`,
+                e.`nama_petani`,
+                a.`kode_kat_lahan`,
+                a.jenis_spta,
+                c.no_angkutan,
+                b.no_transloading,selektor_tgl,timb_netto_tgl,tgl_tebang,
+                IF(CONCAT(tebang_pg,angkut_pg) = '11','TAPG',IF(CONCAT(tebang_pg,angkut_pg) = '10','TPGAS',IF(CONCAT(tebang_pg,angkut_pg)='01','TSAPG','TAS'))) AS stt_ta_text,
+        IF(c.`terbakar_sel` = 1, 'TERBAKAR', IF(c.`terbakar_sel` = 0, \"TIDAK\", \"-\")) AS terbakar_sel,
+                b.bruto,b.tara,
+                b.netto
+                FROM t_spta a 
+            INNER JOIN t_timbangan b ON b.id_spat = a.id
+            INNER JOIN t_selektor c ON c.id_spta=a.id 
+            INNER JOIN sap_field d ON d.kode_blok=a.kode_blok
+            LEFT JOIN sap_petani e ON e.`id_petani_sap`=d.`id_petani_sap`
+            WHERE a.tgl_timbang < '$tgl1' AND (ISNULL(a.tgl_giling)) ORDER BY a.selektor_tgl ASC")->result();
+
+        $this->data['timbangsd'] = $sqltimbang;
+        $this->data['gilingsd'] = $sqlgiling;
+        $this->data['result'] = $sqlspa;
+        $this->load->view('laporanmejatebu/printsisa',$this->data);
 
         }
     }
