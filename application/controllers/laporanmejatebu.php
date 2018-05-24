@@ -109,8 +109,8 @@ ORDER BY `a1`.`tgl_meja_tebu`,a1.kode_meja_tebu ASC";
         }else{
             $this->data['title'] =  "TANGGAL ".SiteHelpers::datereport($tgl1);
             $this->data['titlex'] =  "TANGGAL ".SiteHelpers::datereport(date('Y-m-d', strtotime("-1 day")));
-            $sqltimbang = $this->db->query("select sum(netto_final) as total from t_timbangan a inner join t_spta b on a.id_spat=b.id where b.tgl_timbang < '$tgl1'")->row();
-            $sqlgiling = $this->db->query("select sum(netto_final) as total from t_timbangan a inner join t_spta b on a.id_spat=b.id where b.meja_tebu_status=1 and b.tgl_giling < '$tgl1'")->row();
+            $sqltimbang = $this->db->query("select sum(netto_final) as total from t_timbangan a inner join t_spta b on a.id_spat=b.id where b.tgl_timbang <= '$tgl1'")->row();
+            $sqlgiling = $this->db->query("select sum(netto_final) as total from t_timbangan a inner join t_spta b on a.id_spat=b.id where b.meja_tebu_status=1 and b.tgl_giling <= '$tgl1'")->row();
             $sqlspa = $this->db->query("SELECT SQL_NO_CACHE 
                 no_spat,
             a.`kode_blok`,
