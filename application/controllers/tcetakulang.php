@@ -254,4 +254,42 @@ LEFT JOIN m_vendor v ON v.id_vendor=a.`vendor_angkut`
 	}
 
 
+	function printlist(){
+		$a = $_REQUEST['tgl'];
+		$b = $_REQUEST['afd'];
+		$c = $_REQUEST['jenis'];
+		$wh = '';
+		if($a != '') $wh .= " AND tgl_spta = '$a'";
+		if($b != '') $wh .= " AND c.divisi = '$b'";
+
+		$sql = $this->db->query("SELECT no_spat,a.kode_blok,tgl_spta,c.divisi,e.`karyawan`,d.`nama_petani`,f.`name` AS nama_pta,tgl_expired,jenis_spta,tebang_pg,angkut_pg,metode_tma,IF(kode_plant_trasnfer!='',CONCAT(c.`deskripsi_blok`,' TRANSFER DARI ',kode_plant_trasnfer),IF(kode_plant_ke != '', CONCAT(c.`deskripsi_blok`,' TRANSFER KE ',kode_plant_ke),c.`deskripsi_blok`)) AS deskripsi_blok,c.`luas_tanam`,c.`periode`,c.`status_blok`,c.`kepemilikan`,kode_kat_lahan, IF(CONCAT(tebang_pg,angkut_pg) = '11','TAPG',IF(CONCAT(tebang_pg,angkut_pg) = '10','TPGAS',IF(CONCAT(tebang_pg,angkut_pg)='01','TSAPG','TAS'))) AS stt_ta_text,IF(metode_tma=1,'MANUAL',IF(metode_tma=2,'SEMI MEKANISASI','MEKANISASI')) AS txt_metode_tma,v.nama_vendor FROM t_spta a 
+INNER JOIN sap_field c ON a.kode_blok=c.`kode_blok` 
+INNER JOIN vw_master_afdeling e ON e.`kode_affd`=c.`divisi`
+INNER JOIN sap_m_karyawan f ON f.`Persno`=a.persno_pta
+LEFT JOIN sap_petani d ON d.`id_petani_sap`=c.`id_petani_sap`
+LEFT JOIN m_vendor v ON v.id_vendor=a.`vendor_angkut`
+ WHERE 0=0 $wh GROUP BY a.`id` ORDER BY c.divisi")->result();
+
+
+        $this->data['result'] = $sql;
+
+		$this->data['title'] =  "TANGGAL ".SiteHelpers::datereport($a);
+       // $this->load->view('tcetakulang/cetaklist',$this->data);
+
+		if($c == 1){
+	        $this->data['content'] = $this->load->view('tcetakulang/cetaklist',$this->data, true);
+			$this->data['title'] = 'Cetak List SPTA';
+			//$this->data['tgl'] = $tgl;
+			$this->load->view('layouts/kosongCetakulang', $this->data );
+		}else{
+			$file = "List SPTA  - TGL ".SiteHelpers::datereport($a).".xls";
+                header("Content-type: application/vnd.ms-excel");
+                header("Content-Disposition: attachment; filename=$file");
+
+                echo $this->load->view('tcetakulang/cetaklist',$this->data, true);
+		}
+
+	}
+
+
 }

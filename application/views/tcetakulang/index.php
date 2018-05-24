@@ -26,6 +26,11 @@
 				  <td><a href="javascript:cari()" class="btn btn-sm btn-info"> <i class="fa fa-search"></i> Cari </a></td>
           <td style="width:10px">&nbsp;</td>
           <td><a href="javascript:ReturModal()" class="btn btn-sm btn-danger"> <i class="fa fa-check"></i> Retur </a></td>
+          <td style="width:10px">&nbsp;</td>
+          <td><a href="javascript:cetaklist(1)" class="btn btn-sm btn-warning"> <i class="fa fa-print"></i> Cetak List SPTA </a></td>
+
+          <td style="width:10px">&nbsp;</td>
+          <td><a href="javascript:cetaklist(2)" class="btn btn-sm btn-success"> <i class="fa fa-download"></i> Excel List SPTA </a></td>
 				  </tr>
 				  </table>
                   
@@ -88,8 +93,9 @@ function cari(){
 function generateTable(tgl,afd=''){
 		if(afd == null ) afd = 0;
         table = $('#gridv').DataTable({
+          "lengthMenu": [ [25, 50, 100, 500], [25, 50, 100, 500] ],
           "paging": true,
-          "lengthChange": false,
+          "lengthChange": true,
           "searching": true,
           "ordering": true,
           "info": true,
@@ -122,6 +128,13 @@ function ReturModal(){
     });
 
     SximoModal('<?php echo site_url('tcetakulang/retur');?>?tgl='+$('#tgl_spta').val()+'&id='+res,'Retur SPTA');
+}
+
+function cetaklist(ax){
+  var a = $('#tgl_spta').val();
+  var b = $('#afdeling').val();
+  url = "<?php echo site_url('tcetakulang/printlist');?>?jenis="+ax+"&tgl="+a+"&afd="+b;
+  window.open(url);
 }
 
 

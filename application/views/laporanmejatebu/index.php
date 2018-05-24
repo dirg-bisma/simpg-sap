@@ -101,8 +101,6 @@
         $('.tgljns').hide();
 
         $('.bulan').hide();$('.tahun').hide();
-        //	$("#bln").select2("val", "<?=date('n');?>");
-        //	$("#thn").select2("val", "<?=date('Y');?>");
     });
 
     $('#rjns').on('change',function(e){
