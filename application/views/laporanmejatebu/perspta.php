@@ -35,7 +35,7 @@ LAPORAN MEJA TEBU HARIAN<br />
 <hr />
 <table class="tableizer-table">
 <thead><tr class="tableizer-firstrow">
-<th>NO</th><th>NO SPTA</th><th>AFD</th><th>Mandor</th><th>No Petak</th><th>Kebun</th><th>Kategori</th><th>Angkutan</th><th>No Angkutan</th><th>transloading</th><th>Netto</th><th>Brix</th><th>pH</th><th>Terbakar</th><th>Kualitas</th><th>Ha Tertebang</th><th>Tebang</th><th>Selektor</th><th>Meja Tebu</th></tr></thead>
+<th>NO</th><th>MT</th><th>NO SPTA</th><th>AFD</th><th>Mandor</th><th>No Petak</th><th>Kebun</th><th>Kategori</th><th>Angkutan</th><th>No Angkutan</th><th>transloading</th><th>Netto</th><th>Brix</th><th>pH</th><th>Terbakar</th><th>Kualitas</th><th>Ha Tertebang</th><th>Tebang</th><th>Selektor</th><th>Meja Tebu</th></tr></thead>
 <tbody>
 <?php
 $no=1;
@@ -59,6 +59,7 @@ $nettofinal=0;
 	 <tr>
 	 <td><?php echo $no;?></td>
 	 <td><?php echo $r->no_spat;?></td>
+	 <td><?php echo $r->kode_meja_tebu;?></td>
 	 <td><?php echo $r->kode_affd;?></td>
 	 <td><?php echo $r->mandor;?></td>
 	 <td><?php echo $r->kode_blok;?></td>
@@ -85,7 +86,7 @@ $nettofinal=0;
 </tbody>
 
 <tfoot><tr style="font-weight:bold;background:#104E8B;color:white">
-<td colspan="10" align="center"> TOTAL SEMUA (<?php echo $no-1;?>) </td>
+<td colspan="11" align="center"> TOTAL SEMUA (<?php echo $no-1;?>) </td>
 <td align="center"> <?php echo number_format($nettofinal,0); ?> </td>
 <td style="font-weight:bold;background:#104E8B;color:white" colspan="8"></td>
 </tr></tfoot>
