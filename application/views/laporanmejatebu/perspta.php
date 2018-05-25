@@ -58,8 +58,8 @@ $nettofinal=0;
 	 ?>
 	 <tr>
 	 <td><?php echo $no;?></td>
-	 <td><?php echo $r->no_spat;?></td>
 	 <td><?php echo $r->kode_meja_tebu;?></td>
+	 <td><?php echo $r->no_spat;?></td>
 	 <td><?php echo $r->kode_affd;?></td>
 	 <td><?php echo $r->mandor;?></td>
 	 <td><?php echo $r->kode_blok;?></td>
