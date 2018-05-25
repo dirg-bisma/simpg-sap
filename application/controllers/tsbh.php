@@ -427,7 +427,35 @@ try
 				if($Key > 2){
 					if(trim($Row[1]) != ''){
 
+					if(CNF_KONSEP == 2){
+						//coresapler
+						$tempdataari = array(
+						'id_ari'	 		=> trim($Row[1]), 
+						'id_spta' 			=> trim($Row[0]), 
+						'persen_brix_ari' 	=> trim($Row[34]), 
+						'persen_pol_ari' 	=> trim($Row[35]), 
+						'ph_ari' 			=> trim($Row[36]), 
+						'hk' 				=> trim($Row[37]), 
+						'nilai_nira' 		=> trim($Row[38]), 
+						'faktor_rendemen' 	=> trim($Row[39]), 
+						'rendemen_ari' 		=> trim($Row[42]),
+						'faktor_konversi'   => trim($Row[41]),
+						'rendemen_individu' => trim($Row[40]), 
+						'hablur_ari' 		=> trim($Row[43]), 
+						'gula_total' 		=> trim($Row[44]), 
+						'tetes_total' 		=> trim($Row[45]), 
+						'rendemen_ptr' 		=> trim($Row[46]), 
+						'gula_ptr' 			=> trim($Row[47]), 
+						'tetes_ptr' 		=> trim($Row[48]), 
+						'gula_pg' 			=> trim($Row[49]), 
+						'tetes_pg' 			=> trim($Row[50]),
+						'sbh_ari_status'	=> '1',
+						'sbh_ari_user'		=> $this->session->userdata('fid'),
+						'sbh_ari_tgl'		=> date('Y-m-d H:i:s')
+					);
 
+					}else{
+						//ari
 					$tempdataari = array(
 						'id_ari'	 		=> trim($Row[1]), 
 						'id_spta' 			=> trim($Row[0]), 
@@ -450,17 +478,18 @@ try
 						'sbh_ari_user'		=> $this->session->userdata('fid'),
 						'sbh_ari_tgl'		=> date('Y-m-d H:i:s')
 					);
-
-			$tempspta = array(
-					'sbh_status' 	=> '1',
-					'sbh_tgl'		=> date('Y-m-d H:i:s')
-				);
+				}
 
 			$this->db->where('id_ari', trim($Row[1]));
 			$this->db->where('id_spta', trim($Row[0]));
 			$this->db->where('pengolahan_status', '0');
 			$this->db->update('t_ari', $tempdataari);
 
+
+			$tempspta = array(
+					'sbh_status' 	=> '1',
+					'sbh_tgl'		=> date('Y-m-d H:i:s')
+				);
 
 			$this->db->where('id', trim($Row[0]));
 			$this->db->where('sbh_status < ', 2);
