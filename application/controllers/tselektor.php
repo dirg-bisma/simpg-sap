@@ -46,7 +46,7 @@ class Tselektor extends SB_Controller
 		
 		$sort = 'tgl_selektor'; 
 		$order = 'desc';
-		$filter = " AND tgl_urut = get_tgl_giling() AND ptgs_selektor ='".$this->session->userdata('fid')."'";
+		$filter = " AND ptgs_selektor ='".$this->session->userdata('fid')."'";
 		//$filter = (!is_null($this->input->get('search', true)) ? $this->buildSearch() : '');
 		//order 
 		if(isset($_POST['order']))
