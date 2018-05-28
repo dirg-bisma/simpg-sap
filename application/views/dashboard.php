@@ -173,61 +173,43 @@
       </div>
 
 <div class="box box-warning">
+<input type="hidden" id="tgl" />
   <div class="box-header with-border">
-    <div class="col-lg-12 col-xs-12">
-      <table  style="padding: 3px;margin: 3px;width: 100%;">
+  <div class="col-md-4 col-xs-12">
+  <!--selektor-->
+  <table  style="padding: 3px;margin: 3px;width: 100%;">
       <thead>
       <tr>
-      <th rowspan="3" style="border-bottom: 1px solid red;background: black;color: red;text-align: center;">JAM</th>
-      <th colspan="6" style="background: #36a65a36;padding: 3px;text-align: center">SELEKTOR (UNIT)</th>
-      <th colspan="6" style="background: #3bc0f038;padding: 3px;text-align: center">TIMBANG (TON)</th>
+     <th colspan="6" style="background: #36a65a36;padding: 3px;text-align: center">SELEKTOR (UNIT)</th>
+      </tr>
+      </thead>
+      <tbody id="selektordata"></tbody>
+      </table>
+  </div>
+  <div class="col-md-4  col-xs-12">
+  <!--timbangan-->
+  <table  style="padding: 3px;margin: 3px;width: 100%;">
+      <thead>
+      <tr>
+      <th colspan="6" style="background: #3bc0f038;padding: 3px;text-align: center">TIMBANGAN (TON)</th>
+      </tr>
+      
+      </thead>
+      <tbody id="timbangandata"></tbody>
+      </table>
+  </div>
+  <div class="col-md-4 col-xs-12">
+  <!--gilingan-->
+  <table  style="padding: 3px;margin: 3px;width: 100%;">
+      <thead>
+      <tr>
       <th colspan="6" style="background: #dd4b393d;padding: 3px;text-align: center">GILING (TON)</th>
       </tr>
-      <tr>
-      <th colspan="3" style="background: #36a65a36;padding: 3px;text-align: center">YL</th>
-      <th colspan="3" style="background: #36a65a36;padding: 3px;text-align: center">HI</th>
-      <th colspan="3" style="background: #3bc0f038;padding: 3px;text-align: center">YL</th>
-      <th colspan="3" style="background: #3bc0f038;padding: 3px;text-align: center">HI</th>
-      <th colspan="3" style="background: #dd4b393d;padding: 3px;text-align: center">YL</th>
-      <th colspan="3" style="background: #dd4b393d;padding: 3px;text-align: center">HI</th>
-      </tr>
-      <tr style="border-bottom: 1px solid red">
-      <th style="background: #36a65a36;padding: 3px;text-align: center">TRUK</th>
-      <th style="background: #36a65a36;padding: 3px;text-align: center">LORI</th>
-      <th style="background: #36a65a36;padding: 3px;text-align: center">TOTAL</th>
-
-
-      <th style="background: #36a65a36;padding: 3px;text-align: center">TRUK</th>
-      <th style="background: #36a65a36;padding: 3px;text-align: center">LORI</th>
-      <th style="background: #36a65a36;padding: 3px;text-align: center">TOTAL</th>
-
-      <th style="background: #3bc0f038;padding: 3px;text-align: center">TRUK</th>
-      <th style="background: #3bc0f038;padding: 3px;text-align: center">LORI</th>
-      <th style="background: #3bc0f038;padding: 3px;text-align: center">TOTAL</th>
-
-
-      <th style="background: #3bc0f038;padding: 3px;text-align: center">TRUK</th>
-      <th style="background: #3bc0f038;padding: 3px;text-align: center">LORI</th>
-      <th style="background: #3bc0f038;padding: 3px;text-align: center">TOTAL</th>
-
-
-      <th style="background: #dd4b393d;padding: 3px;text-align: center">TRUK</th>
-      <th style="background: #dd4b393d;padding: 3px;text-align: center">LORI</th>
-      <th style="background: #dd4b393d;padding: 3px;text-align: center">TOTAL</th>
-
-
-      <th style="background: #dd4b393d;padding: 3px;text-align: center">TRUK</th>
-      <th style="background: #dd4b393d;padding: 3px;text-align: center">LORI</th>
-      <th style="background: #dd4b393d;padding: 3px;text-align: center">TOTAL</th>
-      </tr>
-
       </thead>
-      <tbody id="dataText">
-        
-      </tbody>
+      <tbody id="gilingandata"></tbody>
       </table>
-      
-    </div>
+  </div>
+   
   </div>
 </div>
 </section>
@@ -249,12 +231,50 @@ $(document).ready(function(){
 function getdata(){
   $.ajax({
        type: 'POST',
-          url: '<?php echo site_url('dashboard/getDashGiling');?>', 
+          url: '<?php echo site_url('dashboard/gettgl');?>', 
           dataType : 'html',
           success: function (data) { 
-            $("#dataText").html(data);
+            $("#tgl").val(data);
+            getselektor();
           }
         });
 }
+
+function getselektor(){
+  $.ajax({
+       type: 'POST',
+          url: '<?php echo site_url('dashboard/viewperjam');?>/'+$("#tgl").val()+"/1", 
+          dataType : 'html',
+          success: function (data) { 
+            $("#selektordata").html(data);
+            gettimbangan();
+          }
+        });
+}
+
+function gettimbangan(){
+  $.ajax({
+       type: 'POST',
+          url: '<?php echo site_url('dashboard/viewperjam');?>/'+$("#tgl").val()+"/2", 
+          dataType : 'html',
+          success: function (data) { 
+            $("#timbangandata").html(data);
+            getgilingan();
+          }
+        });
+}
+
+function getgilingan(){
+  $.ajax({
+       type: 'POST',
+          url: '<?php echo site_url('dashboard/viewperjam');?>/'+$("#tgl").val()+"/3", 
+          dataType : 'html',
+          success: function (data) { 
+            $("#gilingandata").html(data);
+          }
+        });
+}
+
+
 </script>
 	  

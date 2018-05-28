@@ -41,107 +41,173 @@ class Dashboard extends SB_Controller {
         echo $html;
     }
 
-	public function getDashGiling()
-	{ /*
-		$sql = "SELECT get_tgl_giling() AS tgl,jm.jam,IFNULL(ylsltruk.ttl,0) AS ylstruk,IFNULL(ylsllori.ttl,0) AS ylslori,IFNULL(sltruk.ttl,0) AS struk,IFNULL(sllori.ttl,0) AS slori,
-IFNULL(yltimtruk.ttl,0) AS yltimtruk,IFNULL(yltimlori.ttl,0) AS yltimlori,IFNULL(timtruk.ttl,0) AS timtruk,IFNULL(timlori.ttl,0) AS timlori,
-IFNULL(ylgiltruk.ttl,0) AS ylgiltruk,IFNULL(ylgillori.ttl,0) AS ylgillori,IFNULL(giltruk.ttl,0) AS giltruk,IFNULL(gillori.ttl,0) AS gillori FROM t_lap_jam jm 
-LEFT JOIN (SELECT COUNT(id_spta) AS ttl,CONVERT(DATE_FORMAT(a.tgl_selektor,'%H') USING utf8) AS jam FROM t_selektor a
-INNER JOIN t_spta b ON a.`id_spta`=b.`id` WHERE a.`tgl_urut`=get_tgl_giling() AND b.`jenis_spta`='TRUK' 
-GROUP BY DATE_FORMAT(a.tgl_selektor,'%H')) AS sltruk ON sltruk.jam=jm.jam
-LEFT JOIN (SELECT COUNT(id_spta) AS ttl,CONVERT(DATE_FORMAT(a.tgl_selektor,'%H') USING utf8) AS jam FROM t_selektor a
-INNER JOIN t_spta b ON a.`id_spta`=b.`id` WHERE a.`tgl_urut`=get_tgl_giling() AND b.`jenis_spta`='LORI' 
-GROUP BY DATE_FORMAT(a.tgl_selektor,'%H')) AS sllori ON sllori.jam=jm.jam 
-LEFT JOIN (SELECT COUNT(id_spta) AS ttl,CONVERT(DATE_FORMAT(a.tgl_selektor,'%H') USING utf8) AS jam FROM t_selektor a
-INNER JOIN t_spta b ON a.`id_spta`=b.`id` WHERE a.`tgl_urut`=DATE_ADD(get_tgl_giling(),INTERVAL -1 DAY) AND b.`jenis_spta`='TRUK' 
-GROUP BY DATE_FORMAT(a.tgl_selektor,'%H')) AS ylsltruk ON ylsltruk.jam=jm.jam
-LEFT JOIN (SELECT COUNT(id_spta) AS ttl,CONVERT(DATE_FORMAT(a.tgl_selektor,'%H') USING utf8) AS jam FROM t_selektor a
-INNER JOIN t_spta b ON a.`id_spta`=b.`id` WHERE a.`tgl_urut`=DATE_ADD(get_tgl_giling(),INTERVAL -1 DAY) AND b.`jenis_spta`='LORI' 
-GROUP BY DATE_FORMAT(a.tgl_selektor,'%H')) AS ylsllori ON ylsllori.jam=jm.jam 
-LEFT JOIN (SELECT SUM(netto_final) AS ttl,CONVERT(DATE_FORMAT(b.timb_netto_tgl,'%H') USING utf8) AS jam FROM t_timbangan a
-INNER JOIN t_spta b ON a.`id_spat`=b.`id` WHERE b.tgl_timbang=get_tgl_giling() AND b.`jenis_spta`='TRUK' 
-GROUP BY DATE_FORMAT(b.timb_netto_tgl,'%H')) AS timtruk ON timtruk.jam=jm.jam
-LEFT JOIN (SELECT SUM(netto_final) AS ttl,CONVERT(DATE_FORMAT(b.timb_netto_tgl,'%H') USING utf8) AS jam FROM t_timbangan a
-INNER JOIN t_spta b ON a.`id_spat`=b.`id` WHERE b.tgl_timbang=get_tgl_giling() AND b.`jenis_spta`='LORI' 
-GROUP BY DATE_FORMAT(b.timb_netto_tgl,'%H')) AS timlori ON timlori.jam=jm.jam
-LEFT JOIN (SELECT SUM(netto_final) AS ttl,CONVERT(DATE_FORMAT(b.timb_netto_tgl,'%H') USING utf8) AS jam FROM t_timbangan a
-INNER JOIN t_spta b ON a.`id_spat`=b.`id` WHERE b.tgl_timbang=DATE_ADD(get_tgl_giling(),INTERVAL -1 DAY) AND b.`jenis_spta`='TRUK' 
-GROUP BY DATE_FORMAT(b.timb_netto_tgl,'%H')) AS yltimtruk ON yltimtruk.jam=jm.jam
-LEFT JOIN (SELECT SUM(netto_final) AS ttl,CONVERT(DATE_FORMAT(b.timb_netto_tgl,'%H') USING utf8) AS jam FROM t_timbangan a
-INNER JOIN t_spta b ON a.`id_spat`=b.`id` WHERE b.tgl_timbang=DATE_ADD(get_tgl_giling(),INTERVAL -1 DAY) AND b.`jenis_spta`='LORI' 
-GROUP BY DATE_FORMAT(b.timb_netto_tgl,'%H')) AS yltimlori ON yltimlori.jam=jm.jam
-LEFT JOIN (SELECT SUM(netto_final) AS ttl,CONVERT(DATE_FORMAT(b.meja_tebu_tgl,'%H') USING utf8) AS jam FROM t_timbangan a
-INNER JOIN t_spta b ON a.`id_spat`=b.`id` WHERE b.`tgl_giling`=get_tgl_giling() AND b.`jenis_spta`='TRUK' 
-GROUP BY DATE_FORMAT(meja_tebu_tgl,'%H')) AS giltruk ON giltruk.jam=jm.jam
-LEFT JOIN (SELECT SUM(netto_final) AS ttl,CONVERT(DATE_FORMAT(b.meja_tebu_tgl,'%H') USING utf8) AS jam FROM t_timbangan a
-INNER JOIN t_spta b ON a.`id_spat`=b.`id` WHERE b.`tgl_giling`=get_tgl_giling() AND b.`jenis_spta`='LORI' 
-GROUP BY DATE_FORMAT(meja_tebu_tgl,'%H')) AS gillori ON gillori.jam=jm.jam
-LEFT JOIN (SELECT SUM(netto_final) AS ttl,CONVERT(DATE_FORMAT(b.meja_tebu_tgl,'%H') USING utf8) AS jam FROM t_timbangan a
-INNER JOIN t_spta b ON a.`id_spat`=b.`id` WHERE b.`tgl_giling`=DATE_ADD(get_tgl_giling(),INTERVAL -1 DAY) AND b.`jenis_spta`='TRUK' 
-GROUP BY DATE_FORMAT(meja_tebu_tgl,'%H')) AS ylgiltruk ON ylgiltruk.jam=jm.jam
-LEFT JOIN (SELECT SUM(netto_final) AS ttl,CONVERT(DATE_FORMAT(b.meja_tebu_tgl,'%H') USING utf8) AS jam FROM t_timbangan a
-INNER JOIN t_spta b ON a.`id_spat`=b.`id` WHERE b.`tgl_giling`=DATE_ADD(get_tgl_giling(),INTERVAL -1 DAY) AND b.`jenis_spta`='LORI' 
-GROUP BY DATE_FORMAT(meja_tebu_tgl,'%H')) AS ylgillori ON ylgillori.jam=jm.jam
- GROUP BY jm.`jam` ORDER BY jm.id ASC";
+    public function gettgl(){
+    	$a = $this->db->query("SELECT get_tgl_giling() AS tgl ")->row();
+    	echo $a->tgl;
+    }
 
- 		$ax = $this->db->query($sql)->result();
- 		$htm = '';
- 		$ttlselyl = 0;
- 		$ttlselhi = 0;
- 		$ttltimbyl = 0;
- 		$ttltimbhi = 0;
- 		$ttlgilyl = 0;
- 		$ttlgilhi = 0;
- 		foreach ($ax as $rw) {
- 			$htm .= '
- 			<tr>
- 			<td style="text-align:center">'.$rw->jam.':00'.'</td>
- 			<td style="text-align:center">'.$rw->ylstruk.'</td>
- 			<td style="text-align:center">'.$rw->ylslori.'</td>
- 			<td style="text-align:center">'.($rw->ylstruk+$rw->ylslori).'</td>
- 			<td style="text-align:center">'.$rw->struk.'</td>
- 			<td style="text-align:center">'.$rw->slori.'</td>
- 			<td style="text-align:center">'.($rw->struk+$rw->slori).'</td>
- 			<td style="text-align:center">'.number_format($rw->yltimtruk/1000,2).'</td>
- 			<td style="text-align:center">'.number_format($rw->yltimlori/1000,2).'</td>
- 			<td style="text-align:center">'.number_format(($rw->yltimlori+$rw->yltimtruk)/1000,2).'</td>
- 			<td style="text-align:center">'.number_format($rw->timtruk/1000,2).'</td>
- 			<td style="text-align:center">'.number_format($rw->timlori/1000,2).'</td>
- 			<td style="text-align:center">'.number_format(($rw->timlori+$rw->timtruk)/1000,2).'</td>
- 			<td style="text-align:center">'.number_format($rw->ylgiltruk/1000,2).'</td>
- 			<td style="text-align:center">'.number_format($rw->ylgillori/1000,2).'</td>
- 			<td style="text-align:center">'.number_format(($rw->ylgillori+$rw->ylgiltruk)/1000,2).'</td>
- 			<td style="text-align:center">'.number_format($rw->giltruk/1000,2).'</td>
- 			<td style="text-align:center">'.number_format($rw->gillori/1000,2).'</td>
- 			<td style="text-align:center">'.number_format(($rw->giltruk+$rw->gillori)/1000,2).'</td></tr>';
 
- 			$ttlselyl = $ttlselyl+($rw->ylstruk+$rw->ylslori);
-	 		$ttlselhi = $ttlselhi+($rw->struk+$rw->slori);
-	 		$ttltimbyl = $ttltimbyl+(($rw->yltimlori+$rw->yltimtruk)/1000);
-	 		$ttltimbhi = $ttltimbhi+(($rw->timlori+$rw->timtruk)/1000);
-	 		$ttlgilyl = $ttlgilyl+(($rw->ylgillori+$rw->ylgiltruk)/1000);
-	 		$ttlgilhi = $ttlgilhi+(($rw->giltruk+$rw->gillori)/1000);
- 		}
+    public function viewperjam($tgl,$jns){
+		//jns 1 selektor,2 timbangan, 3 gilingan
+		$cc = CNF_COMPANYCODE;
+		$leftjoin = '';
+		$fieldj = "";
+		if($jns == 1){
+			if($cc == 'N011' || $cc == 'N009' || $cc == 'N007' || $cc == 'N002'){
+				$htm = '<table class="table ">
+                            <thead>
+                              <tr>
+                                <th>Jam</th>
+                                <th class="text-right" >Truk</th>
+                                <th class="text-right" >Lori</th>
+                                <th class="text-right" >Total</th>
+                              </tr>
+                            </thead>';
+			}else{
+				$htm = '<table class="table ">
+                            <thead>
+                              <tr>
+                                <th>Jam</th>
+                                <th class="text-right" >Truk</th>
+                                <th class="text-right" >Odong2</th>
+                                <th class="text-right" >Traktor</th>
+                                <th class="text-right" >Total</th>
+                              </tr>
+                            </thead>';
+			}
+			
+			$fieldj = "jm.`jam` as jjm,selektor.*";
+			$leftjoin = "LEFT JOIN (SELECT COUNT(id_spta) AS ttl,SUM(IF(b.`jenis_spta`='TRUK',1,0)) AS truk,SUM(IF(b.`jenis_spta`='LORI',1,0)) AS lori,SUM(IF(b.`jenis_spta`='ORONG2',1,0)) AS odong2,SUM(IF(b.`jenis_spta`='TRAKTOR',1,0)) AS traktor,CONVERT(DATE_FORMAT(a.tgl_selektor,'%H') USING utf8) AS jam FROM t_selektor a
+INNER JOIN t_spta b ON a.`id_spta`=b.`id` WHERE a.`tgl_urut`='$tgl' AND a.`ditolak_sel` = 0
+GROUP BY DATE_FORMAT(a.tgl_selektor,'%H')) AS selektor ON selektor.jam=jm.jam";
+		}else if($jns == 2){
+			if($cc == 'N011' || $cc == 'N009' || $cc == 'N007' || $cc == 'N002'){
+				$htm = '<table class="table ">
+                            <thead>
+                              <tr>
+                                <th>Jam</th>
+                                <th class="text-right" >Truk</th>
+                                <th class="text-right" >Lori</th>
+                                <th class="text-right" >Total</th>
+                              </tr>
+                            </thead>';
+			}else{
+				$htm = '<table class="table ">
+                            <thead>
+                              <tr>
+                                <th>Jam</th>
+                                <th class="text-right" >Truk</th>
+                                <th class="text-right" >Odong2</th>
+                                <th class="text-right" >Traktor</th>
+                                <th class="text-right" >Total</th>
+                              </tr>
+                            </thead>';
+			}
+			$fieldj = "jm.`jam` as jjm,timbangan.*";
+			$leftjoin = "LEFT JOIN (SELECT SUM(a.`netto_final`) AS ttl,SUM(IF(b.`jenis_spta`='TRUK',a.`netto_final`,0)) AS truk,SUM(IF(b.`jenis_spta`='LORI',a.`netto_final`,0)) AS lori,SUM(IF(b.`jenis_spta`='ORONG2',a.`netto_final`,0)) AS odong2,SUM(IF(b.`jenis_spta`='TRAKTOR',a.`netto_final`,0)) AS traktor,CONVERT(DATE_FORMAT(b.timb_netto_tgl,'%H') USING utf8) AS jam FROM t_timbangan a
+INNER JOIN t_spta b ON a.`id_spat`=b.`id` WHERE b.`tgl_timbang`='$tgl'
+GROUP BY DATE_FORMAT(b.timb_netto_tgl,'%H')) AS timbangan ON timbangan.jam=jm.jam";
+		}else{
+			$htm = '<table class="table ">
+                            <thead>
+                              <tr>
+                                <th>Jam</th>
+                                <th class="text-right" >Gil 1</th>
+                                <th class="text-right" >Gil 2</th>
+                                <th class="text-right" >Total</th>
+                              </tr>
+                            </thead>';
+			$fieldj = "jm.`jam` as jjm,giling.*";
+			$leftjoin = "LEFT JOIN (SELECT SUM(a.`netto_final`) AS ttl,SUM(IF(c.`gilingan`='1',a.`netto_final`,0)) AS gil1,SUM(IF(c.`gilingan`='5',a.`netto_final`,0)) AS gil2,CONVERT(DATE_FORMAT(b.`meja_tebu_tgl`,'%H') USING utf8) AS jam FROM t_timbangan a
+INNER JOIN t_spta b ON a.`id_spat`=b.`id` 
+INNER JOIN t_meja_tebu c ON c.id_spta = b.`id` WHERE b.`tgl_giling`='$tgl'
+GROUP BY DATE_FORMAT(b.`meja_tebu_tgl`,'%H')) AS giling ON giling.jam=jm.jam";
+		}
+		$sql = $this->db->query("SELECT $fieldj FROM t_lap_jam jm
+				$leftjoin
+ ORDER BY jm.`id`")->result();
+		$ttltruk=0;$ttllori=0;$ttlodong2=0;$ttltraktor=0;$ttlall=0;
+		$ttlgil1=0;$ttlgil2=0;
+		foreach($sql as $r){
+			if($jns == 1){
+				if($cc == 'N011' || $cc == 'N009' || $cc == 'N007' || $cc == 'N002'){
+					$htm .="<tr>
+					<td style='text-align:left;color:blue;font-weight:bold'>".$r->jjm.":00</td>
+					<td style='text-align:right;'>".number_format($r->truk)."</td>
+					<td style='text-align:right;'>".number_format($r->lori)."</td>
+					<td style='text-align:right;color:red;font-weight:bold'>".number_format($r->ttl)."</td></tr>";
+				}else{
+										$htm .="<tr>
+					<td style='text-align:left;color:blue;font-weight:bold'>".$r->jjm.":00</td>
+					<td style='text-align:right;'>".number_format($r->truk)."</td>
+					<td style='text-align:right;'>".number_format($r->odong2)."</td>
+					<td style='text-align:right;'>".number_format($r->traktor)."</td>
+					<td style='text-align:right;color:red;font-weight:bold'>".number_format($r->ttl)."</td></tr>";
 
- 		$htm .= '
- 			<tr style="background:black;color:white;font-weight:bold;font-weight:13px">
- 			<td style="text-align:center" colspan="3">TOTAL</td>
- 			<td style="text-align:center">'.($ttlselyl).'</td>
- 			<td style="text-align:center" colspan="2">TOTAL</td>
- 			<td style="text-align:center">'.($ttlselhi).'</td>
- 			<td style="text-align:center" colspan="2">TOTAL</td>
- 			<td style="text-align:center">'.number_format($ttltimbyl,2).'</td>
- 			<td style="text-align:center" colspan="2">TOTAL</td>
- 			<td style="text-align:center">'.number_format($ttltimbhi,2).'</td>
- 			<td style="text-align:center" colspan="2">TOTAL</td>
- 			<td style="text-align:center">'.number_format($ttlgilyl,2).'</td>
- 			<td style="text-align:center" colspan="2">TOTAL</td>
- 			<td style="text-align:center">'.number_format($ttlgilhi,2).'</td></tr>';
-
- 		echo $htm;
- 		*/
- 		
+				}
+				
+				$ttltruk += $r->truk;
+				$ttllori += $r->lori;
+				$ttlodong2 += $r->odong2;
+				$ttltraktor += $r->traktor;
+				$ttlall += $r->ttl;
+				
+			}else if($jns == 2){
+				if($cc == 'N011' || $cc == 'N009' || $cc == 'N007' || $cc == 'N002'){
+					$htm .="<tr>
+				<td style='text-align:left;color:blue;font-weight:bold'>".$r->jjm.":00</td>
+				<td style='text-align:right;'>".number_format($r->truk/1000,2)."</td>
+				<td style='text-align:right;'>".number_format($r->lori/1000,2)."</td>
+				<td style='text-align:right;color:red;font-weight:bold'>".number_format($r->ttl/1000,2)."</td></tr>";
+				}else{
+					$htm .="<tr>
+				<td style='text-align:left;color:blue;font-weight:bold'>".$r->jjm.":00</td>
+				<td style='text-align:right;'>".number_format($r->truk/1000,2)."</td>
+				<td style='text-align:right;'>".number_format($r->odong2/1000,2)."</td>
+				<td style='text-align:right;'>".number_format($r->traktor/1000,2)."</td>
+				<td style='text-align:right;color:red;font-weight:bold'>".number_format($r->ttl/1000,2)."</td></tr>";
+				}
+				
+				$ttltruk += $r->truk;
+				$ttllori += $r->lori;
+				$ttlodong2 += $r->odong2;
+				$ttltraktor += $r->traktor;
+				$ttlall += $r->ttl;
+				
+			}else{
+				$htm .="<tr>
+				<td style='text-align:left;color:blue;font-weight:bold'>".$r->jjm.":00</td>
+				<td style='text-align:right;'>".number_format($r->gil1/1000,2)."</td>
+				<td style='text-align:right;'>".number_format($r->gil2/1000,2)."</td>
+				<td style='text-align:right;color:red;font-weight:bold'>".number_format($r->ttl/1000,2)."</td></tr>";
+				$ttlgil1 += $r->gil1;
+				$ttlgil2 += $r->gil2;
+				$ttlall += $r->ttl;
+			}
+		}
+		
+		if($jns == 1){
+			if($cc == 'N011' || $cc == 'N009' || $cc == 'N007' || $cc == 'N002'){
+				$htm .= "<tr style='background:black;color:white'><td>TOTAL</td><td align='right'>".number_format($ttltruk)."</td><td align='right'>".number_format($ttllori)."</td><td align='right'>".number_format($ttlall)."</td></tr>";
+			}else{
+				$htm .= "<tr style='background:black;color:white'><td>TOTAL</td><td align='right'>".number_format($ttltruk)."</td><td align='right'>".number_format($ttlodong2)."</td><td align='right'>".number_format($ttltraktor)."</td><td align='right'>".number_format($ttlall)."</td></tr>";
+			}
+			
+		}else if($jns == 2){
+			if($cc == 'N011' || $cc == 'N009' || $cc == 'N007' || $cc == 'N002'){
+				$htm .= "<tr style='background:black;color:white'><td>TOTAL</td><td align='right'>".number_format($ttltruk/1000,2)."</td><td align='right'>".number_format($ttllori/1000,2)."</td><td align='right'>".number_format($ttlall/1000,2)."</td></tr>";
+			}else{
+				$htm .= "<tr style='background:black;color:white'><td>TOTAL</td><td align='right'>".number_format($ttltruk/1000,2)."</td><td align='right'>".number_format($ttlodong2/1000,2)."</td><td align='right'>".number_format($ttltraktor/1000,2)."</td><td align='right'>".number_format($ttlall/1000,2)."</td></tr>";
+			}
+		}else{
+			$htm .= "<tr style='background:black;color:white'><td>TOTAL</td><td align='right'>".number_format($ttlgil1/1000,2)."</td><td align='right'>".number_format($ttlgil2/1000,2)."</td><td align='right'>".number_format($ttlall/1000,2)."</td></tr>";
+		}
+		
+		echo $htm.'</table>';
+ 
 	}
+
+	
 	
 	
 	
