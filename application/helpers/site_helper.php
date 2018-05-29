@@ -966,10 +966,10 @@ public static function array_sort($array, $on, $order=SORT_ASC)
 			{
 				
 				$fields = explode("|",$arr['3']);
+				//var_dump($fields[0]);
+				$fld = $fields[0];
 				$v= '';
-				$v .= (isset($fields[0]) && $fields[0] !='' ?  $row->$fields[0].' ' : '');
-				$v .= (isset($fields[1]) && $fields[1] !=''  ? $row-> $fields[1].' ' : '');
-				$v .= (isset($fields[2]) && $fields[2] !=''  ? $row->$fields[2].' ' : '');
+				$v .= (isset($fields[0]) && $fields[0] !='' ?  $row->$fld.' ' : '');
 				return $v;
 			} else {
 				return '';
