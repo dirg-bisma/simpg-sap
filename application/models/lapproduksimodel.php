@@ -196,7 +196,6 @@ class Lapproduksimodel extends SB_Model
                 ROUND(((SUM(a.`hablur_ari`)/SUM(a.`netto`))*100), 2) AS rendemen_total
 				FROM vw_laporan_prod AS a
 				WHERE a.`hari_giling` = $hari
-				AND a.sbh_status = 1
 				GROUP BY kat_ptp";
         $result = $this->db->query($sql);
         return $result->result();
@@ -322,7 +321,6 @@ class Lapproduksimodel extends SB_Model
                 ON b.`kode_plant` = a.`kode_plant_trasnfer` 
             WHERE a.`kode_plant_trasnfer` != '' 
               AND a.`hari_giling` = $hari
-              AND a.sbh_status = 1 
             GROUP BY a.`kat_ptp`, a.`kode_plant_trasnfer` ";
         $result = $this->db->query($qry);
         return $result->result();
