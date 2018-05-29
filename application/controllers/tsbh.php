@@ -633,10 +633,18 @@ WHERE b.`tgl_giling` BETWEEN '".$tgl1."' AND '".$tgl2."' AND b.`sbh_status`=$stx
 
 		if($stt == 3){
 			//aku
+			$stx = 2;
+			$sty = 3;
+			$sttz = 1;
+			if($cancel == 1){
+				$stx = 4;
+				$sty = 3;
+				$sttz = 0;
+			}
 			$sql = "UPDATE t_ari a 
 INNER JOIN t_spta b ON a.`id_spta`=b.`id`
-SET a.`aku_status`=1,a.`aku_tgl`=NOW(),b.`sbh_status`=4,b.`sbh_tgl`=NOW(),a.`aku_user`='".$this->session->userdata('fid')."'
-WHERE b.`tgl_giling` BETWEEN '".$tgl1."' AND '".$tgl2."' AND b.`sbh_status`=3";
+SET a.`aku_status`=$sttz,a.`aku_tgl`=NOW(),b.`sbh_status`=$sty,b.`sbh_tgl`=NOW(),a.`aku_user`='".$this->session->userdata('fid')."'
+WHERE b.`tgl_giling` BETWEEN '".$tgl1."' AND '".$tgl2."' AND b.`sbh_status`=$stx";
 		}
 
 		$this->db->query($sql);
