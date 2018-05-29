@@ -26,12 +26,15 @@
 
         <!------------------SD HA TERTEBANG TRANS----------------->
         <?php $status = 0; ?>
+        <?php $sd_nilai_trans = 0; ?>
         <?php foreach ($sum_trans as $row_trans_sd ){?>
             <?php if($trans_kode_kat == $row_trans_sd->kat_ptpn && $row_trans->kode_plant_trasnfer == $row_trans_sd->kode_plant_trasnfer){?>
-                <td style="text-align: right"><?php echo number_format($row_trans_sd->sum_ha_tertebang,2 ); ?></td>
+                <?php $sd_nilai_trans = $row_trans_sd->sum_ha_tertebang+$hi_nilai_trans;?>
+                <td style="text-align: right"><?php echo number_format($sd_nilai_trans,2 ); ?></td>
                 <?php $status = 1; } ?>
         <?php } ?>
-        <?php if($status == 0){ echo "<td style=\"text-align: right\">".number_format($hi_nilai_trans, 2)."</td>"; }?>
+        <?php if($status == 0){
+            echo "<td style=\"text-align: right\">".number_format($hi_nilai_trans, 2)."</td>"; }?>
 
         <!------------------HI QTY TEREBANG TRANS----------------->
         <?php $status = 0; ?>
@@ -47,9 +50,12 @@
 
         <!------------------SD QTY TERTEBANG TRANS----------------->
         <?php $status = 0; ?>
+        <?php $sd_nilai_trans = 0; ?>
         <?php foreach ($sum_trans as $row_trans_sd ){?>
             <?php if($trans_kode_kat == $row_trans_sd->kat_ptpn && $row_trans->kode_plant_trasnfer == $row_trans_sd->kode_plant_trasnfer){?>
-                <td style="text-align: right"><?php echo number_format($row_trans_sd->sum_qty_tertebang+$hi_nilai_trans/1000,2 ); ?></td>
+                <?php $sd_nilai_trans = $row_trans_sd->sum_qty_tertebang+$hi_nilai_trans;?>
+                <?php $s_dgn_ha_ditebang =$s_dgn_ha_ditebang+$sd_nilai;?>
+                <td style="text-align: right"><?php echo number_format($sd_nilai_trans/1000,2 ); ?></td>
                 <?php $status = 1; } ?>
         <?php } ?>
         <?php if($status == 0){ echo "<td style=\"text-align: right\">".number_format($hi_nilai_trans/1000, 2)."</td>"; }?>
@@ -95,7 +101,13 @@
                 <?php $otv_qty_digiling_sd_trans = $row_trans_sd->sum_qty_digiling; ?>
                 <?php $status = 1; } ?>
         <?php } ?>
-        <?php if($status == 0){ echo "<td style=\"text-align: right\">".number_format($hi_nilai_trans/1000, 2)."</td>"; }?>
+        <?php if($status == 0){
+            if($sd_nilai_trans != 0){
+                echo "<td style=\"text-align: right\">".number_format($hi_nilai_trans/1000, 2)."</td>";
+            }else{
+                echo "<td style=\"text-align: right\">0.00</td>";
+            }
+        }?>
         <!------------------HI QTY KRISTAL TRANS----------------->
         <?php $status = 0; ?>
         <?php $hi_nilai_trans = 0;?>
@@ -116,7 +128,13 @@
                 <?php $otv_qty_kristal_sd_trans  = $row_trans_sd->sum_qty_kristal; ?>
                 <?php $status = 1; } ?>
         <?php } ?>
-        <?php if($status == 0){ echo "<td style=\"text-align: right\">".number_format($hi_nilai_trans/1000, 2)."</td>"; }?>
+        <?php if($status == 0){
+            if($sd_nilai_trans != 0){
+                echo "<td style=\"text-align: right\">".number_format($hi_nilai_trans/1000, 2)."</td>";
+            }else{
+                echo "<td style=\"text-align: right\">0.00</td>";
+            }
+        }?>
         <!------------------HI RENDEMEN TRANS----------------->
         <?php $qty_kristal_trans = 0; ?>
         <?php foreach ($ari_trans as $row_trans_ari ){?>
@@ -161,7 +179,13 @@
                 <td style="text-align: right"><?php echo number_format($row_trans_sd->sum_qty_gula_ptr+$hi_nilai_trans/1000,2 ); ?></td>
                 <?php $status = 1; } ?>
         <?php } ?>
-        <?php if($status == 0){ echo "<td style=\"text-align: right\">".number_format($hi_nilai_trans/1000, 2)."</td>"; }?>
+        <?php if($status == 0){
+            if($sd_nilai_trans != 0){
+                echo "<td style=\"text-align: right\">".number_format($hi_nilai_trans/1000, 2)."</td>";
+            }else{
+                echo "<td style=\"text-align: right\">0.00</td>";
+            }
+        }?>
         <!------------------HI TETES PTR TRANS----------------->
         <?php $status = 0; ?>
         <?php $hi_nilai_trans = 0; ?>
@@ -180,6 +204,12 @@
                 <td style="text-align: right"><?php echo number_format($row_trans_sd->sum_qty_tetes_ptr+$hi_nilai_trans/1000,2 ); ?></td>
                 <?php $status = 1; } ?>
         <?php } ?>
-        <?php if($status == 0){ echo "<td style=\"text-align: right\">".number_format($hi_nilai_trans/1000, 2)."</td>"; }?>
+        <?php if($status == 0){
+            if($sd_nilai_trans != 0){
+                echo "<td style=\"text-align: right\">".number_format($hi_nilai_trans/1000, 2)."</td>";
+            }else{
+                echo "<td style=\"text-align: right\">0.00</td>";
+            }
+        }?>
     </tr>
 <?php } ?>
