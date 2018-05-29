@@ -41,6 +41,19 @@ class Lapproduksimodel extends SB_Model
         $this->db->update('t_lap_produksi_pengolahan', $data);
     }
 
+    public function getTglGilingByHari($hari)
+    {
+        $qry_hargil = "SELECT `get_hari_giling`() AS hargil";
+        $result_hargil = $this->db->query($qry_hargil)->row();
+        $hargil = $result_hargil->hargil;
+        $now = $hargil - $hari;
+        if($now <= 0){$now = 1;}
+        $qry = "SELECT IF(STR_TO_DATE(NOW(),'%Y-%m-%d %H:%i:%s') < STR_TO_DATE(CONCAT(DATE(NOW()),' 05:59:59'),'%Y-%m-%d %H:%i:%s'),
+        STR_TO_DATE(NOW(),'%Y-%m-%d') - INTERVAL $now DAY, STR_TO_DATE(NOW(),'%Y-%m-%d')) AS tgl";
+        $result = $this->db->query($qry)->row();
+        return $result->tgl." 05:59:59";
+    }
+
     public function CekLaporanExist($kat, $hari_giling)
     {
         $sql = "SELECT COUNT(a.`id_laporan_produksi`) AS jumlah FROM `t_lap_produksi_pengolahan`AS a
@@ -142,6 +155,14 @@ class Lapproduksimodel extends SB_Model
 
     public function VwByHariByTimbangan($hari)
     {
+        $wr = "";
+        if($hari == 1){
+            $wr = "<= '".$this->getTglGilingByHari($hari)."'";
+        }elseif($hari > 1){
+            $wr = "BETWEEN '".$this->getTglGilingByHari($hari-1)."' AND '".$this->getTglGilingByHari($hari)."'";
+        }else{
+            $wr = "<= '".$this->getTglGilingByHari(1)."'";
+        }
         $sql = "SELECT 
 				a.kat_ptp,
 				a.`hari_giling`,
@@ -150,7 +171,7 @@ class Lapproduksimodel extends SB_Model
 				SUM(a.netto)/1000 AS netto,
 				SUM(a.netto) AS netto_kg
 				FROM vw_laporan_prod AS a
-				WHERE a.`hari_giling` = $hari
+				WHERE a.`tgl_timbang` $wr
 				AND a.timb_netto_status = 1
 				GROUP BY kat_ptp";
         $result = $this->db->query($sql);
@@ -270,6 +291,15 @@ class Lapproduksimodel extends SB_Model
 
     public function VwHariByTimbanganTransfer($hari)
     {
+        $wr = "";
+        if($hari == 1){
+            $wr = "<= '".$this->getTglGilingByHari($hari)."'";
+        }elseif($hari > 1){
+            $wr = "BETWEEN '".$this->getTglGilingByHari($hari-1)."' AND '".$this->getTglGilingByHari($hari)."'";
+        }else{
+            $wr = "<= '".$this->getTglGilingByHari(1)."'";
+        }
+
         $qry = "SELECT 
                   a.kat_ptp,
                   a.`kode_plant_trasnfer`,
@@ -283,7 +313,7 @@ class Lapproduksimodel extends SB_Model
                   vw_laporan_prod AS a 
                   INNER JOIN sap_plant AS b 
                     ON b.`kode_plant` = a.`kode_plant_trasnfer` 
-                WHERE a.`hari_giling` = $hari
+                WHERE a.`tgl_timbang` $wr
                   AND a.timb_netto_status = 1 
                   AND a.`kode_plant_trasnfer` != '' 
                 GROUP BY a.`kat_ptp`,
