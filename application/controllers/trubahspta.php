@@ -275,7 +275,7 @@ class Trubahspta extends SB_Controller
 	function cekspta(){
 		$arr['stt'] = 0;
 		if(isset($_POST['nospta'])){
-			$cek = $this->db->query("SELECT id,no_spat,tebang_pg,angkut_pg,vendor_angkut FROM t_spta WHERE no_spat = '".$_POST['nospta']."'")->row();
+			$cek = $this->db->query("SELECT id,no_spat,tebang_pg,angkut_pg,vendor_angkut FROM t_spta WHERE no_spat = '".$_POST['nospta']."' AND `upah_angkut_status`= 0")->row();
 		$arr['stt'] = 1;
 		if($cek){
 			$arr['stt'] = 1;

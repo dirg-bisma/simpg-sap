@@ -270,7 +270,7 @@ class Trubahselektor extends SB_Controller
 	function cekspta(){
 		$arr['stt'] = 0;
 		if(isset($_POST['nospta'])){
-			$cek = $this->db->query("SELECT a.id,persno_mandor_tma,ditolak_sel,brix_sel,ph_sel,timb_bruto_status FROM t_spta a INNER JOIN t_selektor b on a.id=b.id_spta WHERE no_spat = '".$_POST['nospta']."'")->row();
+			$cek = $this->db->query("SELECT a.id,persno_mandor_tma,ditolak_sel,brix_sel,ph_sel,timb_bruto_status FROM t_spta a INNER JOIN t_selektor b on a.id=b.id_spta WHERE no_spat = '".$_POST['nospta']."' AND a.`upah_tebang_status`= 0")->row();
 		$arr['stt'] = 1;
 		if($cek){
 			$arr['stt'] = 1;
