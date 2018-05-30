@@ -88,7 +88,7 @@ class Trubahari extends SB_Controller
 		
 		//run data to view
 		$data = array();$no=0;
-        	$arstatustx = array("1"=>"Buat","2"=>"Disetujui");
+        	$arstatustx = array("1"=>"Buat","2"=>"Disetujui Man QC","3"=>"Disetujui Man Pengolahan");
 		foreach ($rows as $dt) {
             $row = array();
             $row[] = $no+1;
@@ -240,6 +240,14 @@ class Trubahari extends SB_Controller
 		}
 	}
 
+	function setujuiqc($id){
+		$usr = $this->session->userdata('fid');
+		$b = $this->db->query("UPDATE t_ubah_ari SET status='2',tgl_approve=NOW(),user_approve='$usr' WHERE id=$id");
+		$this->inputLogs("BA No ".$a->no_ba." Sudah Disetujui Oleh ".$usr);
+		$this->session->set_flashdata('message',SiteHelpers::alert('success'," BA Berhasil di Approve !"));
+		redirect( 'trubahari/show/'.$id,301);
+	}
+
 	function setujui($id){
 		$ab = $this->model->getRow( $id );
 		$persenbrix = $ab['r_persen_brix_ari'];
@@ -343,7 +351,7 @@ class Trubahari extends SB_Controller
 			$this->db->query($sql);
 
 		$usr = $this->session->userdata('fid');
-		$b = $this->db->query("UPDATE t_ubah_ari SET status='2',tgl_approve=NOW(),user_approve='$usr' WHERE id=$id");
+		$b = $this->db->query("UPDATE t_ubah_ari SET status='3',tgl_approve=NOW(),user_approve='$usr' WHERE id=$id");
 		$this->inputLogs("BA No ".$a->no_ba." Sudah Disetujui Oleh ".$usr);
 		$this->session->set_flashdata('message',SiteHelpers::alert('success'," BA Berhasil di Approve !"));
 			

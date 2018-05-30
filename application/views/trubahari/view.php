@@ -11,7 +11,7 @@
         </section>
 <?php
         	$arstatus = array("1"=>"Ya","0"=>"Tidak");
-        	$arstatustx = array("1"=>"Buat","2"=>"Validasi");
+        	$arstatustx = array("1"=>"Buat","2"=>"Disetujui Man QC","3"=>"Disetujui Man Pengolahan");
         ?>
 
 <?php echo $this->session->flashdata('message');?>
@@ -81,7 +81,14 @@
 				<a href="<?php echo site_url('trubahari');?>" class="btn btn-sm btn-warning"> << Back </a>
 				<?php if($row['status'] == 1 && $this->session->userdata('gid') == 13){
 					?>
-					<a href="javascript:getsetujui()" class="btn btn-sm btn-danger"> Setujui Perubahan </a>
+					<a href="javascript:getsetujui(1)" class="btn btn-sm btn-danger"> Approve Perubahan </a>
+					<?php
+				}
+				?>
+
+				<?php if($row['status'] == 2 && $this->session->userdata('gid') == 10){
+					?>
+					<a href="javascript:getsetujui(2)" class="btn btn-sm btn-warning"> Approve Perubahan </a>
 					<?php
 				}
 				?>
@@ -97,9 +104,13 @@
 
 	  <script type="text/javascript">
 	
-	function getsetujui(){
+	function getsetujui(a){
 		if(confirm("Apakah anda menyetujui perubahan ini ? ")){
-			window.location = "<?php echo site_url('trubahari/setujui').'/'.$row['id'];?>";
+			if(a==1){
+				window.location = "<?php echo site_url('trubahari/setujuiqc').'/'.$row['id'];?>";
+			}else{
+				window.location = "<?php echo site_url('trubahari/setujui').'/'.$row['id'];?>";
+			}
 		}
 	}
 </script>
