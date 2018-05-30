@@ -152,6 +152,7 @@ class Laporanrekapbiayaangkutan extends SB_Controller
 		}
 		$this->data['date1'] = $tgl1; 
 		$this->data['date2'] = $tgl2; 
+		$this->data['kat'] = $kat; 
 		
 		$this->data['id'] = $id;	
 		if ($output == 'DETAIL') {  
