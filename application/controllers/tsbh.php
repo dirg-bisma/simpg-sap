@@ -633,8 +633,8 @@ WHERE b.`tgl_giling` BETWEEN '".$tgl1."' AND '".$tgl2."' AND b.`sbh_status`=$stx
 
 		if($stt == 3){
 			//aku
-			$stx = 2;
-			$sty = 3;
+			$stx = 3;
+			$sty = 4;
 			$sttz = 1;
 			if($cancel == 1){
 				$stx = 4;
