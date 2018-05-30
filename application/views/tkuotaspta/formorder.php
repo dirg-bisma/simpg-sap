@@ -165,7 +165,10 @@ $(document).ready(function(){
 			tempJarakPilih = true;
 		}
 		
-		if($('#kuota_tot').val()!='' &&  $('#kuota_tot').val() != 0 && $('#jenis_spta').val()!='' && $('#persno_pta').val()!='' && tempJarakPilih){
+		var kuota = ($('#kouta_tot').val());
+		//console.log(kuota);
+
+		if(kuota != '' &&  kuota != 0 && kuota < 200 && $('#jenis_spta').val()!='' && $('#persno_pta').val()!='' && tempJarakPilih){
 			
         $.ajax({
             type: frm.attr('method'),

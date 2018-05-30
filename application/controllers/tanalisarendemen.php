@@ -49,7 +49,7 @@ class Tanalisarendemen extends SB_Controller
 			$spta = $dt->no_spat;
 			$row = array();
             $row[] = '<span style="background:'.$dt->warna_meja_tebu.';padding:5px">'.$dt->kode_meja_tebu.'</span>';
-            $row[] = $dt->no_urut_analisa_rendemen;
+            $row[] = $dt->no_spat;
             $row[] = $dt->meja_tebu_tgl;
 			
 			$btn = '<a href="#" onclick="getDataSPTA(\''.$spta.'\')"  class="tips "  title="Get Data"><i class="fa  fa-arrow-circle-right"></i>  </a>';
