@@ -29,10 +29,12 @@ class Laporanrekapbiayaangkutan extends SB_Controller
 	function show() 
 	{		
 			error_reporting(0);
+			$tgl1 = $_REQUEST['tgl1'];
 			$tgl2 = $_REQUEST['tgl2'];
 			$angkutan = $_REQUEST['angkutan'];
 			$kat = $_REQUEST['kat'];
 			$jns = $_REQUEST['jns'];
+			$output = $_REQUEST['output'];
 
 			$whkat ="";
 			$whangkut ="";
@@ -54,7 +56,7 @@ class Laporanrekapbiayaangkutan extends SB_Controller
 				header("Content-Disposition: attachment; filename=$file");
 			}
 
-
+			if ($output == 'DETAIL') {
 			$sql = "SELECT 
 					  a.id,
 					  f.id AS id_angkutan,
@@ -88,11 +90,51 @@ class Laporanrekapbiayaangkutan extends SB_Controller
 					    ON e.id_spta = a.id 
 					  INNER JOIN vw_upah_angkut f 
 					    ON f.vendor_id = a.vendor_angkut
-					    AND f.tgl = '$tgl2'
+					    AND (f.tgl BETWEEN '$tgl1' AND '$tgl2')
 					  $whkat
 					  $whangkut  
 					  $whvendor
 					  GROUP BY a.id order by a.vendor_angkut";
+					}else{
+						$sql = "SELECT 
+							  a.kode_blok,
+							  COUNT(a.kode_blok) AS jumlah_truk,	
+							  sf.`deskripsi_blok`,
+							  a.vendor_angkut,
+							  c.`no_angkutan`,
+							  DATE_FORMAT(
+							    a.timb_netto_tgl,
+							    '%d/%m/%Y Jam %H:%i'
+							  ) AS txt_tgl_timb,
+							  a.timb_netto_tgl AS tgl_timbang,
+							  b.`netto`,
+							  d.`keterangan`,
+							  d.`biaya` AS tarif,
+							  (d.`biaya` * b.`netto`) AS jumlah,
+							  e.total,
+							  f.nama_vendor 
+							FROM
+							  t_spta a 
+							  INNER JOIN sap_field sf 
+							    ON sf.`kode_blok` = a.kode_blok 
+							  INNER JOIN t_selektor c 
+							    ON c.`id_spta` = a.id 
+							  INNER JOIN t_timbangan b 
+							    ON a.id = b.`id_spat` 
+							  INNER JOIN m_biaya_jarak d 
+							    ON d.`id_jarak` = a.jarak_id 
+							  INNER JOIN t_angkutan_detail e 
+							    ON e.id_spta = a.id 
+							  INNER JOIN vw_upah_angkut f 
+							    ON f.vendor_id = a.vendor_angkut 
+							    AND f.id = e.angkutan_id
+							    AND (f.tgl BETWEEN '$tgl1' AND '$tgl2')
+								  $whkat
+								  $whangkut  
+								  $whvendor
+							GROUP BY a.kode_blok HAVING jumlah_truk > 1 
+							ORDER BY a.vendor_angkut ";						
+					}
 			$data_query =  $this->db->query($sql)->result();
 			$this->data['detail'] =  $data_query;
 
@@ -109,15 +151,21 @@ class Laporanrekapbiayaangkutan extends SB_Controller
 			$this->data['row'] = $this->model->getColumnTable('vw_upah_angkut'); 
 		}
 		
-		$this->data['id'] = $id;	  
-		$this->load->view('laporanrekapbiayaangkutan/view',$this->data);
+		$this->data['id'] = $id;	
+		if ($output == 'DETAIL') {  
+			$this->load->view('laporanrekapbiayaangkutan/view',$this->data);
+		}else{
+			$this->load->view('laporanrekapbiayaangkutan/perpetak',$this->data);			
+		}
 	}
 	
 	function printlaporan(){
-		$tgl2 = $_REQUEST['tgl2'];
-		$jns = $_REQUEST['jns'];
-		$kat = $_REQUEST['kat'];
-		$angkutan = $_REQUEST['angkutan'];
+			$tgl1 = $_REQUEST['tgl1'];
+			$tgl2 = $_REQUEST['tgl2'];
+			$angkutan = $_REQUEST['angkutan'];
+			$kat = $_REQUEST['kat'];
+			$jns = $_REQUEST['jns'];
+			$output = $_REQUEST['output'];
 
 		$this->data['title'] = "SEMUA KATEGORI ";
 		if($kat != ''){
