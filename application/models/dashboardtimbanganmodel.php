@@ -54,7 +54,7 @@ class Dashboardtimbanganmodel extends CI_Model
     public function PrintDataCetakLori($trainstat, $noloko)
     {
          $qry = $this->QryDataCetakTimbang() . " AND b.jenis_spta = 'LORI' 
-        AND a.no_trainstat = '$trainstat' AND c.no_loko = '$noloko' GROUP BY b.id ";
+        AND a.no_trainstat = $trainstat AND c.no_loko = '$noloko' GROUP BY b.id ";
         $result = $this->db->query($qry)->result();
         return $result;
     }
