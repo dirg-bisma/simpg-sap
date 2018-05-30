@@ -43,13 +43,15 @@ class Lapproduksimodel extends SB_Model
 
     public function getTglGilingByHari($hari)
     {
-        $qry_hargil = "SELECT `get_hari_giling`() AS hargil";
-        $result_hargil = $this->db->query($qry_hargil)->row();
-        $hargil = $result_hargil->hargil;
-        $now = $hargil - $hari;
-        if($now <= 0){$now = 1;}
-        $qry = "SELECT IF(STR_TO_DATE(NOW(),'%Y-%m-%d %H:%i:%s') < STR_TO_DATE(CONCAT(DATE(NOW()),' 05:59:59'),'%Y-%m-%d %H:%i:%s'),
-        STR_TO_DATE(NOW(),'%Y-%m-%d') - INTERVAL $now DAY, STR_TO_DATE(NOW(),'%Y-%m-%d')) AS tgl";
+        $now = $hari;
+        $qry = "";
+        if($now <= 1){
+            $now = 1;
+            $qry = "SELECT (awal_giling + INTERVAL $now DAY) AS tgl FROM tb_setting";
+        }else{
+            $qry = "SELECT (awal_giling + INTERVAL $now DAY) AS tgl FROM tb_setting";
+        }
+
         $result = $this->db->query($qry)->row();
         return $result->tgl." 05:59:59";
     }
