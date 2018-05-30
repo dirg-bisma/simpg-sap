@@ -50,7 +50,7 @@ table td{
 		<td style="font-size:15px;text-align:center;"><b><?php echo CNF_PG;?></b></td>
 	</tr>
 	<tr>
-		<td style="text-align:center;">PERIODE TANGGAL <?php echo SiteHelpers::daterpt($row['tgl_awal']);?> S/D <?php echo SiteHelpers::daterpt($row['tgl_akhir']);?> </td>
+		<td style="text-align:center;">PERIODE TANGGAL <?php echo SiteHelpers::daterpt($date1);?> S/D <?php echo SiteHelpers::daterpt($date2);?> </td>
 	</tr>
 </table>
 <br />
@@ -145,7 +145,7 @@ if ($par != $val->vendor_angkut ) {
 				</td>
 				
 				<td align="center"  style="font-size:13px">
-					<?php echo CNF_PG.', '.SiteHelpers::datereport($row['tgl']);?><br />
+					<?php echo CNF_PG.', '.SiteHelpers::datereport(date('Y-m-d'));?><br />
 					<b><?php echo $row['nama_vendor'];?></b><br />
 					Menyatakan dengan sebenarnya<br />bahwa hasil timbang dan jumlah truk<br />Telah Sesuai
 					<br />

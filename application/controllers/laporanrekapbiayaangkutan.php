@@ -150,6 +150,8 @@ class Laporanrekapbiayaangkutan extends SB_Controller
 		} else {
 			$this->data['row'] = $this->model->getColumnTable('vw_upah_angkut'); 
 		}
+		$this->data['date1'] = $tgl1; 
+		$this->data['date2'] = $tgl2; 
 		
 		$this->data['id'] = $id;	
 		if ($output == 'DETAIL') {  
