@@ -107,11 +107,11 @@ class Laporanrekapbiayaangkutan extends SB_Controller
 							    '%d/%m/%Y Jam %H:%i'
 							  ) AS txt_tgl_timb,
 							  a.timb_netto_tgl AS tgl_timbang,
-							  b.`netto`,
+							  sum(b.`netto`) as netto,
 							  d.`keterangan`,
 							  d.`biaya` AS tarif,
 							  (d.`biaya` * b.`netto`) AS jumlah,
-							  e.total,
+							  sum(e.total) as total,
 							  f.nama_vendor 
 							FROM
 							  t_spta a 

@@ -87,6 +87,7 @@ if ($par != $val->vendor_angkut ) {
 		<?php
 		$no=1;
 		$ttl = 0;
+		$tnetto = 0;
 			$par1 = $detail[$key]->vendor_angkut;
 			foreach ($detail as $a) {
 				if ($a->vendor_angkut == $par1) {
@@ -104,12 +105,15 @@ if ($par != $val->vendor_angkut ) {
 			<td style="text-align: right;"><?php echo number_format($a->total);?></td>
 			<?php
 			$ttl += $a->total;
+			$tnetto += $a->netto;
 			}
 			}
 			?>
 		</tbody>
 		<tr>
-			<th style="text-align: center" colspan="9">JUMLAH ( <?php echo $no-1;?> TRUK/LORI )</th>
+			<th style="text-align: center" colspan="6">JUMLAH ( <?php echo $no-1;?> TRUK/LORI )</th>
+			<th style="text-align: right; "><?php echo number_format($tnetto);?></th>
+			<th style="text-align: right; " colspan="2"></th>
 			<th style="text-align: right; "><?php echo number_format($ttl);?></th>
 		</tr>
 		<?php

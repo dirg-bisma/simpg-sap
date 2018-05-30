@@ -74,13 +74,12 @@
 				<thead>
 				<tr>
 					<td colspan="2" style="text-align: center; background:red;color:#FFF;"><?php echo $val->nama_vendor;?></td>
-					<td colspan="5"></td>
+					<td colspan="4"></td>
 				</tr>
 				<tr>
 					<th>Kode Blok</th>
 					<th>Jumlah Truk</th>
 					<th>Netto (kg)</th>
-					<th>Min of Tarif</th>
 					<th>Jumlah</th>
 					<th>Kebun</th>
 					<th>Jarak</th>
@@ -92,6 +91,7 @@
 					$ttl = 0;
 					$jmltruk = 0;
 					$jmlnetto = 0;
+					$jmltotal = 0;
 						$par1 = $detail[$key]->vendor_angkut;
 						foreach ($detail as $a) {
 							if ($a->vendor_angkut == $par1) {
@@ -100,7 +100,6 @@
 							<td style="text-align: center"><?php echo $a->kode_blok;?></td>
 							<td style="text-align: center"><?php echo $a->jumlah_truk;?></td>
 							<td style="text-align: right;"><?php echo number_format($a->netto);?></td>
-							<td style="text-align: right;"><?php echo number_format($a->tarif);?></td>
 							<td style="text-align: right;"><?php echo number_format($a->total);?></td>
 							<td><?php echo $a->deskripsi_blok;?></td>
 							<td><?php echo $a->keterangan;?></td>
@@ -110,6 +109,7 @@
 							$ttl += $a->total;
 							$jmltruk += $a->jumlah_truk;
 							$jmlnetto += $a->netto;
+							$jmltotal += $a->total;
 						}
 					}
 					?>
@@ -118,8 +118,7 @@
 							<th style="text-align: center">Grand Total</th>
 							<th style="text-align: center"><?php echo $jmltruk;?></th>
 							<th style="text-align: right;"><?php echo number_format($jmlnetto);?></th>
-							<th style="text-align: right;"></th>
-							<th style="text-align: right;"><?php echo number_format($a->total);?></th>
+							<th style="text-align: right;"><?php echo number_format($jmltotal);?></th>
 							<th></th>
 							<th></th>
 				</tr>				
