@@ -17,7 +17,6 @@
                   <h3 class="box-title">Sinkronisasi Database</h3>
  <div class="box-body">
  	<div class="page-content-wrapper">
-  <a href='javascript:getresetdata(1)' class='btn btn-danger'><i class='fa fa-database'></i> Reset Data</a>
 <table class="table table-bordered display dataTable no-footer" id="gridv" role="grid" aria-describedby="gridv_info">
         <thead>
           <th>Nama File</th>

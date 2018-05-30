@@ -165,7 +165,7 @@ $(document).ready(function(){
 			tempJarakPilih = true;
 		}
 		
-		if($('#kuota_tot').val()!='' && $('#kuota_tot').val()!='0' && $('#jenis_spta').val()!='' && $('#persno_pta').val()!='' && tempJarakPilih){
+		if($('#kuota_tot').val()!='' && $('#kuota_tot').val() <='200' && $('#kuota_tot').val()!='0' && $('#jenis_spta').val()!='' && $('#persno_pta').val()!='' && tempJarakPilih){
 			
         $.ajax({
             type: frm.attr('method'),
@@ -180,7 +180,7 @@ $(document).ready(function(){
             }
         });
 		}else{
-			alert('Form Belum lengkap sialhkan lengkapi lagi!!');
+			alert('Form Belum lengkap sialhkan lengkapi lagi / maximal 200 spta per petak!!');
 		}
 
         
