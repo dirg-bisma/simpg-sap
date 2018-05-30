@@ -132,7 +132,7 @@ class Laporanrekapbiayaangkutan extends SB_Controller
 								  $whkat
 								  $whangkut  
 								  $whvendor
-							GROUP BY a.kode_blok HAVING jumlah_truk > 1 
+							GROUP BY a.kode_blok HAVING jumlah_truk > 0 
 							ORDER BY a.vendor_angkut ";						
 					}
 			$data_query =  $this->db->query($sql)->result();
