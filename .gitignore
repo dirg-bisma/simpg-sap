@@ -9,4 +9,4 @@ set-up/*.*
 /starting
 index.php
 index
-
+/application/config/database.php
