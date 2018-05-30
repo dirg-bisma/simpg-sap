@@ -26,8 +26,8 @@
                             <thead>
                             <tr>
                                 <th width="10px">X</th>
-                                <th>No SPTA</th>
-                                <th>Tgl</th>
+                                <th>No Urut</th>
+                                <th>Tgl Jam MT</th>
                                 <th width="20px">ACT</th>
                             </tr>
                             </thead>

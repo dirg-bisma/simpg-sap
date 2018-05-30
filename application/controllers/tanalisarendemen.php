@@ -43,13 +43,13 @@ class Tanalisarendemen extends SB_Controller
 	}
 	
 	function gridMejaTebu(){
-		$result = $this->db->query('SELECT a.id,a.`no_spat`,a.`meja_tebu_tgl`,b.`warna_meja_tebu`,b.`kode_meja_tebu` FROM t_spta  a INNER JOIN t_meja_tebu b ON a.`id`=b.`id_spta` WHERE meja_tebu_status = 1 AND ari_status = 0 AND b.gilingan = "'.$this->session->userdata('gilingan').'" ORDER BY a.`meja_tebu_tgl` ASC LIMIT 15 ')->result();
+		$result = $this->db->query('SELECT a.id,a.`no_spat`,a.`meja_tebu_tgl`,b.`warna_meja_tebu`,b.`kode_meja_tebu`,no_urut_analisa_rendemen FROM t_spta  a INNER JOIN t_meja_tebu b ON a.`id`=b.`id_spta` WHERE meja_tebu_status = 1 AND ari_status = 0 AND b.gilingan = "'.$this->session->userdata('gilingan').'" ORDER BY a.`meja_tebu_tgl` ASC LIMIT 15 ')->result();
 		$data = array();
 		foreach ($result as $dt) {
 			$spta = $dt->no_spat;
 			$row = array();
             $row[] = '<span style="background:'.$dt->warna_meja_tebu.';padding:5px">'.$dt->kode_meja_tebu.'</span>';
-            $row[] = $spta;
+            $row[] = $dt->no_urut_analisa_rendemen;
             $row[] = $dt->meja_tebu_tgl;
 			
 			$btn = '<a href="#" onclick="getDataSPTA(\''.$spta.'\')"  class="tips "  title="Get Data"><i class="fa  fa-arrow-circle-right"></i>  </a>';
@@ -153,7 +153,7 @@ class Tanalisarendemen extends SB_Controller
 		foreach ($rows as $dt) {
             $row = array();
             $row[] = $no+1;
-            $row[] = $dt->no_spat;
+          //  $row[] = $dt->no_spat;
             $row[] = $dt->tgl_ari;
             $row[] = $dt->persen_brix_ari;
             $row[] = $dt->persen_pol_ari;

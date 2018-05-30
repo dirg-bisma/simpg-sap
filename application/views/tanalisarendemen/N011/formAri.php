@@ -26,8 +26,8 @@
                             <thead>
                             <tr>
                                 <th width="10px">X</th>
-                                <th>No SPTA</th>
-                                <th>Tgl</th>
+                                <th>No Urut</th>
+                                <th>Tgl Jam MT</th>
                                 <th width="20px">ACT</th>
                             </tr>
                             </thead>
@@ -48,7 +48,7 @@
                               parsley-validate='true' novalidate='true' method="post" enctype="multipart/form-data" >
                             <div class="col-md-6">
                                 <div class="form-group  " >
-                                    <label for="ipt" class=" control-label "> No SPTA  <span class="asterix"> * </span>  </label>
+                                    <label for="ipt" class=" control-label "> No SPTA <span class="asterix"> * </span>  </label>
                                     <input type='text' class='form-control input-sm' placeholder='pastikan crusor disini untuk scan barcode' autocomplete="off"  id='no_spta' onkeyup="getNoSPTA(event,this.value)"  required />
                                 </div>
 
@@ -160,6 +160,7 @@
                             $('#id_spta').val(dat.data.id);
                             $('#kategori').val(dat.data.kode_kat_lahan);
                             $('#no_spta').attr('readonly',true);
+                            $('#no_spta').css('visibility','hidden');
                             $('#persen_brix_ari').focus();
                         }else{
 

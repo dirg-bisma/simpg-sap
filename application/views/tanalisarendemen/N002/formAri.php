@@ -20,14 +20,14 @@
         <div class="row">
             <div class="col-xs-12">
                 <div class="box box-danger">
-                    <div class="box-header with-border">
+                    <div class="box-header with-border"  style="height: 1000px">
 
                         <table class="table table-bordered display" id="gridvx">
                             <thead>
                             <tr>
                                 <th width="10px">X</th>
-                                <th>No SPTA</th>
-                                <th>Tgl</th>
+                                <th>No Urut</th>
+                                <th>Tgl Jam MT</th>
                                 <th width="20px">ACT</th>
                             </tr>
                             </thead>

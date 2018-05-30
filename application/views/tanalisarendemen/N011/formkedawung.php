@@ -26,7 +26,7 @@
                             <thead>
                             <tr>
                                 <th width="10px">X</th>
-                                <th>No SPTA</th>
+                                <th>No Urut</th>
                                 <th>Tgl</th>
                                 <th width="20px">ACT</th>
                             </tr>
@@ -165,6 +165,7 @@
                             $('#id_spta').val(dat.data.id);
                             $('#kategori').val(dat.data.kode_kat_lahan);
                             $('#no_spta').attr('readonly',true);
+                            $('#no_spta').css('visibility','hidden');
                             $('#persen_brix_ari').focus();
                         }else{
 
