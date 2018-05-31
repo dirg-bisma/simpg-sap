@@ -375,6 +375,22 @@ class Lapproduksimodel extends SB_Model
                     SET tanaman_status = 1 WHERE b.`hari_giling` = $hari_gliing";
             $this->db->query($qry);
     }
+
+    public function QryTotalLappro()
+    {
+        $qry = "SELECT 
+                hari_giling,
+                FORMAT(SUM(ha_tertebang),3) AS ha_tertebang,
+                SUM(qty_tertebang) AS qty_tertebang,
+                FORMAT(SUM(ha_digiling),3) AS ha_digiling,
+                SUM(qty_digiling) AS qty_digiling,
+                SUM(qty_kristal) AS qty_kristal,
+                FORMAT(SUM(qty_kristal)/SUM(qty_digiling)*100, 2) AS rendemen,
+                SUM(qty_gula_ptr) AS qty_gula_ptr,
+                SUM(qty_tetes_ptr) AS qty_tetes_ptr
+                FROM t_lap_produksi_pengolahan GROUP BY hari_giling";
+        return $qry;
+    }
 }
 
 ?>

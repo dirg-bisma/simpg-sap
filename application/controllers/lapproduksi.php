@@ -81,6 +81,8 @@ class Lapproduksi extends SB_Controller
 			'global'	=> (isset($this->access['is_global']) ? $this->access['is_global'] : 0 )
 		);
 		// Get Query
+
+
 		$results = $this->model->getRows( $params );
 		$rows = $results['rows'];
 		$total = $results['total'];
@@ -94,24 +96,10 @@ class Lapproduksi extends SB_Controller
             for ($i=0; $i < count($this->col) ; $i++) {
             		$field = $this->col[$i+1];
             		$conn = (isset($this->con[$i+1]) ? $this->con[$i+1] : array() ) ;
-					$row[] = SiteHelpers::gridDisplay($dt->$field , $field , $conn );
+					$row[] = @SiteHelpers::gridDisplay($dt->$field , $field , $conn );
             }
 
-            //add html for action
-            $btn ='';
-			$idku = $this->model->primaryKey;
-            if($this->access['is_detail'] ==1){
-            	$btn .= '<a href='.site_url('lapproduksi/show/'.$dt->$idku).'  class="tips "  title="view"><i class="fa  fa-search"></i>  </a> &nbsp;&nbsp;';
-            }
-            if($this->access['is_edit'] ==1){
-            	$btn .= '<a href='.site_url('lapproduksi/add/'.$dt->$idku).'  class="tips "  title="Edit"><i class="fa  fa-edit"></i>  </a> &nbsp;&nbsp;';
-            }
-            if($this->access['is_remove'] ==1){
-            	$btn .= '<a href="#" onclick="ConfirmDelete(\''.site_url('lapproduksi/destroy/').'\','.$dt->$idku.')"  class="tips "  title="Delete"><i class="fa  fa-trash"></i>  </a>';
 
-            }
-
- 			$row[] = $btn;
             $data[] = $row;
             $no++;
         }
@@ -142,7 +130,7 @@ class Lapproduksi extends SB_Controller
         $hari_giling = $this->db->query("SELECT get_hari_giling() AS hari_giling");
 
         $this->data['hari_giling'] = $hari_giling->row();
-		$this->data['content'] = $this->load->view('lapproduksi/index',$this->data, true );
+		$this->data['content'] = $this->load->view('lapproduksi/form',$this->data, true );
 
     	$this->load->view('layouts/main', $this->data );
 
@@ -176,11 +164,7 @@ class Lapproduksi extends SB_Controller
         $this->data['ari_trans'] = $this->model->VwHariByAriTransfer($hari_giling);
         $this->data['plant_trans'] = $this->model->GroupPlant($hari_giling);
         $this->data['sum_trans'] = $this->model->SumLapTrans($hari_giling);
-        if($hari_giling == "1"){
-            $this->data['tgl_giling'] = $this->model->getTglGilingByHari($hari_giling)."satu";
-        }else{
-            $this->data['tgl_giling'] = $this->model->getTglGilingByHari($hari_giling);
-        }
+        $this->data['tgl_giling'] = $this->model->getTglGilingByHari($hari_giling);
 
 
         //$this->load->view('lapproduksi/test', $this->data);
@@ -220,29 +204,30 @@ class Lapproduksi extends SB_Controller
 
 	function add( $id = null )
 	{
-		if($id =='')
-			if($this->access['is_add'] ==0) redirect('dashboard',301);
+        if($this->access['is_view'] ==0)
+        {
+            $this->session->set_flashdata('error',SiteHelpers::alert('error','Your are not allowed to access the page'));
+            redirect('dashboard',301);
+        }
 
-		if($id !='')
-			if($this->access['is_edit'] ==0) redirect('dashboard',301);
+        $this->data['tableGrid'] 	= $this->info['config']['grid'];
 
-		$row = $this->model->getRow( $id );
-		if($row)
-		{
-			$this->data['row'] =  $row;
-		} else {
-			$this->data['row'] = $this->model->getColumnTable('t_lap_produksi_pengolahan');
-		}
+        // Group users permission
+        $this->data['access']		= $this->access;
+        // Render into template
+        $hari_giling = $this->db->query("SELECT get_hari_giling() AS hari_giling");
 
-		$this->data['id'] = $id;
-		$this->data['content'] = $this->load->view('lapproduksi/form',$this->data, true );
-	  	$this->load->view('layouts/main', $this->data );
+        $this->data['hari_giling'] = $hari_giling->row();
+        $this->data['content'] = $this->load->view('lapproduksi/form',$this->data, true );
+
+        $this->load->view('layouts/main', $this->data );
 	}
 
 	function save() {
         $kode_kat_all = $this->model->getKodeKatAll();
         foreach ($kode_kat_all as $kode_kat){
-            if(isset($_POST['rendemen_'.$this->replaceKat($kode_kat->kode_kat_ptp)])){
+            if(isset($_POST['ha_tertebang_'.$this->replaceKat($kode_kat->kode_kat_ptp)]) ||
+                isset($_POST['ha_digiling_'.$this->replaceKat($kode_kat->kode_kat_ptp)])){
 
                 $cek = $this->model->CekLaporanExist($kode_kat->kode_kat_ptp, $this->input->post('hari_giling'));
                 $data = array(
