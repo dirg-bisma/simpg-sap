@@ -14,7 +14,7 @@
         <?php $hi_nilai_trans = 0;?>
         <?php foreach ($timb_trans as $row_trans_timb ){?>
             <?php if($trans_kode_kat == $row_trans_timb->kat_ptp && $row_trans->kode_plant_trasnfer == $row_trans_timb->kode_plant_trasnfer){?>
-                <td style="text-align: right"><?php echo number_format($row_trans_timb->ha_tertebang_selektor); ?></td>
+                <td style="text-align: right"><?php echo number_format($row_trans_timb->ha_tertebang_selektor, 3); ?></td>
                 <?php $hi_nilai_trans = $row_trans_timb->ha_tertebang_selektor;?>
                 <?php $status = 1; } ?>
         <?php } ?>
@@ -26,11 +26,11 @@
         <?php foreach ($sum_trans as $row_trans_sd ){?>
             <?php if($trans_kode_kat == $row_trans_sd->kat_ptpn && $row_trans->kode_plant_trasnfer == $row_trans_sd->kode_plant_trasnfer){?>
                 <?php $sd_nilai_trans = $row_trans_sd->sum_ha_tertebang+$hi_nilai_trans;?>
-                <td style="text-align: right"><?php echo number_format($sd_nilai_trans); ?></td>
+                <td style="text-align: right"><?php echo number_format($sd_nilai_trans, 3); ?></td>
                 <?php $status = 1; } ?>
         <?php } ?>
         <?php if($status == 0){
-            echo "<td style=\"text-align: right\">".number_format($hi_nilai_trans)."</td>"; }?>
+            echo "<td style=\"text-align: right\">".number_format($hi_nilai_trans,3)."</td>"; }?>
 
         <!------------------HI QTY TEREBANG TRANS----------------->
         <?php $status = 0; ?>
@@ -60,20 +60,20 @@
         <?php $hi_nilai_trans = 0;?>
         <?php foreach ($ari_trans as $row_trans_ari ){?>
             <?php if($trans_kode_kat == $row_trans_ari->kat_ptp && $row_trans->kode_plant_trasnfer == $row_trans_ari->kode_plant_trasnfer){?>
-                <td style="text-align: right"><?php echo number_format($row_trans_ari->ha_tertebang_selektor,2 ); ?></td>
+                <td style="text-align: right"><?php echo number_format($row_trans_ari->ha_tertebang_selektor,3 ); ?></td>
                 <?php $hi_nilai_trans = $row_trans_ari->ha_tertebang_selektor; ?>
                 <?php $status = 1; } ?>
         <?php } ?>
-        <?php if($status == 0){ echo "<td style=\"text-align: right\">0.00</td>"; }?>
+        <?php if($status == 0){ echo "<td style=\"text-align: right\">0</td>"; }?>
 
         <!------------------SD HA TERGILING TRANS----------------->
         <?php $status = 0; ?>
         <?php foreach ($sum_trans as $row_trans_sd ){?>
             <?php if($trans_kode_kat == $row_trans_sd->kat_ptpn && $row_trans->kode_plant_trasnfer == $row_trans_sd->kode_plant_trasnfer){?>
-                <td style="text-align: right"><?php echo number_format($row_trans_sd->sum_ha_digiiling+$hi_nilai_trans ); ?></td>
+                <td style="text-align: right"><?php echo number_format($row_trans_sd->sum_ha_digiiling+$hi_nilai_trans ,3); ?></td>
                 <?php $status = 1; } ?>
         <?php } ?>
-        <?php if($status == 0){ echo "<td style=\"text-align: right\">".number_format($hi_nilai_trans)."</td>"; }?>
+        <?php if($status == 0){ echo "<td style=\"text-align: right\">".number_format($hi_nilai_trans,3)."</td>"; }?>
 
         <!------------------HI QTY TERGILING TRANS----------------->
         <?php $status = 0; ?>

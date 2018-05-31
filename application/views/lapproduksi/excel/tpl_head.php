@@ -26,11 +26,11 @@ $otv_qty_kristal_sd = 0;
         <?php if($row_lap_sum->kat_ptpn == $row_kode_kat->kode_kat_ptp ){?>
             <?php $sd_nilai = $row_lap_sum->sum_ha_tertebang+$hi_nilai;?>
             <?php $s_dgn_ha_ditebang =$s_dgn_ha_ditebang+$sd_nilai;?>
-            <td style="text-align: right"><?php echo number_format($sd_nilai); ?></td>
+            <td style="text-align: right"><?php echo number_format($sd_nilai, 3); ?></td>
             <?php $status = 1; } ?>
     <?php } ?>
     <?php if($status == 0){
-        echo "<td style=\"text-align: right\">".number_format($hi_nilai)."</td>";
+        echo "<td style=\"text-align: right\">".number_format($hi_nilai, 3)."</td>";
         $s_dgn_ha_ditebang = $s_dgn_ha_ditebang + $hi_nilai;
     }?>
     <!----------------------HI QTY TERTEBANG----------------->
@@ -61,7 +61,7 @@ $otv_qty_kristal_sd = 0;
     <?php $status = 0;?>
     <?php foreach ($data_lap_ari as $row_lap_ari ){?>
         <?php if($row_lap_ari->kat_ptp == $row_kode_kat->kode_kat_ptp ){?>
-            <td style="text-align: right"><?php echo number_format($row_lap_ari->ha_tertebang_selektor); ?></td>
+            <td style="text-align: right"><?php echo number_format($row_lap_ari->ha_tertebang_selektor, 3); ?></td>
             <?php $hi_nilai = $row_lap_ari->ha_tertebang_selektor;?>
             <?php $h_ini_ha_digiling = $h_ini_ha_digiling  + $row_lap_ari->ha_tertebang_selektor;?>
             <?php $status = 1; } ?>
@@ -74,10 +74,10 @@ $otv_qty_kristal_sd = 0;
         <?php if($row_lap_sum->kat_ptpn == $row_kode_kat->kode_kat_ptp ){?>
             <?php $sd_nilai = $row_lap_sum->sum_ha_digiiling+$hi_nilai;?>
             <?php $s_dgn_ha_digiling = $s_dgn_ha_digiling +$sd_nilai;?>
-            <td style="text-align: right"><?php echo number_format($sd_nilai); ?></td>
+            <td style="text-align: right"><?php echo number_format($sd_nilai, 3); ?></td>
             <?php $status = 1; } ?>
     <?php } ?>
-    <?php if($status == 0){ echo "<td style=\"text-align: right\">".number_format($hi_nilai)."</td>";
+    <?php if($status == 0){ echo "<td style=\"text-align: right\">".number_format($hi_nilai, 3)."</td>";
         $s_dgn_ha_digiling = $s_dgn_ha_digiling + $hi_nilai;
     }?>
     <!-----------------------HI QTY TERGILING--------------------->

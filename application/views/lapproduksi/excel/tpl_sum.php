@@ -2,12 +2,12 @@
 
 <tr style="background-color: <?php echo $color;?>">
     <td><?php echo $title_tpl?> </td>
-    <td style="text-align: right"><?php echo number_format($tpl_h_ini_ha_ditebang ); ?></td>
-    <td style="text-align: right"><?php echo number_format($tpl_s_dgn_ha_ditebang ); ?></td>
+    <td style="text-align: right"><?php echo number_format($tpl_h_ini_ha_ditebang ,3); ?></td>
+    <td style="text-align: right"><?php echo number_format($tpl_s_dgn_ha_ditebang ,3); ?></td>
     <td style="text-align: right"><?php echo number_format($tpl_h_ini_qty_ditebang); ?></td>
     <td style="text-align: right"><?php echo number_format($tpl_s_dgn_qty_ditebang); ?></td>
-    <td style="text-align: right"><?php echo number_format($tpl_h_ini_ha_digiling);?></td>
-    <td style="text-align: right"><?php echo number_format($tpl_s_dgn_ha_digiling); ?></td>
+    <td style="text-align: right"><?php echo number_format($tpl_h_ini_ha_digiling,3);?></td>
+    <td style="text-align: right"><?php echo number_format($tpl_s_dgn_ha_digiling,3); ?></td>
     <td style="text-align: right"><?php echo number_format($tpl_h_ini_qty_digiling); ?></td>
     <td style="text-align: right"><?php echo number_format(($tpl_s_dgn_qty_digiling)); ?></td>
     <td style="text-align: right"><?php echo number_format($tpl_h_ini_kristal); ?></td>
