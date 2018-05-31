@@ -246,7 +246,7 @@ WHERE e.angkutan_id=$id";
 
 	function downloadexcel($tgl1,$tgl2){
 
-		$filter = " WHERE 0=0 AND a.tgl BETWEEN '$tgl1' AND '$tgl2' AND a.status=1";
+		$filter = " WHERE 0=0 AND a.tgl BETWEEN '$tgl1' AND '$tgl2' AND a.status > 0";
 
 		$sql = "SELECT a.id,DATE_FORMAT(a.tgl,'%d%m%Y') AS katdate,DATE_FORMAT(a.tgl,'%Y%m%d') AS documentdate,DATE_FORMAT(a.tgl,'%c') AS postingmonth,c.`jenis_spta`,c.`kode_blok`,SUM(b.`total`) AS total,d.`kode_vendor`,c.`id_petani_sap`,c.kode_kat_lahan as kepemilikan,LEFT(c.kode_kat_lahan,2) as katkode
 FROM t_angkutan a 

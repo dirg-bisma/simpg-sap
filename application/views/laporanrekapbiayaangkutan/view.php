@@ -101,7 +101,7 @@ if ($par != $val->vendor_angkut ) {
 			<td style="text-align: center"><?php echo $a->no_angkutan;?></td>
 			<td style="text-align: right;"><?php echo number_format($a->netto);?></td>
 			<td><?php echo $a->keterangan;?></td>
-			<td style="text-align: right;"><?php echo number_format($a->tarif);?></td>
+			<td style="text-align: right;"><?php echo number_format($a->tarif,2);?></td>
 			<td style="text-align: right;"><?php echo number_format($a->total);?></td>
 			<?php
 			$ttl += $a->total;

@@ -227,7 +227,7 @@ INNER JOIN t_selektor c ON c.`id_spta`=b.`id` WHERE a.id_upah_tebang=$id")->resu
 	function downloadexcel($tgl){
 
 		$tgl2 = $_GET['tgl2'];
-		$filter = " WHERE 0=0 AND tgl BETWEEN '$tgl' AND '$tgl2'  AND a.status=1 ";
+		$filter = " WHERE 0=0 AND tgl BETWEEN '$tgl' AND '$tgl2'  AND a.status > 0 ";
         
         $pta = $_GET['pta'];
         $mandor = $_GET['mandor'];
