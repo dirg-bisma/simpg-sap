@@ -66,7 +66,7 @@ class Tevaluasitebang extends SB_Controller
         }
 
 		if(isset($_POST['search']['value']) && $_POST['search']['value'] != ''){
-			$filter .= " AND no_spat LIKE '%".$_POST['search']['value']."%'";
+			$filter .= " AND (kode_blok LIKE '%".$_POST['search']['value']."%' OR no_spat LIKE '%".$_POST['search']['value']."%')";
 		} 
       
 	
