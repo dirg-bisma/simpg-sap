@@ -43,13 +43,10 @@ class Lapproduksimodel extends SB_Model
 
     public function getTglGilingByHari($hari)
     {
-        $now = $hari;
-        $qry = "";
-        if($now <= 1){
-            $now = 1;
-            $qry = "SELECT (awal_giling + INTERVAL $now DAY) AS tgl FROM tb_setting";
+        if($hari <= 1){
+            $qry = "SELECT awal_giling AS tgl FROM tb_setting";
         }else{
-            $qry = "SELECT (awal_giling + INTERVAL $now DAY) AS tgl FROM tb_setting";
+            $qry = "SELECT (awal_giling + INTERVAL $hari-1 DAY) AS tgl FROM tb_setting";
         }
 
         $result = $this->db->query($qry)->row();
@@ -161,7 +158,7 @@ class Lapproduksimodel extends SB_Model
         if($hari == 1){
             $wr = "<= '".$this->getTglGilingByHari($hari)."'";
         }elseif($hari > 1){
-            $wr = "BETWEEN '".$this->getTglGilingByHari($hari-1)."' AND '".$this->getTglGilingByHari($hari)."'";
+            $wr = " = '".$this->getTglGilingByHari($hari)."'";
         }else{
             $wr = "<= '".$this->getTglGilingByHari(1)."'";
         }
@@ -297,7 +294,7 @@ class Lapproduksimodel extends SB_Model
         if($hari == 1){
             $wr = "<= '".$this->getTglGilingByHari($hari)."'";
         }elseif($hari > 1){
-            $wr = "BETWEEN '".$this->getTglGilingByHari($hari-1)."' AND '".$this->getTglGilingByHari($hari)."'";
+            $wr = " = '".$this->getTglGilingByHari($hari)."'";
         }else{
             $wr = "<= '".$this->getTglGilingByHari(1)."'";
         }

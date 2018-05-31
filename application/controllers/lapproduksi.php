@@ -176,6 +176,12 @@ class Lapproduksi extends SB_Controller
         $this->data['ari_trans'] = $this->model->VwHariByAriTransfer($hari_giling);
         $this->data['plant_trans'] = $this->model->GroupPlant($hari_giling);
         $this->data['sum_trans'] = $this->model->SumLapTrans($hari_giling);
+        if($hari_giling == "1"){
+            $this->data['tgl_giling'] = $this->model->getTglGilingByHari($hari_giling)."satu";
+        }else{
+            $this->data['tgl_giling'] = $this->model->getTglGilingByHari($hari_giling);
+        }
+
 
         //$this->load->view('lapproduksi/test', $this->data);
 
