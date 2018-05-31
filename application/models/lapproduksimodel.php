@@ -53,7 +53,7 @@ class Lapproduksimodel extends SB_Model
         }
 
         $result = $this->db->query($qry)->row();
-        return $result->tgl." 05:59:59";
+        return $result->tgl;
     }
 
     public function CekLaporanExist($kat, $hari_giling)
