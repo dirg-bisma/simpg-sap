@@ -41,7 +41,7 @@ class Laporanrekapbiayaangkutan extends SB_Controller
 			$whvendor ="";
 
 			if (!empty($kat)) {
-				$whkat = "WHERE LEFT(a.kode_kat_lahan, 2) = '$kat' ";
+				$whkat = "AND LEFT(a.kode_kat_lahan, 2) = '$kat' ";
 			}
 			if (!empty($angkutan)) {
 				$whangkut = "AND a.jenis_spta = '$angkutan' ";
@@ -90,7 +90,7 @@ class Laporanrekapbiayaangkutan extends SB_Controller
 					    ON e.id_spta = a.id 
 					  INNER JOIN vw_upah_angkut f 
 					    ON f.vendor_id = a.vendor_angkut
-					    AND (f.tgl BETWEEN '$tgl1' AND '$tgl2')
+					  WHERE a.tgl_timbang BETWEEN '$tgl1' AND '$tgl2'
 					  $whkat
 					  $whangkut  
 					  $whvendor
@@ -128,7 +128,7 @@ class Laporanrekapbiayaangkutan extends SB_Controller
 							  INNER JOIN vw_upah_angkut f 
 							    ON f.vendor_id = a.vendor_angkut 
 							    AND f.id = e.angkutan_id
-							    AND (f.tgl BETWEEN '$tgl1' AND '$tgl2')
+								WHERE a.tgl_timbang BETWEEN '$tgl1' AND '$tgl2'
 								  $whkat
 								  $whangkut  
 								  $whvendor
