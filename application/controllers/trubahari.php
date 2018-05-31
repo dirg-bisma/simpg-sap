@@ -347,7 +347,7 @@ class Trubahari extends SB_Controller
 				$rendemen_ari = $nilai_nira * $faktor_rendemen;
 			}
 
-			$sql = "UPDATE t_ari SET persen_brix_ari='$persenbrix',persen_pol_ari='$persenpol',hk='$hk',rendemen_ari='$rendemen_ari',rendemen_individu='$rendemen_individu',nilai_nira='$nilai_nira' WHERE id_spta='".$ab['id_spta']."'";
+			$sql = "UPDATE t_ari SET persen_brix_ari='$persenbrix',persen_pol_ari='$persenpol',hk='$hk',rendemen_ari='$rendemen_ari',rendemen_individu='$rendemen_individu',nilai_nira='$nilai_nira' WHERE id_spta='".$ab['id_spta']."' and sbh_ari_status=0";
 			$this->db->query($sql);
 
 		$usr = $this->session->userdata('fid');
