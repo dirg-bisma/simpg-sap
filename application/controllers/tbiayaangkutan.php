@@ -422,8 +422,8 @@ a.timb_netto_tgl AS tgl_timbang,c.`no_angkutan`,b.`netto`,d.`keterangan`,d.`biay
 INNER JOIN sap_field sf ON sf.`kode_blok`=a.kode_blok
 INNER JOIN t_selektor c ON c.`id_spta`=a.id
 INNER JOIN t_timbangan b ON a.id=b.`id_spat` 
-INNER JOIN m_biaya_jarak d ON d.`id_jarak`=a.jarak_id
-WHERE a.timb_netto_status = 1 AND a.upah_angkut_status = 0 AND a.angkut_pg=1 AND a.vendor_angkut=$vendor $wh AND date(a.tgl_timbang) BETWEEN '$tglawal' AND '$tglakhir'";
+LEFT JOIN m_biaya_jarak d ON d.`id_jarak`=a.jarak_id
+WHERE a.timb_netto_status = 1 AND a.upah_angkut_status = 0 AND a.angkut_pg=1 AND a.vendor_angkut=$vendor $wh AND date(a.tgl_timbang) BETWEEN '$tglawal' AND '$tglakhir' GROUP BY a.id";
 
 		$th = $this->db->query($sql)->result();
 		$htm = array('msg'=>0);
