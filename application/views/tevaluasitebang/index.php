@@ -1,3 +1,6 @@
+<link rel="stylesheet" href="<?php echo base_url();?>/adminlte/plugins/toast/toast.css">
+<script src="<?php echo base_url();?>/adminlte/plugins/toast/toast.js"></script>
+
 <?php usort($tableGrid, "SiteHelpers::_sort"); ?>
 <section class="content-header">
     <h1>
@@ -176,6 +179,32 @@
             url		:	"<?php echo site_url('tevaluasitebang/updatehektar');?>",
             data    : {id:id,ha:$('#ha_'+id).val()},
             success	: 	function(result){
+                var r = result.split(".");
+                if(r[0] == '1'){
+                    $.toast({
+                heading: 'Pemberitahuan',
+                textAlign: 'center',
+                text:r[1] ,
+                icon: 'info',
+                loader: true,        // Change it to false to disable loader
+                loaderBg: '#9EC600',  
+                hideAfter: 4000,
+                showHideTransition: 'slide',
+                position: 'top-center',  // To change the background
+            });
+                }else{
+                    $.toast({
+                heading: 'Pemberitahuan',
+                textAlign: 'center',
+                text:r[1] ,
+                icon: 'error',
+                loader: true,        // Change it to false to disable loader
+                loaderBg: '#9EC600',
+                hideAfter: 4000,
+                showHideTransition: 'slide',
+                position: 'top-center',  // To change the background
+            });
+                }
                 table.ajax.reload();
                 tables.ajax.reload();
             }
