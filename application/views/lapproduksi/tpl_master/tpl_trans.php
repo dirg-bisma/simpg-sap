@@ -137,9 +137,11 @@
         }?>
         <!------------------HI RENDEMEN TRANS----------------->
         <?php $qty_kristal_trans = 0; ?>
+        <?php $hi_nilai_trans = 0;?>
         <?php foreach ($ari_trans as $row_trans_ari ){?>
             <?php if($trans_kode_kat == $row_trans_ari->kat_ptp && $row_trans->kode_plant_trasnfer == $row_trans_ari->kode_plant_trasnfer){?>
                 <?php $rendemen = ($row_trans_ari->hablur_kg/$row_trans_ari->netto_kg)*100;?>
+                <?php  $hi_nilai_trans = $rendemen;?>
                 <td style="text-align: right"><?php echo number_format($rendemen,2 ); ?></td>
                 <input type="hidden" name="trans_rendemen_<?php echo replaceKat($row_trans_ari->kat_ptp)."_".$row_trans->kode_plant_trasnfer;?>" value="<?php echo $rendemen; ?>">
                 <?php $qty_kristal_trans = 1; } ?>
@@ -159,7 +161,7 @@
             <?php if($otv_qty_digiling_hi_trans != 0){ ?>
                 <?php $total_rend_sd_trans = ($otv_qty_kristal_hi_trans+$otv_qty_kristal_sd_trans)/($otv_qty_digiling_hi_trans+$otv_qty_digiling_sd_trans)*100;?>
                 <?php  echo "<td style=\"text-align: right\">".number_format($total_rend_sd_trans,2)."</td>"; ?>
-            <?php  }else{ echo "<td style=\"text-align: right\">0.00</td>"; } ?>
+            <?php  }else{ echo "<td style=\"text-align: right\">".number_format($hi_nilai_trans,2)."</td>"; } ?>
         <?php } ?>
         <!------------------HI GULA PTR TRANS----------------->
         <?php $status = 0; ?>

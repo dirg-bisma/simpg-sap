@@ -42,7 +42,7 @@ $otv_qty_kristal_sd = 0;
     <?php $status = 0;?>
     <?php foreach ($data_lap_timb as $row_lap_timb ){?>
         <?php if($row_lap_timb->kat_ptp == $row_kode_kat->kode_kat_ptp ){?>
-            <td style="text-align: right"><?php echo number_format($row_lap_timb->netto, 2); ?></td>
+            <td style="text-align: right"><?php echo number_format($row_lap_timb->netto_kg/1000, 2); ?></td>
             <input type="hidden" name="qty_tertebang_<?php echo replaceKat($row_kode_kat->kode_kat_ptp);?>" value="<?php echo $row_lap_timb->netto_kg; ?>">
             <?php $hi_nilai = $row_lap_timb->netto_kg;?>
             <?php $h_ini_qty_ditebang  = $h_ini_qty_ditebang+$row_lap_timb->netto_kg;?>
@@ -91,7 +91,7 @@ $otv_qty_kristal_sd = 0;
     <?php $status = 0;?>
     <?php foreach ($data_lap_ari as $row_lap_ari ){?>
         <?php if($row_lap_ari->kat_ptp == $row_kode_kat->kode_kat_ptp ){?>
-            <td style="text-align: right"><?php echo number_format($row_lap_ari->netto,2); ?></td>
+            <td style="text-align: right"><?php echo number_format($row_lap_ari->netto_kg/1000,2); ?></td>
             <input type="hidden" name="qty_digiling_<?php echo replaceKat($row_kode_kat->kode_kat_ptp);?>" value="<?php echo $row_lap_ari->netto_kg; ?>">
             <?php $hi_nilai = $row_lap_ari->netto_kg;?>
             <?php $otv_qty_digiling_hi = $row_lap_ari->netto_kg;?>
@@ -118,7 +118,7 @@ $otv_qty_kristal_sd = 0;
     <?php $status = 0;?>
     <?php foreach ($data_lap_ari as $row_lap_ari ){?>
         <?php if($row_lap_ari->kat_ptp == $row_kode_kat->kode_kat_ptp ){?>
-            <td style="text-align: right"><?php echo number_format($row_lap_ari->hablur,2); ?></td>
+            <td style="text-align: right"><?php echo number_format($row_lap_ari->hablur_kg/1000,2); ?></td>
             <input type="hidden" name="qty_kristal_<?php echo replaceKat($row_kode_kat->kode_kat_ptp);?>" value="<?php echo $row_lap_ari->hablur_kg; ?>">
             <?php $hi_nilai = $row_lap_ari->hablur_kg;?>
             <?php $otv_qty_kristal_hi = $row_lap_ari->hablur_kg;?>
@@ -146,6 +146,7 @@ $otv_qty_kristal_sd = 0;
     <?php $hi_nilai = 0;?>
     <?php foreach ($data_lap_ari as $row_lap_ari ){?>
         <?php if($row_lap_ari->kat_ptp == $row_kode_kat->kode_kat_ptp ){?>
+            <?php $hi_nilai = $row_lap_ari->rendemen_total; ?>
             <td style="text-align: right"><?php echo $row_lap_ari->rendemen_total; ?></td>
             <input type="hidden" name="rendemen_<?php echo replaceKat($row_kode_kat->kode_kat_ptp);?>" value="<?php echo $row_lap_ari->rendemen_total; ?>">
             <?php $status = 1; } ?>
@@ -165,14 +166,14 @@ $otv_qty_kristal_sd = 0;
         <?php if($otv_qty_digiling_sd != 0){?>
             <?php $rend_sd = (($otv_qty_kristal_hi+$otv_qty_kristal_sd)/($otv_qty_digiling_hi+$otv_qty_digiling_sd)*100);?>
             <?php  echo "<td style=\"text-align: right\">".number_format((float)$rend_sd,2,'.','')."</td>"; ?>
-            <?php  }else{ echo "<td style=\"text-align: right\">0.00</td>"; } ?>
+            <?php  }else{ echo "<td style=\"text-align: right\">".number_format($hi_nilai, 2)."</td>"; } ?>
     <?php } ?>
     <!-----------------------HI QTY GULA PTR--------------------->
     <?php $hi_nilai = 0;?>
     <?php $status = 0;?>
     <?php foreach ($data_lap_ari as $row_lap_ari ){?>
         <?php if($row_lap_ari->kat_ptp == $row_kode_kat->kode_kat_ptp ){?>
-            <td style="text-align: right"><?php echo number_format($row_lap_ari->gula_ptr,2); ?></td>
+            <td style="text-align: right"><?php echo number_format($row_lap_ari->gula_ptr_kg/1000,2); ?></td>
             <input type="hidden" name="qty_gula_ptr_<?php echo replaceKat($row_kode_kat->kode_kat_ptp); ?>" value="<?php echo $row_lap_ari->gula_ptr_kg; ?>">
             <?php $hi_nilai = $row_lap_ari->gula_ptr_kg;?>
             <?php $h_ini_gula_ptr = $h_ini_gula_ptr + $row_lap_ari->gula_ptr_kg; ?>
@@ -197,7 +198,7 @@ $otv_qty_kristal_sd = 0;
     <?php $status = 0;?>
     <?php foreach ($data_lap_ari as $row_lap_ari ){?>
         <?php if($row_lap_ari->kat_ptp == $row_kode_kat->kode_kat_ptp ){?>
-            <td style="text-align: right"><?php echo number_format($row_lap_ari->tetes_ptr,2); ?></td>
+            <td style="text-align: right"><?php echo number_format($row_lap_ari->tetes_ptr_kg/1000,2); ?></td>
             <input type="hidden" name="qty_tetes_ptr_<?php echo replaceKat($row_kode_kat->kode_kat_ptp);?>" value="<?php echo $row_lap_ari->tetes_ptr_kg; ?>">
             <?php $hi_nilai = $row_lap_ari->tetes_ptr_kg;?>
             <?php $h_ini_tetes_ptr = $h_ini_tetes_ptr + $row_lap_ari->tetes_ptr_kg; ?>

@@ -37,7 +37,7 @@
         <?php $hi_nilai_trans = 0;?>
         <?php foreach ($timb_trans as $row_trans_timb ){?>
             <?php if($trans_kode_kat == $row_trans_timb->kat_ptp && $row_trans->kode_plant_trasnfer == $row_trans_timb->kode_plant_trasnfer){?>
-                <td style="text-align: right"><?php echo number_format($row_trans_timb->netto); ?></td>
+                <td style="text-align: right"><?php echo ($row_trans_timb->netto/1000); ?></td>
                 <?php $hi_nilai_trans = $row_trans_timb->netto_kg; ?>
                 <?php $status = 1; } ?>
         <?php } ?>
@@ -50,10 +50,10 @@
             <?php if($trans_kode_kat == $row_trans_sd->kat_ptpn && $row_trans->kode_plant_trasnfer == $row_trans_sd->kode_plant_trasnfer){?>
                 <?php $sd_nilai_trans = $row_trans_sd->sum_qty_tertebang+$hi_nilai_trans;?>
                 <?php $s_dgn_ha_ditebang =$s_dgn_ha_ditebang+$sd_nilai;?>
-                <td style="text-align: right"><?php echo number_format($sd_nilai_trans); ?></td>
+                <td style="text-align: right"><?php echo ($sd_nilai_trans/1000); ?></td>
                 <?php $status = 1; } ?>
         <?php } ?>
-        <?php if($status == 0){ echo "<td style=\"text-align: right\">".number_format($hi_nilai_trans)."</td>"; }?>
+        <?php if($status == 0){ echo "<td style=\"text-align: right\">".($hi_nilai_trans/1000)."</td>"; }?>
 
         <!------------------HI HA TERGILING TRANS----------------->
         <?php $status = 0; ?>
@@ -80,7 +80,7 @@
         <?php $hi_nilai_trans = 0;?>
         <?php foreach ($ari_trans as $row_trans_ari ){?>
             <?php if($trans_kode_kat == $row_trans_ari->kat_ptp && $row_trans->kode_plant_trasnfer == $row_trans_ari->kode_plant_trasnfer){?>
-                <td style="text-align: right"><?php echo number_format($row_trans_ari->netto); ?></td>
+                <td style="text-align: right"><?php echo ($row_trans_ari->netto/1000); ?></td>
                 <?php $hi_nilai_trans = $row_trans_ari->netto; ?>
                 <?php $otv_qty_digiling_hi_trans = $row_trans_ari->netto_kg; ?>
                 <?php $status = 1; } ?>
@@ -90,13 +90,13 @@
         <?php $status = 0; ?>
         <?php foreach ($sum_trans as $row_trans_sd ){?>
             <?php if($trans_kode_kat == $row_trans_sd->kat_ptpn && $row_trans->kode_plant_trasnfer == $row_trans_sd->kode_plant_trasnfer){?>
-                <td style="text-align: right"><?php echo number_format($row_trans_sd->sum_qty_digiling+$hi_nilai_trans ); ?></td>
+                <td style="text-align: right"><?php echo ($row_trans_sd->sum_qty_digiling+$hi_nilai_trans/1000); ?></td>
                 <?php $otv_qty_digiling_sd_trans = $row_trans_sd->sum_qty_digiling; ?>
                 <?php $status = 1; } ?>
         <?php } ?>
         <?php if($status == 0){
             if($sd_nilai_trans != 0){
-                echo "<td style=\"text-align: right\">".number_format($hi_nilai_trans)."</td>";
+                echo "<td style=\"text-align: right\">".($hi_nilai_trans/1000)."</td>";
             }else{
                 echo "<td style=\"text-align: right\">0</td>";
             }
@@ -106,7 +106,7 @@
         <?php $hi_nilai_trans = 0;?>
         <?php foreach ($ari_trans as $row_trans_ari ){?>
             <?php if($trans_kode_kat == $row_trans_ari->kat_ptp && $row_trans->kode_plant_trasnfer == $row_trans_ari->kode_plant_trasnfer){?>
-                <td style="text-align: right"><?php echo number_format($row_trans_ari->hablur); ?></td>
+                <td style="text-align: right"><?php echo ($row_trans_ari->hablur/1000); ?></td>
                 <?php $hi_nilai_trans = $row_trans_ari->hablur_kg; ?>
                 <?php $otv_qty_kristal_hi_trans  = $row_trans_ari->hablur_kg; ?>
                 <?php $status = 1; } ?>
@@ -116,13 +116,13 @@
         <?php $status = 0; ?>
         <?php foreach ($sum_trans as $row_trans_sd ){?>
             <?php if($trans_kode_kat == $row_trans_sd->kat_ptpn && $row_trans->kode_plant_trasnfer == $row_trans_sd->kode_plant_trasnfer){?>
-                <td style="text-align: right"><?php echo number_format($row_trans_sd->sum_qty_kristal+$hi_nilai_trans ); ?></td>
+                <td style="text-align: right"><?php echo ($row_trans_sd->sum_qty_kristal+$hi_nilai_trans/1000); ?></td>
                 <?php $otv_qty_kristal_sd_trans  = $row_trans_sd->sum_qty_kristal; ?>
                 <?php $status = 1; } ?>
         <?php } ?>
         <?php if($status == 0){
             if($sd_nilai_trans != 0){
-                echo "<td style=\"text-align: right\">".number_format($hi_nilai_trans)."</td>";
+                echo "<td style=\"text-align: right\">".number_format($hi_nilai_trans/1000)."</td>";
             }else{
                 echo "<td style=\"text-align: right\">0</td>";
             }
@@ -157,7 +157,7 @@
         <?php $hi_nilai_trans = 0; ?>
         <?php foreach ($ari_trans as $row_trans_ari ){?>
             <?php if($trans_kode_kat == $row_trans_ari->kat_ptp && $row_trans->kode_plant_trasnfer == $row_trans_ari->kode_plant_trasnfer){?>
-                <td style="text-align: right"><?php echo number_format($row_trans_ari->gula_ptr); ?></td>
+                <td style="text-align: right"><?php echo ($row_trans_ari->gula_ptr/1000); ?></td>
                 <?php $hi_nilai_trans = $row_trans_ari->gula_ptr_kg; ?>
                 <?php $status = 1; } ?>
         <?php } ?>
@@ -170,7 +170,7 @@
         <?php } ?>
         <?php if($status == 0){
             if($sd_nilai_trans != 0){
-                echo "<td style=\"text-align: right\">".number_format($hi_nilai_trans)."</td>";
+                echo "<td style=\"text-align: right\">".($hi_nilai_trans/1000)."</td>";
             }else{
                 echo "<td style=\"text-align: right\">0.00</td>";
             }
@@ -180,7 +180,7 @@
         <?php $hi_nilai_trans = 0; ?>
         <?php foreach ($ari_trans as $row_trans_ari ){?>
             <?php if($trans_kode_kat == $row_trans_ari->kat_ptp && $row_trans->kode_plant_trasnfer == $row_trans_ari->kode_plant_trasnfer){?>
-                <td style="text-align: right"><?php echo number_format($row_trans_ari->tetes_ptr); ?></td>
+                <td style="text-align: right"><?php echo ($row_trans_ari->tetes_ptr/1000); ?></td>
                 <?php $hi_nilai_trans = $row_trans_ari->tetes_ptr_kg; ?>
                 <?php $status = 1; } ?>
         <?php } ?>
@@ -189,12 +189,12 @@
         <?php $status = 0; ?>
         <?php foreach ($sum_trans as $row_trans_sd ){?>
             <?php if($trans_kode_kat == $row_trans_sd->kat_ptpn && $row_trans->kode_plant_trasnfer == $row_trans_sd->kode_plant_trasnfer){?>
-                <td style="text-align: right"><?php echo number_format($row_trans_sd->sum_qty_tetes_ptr+$hi_nilai_trans ); ?></td>
+                <td style="text-align: right"><?php echo ($row_trans_sd->sum_qty_tetes_ptr+$hi_nilai_trans/1000 ); ?></td>
                 <?php $status = 1; } ?>
         <?php } ?>
         <?php if($status == 0){
             if($sd_nilai_trans != 0){
-                echo "<td style=\"text-align: right\">".number_format($hi_nilai_trans)."</td>";
+                echo "<td style=\"text-align: right\">".($hi_nilai_trans/1000)."</td>";
             }else{
                 echo "<td style=\"text-align: right\">0</td>";
             }
