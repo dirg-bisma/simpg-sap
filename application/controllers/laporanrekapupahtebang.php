@@ -71,11 +71,7 @@ class Laporanrekapupahtebang extends SB_Controller
 			$this->data['coldefrem'] = $this->db->query("select kodekolom,nama_pekerjaan_tma,satuan from m_pekerjaan_tma where status_pekerjaan!=2 and jenis=2 order by id_pekerjaan_tma asc")->result();
 
 			if($jns == 1){
-			$result = $this->db->query("SELECT IFNULL((SELECT SUM(a1.`total_bersih`) AS total 
-				FROM t_upah_tebang_detail a1 
-				INNER JOIN t_upah_tebang b1 ON a1.`id_upah_tebang`=b1.`id`
-				INNER JOIN t_spta c1 ON c1.`id`=a1.`id_spta` 
-				WHERE b1.persno_mandor=a.`persno_mandor` AND b1.tgl < '$tgl2' $wh2  GROUP BY b1.`persno_mandor`),0) AS ttlyl,
+			$result = $this->db->query("SELECT 0 AS ttlyl,
 a.`kode_blok`,c.`no_spat`,a.persno_mandor,e.`name` AS mandor_nama,f.`name` AS pta_nama,d.`no_angkutan`,b.*
  FROM t_upah_tebang a 
 INNER JOIN t_upah_tebang_detail b ON a.`id`=b.`id_upah_tebang`
@@ -98,11 +94,7 @@ ORDER BY d.`persno_mandor_tma`")->result();
 
 		$this->load->view('laporanrekapupahtebang/permandor',$this->data);
 		}else if($jns == 3){
-			$result = $this->db->query("SELECT IFNULL((SELECT SUM(a1.`total_bersih`) AS total 
-				FROM t_upah_tebang_detail a1 
-				INNER JOIN t_upah_tebang b1 ON a1.`id_upah_tebang`=b1.`id`
-				INNER JOIN t_spta c1 ON c1.`id`=a1.`id_spta` 
-				WHERE b1.persno_mandor=a.`persno_mandor` AND b1.tgl < '$tgl2' $wh2  GROUP BY b1.`persno_mandor`),0) AS ttlyl,
+			$result = $this->db->query("SELECT 0 AS ttlyl,
 a.`kode_blok`,c.`no_spat`,a.persno_mandor,e.`name` AS mandor_nama,f.`name` AS pta_nama,d.`no_angkutan`,b.*
  FROM t_upah_tebang a 
 INNER JOIN t_upah_tebang_detail b ON a.`id`=b.`id_upah_tebang`

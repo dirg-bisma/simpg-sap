@@ -53,7 +53,7 @@ class Dashboard extends SB_Controller {
 		$leftjoin = '';
 		$fieldj = "";
 		if($jns == 1){
-			if($cc == 'N011' || $cc == 'N009' || $cc == 'N007' || $cc == 'N002'){
+			if($cc == 'N011' || $cc == 'N009' || $cc == 'N002'){
 				$htm = '<table class="table ">
                             <thead>
                               <tr>
@@ -81,7 +81,7 @@ class Dashboard extends SB_Controller {
 INNER JOIN t_spta b ON a.`id_spta`=b.`id` WHERE a.`tgl_urut`='$tgl' AND a.`ditolak_sel` = 0
 GROUP BY DATE_FORMAT(a.tgl_selektor,'%H')) AS selektor ON selektor.jam=jm.jam";
 		}else if($jns == 2){
-			if($cc == 'N011' || $cc == 'N009' || $cc == 'N007' || $cc == 'N002'){
+			if($cc == 'N011' || $cc == 'N009'  || $cc == 'N002'){
 				$htm = '<table class="table ">
                             <thead>
                               <tr>
@@ -130,7 +130,7 @@ GROUP BY DATE_FORMAT(b.`meja_tebu_tgl`,'%H')) AS giling ON giling.jam=jm.jam";
 		$ttlgil1=0;$ttlgil2=0;
 		foreach($sql as $r){
 			if($jns == 1){
-				if($cc == 'N011' || $cc == 'N009' || $cc == 'N007' || $cc == 'N002'){
+				if($cc == 'N011' || $cc == 'N009'  || $cc == 'N002'){
 					$htm .="<tr>
 					<td style='text-align:left;color:blue;font-weight:bold'>".$r->jjm.":00</td>
 					<td style='text-align:right;'>".number_format($r->truk)."</td>
@@ -153,7 +153,7 @@ GROUP BY DATE_FORMAT(b.`meja_tebu_tgl`,'%H')) AS giling ON giling.jam=jm.jam";
 				$ttlall += $r->ttl;
 				
 			}else if($jns == 2){
-				if($cc == 'N011' || $cc == 'N009' || $cc == 'N007' || $cc == 'N002'){
+				if($cc == 'N011' || $cc == 'N009'  || $cc == 'N002'){
 					$htm .="<tr>
 				<td style='text-align:left;color:blue;font-weight:bold'>".$r->jjm.":00</td>
 				<td style='text-align:right;'>".number_format($r->truk/1000,2)."</td>
@@ -187,14 +187,14 @@ GROUP BY DATE_FORMAT(b.`meja_tebu_tgl`,'%H')) AS giling ON giling.jam=jm.jam";
 		}
 		
 		if($jns == 1){
-			if($cc == 'N011' || $cc == 'N009' || $cc == 'N007' || $cc == 'N002'){
+			if($cc == 'N011' || $cc == 'N009'  || $cc == 'N002'){
 				$htm .= "<tr style='background:black;color:white'><td>TOTAL</td><td align='right'>".number_format($ttltruk)."</td><td align='right'>".number_format($ttllori)."</td><td align='right'>".number_format($ttlall)."</td></tr>";
 			}else{
 				$htm .= "<tr style='background:black;color:white'><td>TOTAL</td><td align='right'>".number_format($ttltruk)."</td><td align='right'>".number_format($ttlodong2)."</td><td align='right'>".number_format($ttltraktor)."</td><td align='right'>".number_format($ttlall)."</td></tr>";
 			}
 			
 		}else if($jns == 2){
-			if($cc == 'N011' || $cc == 'N009' || $cc == 'N007' || $cc == 'N002'){
+			if($cc == 'N011' || $cc == 'N009'  || $cc == 'N002'){
 				$htm .= "<tr style='background:black;color:white'><td>TOTAL</td><td align='right'>".number_format($ttltruk/1000,2)."</td><td align='right'>".number_format($ttllori/1000,2)."</td><td align='right'>".number_format($ttlall/1000,2)."</td></tr>";
 			}else{
 				$htm .= "<tr style='background:black;color:white'><td>TOTAL</td><td align='right'>".number_format($ttltruk/1000,2)."</td><td align='right'>".number_format($ttlodong2/1000,2)."</td><td align='right'>".number_format($ttltraktor/1000,2)."</td><td align='right'>".number_format($ttlall/1000,2)."</td></tr>";

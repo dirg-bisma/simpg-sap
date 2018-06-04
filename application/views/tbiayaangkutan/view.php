@@ -133,7 +133,7 @@
 <td align="center"  style="font-size:13px">
 
 <br />
-<b>Operator Keuangan</b><br />
+<b>Operator Upah Angkutan</b><br />
 	<br />
 	<br />
 	<br />
@@ -143,6 +143,15 @@
 <td align="center"  style="font-size:13px">
 <br />
 <b>Manajer Keuangan</b><br />
+	<br />
+	<br />
+	<br />
+	.........................
+</td>
+
+<td align="center"  style="font-size:13px">
+<br />
+<b>Manajer Tanaman</b><br />
 	<br />
 	<br />
 	<br />
