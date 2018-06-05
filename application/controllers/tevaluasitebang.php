@@ -300,11 +300,13 @@ class Tevaluasitebang extends SB_Controller
 		$ha = $_POST['ha'];
 		$id = $_POST['id'];
 
-		$r = $this->db->query("SELECT b.kode_blok,luas_tebang,luas_ha FROM t_spta a INNER JOIN sap_field b on a.kode_blok=b.kode_blok where a.id=$id")->row_array();
+		$r = $this->db->query("SELECT b.kode_blok,luas_tebang,luas_ha,aff_tebang FROM t_spta a INNER JOIN sap_field b on a.kode_blok=b.kode_blok where a.id=$id")->row_array();
 		$kodepetak = $r['kode_blok'];
 		$luas_tebang = $r['luas_tebang'];
 		$luas_ha = $r['luas_ha'];
+		$aff = $r['aff_tebang'];
 
+		if($aff == 0){
 		if($luas_ha > ($luas_tebang+$ha)){
 			$sql = "UPDATE t_selektor set ha_tertebang='$ha',tanaman_status=1,tanaman_user='$user',tanaman_act=now() WHERE id_spta = $id";
 		$this->db->query($sql);
@@ -315,6 +317,8 @@ class Tevaluasitebang extends SB_Controller
 			$sisap = ($sisa / $luas_ha)*100;
 
 			if($sisap < -5){
+
+				$up = $this->db->query("UPDATE sap_field set aff_tebang=1 where kode_blok = '$kodepetak'");
 				echo "2.Hektar Error, Sisa Luas adalah ".number_format($luas_ha-$luas_tebang,2,',','.')." Ha ";
 			}else{
 				$sql = "UPDATE t_selektor set ha_tertebang='$ha',tanaman_status=1,tanaman_user='$user',tanaman_act=now() WHERE id_spta = $id";
@@ -324,6 +328,13 @@ class Tevaluasitebang extends SB_Controller
 				$this->inputLogs("3.Hektar Sudah Update dan Petak ".$kodepetak." Otomatis Aff Tebang.");
 			}
 		}
+	}else{
+		$sql = "UPDATE t_selektor set ha_tertebang='$ha',tanaman_status=1,tanaman_user='$user',tanaman_act=now() WHERE id_spta = $id";
+		$this->db->query($sql);
+		echo "3.Master field sudah Aff, dan hektar berhasil di update";
+				$this->inputLogs("3.Hektar Sudah Update pada Petak ".$kodepetak." dengan tambahan ".$ha." Ha");
+
+	}
 
 		
 		
