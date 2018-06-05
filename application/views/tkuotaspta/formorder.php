@@ -135,6 +135,9 @@
 <script>
 var tempJarak = false;
 var tempJarakPilih = false;
+
+var tempVendor = false;
+var tempVendorPilih = false;
 $(document).ready(function(){ 
 	
 	$(".select2").select2({ width: '100%' });
@@ -164,11 +167,18 @@ $(document).ready(function(){
 		}else{
 			tempJarakPilih = true;
 		}
+
+
+		if(tempVendor){
+			if($('#vendor_id').val() != ''){ tempVendorPilih = true;}else{ tempVendorPilih=false; }
+		}else{
+			tempVendorPilih = true;
+		}
 		
 		var kuota = ($('#kouta_tot').val());
 		//console.log(kuota);
 
-		if(kuota != '' &&  kuota != 0 && kuota < 200 && $('#jenis_spta').val()!='' && $('#persno_pta').val()!='' && tempJarakPilih){
+		if(kuota != '' &&  kuota != 0 && kuota < 200 && $('#jenis_spta').val()!='' && $('#persno_pta').val()!='' && tempJarakPilih && tempVendorPilih){
 			
         $.ajax({
             type: frm.attr('method'),
@@ -208,6 +218,7 @@ function onchangeApg(){
 		$('.vendor').show();
 		$('#jarak_id').prop('required',true);
 		tempJarak = true;
+		tempVendor = true;
 		$('#jarak_id').val('<?php echo $idjrk;?>');
 	}else{
 		document.getElementById('angkut_pg0').disabled = false;
@@ -216,6 +227,7 @@ function onchangeApg(){
 		$('#jarak_id').val('');
 		$('#jarak_id').prop('required',false);
 		tempJarak = false;
+		tempVendor = false;
 	}
 }
 </script>
