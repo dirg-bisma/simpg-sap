@@ -316,27 +316,38 @@ class Tevaluasitebang extends SB_Controller
 			$sisa = $luas_ha-($luas_tebang+$ha);
 			$sisap = ($sisa / $luas_ha)*100;
 
-			if($sisap < -5){
+			$sisax = $luas_ha-($luas_tebang); 
+			$sisapx = ($sisax / $luas_ha)*100; 
+
+			if($sisap < 0 && $sisapx > 0){
+
+			//	$up = $this->db->query("UPDATE sap_field set aff_tebang=1 where kode_blok = '$kodepetak'");
+				echo "2.Hektar Error, Sisa Luas adalah ".number_format($luas_ha-$luas_tebang,2,',','.')." Ha ";
+
+			}else if($sisap < 0 && $sisapx < 0){
 
 				$up = $this->db->query("UPDATE sap_field set aff_tebang=1 where kode_blok = '$kodepetak'");
 				echo "2.Hektar Error, Sisa Luas adalah ".number_format($luas_ha-$luas_tebang,2,',','.')." Ha ";
+				$this->inputLogs("2.Aff otomatis karena petak ".$kodepetak." minus sisa hektarnya.");
+
 			}else{
 				$sql = "UPDATE t_selektor set ha_tertebang='$ha',tanaman_status=1,tanaman_user='$user',tanaman_act=now() WHERE id_spta = $id";
-		$this->db->query($sql);
+				
+				$this->db->query($sql);
 				$up = $this->db->query("UPDATE sap_field set aff_tebang=1 where kode_blok = '$kodepetak'");
 				echo "3.Hektar Sudah Update dan Petak ".$kodepetak." Otomatis Aff Tebang.";
 				$this->inputLogs("3.Hektar Sudah Update dan Petak ".$kodepetak." Otomatis Aff Tebang.");
 			}
 		}
 	}else{
-		$sql = "UPDATE t_selektor set ha_tertebang='$ha',tanaman_status=1,tanaman_user='$user',tanaman_act=now() WHERE id_spta = $id";
+		$sql = "UPDATE t_selektor set ha_tertebang='0',tanaman_status=1,tanaman_user='$user',tanaman_act=now() WHERE id_spta = $id";
 		$this->db->query($sql);
 		echo "3.Master field sudah Aff, dan hektar berhasil di update";
 				$this->inputLogs("3.Hektar Sudah Update pada Petak ".$kodepetak." dengan tambahan ".$ha." Ha");
 
 	}
 
-		
+		$this->setupdateha($kodepetak);
 		
 	}
 
@@ -347,6 +358,25 @@ class Tevaluasitebang extends SB_Controller
 		$this->db->query($sql);
 		$this->inputLogs(" ID : $id  , Set Aff Successfull");
 		
+	}
+
+	function setupdateha($kodepetak){
+
+		$sqld = $this->db->query("SELECT SUM(b.`ha_tertebang`) as hatebang FROM t_spta a INNER JOIN t_selektor b ON a.`id`=b.`id_spta` WHERE a.`kode_blok` = '$kodepetak' and b.tanaman_status=1")->row();
+
+		$ha = $sqld->hatebang;
+		$up = $this->db->query("UPDATE sap_field set luas_tebang='$ha' where kode_blok = '$kodepetak'");
+
+	}
+
+
+	function updatehaall(){
+		$s = $this->db->query("SELECT kode_blok FROM sap_field WHERE luas_tebang != 0")->result();
+		foreach ($s as $k) {
+
+			$this->setupdateha($k->kode_blok);
+			echo $k->kode_blok.'<br />';
+		}
 	}
 
 

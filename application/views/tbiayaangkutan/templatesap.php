@@ -222,7 +222,7 @@ if($jurnal->katkode == 'TR') echo $jurnal->id_petani_sap;
  ?></td>
  <td>&nbsp;</td>
  <td><?php 
-if($jurnal->katkode == 'TR') echo '0';
+if($jurnal->katkode == 'TR') echo 'O';
  ?></td>
  <td>&nbsp;</td>
  <td>&nbsp;</td>
