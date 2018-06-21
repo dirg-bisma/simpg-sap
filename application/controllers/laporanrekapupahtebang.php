@@ -33,6 +33,7 @@ class Laporanrekapupahtebang extends SB_Controller
 
 		$jns = $_REQUEST['jns'];
 		$kat = $_REQUEST['kat'];
+		$petak = $_REQUEST['petak'];
 		$angkutan = $_REQUEST['angkutan'];
 
 		$this->data['title'] = "SEMUA KATEGORI ";
@@ -53,9 +54,13 @@ class Laporanrekapupahtebang extends SB_Controller
 
 		
 		
-		if($rjns == 1) {
+		if($rjns == 1 && $jns != 4) {
 			$wh .= " AND a.tgl = '$tgl2'";
 			$this->data['title'] .= 	"PERIODE TANGGAL ".SiteHelpers::datereport($tgl2).' <br />';	
+		}else{
+			$wh .= " AND a.tgl BETWEEN '$tgl1' and '$tgl2'";
+			if($petak != '') $wh .= " AND a.kode_blok = '$petak'";
+			$this->data['title'] .= 	"PERIODE TANGGAL ".SiteHelpers::datereport($tgl1).' s/d '.SiteHelpers::datereport($tgl2).'<br />';	
 		}
 		
 
@@ -115,7 +120,7 @@ ORDER BY d.`persno_mandor_tma`")->result();
 			$this->data['allsisalalu'] = $rt->total;
 			$this->data['allsisasemua'] = $rx->total;
 		$this->load->view('laporanrekapupahtebang/permandorrekap',$this->data);
-		}else{
+		}else if($jns == 2){
 			$result = $this->db->query("SELECT no_bukti,a.`kode_blok`,c.`no_spat`,a.persno_mandor,e.`name` AS mandor_nama,f.`name` AS pta_nama,d.`no_angkutan`,b.*
  FROM t_upah_tebang a 
 INNER JOIN t_upah_tebang_detail b ON a.`id`=b.`id_upah_tebang`
@@ -126,6 +131,21 @@ INNER JOIN sap_m_karyawan f ON f.`Persno`=c.`persno_pta`  $wh
 ORDER BY a.`no_bukti`")->result();
 			$this->data['detail'] = $result;
 		$this->load->view('laporanrekapupahtebang/pertransaksi',$this->data);
+
+
+		}else{
+			$result = $this->db->query("SELECT a.tgl,no_bukti,a.`kode_blok`,c.`no_spat`,a.persno_mandor,e.`name` AS mandor_nama,f.`name` AS pta_nama,d.`no_angkutan`,b.*
+ FROM t_upah_tebang a 
+INNER JOIN t_upah_tebang_detail b ON a.`id`=b.`id_upah_tebang`
+INNER JOIN t_spta c ON c.`id`=b.`id_spta`
+INNER JOIN t_selektor d ON d.`id_spta`=c.`id` 
+INNER JOIN sap_m_karyawan e ON e.`Persno`=a.`persno_mandor`
+INNER JOIN sap_m_karyawan f ON f.`Persno`=c.`persno_pta`  $wh
+ORDER BY a.`no_bukti`")->result();
+			$this->data['detail'] = $result;
+			$this->data['titlepetak'] = $_REQUEST['petak'];
+		$this->load->view('laporanrekapupahtebang/perpetak',$this->data);
+
 
 
 		}
