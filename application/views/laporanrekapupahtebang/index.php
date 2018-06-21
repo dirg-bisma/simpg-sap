@@ -51,9 +51,9 @@
 								<option value="2019">2019</option>
 							</select>
 						</td>
-						<td class="period" style="display:none">
-							<input type='text' class='form-control date input-sm' readonly placeholder='' value='<?php echo date('Y-m-d');?>' id='tgl1'  /> </td>
-						<td style="padding:5px" class="period"><input type='text' class='form-control date input-sm' readonly placeholder='' value='<?php echo date('Y-m-d');?>' id='tgl2'  /> </td>
+						<td class="period1">
+							<input type='text' class='form-control date input-sm' readonly placeholder='' value='<?php echo date('Y-m-d');?>' id='tgl1'  /> </td><td class="period1"> s/d </td>
+						<td style="padding:5px" class="period">  <input type='text' class='form-control date input-sm' readonly placeholder='' value='<?php echo date('Y-m-d');?>' id='tgl2'  /> </td>
 
 
 						<td valign="center"> Kategori </td>
@@ -78,14 +78,19 @@
 						<td valign="center"> Jenis </td>
 						<td style="padding:5px" width="200px">
 							<select id='jns' rows='5' 
-							class=' form-control'  required >
+							class=' form-control' onchange="gantijns(this.value)"  required >
 							<option value='1'>Per Mandor</option>
 							<option value='2'>Per Transaksi</option>
 							<option value='3'>Per Mandor Rekap</option>
+							<option value='4'>Per Petak</option>
 						</select> </td>
 
-						
-							
+						</tr>
+						<tr>
+						<td valign="center" class="period1"> Petak </td>
+						<td style="padding:5px" width="200px" colspan="3" class="period1"> 
+						<input type='text' class='form-control input-sm' placeholder='' id='kode_blok'  /> 
+						</td>
 
 						<td valign="center" colspan="2"><input type="button" onclick="getReport()" class="btn btn-info btn-sm" value="View " />
 							<input type="button" class="btn btn-warning btn-sm" onclick="printContent('report')"  value="Cetak " />
@@ -113,7 +118,34 @@
 $(document).ready(function(){
 		//getReport();
 		$('.bulan').hide();$('.tahun').hide();
+		gantijns(1);
+		autocompleted();
 });
+
+function autocompleted(){
+    
+	var myData = $("#kode_blok").tautocomplete({
+		width: "500px",
+		id:"kode_blok",
+		columns: ['Afd', 'Kode','Kategori', 'Deskripsi'],
+		hide: [true,true,true,true],
+		placeholder: "Cari Petak",
+		theme: "white",
+		norecord: "No Records Found",
+		ajax: {
+                        url: "<?php echo site_url('tupahtebang/petakget')?>",
+                        type: "GET",
+                        success: function (data) {
+                        	$('#kode_blok').val('');
+                            return data;
+                        }
+                    },
+        onchange: function () {
+        			var all = myData.all();
+        			$('#kode_blok').val(all.Kode);
+                }
+	});
+}
 
 $('#rjns').on('change',function(e){
 	if($('#rjns').val()==1){
@@ -134,12 +166,20 @@ function getReport(){
 	 	url 	: "<?php echo site_url('laporanrekapupahtebang/printlaporan'); ?>",
 	 	data 	: {tgl1:$('#tgl1').val(),tgl2:$('#tgl2').val(),angkutan:$('#angkutan').val(),
 	 	sup:$('#sup').val(),bln:$('#bln').val(),thn:$('#thn').val(),rjns:$('#rjns').val()
-	 	,kat:$('#kat').val(),jns:$('#jns').val()
+	 	,kat:$('#kat').val(),jns:$('#jns').val(),petak:$('#kode_blok').val()
 	 	},
 	 	success	: function(data){
 	 		$('#report').html(data);
 	 	}
 	 });
+}
+
+function gantijns(a){
+	if(a == 4){
+		$('.period1').show();
+	}else{
+		$('.period1').hide();
+	}
 }
 
 function getReportExcel(){
