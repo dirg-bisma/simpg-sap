@@ -152,7 +152,7 @@ class Dashboardtimbanganmodel extends CI_Model
                   t_selektor a 
                   INNER JOIN t_spta AS b 
                     ON b.id = a.`id_spta` 
-                  LEFT JOIN t_timbangan AS c 
+                  INNER JOIN t_timbangan AS c 
                     ON c.`id_spat` = a.`id_spta` 
                   INNER JOIN sap_field AS d 
                     ON d.`kode_blok` = b.`kode_blok` 
