@@ -51,17 +51,17 @@ class Dashboardtimbanganmodel extends CI_Model
         return $data;
     }
 
-    public function PrintDataCetakLori($trainstat, $noloko)
+    public function PrintDataCetakLori($trainstat, $noloko, $tgl_timbang)
     {
          $qry = $this->QryDataCetakTimbang() . " AND b.jenis_spta = 'LORI' 
-        AND a.no_trainstat = $trainstat AND c.no_loko = '$noloko' GROUP BY b.id ";
+        AND a.no_trainstat = '$trainstat' AND c.no_loko = '$noloko' AND b.tgl_timbang = '$tgl_timbang' GROUP BY b.id ";
         $result = $this->db->query($qry)->result();
         return $result;
     }
 
     public function DataCetakLori($trainstat, $noloko)
     {
-         $qry = $this->QryDataCetakTimbang() . " AND b.jenis_spta = 'LORI' 
+        $qry = $this->QryDataCetakTimbang() . " AND b.jenis_spta = 'LORI' 
         AND a.no_trainstat = '$trainstat' AND c.no_loko = '$noloko'";
         $result = $this->db->query($qry);
         $data = array();

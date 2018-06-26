@@ -58,8 +58,9 @@ class Dashboardtimbangan extends CI_Controller
     {
         $no_trainstat = $this->GetPost('no_trainstat');
         $no_loko = $this->GetPost('no_loko');
+        $tgl_timbang = $this->GetPost('tgl_timbang');
         $this->load->model('dashboardtimbanganmodel');
-        $result = $this->dashboardtimbanganmodel->PrintDataCetakLori($no_trainstat, $no_loko);
+        $result = $this->dashboardtimbanganmodel->PrintDataCetakLori($no_trainstat, $no_loko, $tgl_timbang);
         $data['lori'] = $result;
         $data['no_trainstat'] = $no_trainstat;
         $data['no_loko'] = $no_loko;
