@@ -120,7 +120,7 @@ ORDER BY `a1`.`tgl_meja_tebu`,a1.kode_meja_tebu ASC";
                 a.`kode_kat_lahan`,
                 a.jenis_spta,
                 c.no_angkutan,
-                b.no_transloading,selektor_tgl,timb_netto_tgl,tgl_tebang,
+                b.no_transloading,selektor_tgl,timb_netto_tgl,tgl_tebang,tgl_timbang,
                 IF(CONCAT(tebang_pg,angkut_pg) = '11','TAPG',IF(CONCAT(tebang_pg,angkut_pg) = '10','TPGAS',IF(CONCAT(tebang_pg,angkut_pg)='01','TSAPG','TAS'))) AS stt_ta_text,
         IF(c.`terbakar_sel` = 1, 'TERBAKAR', IF(c.`terbakar_sel` = 0, \"TIDAK\", \"-\")) AS terbakar_sel,
                 b.bruto,b.tara,
@@ -130,7 +130,7 @@ ORDER BY `a1`.`tgl_meja_tebu`,a1.kode_meja_tebu ASC";
             INNER JOIN t_selektor c ON c.id_spta=a.id 
             INNER JOIN sap_field d ON d.kode_blok=a.kode_blok
             LEFT JOIN sap_petani e ON e.`id_petani_sap`=d.`id_petani_sap`
-            WHERE a.tgl_timbang < '$tgl1' AND (ISNULL(a.tgl_giling) OR a.tgl_giling='$tgl1') ORDER BY a.selektor_tgl ASC")->result();
+            WHERE a.tgl_timbang < '$tgl1' AND (ISNULL(a.tgl_giling) OR a.tgl_giling='$tgl1') ORDER BY tgl_timbang,a.selektor_tgl ASC")->result();
 
         $this->data['timbangsd'] = $sqltimbang;
         $this->data['gilingsd'] = $sqlgiling;
