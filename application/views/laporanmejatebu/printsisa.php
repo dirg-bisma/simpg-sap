@@ -52,8 +52,14 @@ $no=1;
 $kodemt = '';
 $akt = 0;
 $nettofinal=0;
+$tgltimbang = '';
  foreach($result as $r){
-
+ 		if($tgltimbang == '' || $tgltimbang != $r->tgl_timbang){
+ 			?>
+ 			<tr><td colspan="7">Tgl Timbang <?php echo SiteHelpers::datereport($r->tgl_timbang);?></td></tr>
+ 			<?
+ 			$tgltimbang = $r->tgl_timbang;
+ 		}
 	 ?>
 	 <tr>
 	 <td><?php echo $no;?></td>
