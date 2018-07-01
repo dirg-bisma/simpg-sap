@@ -62,6 +62,7 @@
                             <option value='1' selected>Meja Tebu Per SPTA</option>
                             <option value='2'>Meja Tebu Per Petak</option>
                             <option value='3'>Sisa Pagi / Tebu Siap Giling</option>
+                            <option value='4'>Selektor > 7 Hari</option>
                         </select> </td>
                                         <td valign="center"><input type="button" onclick="getReport()" class="btn btn-info btn-sm" value="View " />
                                             <input type="button" class="btn btn-warning btn-sm" onclick="printContent('report')"  value="Cetak " />
@@ -88,6 +89,10 @@
         if(valx == 3){
             $('.sdx').hide();
             $('#tgl2').hide();
+        }else if(valx == 4){
+            $('.sdx').hide();
+            $('#tgl2').hide();
+            $('#tgl1').hide();
         }else{
             $('.sdx').show();
             $('#tgl2').show();
@@ -112,6 +117,8 @@
             $("#thn").select2("val", "<?=date('Y');?>");
         }else if($('#rjns').val()==3){
             $('.bulan').hide();$('.tahun').show();$('.period').hide();
+        }else if($('#rjns').val()==4){
+            $('.bulan').hide();$('.tahun').hide();$('.period').hide();
         }
     });
 

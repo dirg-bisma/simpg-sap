@@ -106,7 +106,7 @@ ORDER BY `a1`.`tgl_meja_tebu`,a1.kode_meja_tebu ASC";
         $this->data['result'] = $result;
         $this->load->view('laporanmejatebu/print',$this->data);
 
-        }else{
+        }else if($jns == 3){
             $this->data['title'] =  "TANGGAL ".SiteHelpers::datereport($tgl1);
             $this->data['titlex'] =  "TANGGAL ".SiteHelpers::datereport(date('Y-m-d', strtotime("-1 day")));
             $sqltimbang = $this->db->query("select sum(netto_final) as total from t_timbangan a inner join t_spta b on a.id_spat=b.id where b.tgl_timbang < '$tgl1'")->row();
@@ -137,6 +137,28 @@ ORDER BY `a1`.`tgl_meja_tebu`,a1.kode_meja_tebu ASC";
         $this->data['result'] = $sqlspa;
         $this->load->view('laporanmejatebu/printsisa',$this->data);
 
+        }else if($jns == 4){
+            $sql = "SELECT
+  `b`.`no_spat`           AS `no_spat`,
+  `b`.`kode_blok`         AS `kode_blok`,
+  `e`.`deskripsi_blok`    AS `deskripsi_blok`,
+  `b`.`kode_kat_lahan`    AS `kode_kat_lahan`,
+  `c`.`name`              AS `mandor`,
+   b.`jenis_spta`,
+   b.kode_affd,
+   a.*
+FROM `t_selektor` `a`
+     INNER JOIN `t_spta` `b` ON `a`.`id_spta` = `b`.`id`
+     INNER JOIN `sap_m_karyawan` `c`  ON `c`.`Persno` = CONVERT(`a`.`persno_mandor_tma` USING utf8)
+     INNER JOIN `sap_field` `e` ON `e`.`kode_blok` = `b`.`kode_blok` 
+     WHERE b.selektor_status = 1 AND b.timb_bruto_status = 0 AND DATEDIFF(DATE(NOW()),DATE(b.selektor_tgl)) > 7
+      GROUP BY b.`id`
+ORDER BY `a`.`tgl_selektor` ASC";
+
+        $result = $this->db->query($sql)->result();
+
+        $this->data['result'] = $result;
+        $this->load->view('laporanmejatebu/printselektorkabur',$this->data);
         }
     }
 
