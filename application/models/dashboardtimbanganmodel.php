@@ -51,6 +51,26 @@ class Dashboardtimbanganmodel extends CI_Model
         return $data;
     }
 
+    public function AntrianSisapagi()
+    {
+        $qry = $this->QryDataAntrianSisaPagi();
+        $result = $this->db->query($qry);
+        $data = array();
+        foreach ($result->result() as $tx){
+            $data[] = array(
+                'no_spat' => $tx->no_spat,
+                'no_angkutan' => $tx->no_angkutan,
+                'tgl_selektor' => $tx->tgl_selektor,
+                'tgl_timbang' => $tx->tgl_timbang,
+                'netto' => $tx->netto,
+                'jenis_spta' => $tx->jenis_spta,
+                'no_transloading' => $tx->no_transloading,
+                'waktu_tunggu' => $tx->waktu_tunggu,
+            );
+        }
+        return $data;
+    }
+
     public function PrintDataCetakLori($trainstat, $noloko, $tgl_timbang)
     {
          $qry = $this->QryDataCetakTimbang() . " AND b.jenis_spta = 'LORI' 
@@ -119,6 +139,39 @@ class Dashboardtimbanganmodel extends CI_Model
                 LEFT JOIN t_timbangan AS c ON c.`id_spat` = a.`id_spta`
                 WHERE NOT (b.`timb_netto_status` = 1) AND
                 (a.`tgl_selektor` >= NOW() - INTERVAL 2 DAY)";
+
+        return $qry;
+    }
+
+    public function QryDataAntrianSisaPagi()
+    {
+        $qry = "SELECT
+                    b.`no_spat`,
+                    a.`no_angkutan`,
+                    a.`tgl_selektor`,
+                    IFNULL( b.`tgl_timbang`, '-' ) AS tgl_timbang,
+                    IFNULL( c.`netto`, 0 ) AS netto,
+                    b.`jenis_spta`,
+                c.no_transloading,
+                IFNULL(
+                CONCAT(
+                FLOOR( HOUR ( TIMEDIFF( NOW( ), b.timb_netto_tgl ) ) / 24 ),
+                ' h ',
+                MOD ( HOUR ( TIMEDIFF( NOW( ), b.timb_netto_tgl ) ), 24 ),
+                ' j ',
+                MINUTE ( TIMEDIFF( NOW( ), b.timb_netto_tgl ) ),
+                ' m' 
+                ),
+                '-' 
+                ) AS waktu_tunggu
+                FROM
+                    t_selektor a
+                    INNER JOIN t_spta AS b ON b.id = a.`id_spta`
+                    LEFT JOIN t_timbangan AS c ON c.`id_spat` = a.`id_spta` 
+                WHERE
+                    (b.tgl_timbang BETWEEN (NOW() - INTERVAL 4 DAY) AND (NOW())) AND ( b.`timb_netto_status` = 1 ) 
+                    AND b.meja_tebu_status = 0 
+                    AND NOT ( b.jenis_spta = 'LORI' )";
 
         return $qry;
     }

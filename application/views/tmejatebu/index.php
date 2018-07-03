@@ -7,7 +7,8 @@
               <div class="box box-danger">
               	<div class="box-header with-border">
                   <h3 class="box-title"><?php echo $pageTitle ;?></h3>
-                  
+                    <a href="<?php echo site_url('dashboardtimbangan/sisapagi') ?>" target="_blank" class="tips btn btn-xs btn-info"  title="<?php echo $this->lang->line('core.btn_new'); ?>">
+                        <i class="fa fa-plus"></i>&nbsp;<?php echo $this->lang->line('core.btn_new'); ?> List Sisa Pagi </a>
                 </div>
 
 	 <div class="box-body">

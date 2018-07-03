@@ -46,6 +46,24 @@ class Dashboardtimbangan extends CI_Controller
         $this->load->view('dashboardtimbangan/indexlori');
     }
 
+    function sisapagi()
+    {
+        $this->load->view('dashboardtimbangan/sisapagi');
+    }
+
+    function datasisapagi()
+    {
+        $this->load->model('dashboardtimbanganmodel');
+        $result = $this->dashboardtimbanganmodel->AntrianSisapagi();
+        if(count($result) > 0){
+            $output = array('data' => $result);
+        }else{
+            $output = array('data' => array());
+        }
+
+        echo json_encode($output);
+    }
+
     function formcetaklori()
     {
         $sql_loko = "SELECT * FROM m_no_loko";
