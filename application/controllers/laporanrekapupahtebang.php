@@ -35,6 +35,7 @@ class Laporanrekapupahtebang extends SB_Controller
 		$kat = $_REQUEST['kat'];
 		$petak = $_REQUEST['petak'];
 		$angkutan = $_REQUEST['angkutan'];
+		$jnstgl = $_REQUEST['jnstgl'];
 
 		$this->data['title'] = "SEMUA KATEGORI ";
 		if($kat != ''){
@@ -58,9 +59,18 @@ class Laporanrekapupahtebang extends SB_Controller
 			$wh .= " AND a.tgl = '$tgl2'";
 			$this->data['title'] .= 	"PERIODE TANGGAL ".SiteHelpers::datereport($tgl2).' <br />';	
 		}else{
-			$wh .= " AND a.tgl BETWEEN '$tgl1' and '$tgl2'";
+			if($jnstgl == 1){
+
+				$wh .= " AND a.tgl BETWEEN '$tgl1' and '$tgl2'";
+				$this->data['title'] .= 	"<b style='color:red'>PERIODE TIMBANG</b><br /> TANGGAL ".SiteHelpers::datereport($tgl1).' s/d '.SiteHelpers::datereport($tgl2).'<br />';	
+			}else{
+
+				$wh .= " AND c.tgl_giling BETWEEN '$tgl1' and '$tgl2'";
+				$this->data['title'] .= 	"<b style='color:red'>PERIODE GILING</b><br /> TANGGAL ".SiteHelpers::datereport($tgl1).' s/d '.SiteHelpers::datereport($tgl2).'<br />';	
+			}
+
 			if($petak != '') $wh .= " AND a.kode_blok = '$petak'";
-			$this->data['title'] .= 	"PERIODE TANGGAL ".SiteHelpers::datereport($tgl1).' s/d '.SiteHelpers::datereport($tgl2).'<br />';	
+			
 		}
 		
 
