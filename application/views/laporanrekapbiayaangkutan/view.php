@@ -47,7 +47,7 @@ table td{
 		
 	</tr>
 	<tr>
-		<td style="font-size:15px;text-align:center;"><b><?php echo CNF_PG;?> / <?php echo $kat;?></b></td>
+		<td style="font-size:15px;text-align:center;"><b>PER VENDOR<br /><?php echo CNF_PG;?> / <?php echo $kat;?></b></td>
 	</tr>
 	<tr>
 		<td style="text-align:center;">PERIODE TANGGAL <?php echo SiteHelpers::daterpt($date1);?> S/D <?php echo SiteHelpers::daterpt($date2);?> </td>

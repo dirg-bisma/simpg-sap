@@ -16,6 +16,14 @@
 							<div class="sbox-content" style="padding:10px" >
 								<table witdh="100%">
 									<tr>
+									<td valign="center" class="period1"> Filter By tgl </td>
+						<td style="padding:5px" width="200px" class="period1">
+							<select id='jnstgl' rows='5' 
+							class=' form-control'  required >
+							<option value='1'>Timbang</option>
+							<option value='2'>Giling</option>
+						</select> </td>
+
 										<td style="padding:5px;display:none" width="150px;">
 											<select id="rjns" class=" form-control">
 												<option value="1">PERIODE</option>
@@ -75,21 +83,23 @@
 												<option value='TRAKTOR'>TRAKTOR</option>
 											</select>
 										</td>
-										<td valign="center"> Vendor </td>
-										<td style="padding:5px" width="200px">
-										<select id="vendor_id" class="select21"></select>
-									</td>
+										
 									
 									
 									
 								</tr>
 								<tr>
+								<td valign="center"> Vendor </td>
+										<td style="padding:5px" width="200px">
+										<select id="vendor_id" class="select21"></select>
+									</td>
 									<td>Output </td>
 									<td>
-										<select id='output' rows='5'	class=' form-control'  required >
-											<option value=''>- SEMUA -</option>
-											<option value='DETAIL'>DETAIL</option>
-											<option value='PERPETAK'>PER PETAK</option>
+										<select id='output' rows='5' onchange="gantijns(this.value)"	class=' form-control'  required >
+											<option value='PERTRANSAKSI'>PER TRANSAKSI</option>
+											<option value='DETAIL'>PER VENDOR DETAIL</option>
+											<option value='PERPETAK'>PER PETAK REKAP</option>
+											<option value='PERPETAKD'>PER PETAK DETAIL</option>
 										</select>
 									</td>
 									<td valign="center" colspan="9" style="padding-left:10px;">
@@ -119,7 +129,16 @@
 $(document).ready(function(){
 		//getReport();
 		$('.bulan').hide();$('.tahun').hide();
+		gantijns(1);
 });
+
+function gantijns(a){
+	if(a == 'PERPETAKD'){
+		$('.period1').show();
+	}else{
+		$('.period1').hide();
+	}
+}
 $(document).ready(function(){
 $("#vendor_id").jCombo("<?php echo site_url('tbiayaangkutan/comboselect?filter=m_vendor:id_vendor:nama_vendor') ?>",
 {  selected_value : '',initial_text:'- Semua Vendor -' });
@@ -141,14 +160,14 @@ $.ajax({
 type 	: "POST",
 datatype: "json",
 url 	: "<?php echo site_url('laporanrekapbiayaangkutan/show'); ?>",
-data 	: {tgl1:$('#tgl1').val(),tgl2:$('#tgl2').val(),angkutan:$('#angkutan').val(),kat:$('#kat').val(),jns:$('#vendor_id').val(),output:$('#output').val()},
+data 	: {tgl1:$('#tgl1').val(),tgl2:$('#tgl2').val(),angkutan:$('#angkutan').val(),kat:$('#kat').val(),jns:$('#vendor_id').val(),output:$('#output').val(),jnstgl:$('#jnstgl').val()},
 success	: function(data){
 $('#report').html(data);
 }
 });
 }
 function getReportExcel(){
-var myData = {tgl1:$('#tgl1').val(),tgl2:$('#tgl2').val(),angkutan:$('#angkutan').val(),kat:$('#kat').val(),jns:$('#vendor_id').val(),output:$('#output').val()};
+var myData = {tgl1:$('#tgl1').val(),tgl2:$('#tgl2').val(),angkutan:$('#angkutan').val(),kat:$('#kat').val(),jns:$('#vendor_id').val(),output:$('#output').val(),jnstgl:$('#jnstgl').val()};
 var out = [];
 for (var key in myData) {
 out.push(key + '=' + encodeURIComponent(myData[key]));
