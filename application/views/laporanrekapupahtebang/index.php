@@ -19,6 +19,15 @@
 			<div class="sbox-content" style="padding:10px" > 		
 				<table witdh="100%">
 					<tr>
+
+					<td valign="center" class="period1"> Filter By tgl </td>
+						<td style="padding:5px" width="200px" class="period1">
+							<select id='jnstgl' rows='5' 
+							class=' form-control'  required >
+							<option value='1'>Timbang</option>
+							<option value='2'>Giling</option>
+						</select> </td>
+
 						<td style="padding:5px;display:none" width="150px;">
 							<select id="rjns" class=" form-control">
 								<option value="1">PERIODE</option>
@@ -84,6 +93,8 @@
 							<option value='3'>Per Mandor Rekap</option>
 							<option value='4'>Per Petak</option>
 						</select> </td>
+
+						
 
 						</tr>
 						<tr>
@@ -166,7 +177,7 @@ function getReport(){
 	 	url 	: "<?php echo site_url('laporanrekapupahtebang/printlaporan'); ?>",
 	 	data 	: {tgl1:$('#tgl1').val(),tgl2:$('#tgl2').val(),angkutan:$('#angkutan').val(),
 	 	sup:$('#sup').val(),bln:$('#bln').val(),thn:$('#thn').val(),rjns:$('#rjns').val()
-	 	,kat:$('#kat').val(),jns:$('#jns').val(),petak:$('#kode_blok').val()
+	 	,kat:$('#kat').val(),jns:$('#jns').val(),petak:$('#kode_blok').val(),jnstgl:$('#jnstgl').val()
 	 	},
 	 	success	: function(data){
 	 		$('#report').html(data);
@@ -185,7 +196,7 @@ function gantijns(a){
 function getReportExcel(){
 var myData = {tgl1:$('#tgl1').val(),tgl2:$('#tgl2').val(),angkutan:$('#angkutan').val(),
 	 	sup:$('#sup').val(),bln:$('#bln').val(),thn:$('#thn').val(),rjns:$('#rjns').val()
-	 	,kat:$('#kat').val(),jns:$('#jns').val()};
+	 	,kat:$('#kat').val(),jns:$('#jns').val(),jnstgl:$('#jnstgl').val()};
 var out = [];
 
 for (var key in myData) {

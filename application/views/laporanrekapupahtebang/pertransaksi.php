@@ -49,7 +49,7 @@
 	<?=CNF_ALAMAT;?>
 </td>
 <td align="center" style="font-size:13px" colspan="10" >
-REKAPITULASI UPAH TEBANG<br />
+REKAPITULASI UPAH TEBANG PER TRANSAKSI<br />
 <?=$title;?> 
 </td>
 </tr>
