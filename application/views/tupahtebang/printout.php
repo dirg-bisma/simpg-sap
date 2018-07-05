@@ -263,7 +263,7 @@
 
 					<tr style="font-size:15px;font-weight:bold">
 					<td colspan="3" style="border-top:1px solid black;"> TOTAL </td>
-					<td style="text-align:right;border-top:1px solid black;"><?php echo number_format($jbersih+$tambahantotal-$kurangtotal,2);?></td>
+					<td style="text-align:right;border-top:1px solid black; font-size: 20px"><?php echo number_format($jbersih+$tambahantotal-$kurangtotal,2);?></td>
 				</table>
 				</div>
 				<div style="width:50%;float: left;">
