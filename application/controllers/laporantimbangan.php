@@ -82,7 +82,7 @@ class Laporantimbangan extends SB_Controller
 		}
 
 
-
+		$this->inputLogs(" Ambil laporan parameter query ".$wh);
 
 		
 		if(isset($_REQUEST['excel']) && $_REQUEST['excel'] == 1){
