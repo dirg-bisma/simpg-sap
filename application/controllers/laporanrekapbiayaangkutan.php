@@ -202,7 +202,7 @@ class Laporanrekapbiayaangkutan extends SB_Controller
 					  d.`biaya` AS tarif,
 					  (d.`biaya` * b.`netto`) AS jumlah,
 					  e.total,
-  					  f.nama_vendor 
+  					  g.nama_vendor 
 					FROM
 					  t_spta a 
 					  INNER JOIN sap_field sf 
@@ -215,13 +215,15 @@ class Laporanrekapbiayaangkutan extends SB_Controller
 					    ON d.`id_jarak` = a.jarak_id 
 					  INNER JOIN t_angkutan_detail e 
 					    ON e.id_spta = a.id 
-					  INNER JOIN vw_upah_angkut f 
-					    ON f.vendor_id = a.vendor_angkut
+					  INNER JOIN t_angkutan f 
+					    ON f.`id` = e.`angkutan_id`
+					  INNER JOIN m_vendor g
+					    ON g.`id_vendor`=f.`vendor_id`
 					  WHERE f.tgl BETWEEN '$tgl1' AND '$tgl2'
 					  $whkat
 					  $whangkut  
 					  $whvendor
-					  GROUP BY a.id order by f.id";						
+					  GROUP BY a.id order by e.angkutan_id";						
 					}
 			$data_query =  $this->db->query($sql)->result();
 			$this->data['detail'] =  $data_query;
