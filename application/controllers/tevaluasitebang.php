@@ -115,7 +115,7 @@ class Tevaluasitebang extends SB_Controller
         echo json_encode($output);
 	}
 
-	function grids(){
+	function grids($afd){
 		
 		$sort = $this->model->primaryKey; 
 		$order = 'asc';
@@ -134,16 +134,21 @@ class Tevaluasitebang extends SB_Controller
 
         }
 
+        $filterx = " AND divisi = '$afd'";
+
         for ($i=0; $i < count($this->col) ; $i++) { 
         	
             if(isset($_POST['search']['value']) && $_POST['search']['value'] != ''){
             	if($i==0){
-            		$filter .= " AND ".$this->col[$i+1]." LIKE '%".$_POST['search']['value']."%'";
+            		$filter .= " AND (".$this->col[$i+1]." LIKE '%".$_POST['search']['value']."%'";
             	}else{
             		$filter .= " OR ".$this->col[$i+1]." LIKE '%".$_POST['search']['value']."%'";
             	}
             }
         }
+
+        if($filter != '')  $filter .= ')';
+        $filter .= $filterx;
 
 		$params = array(
 			'limit'		=> $_POST['start'],
@@ -168,6 +173,7 @@ class Tevaluasitebang extends SB_Controller
             		$field = $this->col[$i+1];
             		$conn = (isset($this->con[$i+1]) ? $this->con[$i+1] : array() ) ;
 					$row[] = SiteHelpers::gridDisplay($dt->$field , $field , $conn );
+					
             }
  
             //add html for action
@@ -206,6 +212,7 @@ class Tevaluasitebang extends SB_Controller
 
 		// Group users permission
 		$this->data['access']		= $this->access;
+		$this->data['rowdetail'] = $this->model->getafd();
 		// Render into template
 		
 		$this->data['content'] = $this->load->view('tevaluasitebang/index',$this->data, true );
@@ -322,12 +329,12 @@ class Tevaluasitebang extends SB_Controller
 			if($sisap < 0 && $sisapx > 0){
 
 			//	$up = $this->db->query("UPDATE sap_field set aff_tebang=1 where kode_blok = '$kodepetak'");
-				echo "2.Hektar Error, Sisa Luas adalah ".number_format($luas_ha-$luas_tebang,2,',','.')." Ha ";
+				echo "2.Hektar Error, Sisa Luas adalah ".number_format($luas_ha-$luas_tebang,3,',','.')." Ha ";
 
 			}else if($sisap < 0 && $sisapx < 0){
 
 				$up = $this->db->query("UPDATE sap_field set aff_tebang=1 where kode_blok = '$kodepetak'");
-				echo "2.Hektar Error, Sisa Luas adalah ".number_format($luas_ha-$luas_tebang,2,',','.')." Ha ";
+				echo "2.Hektar Error, Sisa Luas adalah ".number_format($luas_ha-$luas_tebang,3,',','.')." Ha ";
 				$this->inputLogs("2.Aff otomatis karena petak ".$kodepetak." minus sisa hektarnya.");
 
 			}else{
