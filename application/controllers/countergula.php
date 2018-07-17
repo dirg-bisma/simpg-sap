@@ -16,6 +16,8 @@ class Countergula extends SB_Controller
 				$sql = $this->db->query("INSERT t_counter_gula_detail VALUES('','$jlr',1,0,get_tgl_giling(),now(),now())");
 			}else if($sensor == 'CF'){
 				$sql = $this->db->query("INSERT t_counter_gula_detail VALUES('','$jlr',0,1,get_tgl_giling(),now(),now())");
+			}else if($sensor == 'ALL'){
+				$sql = $this->db->query("INSERT t_counter_gula_detail VALUES('','$jlr',1,1,get_tgl_giling(),now(),now())");
 			}
 		
 		if($sql){
