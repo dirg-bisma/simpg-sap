@@ -46,7 +46,7 @@ class Countergula extends SB_Controller
 		$NODE_PATCH = "unit/KP06/$jalur/$tgl/$jam.json";
 
 		// JSON encoded
-		$data = array("value1"=>$val1,"value2"=>$val2);
+		$data = array("value1"=> (int) $val1,"value2"=>(int) $val2);
 		$json = json_encode( $data );
 		// Initialize cURL
 		$curl = curl_init();
