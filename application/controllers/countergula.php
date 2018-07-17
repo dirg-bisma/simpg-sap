@@ -26,6 +26,8 @@ class Countergula extends SB_Controller
 
 			$rb = $this->db->query("INSERT t_counter_gula VALUES('','$qr->jalur','$qr->ck','$qr->cv','$qr->tgl_pengakuan','$qr->jam',0,NOW())");
 
+			$this->sendfirebase($qr->jalur,$qr->tgl_pengakuan,$qr->jam,$qr->ck,$qr->cv);
+
 		}else{
 
 			$ax['data'] = 'Gagal Insert';
@@ -36,6 +38,29 @@ class Countergula extends SB_Controller
 		}
 
 		echo json_encode($ax);
+
+	}
+
+	function sendfirebase($jalur,$tgl,$jam,$val1,$val2){
+		$FIREBASE = "https://counter-pabrik.firebaseio.com/";
+		$NODE_PATCH = "unit/KP06/$jalur/$tgl/$jam.json";
+
+		// JSON encoded
+		$data = array("value1"=>$val1,"value2"=>$val2);
+		$json = json_encode( $data );
+		// Initialize cURL
+		$curl = curl_init();
+		curl_setopt( $curl, CURLOPT_URL, $FIREBASE . $NODE_PATCH );
+		curl_setopt( $curl, CURLOPT_CUSTOMREQUEST, "PATCH" );
+		curl_setopt( $curl, CURLOPT_POSTFIELDS, $json );
+		// Delete
+		// curl_setopt( $curl, CURLOPT_URL, $FIREBASE . $NODE_DELETE );
+		// curl_setopt( $curl, CURLOPT_CUSTOMREQUEST, "DELETE" );
+		// Get return value
+		curl_setopt( $curl, CURLOPT_RETURNTRANSFER, true );
+		$response = curl_exec( $curl );
+		curl_close( $curl );
+		echo $response . "\n";
 
 	}
 
