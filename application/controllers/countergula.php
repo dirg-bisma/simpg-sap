@@ -21,7 +21,7 @@ class Countergula extends SB_Controller
 		if($sql){
 			$ax['data'] = 'Berhasil Insert';
 
-			$qr = $this->db->query("SELECT jalur,tgl_pengakuan,DATE_FORMAT(tgl_pengakuan,'%d%M%Y') AS tgls,TIME_FORMAT(jam_pengakuan,'%H') as jam,SUM(cekscale) as ck,SUM(conveyor) as cv FROM t_counter_gula_detail GROUP BY 	jalur,tgl_pengakuan,TIME_FORMAT(jam_pengakuan,'%H') ORDER BY tgl_act DESC LIMIT 1")->row();
+			$qr = $this->db->query("SELECT jalur,tgl_pengakuan,DATE_FORMAT(tgl_pengakuan,'%d%n%Y') AS tgls,TIME_FORMAT(jam_pengakuan,'%H') as jam,SUM(cekscale) as ck,SUM(conveyor) as cv FROM t_counter_gula_detail GROUP BY 	jalur,tgl_pengakuan,TIME_FORMAT(jam_pengakuan,'%H') ORDER BY tgl_act DESC LIMIT 1")->row();
 			$rs = $this->db->query("DELETE FROM t_counter_gula WHERE jalur = '$qr->jalur' AND tgl = '$qr->tgl_pengakuan' AND jam='$qr->jam'");
 
 			$rb = $this->db->query("INSERT t_counter_gula VALUES('','$qr->jalur','$qr->ck','$qr->cv','$qr->tgl_pengakuan','$qr->jam',0,NOW())");
@@ -43,7 +43,7 @@ class Countergula extends SB_Controller
 
 	function sendfirebase($jalur,$tgl,$jam,$val1,$val2){
 		$FIREBASE = "https://counter-pabrik.firebaseio.com/";
-		$NODE_PATCH = "unit/KP06/$jalur/$tgl/$jam.json";
+		$NODE_PATCH = "unit/".CNF_PLANCODE."/$jalur/$tgl/$jam.json";
 
 		// JSON encoded
 		$data = array("value1"=> (int) $val1,"value2"=>(int) $val2);
