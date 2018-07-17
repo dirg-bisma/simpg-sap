@@ -77,7 +77,7 @@ class Dashboard extends SB_Controller {
 			}
 			
 			$fieldj = "jm.`jam` as jjm,selektor.*";
-			$leftjoin = "LEFT JOIN (SELECT COUNT(id_spta) AS ttl,SUM(IF(b.`jenis_spta`='TRUK',1,0)) AS truk,SUM(IF(b.`jenis_spta`='LORI',1,0)) AS lori,SUM(IF(b.`jenis_spta`='ORONG2',1,0)) AS odong2,SUM(IF(b.`jenis_spta`='TRAKTOR',1,0)) AS traktor,CONVERT(DATE_FORMAT(a.tgl_selektor,'%H') USING utf8) AS jam FROM t_selektor a
+			$leftjoin = "LEFT JOIN (SELECT COUNT(id_spta) AS ttl,SUM(IF(b.`jenis_spta`='TRUK',1,0)) AS truk,SUM(IF(b.`jenis_spta`='LORI',1,0)) AS lori,SUM(IF(b.`jenis_spta`='ODONG2',1,0)) AS odong2,SUM(IF(b.`jenis_spta`='TRAKTOR',1,0)) AS traktor,CONVERT(DATE_FORMAT(a.tgl_selektor,'%H') USING utf8) AS jam FROM t_selektor a
 INNER JOIN t_spta b ON a.`id_spta`=b.`id` WHERE a.`tgl_urut`='$tgl' AND a.`ditolak_sel` = 0
 GROUP BY DATE_FORMAT(a.tgl_selektor,'%H')) AS selektor ON selektor.jam=jm.jam";
 		}else if($jns == 2){
@@ -104,10 +104,10 @@ GROUP BY DATE_FORMAT(a.tgl_selektor,'%H')) AS selektor ON selektor.jam=jm.jam";
                             </thead>';
 			}
 			$fieldj = "jm.`jam` as jjm,timbangan.*";
-			$leftjoin = "LEFT JOIN (SELECT SUM(a.`netto_final`) AS ttl,SUM(IF(b.`jenis_spta`='TRUK',a.`netto_final`,0)) AS truk,SUM(IF(b.`jenis_spta`='LORI',a.`netto_final`,0)) AS lori,SUM(IF(b.`jenis_spta`='ORONG2',a.`netto_final`,0)) AS odong2,SUM(IF(b.`jenis_spta`='TRAKTOR',a.`netto_final`,0)) AS traktor,CONVERT(DATE_FORMAT(b.timb_netto_tgl,'%H') USING utf8) AS jam FROM t_timbangan a
+			$leftjoin = "LEFT JOIN (SELECT SUM(a.`netto_final`) AS ttl,SUM(IF(b.`jenis_spta`='TRUK',a.`netto_final`,0)) AS truk,SUM(IF(b.`jenis_spta`='LORI',a.`netto_final`,0)) AS lori,SUM(IF(b.`jenis_spta`='ODONG2',a.`netto_final`,0)) AS odong2,SUM(IF(b.`jenis_spta`='TRAKTOR',a.`netto_final`,0)) AS traktor,CONVERT(DATE_FORMAT(b.timb_netto_tgl,'%H') USING utf8) AS jam FROM t_timbangan a
 INNER JOIN t_spta b ON a.`id_spat`=b.`id` WHERE b.`tgl_timbang`='$tgl'
 GROUP BY DATE_FORMAT(b.timb_netto_tgl,'%H')) AS timbangan ON timbangan.jam=jm.jam";
-		}else{
+		}else{ 
 			$htm = '<table class="table ">
                             <thead>
                               <tr>
