@@ -24,6 +24,12 @@ class Tevaluasitebangmodel extends SB_Model
 	public static function queryGroup(){
 		return "   ";
 	}
+
+	public function getafd(){
+		$sql = "SELECT a.`kode_affd`,b.`name`,a.`nama_afdeling` FROM sap_m_affdeling a INNER JOIN sap_m_karyawan b ON a.`Persno`=b.`Persno` ";
+		$b = $this->db->query($sql)->result();
+		return $b;
+	}
 	
 	public function getRowspdx( $args )
 	{

@@ -179,9 +179,9 @@ class Tevaluasitebang extends SB_Controller
             //add html for action
             $btn ='';
 			$idku = $this->model->primaryKey;
-            if($dt->aff_tebang == 0){
-            	$btn .= '<a href="javascript:setaff(\''.$dt->$idku.'\')" class="tips "  title="Set Aff Tebang"><i class="fa  fa-arrow-right"></i> Set Aff </a>';
-            }
+          //  if($dt->aff_tebang == 0){
+            	$btn .= '<a href="javascript:details(\''.$dt->$idku.'\','.$dt->luas_ha.')" class="tips "  title="Detail"><i class="fa  fa-search"></i> Detail </a>';
+          //  }
             	
             
            
@@ -222,25 +222,85 @@ class Tevaluasitebang extends SB_Controller
 	  
 	}
 	
-	function show( $id = null) 
+	function details() 
 	{
-		if($this->access['is_detail'] ==0)
-		{ 
-			$this->session->set_flashdata('error',SiteHelpers::alert('error','Your are not allowed to access the page'));
-			redirect('dashboard',301);
-	  	}		
+		$kodeblok = $_POST['kode_blok'];
+		$luasha = $_POST['luasha'];
+		
+		$wh = " AND a.kode_blok='$kodeblok'";
+		
+		$sql = "SELECT a.id,a.`no_spat`,a.tgl_spta,tgl_timbang,c.`netto` as netto_final,a.`jenis_spta`,
+		a.selektor_tgl,b.ha_tertebang,b.tanaman_status
+		 FROM t_spta a
+INNER JOIN t_timbangan c ON c.`id_spat`=a.`id`
+INNER JOIN t_selektor b on b.id_spta = a.id
+WHERE a.`timb_netto_status` = 1 $wh GROUP BY a.id";
+		
+		$th = $this->db->query($sql)->result();
+		$htm = "<tr><td colspan='8' style='text-align:center'>
+		<input type='hidden' value='$kodeblok' id='kodeblok1' name='kodeblok' />
+		<input type='hidden' value='$luasha' id='luasha1'  />
+		<b>PETAK $kodeblok</b></td></tr>";
+		$no=1;
 
-		$row = $this->model->getRow($id);
-		if($row)
-		{
-			$this->data['row'] =  $row;
-		} else {
-			$this->data['row'] = $this->model->getColumnTable('sap_field'); 
+		$havalid = 0;
+		$habelum = 0;
+		$ton = 0;
+
+		$arter = array('1'=>'Ya','0'=>'Tidak');
+				$arterx = array('1'=>'Manual','2'=>'Semi Mekanisasi','3'=>'Mekanisasi');
+		foreach($th as $tb){
+			if($tb->tanaman_status == 1){
+				$havalid += $tb->ha_tertebang;
+			}else{
+				$habelum += $tb->ha_tertebang;
+			}
+			$ton += $tb->netto_final;
+			$r = '';
+			$htm .= "<tr>";
+			
+				$htm .= "<td>".$no."</td>";
+				
+				$no++;
+				
+			if($tb->tanaman_status == 1){
+				$htm .= "<td><a href='".$r."' class='addrowall'><i class='fa fa-check'></i></a></td>";
+				$htm .=  "
+				<td>".$tb->no_spat."</td>
+				<td>".$tb->tgl_spta."</td>
+				<td>".$tb->jenis_spta."</td>
+				<td>".$tb->selektor_tgl."</td>
+				<td>".$tb->tgl_timbang."</td>
+				<td class='number'>".number_format($tb->netto_final)."</td>";
+				$htm .=	"<td class='number'>".$tb->ha_tertebang."</td>";
+		}else{
+			$htm .= '<td><input type="checkbox" id="cek_'.$tb->id.'" class="input" name="cek['.$tb->id.']"
+               onclick="cekdataha(this.checked,'.$tb->id.')" /></td>';
+			$htm .=  "
+				<td>".$tb->no_spat."</td>
+				<td>".$tb->tgl_spta."</td>
+				<td>".$tb->jenis_spta."</td>
+				<td>".$tb->selektor_tgl."</td>
+				<td>".$tb->tgl_timbang."</td>
+				<td class='number'>".number_format($tb->netto_final)."</td>";
+			$htm .=	"<td class='number'><input type='number' id='ha_".$tb->id."' class='number inline input' value='".$tb->ha_tertebang."'  /></td>";
+		}
+			$htm .= "</tr>";
+		
+
 		}
 		
-		$this->data['id'] = $id;
-		$this->data['content'] =  $this->load->view('tevaluasitebang/view', $this->data ,true);	  
-		$this->load->view('layouts/main',$this->data);
+		$htm .= "<tr><td colspan='8' style='text-align:right'>Ha Belum Validasi</td>
+		<td class='number'><b>".number_format($habelum,3)." Ha</b></td></tr>";
+		$htm .= "<tr><td colspan='8' style='text-align:right'>Ha Validasi</td>
+		<td class='number'><b>".number_format($havalid,3)." Ha</b></td></tr>";
+		$htm .= "<tr><td colspan='8' style='text-align:right'>Luas Petak</td>
+		<td class='number'><b>".number_format($luasha,3)." Ha</b></td></tr>";
+		if($havalid != 0){
+		$htm .= "<tr><td colspan='8' style='text-align:right'>Protas Terhadap Ha Validasi</td>
+		<td class='number'><b>".number_format(($ton/1000)/$havalid,2)." Ton/Ha</b></td></tr>";
+		}
+		echo $htm;
 	}
   
 	function add( $id = null ) 
@@ -267,47 +327,33 @@ class Tevaluasitebang extends SB_Controller
 	
 	function save() {
 		
-		$rules = $this->validateForm();
+		if(isset($_POST['cek'])){
+			$ax = $_POST['cek'];
+		$kodepetak = $_POST['kodeblok'];
 
-		$this->form_validation->set_rules( $rules );
-		if( $this->form_validation->run() )
-		{
-			$data = $this->validatePost();
-			$ID = $this->model->insertRow($data , $this->input->get_post( 'id_field' , true ));
-			// Input logs
-			if( $this->input->get( 'id_field' , true ) =='')
-			{
-				$this->inputLogs("New Entry row with ID : $ID  , Has Been Save Successfull");
-			} else {
-				$this->inputLogs(" ID : $ID  , Has Been Changed Successfull");
-			}
-			// Redirect after save	
-			$this->session->set_flashdata('message',SiteHelpers::alert('success'," Data has been saved succesfuly !"));
-			if($this->input->post('apply'))
-			{
-				redirect( 'tevaluasitebang/add/'.$ID,301);
-			} else {
-				redirect( 'tevaluasitebang',301);
-			}			
-			
-			
-		} else {
-			$data =	array(
-					'message'	=> 'Ops , The following errors occurred',
-					'errors'	=> validation_errors('<li>', '</li>')
-					);			
-			$this->displayError($data);
+		foreach ($ax as $id=>$ha) {
+			$this->updatehektar($ha,$id);
+		}	
+
+		$this->setupdateha($kodepetak);
+		}else{
+			echo ".Pilih Dulu, SPTA yang akan di validasi !!*";
 		}
+		
 	}
 
-	function updatehektar()
+	
+
+	function updatehektar($ha,$id)
 	{
+
 		$user = $this->session->userdata('fid');
 		$tgl = date('Y-m-d H:i:s');
-		$ha = $_POST['ha'];
-		$id = $_POST['id'];
+	//	$ha = $_POST['ha'];
+	//	$id = $_POST['id'];
 
-		$r = $this->db->query("SELECT b.kode_blok,luas_tebang,luas_ha,aff_tebang FROM t_spta a INNER JOIN sap_field b on a.kode_blok=b.kode_blok where a.id=$id")->row_array();
+		$r = $this->db->query("SELECT b.kode_blok,luas_tebang,luas_ha,aff_tebang FROM t_spta a 
+			INNER JOIN sap_field b on a.kode_blok=b.kode_blok where a.id=$id")->row_array();
 		$kodepetak = $r['kode_blok'];
 		$luas_tebang = $r['luas_tebang'];
 		$luas_ha = $r['luas_ha'];
@@ -317,7 +363,7 @@ class Tevaluasitebang extends SB_Controller
 		if($luas_ha > ($luas_tebang+$ha)){
 			$sql = "UPDATE t_selektor set ha_tertebang='$ha',tanaman_status=1,tanaman_user='$user',tanaman_act=now() WHERE id_spta = $id";
 		$this->db->query($sql);
-		echo "1.Hektar Berhasil diupdate..";
+		echo "1.Hektar Berhasil diupdate..*";
 				$this->inputLogs("3.Hektar Sudah Update pada Petak ".$kodepetak." dengan tambahan ".$ha." Ha");
 		}else{
 			$sisa = $luas_ha-($luas_tebang+$ha);
@@ -329,12 +375,12 @@ class Tevaluasitebang extends SB_Controller
 			if($sisap < 0 && $sisapx > 0){
 
 			//	$up = $this->db->query("UPDATE sap_field set aff_tebang=1 where kode_blok = '$kodepetak'");
-				echo "2.Hektar Error, Sisa Luas adalah ".number_format($luas_ha-$luas_tebang,3,',','.')." Ha ";
+				echo "2.Hektar Error, Sisa Luas adalah ".number_format($luas_ha-$luas_tebang,3,',','.')." Ha *";
 
 			}else if($sisap < 0 && $sisapx < 0){
 
 				$up = $this->db->query("UPDATE sap_field set aff_tebang=1 where kode_blok = '$kodepetak'");
-				echo "2.Hektar Error, Sisa Luas adalah ".number_format($luas_ha-$luas_tebang,3,',','.')." Ha ";
+				echo "2.Hektar Error, Sisa Luas adalah ".number_format($luas_ha-$luas_tebang,3,',','.')." Ha *";
 				$this->inputLogs("2.Aff otomatis karena petak ".$kodepetak." minus sisa hektarnya.");
 
 			}else{
@@ -342,19 +388,19 @@ class Tevaluasitebang extends SB_Controller
 				
 				$this->db->query($sql);
 				$up = $this->db->query("UPDATE sap_field set aff_tebang=1 where kode_blok = '$kodepetak'");
-				echo "3.Hektar Sudah Update dan Petak ".$kodepetak." Otomatis Aff Tebang.";
+				echo "3.Hektar Sudah Update dan Petak ".$kodepetak." Otomatis Aff Tebang.*";
 				$this->inputLogs("3.Hektar Sudah Update dan Petak ".$kodepetak." Otomatis Aff Tebang.");
 			}
 		}
 	}else{
 		$sql = "UPDATE t_selektor set ha_tertebang='0',tanaman_status=1,tanaman_user='$user',tanaman_act=now() WHERE id_spta = $id";
 		$this->db->query($sql);
-		echo "3.Master field sudah Aff, dan hektar berhasil di update";
+		echo "3.Master field sudah Aff, dan hektar berhasil di update*";
 				$this->inputLogs("3.Hektar Sudah Update pada Petak ".$kodepetak." dengan tambahan ".$ha." Ha");
 
 	}
 
-		$this->setupdateha($kodepetak);
+		
 		
 	}
 
@@ -369,10 +415,15 @@ class Tevaluasitebang extends SB_Controller
 
 	function setupdateha($kodepetak){
 
-		$sqld = $this->db->query("SELECT SUM(b.`ha_tertebang`) as hatebang FROM t_spta a INNER JOIN t_selektor b ON a.`id`=b.`id_spta` WHERE a.`kode_blok` = '$kodepetak' and b.tanaman_status=1")->row();
+		$sqld = $this->db->query("SELECT SUM(b.`ha_tertebang`) as hatebang,SUM(netto)  as netto
+			FROM t_spta a 
+			INNER JOIN t_selektor b ON a.`id`=b.`id_spta` 
+			INNER JOIN t_timbangan c on c.id_spat=a.id
+			WHERE a.`kode_blok` = '$kodepetak' and b.tanaman_status=1")->row();
 
 		$ha = $sqld->hatebang;
-		$up = $this->db->query("UPDATE sap_field set luas_tebang='$ha' where kode_blok = '$kodepetak'");
+		$netto = $sqld->netto;
+		$up = $this->db->query("UPDATE sap_field set luas_tebang='$ha',total_tebang='$netto' where kode_blok = '$kodepetak'");
 
 	}
 
@@ -385,6 +436,8 @@ class Tevaluasitebang extends SB_Controller
 			echo $k->kode_blok.'<br />';
 		}
 	}
+
+
 
 
 }
