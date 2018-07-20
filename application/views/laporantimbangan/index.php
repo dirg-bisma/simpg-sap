@@ -135,7 +135,7 @@
 <script type="text/javascript">
 $(document).ready(function(){
 		//getReport();
-		$('.bulan').hide();$('.tahun').hide();$('.period').hide();$('.period1').show();
+		$('.bulan').hide();$('.tahun').hide();$('.period').show();$('.period1').show();
 		$("#divisi").jCombo("<?php echo site_url('mmasterfield/comboselect?filter=sap_m_affdeling:kode_affd:nama_afdeling') ?>",
 		{  selected_value : '', initial_text :'- SEMUA AFD -' });
 		autocompleted();
@@ -144,7 +144,7 @@ $(document).ready(function(){
 
 $('#rjns').on('change',function(e){
 	if($('#rjns').val()==1){
-		$('.bulan').hide();$('.tahun').hide();$('.period').hide();$('.period1').show();
+		$('.bulan').hide();$('.tahun').hide();$('.period').show();$('.period1').show();
 	}else if($('#rjns').val()==2){
 		$('.bulan').show();$('.tahun').show();$('.period').hide();$('.period1').hide();
 		$("#bln").select2("val", "<?=date('n');?>"); 
@@ -159,7 +159,7 @@ function getReport(){
 	 	type 	: "POST",
 	 	datatype: "json",
 	 	url 	: "<?php echo site_url('laporantimbangan/printlaporan'); ?>",
-	 	data 	: {tgl1:$('#tgl1').val(),tgl2:$('#tgl1').val(),
+	 	data 	: {tgl1:$('#tgl1').val(),tgl2:$('#tgl2').val(),
 	 	sup:$('#sup').val(),jns:$('#jns').val()
 	 	,bln:$('#bln').val(),thn:$('#thn').val(),rjns:$('#rjns').val(),tebangan:$('#tebangan').val()
 	 	,kat:$('#kat').val(),angkutan:$('#angkutan').val(),divisi:$('#divisi').val(),kode_blok:$('#kode_blok').val()
@@ -171,7 +171,7 @@ function getReport(){
 }
 
 function getReportExcel(){
-var myData = {tgl1:$('#tgl1').val(),tgl2:$('#tgl1').val(),
+var myData = {tgl1:$('#tgl1').val(),tgl2:$('#tgl2').val(),
 	 	sup:$('#sup').val(),jns:$('#jns').val()
 	 	,bln:$('#bln').val(),thn:$('#thn').val(),rjns:$('#rjns').val(),tebangan:$('#tebangan').val()
 	 	,kat:$('#kat').val(),angkutan:$('#angkutan').val(),divisi:$('#divisi').val(),kode_blok:$('#kode_blok').val()
