@@ -30,6 +30,70 @@ class Tevaluasitebangmodel extends SB_Model
 		$b = $this->db->query($sql)->result();
 		return $b;
 	}
+
+	public function getRownew( $args )
+	{
+		$table = $this->table;
+		$key = $this->primaryKey;
+
+		extract( array_merge( array(
+			'page' 		=> '0' ,
+			'limit'  	=> '0' ,
+			'sort' 		=> '' ,
+			'order' 	=> '' ,
+			'params' 	=> '' ,
+			'global'	=> '1'
+		), $args ));
+		
+		//$offset = ($page-1) * $limit ;
+		//$offset = $page-1 ;
+		$limitConditional =  "LIMIT $limit , $page" ;
+		$orderConditional = ($sort !='' && $order !='') ?  " ORDER BY {$sort} {$order} " : '';
+		
+		
+		$rows = array();
+		$asc = "SELECT
+  `a`.`divisi`         AS `divisi`,
+  `a`.`kepemilikan`    AS `kepemilikan`,
+  `a`.`kode_blok`     AS `kode_blok`,
+ CONCAT('<span class=\"badge bg-red\">',SUM(IF(tanaman_status=0,1,0)),'</span> ', `a`.`deskripsi_blok`) AS `deskripsi_blok`,
+  `b`.`nama_petani`    AS `nama_petani`,
+  `a`.`luas_ha`        AS `luas_ha`,
+  `a`.`luas_tebang`    AS `luas_tebang`,
+  CONCAT(ROUND((((`a`.`luas_ha` - `a`.`luas_tebang`) / `a`.`luas_ha`) * 100),2),' %') AS `sisa`,
+  `a`.`total_pokok`    AS `total_pokok`,
+  `a`.`total_tebang`   AS `total_tebang`,
+  `a`.`aff_tebang`     AS `aff_tebang`,timb_netto_status,tanaman_status
+FROM `sap_field` `a`
+   LEFT JOIN `sap_petani` `b` ON `a`.`id_petani_sap` = `b`.`id_petani_sap`
+   INNER JOIN t_spta c ON c.kode_blok=a.kode_blok
+   INNER JOIN t_selektor d ON d.id_spta=c.id
+   WHERE `timb_netto_status` = 1 AND tanaman_status = 0 GROUP BY `a`.`kode_blok`
+				";
+		$query = $this->db->query(" SELECT * FROM (". $asc.") as xd WHERE 0=0
+			{$params} 
+ {$orderConditional}  {$limitConditional} ");
+		$result = $query->result();
+		$query->free_result();
+		$key = '';
+		if($key =='' ) { $key ='*'; } else { $key = $table.".".$key ; }
+		//$counter_select =  'SELECT count('.$key.') as total FROM ('.$asc." GROUP BY `a`.`kode_blok` ".')';
+		//echo 	$counter_select; exit;
+		$query = $this->db->query( 'SELECT count('.$key.') as total FROM vw_masterfield_data   GROUP BY `kode_blok`');
+		$res = $query->result();
+		// var_dump($counter_select . $this->queryWhere()." {$params} ". $this->queryGroup());exit;
+		$total = $res[0]->total;
+
+		$query = $this->db->query( "SELECT count(".$key.") as total FROM vw_masterfield_data WHERE 0=0 {$params}  GROUP BY `kode_blok` ");
+		$res = $query->result();
+		// var_dump($counter_select . $this->queryWhere()." {$params} ". $this->queryGroup());exit;
+		$totalfil = $res[0]->total;
+		$query->free_result();
+
+		return $results = array('rows'=> $result , 'total' => $total, 'totalfil' => $totalfil);
+
+
+	}
 	
 	public function getRowspdx( $args )
 	{

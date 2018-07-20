@@ -44,32 +44,39 @@ class Tevaluasitebang extends SB_Controller
 	
 	
 	function gridsLain(){
-		$sort = 'id'; 
+		$sort = $this->model->primaryKey; 
 		$order = 'asc';
 		$filter = "";
 		//$filter = (!is_null($this->input->get('search', true)) ? $this->buildSearch() : '');
 		//order 
-		$this->colx[0] = 'spta';
-		$this->colx[1] = 'netto_final';
-		$this->colx[2] = 'ha_tertebang';
-		
 		if(isset($_POST['order']))
         {
             if(($_POST['order']['0']['column'])==0){
-        		$sort = $this->colx[($_POST['order']['0']['column'])+1];
+        		$sort = $this->col[($_POST['order']['0']['column'])+1];
             	$order = $_POST['order']['0']['dir'];
         	}else{
-            	$sort = $this->colx[($_POST['order']['0']['column'])];
+            	$sort = $this->col[($_POST['order']['0']['column'])+1];
             	$order = $_POST['order']['0']['dir'];
         	}
 
         }
 
-		if(isset($_POST['search']['value']) && $_POST['search']['value'] != ''){
-			$filter .= " AND (kode_blok LIKE '%".$_POST['search']['value']."%' OR no_spat LIKE '%".$_POST['search']['value']."%')";
-		} 
-      
-	
+     //   $filterx = " AND divisi = '$afd'";
+
+        for ($i=0; $i < count($this->col) ; $i++) { 
+        	
+            if(isset($_POST['search']['value']) && $_POST['search']['value'] != ''){
+            	if($i==0){
+            		$filter .= " AND (".$this->col[$i+1]." LIKE '%".$_POST['search']['value']."%'";
+            	}else{
+            		$filter .= " OR ".$this->col[$i+1]." LIKE '%".$_POST['search']['value']."%'";
+            	}
+            }
+        }
+
+        if($filter != '')  $filter .= ')';
+      //  $filter .= $filterx;
+
 		$params = array(
 			'limit'		=> $_POST['start'],
 			'page'		=> $_POST['length'],
@@ -79,7 +86,7 @@ class Tevaluasitebang extends SB_Controller
 			'global'	=> (isset($this->access['is_global']) ? $this->access['is_global'] : 0 )
 		);
 		// Get Query 
-		$results = $this->model->getRowspdx( $params );
+		$results = $this->model->getRows( $params );
 		$rows = $results['rows'];
 		$total = $results['total'];
 		$totalfil = $results['totalfil'];
@@ -88,17 +95,21 @@ class Tevaluasitebang extends SB_Controller
 		$data = array();$no=0;
 		foreach ($rows as $dt) {
             $row = array();
-            $row[] = $dt->no_spat;
-            $row[] = $dt->kode_blok;
-            $row[] = $dt->nama_petani;
-            $row[] = $dt->netto_final;
-            $row[] = "<input type='text' class='number' style='width:50px' value='".$dt->ha_tertebang."' id='ha_".$dt->id."' />";
+            for ($i=0; $i < count($this->col) ; $i++) { 
+			
+            		$field = $this->col[$i+1];
+            		$conn = (isset($this->con[$i+1]) ? $this->con[$i+1] : array() ) ;
+					$row[] = SiteHelpers::gridDisplay($dt->$field , $field , $conn );
+					
+            }
  
             //add html for action
             $btn ='';
-			$idku = 'id';
-			
-            	$btn .= '<a href="javascript:updatehektar('.$dt->$idku.')"  class="tips "  title="view"><i class="fa  fa-send"></i></a> &nbsp;';
+			$idku = $this->model->primaryKey;
+          //  if($dt->aff_tebang == 0){
+            	$btn .= '<a href="javascript:details(\''.$dt->$idku.'\','.$dt->luas_ha.')" class="tips "  title="Detail"><i class="fa  fa-search"></i> Detail </a>';
+          //  }
+            	
             
            
  			$row[] = $btn;
@@ -159,7 +170,7 @@ class Tevaluasitebang extends SB_Controller
 			'global'	=> (isset($this->access['is_global']) ? $this->access['is_global'] : 0 )
 		);
 		// Get Query 
-		$results = $this->model->getRows( $params );
+		$results = $this->model->getRownew( $params );
 		$rows = $results['rows'];
 		$total = $results['total'];
 		$totalfil = $results['totalfil'];
@@ -435,6 +446,15 @@ WHERE a.`timb_netto_status` = 1 $wh GROUP BY a.id";
 			$this->setupdateha($k->kode_blok);
 			echo $k->kode_blok.'<br />';
 		}
+	}
+
+	function printprotas(){
+		 $file = "Laporan Produksi Petak.xls";
+                header("Content-type: application/vnd.ms-excel");
+                header("Content-Disposition: attachment; filename=$file");
+		$a = $this->db->query("SELECT * FROM vw_masterfield_data ORDER BY divisi")->result();
+		 $this->data['result'] = $a;
+        $this->load->view('tevaluasitebang/print',$this->data);
 	}
 
 
