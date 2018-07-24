@@ -185,7 +185,11 @@ $(document).ready(function(){
             url: frm.attr('action'),
             data: frm.serialize(),
             success: function (data) {
+            	if(data == ''){
                 alert('Data Berhasil Disimpan !!');
+            }else{
+            	alert(data);
+            }
 				 $('#sximo-modal').modal('hide');
 				reloadgrid();
 				refreshKkw();
@@ -193,7 +197,7 @@ $(document).ready(function(){
             }
         });
 		}else{
-			alert('Form Belum lengkap sialhkan lengkapi lagi / maximal 200 spta per petak!!');
+			alert('Form Belum lengkap silahkan lengkapi lagi / maximal 200 spta per petak!!');
 		}
 
         
