@@ -65,7 +65,7 @@
 
         setInterval( function () {
             tabel_antrian.ajax.reload( null, false ); // user paging is not reset on reload
-        }, 20000 );
+        }, 200000 );
     } );
 </script>
 
