@@ -276,6 +276,18 @@ FROM
 	
 	function saveorder(){
 		//var_dump($_POST);
+		//CEK SISA
+		$sisa = $this->db->query("SELECT kuota_spta,(SELECT IFNULL(SUM(kouta_tot),0) FROM t_spta_kuota_tot WHERE id_spta_kuota_kkw = a.id) as terpakai FROM `t_spta_kuota_kkw` a 
+INNER JOIN `sap_m_affdeling` b ON a.id_affd=b.`id_affdeling`
+INNER JOIN sap_m_karyawan c ON c.`Persno`=b.`Persno` WHERE a.id='".$_POST['id_spta_kuota_kkw']."'")->row();
+
+		$ss = $sisa->kuota_spta-$sisa->terpakai;
+
+		if($ss >= $_POST['kouta_tot']){
+
+
+
+
 		$sql = "UPDATE t_spta_kuota_tot SET kouta_tot=kouta_tot+".$_POST['kouta_tot'].",ptgs_input='".$this->session->userdata('fid')."',tgl_input=now() where id='".$_POST['id']."'";
 		$this->db->query($sql);
 		$afftectedRows = $this->db->affected_rows();
@@ -321,7 +333,9 @@ FROM
 			
 			$this->db->insert('t_spta',$tempdat);
 		}
-		
+		}else{
+			echo "Error, Order SPTA tidak boleh lebih  sisa Kuota, Total tersisa $ss SPTA ";
+		}
 	}
 	
 	

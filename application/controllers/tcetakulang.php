@@ -207,6 +207,11 @@ class Tcetakulang extends SB_Controller
 				$ID = $this->model->insertRow($data , $data['id']);
 				$this->inputLogs(" ID : $ID  , berhasil di retur");
 				$r++;
+
+				$sql = "UPDATE t_spta_kuota_tot a INNER JOIN t_spta b ON a.`kode_blok`=b.`kode_blok` SET a.kouta_tot = (a.kouta_tot-1) 
+WHERE a.tgl_spta = b.`tgl_spta` AND b.`id`='".$data['id']."'";
+				$this->db->query($sql);
+
 			}
 
 			$this->db->query("UPDATE t_spta_kuota set retur=(retur+".$r.") WHERE tgl_spta='".$_POST['tgl_spta']."'");
