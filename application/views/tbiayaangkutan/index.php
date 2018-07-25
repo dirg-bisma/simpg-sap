@@ -1,3 +1,6 @@
+<link rel="stylesheet" href="<?php echo base_url();?>/adminlte/plugins/toast/toast.css">
+<script src="<?php echo base_url();?>/adminlte/plugins/toast/toast.js"></script>
+
 <?php usort($tableGrid, "SiteHelpers::_sort"); ?>
 <section class="content-header">
   <h1>
@@ -120,5 +123,30 @@ function downloadexcel(){
 
 window.open("<?php echo site_url('tbiayaangkutan/downloadexcel')?>/"+$('#tgl1').val()+"/"+$('#tgl2').val()+"?vendor="+$('#vendor_id').val(),"_blank");
 
+}
+
+function validasiupahangkutan(isx){
+  if(confirm("Apakah anda yakin validasi data ini ?")){
+    $.ajax({
+       type: 'POST', 
+          url: '<?php echo site_url('tbiayaangkutan/validasiajax');?>/'+isx, 
+          data: { id: isx }, 
+          success: function (data) { 
+              $.toast({
+                heading: 'Pemberitahuan',
+                textAlign: 'center',
+                text:data  ,
+                icon: 'info',
+                loader: true,        // Change it to false to disable loader
+                loaderBg: '#9EC600',
+                hideAfter: 2000,
+                showHideTransition: 'slide',
+                position: 'top-right',  // To change the background
+            });
+          table.ajax.reload();
+          }
+
+    });
+  }
 }
 </script>
