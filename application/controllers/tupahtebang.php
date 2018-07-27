@@ -121,9 +121,10 @@ class Tupahtebang extends SB_Controller
             }
             if($this->access['is_edit'] ==1 && $dt->status == 0){
             	$btn .= '<a href='.site_url('tupahtebang/add/'.$dt->$idku).'  class="tips "  title="Edit"><i class="fa  fa-edit"></i>  </a> &nbsp;&nbsp;';
+            	$btn .= '<a href="javascript:validasiupahtebang('.$dt->$idku.')"  class="tips "  title="Validasi"><i class="fa  fa-check"></i> Validasi </a> &nbsp;&nbsp;';
             }
             if($this->access['is_remove'] ==1 && $dt->status == 0){
-            	$btn .= '<a href="#" onclick="ConfirmDelete(\''.site_url('tupahtebang/destroy/').'\','.$dt->$idku.')"  class="tips "  title="Delete"><i class="fa  fa-trash"></i>  </a>';
+            	$btn .= '<br /><a href="#" onclick="ConfirmDelete(\''.site_url('tupahtebang/destroy/').'\','.$dt->$idku.')"  class="tips "  title="Delete"><i class="fa  fa-trash"></i>  </a>';
             	
             }
            
@@ -148,6 +149,17 @@ class Tupahtebang extends SB_Controller
 			redirect('tupahtebang/show/'.$id,301);	
 		}else{
 			redirect('tupahtebang',301);
+		}
+	}
+
+
+	function validasiajax($id){
+		if($id != ''){
+			$this->db->query('UPDATE t_upah_tebang SET status=1 WHERE id='.$id);
+			//redirect('tbiayaangkutan/show/'.$id,301);	
+			echo "Berhasil validasi ID : ".$id;
+		}else{
+			echo "Gagal validasi, Karena gagal mengambil ID";
 		}
 	}
 	
