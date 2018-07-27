@@ -1,3 +1,6 @@
+  <link rel="stylesheet" href="<?php echo base_url();?>/adminlte/plugins/toast/toast.css">
+<script src="<?php echo base_url();?>/adminlte/plugins/toast/toast.js"></script>
+
   <?php usort($tableGrid, "SiteHelpers::_sort"); ?>
    <section class="content-header">
           <h1>
@@ -148,4 +151,30 @@ $(document).ready(function(){
       window.open("<?php echo site_url('tupahtebang/downloadexcel');?>/"+$('#tgl1').val()+"?tgl2="+$('#tgl2').val()+"&pta="+$('#pta').val()+"&mandor="+$('#mandor').val(),"_blank");
    
  }
+
+
+ function validasiupahtebang(isx){
+  if(confirm("Apakah anda yakin validasi data ini ?")){
+    $.ajax({
+       type: 'POST', 
+          url: '<?php echo site_url('tupahtebang/validasiajax');?>/'+isx, 
+          data: { id: isx }, 
+          success: function (data) { 
+              $.toast({
+                heading: 'Pemberitahuan',
+                textAlign: 'center',
+                text:data  ,
+                icon: 'info',
+                loader: true,        // Change it to false to disable loader
+                loaderBg: '#9EC600',
+                hideAfter: 2000,
+                showHideTransition: 'slide',
+                position: 'top-right',  // To change the background
+            });
+          table.ajax.reload();
+          }
+
+    });
+  }
+}
 </script>
