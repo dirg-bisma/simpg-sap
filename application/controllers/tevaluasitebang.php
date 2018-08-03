@@ -366,8 +366,8 @@ WHERE a.`timb_netto_status` = 1 $wh GROUP BY a.id";
 		$r = $this->db->query("SELECT b.kode_blok,luas_tebang,luas_ha,aff_tebang FROM t_spta a 
 			INNER JOIN sap_field b on a.kode_blok=b.kode_blok where a.id=$id")->row_array();
 		$kodepetak = $r['kode_blok'];
-		$luas_tebang = $r['luas_tebang'];
-		$luas_ha = $r['luas_ha'];
+		$luas_tebang = floatval($r['luas_tebang']);
+		$luas_ha = floatval($r['luas_ha']);
 		$aff = $r['aff_tebang'];
 
 		if($aff == 0){
@@ -378,7 +378,7 @@ WHERE a.`timb_netto_status` = 1 $wh GROUP BY a.id";
 				$this->inputLogs("3.Hektar Sudah Update pada Petak ".$kodepetak." dengan tambahan ".$ha." Ha");
 		}else{
 			$axs = $luas_tebang+$ha;
-			$sisa = $luas_ha-$axs;
+			$sisa = $luas_ha - $axs;
 			$sisap = ($sisa / $luas_ha)*100;
 
 			$sisax = $luas_ha-($luas_tebang); 
