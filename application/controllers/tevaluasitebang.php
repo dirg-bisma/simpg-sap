@@ -377,14 +377,14 @@ WHERE a.`timb_netto_status` = 1 $wh GROUP BY a.id";
 		echo "1.Hektar Berhasil diupdate..*";
 				$this->inputLogs("3.Hektar Sudah Update pada Petak ".$kodepetak." dengan tambahan ".$ha." Ha");
 		}else{
-			$axs = $luas_tebang+$ha;
+			$axs = $luas_tebang + trim($ha);
 			$sisa = $luas_ha - $axs;
 			$sisap = ($sisa / $luas_ha)*100;
 
 			$sisax = $luas_ha-($luas_tebang); 
 			$sisapx = ($sisax / $luas_ha)*100; 
 
-			echo "Luas ha : ".$luas_ha." & luas tebang".$axs." & sisa ha nya".(($luas_ha)-(0.29));
+			echo "Luas ha : ".$luas_ha." & luas tebang".$axs." & sisa ha nya".(($luas_ha)-($axs));
 			if($sisap < 0 && $sisapx > 0){
 
 			//	$up = $this->db->query("UPDATE sap_field set aff_tebang=1 where kode_blok = '$kodepetak'");
