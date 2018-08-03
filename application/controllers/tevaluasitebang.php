@@ -377,8 +377,8 @@ WHERE a.`timb_netto_status` = 1 $wh GROUP BY a.id";
 		echo "1.Hektar Berhasil diupdate..*";
 				$this->inputLogs("3.Hektar Sudah Update pada Petak ".$kodepetak." dengan tambahan ".$ha." Ha");
 		}else{
-			$axs = (float) $luas_tebang + trim($ha);
-			$sisa = $luas_ha - $axs;
+			$axs = (float) ($luas_tebang + trim($ha));
+			$sisa = (float) ($luas_ha - $axs);
 			$sisap = ($sisa / $luas_ha)*100;
 
 			$sisax = $luas_ha-($luas_tebang); 
