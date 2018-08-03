@@ -383,7 +383,7 @@ WHERE a.`timb_netto_status` = 1 $wh GROUP BY a.id";
 			$sisax = $luas_ha-($luas_tebang); 
 			$sisapx = ($sisax / $luas_ha)*100; 
 
-			echo "sisa : ".$sisap." & sisapx".$sisapx;
+			echo "sisa : ".$sisa." & sisapx".$sisapx;
 			if($sisap < 0 && $sisapx > 0){
 
 			//	$up = $this->db->query("UPDATE sap_field set aff_tebang=1 where kode_blok = '$kodepetak'");
