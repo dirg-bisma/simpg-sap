@@ -38,13 +38,13 @@
    <table>
       <thead>
          <tr>
-            <th colspan="10" align="center" bold style="text-align:center;">LAPORAN TELEGRAM GILING TAHUN  2017</th>
+            <th colspan="10" align="center" bold style="text-align:center;">LAPORAN TELEGRAM GILING TAHUN  <?php echo CNF_TAHUNGILING;?></th>
          </tr>
          <tr>
             <td colspan="10">PERIODE <?php echo date("d/m/Y", strtotime($produksi[0]->PERIODE)); ?></td>
          </tr>
          <tr>
-            <td colspan="10">PABRIK GULA <?php echo $unit[0]->namapg; ?></td>
+            <td colspan="10">PABRIK GULA <?php echo strtoupper($unit[0]->namapg); ?></td>
          </tr>
          <tr>
             <td></td>

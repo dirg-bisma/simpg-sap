@@ -72,7 +72,7 @@ tfoot td,tfoot th {
 <td></td>
 </tr>
 <tr>
-<td colspan="9" style="text-align:center;font-weight:bold;">LAPORAN  EVALUASI GILING</td>
+<td colspan="9" style="text-align:center;font-weight:bold;">LAPORAN  EVALUASI GILING <?php echo CNF_TAHUNGILING;?></td>
 </tr>
 <tr>
 <td colspan="2">PERIODE  :</td>
