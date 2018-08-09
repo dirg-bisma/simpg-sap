@@ -127,8 +127,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->TEBU_SENDIRI_LUAS_HA_THN_LALU_SD_INI,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->TEBU_SENDIRI_LUAS_HA_RKO,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->TEBU_SENDIRI_LUAS_HA_RKAP,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->TEBU_SENDIRI_LUAS_HA_RKAP_PROSEN,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->TEBU_SENDIRI_LUAS_HA_RKO_PROSEN,2); ?></td>
 </tr>
 <tr>
 <td></td>
@@ -138,8 +138,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->TEBU_PETANI_LUAS_HA_THN_LALU_SD_INI,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->TEBU_PETANI_LUAS_HA_RKO,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->TEBU_PETANI_LUAS_HA_RKAP,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->TEBU_PETANI_LUAS_HA_RKAP_PROSEN,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->TEBU_PETANI_LUAS_HA_RKO_PROSEN,2); ?></td>
 </tr>
 <tr>
 <td></td>
@@ -149,8 +149,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->JUMLAH_LUAS_HA_THN_LALU_SD_INI,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->JUMLAH_LUAS_HA_RKO,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->JUMLAH_LUAS_HA_RKAP,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->JUMLAH_LUAS_HA_RKAP_PROSEN,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->JUMLAH_LUAS_HA_RKO_PROSEN,2); ?></td>
 </tr>
 <tr>
 <td>2</td>
@@ -171,8 +171,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->TEBU_SENDIRI_TEBU_DIGILING_TON_THN_LALU_SD_INI,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->TEBU_SENDIRI_TEBU_DIGILING_TON_RKO,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->TEBU_SENDIRI_TEBU_DIGILING_TON_RKAP,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->TEBU_SENDIRI_TEBU_DIGILING_TON_RKAP_PROSEN,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->TEBU_SENDIRI_TEBU_DIGILING_TON_RKO_PROSEN,2); ?></td>
 </tr>
 <tr>
 <td></td>
@@ -182,8 +182,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->TEBU_PETANI_TEBU_DIGILING_TON_THN_LALU_SD_INI,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->TEBU_PETANI_TEBU_DIGILING_TON_RKO,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->TEBU_PETANI_TEBU_DIGILING_TON_RKAP,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->TEBU_PETANI_TEBU_DIGILING_TON_RKAP_PROSEN,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->TEBU_PETANI_TEBU_DIGILING_TON_RKO_PROSEN,2); ?></td>
 </tr>
 <tr>
 <td></td>
@@ -193,8 +193,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->JUMLAH_TEBU_DIGILING_TON_THN_LALU_SD_INI,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->JUMLAH_TEBU_DIGILING_TON_RKO,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->JUMLAH_TEBU_DIGILING_TON_RKAP,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->JUMLAH_TEBU_DIGILING_TON_RKAP_PROSEN,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->JUMLAH_TEBU_DIGILING_TON_RKO_PROSEN,2); ?></td>
 </tr>
 <tr>
 <td>3</td>
@@ -215,8 +215,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->TEBU_SENDIRI_HABLUR_HASILTON_THN_LALU_SD_INI,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->TEBU_SENDIRI_HABLUR_HASILTON_RKO,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->TEBU_SENDIRI_HABLUR_HASILTON_RKAP,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->TEBU_SENDIRI_HABLUR_HASILTON_RKAP_PROSEN,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->TEBU_SENDIRI_HABLUR_HASILTON_RKO_PROSEN,2); ?></td>
 </tr>
 <tr>
 <td></td>
@@ -226,8 +226,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->TEBU_PETANI_HABLUR_HASILTON_THN_LALU_SD_INI,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->TEBU_PETANI_HABLUR_HASILTON_RKO,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->TEBU_PETANI_HABLUR_HASILTON_RKAP,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->TEBU_PETANI_HABLUR_HASILTON_RKAP_PROSEN,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->TEBU_PETANI_HABLUR_HASILTON_RKO_PROSEN,2); ?></td>
 </tr>
 <tr>
 <td></td>
@@ -237,8 +237,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->JUMLAH_HABLUR_HASILTON_THN_LALU_SD_INI,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->JUMLAH_HABLUR_HASILTON_RKO,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->JUMLAH_HABLUR_HASILTON_RKAP,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->JUMLAH_HABLUR_HASILTON_RKAP_PROSEN,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->JUMLAH_HABLUR_HASILTON_RKO_PROSEN,2); ?></td>
 </tr>
 <tr>
 <td>4</td>
@@ -259,8 +259,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->TEBU_SENDIRI_RENDEMEN_THN_LALU_SD_INI,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->TEBU_SENDIRI_RENDEMEN_RKO,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->TEBU_SENDIRI_RENDEMEN_RKAP,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->TEBU_SENDIRI_RENDEMEN_RKAP_PROSEN,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->TEBU_SENDIRI_RENDEMEN_RKO_PROSEN,2); ?></td>
 </tr>
 <tr>
 <td></td>
@@ -270,8 +270,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->TEBU_PETANI_RENDEMEN_THN_LALU_SD_INI,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->TEBU_PETANI_RENDEMEN_RKO,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->TEBU_PETANI_RENDEMEN_RKAP,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->TEBU_PETANI_RENDEMEN_RKAP_PROSEN,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->TEBU_PETANI_RENDEMEN_RKO_PROSEN,2); ?></td>
 </tr>
 <tr>
 <td></td>
@@ -281,8 +281,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->JUMLAH_RENDEMEN_THN_LALU_SD_INI,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->JUMLAH_RENDEMEN_RKO,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->JUMLAH_RENDEMEN_RKAP,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->JUMLAH_RENDEMEN_RKAP_PROSEN,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->JUMLAH_RENDEMEN_RKO_PROSEN,2); ?></td>
 </tr>
 <tr>
 <td>5</td>
@@ -303,8 +303,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->TEBU_SENDIRI_PRODUKTIVITAS_TON_TEBUHA_THN_LALU_SD_INI,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->TEBU_SENDIRI_PRODUKTIVITAS_TON_TEBUHA_RKO,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->TEBU_SENDIRI_PRODUKTIVITAS_TON_TEBUHA_RKAP,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->TEBU_SENDIRI_PRODUKTIVITAS_TON_TEBUHA_RKAP_PROSEN,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->TEBU_SENDIRI_PRODUKTIVITAS_TON_TEBUHA_RKO_PROSEN,2); ?></td>
 </tr>
 <tr>
 <td></td>
@@ -314,8 +314,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->TEBU_PETANI_PRODUKTIVITAS_TON_TEBUHA_THN_LALU_SD_INI,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->TEBU_PETANI_PRODUKTIVITAS_TON_TEBUHA_RKO,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->TEBU_PETANI_PRODUKTIVITAS_TON_TEBUHA_RKAP,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->TEBU_PETANI_PRODUKTIVITAS_TON_TEBUHA_RKAP_PROSEN,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->TEBU_PETANI_PRODUKTIVITAS_TON_TEBUHA_RKO_PROSEN,2); ?></td>
 </tr>
 <tr>
 <td></td>
@@ -325,8 +325,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->JUMLAH_PRODUKTIVITAS_TON_TEBUHA_THN_LALU_SD_INI,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->JUMLAH_PRODUKTIVITAS_TON_TEBUHA_RKO,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->JUMLAH_PRODUKTIVITAS_TON_TEBUHA_RKAP,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->JUMLAH_PRODUKTIVITAS_TON_TEBUHA_RKAP_PROSEN,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->JUMLAH_PRODUKTIVITAS_TON_TEBUHA_RKO_PROSEN,2); ?></td>
 </tr>
 <tr>
 <td>6</td>
@@ -347,8 +347,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->TEBU_SENDIRI_HABLUR__HA_TONHA_THN_LALU_SD_INI,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->TEBU_SENDIRI_HABLUR__HA_TONHA_RKO,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->TEBU_SENDIRI_HABLUR__HA_TONHA_RKAP,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->TEBU_SENDIRI_HABLUR__HA_TONHA_RKAP_PROSEN,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->TEBU_SENDIRI_HABLUR__HA_TONHA_RKO_PROSEN,2); ?></td>
 </tr>
 <tr>
 <td></td>
@@ -358,8 +358,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->TEBU_PETANI_HABLUR__HA_TONHA_THN_LALU_SD_INI,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->TEBU_PETANI_HABLUR__HA_TONHA_RKO,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->TEBU_PETANI_HABLUR__HA_TONHA_RKAP,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->TEBU_PETANI_HABLUR__HA_TONHA_RKAP_PROSEN,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->TEBU_PETANI_HABLUR__HA_TONHA_RKO_PROSEN,2); ?></td>
 </tr>
 <tr>
 <td></td>
@@ -369,8 +369,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->JUMLAH_HABLUR__HA_TONHA_THN_LALU_SD_INI,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->JUMLAH_HABLUR__HA_TONHA_RKO,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->JUMLAH_HABLUR__HA_TONHA_RKAP,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->JUMLAH_HABLUR__HA_TONHA_RKAP_PROSEN,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->JUMLAH_HABLUR__HA_TONHA_RKO_PROSEN,2); ?></td>
 </tr>
 <tr>
 <td>7</td>
@@ -391,8 +391,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->MILIK_PG_HABLUR_MILIK_TON_THN_LALU_SD_INI,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->MILIK_PG_HABLUR_MILIK_TON_RKO,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->MILIK_PG_HABLUR_MILIK_TON_RKAP,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->MILIK_PG_HABLUR_MILIK_TON_RKAP_PROSEN,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->MILIK_PG_HABLUR_MILIK_TON_RKO_PROSEN,2); ?></td>
 </tr>
 <tr>
 <td></td>
@@ -402,8 +402,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->MILIK_PETANI_HABLUR_MILIK_TON_THN_LALU_SD_INI,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->MILIK_PETANI_HABLUR_MILIK_TON_RKO,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->MILIK_PETANI_HABLUR_MILIK_TON_RKAP,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->MILIK_PETANI_HABLUR_MILIK_TON_RKAP_PROSEN,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->MILIK_PETANI_HABLUR_MILIK_TON_RKO_PROSEN,2); ?></td>
 </tr>
 <tr>
 <td></td>
@@ -413,8 +413,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->JUMLAH_HABLUR_MILIK_TON_THN_LALU_SD_INI,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->JUMLAH_HABLUR_MILIK_TON_RKO,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->JUMLAH_HABLUR_MILIK_TON_RKAP,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->JUMLAH_HABLUR_MILIK_TON_RKAP_PROSEN,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->JUMLAH_HABLUR_MILIK_TON_RKO_PROSEN,2); ?></td>
 </tr>
 <tr>
 <td>8</td>
@@ -435,8 +435,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->MILIK_PG_GULA_MILIK_THN_LALU_SD_INI,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->MILIK_PG_GULA_MILIK_RKO,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->MILIK_PG_GULA_MILIK_RKAP,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->MILIK_PG_GULA_MILIK_RKAP_PROSEN,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->MILIK_PG_GULA_MILIK_RKO_PROSEN,2); ?></td>
 </tr>
 <tr>
 <td></td>
@@ -446,8 +446,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->MILIK_PETANI_GULA_MILIK_THN_LALU_SD_INI,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->MILIK_PETANI_GULA_MILIK_RKO,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->MILIK_PETANI_GULA_MILIK_RKAP,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->MILIK_PETANI_GULA_MILIK_RKAP_PROSEN,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->MILIK_PETANI_GULA_MILIK_RKO_PROSEN,2); ?></td>
 </tr>
 <tr>
 <td></td>
@@ -457,8 +457,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->JUMLAH_GULA_MILIK_THN_LALU_SD_INI,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->JUMLAH_GULA_MILIK_RKO,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->JUMLAH_GULA_MILIK_RKAP,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->JUMLAH_GULA_MILIK_RKAP_PROSEN,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->JUMLAH_GULA_MILIK_RKO_PROSEN,2); ?></td>
 </tr>
 <tr>
 <td>9</td>
@@ -479,8 +479,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->MILIK_PG_PRODUKSI_TETES_TON_THN_LALU_SD_INI,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->MILIK_PG_PRODUKSI_TETES_TON_RKO,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->MILIK_PG_PRODUKSI_TETES_TON_RKAP,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->MILIK_PG_PRODUKSI_TETES_TON_RKAP_PROSEN,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->MILIK_PG_PRODUKSI_TETES_TON_RKO_PROSEN,2); ?></td>
 </tr>
 <tr>
 <td></td>
@@ -490,8 +490,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->MILIK_PETANI_PRODUKSI_TETES_TON_THN_LALU_SD_INI,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->MILIK_PETANI_PRODUKSI_TETES_TON_RKO,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->MILIK_PETANI_PRODUKSI_TETES_TON_RKAP,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->MILIK_PETANI_PRODUKSI_TETES_TON_RKAP_PROSEN,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->MILIK_PETANI_PRODUKSI_TETES_TON_RKO_PROSEN,2); ?></td>
 </tr>
 <tr>
 <td></td>
@@ -501,8 +501,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->JUMLAH_PRODUKSI_TETES_TON_THN_LALU_SD_INI,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->JUMLAH_PRODUKSI_TETES_TON_RKO,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->JUMLAH_PRODUKSI_TETES_TON_RKAP,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->JUMLAH_PRODUKSI_TETES_TON_RKAP_PROSEN,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->JUMLAH_PRODUKSI_TETES_TON_RKO_PROSEN,2); ?></td>
 </tr>
 <tr>
 <td>10</td>
@@ -512,8 +512,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->PERSEN_POL_TEBU_THN_LALU_SD_INI,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->PERSEN_POL_TEBU_RKO,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->PERSEN_POL_TEBU_RKAP,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->PERSEN_POL_TEBU_RKAP_PROSEN,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->PERSEN_POL_TEBU_RKO_PROSEN,2); ?></td>
 </tr>
 <tr>
 <td>11</td>
@@ -523,8 +523,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->PERSEN_BRIX_TEBU_THN_LALU_SD_INI,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->PERSEN_BRIX_TEBU_RKO,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->PERSEN_BRIX_TEBU_RKAP,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->PERSEN_BRIX_TEBU_RKAP_PROSEN,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->PERSEN_BRIX_TEBU_RKO_PROSEN,2); ?></td>
 </tr>
 <tr>
 <td>12</td>
@@ -534,8 +534,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->NILAI_NIRA_THN_LALU_SD_INI,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->NILAI_NIRA_RKO,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->NILAI_NIRA_RKAP,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->NILAI_NIRA_RKAP_PROSEN,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->NILAI_NIRA_RKO_PROSEN,2); ?></td>
 </tr>
 <tr>
 <td>13</td>
@@ -545,8 +545,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->KADAR_NIRA_TEBU_THN_LALU_SD_INI,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->KADAR_NIRA_TEBU_RKO,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->KADAR_NIRA_TEBU_RKAP,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->KADAR_NIRA_TEBU_RKAP_PROSEN,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->KADAR_NIRA_TEBU_RKO_PROSEN,2); ?></td>
 </tr>
 <tr>
 <td colspan="8">II GILINGAN</td>
@@ -559,8 +559,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->KECGILING_EXCL_TON_THN_LALU_SD_INI,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->KECGILING_EXCL_TON_RKO,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->KECGILING_EXCL_TON_RKAP,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->KECGILING_EXCL_TON_RKAP_PROSEN,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->KECGILING_EXCL_TON_RKO_PROSEN,2); ?></td>
 </tr>
 <tr>
 <td>2</td>
@@ -570,8 +570,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->KECGILING_INCL_TANPA_HARI_RAYA_TON_THN_LALU_SD_INI,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->KECGILING_INCL_TANPA_HARI_RAYA_TON_RKO,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->KECGILING_INCL_TANPA_HARI_RAYA_TON_RKAP,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->KECGILING_INCL_TANPA_HARI_RAYA_TON_RKAP_PROSEN,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->KECGILING_INCL_TANPA_HARI_RAYA_TON_RKO_PROSEN,2); ?></td>
 </tr>
 <tr>
 <td>3</td>
@@ -581,8 +581,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->KECGILING_INCL_HARI_RAYA_TON_THN_LALU_SD_INI,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->KECGILING_INCL_HARI_RAYA_TON_RKO,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->KECGILING_INCL_HARI_RAYA_TON_RKAP,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->KECGILING_INCL_HARI_RAYA_TON_RKAP_PROSEN,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->KECGILING_INCL_HARI_RAYA_TON_RKO_PROSEN,2); ?></td>
 </tr>
 <tr>
 <td>4</td>
@@ -592,8 +592,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->PERSEN_JAM_BERHENTI_A_TANPA_HARI_RAYA_LUAR_THN_LALU_SD_INI,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->PERSEN_JAM_BERHENTI_A_TANPA_HARI_RAYA_LUAR_RKO,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->PERSEN_JAM_BERHENTI_A_TANPA_HARI_RAYA_LUAR_RKAP,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->PERSEN_JAM_BERHENTI_A_TANPA_HARI_RAYA_LUAR_RKAP_PROSEN,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->PERSEN_JAM_BERHENTI_A_TANPA_HARI_RAYA_LUAR_RKO_PROSEN,2); ?></td>
 </tr>
 <tr>
 <td>5</td>
@@ -603,8 +603,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->PERSEN_JAM_BERHENTI_A_DENGAN_HARI_RAYA_LUAR_THN_LALU_SD_INI,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->PERSEN_JAM_BERHENTI_A_DENGAN_HARI_RAYA_LUAR_RKO,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->PERSEN_JAM_BERHENTI_A_DENGAN_HARI_RAYA_LUAR_RKAP,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->PERSEN_JAM_BERHENTI_A_DENGAN_HARI_RAYA_LUAR_RKAP_PROSEN,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->PERSEN_JAM_BERHENTI_A_DENGAN_HARI_RAYA_LUAR_RKO_PROSEN,2); ?></td>
 </tr>
 <tr>
 <td>6</td>
@@ -614,8 +614,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->PERSEN_JAM_BERHENTI_BDALAM_THN_LALU_SD_INI,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->PERSEN_JAM_BERHENTI_BDALAM_RKO,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->PERSEN_JAM_BERHENTI_BDALAM_RKAP,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->PERSEN_JAM_BERHENTI_BDALAM_RKAP_PROSEN,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->PERSEN_JAM_BERHENTI_BDALAM_RKO_PROSEN,2); ?></td>
 </tr>
 <tr>
 <td>7</td>
@@ -625,8 +625,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->JAM_BERHENTI_PERSEN_JAM_GILING_THN_LALU_SD_INI,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->JAM_BERHENTI_PERSEN_JAM_GILING_RKO,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->JAM_BERHENTI_PERSEN_JAM_GILING_RKAP,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->JAM_BERHENTI_PERSEN_JAM_GILING_RKAP_PROSEN,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->JAM_BERHENTI_PERSEN_JAM_GILING_RKO_PROSEN,2); ?></td>
 </tr>
 <tr>
 <td>8</td>
@@ -636,8 +636,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->NIRA_MENTAH_PERSEN_TEBU_THN_LALU_SD_INI,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->NIRA_MENTAH_PERSEN_TEBU_RKO,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->NIRA_MENTAH_PERSEN_TEBU_RKAP,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->NIRA_MENTAH_PERSEN_TEBU_RKAP_PROSEN,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->NIRA_MENTAH_PERSEN_TEBU_RKO_PROSEN,2); ?></td>
 </tr>
 <tr>
 <td>9</td>
@@ -647,8 +647,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->IMBIBISI_PERSEN_SABUT_THN_LALU_SD_INI,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->IMBIBISI_PERSEN_SABUT_RKO,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->IMBIBISI_PERSEN_SABUT_RKAP,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->IMBIBISI_PERSEN_SABUT_RKAP_PROSEN,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->IMBIBISI_PERSEN_SABUT_RKO_PROSEN,2); ?></td>
 </tr>
 <tr>
 <td>10</td>
@@ -658,8 +658,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->HPB_I_THN_LALU_SD_INI,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->HPB_I_RKO,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->HPB_I_RKAP,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->HPB_I_RKAP_PROSEN,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->HPB_I_RKO_PROSEN,2); ?></td>
 </tr>
 <tr>
 <td>11</td>
@@ -669,8 +669,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->HPB_TOTAL_THN_LALU_SD_INI,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->HPB_TOTAL_RKO,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->HPB_TOTAL_RKAP,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->HPB_TOTAL_RKAP_PROSEN,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->HPB_TOTAL_RKO_PROSEN,2); ?></td>
 </tr>
 <tr>
 <td>12</td>
@@ -680,8 +680,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->HPG_THN_LALU_SD_INI,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->HPG_RKO,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->HPG_RKAP,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->HPG_RKAP_PROSEN,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->HPG_RKO_PROSEN,2); ?></td>
 </tr>
 <tr>
 <td>13</td>
@@ -691,8 +691,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->HPG_125_THN_LALU_SD_INI,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->HPG_125_RKO,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->HPG_125_RKAP,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->HPG_125_RKAP_PROSEN,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->HPG_125_RKO_PROSEN,2); ?></td>
 </tr>
 <tr>
 <td>14</td>
@@ -702,8 +702,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->POL_AMPAS_THN_LALU_SD_INI,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->POL_AMPAS_RKO,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->POL_AMPAS_RKAP,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->POL_AMPAS_RKAP_PROSEN,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->POL_AMPAS_RKO_PROSEN,2); ?></td>
 </tr>
 <tr>
 <td>15</td>
@@ -713,8 +713,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->PERSEN_BAHAN_KERING_AMPAS_THN_LALU_SD_INI,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->PERSEN_BAHAN_KERING_AMPAS_RKO,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->PERSEN_BAHAN_KERING_AMPAS_RKAP,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->PERSEN_BAHAN_KERING_AMPAS_RKAP_PROSEN,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->PERSEN_BAHAN_KERING_AMPAS_RKO_PROSEN,2); ?></td>
 </tr>
 <tr>
 <td>16</td>
@@ -724,8 +724,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->SABUT_PERSEN_TEBU_THN_LALU_SD_INI,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->SABUT_PERSEN_TEBU_RKO,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->SABUT_PERSEN_TEBU_RKAP,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->SABUT_PERSEN_TEBU_RKAP_PROSEN,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->SABUT_PERSEN_TEBU_RKO_PROSEN,2); ?></td>
 </tr>
 <tr>
 <td>17</td>
@@ -735,8 +735,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->PSHK_THN_LALU_SD_INI,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->PSHK_RKO,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->PSHK_RKAP,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->PSHK_RKAP_PROSEN,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->PSHK_RKO_PROSEN,2); ?></td>
 </tr>
 <tr>
 <td>18</td>
@@ -746,8 +746,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->NIRA_ASLI_HILANG_PERSEN_SABUT_THN_LALU_SD_INI,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->NIRA_ASLI_HILANG_PERSEN_SABUT_RKO,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->NIRA_ASLI_HILANG_PERSEN_SABUT_RKAP,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->NIRA_ASLI_HILANG_PERSEN_SABUT_RKAP_PROSEN,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->NIRA_ASLI_HILANG_PERSEN_SABUT_RKO_PROSEN,2); ?></td>
 </tr>
 <tr>
 <td>19</td>
@@ -757,8 +757,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->EFISIENSI_GILINGAN_THN_LALU_SD_INI,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->EFISIENSI_GILINGAN_RKO,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->EFISIENSI_GILINGAN_RKAP,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->EFISIENSI_GILINGAN_RKAP_PROSEN,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->EFISIENSI_GILINGAN_RKO_PROSEN,2); ?></td>
 </tr>
 <tr>
 <td colspan="8">III PENGOLAHAN</td>
@@ -771,8 +771,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->POL_BLOTONG_THN_LALU_SD_INI,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->POL_BLOTONG_RKO,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->POL_BLOTONG_RKAP,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->POL_BLOTONG_RKAP_PROSEN,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->POL_BLOTONG_RKO_PROSEN,2); ?></td>
 </tr>
 <tr>
 <td>2</td>
@@ -782,8 +782,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->PENGASINGAN_BUKAN_GULA_THN_LALU_SD_INI,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->PENGASINGAN_BUKAN_GULA_RKO,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->PENGASINGAN_BUKAN_GULA_RKAP,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->PENGASINGAN_BUKAN_GULA_RKAP_PROSEN,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->PENGASINGAN_BUKAN_GULA_RKO_PROSEN,2); ?></td>
 </tr>
 <tr>
 <td>3</td>
@@ -793,8 +793,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->KG_AIR_DIUAPKANM2_LPJBP_THN_LALU_SD_INI,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->KG_AIR_DIUAPKANM2_LPJBP_RKO,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->KG_AIR_DIUAPKANM2_LPJBP_RKAP,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->KG_AIR_DIUAPKANM2_LPJBP_RKAP_PROSEN,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->KG_AIR_DIUAPKANM2_LPJBP_RKO_PROSEN,2); ?></td>
 </tr>
 <tr>
 <td>4</td>
@@ -804,8 +804,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->KEHILANGAN_POL_PERSEN_POL_NM_THN_LALU_SD_INI,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->KEHILANGAN_POL_PERSEN_POL_NM_RKO,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->KEHILANGAN_POL_PERSEN_POL_NM_RKAP,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->KEHILANGAN_POL_PERSEN_POL_NM_RKAP_PROSEN,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->KEHILANGAN_POL_PERSEN_POL_NM_RKO_PROSEN,2); ?></td>
 </tr>
 <tr>
 <td>5</td>
@@ -815,8 +815,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->WINTER_RENDEMEN_THN_LALU_SD_INI,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->WINTER_RENDEMEN_RKO,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->WINTER_RENDEMEN_RKAP,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->WINTER_RENDEMEN_RKAP_PROSEN,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->WINTER_RENDEMEN_RKO_PROSEN,2); ?></td>
 </tr>
 <tr>
 <td>6</td>
@@ -826,8 +826,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->BHR__THN_LALU_SD_INI,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->BHR__RKO,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->BHR__RKAP,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->BHR__RKAP_PROSEN,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->BHR__RKO_PROSEN,2); ?></td>
 </tr>
 <tr>
 <td>7</td>
@@ -837,8 +837,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->POL_HASIL_PERSEN_POL_NIRA_MENTAH_THN_LALU_SD_INI,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->POL_HASIL_PERSEN_POL_NIRA_MENTAH_RKO,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->POL_HASIL_PERSEN_POL_NIRA_MENTAH_RKAP,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->POL_HASIL_PERSEN_POL_NIRA_MENTAH_RKAP_PROSEN,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->POL_HASIL_PERSEN_POL_NIRA_MENTAH_RKO_PROSEN,2); ?></td>
 </tr>
 <tr>
 <td>8</td>
@@ -848,8 +848,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->POL_HILANG_DALAM_AMPAS_THN_LALU_SD_INI,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->POL_HILANG_DALAM_AMPAS_RKO,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->POL_HILANG_DALAM_AMPAS_RKAP,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->POL_HILANG_DALAM_AMPAS_RKAP_PROSEN,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->POL_HILANG_DALAM_AMPAS_RKO_PROSEN,2); ?></td>
 </tr>
 <tr>
 <td>9</td>
@@ -859,8 +859,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->POL_HILANG_DALAM_BLOTONG_THN_LALU_SD_INI,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->POL_HILANG_DALAM_BLOTONG_RKO,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->POL_HILANG_DALAM_BLOTONG_RKAP,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->POL_HILANG_DALAM_BLOTONG_RKAP_PROSEN,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->POL_HILANG_DALAM_BLOTONG_RKO_PROSEN,2); ?></td>
 </tr>
 <tr>
 <td>10</td>
@@ -870,8 +870,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->POL_HILANG_DALAM_TETES_THN_LALU_SD_INI,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->POL_HILANG_DALAM_TETES_RKO,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->POL_HILANG_DALAM_TETES_RKAP,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->POL_HILANG_DALAM_TETES_RKAP_PROSEN,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->POL_HILANG_DALAM_TETES_RKO_PROSEN,2); ?></td>
 </tr>
 <tr>
 <td>11</td>
@@ -881,8 +881,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->POL_HILANG_TAK_DIKETAHUI_OV_THN_LALU_SD_INI,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->POL_HILANG_TAK_DIKETAHUI_OV_RKO,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->POL_HILANG_TAK_DIKETAHUI_OV_RKAP,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->POL_HILANG_TAK_DIKETAHUI_OV_RKAP_PROSEN,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->POL_HILANG_TAK_DIKETAHUI_OV_RKO_PROSEN,2); ?></td>
 </tr>
 <tr>
 <td>12</td>
@@ -892,8 +892,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->TOTAL_KEHILANGAN_THN_LALU_SD_INI,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->TOTAL_KEHILANGAN_RKO,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->TOTAL_KEHILANGAN_RKAP,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->TOTAL_KEHILANGAN_RKAP_PROSEN,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->TOTAL_KEHILANGAN_RKO_PROSEN,2); ?></td>
 </tr>
 <tr>
 <td colspan="8">IV PABRIK</td>
@@ -906,8 +906,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->EFFISIENSI_PABRIK_THN_LALU_SD_INI,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->EFFISIENSI_PABRIK_RKO,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->EFFISIENSI_PABRIK_RKAP,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->EFFISIENSI_PABRIK_RKAP_PROSEN,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->EFFISIENSI_PABRIK_RKO_PROSEN,2); ?></td>
 </tr>
 <tr>
 <td>2</td>
@@ -917,8 +917,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->OVERALL_RECOVERY_THN_LALU_SD_INI,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->OVERALL_RECOVERY_RKO,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->OVERALL_RECOVERY_RKAP,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->OVERALL_RECOVERY_RKAP_PROSEN,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->OVERALL_RECOVERY_RKO_PROSEN,2); ?></td>
 </tr>
 <tr>
 <td>3</td>
@@ -928,8 +928,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->FAKTOR_RENDEMEN_THN_LALU_SD_INI,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->FAKTOR_RENDEMEN_RKO,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->FAKTOR_RENDEMEN_RKAP,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->FAKTOR_RENDEMEN_RKAP_PROSEN,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->FAKTOR_RENDEMEN_RKO_PROSEN,2); ?></td>
 </tr>
 <tr>
 <td>4</td>
@@ -939,8 +939,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->RENDEMEN_EFEKTIF_THN_LALU_SD_INI,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->RENDEMEN_EFEKTIF_RKO,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->RENDEMEN_EFEKTIF_RKAP,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->RENDEMEN_EFEKTIF_RKAP_PROSEN,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->RENDEMEN_EFEKTIF_RKO_PROSEN,2); ?></td>
 </tr>
 <tr>
 <td>7</td>
@@ -950,8 +950,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->HK_NIRA_MENTAH_THN_LALU_SD_INI,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->HK_NIRA_MENTAH_RKO,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->HK_NIRA_MENTAH_RKAP,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->HK_NIRA_MENTAH_RKAP_PROSEN,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->HK_NIRA_MENTAH_RKO_PROSEN,2); ?></td>
 </tr>
 <tr>
 <td>8</td>
@@ -961,8 +961,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->KEHIL_POL_PERSEN_POL_NM_THN_LALU_SD_INI,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->KEHIL_POL_PERSEN_POL_NM_RKO,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->KEHIL_POL_PERSEN_POL_NM_RKAP,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->KEHIL_POL_PERSEN_POL_NM_RKAP_PROSEN,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->KEHIL_POL_PERSEN_POL_NM_RKO_PROSEN,2); ?></td>
 </tr>
 <tr>
 <td colspan="8">V BAHAN PEMBANTU Kg per 100 TT</td>
@@ -975,8 +975,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->KAPUR_KG_THN_LALU_SD_INI,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->KAPUR_KG_RKO,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->KAPUR_KG_RKAP,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->KAPUR_KG_RKAP_PROSEN,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->KAPUR_KG_RKO_PROSEN,2); ?></td>
 </tr>
 <tr>
 <td>2</td>
@@ -986,8 +986,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->KAPUR__100_TON_TEBU_THN_LALU_SD_INI,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->KAPUR__100_TON_TEBU_RKO,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->KAPUR__100_TON_TEBU_RKAP,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->KAPUR__100_TON_TEBU_RKAP_PROSEN,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->KAPUR__100_TON_TEBU_RKO_PROSEN,2); ?></td>
 </tr>
 <tr>
 <td>3</td>
@@ -997,8 +997,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->BELERANG_KG_THN_LALU_SD_INI,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->BELERANG_KG_RKO,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->BELERANG_KG_RKAP,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->BELERANG_KG_RKAP_PROSEN,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->BELERANG_KG_RKO_PROSEN,2); ?></td>
 </tr>
 <tr>
 <td>4</td>
@@ -1008,8 +1008,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->BELERANG__100_TON_TEBU_THN_LALU_SD_INI,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->BELERANG__100_TON_TEBU_RKO,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->BELERANG__100_TON_TEBU_RKAP,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->BELERANG__100_TON_TEBU_RKAP_PROSEN,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->BELERANG__100_TON_TEBU_RKO_PROSEN,2); ?></td>
 </tr>
 <tr>
 <td>5</td>
@@ -1019,8 +1019,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->ASAM_PHOSPHAT_KG_THN_LALU_SD_INI,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->ASAM_PHOSPHAT_KG_RKO,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->ASAM_PHOSPHAT_KG_RKAP,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->ASAM_PHOSPHAT_KG_RKAP_PROSEN,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->ASAM_PHOSPHAT_KG_RKO_PROSEN,2); ?></td>
 </tr>
 <tr>
 <td>6</td>
@@ -1030,8 +1030,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->ASAM_PHOSPHAT__100_TON_TEBU_THN_LALU_SD_INI,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->ASAM_PHOSPHAT__100_TON_TEBU_RKO,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->ASAM_PHOSPHAT__100_TON_TEBU_RKAP,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->ASAM_PHOSPHAT__100_TON_TEBU_RKAP_PROSEN,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->ASAM_PHOSPHAT__100_TON_TEBU_RKO_PROSEN,2); ?></td>
 </tr>
 <tr>
 <td>7</td>
@@ -1041,8 +1041,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->FLOCULANT_KG_THN_LALU_SD_INI,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->FLOCULANT_KG_RKO,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->FLOCULANT_KG_RKAP,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->FLOCULANT_KG_RKAP_PROSEN,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->FLOCULANT_KG_RKO_PROSEN,2); ?></td>
 </tr>
 <tr>
 <td>8</td>
@@ -1052,8 +1052,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->FLOCULANT__100_TON_TEBU_THN_LALU_SD_INI,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->FLOCULANT__100_TON_TEBU_RKO,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->FLOCULANT__100_TON_TEBU_RKAP,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->FLOCULANT__100_TON_TEBU_RKAP_PROSEN,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->FLOCULANT__100_TON_TEBU_RKO_PROSEN,2); ?></td>
 </tr>
 <tr>
 <td>9</td>
@@ -1063,8 +1063,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->FILTER_AID_KG_THN_LALU_SD_INI,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->FILTER_AID_KG_RKO,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->FILTER_AID_KG_RKAP,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->FILTER_AID_KG_RKAP_PROSEN,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->FILTER_AID_KG_RKO_PROSEN,2); ?></td>
 </tr>
 <tr>
 <td>10</td>
@@ -1074,8 +1074,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->FILTER_AID__100_TON_TEBU_THN_LALU_SD_INI,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->FILTER_AID__100_TON_TEBU_RKO,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->FILTER_AID__100_TON_TEBU_RKAP,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->FILTER_AID__100_TON_TEBU_RKAP_PROSEN,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->FILTER_AID__100_TON_TEBU_RKO_PROSEN,2); ?></td>
 </tr>
 <tr>
 <td>11</td>
@@ -1085,8 +1085,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->PELUNAK_KERAK_KG_THN_LALU_SD_INI,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->PELUNAK_KERAK_KG_RKO,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->PELUNAK_KERAK_KG_RKAP,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->PELUNAK_KERAK_KG_RKAP_PROSEN,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->PELUNAK_KERAK_KG_RKO_PROSEN,2); ?></td>
 </tr>
 <tr>
 <td>12</td>
@@ -1096,8 +1096,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->PELUNAK_KERAK__100_TON_TEBU_THN_LALU_SD_INI,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->PELUNAK_KERAK__100_TON_TEBU_RKO,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->PELUNAK_KERAK__100_TON_TEBU_RKAP,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->PELUNAK_KERAK__100_TON_TEBU_RKAP_PROSEN,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->PELUNAK_KERAK__100_TON_TEBU_RKO_PROSEN,2); ?></td>
 </tr>
 <tr>
 <td colspan="8">VI MASAKAN A</td>
@@ -1110,8 +1110,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->MASAKAN_PERSEN_TEBU_THN_LALU_SD_INI_A,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->MASAKAN_PERSEN_TEBU_RKO_A,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->MASAKAN_PERSEN_TEBU_RKAP_A,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->MASAKAN_PERSEN_TEBU_RKO_PROSEN_A,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->MASAKAN_PERSEN_TEBU_RKAP_PROSEN_A,2); ?></td>
 </tr>
 <tr>
 <td>2</td>
@@ -1121,8 +1121,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->PERSEN_BRIX_MASAKAN_THN_LALU_SD_INI_A,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->PERSEN_BRIX_MASAKAN_RKO_A,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->PERSEN_BRIX_MASAKAN_RKAP_A,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->PERSEN_BRIX_MASAKAN_RKO_PROSEN_A,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->PERSEN_BRIX_MASAKAN_RKAP_PROSEN_A,2); ?></td>
 </tr>
 <tr>
 <td>3</td>
@@ -1132,8 +1132,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->HK_MASAKAN_THN_LALU_SD_INI_A,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->HK_MASAKAN_RKO_A,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->HK_MASAKAN_RKAP_A,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->HK_MASAKAN_RKO_PROSEN_A,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->HK_MASAKAN_RKAP_PROSEN_A,2); ?></td>
 </tr>
 <tr>
 <td>4</td>
@@ -1143,8 +1143,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->PURITY_DROP_THN_LALU_SD_INI_A,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->PURITY_DROP_RKO_A,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->PURITY_DROP_RKAP_A,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->PURITY_DROP_RKO_PROSEN_A,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->PURITY_DROP_RKAP_PROSEN_A,2); ?></td>
 </tr>
 <tr>
 <td>5</td>
@@ -1154,8 +1154,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->KRISTAL_PERSEN_POL_THN_LALU_SD_INI_A,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->KRISTAL_PERSEN_POL_RKO_A,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->KRISTAL_PERSEN_POL_RKAP_A,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->KRISTAL_PERSEN_POL_RKO_PROSEN_A,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->KRISTAL_PERSEN_POL_RKAP_PROSEN_A,2); ?></td>
 </tr>
 <tr>
 <td colspan="8">VII MASAKAN : B/R</td>
@@ -1168,8 +1168,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->MASAKAN_PERSEN_TEBU_THN_LALU_SD_INI_B,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->MASAKAN_PERSEN_TEBU_RKO_B,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->MASAKAN_PERSEN_TEBU_RKAP_B,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->MASAKAN_PERSEN_TEBU_RKO_PROSEN_B,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->MASAKAN_PERSEN_TEBU_RKAP_PROSEN_B,2); ?></td>
 </tr>
 <tr>
 <td>2</td>
@@ -1179,8 +1179,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->PERSEN_BRIX_MASAKAN_THN_LALU_SD_INI_B,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->PERSEN_BRIX_MASAKAN_RKO_B,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->PERSEN_BRIX_MASAKAN_RKAP_B,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->PERSEN_BRIX_MASAKAN_RKO_PROSEN_B,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->PERSEN_BRIX_MASAKAN_RKAP_PROSEN_B,2); ?></td>
 </tr>
 <tr>
 <td>3</td>
@@ -1190,8 +1190,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->HK_MASAKAN_THN_LALU_SD_INI_B,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->HK_MASAKAN_RKO_B,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->HK_MASAKAN_RKAP_B,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->HK_MASAKAN_RKO_PROSEN_B,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->HK_MASAKAN_RKAP_PROSEN_B,2); ?></td>
 </tr>
 <tr>
 <td>4</td>
@@ -1201,8 +1201,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->PURITY_DROP_THN_LALU_SD_INI_B,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->PURITY_DROP_RKO_B,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->PURITY_DROP_RKAP_B,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->PURITY_DROP_RKO_PROSEN_B,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->PURITY_DROP_RKAP_PROSEN_B,2); ?></td>
 </tr>
 <tr>
 <td>5</td>
@@ -1212,8 +1212,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->KRISTAL_PERSEN_POL_THN_LALU_SD_INI_B,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->KRISTAL_PERSEN_POL_RKO_B,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->KRISTAL_PERSEN_POL_RKAP_B,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->KRISTAL_PERSEN_POL_RKO_PROSEN_B,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->KRISTAL_PERSEN_POL_RKAP_PROSEN_B,2); ?></td>
 </tr>
 <tr>
 <td colspan="8">VIII MASAKAN : C</td>
@@ -1226,8 +1226,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->MASAKAN_PERSEN_TEBU_THN_LALU_SD_INI_C,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->MASAKAN_PERSEN_TEBU_RKO_C,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->MASAKAN_PERSEN_TEBU_RKAP_C,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->MASAKAN_PERSEN_TEBU_RKO_PROSEN_C,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->MASAKAN_PERSEN_TEBU_RKAP_PROSEN_C,2); ?></td>
 </tr>
 <tr>
 <td>2</td>
@@ -1237,8 +1237,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->PERSEN_BRIX_MASAKAN_THN_LALU_SD_INI_C,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->PERSEN_BRIX_MASAKAN_RKO_C,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->PERSEN_BRIX_MASAKAN_RKAP_C,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->PERSEN_BRIX_MASAKAN_RKO_PROSEN_C,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->PERSEN_BRIX_MASAKAN_RKAP_PROSEN_C,2); ?></td>
 </tr>
 <tr>
 <td>3</td>
@@ -1248,8 +1248,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->HK_MASAKAN_THN_LALU_SD_INI_C,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->HK_MASAKAN_RKO_C,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->HK_MASAKAN_RKAP_C,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->HK_MASAKAN_RKO_PROSEN_C,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->HK_MASAKAN_RKAP_PROSEN_C,2); ?></td>
 </tr>
 <tr>
 <td>4</td>
@@ -1259,8 +1259,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->PURITY_DROP_THN_LALU_SD_INI_C,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->PURITY_DROP_RKO_C,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->PURITY_DROP_RKAP_C,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->PURITY_DROP_RKO_PROSEN_C,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->PURITY_DROP_RKAP_PROSEN_C,2); ?></td>
 </tr>
 <tr>
 <td>5</td>
@@ -1270,8 +1270,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->KRISTAL_PERSEN_POL_THN_LALU_SD_INI_C,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->KRISTAL_PERSEN_POL_RKO_C,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->KRISTAL_PERSEN_POL_RKAP_C,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->KRISTAL_PERSEN_POL_RKO_PROSEN_C,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->KRISTAL_PERSEN_POL_RKAP_PROSEN_C,2); ?></td>
 </tr>
 <tr>
 <td colspan="8">IX MASAKAN : D</td>
@@ -1284,8 +1284,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->MASAKAN_PERSEN_TEBU_THN_LALU_SD_INI_D,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->MASAKAN_PERSEN_TEBU_RKO_D,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->MASAKAN_PERSEN_TEBU_RKAP_D,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->MASAKAN_PERSEN_TEBU_RKO_PROSEN_D,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->MASAKAN_PERSEN_TEBU_RKAP_PROSEN_D,2); ?></td>
 </tr>
 <tr>
 <td>2</td>
@@ -1295,8 +1295,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->PERSEN_BRIX_MASAKAN_THN_LALU_SD_INI_D,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->PERSEN_BRIX_MASAKAN_RKO_D,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->PERSEN_BRIX_MASAKAN_RKAP_D,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->PERSEN_BRIX_MASAKAN_RKO_PROSEN_D,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->PERSEN_BRIX_MASAKAN_RKAP_PROSEN_D,2); ?></td>
 </tr>
 <tr>
 <td>3</td>
@@ -1306,8 +1306,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->HK_MASAKAN_THN_LALU_SD_INI_D,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->HK_MASAKAN_RKO_D,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->HK_MASAKAN_RKAP_D,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->HK_MASAKAN_RKO_PROSEN_D,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->HK_MASAKAN_RKAP_PROSEN_D,2); ?></td>
 </tr>
 <tr>
 <td>4</td>
@@ -1317,8 +1317,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->PURITY_DROP_THN_LALU_SD_INI_D,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->PURITY_DROP_RKO_D,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->PURITY_DROP_RKAP_D,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->PURITY_DROP_RKO_PROSEN_D,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->PURITY_DROP_RKAP_PROSEN_D,2); ?></td>
 </tr>
 <tr>
 <td>5</td>
@@ -1328,8 +1328,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->KRISTAL_PERSEN_POL_THN_LALU_SD_INI_D,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->KRISTAL_PERSEN_POL_RKO_D,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->KRISTAL_PERSEN_POL_RKAP_D,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->KRISTAL_PERSEN_POL_RKO_PROSEN_D,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->KRISTAL_PERSEN_POL_RKAP_PROSEN_D,2); ?></td>
 </tr>
 <tr>
 <td>6</td>
@@ -1339,8 +1339,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->JUMLAH_MASAKAN_PERSEN_TEBU_THN_LALU_SD_INI,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->JUMLAH_MASAKAN_PERSEN_TEBU_RKO,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->JUMLAH_MASAKAN_PERSEN_TEBU_RKAP,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->JUMLAH_MASAKAN_PERSEN_TEBU_RKAP_PROSEN,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->JUMLAH_MASAKAN_PERSEN_TEBU_RKO_PROSEN,2); ?></td>
 </tr>
 <tr>
 <td>7</td>
@@ -1350,8 +1350,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->TETES_PERSEN_TEBU_THN_LALU_SD_INI,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->TETES_PERSEN_TEBU_RKO,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->TETES_PERSEN_TEBU_RKAP,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->TETES_PERSEN_TEBU_RKAP_PROSEN,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->TETES_PERSEN_TEBU_RKO_PROSEN,2); ?></td>
 </tr>
 <tr>
 <td>8</td>
@@ -1361,8 +1361,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->PERSEN_BRIX_TETES_THN_LALU_SD_INI,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->PERSEN_BRIX_TETES_RKO,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->PERSEN_BRIX_TETES_RKAP,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->PERSEN_BRIX_TETES_RKAP_PROSEN,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->PERSEN_BRIX_TETES_RKO_PROSEN,2); ?></td>
 </tr>
 <tr>
 <td>9</td>
@@ -1372,8 +1372,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->HK_TETES_THN_LALU_SD_INI,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->HK_TETES_RKO,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->HK_TETES_RKAP,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->HK_TETES_RKAP_PROSEN,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->HK_TETES_RKO_PROSEN,2); ?></td>
 </tr>
 <tr>
 <td>10</td>
@@ -1383,8 +1383,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->POL_TETES_PERSEN_NIRA_MENTAH_THN_LALU_SD_INI,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->POL_TETES_PERSEN_NIRA_MENTAH_RKO,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->POL_TETES_PERSEN_NIRA_MENTAH_RKAP,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->POL_TETES_PERSEN_NIRA_MENTAH_RKAP_PROSEN,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->POL_TETES_PERSEN_NIRA_MENTAH_RKO_PROSEN,2); ?></td>
 </tr>
 <tr>
 <td colspan="8">X RENDEMEN KETEL</td>
@@ -1397,8 +1397,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->RENDEMEN_KETEL_THN_LALU_SD_INI,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->RENDEMEN_KETEL_RKO,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->RENDEMEN_KETEL_RKAP,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->RENDEMEN_KETEL_RKAP_PROSEN,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->RENDEMEN_KETEL_RKO_PROSEN,2); ?></td>
 </tr>
 <tr>
 <td>2</td>
@@ -1408,8 +1408,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->KG_UAP_KG_TEBU_THN_LALU_SD_INI,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->KG_UAP_KG_TEBU_RKO,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->KG_UAP_KG_TEBU_RKAP,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->KG_UAP_KG_TEBU_RKAP_PROSEN,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->KG_UAP_KG_TEBU_RKO_PROSEN,2); ?></td>
 </tr>
 <tr>
 <td>3</td>
@@ -1419,8 +1419,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->PEMAKAIAN_BBA_TON_THN_LALU_SD_INI,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->PEMAKAIAN_BBA_TON_RKO,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->PEMAKAIAN_BBA_TON_RKAP,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->PEMAKAIAN_BBA_TON_RKAP_PROSEN,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->PEMAKAIAN_BBA_TON_RKO_PROSEN,2); ?></td>
 </tr>
 <tr>
 <td colspan="8">XI TEBU TERBAKAR</td>
@@ -1433,8 +1433,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->TEBU_TERBAKAR_TS_TON_THN_LALU_SD_INI,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->TEBU_TERBAKAR_TS_TON_RKO,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->TEBU_TERBAKAR_TS_TON_RKAP,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->TEBU_TERBAKAR_TS_TON_RKAP_PROSEN,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->TEBU_TERBAKAR_TS_TON_RKO_PROSEN,2); ?></td>
 </tr>
 <tr>
 <td>2</td>
@@ -1444,8 +1444,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->TEBU_TERBAKAR_TR_TON_THN_LALU_SD_INI,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->TEBU_TERBAKAR_TR_TON_RKO,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->TEBU_TERBAKAR_TR_TON_RKAP,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->TEBU_TERBAKAR_TR_TON_RKAP_PROSEN,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->TEBU_TERBAKAR_TR_TON_RKO_PROSEN,2); ?></td>
 </tr>
 <tr>
 <td>3</td>
@@ -1455,8 +1455,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->JUMLAH_THN_LALU_SD_INI,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->JUMLAH_RKO,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->JUMLAH_RKAP,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->JUMLAH_RKAP_PROSEN,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->JUMLAH_RKO_PROSEN,2); ?></td>
 </tr>
 <tr>
 <td colspan="8">XII GULA SISAN / PENGERINGAN (TON)</td>
@@ -1469,8 +1469,8 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->GULA_SISAN_EX_TAHUN_LALU_THN_LALU_SD_INI,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->GULA_SISAN_EX_TAHUN_LALU_RKO,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->GULA_SISAN_EX_TAHUN_LALU_RKAP,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->GULA_SISAN_EX_TAHUN_LALU_RKAP_PROSEN,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->GULA_SISAN_EX_TAHUN_LALU_RKO_PROSEN,2); ?></td>
 </tr>
 <tr>
 <td>2</td>
@@ -1480,101 +1480,11 @@ tfoot td,tfoot th {
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->RE_PROSES_EX_TAHUN_LALU_THN_LALU_SD_INI,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->RE_PROSES_EX_TAHUN_LALU_RKO,2); ?></td>
 <td style="text-align:right"><?php echo number_format($evaluasi[0]->RE_PROSES_EX_TAHUN_LALU_RKAP,2); ?></td>
-<td></td>
-<td></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->RE_PROSES_EX_TAHUN_LALU_RKAP_PROSEN,2); ?></td>
+<td style="text-align: right"><?php echo number_format($evaluasi[0]->RE_PROSES_EX_TAHUN_LALU_RKO_PROSEN,2); ?></td>
 </tr>
 
 </tbody>
-<tfoot>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>, 1 Juni 2018</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>Mengetahui</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>General Manager</td>
-<td></td>
-<td></td>
-</tr>
-   </tfoot>
 </table>
 
    </div>
