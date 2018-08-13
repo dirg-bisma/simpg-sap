@@ -247,7 +247,7 @@ metode_tma FROM t_spta WHERE no_spat = '".$_POST['nospta']."'")->row();
 	function cektara(){
 		$arr['stt'] = 0;
 		if(isset($_POST['noreg'])){
-			$cek = $this->db->query("SELECT no_pol,CONCAT(nama_supir,' ',no_pol,' ',tara,' Kg') AS texts FROM `m_tara_truk`  WHERE no_pol = '".$_POST['noreg']."'")->row();
+			$cek = $this->db->query("SELECT no_pol,CONCAT(nama_supir,' ',no_pol,' ',tara,' Kg',' (',kategori,')') AS texts FROM `m_tara_truk`  WHERE no_pol = '".$_POST['noreg']."'")->row();
 		$arr['stt'] = 1;
 		if($cek){
 			$arr['stt'] = 1;
