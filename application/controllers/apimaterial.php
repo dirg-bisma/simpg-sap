@@ -281,6 +281,7 @@ class Apimaterial  extends SB_Controller
         $zona = $this->GetPost('zona');
         $tara = $this->GetPost('tara');
         $ptgs_timbang = $this->GetPost('ptgs_timbang');
+        $kategori = $this->GetPost('kategori');
 
         $row_zona = $this->db->query("select * from m_biaya_jarak where kode_jarak = '$zona'")->row();
 
@@ -297,6 +298,7 @@ class Apimaterial  extends SB_Controller
                         'zona' => $row_zona->id_jarak,
                         'nama_supir' => $nama_supir,
                         'ptgs_timbang' => $ptgs_timbang,
+                        'kategori' => $kategori,
                         'tgl_tara' => $this->getDateNow()
                     ));
                 }else{
@@ -306,6 +308,7 @@ class Apimaterial  extends SB_Controller
                         'zona' => $row_zona->id_jarak,
                         'nama_supir' => $nama_supir,
                         'ptgs_timbang' => $ptgs_timbang,
+                        'kategori' => $kategori,
                         'tgl_tara' => $this->getDateNow()
                     ));
                     $this->db->insert('m_tara_truk');
