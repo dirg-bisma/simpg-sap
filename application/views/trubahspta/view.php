@@ -12,6 +12,7 @@
         <?php
         	$arstatus = array("1"=>"Ya","0"=>"Tidak");
         	$arstatustx = array("1"=>"Buat","2"=>"Validasi");
+        	$armetode = array("1"=>"Manual","2"=>"Semi Mekanisasi", "3"=>"Mekanisasi");
         ?>
 
 <?php echo $this->session->flashdata('message');?>
@@ -57,6 +58,35 @@
 						<td width='20%'><?php echo SiteHelpers::gridDisplayView($row['vendor'],'vendor','1:m_vendor:id_vendor:nama_vendor') ;?> </td>
 						<td width='30%' class='label-view text-right'>Rubah Vendor</td>
 						<td><b><?php echo SiteHelpers::gridDisplayView($row['rubah_vendor'],'vendor','1:m_vendor:id_vendor:nama_vendor') ;?> </td>
+						
+					</tr>
+
+					<tr>
+						<td width='20%' class='label-view text-right'>Jarak / Zona</td>
+						<td width='20%'><?php echo SiteHelpers::gridDisplayView($row['jarak_id'],'jarak','1:m_biaya_jarak:id_jarak:keterangan') ;?> </td>
+						<td width='30%' class='label-view text-right'>Rubah Jarak / Zona</td>
+						<td><b><?php echo SiteHelpers::gridDisplayView($row['rubah_jarak_id'],'jarak','1:m_biaya_jarak:id_jarak:keterangan') ;?> </td>
+						
+					</tr>
+					<tr>
+						<td width='20%' class='label-view text-right'>PTA</td>
+						<td width='20%'><?php echo SiteHelpers::gridDisplayView($row['persno_pta'],'PTA','1:sap_m_karyawan:Persno:name') ;?> </td>
+						<td width='30%' class='label-view text-right'>Rubah PTA</td>
+						<td><b><?php echo SiteHelpers::gridDisplayView($row['rubah_perno_pta'],'PTA','1:sap_m_karyawan:Persno:name') ;?> </td>
+						
+					</tr>
+					<tr>
+						<td width='20%' class='label-view text-right'>Jenis SPTA</td>
+						<td width='20%'><?php echo $row['jenis_spta'] ;?> </td>
+						<td width='30%' class='label-view text-right'>Rubah Jenis SPTA</td>
+						<td><b><?php echo $row['rubah_jenis_spta'] ;?> </td>
+						
+					</tr>
+					<tr>
+						<td width='20%' class='label-view text-right'>Metode TMA</td>
+						<td width='20%'><?php echo $armetode[$row['metode_tma']] ;?> </td>
+						<td width='30%' class='label-view text-right'>Rubah Metode TMA</td>
+						<td><b><?php echo $armetode[$row['rubah_metode_tma']] ;?> </td>
 						
 					</tr>
 				
