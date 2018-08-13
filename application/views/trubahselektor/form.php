@@ -55,6 +55,10 @@
 								  <div class="form-group  " >
 									<label for="ipt" class=" control-label "> Ditolak Sel    </label>									
 									  <input type='text' class='form-control input-sm' placeholder='' value='<?php echo $row['ditolak_sel'];?>' name='ditolak_sel' id='ditolak_sel' readonly  /> 						
+								  </div>
+								  <div class="form-group  " >
+									<label for="ipt" class=" control-label "> Terbakar Sel    </label>									
+									  <input type='text' class='form-control input-sm' placeholder='' value='<?php echo $row['terbakar_sel'];?>' name='terbakar_sel' id='terbakar_sel' readonly  /> 						
 								  </div> 				
 								   
 			</div>
@@ -90,6 +94,19 @@
 							echo "<option  value ='$key' ".($row['r_ditolak_sel'] == $key ? " selected='selected' " : '' ).">$val</option>"; 						
 						}						
 						?></select> 						
+								  </div>
+
+								  <div class="form-group  " >
+									<label for="ipt" class=" control-label "> Edit Terbakar Sel    </label>									
+									  <?php $r_terbakar_sel = explode(',',$row['r_terbakar_sel']);
+										$r_terbakar_sel_opt = array( '0' => 'Tidak' ,  '1' => 'Ya' , ); ?>
+										<select name='r_terbakar_sel' id='r_terbakar_sel' rows='5'   class='form-control input-sm ' style='width: 100%;' > 
+											<?php 
+											foreach($r_terbakar_sel_opt as $key=>$val)
+											{
+												echo "<option  value ='$key' ".($row['r_terbakar_sel'] == $key ? " selected='selected' " : '' ).">$val</option>"; 						
+											}						
+											?></select> 						
 								  </div> 					
 								  
 								  <div class="form-group  " >
@@ -155,6 +172,7 @@ function getNoSPTA(e,nospta){
                             $('#brix_sel').val(dat.data.brix_sel);
                             $('#ph_sel').val(dat.data.ph_sel);
                             $('#ditolak_sel').val(dat.data.ditolak_sel);
+                            $('#terbakar_sel').val(dat.data.terbakar_sel);
 
                             if(dat.data.timb_bruto_status == 1){
                             	$('#ditolakset').hide();

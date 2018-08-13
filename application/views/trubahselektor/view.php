@@ -67,6 +67,14 @@
 						<td><b><?php echo $arstatus[$row['r_ditolak_sel']] ;?> </td>
 						
 					</tr>
+
+					<tr>
+						<td width='20%' class='label-view text-right'>Terbakar Sel</td>
+						<td><b><?php echo $arstatus[$row['terbakar_sel']] ;?> </td>
+						<td width='20%' class='label-view text-right'>Edit Terbakar Sel</td>
+						<td><b><?php echo $arstatus[$row['r_terbakar_sel']] ;?> </td>
+						
+					</tr>
 				
 				
 					<tr>

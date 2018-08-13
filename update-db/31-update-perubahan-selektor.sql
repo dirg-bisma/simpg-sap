@@ -1,0 +1,2 @@
+/*[21:26:23 PM][137 ms]*/ ALTER TABLE `simpg`.`t_ubah_selektor` ADD COLUMN `terbakar_sel` SMALLINT(1) NULL AFTER `ph_sel`; 
+/*[21:30:29 PM][154 ms]*/ ALTER TABLE `simpg`.`t_ubah_selektor` ADD COLUMN `r_terbakar_sel` SMALLINT(1) NULL AFTER `r_ph_sel`; 

@@ -1,7 +1,7 @@
 <?php 
 define('CNF_APPNAME','SIMPG');
 define('CNF_NAMAPERUSAHAAN','PT. Perkebunan Nusantara XI');
-define('CNF_PG','PG. PANJI');
+define('CNF_PG','PG. OLEAN');
 define('CNF_ALAMAT','SITUBONDO');
 define('CNF_METAKEY','');
 define('CNF_METADESC','');
@@ -24,7 +24,7 @@ define('CNF_LOGINTW','');
 define('CNF_LOGINTW_ID','fJbc2gx4tIG1ZLzNTbYAaCfpy');
 define('CNF_LOGINTW_SECRET','XvTc0DF83s1rjKy7zgT0zD6ilgCOSod4DLjNubUMByU1cPsgPT');
 define('CNF_COMPANYCODE','N011');
-define('CNF_PLANCODE','KP14');
+define('CNF_PLANCODE','KP13');
 define('CNF_TAHUNTANAM','2017');
 define('CNF_TAHUNGILING','2018');
 define('CNF_METODE','1');
