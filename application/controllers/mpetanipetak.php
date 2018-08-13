@@ -316,6 +316,16 @@ INNER JOIN sap_m_petani b ON a.`id_petani_sap`=b.Customer
 		}
 	}
 
+	function cleansingdata()
+	{
+		$data = $this->db->query('SELECT * FROM sap_petani WHERE id_petani_sap = ""')->result();
+		foreach ($data as $value) {
+			$this->db->query('delete from sap_petani where id_petani = '.$value->id_petani);
+		}
+		// print_r($data);
+		echo "Cleansing Sukses";
+	}
+
 	function destroy()
 	{
 		if($this->access['is_remove'] ==0)

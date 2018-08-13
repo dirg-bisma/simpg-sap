@@ -20,7 +20,10 @@
  	
 		<?php if($this->access['is_add'] ==1) : ?>
 
-      <a href="<?php echo site_url('mpetanipetak/addupload') ?>" class="tips btn btn-xs btn-warning"  title="Upload Data Petani">
+    <a href="#" onclick="cleansing_data()" class="tips btn btn-xs btn-danger"  title="Cleansing Data">
+    <i class="fa fa-eraser"></i>&nbsp;Cleansing Data</a>
+
+    <a href="<?php echo site_url('mpetanipetak/addupload') ?>" class="tips btn btn-xs btn-warning"  title="Upload Data Petani">
     <i class="fa fa-upload"></i>&nbsp;Upload Petani</a>
 
 		<a href="<?php echo site_url('mpetanipetak/add') ?>" class="tips btn btn-xs btn-info"  title="Sync Data Petani">
@@ -74,6 +77,17 @@
         </section>
 
 <script>
+function cleansing_data() {
+          $.ajax({
+            type: 'GET',
+            url: "<?php echo site_url('mpetanipetak/cleansingdata');?>",
+            dataType: 'text',
+            success: function (dat) {
+                   alert(dat);
+                    location.reload();
+            }
+        });
+}
 var table;
  $(function () {
        // $("#gridv").DataTable();
