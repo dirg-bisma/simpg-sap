@@ -244,7 +244,7 @@ class Trubahspta extends SB_Controller
 
 	function setujui($id){
 		$a = $this->model->getRow( $id );
-		$ax = "UPDATE t_spta SET tebang_pg='".$a['rubah_tebang_pg']."',angkut_pg='".$a['tubah_angkut_pg']."',vendor_angkut='".$a['rubah_vendor']."' WHERE id='".$a['id_spta']."'";
+		$ax = "UPDATE t_spta SET tebang_pg='".$a['rubah_tebang_pg']."',angkut_pg='".$a['tubah_angkut_pg']."',vendor_angkut='".$a['rubah_vendor']."',jarak_id='".$a['rubah_jarak_id']."',persno_pta='".$a['rubah_perno_pta']."',jenis_spta='".$a['rubah_jenis_spta']."',metode_tma='".$a['rubah_metode_tma']."' WHERE id='".$a['id_spta']."'";
 		//var_dump($ax);die();
 		$ax1 = $this->db->query($ax);
 		$usr = $this->session->userdata('fid');
@@ -275,7 +275,7 @@ class Trubahspta extends SB_Controller
 	function cekspta(){
 		$arr['stt'] = 0;
 		if(isset($_POST['nospta'])){
-			$cek = $this->db->query("SELECT id,no_spat,tebang_pg,angkut_pg,vendor_angkut FROM t_spta WHERE no_spat = '".$_POST['nospta']."' AND `upah_angkut_status`= 0")->row();
+			$cek = $this->db->query("SELECT * FROM t_spta WHERE no_spat = '".$_POST['nospta']."' AND `upah_angkut_status`= 0")->row();
 		$arr['stt'] = 1;
 		if($cek){
 			$arr['stt'] = 1;
