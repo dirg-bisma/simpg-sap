@@ -219,6 +219,7 @@ class Mpetanipetak extends SB_Controller
 			$totdecline = 0;
 			$tmpidsap = "";
 			for($i=2;$i<=$arrayCount;$i++){
+				if($allDataInSheet[$i]["A"] != ''){
 				$tempdata = array(
 					'id_petani_sap' 			=> trim($allDataInSheet[$i]["A"]), 
 					'nama_petani' 				=> trim($allDataInSheet[$i]["C"]), 
@@ -232,6 +233,7 @@ class Mpetanipetak extends SB_Controller
 				$ID = $this->model->insertRowUpdate($tempdata , trim($allDataInSheet[$i]["A"]));
 				$totupload++;
 			}
+			}
 		}
 
 		$this->inputLogs(" Upload data master Petani oleh ".$this->session->userdata('fid').' dengan data '.$totupload.' Berhasil');
@@ -243,6 +245,7 @@ class Mpetanipetak extends SB_Controller
   
 	function add( $id = null ) 
 	{
+		/*
 		if($id =='')
 			if($this->access['is_add'] ==0) redirect('dashboard',301);
 
@@ -274,6 +277,7 @@ INNER JOIN sap_m_petani b ON a.`id_petani_sap`=b.Customer
 	$this->inputLogs(" sinkronisasi data petani oleh ".$this->session->userdata('fid').' dengan data '.$totdata.' Berhasil');
 			
 			$this->session->set_flashdata('message',SiteHelpers::alert('success'," sinkronisasi data petani oleh ".$this->session->userdata('fid').' dengan data '.$totdata.' Berhasil'));
+			*/
 			
 			redirect( 'mpetanipetak',301);
 	
