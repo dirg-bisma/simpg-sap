@@ -233,8 +233,15 @@ function getTara(e,id){
 			dataType: 'json',
             success: function (dat) {
 				if(dat.stt == 1){
-					$('#no_angkutan').val(dat.data.noreg);
-					$('#ptgs_angkutan').val(dat.data.texts);
+					var kat = $('#kategori').val();
+					if(dat.data.kategori != kat.substring(0,2)){
+						alert("Truk "+dat.data.texts+" tidak bisa mengangkut SPTA ini ("+kat.substring(0,2)+")");
+						$('#no_angkutan').val('');
+						$('#ptgs_angkutan').val('');
+					}else{
+						$('#no_angkutan').val(dat.data.no_pol);
+						$('#ptgs_angkutan').val(dat.data.texts);
+					}
 				}else{
 					$('#ptgs_angkutan').val('');
 				}
