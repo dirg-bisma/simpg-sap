@@ -1,5 +1,5 @@
 /* perubahan SPTA */
-ALTER TABLE `db_simpg`.`t_ubah_spta` ADD COLUMN `metode_tma` SMALLINT(1) NULL COMMENT '1. manual 2. semi 3. meka' AFTER `vendor`, ADD COLUMN `jenis_spta` VARCHAR(10) NULL COMMENT 'TRUK, LORI, ODONG2, TRAKTOR' AFTER `metode_tma`, ADD COLUMN `jarak_id` INT(10) NULL AFTER `jenis_spta`, ADD COLUMN `persno_pta` VARCHAR(11) NULL AFTER `jarak_id`, ADD COLUMN `rubah_metode_tma` SMALLINT(1) NULL AFTER `rubah_vendor`, ADD COLUMN `rubah_jenis_spta` VARCHAR(10) NULL AFTER `rubah_metode_tma`, ADD COLUMN `rubah_jarak_id` INT(10) NULL AFTER `rubah_jenis_spta`, ADD COLUMN `rubah_perno_pta` VARCHAR(11) NULL AFTER `rubah_jarak_id`;
+ALTER TABLE `t_ubah_spta` ADD COLUMN `metode_tma` SMALLINT(1) NULL COMMENT '1. manual 2. semi 3. meka' AFTER `vendor`, ADD COLUMN `jenis_spta` VARCHAR(10) NULL COMMENT 'TRUK, LORI, ODONG2, TRAKTOR' AFTER `metode_tma`, ADD COLUMN `jarak_id` INT(10) NULL AFTER `jenis_spta`, ADD COLUMN `persno_pta` VARCHAR(11) NULL AFTER `jarak_id`, ADD COLUMN `rubah_metode_tma` SMALLINT(1) NULL AFTER `rubah_vendor`, ADD COLUMN `rubah_jenis_spta` VARCHAR(10) NULL AFTER `rubah_metode_tma`, ADD COLUMN `rubah_jarak_id` INT(10) NULL AFTER `rubah_jenis_spta`, ADD COLUMN `rubah_perno_pta` VARCHAR(11) NULL AFTER `rubah_jarak_id`;
 
 
 delete from tb_module where module_id = 140;
