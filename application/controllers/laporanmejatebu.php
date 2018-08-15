@@ -50,7 +50,7 @@ class laporanmejatebu extends SB_Controller
             $this->data['title'] = 	"TAHUN ".$thn;
         }
         if($metode_tma != ''){
-            $wh .= " AND  a.metode_tma = '$metode_tma'";
+            $wh .= " AND  t_spta.metode_tma = '$metode_tma'";
             $this->data['title'] .=     " METODE TMA ".$metode_tma;
         }
 
