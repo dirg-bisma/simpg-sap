@@ -50,8 +50,19 @@ class laporanmejatebu extends SB_Controller
             $this->data['title'] = 	"TAHUN ".$thn;
         }
         if($metode_tma != ''){
-            $wh .= " AND  t_spta.metode_tma = '$metode_tma'";
-            $this->data['title'] .=     " METODE TMA ".$metode_tma;
+            if ($jns == 1 || $jns == 4 ) {
+                $wh .= " AND  b.metode_tma = '$metode_tma'";    
+            }else{
+                $wh .= " AND  a.metode_tma = '$metode_tma'";
+            }
+            if ($metode_tma == 1) {
+                $title = "MANUAL";
+            }else if($metode_tma == 2){
+                $title = "SEMI";
+            }else if($metode_tma == 3){
+                $title = "MEKANISASI";
+            }         
+            $this->data['title'] .=     "<br> METODE TMA ".$title;
         }
 
         if(isset($_REQUEST['excel']) && $_REQUEST['excel'] == 1){

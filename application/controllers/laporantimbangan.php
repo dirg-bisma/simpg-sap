@@ -84,7 +84,14 @@ class Laporantimbangan extends SB_Controller
 
 		if($metode_tma != ''){
 			$wh2 .= " AND  a.metode_tma = '$metode_tma'";
-			$this->data['title'] .= 	" METODE TMA ".$metode_tma;
+			if ($metode_tma == 1) {
+                $title = "MANUAL";
+            }else if($metode_tma == 2){
+                $title = "SEMI";
+            }else if($metode_tma == 3){
+                $title = "MEKANISASI";
+            }         
+			$this->data['title'] .= 	" METODE TMA ".$title;
 		}
 
 
