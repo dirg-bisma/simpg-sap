@@ -64,8 +64,8 @@
                             <option value='3'>Sisa Pagi / Tebu Siap Giling</option>
                             <option value='4'>Selektor > 7 Hari</option>
                         </select> </td>
-                        <td valign="center"> Metode TMA </td>
-                        <td style="padding:5px" width="200px">
+                        <td class='metodetma' valign="center"> Metode TMA </td>
+                        <td class='metodetma' style="padding:5px" width="200px">
                             <select id='metode_tma' rows='5' 
                             class=' form-control'  required >
                             <option value=''>- SEMUA -</option>
@@ -98,14 +98,16 @@
         if(valx == 3){
             $('.sdx').hide();
             $('#tgl2').hide();
+            $('.metodetma').hide();
         }else if(valx == 4){
             $('.sdx').hide();
             $('#tgl2').hide();
             $('#tgl1').hide();
+            $('.metodetma').hide();
         }else{
             $('.sdx').show();
             $('#tgl2').show();
-
+            $('.metodetma').show();
         }
     }
 
