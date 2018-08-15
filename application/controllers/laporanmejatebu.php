@@ -35,6 +35,7 @@ class laporanmejatebu extends SB_Controller
         $thn  = $_REQUEST['thn'];
         $rjns = $_REQUEST['rjns'];
         $jns  = $_REQUEST['jns'];
+        $metode_tma     = $_REQUEST['metode_tma'];
 
         if($rjns == 1) {
             $wh .= " AND date(tgl_giling) between '$tgl1' and '$tgl2'";
@@ -47,6 +48,10 @@ class laporanmejatebu extends SB_Controller
         if($rjns == 3) {
             $wh .= " AND  YEAR(tgl_giling) = '$thn'";
             $this->data['title'] = 	"TAHUN ".$thn;
+        }
+        if($metode_tma != ''){
+            $wh2 .= " AND  a.metode_tma = '$metode_tma'";
+            $this->data['title'] .=     " METODE TMA ".$metode_tma;
         }
 
         if(isset($_REQUEST['excel']) && $_REQUEST['excel'] == 1){

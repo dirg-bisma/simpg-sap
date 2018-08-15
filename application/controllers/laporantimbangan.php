@@ -40,6 +40,7 @@ class Laporantimbangan extends SB_Controller
 		$afd  		= $_REQUEST['divisi'];
 		$petak  	= $_REQUEST['kode_blok'];
 		$tebangan  	= $_REQUEST['tebangan'];
+		$metode_tma  	= $_REQUEST['metode_tma'];
 		
 		
 		if($rjns == 1) {
@@ -79,6 +80,11 @@ class Laporantimbangan extends SB_Controller
 		if($petak != ''){
 			$wh2 .= " AND  a.kode_blok = '$petak'";
 			$this->data['title'] .= 	" PETAK ".$petak;
+		}
+
+		if($metode_tma != ''){
+			$wh2 .= " AND  a.metode_tma = '$metode_tma'";
+			$this->data['title'] .= 	" METODE TMA ".$metode_tma;
 		}
 
 

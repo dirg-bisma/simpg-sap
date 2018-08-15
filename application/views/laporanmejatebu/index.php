@@ -64,6 +64,15 @@
                             <option value='3'>Sisa Pagi / Tebu Siap Giling</option>
                             <option value='4'>Selektor > 7 Hari</option>
                         </select> </td>
+                        <td valign="center"> Metode TMA </td>
+                        <td style="padding:5px" width="200px">
+                            <select id='metode_tma' rows='5' 
+                            class=' form-control'  required >
+                            <option value=''>- SEMUA -</option>
+                            <option value='1'>Manual</option>
+                            <option value='2'>Semi</option>
+                            <option value='3'>Mekanisasi</option>
+                        </select> </td>
                                         <td valign="center"><input type="button" onclick="getReport()" class="btn btn-info btn-sm" value="View " />
                                             <input type="button" class="btn btn-warning btn-sm" onclick="printContent('report')"  value="Cetak " />
                                             <input type="button" onclick="getReportExcel()" class="btn btn-danger btn-sm" value="Excel " />
@@ -129,7 +138,7 @@
             url 	: "<?php echo site_url('laporanmejatebu/printlaporan'); ?>",
             data 	: {tgl1:$('#tgl1').val(),tgl2:$('#tgl2').val(),
                 sup:$('#sup').val(),jns:$('#jns').val()
-                ,bln:$('#bln').val(),thn:$('#thn').val(),rjns:$('#rjns').val()},
+                ,bln:$('#bln').val(),thn:$('#thn').val(),rjns:$('#rjns').val(),metode_tma:$('#metode_tma').val()},
             success	: function(data){
                 $('#report').html(data);
             }
@@ -139,7 +148,7 @@
     function getReportExcel(){
 var myData = {tgl1:$('#tgl1').val(),tgl2:$('#tgl2').val(),
                 sup:$('#sup').val(),jns:$('#jns').val()
-                ,bln:$('#bln').val(),thn:$('#thn').val(),rjns:$('#rjns').val()};
+                ,bln:$('#bln').val(),thn:$('#thn').val(),rjns:$('#rjns').val(),metode_tma:$('#metode_tma').val()};
 var out = [];
 
 for (var key in myData) {

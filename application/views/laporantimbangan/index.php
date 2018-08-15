@@ -107,13 +107,24 @@
 						<td style="padding:5px" width="200px" colspan="3"> 
 						<input type='text' class='form-control input-sm' placeholder='' id='kode_blok'  /> 
 						</td>
-							
 
+						<td valign="center"> Metode TMA </td>
+						<td style="padding:5px" width="200px">
+							<select id='metode_tma' rows='5' 
+							class=' form-control'  required >
+							<option value=''>- SEMUA -</option>
+							<option value='1'>Manual</option>
+							<option value='2'>Semi</option>
+							<option value='3'>Mekanisasi</option>
+						</select> </td>							
+					</tr>
+						<tr>
 						<td valign="center" colspan="2">
 						<input type="button" onclick="getReport()" class="btn btn-info btn-sm" value="View " />
 						<input type="button" class="btn btn-warning btn-sm" onclick="printContent('report')"  value="Cetak " />
 						<input type="button" onclick="getReportExcel()" class="btn btn-danger btn-sm" value="Excel " />
-			 </td>
+			 			</td>
+						
 						</tr>
 						
 					</tr>	
@@ -162,7 +173,7 @@ function getReport(){
 	 	data 	: {tgl1:$('#tgl1').val(),tgl2:$('#tgl2').val(),
 	 	sup:$('#sup').val(),jns:$('#jns').val()
 	 	,bln:$('#bln').val(),thn:$('#thn').val(),rjns:$('#rjns').val(),tebangan:$('#tebangan').val()
-	 	,kat:$('#kat').val(),angkutan:$('#angkutan').val(),divisi:$('#divisi').val(),kode_blok:$('#kode_blok').val()
+	 	,kat:$('#kat').val(),angkutan:$('#angkutan').val(),divisi:$('#divisi').val(),kode_blok:$('#kode_blok').val(),metode_tma:$('#metode_tma').val()
 	 	},
 	 	success	: function(data){
 	 		$('#report').html(data);
@@ -174,7 +185,7 @@ function getReportExcel(){
 var myData = {tgl1:$('#tgl1').val(),tgl2:$('#tgl2').val(),
 	 	sup:$('#sup').val(),jns:$('#jns').val()
 	 	,bln:$('#bln').val(),thn:$('#thn').val(),rjns:$('#rjns').val(),tebangan:$('#tebangan').val()
-	 	,kat:$('#kat').val(),angkutan:$('#angkutan').val(),divisi:$('#divisi').val(),kode_blok:$('#kode_blok').val()
+	 	,kat:$('#kat').val(),angkutan:$('#angkutan').val(),divisi:$('#divisi').val(),kode_blok:$('#kode_blok').val(),metode_tma:$('#metode_tma').val()
 	 	};
 var out = [];
 
