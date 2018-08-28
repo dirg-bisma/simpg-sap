@@ -50,9 +50,11 @@
                         <input type="text" class="date" id="tgl1" value="<?php echo date('Y-m-d');?>">&nbsp;&nbsp;s/d&nbsp;&nbsp;<input type="text" class="date" id="tgl2"  value="<?php echo date('Y-m-d');?>">
                         <a href="javascript:reloadGrid()" class="tips btn btn-xs btn-info"  title="View">
                             <i class="fa fa-search"></i>&nbsp;View </a>
+
+                            <?php if($this->access['is_add'] ==1) : ?>
                         <a href="javascript:download()" class="tips btn btn-xs btn-danger"  title="View">
                             <i class="fa fa-download"></i>&nbsp;Download Report</a>
-
+                            <?php endif;?>
                     </div>
                 </div>
 
