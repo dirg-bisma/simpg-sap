@@ -66,7 +66,7 @@ class Tsbh extends SB_Controller
 			$tx = $stt-1;
 			$filter .= " AND sbh_status IN ($tx,$stt) AND tgl_giling BETWEEN '$tgl1' AND '$tgl2'";
 		}else{
-			$filter .= " AND  tgl_giling BETWEEN '$tgl1' AND '$tgl2'";
+			$filter .= " AND  sbh_status >= 2 tgl_giling BETWEEN '$tgl1' AND '$tgl2'";
 		}
          
         	
