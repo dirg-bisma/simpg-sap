@@ -14,7 +14,7 @@ class Dashboardtimbanganmodel extends CI_Model
 
     public function AntrianTruk()
     {
-        $qry = $this->QryDataSelektor() . " AND b.jenis_spta = 'TRUK' LIMIT 50";
+        $qry = $this->QryDataSelektor() . " AND b.jenis_spta != 'LORI' LIMIT 50";
         $result = $this->db->query($qry);
         $data = array();
         foreach ($result->result() as $tx){
