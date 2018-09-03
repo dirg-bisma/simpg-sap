@@ -20,7 +20,7 @@ CREATE TABLE `t_lap_produksi_pengolahan_trans` (
   `qty_tetes_ptr` double DEFAULT NULL,
   `tgl_giling` date DEFAULT NULL,
   PRIMARY KEY (`id_laporan_produksi_trans`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 
 CREATE TABLE `t_lap_produksi_pengolahan` (
@@ -40,4 +40,4 @@ CREATE TABLE `t_lap_produksi_pengolahan` (
   `qty_tetes_ptr` double DEFAULT NULL,
   `tgl_giling` date DEFAULT NULL,
   PRIMARY KEY (`id_laporan_produksi`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
