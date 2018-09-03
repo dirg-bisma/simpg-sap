@@ -3,6 +3,32 @@
 class SiteHelpers
 {
 
+  public static function numberformat($stt){
+	$hs = 0;
+	if($stt == '' || $stt == 0){
+		$hs = '-';
+	}else{
+		$hs = number_format($stt,2);
+	}
+	return $hs;
+  }
+
+  public static function terjemahjam($stt){
+	$hs = 0;
+	if($stt == '' || $stt == 0){
+		$hs = '- Jam - Menit';
+	}else{
+		$jam = floor($stt);
+		$menit = round(($stt-$jam)*60);
+		if($menit >= 60) 
+			{
+				$jam = $jam+1; $menit = $menit - 60;
+			}
+		$hs = $jam.' Jam '.$menit.' Menit';
+	}
+	return $hs;
+  }
+
   public static function statustxt($stt){
 	$sttx = 'Ya';
 	if($stt == 0) $sttx = 'Tidak';
