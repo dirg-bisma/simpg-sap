@@ -229,10 +229,10 @@ class Lapproduksi extends SB_Controller
             if(isset($_POST['ha_tertebang_'.$this->replaceKat($kode_kat->kode_kat_ptp)]) ||
                 isset($_POST['ha_digiling_'.$this->replaceKat($kode_kat->kode_kat_ptp)])){
 
-                $cek = $this->model->CekLaporanExist($kode_kat->kode_kat_ptp, $this->input->post('hari_giling'));
+                $cek = $this->model->CekLaporanExist($kode_kat->kode_kat_ptp, $this->input->post('tgl_giling'));
                 $data = array(
                     'tgl_laporan_produksi' => $this->getDateNow(),
-                    'hari_giling' => $this->input->post('hari_giling'),
+                    'tgl_giling' => $this->input->post('tgl_giling'),
                     'kode_kat_lahan' => $this->input->post('kode_kat_lahan_'.$this->replaceKat($kode_kat->kode_kat_ptp)),
                     'kat_ptpn' => $this->input->post('kat_ptpn_'.$this->replaceKat($kode_kat->kode_kat_ptp)),
                     'kat_kepemilikan' => $this->input->post('kat_kepemilikan_'.$this->replaceKat($kode_kat->kode_kat_ptp)),
@@ -246,11 +246,11 @@ class Lapproduksi extends SB_Controller
                     'qty_tetes_ptr' => $this->input->post('qty_tetes_ptr_'.$this->replaceKat($kode_kat->kode_kat_ptp)),
                 );
                 if($kode_kat->kode_kat_ptp == "TS-TR" || $kode_kat->kode_kat_ptp == "TR-TK" || $kode_kat->kode_kat_ptp == "TR-TM" || $kode_kat->kode_kat_ptp == "TR-TR"){
-                    $result_plant = $this->model->PlantKategoriByTimbanganTransfer($kode_kat->kode_kat_ptp, $this->input->post('hari_giling'));
+                    $result_plant = $this->model->PlantKategoriByTimbanganTransfer($kode_kat->kode_kat_ptp, $this->input->post('tgl_giling'));
                     foreach($result_plant as $row_plant){
                         $data_trans = array(
                             'tgl_laporan_produksi_trans' => $this->getDateNow(),
-                            'hari_giling' => $this->input->post('hari_giling'),
+                            'tgl_giling' => $this->input->post('tgl_giling'),
                             'kode_kat_lahan' => $this->input->post('trans_kode_kat_lahan_'.$this->replaceKat($kode_kat->kode_kat_ptp)."_".$row_plant->kode_plant_trasnfer),
                             'kat_ptpn' => $this->input->post('trans_kat_ptpn_'.$this->replaceKat($kode_kat->kode_kat_ptp)."_".$row_plant->kode_plant_trasnfer),
                             'kat_kepemilikan' => $this->input->post('trans_kat_kepemilikan_'.$this->replaceKat($kode_kat->kode_kat_ptp)."_".$row_plant->kode_plant_trasnfer),
@@ -266,11 +266,11 @@ class Lapproduksi extends SB_Controller
                         );
 
                         $this->load->model('Laptransproduksimodel');
-                        $cek_trans = $this->Laptransproduksimodel->CekLaporanExist($kode_kat->kode_kat_ptp, $row_plant->kode_plant_trasnfer, $this->input->post('hari_giling'));
+                        $cek_trans = $this->Laptransproduksimodel->CekLaporanExist($kode_kat->kode_kat_ptp, $row_plant->kode_plant_trasnfer, $this->input->post('tgl_giling'));
                         if($cek_trans == 0){
                             $this->Laptransproduksimodel->Insert($data_trans);
                         }else{
-                            $this->Laptransproduksimodel->Update($kode_kat->kode_kat_ptp, $row_plant->kode_plant_trasnfer, $this->input->post('hari_giling'), $data_trans);
+                            $this->Laptransproduksimodel->Update($kode_kat->kode_kat_ptp, $row_plant->kode_plant_trasnfer, $this->input->post('tgl_giling'), $data_trans);
                         }
                     }
                 }
@@ -279,7 +279,7 @@ class Lapproduksi extends SB_Controller
                     $this->model->Insert($data);
 
                 }else{
-                    $this->model->Update($kode_kat->kode_kat_ptp, $this->input->post('hari_giling'), $data);
+                    $this->model->Update($kode_kat->kode_kat_ptp, $this->input->post('tgl_giling'), $data);
                 }
 
                 //$this->model->ValidasiHaTertebang($this->input->post('hari_giling'));

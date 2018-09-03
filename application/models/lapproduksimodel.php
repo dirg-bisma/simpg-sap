@@ -56,7 +56,7 @@ class Lapproduksimodel extends SB_Model
     public function CekLaporanExist($kat, $hari_giling)
     {
         $sql = "SELECT COUNT(a.`id_laporan_produksi`) AS jumlah FROM `t_lap_produksi_pengolahan`AS a
-                WHERE a.hari_giling = '$hari_giling' AND a.kat_ptpn = '$kat'";
+                WHERE a.tgl_giling = '$hari_giling' AND a.kat_ptpn = '$kat'";
         $result = $this->db->query($sql);
         $count = $result->row();
         return $count->jumlah;
@@ -145,7 +145,7 @@ class Lapproduksimodel extends SB_Model
 				SUM(a.`luas_ditebang_field`) AS ha_tertebang_field,
 				SUM(a.netto)/1000 AS netto
 				FROM vw_spta_luas_field_sap_kat_ptp AS a
-				WHERE a.`kat_ptp` = '$kategori' AND a.`hari_giling` = '$hari'
+				WHERE a.`kat_ptp` = '$kategori' AND a.`tgl_giling` = '$hari'
 				AND a.timb_netto_status = 1
 				GROUP BY kat_ptp";
         $result = $this->db->query($sql);
@@ -170,7 +170,7 @@ class Lapproduksimodel extends SB_Model
 				SUM(a.netto)/1000 AS netto,
 				SUM(a.netto) AS netto_kg
 				FROM vw_laporan_prod AS a
-				WHERE a.`tgl_timbang` $wr
+				WHERE a.`tgl_timbang` <= '$hari'
 				AND a.timb_netto_status = 1
 				GROUP BY kat_ptp";
         $result = $this->db->query($sql);
@@ -191,7 +191,7 @@ class Lapproduksimodel extends SB_Model
 				SUM(a.hablur_ari)/1000 AS hablur,
                 ROUND(((SUM(a.`hablur_ari`)/SUM(a.`netto`))*100), 2) AS rendemen_total
 				FROM vw_laporan_prod AS a
-				WHERE a.`kat_ptp` = '$kategori' AND a.`hari_giling` = '$hari'
+				WHERE a.`kat_ptp` = '$kategori' AND a.`tgl_giling` = '$hari'
 				AND a.sbh_status = 1
 				GROUP BY kat_ptp";
         $result = $this->db->query($sql);
@@ -215,7 +215,7 @@ class Lapproduksimodel extends SB_Model
 				SUM(a.hablur_ari) AS hablur_kg,
                 ROUND(((SUM(a.`hablur_ari`)/SUM(a.`netto`))*100), 2) AS rendemen_total
 				FROM vw_laporan_prod AS a
-				WHERE a.`hari_giling` = $hari
+				WHERE a.tgl_giling = '$hari'
 				GROUP BY kat_ptp";
         $result = $this->db->query($sql);
         return $result->result();
@@ -233,7 +233,7 @@ class Lapproduksimodel extends SB_Model
                 SUM(a.`qty_gula_ptr`)/1000 AS sum_qty_gula_ptr,
                 SUM(a.qty_tetes_ptr)/1000 AS sum_qty_tetes_ptr
                  FROM `t_lap_produksi_pengolahan` AS a
-                WHERE a.hari_giling < $hari AND a.kat_ptpn = '$kat'";
+                WHERE a.tgl_giling < '$hari' AND a.kat_ptpn = '$kat'";
         $result = $this->db->query($qry);
         return $result->row();
     }
@@ -251,7 +251,7 @@ class Lapproduksimodel extends SB_Model
                 SUM(a.`qty_gula_ptr`) AS sum_qty_gula_ptr,
                 SUM(a.qty_tetes_ptr) AS sum_qty_tetes_ptr
                  FROM `t_lap_produksi_pengolahan` AS a
-                WHERE a.hari_giling < $hari GROUP BY kat_ptpn ";
+                WHERE a.tgl_giling < '$hari' GROUP BY kat_ptpn ";
         $result = $this->db->query($qry);
         return $result->result();
     }
@@ -271,7 +271,7 @@ class Lapproduksimodel extends SB_Model
                 SUM(a.`qty_gula_ptr`)/1000 AS sum_qty_gula_ptr,
                 SUM(a.qty_tetes_ptr)/1000 AS sum_qty_tetes_ptr
                 FROM `t_lap_produksi_pengolahan_trans` AS a
-                WHERE a.hari_giling < $hari
+                WHERE a.tgl_giling < '$hari'
                 GROUP BY a.kat_ptpn, a.plant ";
         $result = $this->db->query($qry);
         return $result->result();
@@ -312,7 +312,7 @@ class Lapproduksimodel extends SB_Model
                   vw_laporan_prod AS a 
                   INNER JOIN sap_plant AS b 
                     ON b.`kode_plant` = a.`kode_plant_trasnfer` 
-                WHERE a.`tgl_timbang` $wr
+                WHERE a.`tgl_timbang` <= '$hari'
                   AND a.timb_netto_status = 1 
                   AND a.`kode_plant_trasnfer` != '' 
                 GROUP BY a.`kat_ptp`,
@@ -349,7 +349,7 @@ class Lapproduksimodel extends SB_Model
               INNER JOIN sap_plant AS b 
                 ON b.`kode_plant` = a.`kode_plant_trasnfer` 
             WHERE a.`kode_plant_trasnfer` != '' 
-              AND a.`hari_giling` = $hari
+              AND a.`tgl_giling` = '$hari'
             GROUP BY a.`kat_ptp`, a.`kode_plant_trasnfer` ";
         $result = $this->db->query($qry);
         return $result->result();
@@ -361,7 +361,7 @@ class Lapproduksimodel extends SB_Model
                 a.`kode_plant_trasnfer`
                 FROM vw_laporan_prod AS a
                 INNER JOIN sap_plant AS b ON b.`kode_plant` = a.`kode_plant_trasnfer`
-                WHERE a.`kat_ptp` = '$kategori' AND a.`hari_giling` = '$hari'
+                WHERE a.`kat_ptp` = '$kategori' AND a.`tgl_giling` = '$hari'
                 AND a.timb_netto_status = 1
                 GROUP BY a.`kode_plant_trasnfer`";
         $result = $this->db->query($qry);
@@ -372,7 +372,7 @@ class Lapproduksimodel extends SB_Model
     {
             $qry = "UPDATE t_selektor AS a
                     INNER JOIN t_spta AS b ON b.`id` =a.`id_spta`
-                    SET tanaman_status = 1 WHERE b.`hari_giling` = $hari_gliing";
+                    SET tanaman_status = 1 WHERE b.`tgl_giling` = $hari_gliing";
             $this->db->query($qry);
     }
 
@@ -388,7 +388,7 @@ class Lapproduksimodel extends SB_Model
                 FORMAT(SUM(qty_kristal)/SUM(qty_digiling)*100, 2) AS rendemen,
                 SUM(qty_gula_ptr) AS qty_gula_ptr,
                 SUM(qty_tetes_ptr) AS qty_tetes_ptr
-                FROM t_lap_produksi_pengolahan GROUP BY hari_giling";
+                FROM t_lap_produksi_pengolahan GROUP BY tgl_giling";
         return $qry;
     }
 }

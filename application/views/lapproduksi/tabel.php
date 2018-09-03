@@ -69,7 +69,7 @@ function replaceKat($kat){
         <div class="col-xs-12">
             <div class="box box-danger">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Laporan Produksi <?php echo CNF_PG; ?> Hari Giling ke <?php echo $hari_giling;?> (<?php echo $tgl_giling;?>)</h3>
+                    <h3 class="box-title">Laporan Produksi Tanggal Giling ke <?php echo $hari_giling;?> </h3>
                     <div class="box-tools pull-right">
 
 
@@ -85,6 +85,7 @@ function replaceKat($kat){
                                 <form action="<?php echo site_url("lapproduksi/save");?>" method="post">
                                     <div class="table-responsive">
                                         <input type="hidden" name="hari_giling" value="<?php echo $hari_giling; ?>">
+                                        <input type="hidden" name="tgl_giling" value="<?php echo $hari_giling; ?>">
 
 
                                         <table class="tableizer-table">

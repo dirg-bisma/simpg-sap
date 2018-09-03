@@ -37,9 +37,10 @@
                                         <div class="col-md-12">
 
                                             <div class="form-group  " >
-                                                <label for="Hari Giling" class=" control-label col-md-4 text-left"> Hari Giling </label>
+                                                <label for="Hari Giling" class=" control-label col-md-4 text-left"> Tgl Giling </label>
                                                 <div class="col-md-8">
-                                                    <input type='number' class='form-control input-sm number' placeholder='' value='<?php echo $hari_giling->hari_giling;?>' name='hari_giling'   /> <br />
+                                                    <!--<input type='number' class='form-control input-sm number' placeholder='' value='<?php //echo $hari_giling->hari_giling;?>' name='hari_giling'   /> <br />-->
+                                                    <input type='text' class='form-control input-sm date' placeholder=''  name='hari_giling'   /> <br />
                                                     <i> <small></small></i>
                                                 </div>
                                             </div>
