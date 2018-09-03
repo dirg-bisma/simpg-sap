@@ -1,6 +1,6 @@
 
-DROP t_lap_produksi_pengolahan;
-DROP t_lap_produksi_pengolahan_trans;
+DROP TABLE t_lap_produksi_pengolahan;
+DROP TABLE t_lap_produksi_pengolahan_trans;
 
 CREATE TABLE `t_lap_produksi_pengolahan_trans` (
   `id_laporan_produksi_trans` int(255) NOT NULL AUTO_INCREMENT,
