@@ -220,6 +220,41 @@ INNER JOIN sap_m_karyawan c ON c.`Persno`=b.`Persno` WHERE a.id_spta_kuota='$id'
 	  	$this->load->view('layouts/main', $this->data );
 	
 	}
+
+
+	function addtoday( $id = null ) 
+	{
+		if($id =='')
+			if($this->access['is_add'] ==0) redirect('dashboard',301);
+
+		if($id !='')
+			if($this->access['is_edit'] ==0) redirect('dashboard',301);	
+
+		$row = $this->model->getRow( $id );
+		if($row)
+		{
+			$this->data['row'] =  $row;
+		} else {
+			$this->data['row'] = $this->model->getColumnTable('t_spta_kuota'); 
+			$this->data['row']['kode_plant']   = CNF_PLANCODE;
+			$this->data['row']['tahun_giling'] = CNF_TAHUNGILING;
+			$date = new DateTime('+0 day');
+			$this->data['row']['tgl_spta'] = $date->format('Y-m-d');
+			$this->data['row']['ptgs_input'] =$this->session->userdata('fid');
+			$this->data['row']['tgl_input'] = date('Y-m-d H:i:s');
+			$th = $this->db->query("SELECT ifnull(count(id),0) as ttl from t_spta_kuota WHERE tgl_spta = '".$date->format('Y-m-d')."'")->row();
+			if($th->ttl > 0){
+				$this->session->set_flashdata('message',SiteHelpers::alert('error'," Kuota SPTA Tgl <b>".$date->format('d M Y')."</b> Sudah Pernah diinputkan Silahkan Edit Data !"));
+				redirect( 'tkuotaspta',301);
+
+			}
+		}
+	
+		$this->data['id'] = $id;
+		$this->data['content'] = $this->load->view('tkuotaspta/form',$this->data, true );		
+	  	$this->load->view('layouts/main', $this->data );
+	
+	}
 	
 	function getlistSptaKkwadd(){
 		$tgl_spta = $_POST['tgl_spta'];

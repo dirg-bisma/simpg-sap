@@ -223,6 +223,10 @@ class Tmejatebu extends SB_Controller
 			$data['rafraksi_aktif']  = CNF_RAFAKSI;
 			
 			$ID = $this->model->insertRow($data , $this->input->get_post( 'id_mejatebu' , true ));
+
+			if($data['kondisi_tebu'] == CNF_MUTU_TERBAKAR){
+				$s = $this->db->query('UPDATE t_selektor SET terbakar_sel = 1 WHERE id_spta="'.$data['id_spta'].'"');
+			}
 			// Input logs
 			if( $this->input->get( 'id_mejatebu' , true ) =='')
 			{
@@ -268,8 +272,10 @@ class Tmejatebu extends SB_Controller
 			
 			$cek = $this->db->query("SELECT a.id,kode_blok,IFNULL(b.no_transloading,'-') as no_trans,kode_kat_lahan,kode_affd,IF(metode_tma=1,'MANUAL',IF(metode_tma=2,'SEMI MEKANISASI','MEKANISASI')) AS txt_metode_tma,
 IF(meja_tebu_status = 1,CONCAT('SPTA sudah Masuk Meja Tebu Pada ',DATE_FORMAT(meja_tebu_tgl,'%d %M %Y Jam %H:%i')),'0') AS ed,
-IF(timb_bruto_status=0,'SPTA Belum Masuk Timbangan',1) AS stt,
-metode_tma FROM t_spta a LEFT JOIN t_timbangan b on b.id_spat=a.id WHERE no_spat = '".$_POST['nospta']."'")->row();
+IF(timb_bruto_status=0,'SPTA Belum Masuk Timbangan',1) AS stt,c.terbakar_sel,
+metode_tma FROM t_spta a 
+LEFT JOIN t_selektor c ON c.id_spta=a.id
+LEFT JOIN t_timbangan b on b.id_spat=a.id WHERE no_spat = '".$_POST['nospta']."'")->row();
 		$arr['stt'] = 1;
 		if($cek){
 			$arr['stt'] = 1;
