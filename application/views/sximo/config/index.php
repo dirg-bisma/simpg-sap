@@ -79,6 +79,29 @@
 				 </div>
 			  </div>
 
+
+			  <div class="form-group">
+				<label for="ipt" class=" control-label col-md-4">GENERAL MANAGER</label>
+				<div class="col-md-8">
+						<input name="cnf_gm" type="text" id="cnf_gm" class="form-control input-sm" value="<?php echo  CNF_GM ;?>" />
+				 </div>
+			  </div>
+
+
+			  <div class="form-group">
+				<label for="ipt" class=" control-label col-md-4">MANAGER PENGOLAHAN</label>
+				<div class="col-md-8">
+						<input name="cnf_manpengolahan" type="text" id="cnf_manpengolahan" class="form-control input-sm" value="<?php echo  CNF_MANPENGOLAHAN ;?>" />
+				 </div>
+			  </div>
+
+			  <div class="form-group">
+				<label for="ipt" class=" control-label col-md-4">MANAGER TANAMAN</label>
+				<div class="col-md-8">
+						<input name="cnf_mantanaman" type="text" id="cnf_mantanaman" class="form-control input-sm" value="<?php echo  CNF_MANTANAMAN ;?>" />
+				 </div>
+			  </div>
+
 			</fieldset>
 
 		
@@ -155,6 +178,15 @@
 				 </div> 
 			  </div>
 
+			  <div class="form-group">
+				<label for="ipt" class=" control-label col-md-4">Mutu Tebu Terbakar</label>
+				<div class="col-md-8">
+						<select id="cnf_mutu_terbakar" name="cnf_mutu_terbakar" class="form-control input-sm">
+						</select>
+				 </div> 
+			  </div>
+
+
 		  </fieldset>
 
 
@@ -180,7 +212,14 @@
 </div>
 </div>
         </section>
+<script type="text/javascript">
+	
+	$(document).ready(function(){
+		$("#cnf_mutu_terbakar").jCombo("<?php echo site_url('tmejatebu/comboselect?filter=m_rafaksi:nilai:nilai') ?>",
+		{  selected_value : '<?php if(!empty(CNF_MUTU_TERBAKAR)) echo CNF_MUTU_TERBAKAR;?>' });
+	});
 
+</script>
 
 
 

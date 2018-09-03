@@ -21,6 +21,10 @@
 		<?php if($this->access['is_add'] ==1) : ?>
 		<a href="<?php echo site_url('tkuotaspta/add') ?>" class="tips btn btn-xs btn-info"  title="<?php echo $this->lang->line('core.btn_new'); ?>">
 		<i class="fa fa-plus"></i>&nbsp;<?php echo $this->lang->line('core.btn_new'); ?> (F2) </a>
+<?php if($this->session->userdata('gid') == 15) { ?>
+    <a href="<?php echo site_url('tkuotaspta/addtoday') ?>" class="tips btn btn-xs btn-info"  title="Tambah Quota">
+    <i class="fa fa-plus"></i>&nbsp;Order Kuota Hari Ini </a>
+    <?php } ?>
 		<?php endif;?>
                   </div>
                 </div>

@@ -175,6 +175,9 @@ function getNoSPTA<?php echo $kode_meja_tebu;?>(e,nospta){
             success: function (dat) {
 				if(dat.stt == 1){
 					if(dat.data.ed == 0 && dat.data.stt == 1){
+						//alert(dat.data.terbakar_sel);
+
+
 						$('#kode_petak-<?php echo $kode_meja_tebu;?>').val(dat.data.kode_blok);
 						$('#id_spta-<?php echo $kode_meja_tebu;?>').val(dat.data.id);
 						$('#kategori-<?php echo $kode_meja_tebu;?>').val(dat.data.kode_kat_lahan);
@@ -182,6 +185,11 @@ function getNoSPTA<?php echo $kode_meja_tebu;?>(e,nospta){
 						$('#no_spta-<?php echo $kode_meja_tebu;?>').attr('readonly',true);
 						
 						$('#kondisi_tebu-<?php echo $kode_meja_tebu;?>').focus();
+
+						if(dat.data.terbakar_sel == 1){
+							$('#kondisi_tebu-<?php echo $kode_meja_tebu;?>').val('<?php echo CNF_MUTU_TERBAKAR;?>');	
+						}
+
 					}else{
 						
 							var al = dat.data.ed;
