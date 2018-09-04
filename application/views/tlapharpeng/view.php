@@ -45,7 +45,7 @@ table.null-border{
 }
 
 </style>
-
+ 
 <table class="null-border">
   <tr>
       <td style="width: 18%;">PABRIK GULA</td>
@@ -419,7 +419,7 @@ table.null-border{
   
 </table>
 <br />
-<br />
+<br /> 
 <hr />
 <center>
 				<a href="<?php echo site_url('tlapharpeng');?>" class="btn btn-sm btn-warning"> << Back </a>&nbsp;&nbsp;
