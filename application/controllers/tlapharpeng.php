@@ -179,7 +179,7 @@ class Tlapharpeng extends SB_Controller
 	}
 
 
-	function print( $id = null) 
+	function printxs( $id = null) 
 	{
 		if($this->access['is_detail'] ==0)
 		{ 
