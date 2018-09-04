@@ -429,7 +429,7 @@ table.null-border{
           <?php
         }
         ?>
-          <a href="<?php echo site_url('tlapharpeng/print/'.$rw->id.'/'.$rw->hari_giling);?>"  target="_blank" class="btn btn-sm btn-primary"> Print  </a>&nbsp;&nbsp;
+          <a href="<?php echo site_url('tlapharpeng/printxs/'.$rw->id.'/'.$rw->hari_giling);?>"  target="_blank" class="btn btn-sm btn-primary"> Print  </a>&nbsp;&nbsp;
         
           <?php
         
