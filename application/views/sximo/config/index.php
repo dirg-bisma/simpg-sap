@@ -216,7 +216,7 @@
 	
 	$(document).ready(function(){
 		$("#cnf_mutu_terbakar").jCombo("<?php echo site_url('tmejatebu/comboselect?filter=m_rafaksi:nilai:nilai') ?>",
-		{  selected_value : '<?php if(!empty(CNF_MUTU_TERBAKAR)) echo CNF_MUTU_TERBAKAR;?>' });
+		{  selected_value : '<?php echo CNF_MUTU_TERBAKAR;?>' });
 	});
 
 </script>
