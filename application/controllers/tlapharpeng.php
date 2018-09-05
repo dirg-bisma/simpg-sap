@@ -180,7 +180,7 @@ class Tlapharpeng extends SB_Controller
 
 
 	function printxs( $id = null) 
-	{
+	{ 
 		if($this->access['is_detail'] ==0)
 		{ 
 			$this->session->set_flashdata('error',SiteHelpers::alert('error','Your are not allowed to access the page'));

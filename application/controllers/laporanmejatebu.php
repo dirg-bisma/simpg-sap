@@ -95,7 +95,7 @@ ORDER BY `a1`.`tgl_meja_tebu`,a1.kode_meja_tebu ASC";
         $this->load->view('laporanmejatebu/perspta',$this->data);
         }else if($jns == 2){
         $sql = "SELECT 
-            `a`.`no_spat`
+            `a`.`no_spat`,
                 a.`kode_blok`,
                 d.`deskripsi_blok`,
                 e.`nama_petani`,
