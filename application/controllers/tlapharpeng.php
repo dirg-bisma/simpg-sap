@@ -365,6 +365,7 @@ class Tlapharpeng extends SB_Controller
   SUM(`bba_rupiah`)                      AS `bba_rupiah`,
   `keterangan_jb`                   AS `keterangan_jb`,
   `icumsa`                          AS `icumsa`,
+  `ef_or`                          AS `ef_or`,
   `status`                          AS `status`
 FROM `t_lap_harian_pengolahan_ptpn` WHERE hari_giling <= '".($hg)."' AND plant_code = '".$pg."'")->row();
 
