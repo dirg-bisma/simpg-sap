@@ -578,7 +578,7 @@
                                     <td>&nbsp;</td>
                                     <td>&nbsp;</td>
                                 </tr>
-                                <tr>
+                                <!--tr>
                                     <td>  TON AMPAS </td>
                                     <td><input type="number" step="any" class="number" name="ampas_ton" id="ampas_ton"></td>
                                     <td>  </td>
@@ -625,12 +625,19 @@
                                     <td><input type="number" step="any" class="number" name="pol_dlm_hasil_taksasi_persenpol" id="pol_dlm_hasil_taksasi_persenpol"></td>
                                     <td>  </td>
                                     <td> </td>
-                                </tr>
+                                </tr-->
 
                                 <tr>
                                     <td> ICUMSA </td>
                                     <td><input type="number" step="any" class="number" name="icumsa" id="icumsa"></td>
-                                    <td>  </td>
+                                    <td><input type="number" step="any" readonly class="number"  id="icumsa_yl"></td>
+                                    <td><input type="number" step="any" class="number" name="icumsa_sd" id="icumsa_sd"></td>
+                                </tr>
+                                <tr>
+                                    <td> Efesiensi Pabrik (OR) </td>
+                                    <td><input type="number" step="any" class="number" name="ef_or" id="ef_or"></td>
+                                    <td><input type="number" step="any" readonly class="number"  id="ef_or_yl"></td>
+                                    <td><input type="number" step="any" class="number" name="ef_or_sd" id="ef_or_sd"></td>
                                     <td> </td>
                                 </tr>
                                 <tr>
