@@ -244,6 +244,11 @@ class Trubahselektor extends SB_Controller
 	function setujui($id){
 		$a = $this->model->getRow( $id );
 		$ax = "UPDATE t_selektor SET terbakar_sel='".$a['r_terbakar_sel']."',ditolak_sel='".$a['r_ditolak_sel']."',brix_sel='".$a['r_brix_sel']."',ph_sel='".$a['r_ph_sel']."',persno_mandor_tma='".$a['r_perno_mandor']."' WHERE id_spta='".$a['id_spta']."'";
+		if($a['r_ditolak_sel'] == 1){
+            $ab = "UPDATE t_spta SET selektor_status = 2 WHERE id = ".$a['id_spta'];
+            $this->db->query($ab);
+        }
+
 		//var_dump($ax);die();
 		$ax1 = $this->db->query($ax);
 		$usr = $this->session->userdata('fid');
