@@ -416,16 +416,10 @@ table.null-border{
     <td></td>
     <td colspan="2" ><?php echo $rw->keterangan_jb; ?></td>
   </tr>
-   <tr>
-    <td style="padding: 20px;">ICUMSA</td>
-    <td align="center">38</td>
-    <td>UI</td>
-    <td class="number"><?php echo SiteHelpers::numberformat($rw->icumsa, 2); ?></td>
-    <td class="number"><?php echo SiteHelpers::numberformat($rw->icumsa_sd, 2); ?></td>
-  </tr>
+
    <tr>
     <td style="padding: 20px;">EFESIENSI PABRIK (OR)</td>
-    <td align="center">39</td>
+    <td align="center">38</td>
     <td>%</td>
     <td class="number"><?php echo SiteHelpers::numberformat($rw->ef_or, 3); ?></td>
     <td class="number"><?php echo SiteHelpers::numberformat($rw->ef_or_sd, 3); ?></td>

@@ -176,6 +176,9 @@ class Tlapharpeng extends SB_Controller
 		$this->data['id'] = $id;
 		$this->data['content'] =  $this->load->view('tlapharpeng/view', $this->data ,true);	  
 		$this->load->view('layouts/main',$this->data);
+		if($row->status == 2){
+			$this->senddataserver($id);
+		}
 	}
 
 
@@ -254,6 +257,7 @@ class Tlapharpeng extends SB_Controller
 				redirect( 'tlapharpeng',301);
 			}			
 			
+
 			
 		} else {
 			$data =	array(
@@ -508,5 +512,39 @@ IF(LEFT(b.kode_kat_lahan,2)='TS','TS','TR'))")->result();
 		}
 	}
 
+
+	function senddataserver($id){
+		$hostx = 'devproduksi.ptpn11.co.id';
+		$result = $this->db->query('SELECT * FROM t_lap_harian_pengolahan_ptpn WHERE id="'.$id.'"');
+		$datax = json_encode($result->result());
+		$result->free_result();
+
+		$row = $result->row();
+
+		$url= 'http://'.$hostx.'/simpgdb/index.php/Lapharian/uploadlap/'.$row->company_code.'/'.$row->plant_code.'/'.$row->hari_giling;
+		//echo $url;
+	    $ch = curl_init($url);
+	    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+	    curl_setopt($ch, CURLOPT_POST, true);
+	    $post = array(
+	        "data" => base64_encode($datax)
+	    );
+	    curl_setopt($ch, CURLOPT_POSTFIELDS, $post); 
+	    $response = curl_exec($ch);
+		
+		
+		// Check HTTP status code
+		if (!curl_errno($ch)) {
+		  switch ($http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE)) {
+			case 200:  # OK
+				 //$a = $this->db->query("DELETE FROM tb_logs_sync_process WHERE id IN (".$idlog.")");
+				// $a->free_result();
+			break;
+		  }
+		}
+		
+	    echo $response;
+	    curl_close($ch);
+	}
 
 }
