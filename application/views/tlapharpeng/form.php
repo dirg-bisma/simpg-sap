@@ -691,7 +691,7 @@
           url: '<?php echo site_url('tlapharpeng/datacek');?>/'+plan+'/'+hg, 
           dataType : 'html',
           success: function (data) {
-                    if(data == '0'){
+                    if(data == 0){
                         gettglGilingx(hg);  
                     }else{
                         alert(data);
