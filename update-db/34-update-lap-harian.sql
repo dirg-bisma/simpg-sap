@@ -176,19 +176,3 @@ CREATE TABLE `t_lap_harian_pengolahan_ptpn` (
 
 
 
-
-insert into `tb_groups_access` (`id`, `group_id`, `module_id`, `access_data`) values('1098','15','132','{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
-insert into `tb_groups_access` (`id`, `group_id`, `module_id`, `access_data`) values('1097','14','132','{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
-insert into `tb_groups_access` (`id`, `group_id`, `module_id`, `access_data`) values('1096','13','132','{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
-insert into `tb_groups_access` (`id`, `group_id`, `module_id`, `access_data`) values('1095','12','132','{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
-insert into `tb_groups_access` (`id`, `group_id`, `module_id`, `access_data`) values('1094','11','132','{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
-insert into `tb_groups_access` (`id`, `group_id`, `module_id`, `access_data`) values('1093','10','132','{\"is_global\":\"1\",\"is_view\":\"1\",\"is_detail\":\"1\",\"is_add\":\"0\",\"is_edit\":\"1\",\"is_remove\":\"1\",\"is_excel\":\"0\"}');
-insert into `tb_groups_access` (`id`, `group_id`, `module_id`, `access_data`) values('1092','9','132','{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
-insert into `tb_groups_access` (`id`, `group_id`, `module_id`, `access_data`) values('1091','8','132','{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
-insert into `tb_groups_access` (`id`, `group_id`, `module_id`, `access_data`) values('1090','7','132','{\"is_global\":\"1\",\"is_view\":\"1\",\"is_detail\":\"1\",\"is_add\":\"1\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
-insert into `tb_groups_access` (`id`, `group_id`, `module_id`, `access_data`) values('1089','6','132','{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
-insert into `tb_groups_access` (`id`, `group_id`, `module_id`, `access_data`) values('1088','4','132','{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
-insert into `tb_groups_access` (`id`, `group_id`, `module_id`, `access_data`) values('1087','3','132','{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
-insert into `tb_groups_access` (`id`, `group_id`, `module_id`, `access_data`) values('1086','2','132','{\"is_global\":\"0\",\"is_view\":\"0\",\"is_detail\":\"0\",\"is_add\":\"0\",\"is_edit\":\"0\",\"is_remove\":\"0\",\"is_excel\":\"0\"}');
-insert into `tb_groups_access` (`id`, `group_id`, `module_id`, `access_data`) values('1085','1','132','{\"is_global\":\"1\",\"is_view\":\"1\",\"is_detail\":\"1\",\"is_add\":\"1\",\"is_edit\":\"1\",\"is_remove\":\"1\",\"is_excel\":\"0\"}');
-
