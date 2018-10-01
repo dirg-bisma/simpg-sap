@@ -367,7 +367,7 @@ class Apimaterial  extends SB_Controller
 
 
     function exceltaratruk(){
-        $query = "SELECT a.*, b.* FROM m_tara_truk as a 
+        $query = "SELECT a.*, b.* FROM m_tara_truk as a
                   inner join m_biaya_jarak as b on b.id_jarak = a.zona";
 
         $results = $this->db->query($query)->result();
@@ -478,5 +478,35 @@ class Apimaterial  extends SB_Controller
         $query = $this->db->query($sql);
         $sekarang = $query->row();
         return $sekarang->sekarang;
+    }
+
+    function gettara()
+    {
+        $search = $this->GetPost('no_pol');
+        $this->load->model('apimaterialmodel');
+        $result = $this->apimaterialmodel->getTarabyNopol($search);
+
+        if(count($result) > 0){
+            foreach ($result[0] as $key => $value) {
+                if (is_null($value)) {
+                    $result[0]->$key = "";
+                }
+            }
+            $output = array(
+                'result' => $result,
+                'count' => count($result),
+                'msg' => 'success',
+                'status' => 'true'
+            );
+        }else{
+            $output = array(
+                'result' => [],
+                'count' => count($result),
+                'msg' => 'data not found',
+                'status' => 'false'
+            );
+        }
+
+        echo json_encode($output);
     }
 }
