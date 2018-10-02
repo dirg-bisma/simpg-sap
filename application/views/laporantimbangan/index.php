@@ -22,8 +22,8 @@
 						<td style="padding:5px" width="150px">
 							<select id="rjns" class=" form-control">
 								<option value="1">PERIODE</option>
-								<!--option value="2">BULANAN</option>
-								<option value="3">TAHUNAN</option-->
+								<option value="2">BULANAN</option>
+								<option value="3">TAHUNAN</option>
 							</select>
 						</td>
 						<td class="bulan" style="padding:5px" width="150px">
