@@ -410,16 +410,59 @@ table.null-border{
     <td class="number"><?php echo SiteHelpers::numberformat($rw->tebu_terbakar_total, 3); ?></td>
     <td class="number"><?php echo SiteHelpers::numberformat($rw->tebu_terbakar_total_sd, 3); ?></td>
   </tr>
+
+  <tr>
+    <td rowspan="3">AMPAS</td>
+    <td align="center">37</td>
+    <td>TON</td>
+    <td class="number"><?php echo SiteHelpers::numberformat($rw->ton_ampas, 3); ?></td>
+    <td class="number"></td>
+  </tr>
+  <tr>
+    <td align="center">38</td>
+    <td>% POL</td>
+    <td class="number"><?php echo SiteHelpers::numberformat($rw->persen_pol_ampas, 3); ?></td>
+    <td class="number"></td>
+  </tr>
+
+  <tr>
+    <td rowspan="3">BLOTONG</td>
+    <td align="center">39</td>
+    <td>TON</td>
+    <td class="number"><?php echo SiteHelpers::numberformat($rw->ton_blotong, 3); ?></td>
+    <td class="number"></td>
+  </tr>
+  <tr>
+    <td align="center">40</td>
+    <td>% POL</td>
+    <td class="number"><?php echo SiteHelpers::numberformat($rw->persen_pol_blotong, 3); ?></td>
+    <td class="number"></td>
+  </tr>
+
+  <tr>
+    <td rowspan="3">POL DALAM HASIL + TAKSASI</td>
+    <td align="center">39</td>
+    <td>TON</td>
+    <td class="number"><?php echo SiteHelpers::numberformat($rw->ton_pol_dlm_hasil_plus_taksasi, 3); ?></td>
+    <td class="number"></td>
+  </tr>
+  <tr>
+    <td align="center">40</td>
+    <td>% POL</td>
+    <td class="number"><?php echo SiteHelpers::numberformat($rw->persen_pol_dlm_hasil_plus_taksasi, 3); ?></td>
+    <td class="number"></td>
+  </tr>
+
   <tr>
     <td style="padding: 20px;">KET. JAM BERHENTI GILING</td>
-    <td align="center">37</td>
+    <td align="center">41</td>
     <td></td>
     <td colspan="2" ><?php echo $rw->keterangan_jb; ?></td>
   </tr>
 
    <tr>
     <td style="padding: 20px;">EFESIENSI PABRIK (OR)</td>
-    <td align="center">38</td>
+    <td align="center">42</td>
     <td>%</td>
     <td class="number"><?php echo SiteHelpers::numberformat($rw->ef_or, 3); ?></td>
     <td class="number"><?php echo SiteHelpers::numberformat($rw->ef_or_sd, 3); ?></td>
