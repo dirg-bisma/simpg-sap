@@ -51,8 +51,8 @@
 								<option value="2019">2019</option>
 							</select>
 						</td>
-						<!--td class="period1">
-							<input type='text' class='form-control date input-sm' readonly placeholder='' value='<?php echo date('Y-m-d');?>' id='tgl1'  /> </td><td class="period" align="center" > s/d </td-->
+						<td class="period1">
+							<input type='text' class='form-control date input-sm' readonly placeholder='' value='<?php echo date('Y-m-d');?>' id='tgl1'  /> </td><td class="period" align="center" > s/d </td>
 						<td style="padding:5px" class="period"><input type='text' class='form-control date input-sm' readonly placeholder='' value='<?php echo date('Y-m-d');?>' id='tgl2'  /> </td>
 
 						
@@ -170,7 +170,7 @@ function getReport(){
 	 	type 	: "POST",
 	 	datatype: "json",
 	 	url 	: "<?php echo site_url('laporantimbangan/printlaporan'); ?>",
-	 	data 	: {tgl1:$('#tgl2').val(),tgl2:$('#tgl2').val(),
+	 	data 	: {tgl1:$('#tgl1').val(),tgl2:$('#tgl2').val(),
 	 	sup:$('#sup').val(),jns:$('#jns').val()
 	 	,bln:$('#bln').val(),thn:$('#thn').val(),rjns:$('#rjns').val(),tebangan:$('#tebangan').val()
 	 	,kat:$('#kat').val(),angkutan:$('#angkutan').val(),divisi:$('#divisi').val(),kode_blok:$('#kode_blok').val(),metode_tma:$('#metode_tma').val()
@@ -182,7 +182,7 @@ function getReport(){
 }
 
 function getReportExcel(){
-var myData = {tgl1:$('#tgl2').val(),tgl2:$('#tgl2').val(),
+var myData = {tgl1:$('#tgl1').val(),tgl2:$('#tgl2').val(),
 	 	sup:$('#sup').val(),jns:$('#jns').val()
 	 	,bln:$('#bln').val(),thn:$('#thn').val(),rjns:$('#rjns').val(),tebangan:$('#tebangan').val()
 	 	,kat:$('#kat').val(),angkutan:$('#angkutan').val(),divisi:$('#divisi').val(),kode_blok:$('#kode_blok').val(),metode_tma:$('#metode_tma').val()
