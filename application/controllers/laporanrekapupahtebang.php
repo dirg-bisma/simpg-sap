@@ -56,7 +56,7 @@ class Laporanrekapupahtebang extends SB_Controller
 		
 		
 		if($rjns == 1 && $jns != 4) {
-			$wh .= " AND a.tgl = '$tgl2'";
+			$wh .= " AND a.tgl BETWEEN '$tgl1' and '$tgl2'";
 			$this->data['title'] .= 	"PERIODE TANGGAL ".SiteHelpers::datereport($tgl2).' <br />';	
 		}else{
 			if($jnstgl == 1){
