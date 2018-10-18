@@ -60,8 +60,8 @@
 								<option value="2019">2019</option>
 							</select>
 						</td>
-						<td class="period1">
-							<input type='text' class='form-control date input-sm' readonly placeholder='' value='<?php echo date('Y-m-d');?>' id='tgl1'  /> </td><td class="period1"> s/d </td>
+						<td class="period">
+							<input type='text' class='form-control date input-sm' readonly placeholder='' value='<?php echo date('Y-m-d');?>' id='tgl1'  /> </td><td class="period"> s/d </td>
 						<td style="padding:5px" class="period">  <input type='text' class='form-control date input-sm' readonly placeholder='' value='<?php echo date('Y-m-d');?>' id='tgl2'  /> </td>
 
 
