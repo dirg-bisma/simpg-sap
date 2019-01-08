@@ -281,7 +281,7 @@ class Mmasterfield extends SB_Controller
 		$totdecline = 0;
 		$tmpkodepetak = "";
 		for($i=2;$i<=$arrayCount;$i++){
-			 if(CNF_COMPANYCODE == 'N007' || CNF_COMPANYCODE == 'N002' || CNF_COMPANYCODE == 'N014'){
+			 if(CNF_COMPANYCODE == 'N007' || CNF_COMPANYCODE == 'N014'){
 			 	if(trim($allDataInSheet[$i]["B"]) == CNF_COMPANYCODE && trim($allDataInSheet[$i]["C"]) == CNF_PLANCODE){
 			 		$tempdata = array(
 					'kode_komoditas' => trim($allDataInSheet[$i]["A"]), 
