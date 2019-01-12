@@ -158,7 +158,7 @@ class Tkuotaspta extends SB_Controller
 		$row = $this->model->getRow($id);
 		$rowdetail = $this->db->query("SELECT a.*,(SELECT IFNULL(SUM(kouta_tot),0) FROM t_spta_kuota_tot WHERE id_spta_kuota_kkw = a.id) as terpakai,b.`kode_affd`,b.`nama_afdeling`,c.`name` FROM `t_spta_kuota_kkw` a 
 INNER JOIN `sap_m_affdeling` b ON a.id_affd=b.`id_affdeling`
-INNER JOIN sap_m_karyawan c ON c.`Persno`=b.`Persno` WHERE a.id_spta_kuota='$id'")->result();
+INNER JOIN sap_m_karyawan c ON c.`Persno`=b.`Persno` WHERE a.id_spta_kuota='$id' ORDER BY b.kode_affd")->result();
 		if($row)
 		{
 			$this->data['row'] =  $row;
@@ -176,7 +176,7 @@ INNER JOIN sap_m_karyawan c ON c.`Persno`=b.`Persno` WHERE a.id_spta_kuota='$id'
 	function getlistSptaKkw($id){
 		$rowdetail = $this->db->query("SELECT a.*,(SELECT IFNULL(SUM(kouta_tot),0) FROM t_spta_kuota_tot WHERE id_spta_kuota_kkw = a.id) as terpakai,b.`kode_affd`,b.`nama_afdeling`,c.`name` FROM `t_spta_kuota_kkw` a 
 INNER JOIN `sap_m_affdeling` b ON a.id_affd=b.`id_affdeling`
-INNER JOIN sap_m_karyawan c ON c.`Persno`=b.`Persno` WHERE a.id_spta_kuota='$id'")->result();
+INNER JOIN sap_m_karyawan c ON c.`Persno`=b.`Persno` WHERE a.id_spta_kuota='$id' ORDER BY b.kode_affd")->result();
 		$tmp = "";
 		foreach($rowdetail as $rd){
 			
@@ -271,7 +271,7 @@ FROM
       id,kuota_spta,id_affd
     FROM
       t_spta_kuota_kkw 
-    WHERE tgl_spta = '".$tgl_spta."') AS c ON c.id_affd=a.`id_affdeling`")->result();
+    WHERE tgl_spta = '".$tgl_spta."') AS c ON c.id_affd=a.`id_affdeling` ORDER BY a.nama_afdeling")->result();
 			$no=1;
 			$html = '';
 			foreach($a as $b){
