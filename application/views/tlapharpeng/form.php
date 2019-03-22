@@ -493,6 +493,64 @@
                                     <td>&nbsp;</td>
                                     <td>&nbsp;</td>
                                 </tr>
+                                <tr>
+                                    <td> RESIDU (Liter) </td>
+                                    <td><input type="number" step="any" class="number" name="residu" id="residu" onkeyup="total1('residu','0','0','0')"></td>
+                                    <td><input type="number" step="any" class="number" id="residu_yl" readonly></td>
+                                    <td><input type="number" step="any" class="number" id="residu_sd" name="residu_sd" readonly></td>
+                                </tr>
+                                <tr>
+                                    <td> TON BBA </td>
+                                    <td><input type="number" step="any" class="number" name="bba_ton" id="bba_ton" onkeyup="total1('bba_ton','0','0','0')"></td>
+                                    <td><input type="number" step="any" class="number" id="bba_ton_yl" readonly></td>
+                                    <td><input type="number" step="any" class="number" id="bba_ton_sd" name="bba_ton_sd" readonly></td>
+                                </tr>
+                                <tr>
+                                    <td> RUPIAH BBA </td>
+                                    <td><input type="number" step="any" class="number" name="bba_rupiah" id="bba_rupiah" onkeyup="total1('bba_rupiah','0','0','0')"></td>
+                                    <td><input type="number" step="any" class="number" id="bba_rupiah_yl" readonly></td>
+                                    <td><input type="number" step="any" class="number" id="bba_rupiah_sd" name="bba_rupiah_sd" readonly></td>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                </tr>
+                                <tr>
+                                    <td> GULA REPRO tahun lalu </td>
+                                    
+                                    <td><input type="number" step="any" class="number" onkeyup="total1('gula_repro_thn_lalu','0','0','0')"  name="gula_repro_thn_lalu" id="gula_repro_thn_lalu"></td>
+                                    <td><input type="number" step="any" class="number" id="gula_repro_thn_lalu_yl" readonly></td>
+                                    <td><input type="number" step="any" class="number" id="gula_repro_thn_lalu_sd" name="gula_repro_thn_lalu_sd" readonly></td>
+                                </tr>
+                                <tr>
+                                    <td> RAW SUGAR </td>
+                                    
+                                    <td><input type="number" step="any" class="number" name="raw_sugar_diolah" id="raw_sugar_diolah" onkeyup="total1('raw_sugar_diolah','0','0','0')"></td>
+                                    <td><input type="number" step="any" class="number" id="raw_sugar_diolah_yl" readonly></td>
+                                    <td><input type="number" step="any" class="number" id="raw_sugar_diolah_sd" name="raw_sugar_diolah_sd" readonly></td>
+                                </tr>
+                                <tr>
+                                    <td> GULA REPRO tahun ini </td>
+                                    
+                                    <td><input type="number" step="any" class="number" name="gula_repro_thn_ini" id="gula_repro_thn_ini"  onkeyup="total1('gula_repro_thn_ini','0','0','0')"></td>
+                                    <td><input type="number" step="any" class="number" id="gula_repro_thn_ini_yl" readonly></td>
+                                    <td><input type="number" step="any" class="number" id="gula_repro_thn_ini_sd" name="gula_repro_thn_ini_sd" readonly></td>
+                                </tr>
+
+                                <tr>
+                                    <td> ICUMSA </td>
+                                    <td><input type="number" step="any" class="number" name="icumsa" id="icumsa"></td>
+                                    <td><input type="number" step="any" readonly class="number"  id="icumsa_yl"></td>
+                                    <td><input type="number" step="any" class="number" name="icumsa_sd" id="icumsa_sd"></td>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                </tr>
                                 
                                 <tr>
                                     <td> Tetes Produksi </td>
@@ -523,72 +581,84 @@
                                 <tr bgcolor="#3c8dbc" >
                                 <td style="color:white;font-weight:bold">  JUMLAH TETES </td>
                                     
-                                    <td><input type="number" step="any" class="number" readonly name="tetes_total" id="tetes_total"></td>
+                                    <td><input type="number" step="any" class="number" readonly name="tetes_total" id="tetes_total" ></td>
                                 	<td><input type="number" step="any" class="number" id="tetes_total_yl" readonly></td>
                                 	<td><input type="number" step="any" class="number" id="tetes_total_sd" name="tetes_total_sd" readonly></td>
                                 </tr>
-                                <tr>
-                                    <td> RESIDU (Liter) </td>
-                                    <td><input type="number" step="any" class="number" name="residu" id="residu" onkeyup="total1('residu','0','0','0')"></td>
-                                    <td><input type="number" step="any" class="number" id="residu_yl" readonly></td>
-                                    <td><input type="number" step="any" class="number" id="residu_sd" name="residu_sd" readonly></td>
-                                </tr>
-                                <tr>
-                                    <td> TON BBA </td>
-                                    <td><input type="number" step="any" class="number" name="bba_ton" id="bba_ton" onkeyup="total1('bba_ton','0','0','0')"></td>
-                                	<td><input type="number" step="any" class="number" id="bba_ton_yl" readonly></td>
-                                	<td><input type="number" step="any" class="number" id="bba_ton_sd" name="bba_ton_sd" readonly></td>
-                                </tr>
-                                <tr>
-                                    <td> RUPIAH BBA </td>
-                                    <td><input type="number" step="any" class="number" name="bba_rupiah" id="bba_rupiah" onkeyup="total1('bba_rupiah','0','0','0')"></td>
-                                	<td><input type="number" step="any" class="number" id="bba_rupiah_yl" readonly></td>
-                                	<td><input type="number" step="any" class="number" id="bba_rupiah_sd" name="bba_rupiah_sd" readonly></td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;</td>
-                                    <td>&nbsp;</td>
-                                    <td>&nbsp;</td>
-                                    <td>&nbsp;</td>
-                                </tr>
-                                <tr>
-                                    <td> GULA REPRO tahun lalu </td>
+
+                                <tr >
+                                <td >  % Pol TETES </td>
                                     
-                                    <td><input type="number" step="any" class="number" onkeyup="total1('gula_repro_thn_lalu','0','0','0')"  name="gula_repro_thn_lalu" id="gula_repro_thn_lalu"></td>
-                                	<td><input type="number" step="any" class="number" id="gula_repro_thn_lalu_yl" readonly></td>
-                                	<td><input type="number" step="any" class="number" id="gula_repro_thn_lalu_sd" name="gula_repro_thn_lalu_sd" readonly></td>
+                                    <td><input type="number" step="any" class="number"  name="persen_pol_tetes" id="persen_pol_tetes"
+                                        onkeyup="tonpol('tetes_produksi','persen_pol_tetes','ton_pol_tetes','k_dlm_tetes')"></td>
+                                    <td><input type="number" step="any" class="number" id="persen_pol_tetes_yl" readonly></td>
+                                    <td><input type="number" step="any" class="number" id="persen_pol_tetes_sd" name="persen_pol_tetes_sd" readonly></td>
                                 </tr>
-                                <tr>
-                                    <td> RAW SUGAR </td>
+                                <tr bgcolor="#ea6d6d" >
+                                <td style="color:white;font-weight:bold"> Ton Pol TETES </td>
                                     
-                                    <td><input type="number" step="any" class="number" name="raw_sugar_diolah" id="raw_sugar_diolah" onkeyup="total1('raw_sugar_diolah','0','0','0')"></td>
-                                	<td><input type="number" step="any" class="number" id="raw_sugar_diolah_yl" readonly></td>
-                                	<td><input type="number" step="any" class="number" id="raw_sugar_diolah_sd" name="raw_sugar_diolah_sd" readonly></td>
+                                    <td><input type="number" step="any" readonly class="number"  name="ton_pol_tetes" id="ton_pol_tetes"></td>
+                                    <td><input type="number" step="any" class="number" id="ton_pol_tetes_yl" readonly></td>
+                                    <td><input type="number" step="any" class="number" id="ton_pol_tetes_sd" name="ton_pol_tetes_sd" readonly></td>
                                 </tr>
-                                <tr>
-                                    <td> GULA REPRO tahun ini </td>
+                                <tr bgcolor="#3c8dbc" >
+                                <td style="color:white;font-weight:bold"> Kehilangan Dlm TETES </td>
                                     
-                                    <td><input type="number" step="any" class="number" name="gula_repro_thn_ini" id="gula_repro_thn_ini"  onkeyup="total1('gula_repro_thn_ini','0','0','0')"></td>
-                                	<td><input type="number" step="any" class="number" id="gula_repro_thn_ini_yl" readonly></td>
-                                	<td><input type="number" step="any" class="number" id="gula_repro_thn_ini_sd" name="gula_repro_thn_ini_sd" readonly></td>
+                                    <td><input type="number" step="any" readonly class="number"  name="k_dlm_tetes" id="k_dlm_tetes"></td>
+                                    <td><input type="number" step="any" class="number" id="k_dlm_tetes_yl" readonly></td>
+                                    <td><input type="number" step="any" class="number" id="k_dlm_tetes_sd" name="k_dlm_tetes_sd" readonly></td>
                                 </tr>
+                                
                                 <tr>
                                     <td>&nbsp;</td>
                                     <td>&nbsp;</td>
                                     <td>&nbsp;</td>
                                     <td>&nbsp;</td>
                                 </tr>
-                                <!--tr>
+                                <tr>
+                                    <td>  % Pol TEBU </td>
+                                    <td><input type="number" step="any" class="number" name="pol_tebu" id="pol_tebu" onkeyup="tonpol('tetes_produksi','persen_pol_tetes','ton_pol_tetes','k_dlm_tetes')" ></td>
+                                    <td><input type="number" step="any" class="number" id="pol_tebu_yl" readonly></td>
+                                    <td><input type="number" step="any" class="number" id="pol_tebu_sd" name="pol_tebu_sd" readonly></td>
+                                </tr>
+                                <tr>
+                                    <td>  TON Pol TEBU </td>
+                                    <td><input type="number" step="any" class="number" name="ton_pol_tebu" id="ton_pol_tebu" readonly ></td>
+                                    <td><input type="number" step="any" class="number" id="ton_pol_tebu_yl" readonly></td>
+                                    <td><input type="number" step="any" class="number" id="ton_pol_tebu_sd" name="ton_pol_tebu_sd" readonly></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                </tr>
+
+                                <tr>
                                     <td>  TON AMPAS </td>
-                                    <td><input type="number" step="any" class="number" name="ampas_ton" id="ampas_ton"></td>
-                                    <td>  </td>
-                                    <td> </td>
+                                    <td><input type="number" step="any" class="number" name="ampas_ton" id="ampas_ton" onkeyup="total1('ampas_ton','0','0','0');tonpol('ampas_ton','persen_pol_ampas','pol_ampas_ton','k_dlm_ampas')"></td>
+                                    <td><input type="number" step="any" class="number" id="ampas_ton_yl" readonly></td> 
+                                    <td><input type="number" step="any" class="number" id="ampas_ton_sd" name="ampas_ton_sd" readonly></td>
                                 </tr>
                                 <tr>
                                     <td> % Pol AMPAS </td>
-                                    <td><input type="number" step="any" class="number" name="persen_pol_ampas" id="persen_pol_ampas"></td>
-                                    <td>  </td>
-                                    <td> </td>
+                                    <td><input type="number" step="any" class="number" name="persen_pol_ampas" id="persen_pol_ampas"  onkeyup="tonpol('ampas_ton','persen_pol_ampas','pol_ampas_ton','k_dlm_ampas')"></td>
+                                     <td><input type="number" step="any" class="number" id="persen_pol_ampas_yl" readonly></td>
+                                     <td><input type="number" step="any" class="number" name="persen_pol_ampas_sd" id="persen_pol_ampas_sd" readonly></td>
+                                </tr>
+                                <tr bgcolor="#ea6d6d" >
+                                <td style="color:white;font-weight:bold">  TON POL AMPAS </td>
+                                    <td><input type="number" step="any" readonly class="number" name="pol_ampas_ton" id="pol_ampas_ton"></td>
+                                    <td><input type="number" step="any" class="number" id="pol_ampas_ton_yl" readonly></td> 
+                                    <td><input type="number" step="any" class="number" id="pol_ampas_ton_sd" name="pol_ampas_ton_sd" readonly></td>
+                                </tr>
+                                <tr bgcolor="#3c8dbc" >
+                                <td style="color:white;font-weight:bold"> Kehilangan Dlm AMPAS </td>
+                                    
+                                    <td><input type="number" step="any" readonly class="number"  name="k_dlm_ampas" id="k_dlm_ampas"></td>
+                                    <td><input type="number" step="any" class="number" id="k_dlm_ampas_yl" readonly></td>
+                                    <td><input type="number" step="any" class="number" id="k_dlm_ampas_sd" name="k_dlm_ampas_sd" readonly></td>
                                 </tr>
                                 <tr>
                                     <td>&nbsp;</td>
@@ -598,48 +668,116 @@
                                 </tr>
                                 <tr>
                                     <td> TON BLOTONG </td>
-                                    <td><input type="number" step="any" class="number" name="blotong_ton" id="blotong_ton"></td>
-                                    <td>  </td>
-                                    <td> </td>
+                                    <td><input type="number" step="any" class="number" name="blotong_ton" id="blotong_ton"  onkeyup="
+                                    total1('blotong_ton','0','0','0');tonpol('blotong_ton','persen_pol_blotong','pol_blotong_ton','k_dlm_blotong');"></td>
+                                    <td><input type="number" readonly step="any" class="number" id="blotong_ton_yl"></td>
+                                     <td><input type="number" readonly step="any" class="number" name="blotong_ton_sd" id="blotong_ton_sd"></td>
                                 </tr>
                                 <tr>
                                     <td> % POL BLOTONG </td>
-                                    <td><input type="number" step="any" class="number" name="persen_pol_blotong" id="persen_pol_blotong"></td>
-                                    <td>  </td>
-                                    <td> </td>
+                                    <td><input type="number" step="any" class="number" name="persen_pol_blotong" id="persen_pol_blotong"   onkeyup="tonpol('blotong_ton','persen_pol_blotong','pol_blotong_ton','k_dlm_blotong')"></td>
+                                    <td><input type="number" step="any" class="number" id="persen_pol_blotong_yl" readonly></td>
+                                    <td><input type="number" step="any" class="number" name="persen_pol_blotong_sd" id="persen_pol_blotong_sd" readonly></td>
                                 </tr>
-                                <tr>
-                                    <td>&nbsp;</td>
-                                    <td>&nbsp;</td>
-                                    <td>&nbsp;</td>
-                                    <td>&nbsp;</td>
+                                
+                                <tr bgcolor="#ea6d6d" >
+                                <td style="color:white;font-weight:bold">  TON POL BLOTONG </td>
+                                    <td><input type="number" step="any" readonly class="number" name="pol_blotong_ton" id="pol_blotong_ton"></td>
+                                    <td><input type="number" step="any" class="number" id="pol_blotong_ton_yl" readonly></td> 
+                                    <td><input type="number" step="any" class="number" id="pol_blotong_ton_sd" name="pol_blotong_ton_sd" readonly></td>
                                 </tr>
+                                <tr bgcolor="#3c8dbc" >
+                                <td style="color:white;font-weight:bold"> Kehilangan Dlm BLOTONG </td>
+                                    
+                                    <td><input type="number" step="any" readonly class="number"  name="k_dlm_blotong" id="k_dlm_blotong"></td>
+                                    <td><input type="number" step="any" class="number" id="k_dlm_blotong_yl" readonly></td>
+                                    <td><input type="number" step="any" class="number" id="k_dlm_blotong_sd" name="k_dlm_blotong_sd" readonly></td>
+                                </tr>
+
                                 <tr>
-                                    <td> TON POL DALAM HASIL + TAKSASI </td>
-                                    <td><input type="number" step="any" class="number" name="pol_dlm_hasil_taksasi_ton" id="pol_dlm_hasil_taksasi_ton"></td>
-                                    <td>  </td>
-                                    <td> </td>
+                                    <td> TON DALAM HASIL + TAKSASI </td>
+                                    <td><input type="number" step="any" class="number" name="pol_dlm_hasil_taksasi_ton" id="pol_dlm_hasil_taksasi_ton"   onkeyup="total1('pol_dlm_hasil_taksasi_ton','0','0','0');tonpol('pol_dlm_hasil_taksasi_ton','pol_dlm_hasil_taksasi_persenpol','pol_taksasi_ton')"></td>
+                                    <td><input type="number" readonly step="any" class="number"  id="pol_dlm_hasil_taksasi_ton_yl"></td>
+                                    <td><input type="number"  readonly step="any" class="number" name="pol_dlm_hasil_taksasi_ton_sd" id="pol_dlm_hasil_taksasi_ton_sd"></td>
                                 </tr>
                                 <tr>
                                     <td> % POL DALAM HASIL + TAKSASI </td>
-                                    <td><input type="number" step="any" class="number" name="pol_dlm_hasil_taksasi_persenpol" id="pol_dlm_hasil_taksasi_persenpol"></td>
-                                    <td>  </td>
-                                    <td> </td>
-                                </tr-->
+                                    <td><input type="number" step="any" class="number" name="pol_dlm_hasil_taksasi_persenpol" id="pol_dlm_hasil_taksasi_persenpol" onkeyup="tonpol('pol_dlm_hasil_taksasi_ton','pol_dlm_hasil_taksasi_persenpol','pol_taksasi_ton','ton_taksasi_tebu')"></td>
+                                    <td><input type="number" readonly step="any" class="number"  id="pol_dlm_hasil_taksasi_persenpol_yl"></td>
+                                    <td><input type="number" readonly step="any" class="number" name="pol_dlm_hasil_taksasi_persenpol_sd" id="pol_dlm_hasil_taksasi_persenpol_sd"></td>
+                                </tr>
 
-                                <tr>
-                                    <td> ICUMSA </td>
-                                    <td><input type="number" step="any" class="number" name="icumsa" id="icumsa"></td>
-                                    <td><input type="number" step="any" readonly class="number"  id="icumsa_yl"></td>
-                                    <td><input type="number" step="any" class="number" name="icumsa_sd" id="icumsa_sd"></td>
+
+
+                                <tr bgcolor="#ea6d6d" >
+                                <td style="color:white;font-weight:bold">  TON POL TAKSASI </td>
+                                    <td><input type="number" step="any" readonly class="number" name="pol_taksasi_ton" id="pol_taksasi_ton"></td>
+                                    <td><input type="number" step="any" class="number" id="pol_taksasi_ton_yl" readonly></td> 
+                                    <td><input type="number" step="any" class="number" id="pol_taksasi_ton_sd" name="pol_taksasi_ton_sd" readonly></td>
+                                </tr>
+
+                                <tr bgcolor="gold" style="display: none;" >
+                                <td style="color:black;font-weight:bold"> % POL DALAM TAKSASI x TEBU </td>
+                                    <td><input type="number" step="any" readonly class="number" name="pol_dlm_hasil_taksasi_xtebu" id="pol_dlm_hasil_taksasi_xtebu"></td>
+                                    <td><input type="number" readonly step="any" class="number" id="pol_dlm_hasil_taksasi_xtebu_yl"></td>
+                                    <td><input type="number" readonly step="any" class="number" name="pol_dlm_hasil_taksasi_xtebu_sd" id="pol_dlm_hasil_taksasi_xtebu_sd"></td>
+                                </tr>
+
+                                <tr bgcolor="#ea6d6d" >
+                                <td style="color:white;font-weight:bold"> Ton Taksasi % Tebu </td>
+                                    <td><input type="number" step="any" readonly class="number" name="ton_taksasi_tebu" id="ton_taksasi_tebu"></td>
+                                    <td><input type="number" step="any" readonly class="number"  id="ton_taksasi_tebu_yl"></td>
+                                    <td><input type="number" step="any" readonly class="number" name="ton_taksasi_tebu_sd" id="ton_taksasi_tebu_sd"></td>
+                                    
+                                </tr>
+
+                                <tr bgcolor="#3c8dbc" >
+                                <td style="color:white;font-weight:bold"> OV </td>
+                                    <td><input type="number" step="any" readonly class="number" name="ef_ov" id="ef_ov"></td>
+                                    <td><input type="number" step="any" readonly class="number"  id="ef_ov_yl"></td>
+                                    <td><input type="number" step="any" readonly class="number" name="ef_ov_sd" id="ef_ov_sd"></td>
+                                    
+                                </tr>
+                                <tr bgcolor="black" >
+                                <td style="color:white;font-weight:bold"> Total Kehilangan </td>
+                                    
+                                    <td><input type="number" step="any" readonly class="number"  name="k_dlm_total" id="k_dlm_total"></td>
+                                    <td><input type="number" step="any" class="number" id="k_dlm_total_yl" readonly></td>
+                                    <td><input type="number" step="any" class="number" id="k_dlm_total_sd" name="k_dlm_total_sd" readonly></td>
                                 </tr>
                                 <tr>
-                                    <td> Efesiensi Pabrik (OR) </td>
-                                    <td><input type="number" step="any" class="number" name="ef_or" id="ef_or"></td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                </tr>
+                                
+
+                                
+
+                                <tr bgcolor="#3c8dbc" >
+                                <td style="color:white;font-weight:bold"> ME/HPG </td>
+                                    <td><input type="number" step="any" readonly class="number" name="ef_me" id="ef_me"></td>
+                                    <td><input type="number" step="any" readonly class="number"  id="ef_me_yl"></td>
+                                    <td><input type="number" step="any" readonly class="number" name="ef_me_sd" id="ef_me_sd"></td>
+                                    
+                                </tr>
+                                <tr bgcolor="#3c8dbc" >
+                                <td style="color:white;font-weight:bold"> BHR </td>
+                                    <td><input type="number" step="any" readonly class="number" name="ef_bhr" id="ef_bhr"></td>
+                                    <td><input type="number" step="any" readonly class="number"  id="ef_bhr_yl"></td>
+                                    <td><input type="number" step="any" readonly class="number" name="ef_bhr_sd" id="ef_bhr_sd"></td>
+                                    
+                                </tr>
+                                <tr bgcolor="#3c8dbc" >
+                                <td style="color:white;font-weight:bold"> OR </td>
+                                    <td><input type="number" step="any" readonly class="number" name="ef_or" id="ef_or"></td>
                                     <td><input type="number" step="any" readonly class="number"  id="ef_or_yl"></td>
-                                    <td><input type="number" step="any" class="number" name="ef_or_sd" id="ef_or_sd"></td>
-                                    <td> </td>
+                                    <td><input type="number" step="any" readonly class="number" name="ef_or_sd" id="ef_or_sd"></td>
+                                    
                                 </tr>
+                                
+                                
                                 <tr>
                                     <td>&nbsp;</td>
                                     <td>&nbsp;</td>
@@ -649,8 +787,9 @@
                                 
                                 </tbody>
                             </table>
+                            <center><p id="txtcek" style="font-size: 13px;background-color: red;color: white"><b>RENDEMEN TIDAK SAMA CEK KEMBALI NERACA POL</b></p></center>
                             <div class="toolbar-line text-center">
-                                <input type="submit" class="btn btn-primary btn-sm" value="Simpan" />
+                                <input type="submit" class="btn btn-primary btn-sm" value="Simpan" id="btnsimpan" />
                                 <a href="<?php echo site_url('tlapharpeng');?>" class="btn btn-sm btn-warning"><?php echo $this->lang->line('core.sb_cancel'); ?> </a>
                             </div>
                         
@@ -663,6 +802,7 @@
 </section>
 <script type="text/javascript">
     $(document).ready(function() {
+        cekRendemen();
        $(window).keydown(function(event){
     if(event.keyCode == 13) {
       event.preventDefault();
@@ -683,6 +823,124 @@
 
     var gulatr = 0; var gulatrtssaudara=0;var gulats=0;gulatstr=0;gulatstssaudara=0;
 
+
+    function tonpol(tonx,persenx,el,elkeh=0){
+        var ton = parseFloat($('#'+tonx).val());
+        var persen = parseFloat($('#'+persenx).val());
+        var hasil = ton * persen / 100;
+        $('#'+el).val(hasil.toFixed(2));
+        if(elkeh != 0){
+            var tontebu = parseFloat($('#ton_giling_total').val());
+            var hs = hasil / tontebu * 100;
+            $('#'+elkeh).val(hs.toFixed(2));
+        }
+
+        total1(el,'0','0','0');
+
+        var ppoltetessd = parseFloat($('#ton_pol_tetes_sd').val())/parseFloat($('#tetes_total_sd').val()) * 100;
+        if(isNaN(ppoltetessd)) ppoltetessd = 0;
+        $('#persen_pol_tetes_sd').val(ppoltetessd.toFixed(2));
+
+        var ppolblotongsd = parseFloat($('#pol_blotong_ton_sd').val())/parseFloat($('#blotong_ton_sd').val()) * 100;
+        if(isNaN(ppolblotongsd)) ppolblotongsd = 0;
+        $('#persen_pol_blotong_sd').val(ppolblotongsd.toFixed(2));
+
+        var ppolampassd = parseFloat($('#pol_ampas_ton_sd').val())/parseFloat($('#ampas_ton_sd').val()) * 100;
+        if(isNaN(ppolampassd)) ppolampassd = 0;
+        $('#persen_pol_ampas_sd').val(ppolampassd.toFixed(2));
+
+
+        if(elkeh != 0){
+            var tonsd = parseFloat($('#'+tonx+'_sd').val());
+            var persensd = parseFloat($('#'+persenx+'_sd').val());
+            var hasilsd = tonsd * persensd / 100;
+          // console.log(ton);
+            var tontebusd= parseFloat($('#ton_giling_total_sd').val());
+            var hssd = hasilsd / tontebusd * 100;
+            $('#'+elkeh+'_sd').val(hssd.toFixed(2));
+        }
+
+        var pol_dlm_hasil_taksasi_xtebu = parseFloat($('#pol_dlm_hasil_taksasi_persenpol').val()) * parseFloat($('#ton_giling_total').val()) / 100;
+
+        $('#pol_dlm_hasil_taksasi_xtebu').val(pol_dlm_hasil_taksasi_xtebu.toFixed(2));
+        total1('pol_dlm_hasil_taksasi_xtebu','0','0','0');
+
+        var pol_dlm_hasil_taksasi_persenpol_sd = parseFloat($('#pol_dlm_hasil_taksasi_xtebu_sd').val()) / parseFloat($('#ton_giling_total_sd').val()) * 100;
+        $('#pol_dlm_hasil_taksasi_persenpol_sd').val(pol_dlm_hasil_taksasi_persenpol_sd.toFixed(2));
+
+
+        var tonpoltebu = parseFloat($('#pol_tebu').val()) * parseFloat($('#ton_giling_total').val()) / 100;
+        $('#ton_pol_tebu').val(tonpoltebu.toFixed(2));
+        total1('ton_pol_tebu','0','0','0');
+
+        var pol_tebu_sd = parseFloat($('#ton_pol_tebu_sd').val()) / parseFloat($('#ton_giling_total_sd').val())*100;
+         $('#pol_tebu_sd').val(pol_tebu_sd.toFixed(2));
+
+         var ef_ov = parseFloat($('#pol_tebu').val())-parseFloat($('#k_dlm_ampas').val())-parseFloat($('#k_dlm_blotong').val())-parseFloat($('#k_dlm_tetes').val())-parseFloat($('#ton_taksasi_tebu').val());
+
+        $('#ef_ov').val(ef_ov.toFixed(2));
+
+        var totkeh = parseFloat(ef_ov)+parseFloat($('#k_dlm_ampas').val())+parseFloat($('#k_dlm_blotong').val())+parseFloat($('#k_dlm_tetes').val());
+
+        $('#k_dlm_total').val(totkeh.toFixed(2));
+
+        var ef_me = (parseFloat($('#pol_tebu').val()) - parseFloat($('#k_dlm_ampas').val()) )/  parseFloat($('#pol_tebu').val()) * 100;
+        $('#ef_me').val(ef_me.toFixed(2));
+
+        var ef_bhr = (parseFloat($('#ton_taksasi_tebu').val()) / (parseFloat($('#pol_tebu').val()) - parseFloat($('#k_dlm_ampas').val()))) * 100;
+        $('#ef_bhr').val(ef_bhr.toFixed(2));
+
+        var ef_or = (ef_me * ef_bhr) / 100;
+        $('#ef_or').val(ef_or.toFixed(2));  
+
+
+
+
+        //hitungan sampai dengan
+        var ef_ov_sd = parseFloat($('#pol_tebu_sd').val())-parseFloat($('#k_dlm_ampas_sd').val())-parseFloat($('#k_dlm_blotong_sd').val())-parseFloat($('#k_dlm_tetes_sd').val())-parseFloat($('#ton_taksasi_tebu_sd').val());
+
+        $('#ef_ov_sd').val(ef_ov_sd.toFixed(2));
+
+        var totkeh_sd = parseFloat(ef_ov_sd)+parseFloat($('#k_dlm_ampas_sd').val())+parseFloat($('#k_dlm_blotong_sd').val())+parseFloat($('#k_dlm_tetes_sd').val());
+
+        $('#k_dlm_total_sd').val(totkeh_sd.toFixed(2));
+
+        var ef_me_sd = (parseFloat($('#pol_tebu_sd').val()) - parseFloat($('#k_dlm_ampas_sd').val()) )/  parseFloat($('#pol_tebu_sd').val()) * 100;
+        $('#ef_me_sd').val(ef_me_sd.toFixed(2));
+
+        var ef_bhr_sd = (parseFloat($('#ton_taksasi_tebu_sd').val()) / (parseFloat($('#pol_tebu_sd').val()) - parseFloat($('#k_dlm_ampas_sd').val()))) * 100;
+        $('#ef_bhr_sd').val(ef_bhr_sd.toFixed(2));
+
+        var ef_or_sd = (ef_me_sd * ef_bhr_sd) / 100;
+        $('#ef_or_sd').val(ef_or_sd.toFixed(2));   
+
+
+
+        cekRendemen();
+
+    }
+
+
+    function cekRendemen(){
+        var rhi = $('#rend_total').val();
+        var rsd = $('#rend_total_sd').val();
+
+        var prhi = parseFloat($('#pol_tebu').val() - $('#k_dlm_total').val());
+        var prsd = parseFloat($('#pol_tebu_sd').val() - $('#k_dlm_total_sd').val());
+
+        var rx = "RENDEMEN BELUM SAMA DENGAN NERACA POL Rendemen Hi : ";
+        rx += prhi +' Rendemen S/d : '+prsd;
+        $('#txtcek').html(rx);
+
+        if(rhi == prhi && rsd == prsd && rhi != '' && rsd != ''){
+            $('#txtcek').hide();
+            $('#btnsimpan').show();
+        }else{
+             $('#txtcek').show();
+            $('#btnsimpan').hide();
+        }
+    }
+
     function gettglGiling(hg,e){
         var plan = "<?php echo CNF_PLANCODE;?>";
         if(e.keyCode == 13) {
@@ -701,6 +959,8 @@
                 }
             });
         }
+
+
     }
 
     function gettglGilingx(hg){
