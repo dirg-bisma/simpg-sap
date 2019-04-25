@@ -35,6 +35,21 @@ class Apidistribusispta extends SB_Controller
         echo json_encode($msg);
     }
 
+    function detailUser()
+    {
+        $id = $_REQUEST['id'];
+
+        $result = $this->db->get_where('tb_users', array('id'=>$id));
+
+
+        if($result->num_rows() == 1){
+            $msg = array('msg' => '1', 'status' => 'true','data' => $result->row());
+        }else{
+            $msg = array('msg' => '0', 'status' => 'false' , 'data' => '');
+        }
+        echo json_encode($msg);
+    }
+
     function dashboard()
     {
     	$username = $_REQUEST['username'];
