@@ -20,6 +20,9 @@
 
 
 <div class="col-md-12">
+	<video autoplay="true" id="videoElement" style="width: 100%">
+
+</video>
 <div class="form-group  " >
 									<label for="ipt" class=" control-label "> No SPTA  <span class="asterix"> * </span>  </label>									
 									  <input type='text' class='form-control input-sm' placeholder='pastikan crusor disini untuk scan barcode'  id='no_spta-<?php echo $kode_meja_tebu;?>' autocomplete="off" onkeyup="getNoSPTA<?php echo $kode_meja_tebu;?>(event,this.value)"  required /> 						
@@ -160,6 +163,18 @@ $(document).ready(function() {
 	
 
 });
+
+var video = document.querySelector("#videoElement");
+
+if (navigator.mediaDevices.getUserMedia) {
+  navigator.mediaDevices.getUserMedia({ video: true })
+    .then(function (stream) {
+      video.srcObject = stream;
+    })
+    .catch(function (err0r) {
+      console.log("Something went wrong!");
+    });
+}
 
 function getNoSPTA<?php echo $kode_meja_tebu;?>(e,nospta){
 	nospta = nospta.toUpperCase();

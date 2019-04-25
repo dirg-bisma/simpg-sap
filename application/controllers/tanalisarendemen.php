@@ -482,6 +482,18 @@ WHERE b.`no_spat`='".trim($allDataInSheet[$i]["C"])."' AND a.sbh_ari_status=0");
 				$rendemen_ari = $nilai_nira * $faktor_rendemen;
 			}
 
+			//PTPN 2
+			/*
+			all PG
+			jomed rendemen
+			faktor rendemen = faktor perah = dinamis per analisa
+			sama dengan ptpn 11 tanpa kelebihan 8
+			55 dan 45
+			*/
+			if(CNF_COMPANYCODE == 'N002'){
+				$rendemen_ari = $nilai_nira * $faktor_rendemen;
+			}
+
 
 
 			$data['hk'] = $hk;

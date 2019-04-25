@@ -237,7 +237,8 @@ $(document).ready(function(){
     
     $('#list2').on('change', function() {
 		var out = $('#list2').nestable('serialize');
-		$('#reorder').val(JSON.stringify(out));	  
+		$('#reorder').val(JSON.stringify(out));	
+		//console.log(JSON.stringify(out));  
 
     });
 		$('.ext-link').hide(); 

@@ -187,6 +187,7 @@ class Tselektor extends SB_Controller
 			$data['tgl_tebang'] = $_POST['tgl_tebang'].' '.$_POST['jam_tebang'].':00';
 			$data['ptgs_selektor'] = $this->session->userdata('fid');
 			
+			// var_dump($data);die();
 			
 			$rx = $this->db->query('SELECT IFNULL(MAX(no_urut),0)+1 AS nourut,get_tgl_giling() AS tgl FROM t_selektor WHERE tgl_urut = get_tgl_giling() AND ptgs_selektor="'.$data['ptgs_selektor'].'"')->row();
 			$data['no_urut'] = $rx->nourut;

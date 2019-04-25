@@ -20,7 +20,7 @@
         <div class="row">
             <div class="col-xs-12">
                 <div class="box box-danger">
-                    <div class="box-header with-border"  style="height: 1000px">
+                    <div class="box-header with-border" style="height: 1000px">
 
                         <table class="table table-bordered display" id="gridvx">
                             <thead>
@@ -81,6 +81,12 @@
 
                                     <input type='text' max="5" class='form-control input-sm' name='jam_ari' value="<?php echo date('H:i');?>" placeholder="06:00"  required />
                                 </div>
+
+                                <div class="form-group col-md-12 " >
+                                    <label for="ipt" class=" control-label "> Faktor Rendemen  <span class="asterix"> * </span>  </label>
+                                    <input type='number' class='form-control input-sm'  name='faktor_rendemen' value="<?php echo PN_FAKTOR_RENDEMEN;?>"  />
+                                </div>
+
                                 <div class="form-group col-md-4 " >
                                     <label for="ipt" class=" control-label "> % Brix Ari  <span class="asterix"> * </span>  </label>
                                     <input type='number' class='form-control input-sm' name='persen_brix_ari' id='persen_brix_ari'  required />

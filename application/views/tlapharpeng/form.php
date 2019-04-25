@@ -75,19 +75,25 @@
                             </tr>
                             <tr>
                                 <td> TS </td>
-                                <td><input type="number" readonly step="any" class="number" name="ha_tebang_ts" id="ha_tebang_ts" onkeyup="total1('ha_tebang_ts','ha_tebang_ts_saudara','ha_tebang_tr','ha_tebang_total')"></td>
+                                <td><input type="number" readonly step="any" class="number" name="ha_tebang_ts" id="ha_tebang_ts" onkeyup="total1('ha_tebang_ts','ha_tebang_ts_saudara','ha_tebang_tr','ha_tebang_total',0,'ha_tebang_spt')"></td>
                                 <td><input type="number" step="any" class="number" tabindex="-1" id="ha_tebang_ts_yl" readonly></td>
                                 <td><input type="number" step="any" class="number" tabindex="-1" id="ha_tebang_ts_sd" name="ha_tebang_ts_sd" readonly></td>
                             </tr>
                             <tr>
                                 <td> TS SAUDARA </td>
-                                <td><input type="number" readonly step="any" class="number" name="ha_tebang_ts_saudara" id="ha_tebang_ts_saudara" onkeyup="total1('ha_tebang_ts','ha_tebang_ts_saudara','ha_tebang_tr','ha_tebang_total')"></td>
+                                <td><input type="number" readonly step="any" class="number" name="ha_tebang_ts_saudara" id="ha_tebang_ts_saudara" onkeyup="total1('ha_tebang_ts','ha_tebang_ts_saudara','ha_tebang_tr','ha_tebang_total',0,'ha_tebang_spt')"></td>
                                 <td><input type="number" step="any" class="number" tabindex="-1" id="ha_tebang_ts_saudara_yl" readonly></td>
                                 <td><input type="number" step="any" class="number" tabindex="-1" id="ha_tebang_ts_saudara_sd" name="ha_tebang_ts_saudara_sd" readonly></td>
                             </tr>
                             <tr>
+                                <td> SPT </td>
+                                <td><input type="number" readonly step="any" class="number" name="ha_tebang_spt" id="ha_tebang_spt" onkeyup="total1('ha_tebang_ts','ha_tebang_ts_saudara','ha_tebang_tr','ha_tebang_total',0,'ha_tebang_spt')"></td>
+                                <td><input type="number" step="any" class="number" tabindex="-1" id="ha_tebang_spt_yl" readonly></td>
+                                <td><input type="number" step="any" class="number" tabindex="-1" id="ha_tebang_spt_sd" name="ha_tebang_spt_sd" readonly></td>
+                            </tr>
+                            <tr>
                                 <td> TR </td>
-                                <td><input type="number" readonly step="any"  class="number" name="ha_tebang_tr" id="ha_tebang_tr" onkeyup="total1('ha_tebang_ts','ha_tebang_ts_saudara','ha_tebang_tr','ha_tebang_total')"></td>
+                                <td><input type="number" readonly step="any"  class="number" name="ha_tebang_tr" id="ha_tebang_tr" onkeyup="total1('ha_tebang_ts','ha_tebang_ts_saudara','ha_tebang_tr','ha_tebang_total',0,'ha_tebang_spt')"></td>
                                 <td><input type="number" step="any" class="number" tabindex="-1" id="ha_tebang_tr_yl" readonly></td>
                                 <td><input type="number" step="any" class="number" tabindex="-1" id="ha_tebang_tr_sd" name="ha_tebang_tr_sd" readonly></td>
                             </tr>
@@ -105,19 +111,25 @@
                             </tr>
                             <tr>
                                 <td> TS </td>
-                                <td><input type="number" readonly step="any" class="number" name="ton_tebang_ts" id="ton_tebang_ts" onkeyup="total1('ton_tebang_ts','ton_tebang_ts_saudara','ton_tebang_tr','ton_tebang_total')"></td>
+                                <td><input type="number" readonly step="any" class="number" name="ton_tebang_ts" id="ton_tebang_ts" onkeyup="total1('ton_tebang_ts','ton_tebang_ts_saudara','ton_tebang_tr','ton_tebang_total',0,'ton_tebang_spt')"></td>
                                 <td><input type="number" step="any" class="number" tabindex="-1" id="ton_tebang_ts_yl" readonly></td>
                                 <td><input type="number" step="any" class="number" tabindex="-1" id="ton_tebang_ts_sd" name="ton_tebang_ts_sd" readonly></td>
                             </tr>
                             <tr>
                                 <td> TS SAUDARA </td>
-                                <td><input type="number" readonly step="any" class="number" name="ton_tebang_ts_saudara" id="ton_tebang_ts_saudara" onkeyup="total1('ton_tebang_ts','ton_tebang_ts_saudara','ton_tebang_tr','ton_tebang_total')"></td>
+                                <td><input type="number" readonly step="any" class="number" name="ton_tebang_ts_saudara" id="ton_tebang_ts_saudara" onkeyup="total1('ton_tebang_ts','ton_tebang_ts_saudara','ton_tebang_tr','ton_tebang_total',0,'ton_tebang_spt')"></td>
                                 <td><input type="number" step="any" class="number" tabindex="-1" id="ton_tebang_ts_saudara_yl" readonly></td>
                                 <td><input type="number" step="any" class="number" tabindex="-1" id="ton_tebang_ts_saudara_sd" name="ton_tebang_ts_saudara_sd" readonly></td>
                             </tr>
                             <tr>
+                                <td> SPT </td>
+                                <td><input type="number" readonly step="any" class="number" name="ton_tebang_spt" id="ton_tebang_spt" onkeyup="total1('ton_tebang_ts','ton_tebang_ts_saudara','ton_tebang_tr','ton_tebang_total',0,'ton_tebang_spt')"></td>
+                                <td><input type="number" step="any" class="number" tabindex="-1" id="ton_tebang_spt_yl" readonly></td>
+                                <td><input type="number" step="any" class="number" tabindex="-1" id="ton_tebang_spt_sd" name="ton_tebang_spt_sd" readonly></td>
+                            </tr>
+                            <tr>
                                 <td> TR </td>
-                                <td><input type="number" readonly step="any" class="number" name="ton_tebang_tr" id="ton_tebang_tr" onkeyup="total1('ton_tebang_ts','ton_tebang_ts_saudara','ton_tebang_tr','ton_tebang_total')"></td>
+                                <td><input type="number" readonly step="any" class="number" name="ton_tebang_tr" id="ton_tebang_tr" onkeyup="total1('ton_tebang_ts','ton_tebang_ts_saudara','ton_tebang_tr','ton_tebang_total',0,'ton_tebang_spt')"></td>
                                 <td><input type="number" step="any" class="number" tabindex="-1" id="ton_tebang_tr_yl" readonly></td>
                                 <td><input type="number" step="any" class="number" tabindex="-1" id="ton_tebang_tr_sd" name="ton_tebang_tr_sd" readonly></td>
                             </tr>
@@ -135,19 +147,25 @@
                             </tr>
                             <tr>
                                 <td> TS </td>
-                                <td><input type="number" readonly step="any" class="number" name="ha_giling_ts" id="ha_giling_ts" onkeyup="total1('ha_giling_ts','ha_giling_ts_saudara','ha_giling_tr','ha_giling_total')"></td>
+                                <td><input type="number" readonly step="any" class="number" name="ha_giling_ts" id="ha_giling_ts" onkeyup="total1('ha_giling_ts','ha_giling_ts_saudara','ha_giling_tr','ha_giling_total',0,'ha_giling_spt')"></td>
                                 <td><input type="number" step="any" class="number" tabindex="-1" id="ha_giling_ts_yl" readonly></td>
                                 <td><input type="number" step="any" class="number" tabindex="-1" id="ha_giling_ts_sd" name="ha_giling_ts_sd" readonly></td>
                             </tr>
                             <tr>
                                 <td> TS SAUDARA </td>
-                                <td><input type="number" readonly step="any" class="number" name="ha_giling_ts_saudara" id="ha_giling_ts_saudara" onkeyup="total1('ha_giling_ts','ha_giling_ts_saudara','ha_giling_tr','ha_giling_total')"></td>
+                                <td><input type="number" readonly step="any" class="number" name="ha_giling_ts_saudara" id="ha_giling_ts_saudara" onkeyup="total1('ha_giling_ts','ha_giling_ts_saudara','ha_giling_tr','ha_giling_total',0,'ha_giling_spt')"></td>
                                 <td><input type="number" step="any" class="number" tabindex="-1" id="ha_giling_ts_saudara_yl" readonly></td>
                                 <td><input type="number" step="any" class="number" tabindex="-1" id="ha_giling_ts_saudara_sd" name="ha_giling_ts_saudara_sd" readonly></td>
                             </tr>
+                             <tr>
+                                <td> SPT </td>
+                                <td><input type="number" readonly step="any" class="number" name="ha_giling_spt" id="ha_giling_spt" onkeyup="total1('ha_giling_ts','ha_giling_ts_saudara','ha_giling_tr','ha_giling_total',0,'ha_giling_spt')"></td>
+                                <td><input type="number" step="any" class="number" tabindex="-1" id="ha_giling_spt_yl" readonly></td>
+                                <td><input type="number" step="any" class="number" tabindex="-1" id="ha_giling_spt_sd" name="ha_giling_spt_sd" readonly></td>
+                            </tr>
                             <tr>
                                 <td> TR </td>
-                                <td><input type="number" readonly step="any" class="number" name="ha_giling_tr" id="ha_giling_tr" onkeyup="total1('ha_giling_ts','ha_giling_ts_saudara','ha_giling_tr','ha_giling_total')"></td>
+                                <td><input type="number" readonly step="any" class="number" name="ha_giling_tr" id="ha_giling_tr" onkeyup="total1('ha_giling_ts','ha_giling_ts_saudara','ha_giling_tr','ha_giling_total',0,'ha_giling_spt')"></td>
                                 <td><input type="number" step="any" class="number" tabindex="-1" id="ha_giling_tr_yl" readonly></td>
                                 <td><input type="number" step="any" class="number" tabindex="-1" id="ha_giling_tr_sd" name="ha_giling_tr_sd" readonly></td>
                             </tr>
@@ -165,19 +183,25 @@
                             </tr>
                            <tr>
                                 <td> TS </td>
-                                <td><input type="number" readonly step="any" class="number" name="ton_giling_ts" id="ton_giling_ts" onkeyup="total1('ton_giling_ts','ton_giling_ts_saudara','ton_giling_tr','ton_giling_total');onkeyrendemen();"></td>
+                                <td><input type="number" readonly step="any" class="number" name="ton_giling_ts" id="ton_giling_ts" onkeyup="total1('ton_giling_ts','ton_giling_ts_saudara','ton_giling_tr','ton_giling_total',0,'ton_giling_spt');onkeyrendemen();"></td>
                                 <td><input type="number" step="any" class="number" tabindex="-1" id="ton_giling_ts_yl" readonly></td>
                                 <td><input type="number" step="any" class="number" tabindex="-1" id="ton_giling_ts_sd" name="ton_giling_ts_sd" readonly></td>
                             </tr>
                             <tr>
                                 <td> TS SAUDARA </td>
-                                <td><input type="number" readonly step="any" class="number" name="ton_giling_ts_saudara" id="ton_giling_ts_saudara" onkeyup="total1('ton_giling_ts','ton_giling_ts_saudara','ton_giling_tr','ton_giling_total');onkeyrendemen();"></td>
+                                <td><input type="number" readonly step="any" class="number" name="ton_giling_ts_saudara" id="ton_giling_ts_saudara" onkeyup="total1('ton_giling_ts','ton_giling_ts_saudara','ton_giling_tr','ton_giling_total',0,'ton_giling_spt');onkeyrendemen();"></td>
                                 <td><input type="number" step="any" class="number" tabindex="-1" id="ton_giling_ts_saudara_yl" readonly></td>
                                 <td><input type="number" step="any" class="number" tabindex="-1" id="ton_giling_ts_saudara_sd" name="ton_giling_ts_saudara_sd" readonly></td>
                             </tr>
                             <tr>
+                                <td> SPT </td>
+                                <td><input type="number" readonly step="any" class="number" name="ton_giling_spt" id="ton_giling_spt" onkeyup="total1('ton_giling_ts','ton_giling_ts_saudara','ton_giling_tr','ton_giling_total',0,'ton_giling_spt');onkeyrendemen();"></td>
+                                <td><input type="number" step="any" class="number" tabindex="-1" id="ton_giling_spt_yl" readonly></td>
+                                <td><input type="number" step="any" class="number" tabindex="-1" id="ton_giling_spt_sd" name="ton_giling_spt_sd" readonly></td>
+                            </tr>
+                            <tr>
                                 <td> TR </td>
-                                <td><input type="number" readonly step="any" class="number"  name="ton_giling_tr" id="ton_giling_tr" onkeyup="total1('ton_giling_ts','ton_giling_ts_saudara','ton_giling_tr','ton_giling_total');onkeyrendemen();"></td>
+                                <td><input type="number" readonly step="any" class="number"  name="ton_giling_tr" id="ton_giling_tr" onkeyup="total1('ton_giling_ts','ton_giling_ts_saudara','ton_giling_tr','ton_giling_total',0,'ton_giling_spt');onkeyrendemen();"></td>
                                 <td><input type="number" step="any" class="number" tabindex="-1" id="ton_giling_tr_yl" readonly></td>
                                 <td><input type="number" step="any" class="number" tabindex="-1" id="ton_giling_tr_sd" name="ton_giling_tr_sd" readonly></td>
                             </tr>
@@ -198,19 +222,26 @@
                             <tr>
                                 <td> TS </td>
                                 
-                                <td><input type="number" readonly step="any" class="number" name="kristal_ts" id="kristal_ts" onkeyup="total1('kristal_ts','kristal_ts_saudara','kristal_tr','kristal_total');onkeyrendemen();"></td>
+                                <td><input type="number" readonly step="any" class="number" name="kristal_ts" id="kristal_ts" onkeyup="total1('kristal_ts','kristal_ts_saudara','kristal_tr','kristal_total',0,'kristal_spt');onkeyrendemen();"></td>
                                 <td><input type="number" readonly step="any" class="number" tabindex="-1" id="kristal_ts_yl" readonly></td>
                                 <td><input type="number" step="any" class="number" tabindex="-1" id="kristal_ts_sd" name="kristal_ts_sd" readonly></td>
                             </tr>
                             <tr>
                                 <td> TS SAUDARA </td>
-                                <td><input type="number" readonly step="any" class="number" name="kristal_ts_saudara" id="kristal_ts_saudara"  onkeyup="total1('kristal_ts','kristal_ts_saudara','kristal_tr','kristal_total');onkeyrendemen();"></td>
+                                <td><input type="number" readonly step="any" class="number" name="kristal_ts_saudara" id="kristal_ts_saudara"  onkeyup="total1('kristal_ts','kristal_ts_saudara','kristal_tr','kristal_total',0,'kristal_spt');onkeyrendemen();"></td>
                                 <td><input type="number" step="any" class="number" tabindex="-1" id="kristal_ts_saudara_yl" readonly></td>
                                 <td><input type="number" step="any" class="number" tabindex="-1" id="kristal_ts_saudara_sd" name="kristal_ts_saudara_sd" readonly></td>
                             </tr>
                             <tr>
+                                <td> SPT </td>
+                                
+                                <td><input type="number" readonly step="any" class="number" name="kristal_spt" id="kristal_spt" onkeyup="total1('kristal_ts','kristal_ts_saudara','kristal_tr','kristal_total',0,'kristal_spt');onkeyrendemen();"></td>
+                                <td><input type="number" readonly step="any" class="number" tabindex="-1" id="kristal_spt_yl" readonly></td>
+                                <td><input type="number" step="any" class="number" tabindex="-1" id="kristal_spt_sd" name="kristal_spt_sd" readonly></td>
+                            </tr>
+                            <tr>
                                 <td> TR </td>
-                                <td><input type="number" readonly step="any" class="number" name="kristal_tr" id="kristal_tr"  onkeyup="total1('kristal_ts','kristal_ts_saudara','kristal_tr','kristal_total');onkeyrendemen();"></td>
+                                <td><input type="number" readonly step="any" class="number" name="kristal_tr" id="kristal_tr"  onkeyup="total1('kristal_ts','kristal_ts_saudara','kristal_tr','kristal_total',0,'kristal_spt');onkeyrendemen();"></td>
                                 <td><input type="number" step="any" class="number" tabindex="-1" id="kristal_tr_yl" readonly></td>
                                 <td><input type="number" step="any" class="number" tabindex="-1" id="kristal_tr_sd" name="kristal_tr_sd" readonly></td>
                             </tr>
@@ -242,6 +273,13 @@
                                 <td><input type="number" step="any" class="number" tabindex="-1" id="rend_ts_saudara_sd" name="rend_ts_saudara_sd" readonly></td>
                             </tr>
                             <tr>
+                                <td> SPT </td>
+                                
+                                <td><input type="number" readonly step="any" class="number" name="rend_spt" id="rend_spt"></td>
+                                <td><input type="number" step="any" class="number" tabindex="-1" id="rend_spt_yl" readonly></td>
+                                <td><input type="number" step="any" class="number" tabindex="-1" id="rend_spt_sd" name="rend_spt_sd" readonly></td>
+                            </tr>
+                            <tr>
                                 <td> TR </td>
                                 <td><input type="number"  readonly step="any" class="number" name="rend_tr" id="rend_tr"></td>
                                 <td><input type="number" step="any" class="number" tabindex="-1" id="rend_tr_yl" readonly></td>
@@ -255,6 +293,61 @@
                             </tr>
 
                             <tr style="color:red;font-weight:bold" >
+                                <td colspan="2"> KRISTAL BAGI HASIL </td>
+                                
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td> TS </td>
+                                <td><input type="number" readonly step="any" class="number" name="kristalbh_pg_ts" id="kristalbh_pg_ts"  onkeyup="total1('kristalbh_pg_ts','kristalbh_pg_eks_ts_saudara','kristalbh_pg_eks_tr','kristalbh_pg_total',0,'kristalbh_pg_spt')"></td>
+                                <td><input type="number" step="any" class="number" tabindex="-1" id="kristalbh_pg_ts_yl" readonly></td>
+                                <td><input type="number" step="any" class="number" tabindex="-1" id="kristalbh_pg_ts_sd" name="kristalbh_pg_ts_sd" readonly></td>
+                            </tr>
+                            <tr>
+                                <td> EKS. TS SAUDARA </td>
+                                <td><input type="number" readonly step="any" class="number" name="kristalbh_pg_eks_ts_saudara" id="kristalbh_pg_eks_ts_saudara"  onkeyup="total1('kristalbh_pg_ts','kristalbh_pg_eks_ts_saudara','kristalbh_pg_eks_tr','kristalbh_pg_total',0,'kristalbh_pg_spt')"></td>
+                                <td><input type="number" step="any" class="number" tabindex="-1" id="kristalbh_pg_eks_ts_saudara_yl" readonly></td>
+                                <td><input type="number" step="any" class="number" tabindex="-1" id="kristalbh_pg_eks_ts_saudara_sd" name="kristalbh_pg_eks_ts_saudara_sd" readonly></td>
+                            </tr>
+                            <tr>
+                                <td> SPT </td>
+                                <td><input type="number" readonly step="any" class="number" name="kristalbh_pg_spt" id="kristalbh_pg_spt"  onkeyup="total1('kristalbh_pg_ts','kristalbh_pg_eks_ts_saudara','kristalbh_pg_eks_tr','kristalbh_pg_total',0,'kristalbh_pg_spt')"></td>
+                                <td><input type="number" step="any" class="number" tabindex="-1" id="kristalbh_pg_spt_yl" readonly></td>
+                                <td><input type="number" step="any" class="number" tabindex="-1" id="kristalbh_pg_spt_sd" name="kristalbh_pg_spt_sd" readonly></td>
+                            </tr>
+                            <tr>
+                                <td> EKS . TR </td>
+                                <td><input type="number" readonly step="any" class="number" name="kristalbh_pg_eks_tr" id="kristalbh_pg_eks_tr"  onkeyup="total1('kristalbh_pg_ts','kristalbh_pg_eks_ts_saudara','kristalbh_pg_eks_tr','kristalbh_pg_total',0,'kristalbh_pg_spt')"></td>
+                                <td><input type="number" step="any" class="number" tabindex="-1" id="kristalbh_pg_eks_tr_yl" readonly></td>
+                                <td><input type="number" step="any" class="number" tabindex="-1" id="kristalbh_pg_eks_tr_sd" name="kristalbh_pg_eks_tr_sd" readonly></td>
+                            </tr>
+                            <tr bgcolor="#ea6d6d">
+                                <td style="color:white;font-weight:bold"> KRISTAL MILIK PG </td>
+                                <td><input type="number" step="any" class="number" tabindex="-1" name="kristalbh_pg_total" id="kristalbh_pg_total" readonly onchange="total1('kristalbh_pg_total','kristalbh_tr_ts_saudara','kristalbh_tr_bagihasil','kristalbh_produksi')"></td>
+                                <td><input type="number" step="any" class="number" tabindex="-1" id="kristalbh_pg_total_yl" readonly></td>
+                                <td><input type="number" step="any" class="number" tabindex="-1" id="kristalbh_pg_total_sd" name="kristalbh_pg_total_sd" readonly></td>
+                            </tr>
+                            <tr>
+                                <td> MILIK TS SAUDARA </td>
+                                <td><input type="number" readonly step="any" class="number" name="kristalbh_tr_ts_saudara" id="kristalbh_tr_ts_saudara" onkeyup="total1('kristalbh_pg_total','kristalbh_tr_ts_saudara','kristalbh_tr_bagihasil','kristalbh_produksi')"></td>
+                                <td><input type="number" step="any" class="number" tabindex="-1" id="kristalbh_tr_ts_saudara_yl" readonly></td>
+                                <td><input type="number" step="any" class="number" tabindex="-1" id="kristalbh_tr_ts_saudara_sd" name="kristalbh_tr_ts_saudara_sd" readonly></td>
+                            </tr>
+                            <tr>
+                                <td> MILIK TR </td>
+                                <td><input type="number" readonly step="any" class="number" name="kristalbh_tr_bagihasil" id="kristalbh_tr_bagihasil" onkeyup="total1('kristalbh_pg_total','kristalbh_tr_ts_saudara','kristalbh_tr_bagihasil','kristalbh_produksi')"></td>
+                                <td><input type="number" step="any" class="number" tabindex="-1" id="kristalbh_tr_bagihasil_yl" readonly></td>
+                                <td><input type="number" step="any" class="number" tabindex="-1" id="kristalbh_tr_bagihasil_sd" name="kristalbh_tr_bagihasil_sd" readonly></td>
+                            </tr>
+                            <tr bgcolor="#036f06" >
+                                <td style="color:white;font-weight:bold"> TOTAL KRISTAL BAGIHASIL </td>
+                                <td><input type="number" step="any" class="number" tabindex="-1" name="kristalbh_produksi" id="kristalbh_produksi" readonly></td>
+                                <td><input type="number" step="any" class="number" tabindex="-1" id="kristalbh_produksi_yl" readonly></td>
+                                <td><input type="number" step="any" class="number" tabindex="-1" id="kristalbh_produksi_sd" name="kristalbh_produksi_sd" readonly></td>
+                            </tr>
+
+                            <tr style="color:red;font-weight:bold" >
                                 <td colspan="2"> GULA BAGI HASIL </td>
                                 
                                 <td>&nbsp;</td>
@@ -262,19 +355,25 @@
                             </tr>
                             <tr>
                                 <td> TS </td>
-                                <td><input type="number" readonly step="any" class="number" name="gula_pg_ts" id="gula_pg_ts"  onkeyup="total1('gula_pg_ts','gula_pg_eks_ts_saudara','gula_pg_eks_tr','gula_pg_total')"></td>
+                                <td><input type="number" readonly step="any" class="number" name="gula_pg_ts" id="gula_pg_ts"  onkeyup="total1('gula_pg_ts','gula_pg_eks_ts_saudara','gula_pg_eks_tr','gula_pg_total',0,'gula_pg_spt')"></td>
                                 <td><input type="number" step="any" class="number" tabindex="-1" id="gula_pg_ts_yl" readonly></td>
                                 <td><input type="number" step="any" class="number" tabindex="-1" id="gula_pg_ts_sd" name="gula_pg_ts_sd" readonly></td>
                             </tr>
                             <tr>
                                 <td> EKS. TS SAUDARA </td>
-                                <td><input type="number" readonly step="any" class="number" name="gula_pg_eks_ts_saudara" id="gula_pg_eks_ts_saudara"  onkeyup="total1('gula_pg_ts','gula_pg_eks_ts_saudara','gula_pg_eks_tr','gula_pg_total')"></td>
+                                <td><input type="number" readonly step="any" class="number" name="gula_pg_eks_ts_saudara" id="gula_pg_eks_ts_saudara"  onkeyup="total1('gula_pg_ts','gula_pg_eks_ts_saudara','gula_pg_eks_tr','gula_pg_total',0,'gula_pg_spt')"></td>
                                 <td><input type="number" step="any" class="number" tabindex="-1" id="gula_pg_eks_ts_saudara_yl" readonly></td>
                                 <td><input type="number" step="any" class="number" tabindex="-1" id="gula_pg_eks_ts_saudara_sd" name="gula_pg_eks_ts_saudara_sd" readonly></td>
                             </tr>
                             <tr>
+                                <td> SPT </td>
+                                <td><input type="number" readonly step="any" class="number" name="gula_pg_spt" id="gula_pg_spt"  onkeyup="total1('gula_pg_ts','gula_pg_eks_ts_saudara','gula_pg_eks_tr','gula_pg_total',0,'gula_pg_spt')"></td>
+                                <td><input type="number" step="any" class="number" tabindex="-1" id="gula_pg_spt_yl" readonly></td>
+                                <td><input type="number" step="any" class="number" tabindex="-1" id="gula_pg_spt_sd" name="gula_pg_spt_sd" readonly></td>
+                            </tr>
+                            <tr>
                                 <td> EKS . TR </td>
-                                <td><input type="number" readonly step="any" class="number" name="gula_pg_eks_tr" id="gula_pg_eks_tr"  onkeyup="total1('gula_pg_ts','gula_pg_eks_ts_saudara','gula_pg_eks_tr','gula_pg_total')"></td>
+                                <td><input type="number" readonly step="any" class="number" name="gula_pg_eks_tr" id="gula_pg_eks_tr"  onkeyup="total1('gula_pg_ts','gula_pg_eks_ts_saudara','gula_pg_eks_tr','gula_pg_total',0,'gula_pg_spt')"></td>
                                 <td><input type="number" step="any" class="number" tabindex="-1" id="gula_pg_eks_tr_yl" readonly></td>
                                 <td><input type="number" step="any" class="number" tabindex="-1" id="gula_pg_eks_tr_sd" name="gula_pg_eks_tr_sd" readonly></td>
                             </tr>
@@ -303,24 +402,27 @@
                                 <td><input type="number" step="any" class="number" tabindex="-1" id="gula_produksi_sd" name="gula_produksi_sd" readonly></td>
                             </tr>
 
-                                <tr>
-                                    <td>  Gula Ex.Sisan  </td>
-                                    <td><input type="number" onkeyup="total1('gula_produksi','gula_ex_sisan','0','jml_gula_all');" step="any" class="number" name="gula_ex_sisan" id="gula_ex_sisan"></td>
-                                    <td><input type="number" step="any" class="number" id="gula_ex_sisan_yl" readonly></td>
-                                    <td><input type="number" step="any" class="number" id="gula_ex_sisan_sd" name="gula_ex_sisan_sd" readonly></td>
-                                </tr>
-                                <tr bgcolor="#3c8dbc" >
-                                <td style="color:white;font-weight:bold">  TOTAL GULA </td>
+                                
+                                <tr bgcolor="#3c8dbc" style="visibility: hidden;">
+                                <td style="color:white;font-weight:bold" >  TOTAL GULA </td>
                                     <td><input type="number" readonly step="any" class="number" id="jml_gula_all"></td>
                                     <td><input type="number" step="any" class="number" id="jml_gula_all_yl" readonly></td>
                                     <td><input type="number" step="any" class="number" id="jml_gula_all_sd"  readonly></td>
                                 </tr>
+
                                 <tr>
-                                    <td> Sisan diolah </td>
-                                    <td><input type="number"  step="any" class="number" onkeyup="total1('sisan_diolah','0','0','0')" name="sisan_diolah" id="sisan_diolah"></td>
-                                    <td><input type="number" step="any" class="number" id="sisan_diolah_yl" readonly></td>
-                                    <td><input type="number" step="any" class="number" id="sisan_diolah_sd" name="sisan_diolah_sd" readonly></td>
+                                    <td> ICUMSA </td>
+                                    <td><input type="number" step="any" class="number" name="icumsa" id="icumsa"></td>
+                                    <td><input type="number" step="any" readonly class="number"  id="icumsa_yl"></td>
+                                    <td><input type="number" step="any" class="number" name="icumsa_sd" id="icumsa_sd"></td>
                                 </tr>
+                                <tr>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                            </tr>
+                                
                             <tr style="color:red;font-weight:bold">
                                 <td colspan="2"> TEBU TERBAKAR </td>
                                 <td>&nbsp;</td>
@@ -494,7 +596,7 @@
                                     <td>&nbsp;</td>
                                 </tr>
                                 <tr>
-                                    <td> RESIDU (Liter) </td>
+                                    <td> BBM Boiler (Liter) </td>
                                     <td><input type="number" step="any" class="number" name="residu" id="residu" onkeyup="total1('residu','0','0','0')"></td>
                                     <td><input type="number" step="any" class="number" id="residu_yl" readonly></td>
                                     <td><input type="number" step="any" class="number" id="residu_sd" name="residu_sd" readonly></td>
@@ -518,33 +620,42 @@
                                     <td>&nbsp;</td>
                                 </tr>
                                 <tr>
-                                    <td> GULA REPRO tahun lalu </td>
-                                    
-                                    <td><input type="number" step="any" class="number" onkeyup="total1('gula_repro_thn_lalu','0','0','0')"  name="gula_repro_thn_lalu" id="gula_repro_thn_lalu"></td>
-                                    <td><input type="number" step="any" class="number" id="gula_repro_thn_lalu_yl" readonly></td>
-                                    <td><input type="number" step="any" class="number" id="gula_repro_thn_lalu_sd" name="gula_repro_thn_lalu_sd" readonly></td>
+                                    <td>  Gula Ex MS  </td>
+                                    <td><input type="number" onkeyup="total1('gula_ex_sisan','0','0','0');" step="any" class="number" name="gula_ex_sisan" id="gula_ex_sisan"></td>
+                                    <td><input type="number" step="any" class="number" id="gula_ex_sisan_yl" readonly></td>
+                                    <td><input type="number" step="any" class="number" id="gula_ex_sisan_sd" name="gula_ex_sisan_sd" readonly></td>
                                 </tr>
                                 <tr>
-                                    <td> RAW SUGAR </td>
+                                    <td>  Gula Ex RS  </td>
+                                    <td><input type="number" onkeyup="total1('gula_ex_rs','0','0','0');" step="any" class="number" name="gula_ex_rs" id="gula_ex_rs"></td>
+                                    <td><input type="number" step="any" class="number" id="gula_ex_rs_yl" readonly></td>
+                                    <td><input type="number" step="any" class="number" id="gula_ex_rs_sd" name="gula_ex_rs_sd" readonly></td>
+                                </tr>
+                                <tr>
+                                    <td> RS Diolah </td>
                                     
                                     <td><input type="number" step="any" class="number" name="raw_sugar_diolah" id="raw_sugar_diolah" onkeyup="total1('raw_sugar_diolah','0','0','0')"></td>
                                     <td><input type="number" step="any" class="number" id="raw_sugar_diolah_yl" readonly></td>
                                     <td><input type="number" step="any" class="number" id="raw_sugar_diolah_sd" name="raw_sugar_diolah_sd" readonly></td>
                                 </tr>
-                                <tr>
+                                 <tr>
                                     <td> GULA REPRO tahun ini </td>
                                     
                                     <td><input type="number" step="any" class="number" name="gula_repro_thn_ini" id="gula_repro_thn_ini"  onkeyup="total1('gula_repro_thn_ini','0','0','0')"></td>
                                     <td><input type="number" step="any" class="number" id="gula_repro_thn_ini_yl" readonly></td>
                                     <td><input type="number" step="any" class="number" id="gula_repro_thn_ini_sd" name="gula_repro_thn_ini_sd" readonly></td>
                                 </tr>
-
                                 <tr>
-                                    <td> ICUMSA </td>
-                                    <td><input type="number" step="any" class="number" name="icumsa" id="icumsa"></td>
-                                    <td><input type="number" step="any" readonly class="number"  id="icumsa_yl"></td>
-                                    <td><input type="number" step="any" class="number" name="icumsa_sd" id="icumsa_sd"></td>
+                                    <td> GULA REPRO tahun lalu </td>
+                                    
+                                    <td><input type="number" step="any" class="number" onkeyup="total1('gula_repro_thn_lalu','0','0','0')"  name="gula_repro_thn_lalu" id="gula_repro_thn_lalu"></td>
+                                    <td><input type="number" step="any" class="number" id="gula_repro_thn_lalu_yl" readonly></td>
+                                    <td><input type="number" step="any" class="number" id="gula_repro_thn_lalu_sd" name="gula_repro_thn_lalu_sd" readonly></td>
                                 </tr>
+                                
+                               
+
+                                
                                 <tr>
                                     <td>&nbsp;</td>
                                     <td>&nbsp;</td>
@@ -585,36 +696,13 @@
                                 	<td><input type="number" step="any" class="number" id="tetes_total_yl" readonly></td>
                                 	<td><input type="number" step="any" class="number" id="tetes_total_sd" name="tetes_total_sd" readonly></td>
                                 </tr>
-
-                                <tr >
-                                <td >  % Pol TETES </td>
-                                    
-                                    <td><input type="number" step="any" class="number"  name="persen_pol_tetes" id="persen_pol_tetes"
-                                        onkeyup="tonpol('tetes_produksi','persen_pol_tetes','ton_pol_tetes','k_dlm_tetes')"></td>
-                                    <td><input type="number" step="any" class="number" id="persen_pol_tetes_yl" readonly></td>
-                                    <td><input type="number" step="any" class="number" id="persen_pol_tetes_sd" name="persen_pol_tetes_sd" readonly></td>
-                                </tr>
-                                <tr bgcolor="#ea6d6d" >
-                                <td style="color:white;font-weight:bold"> Ton Pol TETES </td>
-                                    
-                                    <td><input type="number" step="any" readonly class="number"  name="ton_pol_tetes" id="ton_pol_tetes"></td>
-                                    <td><input type="number" step="any" class="number" id="ton_pol_tetes_yl" readonly></td>
-                                    <td><input type="number" step="any" class="number" id="ton_pol_tetes_sd" name="ton_pol_tetes_sd" readonly></td>
-                                </tr>
-                                <tr bgcolor="#3c8dbc" >
-                                <td style="color:white;font-weight:bold"> Kehilangan Dlm TETES </td>
-                                    
-                                    <td><input type="number" step="any" readonly class="number"  name="k_dlm_tetes" id="k_dlm_tetes"></td>
-                                    <td><input type="number" step="any" class="number" id="k_dlm_tetes_yl" readonly></td>
-                                    <td><input type="number" step="any" class="number" id="k_dlm_tetes_sd" name="k_dlm_tetes_sd" readonly></td>
-                                </tr>
-                                
                                 <tr>
-                                    <td>&nbsp;</td>
-                                    <td>&nbsp;</td>
-                                    <td>&nbsp;</td>
-                                    <td>&nbsp;</td>
-                                </tr>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                            </tr>
+                               
                                 <tr>
                                     <td>  % Pol TEBU </td>
                                     <td><input type="number" step="any" class="number" name="pol_tebu" id="pol_tebu" onkeyup="tonpol('tetes_produksi','persen_pol_tetes','ton_pol_tetes','k_dlm_tetes')" ></td>
@@ -693,7 +781,41 @@
                                     <td><input type="number" step="any" class="number" id="k_dlm_blotong_yl" readonly></td>
                                     <td><input type="number" step="any" class="number" id="k_dlm_blotong_sd" name="k_dlm_blotong_sd" readonly></td>
                                 </tr>
-
+                                 <tr>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                </tr>
+                                 <tr >
+                                <td >  % Pol TETES </td>
+                                    
+                                    <td><input type="number" step="any" class="number"  name="persen_pol_tetes" id="persen_pol_tetes"
+                                        onkeyup="tonpol('tetes_produksi','persen_pol_tetes','ton_pol_tetes','k_dlm_tetes')"></td>
+                                    <td><input type="number" step="any" class="number" id="persen_pol_tetes_yl" readonly></td>
+                                    <td><input type="number" step="any" class="number" id="persen_pol_tetes_sd" name="persen_pol_tetes_sd" readonly></td>
+                                </tr>
+                                <tr bgcolor="#ea6d6d" >
+                                <td style="color:white;font-weight:bold"> Ton Pol TETES </td>
+                                    
+                                    <td><input type="number" step="any" readonly class="number"  name="ton_pol_tetes" id="ton_pol_tetes"></td>
+                                    <td><input type="number" step="any" class="number" id="ton_pol_tetes_yl" readonly></td>
+                                    <td><input type="number" step="any" class="number" id="ton_pol_tetes_sd" name="ton_pol_tetes_sd" readonly></td>
+                                </tr>
+                                <tr bgcolor="#3c8dbc" >
+                                <td style="color:white;font-weight:bold"> Kehilangan Dlm TETES </td>
+                                    
+                                    <td><input type="number" step="any" readonly class="number"  name="k_dlm_tetes" id="k_dlm_tetes"></td>
+                                    <td><input type="number" step="any" class="number" id="k_dlm_tetes_yl" readonly></td>
+                                    <td><input type="number" step="any" class="number" id="k_dlm_tetes_sd" name="k_dlm_tetes_sd" readonly></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                </tr>
                                 <tr>
                                     <td> TON DALAM HASIL + TAKSASI </td>
                                     <td><input type="number" step="any" class="number" name="pol_dlm_hasil_taksasi_ton" id="pol_dlm_hasil_taksasi_ton"   onkeyup="total1('pol_dlm_hasil_taksasi_ton','0','0','0');tonpol('pol_dlm_hasil_taksasi_ton','pol_dlm_hasil_taksasi_persenpol','pol_taksasi_ton')"></td>
@@ -1064,7 +1186,7 @@
             total1('ha_giling_ts','ha_giling_ts_saudara','ha_giling_tr','ha_giling_total');
             total1('ton_giling_ts','ton_giling_ts_saudara','ton_giling_tr','ton_giling_total');
             total1('kristal_ts','kristal_ts_saudara','kristal_tr','kristal_total');
-            total1('ha_tebang_ts','ha_tebang_ts_saudara','ha_tebang_tr','ha_tebang_total');
+            total1('ha_tebang_ts','ha_tebang_ts_saudara','ha_tebang_tr','ha_tebang_total',0,'ha_tebang_spt');
             total1('ton_tebang_ts','ton_tebang_ts_saudara','ton_tebang_tr','ton_tebang_total');
             total1('tebu_terbakar_ts','tebu_terbakar_ts_saudara','tebu_terbakar_tr','tebu_terbakar_total');
 

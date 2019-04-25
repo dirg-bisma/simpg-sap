@@ -215,7 +215,7 @@
 <script type="text/javascript">
 	
 	$(document).ready(function(){
-		$("#cnf_mutu_terbakar").jCombo("<?php echo site_url('tmejatebu/comboselect?filter=m_rafaksi:nilai:nilai') ?>",
+		$("#cnf_mutu_terbakar").jCombo("<?php echo site_url('mjabatan/comboselect?filter=m_rafaksi:nilai:nilai') ?>",
 		{  selected_value : '<?php echo CNF_MUTU_TERBAKAR;?>' });
 	});
 
