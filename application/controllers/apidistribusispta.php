@@ -24,7 +24,7 @@ class Apidistribusispta extends SB_Controller
         $user = $_REQUEST['username'];
         $pass = md5($_REQUEST['password']);
 
-        $result = $this->db->get_where('tb_users', array('username'=>$user, 'password' => $pass, 'group_id' => 16));
+        $result = $this->db->get_where('tb_users', array('username'=>$user, 'password' => $pass, 'group_id' => 22));
 
 
         if($result->num_rows() == 1){
