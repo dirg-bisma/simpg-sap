@@ -46,9 +46,10 @@ ORDER BY tgl_act DESC ")->result();
 			$rs = $this->db->query("DELETE FROM t_counter_gula WHERE jalur = '$qr->jalur' AND tgl = '$qr->tgl_pengakuan' AND jam='$qr->jam'");
 
 			$rb = $this->db->query("INSERT t_counter_gula VALUES('','$qr->jalur','$qr->ck','$qr->cv','$qr->tgl_pengakuan','$qr->jam',0,NOW())");
+			$this->sendfirebase($qr->jalur,$qr->tgls,$qr->jam,$qr->ck,$qr->cv);
 		}
 
-			$this->sendfirebase($qr->jalur,$qr->tgls,$qr->jam,$qr->ck,$qr->cv);
+			
 
 		}else{
 
