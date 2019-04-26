@@ -25,10 +25,28 @@ class Countergula extends SB_Controller
 		if($sql){
 			$ax['data'] = 'Berhasil Insert';
 
-			$qr = $this->db->query("SELECT jalur,tgl_pengakuan,DATE_FORMAT(tgl_pengakuan,'%e%c%Y') AS tgls,TIME_FORMAT(jam_pengakuan,'%H') as jam,SUM(cekscale) as ck,SUM(conveyor) as cv FROM t_counter_gula_detail GROUP BY 	jalur,tgl_pengakuan,TIME_FORMAT(jam_pengakuan,'%H') ORDER BY tgl_act DESC LIMIT 1")->row();
+			$as = $this->db->query("SELECT 
+  jalur,
+  tgl_pengakuan,
+  DATE_FORMAT(tgl_pengakuan, '%e%c%Y') AS tgls,
+  TIME_FORMAT(jam_pengakuan, '%H') AS jam,
+  SUM(cekscale) AS ck,
+  SUM(conveyor) AS cv 
+FROM
+  t_counter_gula_detail 
+WHERE DATE_FORMAT(tgl_pengakuan, '%e%c%Y') = DATE_FORMAT(NOW(), '%e%c%Y') AND TIME_FORMAT(jam_pengakuan, '%H') =  TIME_FORMAT(NOW(), '%H')
+GROUP BY jalur,
+  tgl_pengakuan,
+  TIME_FORMAT(jam_pengakuan, '%H') 
+ORDER BY tgl_act DESC ")->result();
+
+			foreach ($as as $qr) {
+				# code...
+			
 			$rs = $this->db->query("DELETE FROM t_counter_gula WHERE jalur = '$qr->jalur' AND tgl = '$qr->tgl_pengakuan' AND jam='$qr->jam'");
 
 			$rb = $this->db->query("INSERT t_counter_gula VALUES('','$qr->jalur','$qr->ck','$qr->cv','$qr->tgl_pengakuan','$qr->jam',0,NOW())");
+		}
 
 			$this->sendfirebase($qr->jalur,$qr->tgls,$qr->jam,$qr->ck,$qr->cv);
 
