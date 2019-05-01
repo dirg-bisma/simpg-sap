@@ -307,4 +307,31 @@ class Tprosesskb extends SB_Controller
     }
 
 
+    function petak($affd, $cc, $pc){
+        $query = "SELECT a.kode_blok, a.`kode_kat_lahan`, a.`kode_affd`,
+FORMAT(SUM(b.netto)/1000, 2) AS total_netto, 
+FORMAT(SUM(c.`ha_tertebang`),2) AS total_ha, COUNT(a.id) jum_spta, 
+FORMAT((SUM(b.`netto`)/COUNT(a.id))/1000, 2) AS per_spta, 
+FORMAT((SUM(b.`netto`)/1000)/SUM(c.`ha_tertebang`),2) AS per_ha, 
+SUM(d.`gula_total`), FORMAT(SUM(d.`gula_total`)/SUM(b.`netto`),3) AS shs 
+FROM ".$cc.$pc."_t_spta AS a
+JOIN ".$cc.$pc."_t_timbangan AS b ON b.`id_spat` = a.`id`
+JOIN ".$cc.$pc."_t_selektor AS c ON c.`id_spta` = a.id
+JOIN ".$cc.$pc."_t_ari AS d ON d.`id_spta` = a.id
+WHERE a.`kode_affd` = '$affd' GROUP BY a.`kode_blok`";
+
+
+$ba = $this->db->query($query)->result();
+		$html = '';
+		foreach($ba as $rw){
+            $html .= '<tr style="font-size:14px"><td>'.$rw->kode_blok.'</td>
+		<td align="right"><b>'.$rw->kode_kat_lahan.' Unit</b></td>
+		<td align="center"><b>'.$rw->kode_affd.' Unit</b><br /><b style="color:orange">'.$rw->total_ha.'</b> Ha</td>
+		<td align="center"><u class="text-primary"><b>'.$rw->jum_spta.' Lembar</b></u><br /><b class="text-danger">'.number_format($rw->total_netto,2).'</b> Ton<br /><b class="text-info">'.number_format($rw->hatimbang,2).'</b> Ha</td>
+		<td align="right"><b>'.number_format($rw->per_ha,2).'</b><br />Ton/ha<br /><b>'.number_format($rw->hatimbang/$rw->per_spta,2).'</b> Ha/SPTA</td></tr>';
+
+        }
+		echo $html;
+	}
+
 }
