@@ -65,7 +65,7 @@ metode_tma FROM t_spta WHERE (no_spat = '".$_POST['nospta']."' OR rfid_sticker =
 	function caribynospta(){
 		$arr['stt'] = 0;
 		if(isset($_GET['nospta'])){
-			$query = "SELECT id,kode_blok,jenis_spta,
+			$query = "SELECT id,t_spta.kode_blok,jenis_spta,deskripsi_blok, nama_vendor,
 			IF( tebang_pg = 0 AND angkut_pg = 0,'TAS',
 IF( tebang_pg = 1 AND angkut_pg = 0,'TPGAS',
 IF( tebang_pg = 0 AND angkut_pg = 1,'TSAPG',
@@ -73,7 +73,10 @@ IF( tebang_pg = 1 AND angkut_pg = 1,'TAPG','')))) AS kat_spta,kode_kat_lahan,kod
 IF(NOW() < CONCAT(tgl_spta,' 05:59:00'),CONCAT('SPTA Belum Berlaku, Berlaku pada ',DATE_FORMAT(tgl_spta,'%d %M %Y'),' 06:00:00'),'1') AS berlaku,IF(metode_tma=1,'MANUAL',IF(metode_tma=2,'SEMI MEKANISASI','MEKANISASI')) AS txt_metode_tma,
 IF(NOW() > tgl_expired,CONCAT('SPTA sudah Expired Pada ',DATE_FORMAT(tgl_expired,'%d %M %Y Jam %H:%i')),'0') AS ed,
 IF(selektor_status=0,if(retur_status=1,'SPTA Sudah di retur!',0),CONCAT('SPTA sudah Masuk Selektor Pada ',DATE_FORMAT(selektor_tgl,'%d %M %Y Jam %H:%i'))) AS stt,
-metode_tma FROM t_spta WHERE (no_spat = '".$_GET['nospta']."')";
+metode_tma FROM t_spta 
+join sap_field on sap_field.kode_blok = t_spta.kode_blok 
+join m_vendor on id_vendor = vendor_angkut
+WHERE (no_spat = '".$_GET['nospta']."')";
 		$cek = $this->db->query($query)->row();
 		$arr['stt'] = 1;
 		if($cek){
@@ -174,6 +177,17 @@ metode_tma FROM t_spta WHERE (no_spat = '".$_GET['nospta']."')";
 
 		echo json_encode($arr);
 	}
+
+	private function GetPost($input){
+        if($this->input->get($input)){
+            $output = $this->input->get($input);
+        }elseif($this->input->post($input)){
+            $output = $this->input->post($input);
+        }else{
+            $output = "";
+        }
+        return $output;
+    }
 
 
 }
