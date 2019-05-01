@@ -79,11 +79,13 @@ metode_tma FROM t_spta WHERE (no_spat = '".$_POST['nospta']."')";
 		if($cek){
 			$arr['count'] = 1;
 			$arr['data'] = $cek;
+			$arr['query'] = $query;
 		}else{
 			$arr['count'] = 0;
 			$arr['data'] = $cek;
+			$arr['query'] = $query;
 		}
-		$arr['query'] = $query;
+		
 		}
 		echo json_encode($arr);
 	}
