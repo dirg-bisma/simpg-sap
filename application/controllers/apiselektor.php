@@ -94,7 +94,8 @@ WHERE (no_spat = '".$_GET['nospta']."')";
                 'msg' => 'data not found',
                 'status' => 'false'
             );
-        }
+		}
+	}
 		echo json_encode($output);
 	}
 
