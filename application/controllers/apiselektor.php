@@ -80,6 +80,7 @@ metode_tma FROM t_spta WHERE (no_spat = '".$_POST['nospta']."')")->row();
 			$arr['data'] = $cek;
 		}else{
 			$arr['stt'] = 0;
+			$arr['data'] = $cek;
 		}
 		
 		}
