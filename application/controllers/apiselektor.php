@@ -62,7 +62,7 @@ metode_tma FROM t_spta WHERE (no_spat = '".$_POST['nospta']."' OR rfid_sticker =
 		echo json_encode($arr);
 	}
 
-	function cekbyspta(){
+	function caribynospta(){
 		$arr['stt'] = 0;
 		if(isset($_POST['nospta'])){
 			$query = "SELECT id,kode_blok,jenis_spta,
