@@ -75,15 +75,13 @@ IF(NOW() > tgl_expired,CONCAT('SPTA sudah Expired Pada ',DATE_FORMAT(tgl_expired
 IF(selektor_status=0,if(retur_status=1,'SPTA Sudah di retur!',0),CONCAT('SPTA sudah Masuk Selektor Pada ',DATE_FORMAT(selektor_tgl,'%d %M %Y Jam %H:%i'))) AS stt,
 metode_tma FROM t_spta WHERE (no_spat = '".$_GET['nospta']."')";
 		$cek = $this->db->query($query)->row();
-		$arr['count'] = 1;
+		$arr['stt'] = 1;
 		if($cek){
-			$arr['count'] = 1;
+			$arr['stt'] = 1;
 			$arr['data'] = $cek;
-			$arr['query'] = $query;
 		}else{
-			$arr['count'] = 0;
+			$arr['stt'] = 0;
 			$arr['data'] = $cek;
-			$arr['query'] = $query;
 		}
 		
 		}
