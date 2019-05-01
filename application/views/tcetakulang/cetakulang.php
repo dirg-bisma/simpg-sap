@@ -200,14 +200,21 @@
 						</table>
 						<table style="width: 95%; margin-left: auto; margin-right: auto;" cellspacing="0" cellpadding="0">
 										<tr style="height: 20px;" style="">
-											<td align="center">Brix</td>
+											<td align="center">Brix </td>
 					<td style="border: 1px solid black;width: 25%;" >&nbsp;&nbsp;</td>
 					<td align="center">&nbsp;</td>
 					<td style=" width: 25%;" >&nbsp;</td>
-					<td align="center">pH</td> 
+					<td align="center">pH </td> 
 					<td style="border: 1px solid black; width: 25%;" >&nbsp;&nbsp;</td>
 					</tr>
+					<tr><td>&nbsp;</td></tr>
+					
 									</table>
+					<table style="width: 95%; margin-left: auto; margin-right: auto;">
+						<tr>
+							<td style="border:1px solid black;width: 20px">&nbsp;</td><td style="text-align: left;"> Terbakar</td>
+						</tr>
+					</table>
 									<br />
 						
 						<p>&nbsp;</p>

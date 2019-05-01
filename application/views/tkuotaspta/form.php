@@ -118,6 +118,13 @@
 <script type="text/javascript">
 $(document).ready(function() { 
  	 refreshKkw();
+ 	 $('#tgl_spta').datepicker({
+    startDate: '-0d',
+    endDate: '+2d',
+    format:'yyyy-mm-dd'
+}).on('changeDate',function(e){
+    $(this).datepicker('hide');
+});
 });
 
 function refreshKkw(){
