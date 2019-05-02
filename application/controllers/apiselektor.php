@@ -148,6 +148,15 @@ WHERE (no_spat = '".$_GET['nospta']."')";
 					'status' => 'false'
 				);
 			}
+			echo json_encode($output);
+		}else{
+			$output = array(
+				'result' => array(),
+				'count' => 0,
+				'msg' => 'parameter rfid missing',
+				'status' => 'false'
+			);
+			echo json_encode($output);
 		}
 		
 	}
