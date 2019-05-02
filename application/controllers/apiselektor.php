@@ -167,7 +167,7 @@ WHERE (no_spat = '".$_GET['nospta']."')";
 
 	function datamandor(){
 		$arr = array();
-		$sql = $this->db->query("SELECT * FROM sap_m_karyawan where id_jabatan = 3")->result();
+		$sql = $this->db->query("SELECT * FROM sap_m_karyawan where id_jabatan = 3 order by name asc")->result();
 
 		if($sql){
 			$arr['stt'] = 1;
