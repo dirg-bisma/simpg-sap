@@ -73,7 +73,7 @@ class Apiselektor extends SB_Controller
 	}else{
 		$output = array(
 			'result' => array(),
-			'count' => count($result),
+			'count' => 0,
 			'msg' => 'data not found param : '.$this->GetPost('rfid_sticker').'::'.$this->GetPost('nospta') ,
 			'status' => 'false'
 		);
