@@ -236,7 +236,7 @@ WHERE (no_spat = '".$_GET['nospta']."')";
 	{
 		$arr['stt'] = 0;
 
-		$cekcard = $this->db->query("SELECT no_spat FROM t_spta WHERE rfid_card = '".$_REQUEST['rfid_card']."' AND status = 1")->row();
+		$cekcard = $this->db->query("SELECT no_spat FROM t_spta WHERE rfid_card = '".$_REQUEST['rfid_card']."' AND rfid_card_status = 1")->row();
 		if($cekcard){
 			
 			$arr['stt'] = 0;
