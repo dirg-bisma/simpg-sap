@@ -246,8 +246,10 @@ WHERE (no_spat = '".$_GET['nospta']."')";
 		$rules = $this->validateForm();
 
 
-		
-			$data = $_POST;
+		$this->form_validation->set_rules( $rules );
+		if( $this->form_validation->run() )
+		{
+			$data = $this->validatePost();
 			$data['tgl_selektor'] = date('Y-m-d H:i:s');
 			
 			
@@ -282,7 +284,10 @@ WHERE (no_spat = '".$_GET['nospta']."')";
 						
 			
 			
-	
+		} else {
+			$arr['stt'] = 0;
+			$arr['data'] = "Gagal Simpan ".validation_errors('', '\n');
+		}
 		}
 
 		echo json_encode($arr);
