@@ -42,6 +42,7 @@ class Apiselektor extends SB_Controller
 	{
 		$spat = array(
 			"id" => "",
+			"no_spat" => "",
 			"kode_blok" => "",
 			"jenis_spta" => "",
 			"deskripsi_blok" => "",
@@ -185,6 +186,7 @@ WHERE (no_spat = '".$_GET['nospta']."')";
 			}else{
 				$output = array(
 					'result' => array(
+						"id"=> "",
 						"id"=> "",
 						"vendor_id"=> "",
 						"nopol_truk"=> "",
