@@ -236,7 +236,7 @@ WHERE (no_spat = '".$_GET['nospta']."')";
 	{
 		$arr['stt'] = 0;
 
-		$cekcard = $this->db->query("SELECT no_spat FROM t_spta WHERE rfid_card = '".$_REQUEST['rfid_card']."' AND rfid_card_status = 1")->row();
+		$cekcard = $this->db->query("SELECT no_spat FROM t_spta WHERE rfid_card = '".$_POST['rfid_card']."' AND rfid_card_status = 1")->row();
 		if($cekcard){
 			
 			$arr['stt'] = 0;
@@ -258,7 +258,7 @@ WHERE (no_spat = '".$_GET['nospta']."')";
 			$data['no_angkutan'] =  strtoupper($data['no_angkutan']);
 			$data['ptgs_angkutan'] = strtoupper($data['ptgs_angkutan']);
 			$data['tgl_tebang'] = $_POST['tgl_tebang'].' '.$_POST['jam_tebang'].':00';
-			$data['ptgs_selektor'] = $_POST['username'];
+			$data['ptgs_selektor'] = $_POST['ptgs_selektor'];
 			$data['rfid_card'] = $_POST['rfid_card'];
 
 			$rx = $this->db->query('SELECT IFNULL(MAX(no_urut),0)+1 AS nourut,get_tgl_giling() AS tgl FROM t_selektor WHERE tgl_urut = get_tgl_giling() AND ptgs_selektor="'.$data['ptgs_selektor'].'"')->row();
