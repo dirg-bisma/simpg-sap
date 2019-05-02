@@ -40,7 +40,7 @@ class Apiselektor extends SB_Controller
 
     function cekspta(){
 		
-		if(isset($_POST['nospta']) || isset($_POST['rfid_sticker'])){
+		if($this->GetPost('nospta') != "" || $this->GetPost('rfid_sticker') != ""){
 			$sql = "SELECT id,t_spta.kode_blok,jenis_spta,deskripsi_blok, nama_vendor,
 			IF( tebang_pg = 0 AND angkut_pg = 0,'TAS',
 			IF( tebang_pg = 1 AND angkut_pg = 0,'TPGAS',
@@ -52,7 +52,7 @@ class Apiselektor extends SB_Controller
 			metode_tma FROM t_spta 
 			join sap_field on sap_field.kode_blok = t_spta.kode_blok 
 			join m_vendor on id_vendor = vendor_angkut
-			WHERE (no_spat = '".$_POST['nospta']."' OR rfid_sticker = '".$_POST['rfid_sticker']."')";
+			WHERE (no_spat = '".$this->GetPost('nospta')."' OR rfid_sticker = '".$this->GetPost('rfid_sticker')."')";
 		$result = $this->db->query($sql)->row();
 		if(count($result) == 1){
             
@@ -70,6 +70,13 @@ class Apiselektor extends SB_Controller
                 'status' => 'false'
             );
 		}
+	}else{
+		$output = array(
+			'result' => array(),
+			'count' => count($result),
+			'msg' => 'data not found',
+			'status' => 'false'
+		);
 	}
 		echo json_encode($output);
 	}
