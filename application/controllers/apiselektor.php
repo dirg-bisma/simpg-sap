@@ -127,6 +127,31 @@ WHERE (no_spat = '".$_GET['nospta']."')";
 		echo json_encode($arr);
 	}
 
+	function datatruck()
+	{
+		if($this->GetPost('rfid')){
+			$sql = "SELECT * FROM m_truck_gps WHERE rfid_sticker = '". $this->GetPost('rfid') ."'";
+			$result = $this->db->query($sql);
+
+			if(count($result) == 1){
+				$output = array(
+					'result' => $result,
+					'count' => count($result),
+					'msg' => 'success',
+					'status' => 'true'
+				);
+			}else{
+				$output = array(
+					'result' => array(),
+					'count' => count($result),
+					'msg' => 'data not found',
+					'status' => 'false'
+				);
+			}
+		}
+		
+	}
+
 	function save()
 	{
 		$arr['stt'] = 0;
