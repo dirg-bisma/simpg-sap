@@ -142,7 +142,20 @@ WHERE (no_spat = '".$_GET['nospta']."')";
 				);
 			}else{
 				$output = array(
-					'result' => array(),
+					'result' => array(
+						"id"=> "",
+						"vendor_id"=> "",
+						"nopol_truk"=> "",
+						"norangka" => "",
+						"namatruk"=> "",
+						"imei"=> "",
+						"latitude"=> "0",
+						"longitude"=> "0",
+						"last_update"=> "0000-00-00 00:00:00",
+						"status"=> "0",
+						"task_update"=> "0000-00-00 00:00:00",
+						"rfid_sticker"=> "",
+					),
 					'count' => count($result),
 					'msg' => 'data not found',
 					'status' => 'false'
@@ -151,7 +164,20 @@ WHERE (no_spat = '".$_GET['nospta']."')";
 			echo json_encode($output);
 		}else{
 			$output = array(
-				'result' => array(),
+				'result' => array(
+					"id"=> "",
+					"vendor_id"=> "",
+					"nopol_truk"=> "",
+					"norangka" => "",
+					"namatruk"=> "",
+					"imei"=> "",
+					"latitude"=> "0",
+					"longitude"=> "0",
+					"last_update"=> "0000-00-00 00:00:00",
+					"status"=> "0",
+					"task_update"=> "0000-00-00 00:00:00",
+					"rfid_sticker"=> "",
+				),
 				'count' => 0,
 				'msg' => 'parameter rfid missing',
 				'status' => 'false'
