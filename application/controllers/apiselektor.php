@@ -47,6 +47,7 @@ class Apiselektor extends SB_Controller
 			"jenis_spta" => "",
 			"deskripsi_blok" => "",
 			"nama_vendor" => "",
+			"persno_pta" => "",
 			"kat_spta" => "",
 			"kode_kat_lahan" => "",
 			"kode_affd" => "",
@@ -65,7 +66,7 @@ class Apiselektor extends SB_Controller
     function cekspta(){
 		
 		if(isset($_GET['nospta']) || isset($_GET['rfid_sticker'])){
-			$sql = "SELECT id,no_spat,t_spta.kode_blok,jenis_spta,deskripsi_blok, nama_vendor,
+			$sql = "SELECT id,no_spat,t_spta.kode_blok,jenis_spta,deskripsi_blok, nama_vendor,persno_pta,
 			IF( tebang_pg = 0 AND angkut_pg = 0,'TAS',
 			IF( tebang_pg = 1 AND angkut_pg = 0,'TPGAS',
 			IF( tebang_pg = 0 AND angkut_pg = 1,'TSAPG',
@@ -108,7 +109,7 @@ class Apiselektor extends SB_Controller
 	function caribynospta(){
 		
 		if(isset($_GET['nospta'])){
-			$query = "SELECT id,no_spat,t_spta.kode_blok,jenis_spta,deskripsi_blok, nama_vendor,
+			$query = "SELECT id,no_spat,t_spta.kode_blok,jenis_spta,deskripsi_blok, nama_vendor,persno_pta,
 			IF( tebang_pg = 0 AND angkut_pg = 0,'TAS',
 IF( tebang_pg = 1 AND angkut_pg = 0,'TPGAS',
 IF( tebang_pg = 0 AND angkut_pg = 1,'TSAPG',
