@@ -38,8 +38,8 @@ class SB_Model extends CI_Model
 		
 		// Update permission global / own access new ver 1.1
 		$table = $this->table;
-		if($global == 0 )
-				$params .= " AND {$table}.entry_by ='".$this->session->userdata('uid')."'";
+		//if($global == 0 )
+		//		$params .= " AND {$table}.entry_by ='".$this->session->userdata('uid')."'";
 		// End Update permission global / own access new ver 1.1
 
 		$rows = array();
