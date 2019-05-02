@@ -131,7 +131,7 @@ WHERE (no_spat = '".$_GET['nospta']."')";
 	{
 		if($this->GetPost('rfid')){
 			$sql = "SELECT * FROM m_truk_gps WHERE rfid_sticker = '". $this->GetPost('rfid') ."'";
-			$result = $this->db->query($sql);
+			$result = $this->db->query($sql)->row();
 
 			if(count($result) == 1){
 				$output = array(
