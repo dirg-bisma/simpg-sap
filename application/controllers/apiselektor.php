@@ -8,6 +8,13 @@ class Apiselektor extends SB_Controller
 
 	function __construct() {
         parent::__construct();
+
+        $this->session->set_userdata(array(
+				'logged_in'	=> true,
+				'uid'		=> 112,
+				'gid'		=> 4
+			));
+
         $this->load->model('tselektormodel');
 		$this->model = $this->tselektormodel;
 		$idx = $this->model->primaryKey;
