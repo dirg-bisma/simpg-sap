@@ -4,6 +4,8 @@ class Apiselektor extends SB_Controller
 {
 	public $module 		= 'tselektor';
 
+	
+
 	function __construct() {
         parent::__construct();
         $this->load->model('tselektormodel');
@@ -36,12 +38,33 @@ class Apiselektor extends SB_Controller
         echo json_encode($msg);
     }
 
+	private function spat()
+	{
+		$spat = array(
+			"id" => "",
+			"kode_blok" => "",
+			"jenis_spta" => "",
+			"deskripsi_blok" => "",
+			"nama_vendor" => "",
+			"kat_spta" => "",
+			"kode_kat_lahan" => "",
+			"kode_affd" => "",
+			"tgl_spta" => "",
+			"tgl_expired" => "",
+			"berlaku" => "0",
+			"txt_metode_tma" => "",
+			"ed" => "0",
+			"stt" => "0",
+			"metode_tma" => "1",
+		);
+		return $spat; 
+	}
 
 
     function cekspta(){
 		
 		if(isset($_GET['nospta']) || isset($_GET['rfid_sticker'])){
-			$sql = "SELECT id,t_spta.kode_blok,jenis_spta,deskripsi_blok, nama_vendor,
+			$sql = "SELECT id,no_spat,t_spta.kode_blok,jenis_spta,deskripsi_blok, nama_vendor,
 			IF( tebang_pg = 0 AND angkut_pg = 0,'TAS',
 			IF( tebang_pg = 1 AND angkut_pg = 0,'TPGAS',
 			IF( tebang_pg = 0 AND angkut_pg = 1,'TSAPG',
@@ -64,7 +87,7 @@ class Apiselektor extends SB_Controller
             );
         }else{
             $output = array(
-                'result' => array(),
+                'result' => $this->spat(),
                 'count' => count($result),
                 'msg' => 'data not found',
                 'status' => 'false'
@@ -72,7 +95,7 @@ class Apiselektor extends SB_Controller
 		}
 	}else{
 		$output = array(
-			'result' => array(),
+			'result' => spat(),
 			'count' => 0,
 			'msg' => 'data not found param : '.$this->GetPost('rfid_sticker').'::'.$this->GetPost('nospta') ,
 			'status' => 'false'
@@ -84,7 +107,7 @@ class Apiselektor extends SB_Controller
 	function caribynospta(){
 		
 		if(isset($_GET['nospta'])){
-			$query = "SELECT id,t_spta.kode_blok,jenis_spta,deskripsi_blok, nama_vendor,
+			$query = "SELECT id,no_spat,t_spta.kode_blok,jenis_spta,deskripsi_blok, nama_vendor,
 			IF( tebang_pg = 0 AND angkut_pg = 0,'TAS',
 IF( tebang_pg = 1 AND angkut_pg = 0,'TPGAS',
 IF( tebang_pg = 0 AND angkut_pg = 1,'TSAPG',
@@ -108,7 +131,7 @@ WHERE (no_spat = '".$_GET['nospta']."')";
             );
         }else{
             $output = array(
-                'result' => array(),
+                'result' => $this->spat(),
                 'count' => count($result),
                 'msg' => 'data not found',
                 'status' => 'false'
