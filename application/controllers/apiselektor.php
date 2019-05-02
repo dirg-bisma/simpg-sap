@@ -241,13 +241,13 @@ WHERE (no_spat = '".$_GET['nospta']."')";
 
 	function save()
 	{
-		$arr['stt'] = 0;
+		$arr['status'] = 'false';
 
 		$cekcard = $this->db->query("SELECT no_spat FROM t_spta WHERE rfid_card = '".$_POST['rfid_card']."' AND rfid_card_status = 1")->row();
 		if($cekcard){
 			
-			$arr['stt'] = 0;
-			$arr['data'] = "Kartu Masih Tertaut Dengan SPTA ".$cekcard->no_spat;
+			$arr['status'] = 'false';
+			$arr['msg'] = "Kartu Masih Tertaut Dengan SPTA ".$cekcard->no_spat;
 
 		}else{
 		$rules = $this->validateForm();
@@ -286,14 +286,14 @@ WHERE (no_spat = '".$_GET['nospta']."')";
 			}
 			// Redirect after save
 
-			$arr['stt'] = 1;
-			$arr['data'] = $ID;	
+			$arr['status'] = 'true';
+			$arr['msg'] = $ID;	
 						
 			
 			
 		} else {
-			$arr['stt'] = 0;
-			$arr['data'] = "Gagal Simpan ".validation_errors('', '\n');
+			$arr['stt'] = 'false';
+			$arr['msg'] = "Gagal Simpan ".validation_errors('', '\n');
 		}
 		}
 
