@@ -40,7 +40,7 @@ class Apiselektor extends SB_Controller
 
     function cekspta(){
 		
-		if($this->GetPost('nospta') != "" || $this->GetPost('rfid_sticker') != ""){
+		if(isset($_GET['nospta']) || isset($_GET['rfid_sticker'])){
 			$sql = "SELECT id,t_spta.kode_blok,jenis_spta,deskripsi_blok, nama_vendor,
 			IF( tebang_pg = 0 AND angkut_pg = 0,'TAS',
 			IF( tebang_pg = 1 AND angkut_pg = 0,'TPGAS',
