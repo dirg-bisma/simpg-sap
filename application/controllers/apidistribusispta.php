@@ -137,5 +137,18 @@ class Apidistribusispta extends SB_Controller
         echo json_encode($msg);
     }
 
+    function datamandor(){
+        $arr = array();
+        $sql = $this->db->query("SELECT * FROM sap_m_karyawan where id_jabatan = 3 order by name asc")->result();
+
+        if($sql){
+            $arr['stt'] = 1;
+            $arr['data'] = $sql;
+        }else{
+            $arr['stt'] = 0;
+        }
+        echo json_encode($arr);
+    }
+
 
 }
