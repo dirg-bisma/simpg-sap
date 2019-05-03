@@ -1,3 +1,4 @@
+<script src="<?php echo base_url();?>sximo/js/plugins/filesaver.js"></script>
 <div class="col-md-4">
 
 
@@ -20,9 +21,22 @@
 
 
 <div class="col-md-12">
-	<video autoplay="true" id="videoElement" style="width: 100%">
+	<?
+	if($cctv_on == 1){
+	?>
+	<video autoplay="true" id="videoElement-<?php echo $kode_meja_tebu;?>" style="width: 100%" src="<?=$cctv_url;?>" >
+		
+		</video>
+	<?
+	}
+	?>
+	<canvas id="canvas-element-<?php echo $kode_meja_tebu;?>" style="display: none;" style="width: 100%"></canvas>
+	<img id="tempimg<?php echo $kode_meja_tebu;?>" crossOrigin ="Anonymous" style="width: 100%">
 
-</video>
+
+
+
+
 <div class="form-group  " >
 									<label for="ipt" class=" control-label "> No SPTA  <span class="asterix"> * </span>  </label>									
 									  <input type='text' class='form-control input-sm' placeholder='pastikan crusor disini untuk scan barcode'  id='no_spta-<?php echo $kode_meja_tebu;?>' autocomplete="off" onkeyup="getNoSPTA<?php echo $kode_meja_tebu;?>(event,this.value)"  required /> 						
@@ -138,8 +152,9 @@
 				
  		<div class="toolbar-line text-center">		
 			
-			<input type="submit" name="submit" class="btn btn-primary btn-sm" value="<?php echo $this->lang->line('core.sb_submit'); ?>" />
+			<input type="button" name="submit" onclick="getImageVideo<?php echo $kode_meja_tebu;?>()" class="btn btn-primary btn-sm" value="<?php echo $this->lang->line('core.sb_submit'); ?>" />
 			<a href="<?php echo site_url('tmejatebu');?>" class="btn btn-sm btn-warning"><?php echo $this->lang->line('core.sb_cancel'); ?> </a>
+			
  		</div>
 			  		
 		</form>
@@ -164,8 +179,9 @@ $(document).ready(function() {
 
 });
 
-var video = document.querySelector("#videoElement");
+var video<?php echo $kode_meja_tebu;?> = document.querySelector("#videoElement-<?php echo $kode_meja_tebu;?>");
 
+/*
 if (navigator.mediaDevices.getUserMedia) {
   navigator.mediaDevices.getUserMedia({ video: true })
     .then(function (stream) {
@@ -174,6 +190,34 @@ if (navigator.mediaDevices.getUserMedia) {
     .catch(function (err0r) {
       console.log("Something went wrong!");
     });
+}
+*/
+
+function getImageVideo<?php echo $kode_meja_tebu;?>(){
+	<?
+	if($cctv_on == 1){
+	?>
+	var spta = $('#no_spta-<?php echo $kode_meja_tebu;?>').val();
+	var mt = '<?php echo $kode_meja_tebu;?>';
+	var nilai = $('#kondisi_tebu-<?php echo $kode_meja_tebu;?>').val();
+	var today = (new Date()).toString();
+
+	var canvas = document.querySelector("#canvas-element-<?php echo $kode_meja_tebu;?>");
+	 canvas.width = video<?php echo $kode_meja_tebu;?>.videoWidth;
+  	 canvas.height = video<?php echo $kode_meja_tebu;?>.videoHeight;
+
+  	 canvas.getContext('2d').drawImage(video<?php echo $kode_meja_tebu;?>, 0, 0);
+  	 canvas.getContext('2d').font = "14pt Calibri";
+  	 canvas.getContext('2d').fillStyle = "white";
+     canvas.getContext('2d').fillText(spta+" / "+today+' / '+nilai+' / '+mt, 20, 20);
+
+  $('#tempimg<?php echo $kode_meja_tebu;?>').attr("src",canvas.toDataURL('image/webp'));
+  canvas.toBlob(function(blob) {
+    saveAs(blob, spta+".jpg");
+});
+  <?
+	}
+  ?>
 }
 
 function getNoSPTA<?php echo $kode_meja_tebu;?>(e,nospta){
