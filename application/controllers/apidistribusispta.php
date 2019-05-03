@@ -115,4 +115,24 @@ class Apidistribusispta extends SB_Controller
         }
         echo json_encode($msg);
     }
+
+    function simpanDistribusi(){
+        $r = $_POST;
+        $msg = array('msg' => '0', 'status' => 'false', 'data' => '');
+        $data = array();
+        $data['rfid_sticker'] = $r['rfid_sticker'];
+        $data['rfid_sticker_tagging'] = date('Y-m-d H:i:s');
+        $data['rfid_sticker_status'] = 1;
+        $data['id_truck'] = $r['id_truck'];
+        $data['persno_mandor'] = $r['persno_mandor'];
+        $data['status_distribusi'] = 1;
+        $data['tgl_distribusi'] = date('Y-m-d H:i:s');
+        $id =  $r['id'];
+        $this->db->where('id', $id);
+        $this->db->update('t_spta', $data);
+        $msg = array('msg' => '1', 'status' => 'true','data' => "Berhasil Simpan..");
+        echo json_encode($msg);
+    }
+
+
 }
