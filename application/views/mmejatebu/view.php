@@ -26,6 +26,12 @@
 					</tr>
 				
 					<tr>
+						<td width='30%' class='label-view text-right'>Nama</td>
+						<td><?php echo $row['nama'] ;?> </td>
+						
+					</tr>
+				
+					<tr>
 						<td width='30%' class='label-view text-right'>Warna</td>
 						<td><?php echo $row['warna'] ;?> </td>
 						
@@ -38,8 +44,14 @@
 					</tr>
 				
 					<tr>
-						<td width='30%' class='label-view text-right'>Nama</td>
-						<td><?php echo $row['nama'] ;?> </td>
+						<td width='30%' class='label-view text-right'>CCTV Status</td>
+						<td><?php echo $row['cctv_on'] ;?> </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>CCTV URL</td>
+						<td><?php echo $row['cctv_url'] ;?> </td>
 						
 					</tr>
 				

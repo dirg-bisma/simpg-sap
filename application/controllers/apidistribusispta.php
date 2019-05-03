@@ -132,6 +132,7 @@ class Apidistribusispta extends SB_Controller
         $this->db->update('t_spta', $data);
         $msg = array('msg' => '1', 'status' => 'true','data' => "Berhasil Simpan..");
         echo json_encode($msg);
+        $sql = $this->db->query('UPDATE m_truk_gps SET status=1,task_update=now() WHERE id="'.$data['id_truck'].'"');
     }
 
 

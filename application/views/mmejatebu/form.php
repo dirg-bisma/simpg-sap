@@ -88,6 +88,29 @@
 						?></select> <br />
 									  <i> <small></small></i>
 									 </div> 
+								  </div> 					
+								  <div class="form-group  " >
+									<label for="Cctv On" class=" control-label col-md-4 text-left"> Cctv On </label>
+									<div class="col-md-8">
+									  
+					<?php $cctv_on = explode(',',$row['cctv_on']);
+					$cctv_on_opt = array( '0' => 'Non Aktif' ,  '1' => 'Aktif' , ); ?>
+					<select name='cctv_on' rows='5'   class='form-control input-sm select2' style='width: 100%;' > 
+						<?php 
+						foreach($cctv_on_opt as $key=>$val)
+						{
+							echo "<option  value ='$key' ".($row['cctv_on'] == $key ? " selected='selected' " : '' ).">$val</option>"; 						
+						}						
+						?></select> <br />
+									  <i> <small></small></i>
+									 </div> 
+								  </div> 					
+								  <div class="form-group  " >
+									<label for="Cctv Url" class=" control-label col-md-4 text-left"> Cctv Url </label>
+									<div class="col-md-8">
+									  <input type='text' class='form-control input-sm' placeholder='' value='<?php echo $row['cctv_url'];?>' name='cctv_url'   /> <br />
+									  <i> <small></small></i>
+									 </div> 
 								  </div> 
 			</div>
 			
@@ -112,7 +135,7 @@
 <script type="text/javascript">
 $(document).ready(function() { 
 
-		$("#parent").jCombo("<?php echo site_url('mmejatebu/comboselect?filter=vw_master_mejatebu:id:nama') ?>",
+		$("#parent").jCombo("<?php echo site_url('mmejatebu/comboselect?filter=m_mejatebu:id:nama') ?>",
 		{  selected_value : '<?php echo $row["parent"] ?>' });
 		 	 
 });
