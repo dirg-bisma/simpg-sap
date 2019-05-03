@@ -150,6 +150,8 @@ class Tmejatebu extends SB_Controller
 			$rx++;
 			$this->data['kode_meja_tebu'] = $r->kode;
 			$this->data['warna_meja_tebu'] = $r->warna;
+			$this->data['cctv_on'] = $r->cctv_on;
+			$this->data['cctv_url'] = $r->cctv_url;
 			$this->data['content'] .= $this->load->view('tmejatebu/form',$this->data, true );
 		}
 
