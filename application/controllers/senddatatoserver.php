@@ -89,8 +89,9 @@ class Senddatatoserver extends CI_Controller {
 	    );
 	    curl_setopt($ch, CURLOPT_POSTFIELDS, $post); 
 	    $response = curl_exec($ch);
-		
-		
+		echo $response;
+	    curl_close($ch);
+	    
 		// Check HTTP status code
 		if (!curl_errno($ch)) {
 		  switch ($http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE)) {
@@ -101,8 +102,7 @@ class Senddatatoserver extends CI_Controller {
 		  }
 		}
 		
-	    echo $response;
-	    curl_close($ch);
+	    
 		}
 		
 	}
