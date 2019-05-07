@@ -116,17 +116,19 @@ class Apiselektor extends SB_Controller
 	function caribynospta(){
 		
 		if(isset($_GET['nospta'])){
-			$query = "SELECT id,no_spat,t_spta.kode_blok,jenis_spta,deskripsi_blok, nama_vendor,persno_pta,
+			$query = "SELECT id,no_spat,t_spta.kode_blok,jenis_spta,deskripsi_blok,IF( tebang_pg = 0 AND angkut_pg = 0,'TAS',
+IF( tebang_pg = 1 AND angkut_pg = 0,'TPGAS',
+IF( tebang_pg = 0 AND angkut_pg = 1,'TSAPG',
+IF( tebang_pg = 1 AND angkut_pg = 1,'TAPG','')))) AS nama_vendor,persno_pta,
 			IF( tebang_pg = 0 AND angkut_pg = 0,'TAS',
 IF( tebang_pg = 1 AND angkut_pg = 0,'TPGAS',
 IF( tebang_pg = 0 AND angkut_pg = 1,'TSAPG',
 IF( tebang_pg = 1 AND angkut_pg = 1,'TAPG','')))) AS kat_spta,kode_kat_lahan,kode_affd,CONCAT(tgl_spta,' 00:00:00') AS tgl_spta,tgl_expired,
 IF(NOW() < CONCAT(tgl_spta,' 05:59:00'),CONCAT('SPTA Belum Berlaku, Berlaku pada ',DATE_FORMAT(tgl_spta,'%d %M %Y'),' 06:00:00'),'1') AS berlaku,IF(metode_tma=1,'MANUAL',IF(metode_tma=2,'SEMI MEKANISASI','MEKANISASI')) AS txt_metode_tma,
 IF(NOW() > tgl_expired,CONCAT('SPTA sudah Expired Pada ',DATE_FORMAT(tgl_expired,'%d %M %Y Jam %H:%i')),'0') AS ed,
-IF(selektor_status=0,if(retur_status=1,'SPTA Sudah di retur!',0),CONCAT('SPTA sudah Masuk Selektor Pada ',DATE_FORMAT(selektor_tgl,'%d %M %Y Jam %H:%i'))) AS stt,
+IF(selektor_status=0,IF(retur_status=1,'SPTA Sudah di retur!',0),CONCAT('SPTA sudah Masuk Selektor Pada ',DATE_FORMAT(selektor_tgl,'%d %M %Y Jam %H:%i'))) AS stt,
 metode_tma FROM t_spta 
-join sap_field on sap_field.kode_blok = t_spta.kode_blok 
-join m_vendor on id_vendor = vendor_angkut
+JOIN sap_field ON sap_field.kode_blok = t_spta.kode_blok 
 WHERE (no_spat = '".$_GET['nospta']."')";
 		$result = $this->db->query($query)->row();
 		
