@@ -8,6 +8,14 @@ class Mmtruckgps extends SB_Controller
 	public $per_page	= '10';
 	public $idx			= '';
 
+	public static $host='http://103.5.50.118:8082';
+	private static $adminEmail='admin';
+	private static $adminPassword='admin';
+	public static $cookie;
+	private static $jsonA='Accept: application/json';
+	private static $jsonC='Content-Type: application/json';
+	private static $urlEncoded='Content-Type: application/x-www-form-urlencoded';
+
 	function __construct() {
 		parent::__construct();
 		
@@ -199,7 +207,19 @@ class Mmtruckgps extends SB_Controller
 		{
 			$data = $this->validatePost();
 			$ID = $this->model->insertRow($data , $this->input->get_post( 'id' , true ));
+
+			$idserv = $this->db->query("SELECT id_gps_server FROM m_truk_gps WHERE id=$ID")->row();
+			if($idserv->id_gps_server != '0'){
+				$idserv = $this->apiSave($idserv->id_gps_server,$data['nopol_truk'].' - '.$data['namatruk'],$data['imei'],$data['no_hp'],'PUT');
+			}else{
+				$idserv = $this->apiSave(-1,$data['nopol_truk'].' - '.$data['namatruk'],$data['imei'],$data['no_hp'],'POST');
+				$this->db->query("UPDATE m_truk_gps set id_gps_server=$idserv WHERE id=$ID");
+			}
 			// Input logs
+			
+
+
+
 			if( $this->input->get( 'id' , true ) =='')
 			{
 				$this->inputLogs("New Entry row with ID : $ID  , Has Been Save Successfull");
@@ -232,6 +252,18 @@ class Mmtruckgps extends SB_Controller
 			echo "err : maaf anda tidak memiliki hak untuk menghapus data";
 	  	}
 			
+		$id = $_POST['id'];
+
+		$idserv = $this->db->query("SELECT id_gps_server FROM m_truk_gps WHERE id=$id")->row();
+			if($idserv->id_gps_server != '0'){
+
+				header('Content-Type: application/json');
+				$data='email=admin&password=admin';
+				$a = self::curl('/api/session','POST','',$data,array(self::$urlEncoded));
+				$b = self::curl('/api/devices/'.$idserv->id_gps_server,'DELETE',self::$cookie,json_encode(array()),array(self::$jsonC));
+				//echo json_encode($b);
+			}
+
 		$this->model->destroy($_POST['id']);
 		$this->inputLogs("ID : ".$_POST['id']."  , Has Been Removed Successfull");
 		echo "ID : ".$_POST['id']."  , berhasil dihapus !!";
@@ -239,4 +271,93 @@ class Mmtruckgps extends SB_Controller
 	}
 
 
+	function apiSave($id,$name,$imei,$nohp,$task)
+	{
+		//$ch = curl_init();
+		$data2 = array(
+  "id"=> $id,
+  "name"=> $name,
+  "uniqueId"=> $imei,
+  "phone"=> $nohp,
+  "model"=> "",
+  "contact"=> "",
+  "category"=> null,
+  "status"=> null,
+  "lastUpdate"=> null,
+  "groupId"=> 0,
+  "disabled"=> false);
+		header('Content-Type: application/json');
+		
+		$data='email=admin&password=admin';
+	
+		$a = self::curl('/api/session','POST','',$data,array(self::$urlEncoded));
+		$r = json_decode($a->response);
+
+		//echo json_encode($r->attributes->notificationTokens);
+		
+		if($task == 'PUT'){
+			$b = self::curl('/api/devices/'.$id,$task,self::$cookie,json_encode($data2),array(self::$jsonC));
+			$r = json_decode($b->response);
+		}else{
+			$b = self::curl('/api/devices',$task,self::$cookie,json_encode($data2),array(self::$jsonC));	
+			$r = json_decode($b->response);
+		}
+		
+		
+		return $r->id;
+		//echo json_encode($b).' '.$task.' '.json_encode($data2);
+		//self::curl('/api/devices','POST',$sessionId,$data,array(self::$jsonC));
+		die();
+	}
+
+	function getsocket()
+	{
+		$this->data['id'] = 'all';
+		$this->data['content'] =  $this->load->view('mmtruckgps/gps', $this->data ,true);	
+		$this->load->view('layouts/main', $this->data );
+	}
+
+
+	public static function curl($task,$method,$cookie,$data,$header) {
+	
+	$res=new stdClass();
+	$res->responseCode='';
+	$res->error='';
+	$header[]="Cookie: ".$cookie;
+	
+	$ch = curl_init();
+	curl_setopt($ch, CURLOPT_URL, "http://103.5.50.118:8082".$task);
+	curl_setopt($ch, CURLOPT_TIMEOUT, 30);
+	curl_setopt($ch, CURLOPT_HEADER, 1);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+	curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $method);
+	
+	if($method=='POST' || $method=='PUT' || $method=='DELETE') {
+		curl_setopt($ch, CURLOPT_POST, 1);
+		curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+	}
+	
+	curl_setopt($ch, CURLOPT_HTTPHEADER,$header);
+	$data=curl_exec($ch);
+	$size = curl_getinfo($ch, CURLINFO_HEADER_SIZE);
+	
+	if (preg_match('/^Set-Cookie:\s*([^;]*)/mi', substr($data, 0, $size), $c) == 1) self::$cookie = $c[1];
+		$res->response = substr($data, $size);
+	
+	if(!curl_errno($ch)) {
+		$res->responseCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+	}
+	else {
+		$res->responseCode=400;
+		$res->error= curl_error($ch);
+	}
+	
+	curl_close($ch);
+	return $res;
+	}
 }
+
+
+
+
+
