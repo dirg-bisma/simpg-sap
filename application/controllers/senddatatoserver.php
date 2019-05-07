@@ -80,7 +80,7 @@ class Senddatatoserver extends CI_Controller {
 		$datax = json_encode($result->result());
 		$result->free_result();
 
-		echo $url= 'http://'.$hostx.'/simpgdb/index.php/dashboard/Uploadt_spta/'.CNF_COMPANYCODE.'/'.CNF_PLANCODE;
+		$url= 'http://'.$hostx.'/simpgdb/index.php/dashboard/Uploadt_spta/'.CNF_COMPANYCODE.'/'.CNF_PLANCODE;
 	    $ch = curl_init($url);
 	    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 	    curl_setopt($ch, CURLOPT_POST, true);
