@@ -80,7 +80,7 @@ class Senddatatoserver extends CI_Controller {
 		$datax = json_encode($result->result());
 		$result->free_result();
 
-		$url= 'http://'.$hostx.'/simpgdb/index.php/dashboard/Uploadt_spta/'.CNF_COMPANYCODE.'/'.CNF_PLANCODE;
+		echo $url= 'http://'.$hostx.'/simpgdb/index.php/dashboard/Uploadt_spta/'.CNF_COMPANYCODE.'/'.CNF_PLANCODE;
 	    $ch = curl_init($url);
 	    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 	    curl_setopt($ch, CURLOPT_POST, true);
@@ -89,7 +89,7 @@ class Senddatatoserver extends CI_Controller {
 	    );
 	    curl_setopt($ch, CURLOPT_POSTFIELDS, $post); 
 	    $response = curl_exec($ch);
-		echo $response;
+		
 	    
 
 		// Check HTTP status code
@@ -101,6 +101,7 @@ class Senddatatoserver extends CI_Controller {
 			break;
 		  }
 		}
+		echo $response;
 		curl_close($ch);
 		
 	    
