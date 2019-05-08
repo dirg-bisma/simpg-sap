@@ -155,7 +155,7 @@ WHERE (no_spat = '".$_GET['nospta']."')";
 
 	function datagrid(){
 		$arr = array();
-		$sql = $this->db->query("SELECT no_spat,tgl_selektor,no_urut,no_angkutan,ptgs_angkutan,terbakar_sel,ditolak_sel,IFNULL(open_gate,'Belum') AS open_gate FROM vw_selektor_data ORDER BY tgl_urut,no_urut DESC limit 20")->result();
+		$sql = $this->db->query("SELECT no_spat,tgl_selektor,no_urut,no_angkutan,ptgs_angkutan,terbakar_sel,ditolak_sel,IFNULL(open_gate,'Belum') AS open_gate FROM vw_selektor_data WHERE DATE(tgl_selektor)=DATE(NOW()) ORDER BY no_urut DESC LIMIT 20")->result();
 
 		if($sql){
 			$arr['stt'] = 1;
@@ -261,13 +261,13 @@ WHERE (no_spat = '".$_GET['nospta']."')";
 			$data = $this->validatePost();
 			$data['tgl_selektor'] = date('Y-m-d H:i:s');
 			
-			
 			$data = $this->validatePost();
             $data['tgl_selektor'] = date('Y-m-d H:i:s');
 			$data['no_angkutan'] =  strtoupper($data['no_angkutan']);
 			$data['ptgs_angkutan'] = strtoupper($data['ptgs_angkutan']);
 			$data['tgl_tebang'] = $_POST['tgl_tebang'].' '.$_POST['jam_tebang'].':00';
-			$data['ptgs_selektor'] = $_POST['ptgs_selektor'];
+			//$data['ptgs_selektor'] = $_POST['ptgs_selektor'];
+			$data['ptgs_selektor'] = "Operator Selektor";
 			$data['rfid_card'] = $_POST['rfid_card'];
 
 			$rx = $this->db->query('SELECT IFNULL(MAX(no_urut),0)+1 AS nourut,get_tgl_giling() AS tgl FROM t_selektor WHERE tgl_urut = get_tgl_giling() AND ptgs_selektor="'.$data['ptgs_selektor'].'"')->row();
