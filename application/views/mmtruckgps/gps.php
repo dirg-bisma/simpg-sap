@@ -110,13 +110,16 @@
             success: function(sessionResponse){
                 console.log(sessionResponse);
                 openWebsocket();
-                updateStatus();
             }
         });
 
         var openWebsocket = function(){
             var ws;
             ws = new WebSocket('wss://gps.ptpn11.co.id/api/socket');
+
+            ws.onopen = function () {
+                updateStatus();
+           };
 
             ws.onmessage = function (evt) 
            { 
@@ -139,17 +142,7 @@
                      }
                   }); 
               }
-              if (dataparsed.devices) {
-                 // console.log("DEVICES"); 
-                 $.each(dataparsed.devices, function(k,v) {
-                    //if(v.deviceId == 35){
-                     // console.log(v);  
-                    //  var marker = L.marker([v.latitude, v.longitude],{customId:v.deviceId}).addTo(mymap);
-
-                    //}
-                  }); 
-                    
-              }
+              
 
            };
 
