@@ -173,7 +173,7 @@
                   stt = "Free";
                 }
 
-                popup.setContent("NOPOL : "+data.nopol_truk+"<br />HP GPS : "+data.no_hp+"<br />STATUS : "+stt);
+                popup.setContent("NOPOL : "+data.nopol_truk+"<br />HP GPS : "+data.no_hp+"<br />STATUS : "+stt+"<br />SPTA : "+"<br />BLOK : "+"<br />PTA : ");
             }
         });
            // console.log(id);
