@@ -20,8 +20,10 @@
  	
 		<?php if($this->access['is_add'] ==1) : ?>
 		<a href="<?php echo site_url('mmtruckgps/add') ?>" class="tips btn btn-xs btn-info"  title="<?php echo $this->lang->line('core.btn_new'); ?>">
-		<i class="fa fa-plus"></i>&nbsp;<?php echo $this->lang->line('core.btn_new'); ?> (F2) </a>
+		<i class="fa fa-plus"></i>&nbsp;<?php echo $this->lang->line('core.btn_new'); ?> </a>
 		<?php endif;?>
+    <a href="<?php echo site_url('mmtruckgps/monitoringtruk') ?>" class="tips btn btn-xs btn-danger"  title="Monitoring">
+    <i class="fa fa-truck"></i>&nbsp;Monitoring </a>
                   </div>
                 </div>
 

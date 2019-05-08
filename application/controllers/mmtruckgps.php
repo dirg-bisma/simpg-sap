@@ -310,11 +310,25 @@ class Mmtruckgps extends SB_Controller
 		die();
 	}
 
-	function getsocket()
+	function monitoringtruk()
 	{
+		if(CNF_PLANCODE != 'KP04'){
+			redirect( 'mmtruckgps',301);
+		}else{
 		$this->data['id'] = 'all';
 		$this->data['content'] =  $this->load->view('mmtruckgps/gps', $this->data ,true);	
 		$this->load->view('layouts/main', $this->data );
+		}
+	}
+
+	function detailtruck($id){
+		$a = $this->db->query("SELECT * FROM m_truk_gps where id_gps_server = $id")->row();
+		echo json_encode($a);
+	}
+
+	function listtruck(){
+		$a = $this->db->query("SELECT * FROM m_truk_gps")->result();
+		echo json_encode($a);
 	}
 
 
