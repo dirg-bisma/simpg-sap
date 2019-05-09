@@ -24,14 +24,14 @@
 	<?
 	if($cctv_on == 1){
 	?>
-	<video autoplay="true" id="videoElement-<?php echo $kode_meja_tebu;?>" style="width: 100%" src="<?=$cctv_url;?>" >
+	<video autoplay="true" id="videoElement-<?php echo $kode_meja_tebu;?>" style="width: 100%" src="<?=$cctv_url;?>"  >
 		
 		</video>
 	<?
 	}
 	?>
-	<canvas id="canvas-element-<?php echo $kode_meja_tebu;?>" style="display: none;" style="width: 100%"></canvas>
-	<img id="tempimg<?php echo $kode_meja_tebu;?>" crossOrigin ="Anonymous" style="width: 100%">
+	<canvas id="canvas-element-<?php echo $kode_meja_tebu;?>" style="display: none;" style="width: 100%" crossorigin="anonymous"></canvas>
+	<img id="tempimg<?php echo $kode_meja_tebu;?>" crossorigin="anonymous" style="width: 100%">
 
 
 
@@ -152,7 +152,7 @@
 				
  		<div class="toolbar-line text-center">		
 			
-			<input type="button" name="submit" onclick="getImageVideo<?php echo $kode_meja_tebu;?>()" class="btn btn-primary btn-sm" value="<?php echo $this->lang->line('core.sb_submit'); ?>" />
+			<input type="submit" name="submit" onclick="getImageVideo<?php echo $kode_meja_tebu;?>()" class="btn btn-primary btn-sm" value="<?php echo $this->lang->line('core.sb_submit'); ?>" />
 			<a href="<?php echo site_url('tmejatebu');?>" class="btn btn-sm btn-warning"><?php echo $this->lang->line('core.sb_cancel'); ?> </a>
 			
  		</div>
@@ -205,13 +205,15 @@ function getImageVideo<?php echo $kode_meja_tebu;?>(){
 	var canvas = document.querySelector("#canvas-element-<?php echo $kode_meja_tebu;?>");
 	 canvas.width = video<?php echo $kode_meja_tebu;?>.videoWidth;
   	 canvas.height = video<?php echo $kode_meja_tebu;?>.videoHeight;
-
+  	 //var image = new Image();
+     video<?php echo $kode_meja_tebu;?>.crossOrigin = '*';
+     //image.src = video<?php echo $kode_meja_tebu;?>;
   	 canvas.getContext('2d').drawImage(video<?php echo $kode_meja_tebu;?>, 0, 0);
   	 canvas.getContext('2d').font = "14pt Calibri";
   	 canvas.getContext('2d').fillStyle = "white";
      canvas.getContext('2d').fillText(spta+" / "+today+' / '+nilai+' / '+mt, 20, 20);
 
-  $('#tempimg<?php echo $kode_meja_tebu;?>').attr("src",canvas.toDataURL('image/webp'));
+  $('#tempimg<?php echo $kode_meja_tebu;?>').attr("src",canvas.toDataURL("image/jpeg"));
   canvas.toBlob(function(blob) {
     saveAs(blob, spta+".jpg");
 });
