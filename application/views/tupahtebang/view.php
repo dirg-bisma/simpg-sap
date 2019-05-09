@@ -360,7 +360,7 @@
 		</div>		
 	
 				<a href="<?php echo site_url('tupahtebang');?>" class="btn btn-sm btn-warning"> << Back </a>
-				<a href="javascript:printContent('printed')" class="btn btn-sm btn-danger"> <i class="fa fa-print"></i> Cetak </a>
+				<a href="javascript:printContent12('printed')" class="btn btn-sm btn-danger"> <i class="fa fa-print"></i> Cetak </a>
 				<?php
 				if($row['status'] == 0){
 					?>
@@ -375,6 +375,23 @@
 
 
 </section>
+
+<script type="text/javascript">
+	function printContent12(divName) {
+     var printContents = document.getElementById(divName).innerHTML;
+     var originalContents = document.body.innerHTML;
+
+     document.body.innerHTML = printContents;
+
+     //window.print();
+    setTimeout(function () { window.print();}, 2000);
+	setTimeout(function () { location.reload();}, 3000);
+    // location.reload();
+    // document.body.innerHTML = originalContents;
+   //window.close();
+}
+
+</script>
 
 
 
