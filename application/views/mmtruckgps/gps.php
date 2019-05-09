@@ -53,11 +53,12 @@
     <script>
 
       var mymap = L.map('mapid').setView([-7.7000677, 111.540868], 12);
-      L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoia3J1YWt6IiwiYSI6IjEyYzg2MTgyMGIyMzE3MDFjYmI3YjAxNzM3MjRlMzY1In0.ub6D64RDGjZiA7YuUKKpzg', {
+      L.tileLayer('http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-    maxZoom: 18,
-    id: 'mapbox.streets',
-    accessToken: 'pk.eyJ1Ijoia3J1YWt6IiwiYSI6IjEyYzg2MTgyMGIyMzE3MDFjYmI3YjAxNzM3MjRlMzY1In0.ub6D64RDGjZiA7YuUKKpzg'
+    maxZoom: 20,
+    subdomains:['mt0','mt1','mt2','mt3']
+  //  id: 'mapbox.streets',
+   // accessToken: 'pk.eyJ1Ijoia3J1YWt6IiwiYSI6IjEyYzg2MTgyMGIyMzE3MDFjYmI3YjAxNzM3MjRlMzY1In0.ub6D64RDGjZiA7YuUKKpzg'
 }).addTo(mymap);
 
       var geo = L.geoJson({features:[]},{onEachFeature:function popUp(f,l){
@@ -92,6 +93,13 @@
         popupAnchor: [0, -28]
     });
 
+    var pabrikIco = L.icon({
+        iconUrl: 'http://ptpn11.co.id/assets/ptpn/dist/img/pabrik2.png',
+        iconSize: [40, 40],
+        iconAnchor: [16, 37],
+        popupAnchor: [0, -28]
+    });
+
     var truk = [];
     var showdata = "Loading..";
 
@@ -119,6 +127,7 @@
 
             ws.onopen = function () {
                 updateStatus();
+
            };
 
             ws.onmessage = function (evt) 
@@ -156,6 +165,25 @@
               socket.close();
            };
         };
+
+        var locations = [
+      ['PG Soedhono', -7.497223, 111.420054, 1],
+      ['PG Poerwodadie', -7.570894, 111.422953, 2],
+      ['PG Redjosarie', -7.689866, 111.414551, 3],
+      ['PG Pagottan', -7.702408, 111.537895, 4],
+      ['PG Kanigoro', -7.660795, 111.538461, 5],
+      ['PG Kedawoeng', -7.746745, 112.991578, 6],
+      ['PG Wonolangan', -7.766801, 113.246646, 7],
+      ['PG Gending', -7.811100, 113.311992, 8],
+      ['PG Padjarakan', -7.779382, 113.356480, 9],
+      ['PG Djatiroto', -8.125943, 113.363649, 10],
+      ['PG Semboro', -8.206887, 113.444577, 11],
+      ['PG Wringinanom', -7.707506, 113.968855, 12],
+      ['PG Olean', -7.705527, 114.005961, 13],
+      ['PG Pandjie', -7.698221, 114.030953, 14],
+      ['PG Assembagoes', -7.751207, 114.229829, 15],
+      ['PG Pradjekan', -7.811111, 113.972778, 16],
+    ];
 
         function fshowdata(e){
          // updateStatus();
@@ -202,7 +230,13 @@
                 });
             }
         });
+
+             for (i = 0; i < locations.length; i++) {  
+             var mrk = new L.marker([locations[i][1], locations[i][2]]);
+                      mrk.addTo(mymap).bindPopup(" "+locations[i][0]+" "); 
+                      mrk.setIcon(pabrikIco);
         }
+      }
 
         
 
