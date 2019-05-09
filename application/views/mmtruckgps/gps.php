@@ -74,7 +74,7 @@
         l.bindPopup(out.join("<br />"));
     }
 }}).addTo(mymap);
-      var base = '<?=base_url("kp04_2019.zip");?>';
+      var base = '<?=base_url(CNF_PLANCODE."_2019.zip");?>';
     shp(base).then(function(data){
     geo.addData(data);
     });
@@ -112,11 +112,11 @@
     },
     crossDomain: true,
             data: {
-                email: "admin",
-                password: "admin"
+                email: "<?=CNF_PLANCODE;?>",
+                password: "<?=CNF_PLANCODE;?>" 
             },
             success: function(sessionResponse){
-                console.log(sessionResponse);
+
                 openWebsocket();
             }
         });
