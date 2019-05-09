@@ -23,6 +23,16 @@ class Dashboard extends SB_Controller {
 		$this->data['content'] = $this->load->view('dashboard',$this->data,true);
 		$this->load->view('layouts/main',$this->data);
 	}
+
+	public function viewari()
+	{
+		$this->data = array();
+		
+
+
+		//$this->data['content'] = $this->load->view('layouts/dashari',$this->data,true);
+		$this->load->view('layouts/dashari',$this->data);
+	}
 	
 	public function postgantimejatebu(){
 		$this->session->set_userdata(array(
@@ -44,6 +54,15 @@ class Dashboard extends SB_Controller {
     public function gettgl(){
     	$a = $this->db->query("SELECT get_tgl_giling() AS tgl ")->row();
     	echo $a->tgl;
+    }
+
+    public function getlastari(){
+    	$a = $this->db->query("SELECT * FROM t_ari order by id_ari desc limit 1")->row();
+    	if($a){
+    		echo json_encode(array('dtt'=>$a));
+    	}else{
+    		echo json_encode(array('dtt'=>0));
+    	}
     }
 
 
