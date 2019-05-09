@@ -56,7 +56,7 @@
       L.tileLayer('http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
     maxZoom: 20,
-    subdomains:['mt0','mt1','mt2','mt3']
+    subdomains:['mt0','mt1','mt2','mt3'] 
   //  id: 'mapbox.streets',
    // accessToken: 'pk.eyJ1Ijoia3J1YWt6IiwiYSI6IjEyYzg2MTgyMGIyMzE3MDFjYmI3YjAxNzM3MjRlMzY1In0.ub6D64RDGjZiA7YuUKKpzg'
 }).addTo(mymap);
