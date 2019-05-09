@@ -65,7 +65,7 @@
         if (f.properties){
           var x = 0;
             for(var key in f.properties){
-              if(x > 15){
+              if(x > 16){
               out.push(key+" : "+f.properties[key]);
             }
               x++;
