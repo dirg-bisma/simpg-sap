@@ -288,7 +288,7 @@ class Mmtruckgps extends SB_Controller
   "disabled"=> false);
 		header('Content-Type: application/json');
 		
-		$data='email=admin&password=admin';
+		$data='email='.CNF_PLANCODE.'&password='.CNF_PLANCODE;
 	
 		$a = self::curl('/api/session','POST','',$data,array(self::$urlEncoded));
 		$r = json_decode($a->response);
