@@ -408,7 +408,7 @@ class Tsbh extends SB_Controller
 		$file = 'TEMP_SBH.xlsx';
 
 		if(move_uploaded_file($_FILES['template_sbh']['tmp_name'], $file)){
-		chmod($file, 0777);
+		//chmod($file, 0777);
 try
 	{
 		$files = $file;
