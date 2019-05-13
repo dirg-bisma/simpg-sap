@@ -94,7 +94,7 @@
 									<div class="col-md-8">
 									  
 					<?php $cctv_on = explode(',',$row['cctv_on']);
-					$cctv_on_opt = array( '0' => 'Non Aktif' ,  '1' => 'Aktif' , ); ?>
+					$cctv_on_opt = array( '0' => 'Non Aktif' ,  '1' => 'Aktif' , '2' => 'Aktif Gambar'); ?>
 					<select name='cctv_on' rows='5'   class='form-control input-sm select2' style='width: 100%;' > 
 						<?php 
 						foreach($cctv_on_opt as $key=>$val)
