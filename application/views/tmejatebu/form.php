@@ -20,7 +20,7 @@
         
 		
 		 <form action="<?php echo site_url('tmejatebu/save/'); ?>" class='form-vertical' 
-		 parsley-validate='true' novalidate='true' method="post" enctype="multipart/form-data" id="form-<?php echo $kode_meja_tebu;?>" > 
+		 parsley-validate='true' novalidate='true' method="post" enctype="multipart/form-data" id="dataku-<?php echo $kode_meja_tebu;?>" > 
 
 
 <div class="col-md-12">
@@ -228,7 +228,7 @@ function getImageVideo<?php echo $kode_meja_tebu;?>(){
   //$('#tempimg<?php echo $kode_meja_tebu;?>').attr("src",canvas.toDataURL("image/jpeg"));
   canvas.toBlob(function(blob) {
     	saveAs(blob, spta+".jpg");
-    	$('#form-<?php echo $kode_meja_tebu;?>').submit();
+    	$('#dataku-<?php echo $kode_meja_tebu;?>').submit();
 });
   <?
 	}else if($cctv_on == 2){
@@ -253,13 +253,13 @@ function getImageVideo<?php echo $kode_meja_tebu;?>(){
      canvas.getContext('2d').fillText(spta+" / "+today+' / '+nilai+' / '+mt, 20, 20);
      canvas.toBlob(function(blob) {
     	saveAs(blob, spta+".jpg");
-    	$('#form-<?php echo $kode_meja_tebu;?>').submit();
+    	$('#dataku-<?php echo $kode_meja_tebu;?>').submit();
 	});
 
 		<?
 	}else{
 		?>
-			$('#form-<?php echo $kode_meja_tebu;?>').submit();
+			$('#dataku-<?php echo $kode_meja_tebu;?>').submit();
 		<?
 	}
   ?>
