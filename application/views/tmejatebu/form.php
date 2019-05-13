@@ -158,7 +158,7 @@
 				
  		<div class="toolbar-line text-center">		
 			
-			<input type="button" name="submit" onclick="getImageVideo<?php echo $kode_meja_tebu;?>()" class="btn btn-primary btn-sm" value="<?php echo $this->lang->line('core.sb_submit'); ?>" />
+			<input type="submit" name="submit" onclick="getImageVideo<?php echo $kode_meja_tebu;?>()" class="btn btn-primary btn-sm" value="<?php echo $this->lang->line('core.sb_submit'); ?>" />
 			<a href="<?php echo site_url('tmejatebu');?>" class="btn btn-sm btn-warning"><?php echo $this->lang->line('core.sb_cancel'); ?> </a>
 			
  		</div>
@@ -199,7 +199,7 @@ if (navigator.mediaDevices.getUserMedia) {
 }
 */
 
-function getImageVideo<?php echo $kode_meja_tebu;?>(){
+function getImageVideo<?php echo $kode_meja_tebu;?>(){ 
 	var video<?php echo $kode_meja_tebu;?> = document.querySelector("#videoElement-<?php echo $kode_meja_tebu;?>");
 	var spta = $('#no_spta-<?php echo $kode_meja_tebu;?>').val();
 	var mt = '<?php echo $kode_meja_tebu;?>';
