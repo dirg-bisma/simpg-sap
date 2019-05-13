@@ -158,7 +158,7 @@
 				
  		<div class="toolbar-line text-center">		
 			
-			<input type="submit" name="submit" onclick="getImageVideo<?php echo $kode_meja_tebu;?>()" class="btn btn-primary btn-sm" value="<?php echo $this->lang->line('core.sb_submit'); ?>" />
+			<input type="button" name="submit" onclick="getImageVideo<?php echo $kode_meja_tebu;?>()" class="btn btn-primary btn-sm" value="<?php echo $this->lang->line('core.sb_submit'); ?>" />
 			<a href="<?php echo site_url('tmejatebu');?>" class="btn btn-sm btn-warning"><?php echo $this->lang->line('core.sb_cancel'); ?> </a>
 			
  		</div>
@@ -228,6 +228,7 @@ function getImageVideo<?php echo $kode_meja_tebu;?>(){
   //$('#tempimg<?php echo $kode_meja_tebu;?>').attr("src",canvas.toDataURL("image/jpeg"));
   canvas.toBlob(function(blob) {
     	saveAs(blob, spta+".jpg");
+    	$('#form-<?php echo $kode_meja_tebu;?>').submit();
 });
   <?
 	}else if($cctv_on == 2){
@@ -252,13 +253,18 @@ function getImageVideo<?php echo $kode_meja_tebu;?>(){
      canvas.getContext('2d').fillText(spta+" / "+today+' / '+nilai+' / '+mt, 20, 20);
      canvas.toBlob(function(blob) {
     	saveAs(blob, spta+".jpg");
+    	$('#form-<?php echo $kode_meja_tebu;?>').submit();
 	});
 
+		<?
+	}else{
+		?>
+			$('#form-<?php echo $kode_meja_tebu;?>').submit();
 		<?
 	}
   ?>
 
-    	//$('#form-<?php echo $kode_meja_tebu;?>').submit();
+    	//
 
 }
 
