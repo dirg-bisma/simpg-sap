@@ -259,7 +259,6 @@ function getImageVideo<?php echo $kode_meja_tebu;?>(){
   ?>
 
     	//$('#form-<?php echo $kode_meja_tebu;?>').submit();
-    	document.getElementById('#form-<?php echo $kode_meja_tebu;?>').submit();
 
 }
 
