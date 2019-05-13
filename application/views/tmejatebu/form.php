@@ -228,9 +228,10 @@ function getImageVideo<?php echo $kode_meja_tebu;?>(){
   //$('#tempimg<?php echo $kode_meja_tebu;?>').attr("src",canvas.toDataURL("image/jpeg"));
   canvas.toBlob(function(blob) {
     	saveAs(blob, spta+".jpg");
+    	 $('#sub-<?php echo $kode_meja_tebu;?>').trigger('click');
     	
 });
-  $('#sub-<?php echo $kode_meja_tebu;?>').trigger('click');
+ 
   <?
 	}else if($cctv_on == 2){
 		?>
@@ -254,9 +255,9 @@ function getImageVideo<?php echo $kode_meja_tebu;?>(){
      canvas.getContext('2d').fillText(spta+" / "+today+' / '+nilai+' / '+mt, 20, 20);
      canvas.toBlob(function(blob) {
     	saveAs(blob, spta+".jpg");
-    	
+    	$('#sub-<?php echo $kode_meja_tebu;?>').trigger('click');
 	});
-$('#sub-<?php echo $kode_meja_tebu;?>').trigger('click');
+
 		<?
 	}else{
 		?>
