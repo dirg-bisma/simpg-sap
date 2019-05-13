@@ -1,3 +1,6 @@
+<?php
+ header("Access-Control-Allow-Origin: *");
+?>
 <script src="<?php echo base_url();?>sximo/js/plugins/filesaver.js"></script>
 <div class="col-md-4">
 
@@ -17,7 +20,7 @@
         
 		
 		 <form action="<?php echo site_url('tmejatebu/save/'); ?>" class='form-vertical' 
-		 parsley-validate='true' novalidate='true' method="post" enctype="multipart/form-data" > 
+		 parsley-validate='true' novalidate='true' method="post" enctype="multipart/form-data" id="form-<?php echo $kode_meja_tebu;?>" > 
 
 
 <div class="col-md-12">
@@ -25,14 +28,17 @@
 	if($cctv_on == 1){
 	?>
 	<video autoplay="true" id="videoElement-<?php echo $kode_meja_tebu;?>" style="width: 100%" src="<?=$cctv_url;?>"  >
-		
+			
 		</video>
+	<?
+	}else if($cctv_on == 2){
+		?>
+	<img  id="videoElement-<?php echo $kode_meja_tebu;?>" style="width: 100%" src="<?=$cctv_url;?>"  >
 	<?
 	}
 	?>
-	<canvas id="canvas-element-<?php echo $kode_meja_tebu;?>" style="display: none;" style="width: 100%" crossorigin="anonymous"></canvas>
-	<img id="tempimg<?php echo $kode_meja_tebu;?>" crossorigin="anonymous" style="width: 100%">
-
+	<canvas id="canvas-element-<?php echo $kode_meja_tebu;?>" style="display: none;" ></canvas>
+	
 
 
 
@@ -152,7 +158,7 @@
 				
  		<div class="toolbar-line text-center">		
 			
-			<input type="submit" name="submit"  class="btn btn-primary btn-sm" value="<?php echo $this->lang->line('core.sb_submit'); ?>" />
+			<input type="button" name="submit" onclick="getImageVideo<?php echo $kode_meja_tebu;?>()" class="btn btn-primary btn-sm" value="<?php echo $this->lang->line('core.sb_submit'); ?>" />
 			<a href="<?php echo site_url('tmejatebu');?>" class="btn btn-sm btn-warning"><?php echo $this->lang->line('core.sb_cancel'); ?> </a>
 			
  		</div>
@@ -179,7 +185,7 @@ $(document).ready(function() {
 
 });
 
-var video<?php echo $kode_meja_tebu;?> = document.querySelector("#videoElement-<?php echo $kode_meja_tebu;?>");
+
 
 /*
 if (navigator.mediaDevices.getUserMedia) {
@@ -194,32 +200,66 @@ if (navigator.mediaDevices.getUserMedia) {
 */
 
 function getImageVideo<?php echo $kode_meja_tebu;?>(){
-	<?
-	if($cctv_on == 1){
-	?>
+	var video<?php echo $kode_meja_tebu;?> = document.querySelector("#videoElement-<?php echo $kode_meja_tebu;?>");
 	var spta = $('#no_spta-<?php echo $kode_meja_tebu;?>').val();
 	var mt = '<?php echo $kode_meja_tebu;?>';
 	var nilai = $('#kondisi_tebu-<?php echo $kode_meja_tebu;?>').val();
 	var today = (new Date()).toString();
 
 	var canvas = document.querySelector("#canvas-element-<?php echo $kode_meja_tebu;?>");
+	<?
+	if($cctv_on == 1){
+	?>
+	
 	 canvas.width = video<?php echo $kode_meja_tebu;?>.videoWidth;
   	 canvas.height = video<?php echo $kode_meja_tebu;?>.videoHeight;
-  	 //var image = new Image();
-     video<?php echo $kode_meja_tebu;?>.crossOrigin = '*';
+  	 
+  	 var images = video<?php echo $kode_meja_tebu;?>;
+  	 images.onload = function() {
+			   canvas.getContext('2d').drawImage(images, 0, 0);
+	};
+     images.crossOrigin = '*';
      //image.src = video<?php echo $kode_meja_tebu;?>;
   	 canvas.getContext('2d').drawImage(video<?php echo $kode_meja_tebu;?>, 0, 0);
   	 canvas.getContext('2d').font = "14pt Calibri";
   	 canvas.getContext('2d').fillStyle = "white";
      canvas.getContext('2d').fillText(spta+" / "+today+' / '+nilai+' / '+mt, 20, 20);
-
-  $('#tempimg<?php echo $kode_meja_tebu;?>').attr("src",canvas.toDataURL("image/jpeg"));
+     
+  //$('#tempimg<?php echo $kode_meja_tebu;?>').attr("src",canvas.toDataURL("image/jpeg"));
   canvas.toBlob(function(blob) {
-    saveAs(blob, spta+".jpg");
+    	saveAs(blob, spta+".jpg");
 });
   <?
+	}else if($cctv_on == 2){
+		?>
+		var images = document.querySelector("videoElement-<?php echo $kode_meja_tebu;?>");
+		
+		var newImg = new Image();
+		newImg.src = document.getElementById("videoElement-<?php echo $kode_meja_tebu;?>").getAttribute('src');
+		curHeight = newImg.height;
+		curWidth = newImg.width;
+		
+  	// images.onload = function() {
+  				canvas.width = curWidth;
+  	 			canvas.height = curHeight;
+			    canvas.getContext('2d').drawImage(newImg, 0, 0);
+			  // images.crossOrigin = 'anonymous';
+     		  // images.src = document.getElementById("videoElement-<?php echo $kode_meja_tebu;?>").getAttribute('src');
+	//};
+     
+     canvas.getContext('2d').font = "14pt Calibri";
+  	 canvas.getContext('2d').fillStyle = "white";
+     canvas.getContext('2d').fillText(spta+" / "+today+' / '+nilai+' / '+mt, 20, 20);
+     canvas.toBlob(function(blob) {
+    	saveAs(blob, spta+".jpg");
+	});
+
+		<?
 	}
   ?>
+
+    	$('#form-<?php echo $kode_meja_tebu;?>').submit();
+  
 }
 
 function getNoSPTA<?php echo $kode_meja_tebu;?>(e,nospta){
