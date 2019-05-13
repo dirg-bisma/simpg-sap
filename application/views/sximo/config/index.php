@@ -185,6 +185,12 @@
 						</select>
 				 </div> 
 			  </div>
+				<div class="form-group">
+				<label for="ipt" class=" control-label col-md-4">AFD Jatiroto</label>
+				<div class="col-md-8">
+						<input name="cnf_afd_jatiroto" type="text" id="cnf_afd_jatiroto" class="form-control input-sm" value="<?php echo  CNF_AFD_JATIROTO ;?>" />
+				 </div>
+			  </div>
 
 
 		  </fieldset>

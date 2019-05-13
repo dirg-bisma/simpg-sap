@@ -126,6 +126,7 @@ class Config extends SB_Controller  {
 			$val .= 	"define('CNF_GM','".$this->input->post('cnf_gm',true)."');\n";
 			$val .= 	"define('CNF_MANPENGOLAHAN','".$this->input->post('cnf_manpengolahan',true)."');\n";
 			$val .= 	"define('CNF_MANTANAMAN','".$this->input->post('cnf_mantanaman',true)."');\n";
+			$val .= 	"define('CNF_AFD_JATIROTO','".$this->input->post('cnf_afd_jatiroto',true)."');\n";
 			$val .= 	"include 'setpengolahan.php';\n";
 			$val .= 	"?>";
 				

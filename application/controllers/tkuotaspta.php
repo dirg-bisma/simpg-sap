@@ -165,7 +165,10 @@ INNER JOIN sap_m_karyawan c ON c.`Persno`=b.`Persno` WHERE a.id_spta_kuota='$id'
 		} else {
 			$this->data['row'] = $this->model->getColumnTable('t_spta_kuota'); 
 		}
-		
+
+		$gid = $this->session->userdata('gid');
+		$group = $this->db->query("select * from tb_groups where group_id = '".$gid."'")->row();
+		$this->data['group'] = $group;
 		$this->data['id'] = $id;
 		$this->data['rowdetail'] = $rowdetail;
 		$this->data['content'] =  $this->load->view('tkuotaspta/view', $this->data ,true);	  
