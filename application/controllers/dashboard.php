@@ -33,6 +33,17 @@ class Dashboard extends SB_Controller {
 		//$this->data['content'] = $this->load->view('layouts/dashari',$this->data,true);
 		$this->load->view('layouts/dashari',$this->data);
 	}
+
+
+	public function viewpabrik()
+	{
+		$this->data = array();
+		
+
+
+		//$this->data['content'] = $this->load->view('layouts/dashari',$this->data,true);
+		$this->load->view('layouts/dashpabrik',$this->data);
+	}
 	
 	public function postgantimejatebu(){
 		$this->session->set_userdata(array(
