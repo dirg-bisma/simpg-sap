@@ -15,13 +15,9 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="<?php echo base_url();?>/adminlte/dist/css/AdminLTE.min.css">
     <!-- AdminLTE Skins. Choose a skin from the css/skins-->
-    <link rel="stylesheet" href="<?php echo base_url();?>/adminlte/plugins/select2/select2.min.css">
-    <link rel="stylesheet" href="<?php echo base_url();?>/adminlte/plugins/iCheck/all.css">
     <link rel="stylesheet" href="<?php echo base_url();?>/adminlte/dist/css/skins/_all-skins.min.css">
-    <link rel="stylesheet" href="<?php echo base_url();?>/adminlte/plugins/datepicker/datepicker3.css">
 
-
-    <link rel="stylesheet" href="<?php echo base_url();?>/adminlte/plugins/autocompletetable/tautocomplete.css">
+    <link rel="stylesheet" href="<?php echo base_url();?>sximo/js/plugins/gangue/jquery-gauge.css">
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -46,17 +42,7 @@
     <!-- AdminLTE App -->
     <script src="<?php echo base_url();?>/adminlte/dist/js/app.min.js"></script>
 
-    <script src="<?php echo base_url();?>sximo/js/plugins/jquery.jCombo.min.js"></script>
-    <script src="<?php echo base_url();?>/adminlte/plugins/autocompletetable/tautocomplete.js"></script>
-    <script src="<?php echo base_url();?>/adminlte/plugins/input-mask/jquery.number.js"></script>
-
-    <!-- datepicker -->
-    <script src="<?php echo base_url();?>/adminlte/plugins/datepicker/bootstrap-datepicker.js"></script>
-<script src="<?php echo base_url();?>sximo/js/plugins/parsley.js"></script>
-<script type="text/javascript" src="<?php echo base_url()?>sximo/js/plugins/bootstrap/maskmoney.js"></script>
-
-<script src="https://www.gstatic.com/firebasejs/4.1.1/firebase.js"></script>
-<script src="<?php echo base_url();?>/adminlte/firebaseapp.js"></script>
+    <script src="<?php echo base_url();?>sximo/js/plugins/gangue/jquery-gauge.min.js"></script>
 
 <style type="text/css">
 .number{
