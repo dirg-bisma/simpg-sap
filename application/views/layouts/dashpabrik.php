@@ -68,7 +68,7 @@
 
         <div class="col-md-3 col-xs-12">
   <!--gilingan-->
-  <table  style="padding: 3px;margin: 3px;width: 100%;font-size: 17px;font-family: Calibri;font-weight: bold">
+  <table  style="padding: 3px;margin: 3px;width: 100%;font-size: 22px;font-family: Calibri;font-weight: bold">
       <thead>
       <tr>
       <th colspan="6" style="background: #dd4b393d;padding: 3px;text-align: center">GILING (TON)</th>
@@ -78,6 +78,12 @@
       </table>
   </div>
 
+ <div class="col-md-3 col-xs-12" style="width: 37.5%">
+<img id="videoElement-MT02" style="width: 100%;height: 320px" src="http://10.4.13.42/axis-cgi/mjpg/video.cgi">
+</div>
+ <div class="col-md-3 col-xs-12" style="width: 37.5%">
+<img id="videoElement-MT02" style="width: 100%;height: 320px" src="http://10.4.13.39/axis-cgi/mjpg/video.cgi">
+</div>
 
   <div class="col-lg-3 col-xs-6">
           <!-- small box -->
@@ -202,7 +208,7 @@
         <div class="col-lg-2 col-xs-6" style="width: 18.75%">
           <!-- small box -->
            <center><span style="font-size: 17px"><b>KETEL 1</b></span></center>
-          <div class="small-box bg-aqua">
+          <div class="small-box " style="background-color: #7c8f4e;color:white">
 
             <div class="inner">
               <h3 id="vketel1">0</h3>
