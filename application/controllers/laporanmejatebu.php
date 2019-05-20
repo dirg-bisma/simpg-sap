@@ -78,6 +78,7 @@ class laporanmejatebu extends SB_Controller
   `e`.`deskripsi_blok`    AS `deskripsi_blok`,
   `b`.`kode_kat_lahan`    AS `kode_kat_lahan`,
   `c`.`name`              AS `mandor`,
+   f.name as pta,
    b.`jenis_spta`,
    b.kode_affd,
    a.*,d.netto,d.no_transloading,b.hari_giling,b.tgl_giling,a1.tgl_meja_tebu,a1.kondisi_tebu,a1.kode_meja_tebu
@@ -86,7 +87,9 @@ FROM t_meja_tebu a1
      INNER JOIN `t_spta` `b` ON `a`.`id_spta` = `b`.`id`
      INNER JOIN t_timbangan d on b.id = d.id_spat
      INNER JOIN `sap_m_karyawan` `c`  ON `c`.`Persno` = CONVERT(`a`.`persno_mandor_tma` USING utf8)
-     INNER JOIN `sap_field` `e` ON `e`.`kode_blok` = `b`.`kode_blok` $wh GROUP BY b.`id`
+     INNER JOIN `sap_field` `e` ON `e`.`kode_blok` = `b`.`kode_blok` 
+	 INNER JOIN sap_m_karyawan as f ON f.Persno = b.persno_pta
+	 $wh GROUP BY b.`id`
 ORDER BY `a1`.`tgl_meja_tebu`,a1.kode_meja_tebu ASC";
 
         $result = $this->db->query($sql)->result();
