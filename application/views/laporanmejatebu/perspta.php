@@ -35,7 +35,7 @@ LAPORAN MEJA TEBU HARIAN<br />
 <hr />
 <table class="tableizer-table">
 <thead><tr class="tableizer-firstrow">
-<th>NO</th><th>MT</th><th>NO SPTA</th><th>AFD</th><th>Mandor</th><th>No Petak</th><th>Kebun</th><th>Kategori</th><th>Angkutan</th><th>No Angkutan</th><th>transloading</th><th>Netto</th><th>Brix</th><th>pH</th><th>Terbakar</th><th>Kualitas</th><th>Ha Tertebang</th><th>Tebang</th><th>Selektor</th><th>Meja Tebu</th></tr></thead>
+<th>NO</th><th>MT</th><th>NO SPTA</th><th>AFD</th><th>Mandor</th><th>PTA</th><th>No Petak</th><th>Kebun</th><th>Kategori</th><th>Angkutan</th><th>No Angkutan</th><th>transloading</th><th>Netto</th><th>Brix</th><th>pH</th><th>Terbakar</th><th>Kualitas</th><th>Ha Tertebang</th><th>Tebang</th><th>Selektor</th><th>Meja Tebu</th></tr></thead>
 <tbody>
 <?php
 $no=1;
@@ -62,6 +62,7 @@ $nettofinal=0;
 	 <td><?php echo $r->no_spat;?></td>
 	 <td><?php echo $r->kode_affd;?></td>
 	 <td><?php echo $r->mandor;?></td>
+	 <td><?php echo $r->pta;?></td>
 	 <td><?php echo $r->kode_blok;?></td>
 	 <td><?php echo $r->deskripsi_blok;?></td>
 	 <td><?php echo $r->kode_kat_lahan;?></td>
