@@ -34,7 +34,7 @@ class Countergula extends SB_Controller
   SUM(conveyor) AS cv 
 FROM
   t_counter_gula_detail 
-WHERE DATE_FORMAT(tgl_pengakuan, '%e%c%Y') = DATE_FORMAT(NOW(), '%e%c%Y') AND TIME_FORMAT(jam_pengakuan, '%H') =  TIME_FORMAT(NOW(), '%H')
+WHERE DATE_FORMAT(tgl_pengakuan, '%e%c%Y') = DATE_FORMAT(get_tgl_giling(), '%e%c%Y') AND TIME_FORMAT(jam_pengakuan, '%H') =  TIME_FORMAT(NOW(), '%H')
 GROUP BY jalur,
   tgl_pengakuan,
   TIME_FORMAT(jam_pengakuan, '%H') 
