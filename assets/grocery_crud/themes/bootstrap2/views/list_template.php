@@ -8,10 +8,10 @@
 
 
     if ($this->config->environment == 'production') {
-        $this->set_js_lib($this->default_javascript_path.'/'.grocery_CRUD::JQUERY);
+        // $this->set_js_lib($this->default_javascript_path.'/'.grocery_CRUD::JQUERY);
         $this->set_js_lib($this->default_theme_path.'/bootstrap/build/js/global-libs.min.js');
     } else {
-        $this->set_js_lib($this->default_javascript_path.'/'.grocery_CRUD::JQUERY);
+        // $this->set_js_lib($this->default_javascript_path.'/'.grocery_CRUD::JQUERY);
         $this->set_js_lib($this->default_theme_path.'/bootstrap/js/jquery-plugins/jquery.form.js');
         $this->set_js_lib($this->default_theme_path.'/bootstrap/js/common/cache-library.js');
         $this->set_js_lib($this->default_theme_path.'/bootstrap/js/common/common.js');

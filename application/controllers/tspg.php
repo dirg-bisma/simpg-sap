@@ -38,7 +38,7 @@ class Tspg extends SB_Controller
 		$crud->field_type('kode_blok','readonly');
 		$crud->unset_fields('created_at');
 	    $state = $crud->getState();
-	    if($state == 'list')
+	    if($state == 'list' || $state == 'success')
 	    {
 			$out['button'] = '<div  style="    text-align: right;">
                 				    <a class="btn btn-primary"  id="import">IMPORT</a>  
