@@ -51,7 +51,7 @@ class Tspg extends SB_Controller
 						<script>
 						$('#import').click(function(){
 							$(this).attr('disabled','disabled');
-						  $.get('import', function(data, status){
+						  $.get('tspg/import', function(data, status){
 						    alert('Import sukses');
 						    location.reload();
 						  });

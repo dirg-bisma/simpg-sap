@@ -30,5 +30,12 @@ define('CNF_TAHUNGILING','2018');
 define('CNF_METODE','1');
 define('CNF_RAFAKSI','1');
 define('CNF_KONSEP','1');
+define('CNF_HAL','1');
+define('CNF_KEYSYNC','');
+define('CNF_MUTU_TERBAKAR','');
+define('CNF_GM','');
+define('CNF_MANPENGOLAHAN','');
+define('CNF_MANTANAMAN','');
+define('CNF_AFD_JATIROTO','');
 include 'setpengolahan.php';
 ?>
