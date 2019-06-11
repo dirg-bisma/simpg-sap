@@ -52,6 +52,8 @@
 <script>
 var table;
  $(function () {
+
+  $(".sidebar-toggle").trigger("click");
        // $("#gridv").DataTable();
         table = $('#gridv').DataTable({
           "paging": true,

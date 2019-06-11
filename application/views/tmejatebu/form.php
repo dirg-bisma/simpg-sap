@@ -173,7 +173,7 @@
 			 
 <script type="text/javascript">
 $(document).ready(function() { 
-		$(".sidebar-toggle").trigger("click");
+
 		$('#no_spta-<?php echo $kode_meja_tebu;?>').focus();
 		$('form input').on('keypress', function(e) {
 		return e.which !== 13;
@@ -189,6 +189,8 @@ $(document).ready(function() {
 		<?
 	}
 	?>
+
+	
 
 });
 
