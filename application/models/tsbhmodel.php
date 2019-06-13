@@ -72,6 +72,7 @@ class Tsbhmodel extends SB_Model
   
   function querySbh()
 	{
+    $query = "";
 		if(CNF_COMPANYCODE != 'N011')
 		{
 			$query =  "SELECT SQL_NO_CACHE * FROM (SELECT 
@@ -226,9 +227,10 @@ FROM ((((((`t_spta` `a`
    LEFT JOIN `sap_petani` `g`
      ON ((`g`.`id_petani_sap` = `b`.`id_petani_sap`)))
 GROUP BY `a`.`id`) as ax WHERE 0=0";
-		}
+    }
+    
+	return $query;
 	}
-	
 }
 
 ?>
