@@ -454,7 +454,7 @@ WHERE b.`no_spat`='".trim($allDataInSheet[$i]["C"])."' AND a.sbh_ari_status=0");
 			66 dan 34
 			*/
 
-			if(CNF_COMPANYCODE == 'N009'){
+			if(CNF_COMPANYCODE == 'N009' || CNF_COMPANYCODE == 'N00I'){
 				$rendemen_ari = $nilai_nira * $faktor_rendemen;
 			}
 

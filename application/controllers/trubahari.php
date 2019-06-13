@@ -319,7 +319,7 @@ class Trubahari extends SB_Controller
 			66 dan 34
 			*/
 
-			if(CNF_COMPANYCODE == 'N009'){
+			if(CNF_COMPANYCODE == 'N009' || CNF_COMPANYCODE == 'N00I'){
 				$rendemen_ari = $nilai_nira * $faktor_rendemen;
 			}
 
