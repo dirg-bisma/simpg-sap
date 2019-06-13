@@ -33,7 +33,7 @@ class Tspg extends SB_Controller
 		$crud->callback_field('nama_petani',array($this,'field_nama_petani'));
 		$crud->callback_field('kategori',array($this,'field_kategori'));
 		$crud->field_type('persen_10','dropdown', array('1' => 'YA', '2'=>'TIDAK'));
-		// $crud->field_type('r_spg','integer');
+		$crud->field_type('r_spg','integer');
 		$crud->field_type('id_petani','readonly');
 		$crud->field_type('kode_blok','readonly');
 		$crud->unset_fields('created_at');
