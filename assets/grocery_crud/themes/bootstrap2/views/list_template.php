@@ -123,10 +123,10 @@
                                     </a>
                                 <?php }?>
 
-                                <!-- <a class="btn btn-primary search-button t5">
+                                 <a class="btn btn-primary search-button t5">
                                     <i class="fa fa-search"></i>
                                     <input type="text" name="search" class="search-input" />
-                                </a> -->
+                                </a> 
                             </div>
                             <div class="clear"></div>
                         </div>
@@ -142,8 +142,8 @@
 
         						</tr>
         						
-        						<!-- <tr class="filter-row gc-search-row">
-        							<td class="no-border-right <?php if ($buttons_counter === 0) {?>hidden<?php }?>">
+        						 <tr class="filter-row gc-search-row">
+        						<!--	<td class="no-border-right <?php if ($buttons_counter === 0) {?>hidden<?php }?>">
                                         <?php if (!$unset_delete) { ?>
             							     <div class="floatL t5">
             							         <input type="checkbox" class="select-all-none" />
@@ -165,13 +165,13 @@
                                         </div>
                                         </div>
                                         <div class="clear"></div>
-                                    </td>
+                                    </td>-->
                                     <?php foreach($columns as $column){?>
                                         <td>
                                             <input type="text" class="form-control searchable-input floatL" placeholder="Search <?php echo $column->display_as; ?>" name="<?php echo $column->field_name; ?>" />
                                         </td>
                                     <?php }?>
-        						</tr> -->
+        						</tr> 
 
         					</thead>
         					<tbody>

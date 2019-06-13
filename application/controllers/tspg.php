@@ -47,8 +47,16 @@ class Tspg extends SB_Controller
 		$out['output'] =  $crud->render();
 		$out['title'] = "TSPG";
 		$out['style'] = "<style>
+							.search-button{
+								display:none;
+							}
+							
 						</style>
 						<script>
+						$('input[name=nama_petani]').hide();
+						$('input[name=kategori]').hide();
+						$('input[name=r_spg]').hide();
+						$('input[name=persen_10]').hide();
 						$('#import').click(function(){
 							$(this).attr('disabled','disabled');
 						  $.get('tspg/import', function(data, status){
@@ -98,5 +106,6 @@ class Tspg extends SB_Controller
 			}
 		
 	}
+	
  
 }

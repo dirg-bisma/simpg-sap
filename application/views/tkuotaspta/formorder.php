@@ -27,7 +27,34 @@
 		<input type='text' class='form-control input-sm' placeholder='' value='<?php echo $kode_blok;?>' name='kode_blok' readonly  required /> <br />
 	</div> 
 	</div> 
+<div class="form-group  " >
 
+	<label for="Company Code" class=" control-label col-md-4 text-left"> 
+	<?php if($kategori == 'TS-SP'){?>
+	Pilihan SPT <span class="asterix"> * </span>
+	<?php }?>
+	</label>
+<div class="col-md-4">
+	<div class="checkbox">
+                  <label>
+					<input type="hidden" id="spt0" name="spt" value="0">
+					<?php if($kategori == 'TS-SP'){?>
+                    <input type="checkbox" id="spt1" name="spt" value="1" onchange="onchangeSpt()"> SPT
+					<?php }?>
+                  </label>
+                </div> 
+	</div>
+	<div class="col-md-4">
+	<div class="checkbox">
+                  <label>
+					<input type="hidden" id="natura0" name="natura" value="0">
+					<?php if($kategori == 'TS-SP'){?>
+                    <input type="checkbox" id="natura1" name="natura" value="1" onchange="onchangeNatura()"> Natura 10%
+					<?php }?>
+                  </label>
+                </div> 
+	</div>
+</div>
 
 <div class="form-group  " >
 	<label for="Company Code" class=" control-label col-md-4 text-left"> Jumlah Order <span class="asterix"> * </span></label>
@@ -213,6 +240,22 @@ function onchangeTpg(){
 		document.getElementById('tebang_pg0').disabled = true;
 	}else{
 		document.getElementById('tebang_pg0').disabled = false;
+	}
+}
+
+function onchangeSpt(){
+	if(document.getElementById("spt1").checked) {
+		document.getElementById('spt0').disabled = true;
+	}else{
+		document.getElementById('spt0').disabled = false;
+	}
+}
+
+function onchangeNatura(){
+	if(document.getElementById("natura1").checked) {
+		document.getElementById('natura0').disabled = true;
+	}else{
+		document.getElementById('natura0').disabled = false;
 	}
 }
 

@@ -366,7 +366,9 @@ INNER JOIN sap_m_karyawan c ON c.`Persno`=b.`Persno` WHERE a.id='".$_POST['id_sp
 				'buat_spta_tgl' => date('Y-m-d H:i:s'),
 				'vendor_angkut' => $_POST['vendor_id'],
 				'jarak_id' => $_POST['jarak_id'],
-				'jenis_spta' => $_POST['jenis_spta']
+				'jenis_spta' => $_POST['jenis_spta'],
+				'spt_status' => $_POST['spt'],
+				'natura_status' => $_POST['natura']
 			);
 			
 			$this->db->insert('t_spta',$tempdat);
