@@ -27,6 +27,7 @@
 		<input type='text' class='form-control input-sm' placeholder='' value='<?php echo $kode_blok;?>' name='kode_blok' readonly  required /> <br />
 	</div> 
 	</div> 
+	<?php if(CNF_COMPANYCODE == 'N011'){?>
 <div class="form-group  " >
 
 	<label for="Company Code" class=" control-label col-md-4 text-left"> 
@@ -55,7 +56,7 @@
                 </div> 
 	</div>
 </div>
-
+<?php }?>
 <div class="form-group  " >
 	<label for="Company Code" class=" control-label col-md-4 text-left"> Jumlah Order <span class="asterix"> * </span></label>
 	<div class="col-md-8">
@@ -242,7 +243,7 @@ function onchangeTpg(){
 		document.getElementById('tebang_pg0').disabled = false;
 	}
 }
-
+<?php if(CNF_COMPANYCODE == 'N011'){?>
 function onchangeSpt(){
 	if(document.getElementById("spt1").checked) {
 		document.getElementById('spt0').disabled = true;
@@ -258,6 +259,7 @@ function onchangeNatura(){
 		document.getElementById('natura0').disabled = false;
 	}
 }
+<?php }?>
 
 function onchangeApg(){
 	if(document.getElementById("angkut_pg1").checked) {

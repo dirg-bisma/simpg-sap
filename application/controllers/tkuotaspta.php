@@ -348,29 +348,52 @@ INNER JOIN sap_m_karyawan c ON c.`Persno`=b.`Persno` WHERE a.id='".$_POST['id_sp
 		//input ke spta table
 		for($i=0;$i<$_POST['kouta_tot'];$i++){
 			$epdate = $_POST['tgl_spta'];
-			$tempdat = array(
-				'kode_plant' => CNF_PLANCODE,
-				'kode_blok' => $_POST['kode_blok'],
-				'tgl_spta' => $_POST['tgl_spta'],
-				'tgl_expired' => date('Y-m-d 05:59:59', strtotime($epdate. ' + 1 days')),
-				'kode_affd' => $_POST['afdeling'],
-				'persno_pta' => $_POST['persno_pta'],
-				'id_petani_sap' => $_POST['id_petani_sap'],
-				'kode_kat_lahan' => $_POST['kategori'],
-				'tebang_pg' => $_POST['tebang_pg'],
-				'angkut_pg' => $_POST['angkut_pg'],
-				'kode_plant_trasnfer' => $_POST['transfer_dari'],
-				'kode_plant_ke' => $_POST['transfer_ke'],
-				'metode_tma' => $_POST['jenis_tebangan'],
-				'buat_spta_status' => 1,
-				'buat_spta_tgl' => date('Y-m-d H:i:s'),
-				'vendor_angkut' => $_POST['vendor_id'],
-				'jarak_id' => $_POST['jarak_id'],
-				'jenis_spta' => $_POST['jenis_spta'],
-				'spt_status' => $_POST['spt'],
-				'natura_status' => $_POST['natura']
-			);
-			
+			if(CNF_COMPANYCODE == 'N011'){
+				$tempdat = array(
+					'kode_plant' => CNF_PLANCODE,
+					'kode_blok' => $_POST['kode_blok'],
+					'tgl_spta' => $_POST['tgl_spta'],
+					'tgl_expired' => date('Y-m-d 05:59:59', strtotime($epdate. ' + 1 days')),
+					'kode_affd' => $_POST['afdeling'],
+					'persno_pta' => $_POST['persno_pta'],
+					'id_petani_sap' => $_POST['id_petani_sap'],
+					'kode_kat_lahan' => $_POST['kategori'],
+					'tebang_pg' => $_POST['tebang_pg'],
+					'angkut_pg' => $_POST['angkut_pg'],
+					'kode_plant_trasnfer' => $_POST['transfer_dari'],
+					'kode_plant_ke' => $_POST['transfer_ke'],
+					'metode_tma' => $_POST['jenis_tebangan'],
+					'buat_spta_status' => 1,
+					'buat_spta_tgl' => date('Y-m-d H:i:s'),
+					'vendor_angkut' => $_POST['vendor_id'],
+					'jarak_id' => $_POST['jarak_id'],
+					'jenis_spta' => $_POST['jenis_spta'],
+					'natura_status' => $_POST['natura'],
+					'spt_status' => $_POST['spt']
+				);
+			}else{
+				$tempdat = array(
+					'kode_plant' => CNF_PLANCODE,
+					'kode_blok' => $_POST['kode_blok'],
+					'tgl_spta' => $_POST['tgl_spta'],
+					'tgl_expired' => date('Y-m-d 05:59:59', strtotime($epdate. ' + 1 days')),
+					'kode_affd' => $_POST['afdeling'],
+					'persno_pta' => $_POST['persno_pta'],
+					'id_petani_sap' => $_POST['id_petani_sap'],
+					'kode_kat_lahan' => $_POST['kategori'],
+					'tebang_pg' => $_POST['tebang_pg'],
+					'angkut_pg' => $_POST['angkut_pg'],
+					'kode_plant_trasnfer' => $_POST['transfer_dari'],
+					'kode_plant_ke' => $_POST['transfer_ke'],
+					'metode_tma' => $_POST['jenis_tebangan'],
+					'buat_spta_status' => 1,
+					'buat_spta_tgl' => date('Y-m-d H:i:s'),
+					'vendor_angkut' => $_POST['vendor_id'],
+					'jarak_id' => $_POST['jarak_id'],
+					'jenis_spta' => $_POST['jenis_spta']
+				);
+			}
+
 			$this->db->insert('t_spta',$tempdat);
 		}
 		}else{
