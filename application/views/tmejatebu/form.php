@@ -322,7 +322,5 @@ function getNoSPTA<?php echo $kode_meja_tebu; ?>(e,nospta){
 		}
 	}
 }
-
-
 </script>	
 </div>	 
