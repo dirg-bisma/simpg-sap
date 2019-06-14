@@ -27,13 +27,13 @@
 	<?php
 	if($cctv_on == 1){
 	?>
-	<video autoplay="true" id="videoElement-<?php echo $kode_meja_tebu; ?>" style="width: 100%" src="<?php=$cctv_url; ?>"  >
+	<video autoplay="true" id="videoElement-<?php echo $kode_meja_tebu; ?>" style="width: 100%" src="<?php echo $cctv_url; ?>"  >
 			
 		</video>
 	<?php
 	}else if($cctv_on == 2){
 		?>
-	<img  id="videoElement-<?php echo $kode_meja_tebu; ?>" style="width: 100%" src="<?php=$cctv_url; ?>"  >
+	<img  id="videoElement-<?php echo $kode_meja_tebu; ?>" style="width: 100%" src="<?php echo $cctv_url; ?>"  >
 	<?php
 	}
 	?>
