@@ -1,7 +1,7 @@
 <?php
  header("Access-Control-Allow-Origin: *");
 ?>
-<script src="<?php echo base_url();?>sximo/js/plugins/filesaver.js"></script>
+<script src="<?php echo base_url(); ?>sximo/js/plugins/filesaver.js"></script>
 <div class="col-md-4">
 
 
@@ -9,9 +9,9 @@
           <div class="row">
             <div class="col-xs-12">
 			<span style="font-size:20px;padding-bottom:10px;padding">
-            <center style="padding:10px;background:<?php echo $warna_meja_tebu;?>;"><b><?php echo $pageTitle.' - '.$kode_meja_tebu ;?> </b></center>
+            <center style="padding:10px;background:<?php echo $warna_meja_tebu; ?>;"><b><?php echo $pageTitle.' - '.$kode_meja_tebu ; ?> </b></center>
           </span>
-              <div class="box" style="border-top:3px solid <?php echo $warna_meja_tebu;?>">
+              <div class="box" style="border-top:3px solid <?php echo $warna_meja_tebu; ?>">
               	<div class="box-header with-border">
 
 
@@ -20,24 +20,24 @@
         
 		
 		 <form action="<?php echo site_url('tmejatebu/save/'); ?>" class='form-vertical' 
-		 parsley-validate='true' novalidate='true' method="post" enctype="multipart/form-data" id="dataku-<?php echo $kode_meja_tebu;?>" > 
+		 parsley-validate='true' novalidate='true' method="post" enctype="multipart/form-data" id="dataku-<?php echo $kode_meja_tebu; ?>" > 
 
 
 <div class="col-md-12">
 	<?
 	if($cctv_on == 1){
 	?>
-	<video autoplay="true" id="videoElement-<?php echo $kode_meja_tebu;?>" style="width: 100%" src="<?=$cctv_url;?>"  >
+	<video autoplay="true" id="videoElement-<?php echo $kode_meja_tebu; ?>" style="width: 100%" src="<?=$cctv_url; ?>"  >
 			
 		</video>
 	<?
 	}else if($cctv_on == 2){
 		?>
-	<img  id="videoElement-<?php echo $kode_meja_tebu;?>" style="width: 100%" src="<?=$cctv_url;?>"  >
+	<img  id="videoElement-<?php echo $kode_meja_tebu; ?>" style="width: 100%" src="<?=$cctv_url; ?>"  >
 	<?
 	}
 	?>
-	<canvas id="canvas-element-<?php echo $kode_meja_tebu;?>" style="display: none;" ></canvas>
+	<canvas id="canvas-element-<?php echo $kode_meja_tebu; ?>" style="display: none;" ></canvas>
 	
 
 
@@ -45,23 +45,23 @@
 
 <div class="form-group  " >
 									<label for="ipt" class=" control-label "> No SPTA  <span class="asterix"> * </span>  </label>									
-									  <input type='text' class='form-control input-sm' placeholder='pastikan crusor disini untuk scan barcode'  id='no_spta-<?php echo $kode_meja_tebu;?>' autocomplete="off" onkeyup="getNoSPTA<?php echo $kode_meja_tebu;?>(event,this.value)"  required /> 						
+									  <input type='text' class='form-control input-sm' placeholder='pastikan crusor disini untuk scan barcode'  id='no_spta-<?php echo $kode_meja_tebu; ?>' autocomplete="off" onkeyup="getNoSPTA<?php echo $kode_meja_tebu; ?>(event,this.value)"  required /> 						
 								  </div>
 									
 								  <div class="form-group  col-md-6" >
 									<label for="ipt" class=" control-label "> Kode Blok / No Petak  <span class="asterix"> * </span>  </label>									
-									  <input type='text' class='form-control input-sm' readonly  id='kode_petak-<?php echo $kode_meja_tebu;?>'  required /> 						
+									  <input type='text' class='form-control input-sm' readonly  id='kode_petak-<?php echo $kode_meja_tebu; ?>'  required /> 						
 								  </div>
 								  
 								  <div class="form-group  col-md-6" >
 									<label for="ipt" class=" control-label "> Kategori  <span class="asterix"> * </span>  </label>									
-									  <input type='text' class='form-control input-sm' readonly  id='kategori-<?php echo $kode_meja_tebu;?>'  required /> 						
+									  <input type='text' class='form-control input-sm' readonly  id='kategori-<?php echo $kode_meja_tebu; ?>'  required /> 						
 								  </div>
 								  
 								   					
 								  <div class="form-group hidethis " style="display:none;">
 									<label for="ipt" class=" control-label "> Id Spta  <span class="asterix"> * </span>  </label>									
-									  <input type='text' class='form-control input-sm' name='id_spta' id='id_spta-<?php echo $kode_meja_tebu;?>'  required /> 						
+									  <input type='text' class='form-control input-sm' name='id_spta' id='id_spta-<?php echo $kode_meja_tebu; ?>'  required /> 						
 								  </div> 
 									
 								  <div class="form-group hidethis " style="display:none;">
@@ -75,21 +75,21 @@
 								  <div class="form-group  " >
 								  <div class="col-md-6">
 									<label for="ipt" class=" control-label ">Meja Tebu    </label>									
-									  <input type='text' class='form-control input-sm' readonly name='kode_meja_tebu'    value="<?php echo $kode_meja_tebu;?>" />
+									  <input type='text' class='form-control input-sm' readonly name='kode_meja_tebu'    value="<?php echo $kode_meja_tebu; ?>" />
 									
-									<input type='hidden' class='form-control input-sm' readonly name='warna_meja_tebu'    value="<?php echo $warna_meja_tebu;?>" />
+									<input type='hidden' class='form-control input-sm' readonly name='warna_meja_tebu'    value="<?php echo $warna_meja_tebu; ?>" />
 									
-									<input type='hidden' class='form-control input-sm' readonly name='gilingan'    value="<?php echo $this->session->userdata('gilingan');?>" />
+									<input type='hidden' class='form-control input-sm' readonly name='gilingan'    value="<?php echo $this->session->userdata('gilingan'); ?>" />
 								  </div>
 
 								  <div class="col-md-6">
 									<label for="ipt" class=" control-label ">No Lori    </label>									
-									  <input type='text' class='form-control input-sm' readonly id="no_transloading-<?php echo $kode_meja_tebu;?>" />
+									  <input type='text' class='form-control input-sm' readonly id="no_transloading-<?php echo $kode_meja_tebu; ?>" />
 								
 								  </div> 
 								  <div class="col-md-12">
 									<label for="ipt" class=" control-label "> Kondisi Tebu  <span class="asterix"> * </span>  </label>									
-									  <select name='kondisi_tebu' rows='5' id='kondisi_tebu-<?php echo $kode_meja_tebu;?>' code='{$kondisi_tebu}' 
+									  <select name='kondisi_tebu' rows='5' id='kondisi_tebu-<?php echo $kode_meja_tebu; ?>' code='{$kondisi_tebu}' 
 							class='form-control input-sm  ' style='width: 100%;' required  ></select> 			
 							</div>		
 								  <!--div class="col-md-6">
@@ -157,9 +157,9 @@
 			<hr />
 				
  		<div class="toolbar-line text-center">		
-			<input type="submit" name="" style="display: none" id="sub-<?php echo $kode_meja_tebu;?>">
-			<input type="button" name="submit" onclick="getImageVideo<?php echo $kode_meja_tebu;?>()" class="btn btn-primary btn-sm" value="<?php echo $this->lang->line('core.sb_submit'); ?>" />
-			<a href="<?php echo site_url('tmejatebu');?>" class="btn btn-sm btn-warning"><?php echo $this->lang->line('core.sb_cancel'); ?> </a>
+			<input type="submit" name="" style="display: none" id="sub-<?php echo $kode_meja_tebu; ?>">
+			<input type="button" name="submit" onclick="getImageVideo<?php echo $kode_meja_tebu; ?>()" class="btn btn-primary btn-sm" value="<?php echo $this->lang->line('core.sb_submit'); ?>" />
+			<a href="<?php echo site_url('tmejatebu'); ?>" class="btn btn-sm btn-warning"><?php echo $this->lang->line('core.sb_cancel'); ?> </a>
 			
  		</div>
 			  		
@@ -174,12 +174,12 @@
 <script type="text/javascript">
 $(document).ready(function() { 
 		$(".sidebar-toggle").trigger("click");
-		$('#no_spta-<?php echo $kode_meja_tebu;?>').focus();
+		$('#no_spta-<?php echo $kode_meja_tebu; ?>').focus();
 		$('form input').on('keypress', function(e) {
 		return e.which !== 13;
 	});
 	
-		$("#kondisi_tebu-<?php echo $kode_meja_tebu;?>").jCombo("<?php echo site_url('tmejatebu/comboselect?filter=m_rafaksi:nilai:nilai') ?>",
+		$("#kondisi_tebu-<?php echo $kode_meja_tebu; ?>").jCombo("<?php echo site_url('tmejatebu/comboselect?filter=m_rafaksi:nilai:nilai') ?>",
 		{  selected_value : '' });
 	
 
@@ -199,46 +199,46 @@ if (navigator.mediaDevices.getUserMedia) {
 }
 */
 
-function getImageVideo<?php echo $kode_meja_tebu;?>(){ 
-	var video<?php echo $kode_meja_tebu;?> = document.querySelector("#videoElement-<?php echo $kode_meja_tebu;?>");
-	var spta = $('#no_spta-<?php echo $kode_meja_tebu;?>').val();
-	var mt = '<?php echo $kode_meja_tebu;?>';
-	var nilai = $('#kondisi_tebu-<?php echo $kode_meja_tebu;?>').val();
+function getImageVideo<?php echo $kode_meja_tebu; ?>(){ 
+	var video<?php echo $kode_meja_tebu; ?> = document.querySelector("#videoElement-<?php echo $kode_meja_tebu; ?>");
+	var spta = $('#no_spta-<?php echo $kode_meja_tebu; ?>').val();
+	var mt = '<?php echo $kode_meja_tebu; ?>';
+	var nilai = $('#kondisi_tebu-<?php echo $kode_meja_tebu; ?>').val();
 	var today = (new Date()).toString();
 
-	var canvas = document.querySelector("#canvas-element-<?php echo $kode_meja_tebu;?>");
+	var canvas = document.querySelector("#canvas-element-<?php echo $kode_meja_tebu; ?>");
 	<?
 	if($cctv_on == 1){
 	?>
 	
-	 canvas.width = video<?php echo $kode_meja_tebu;?>.videoWidth;
-  	 canvas.height = video<?php echo $kode_meja_tebu;?>.videoHeight;
+	 canvas.width = video<?php echo $kode_meja_tebu; ?>.videoWidth;
+  	 canvas.height = video<?php echo $kode_meja_tebu; ?>.videoHeight;
   	 
-  	 var images = video<?php echo $kode_meja_tebu;?>;
+  	 var images = video<?php echo $kode_meja_tebu; ?>;
   	 images.onload = function() {
 			   canvas.getContext('2d').drawImage(images, 0, 0);
 	};
      images.crossOrigin = '*';
-     //image.src = video<?php echo $kode_meja_tebu;?>;
-  	 canvas.getContext('2d').drawImage(video<?php echo $kode_meja_tebu;?>, 0, 0);
+     //image.src = video<?php echo $kode_meja_tebu; ?>;
+  	 canvas.getContext('2d').drawImage(video<?php echo $kode_meja_tebu; ?>, 0, 0);
   	 canvas.getContext('2d').font = "14pt Calibri";
   	 canvas.getContext('2d').fillStyle = "white";
      canvas.getContext('2d').fillText(spta+" / "+today+' / '+nilai+' / '+mt, 20, 20);
      
-  //$('#tempimg<?php echo $kode_meja_tebu;?>').attr("src",canvas.toDataURL("image/jpeg"));
+  //$('#tempimg<?php echo $kode_meja_tebu; ?>').attr("src",canvas.toDataURL("image/jpeg"));
   canvas.toBlob(function(blob) {
     	saveAs(blob, spta+".jpg");
-    	 $('#sub-<?php echo $kode_meja_tebu;?>').trigger('click');
+    	 $('#sub-<?php echo $kode_meja_tebu; ?>').trigger('click');
     	
 });
  
   <?
 	}else if($cctv_on == 2){
 		?>
-		var images = document.querySelector("videoElement-<?php echo $kode_meja_tebu;?>");
+		var images = document.querySelector("videoElement-<?php echo $kode_meja_tebu; ?>");
 		
 		var newImg = new Image();
-		newImg.src = document.getElementById("videoElement-<?php echo $kode_meja_tebu;?>").getAttribute('src');
+		newImg.src = document.getElementById("videoElement-<?php echo $kode_meja_tebu; ?>").getAttribute('src');
 		curHeight = newImg.height;
 		curWidth = newImg.width;
 		
@@ -247,7 +247,7 @@ function getImageVideo<?php echo $kode_meja_tebu;?>(){
   	 			canvas.height = curHeight;
 			    canvas.getContext('2d').drawImage(newImg, 0, 0);
 			  // images.crossOrigin = 'anonymous';
-     		  // images.src = document.getElementById("videoElement-<?php echo $kode_meja_tebu;?>").getAttribute('src');
+     		  // images.src = document.getElementById("videoElement-<?php echo $kode_meja_tebu; ?>").getAttribute('src');
 	//};
      
      canvas.getContext('2d').font = "14pt Calibri";
@@ -255,13 +255,13 @@ function getImageVideo<?php echo $kode_meja_tebu;?>(){
      canvas.getContext('2d').fillText(spta+" / "+today+' / '+nilai+' / '+mt, 20, 20);
      canvas.toBlob(function(blob) {
     	saveAs(blob, spta+".jpg");
-    	$('#sub-<?php echo $kode_meja_tebu;?>').trigger('click');
+    	$('#sub-<?php echo $kode_meja_tebu; ?>').trigger('click');
 	});
 
 		<?
 	}else{
 		?>
-			$('#sub-<?php echo $kode_meja_tebu;?>').trigger('click');
+			$('#sub-<?php echo $kode_meja_tebu; ?>').trigger('click');
 		<?
 	}
   ?>
@@ -270,15 +270,15 @@ function getImageVideo<?php echo $kode_meja_tebu;?>(){
 
 }
 
-function getNoSPTA<?php echo $kode_meja_tebu;?>(e,nospta){
+function getNoSPTA<?php echo $kode_meja_tebu; ?>(e,nospta){
 	nospta = nospta.toUpperCase();
 	
 	if(e.keyCode == 13 && nospta != ''){
 		var x = nospta.split("-");
-		if(x[0] == '<?php echo CNF_PLANCODE;?>' && nospta.length == 18){
+		if(x[0] == '<?php echo CNF_PLANCODE; ?>' && nospta.length == 18){
 			$.ajax({
             type: 'POST',
-            url: "<?php echo site_url('tmejatebu/cekspta');?>",
+            url: "<?php echo site_url('tmejatebu/cekspta'); ?>",
             data: {nospta:nospta},
 			dataType: 'json',
             success: function (dat) {
@@ -287,16 +287,16 @@ function getNoSPTA<?php echo $kode_meja_tebu;?>(e,nospta){
 						//alert(dat.data.terbakar_sel);
 
 
-						$('#kode_petak-<?php echo $kode_meja_tebu;?>').val(dat.data.kode_blok);
-						$('#id_spta-<?php echo $kode_meja_tebu;?>').val(dat.data.id);
-						$('#kategori-<?php echo $kode_meja_tebu;?>').val(dat.data.kode_kat_lahan);
-						$('#no_transloading-<?php echo $kode_meja_tebu;?>').val(dat.data.no_trans);
-						$('#no_spta-<?php echo $kode_meja_tebu;?>').attr('readonly',true);
+						$('#kode_petak-<?php echo $kode_meja_tebu; ?>').val(dat.data.kode_blok);
+						$('#id_spta-<?php echo $kode_meja_tebu; ?>').val(dat.data.id);
+						$('#kategori-<?php echo $kode_meja_tebu; ?>').val(dat.data.kode_kat_lahan);
+						$('#no_transloading-<?php echo $kode_meja_tebu; ?>').val(dat.data.no_trans);
+						$('#no_spta-<?php echo $kode_meja_tebu; ?>').attr('readonly',true);
 						
-						$('#kondisi_tebu-<?php echo $kode_meja_tebu;?>').focus();
+						$('#kondisi_tebu-<?php echo $kode_meja_tebu; ?>').focus();
 
 						if(dat.data.terbakar_sel == 1){
-							$('#kondisi_tebu-<?php echo $kode_meja_tebu;?>').val('<?php echo CNF_MUTU_TERBAKAR;?>');	
+							$('#kondisi_tebu-<?php echo $kode_meja_tebu; ?>').val('<?php echo CNF_MUTU_TERBAKAR; ?>');	
 						}
 
 					}else{
@@ -307,18 +307,18 @@ function getNoSPTA<?php echo $kode_meja_tebu;?>(e,nospta){
 							}
 							alert(al);
 						
-						$('#no_spta-<?php echo $kode_meja_tebu;?>').val('');
+						$('#no_spta-<?php echo $kode_meja_tebu; ?>').val('');
 					}
 					
 				}else{
-					alert('Data SPTA '+nospta+' Tidak ditemukan dalam database kami! silahkan hubungi Bagian Tanaman <?php echo CNF_PG;?>');
-					$('#no_spta-<?php echo $kode_meja_tebu;?>').val('');
+					alert('Data SPTA '+nospta+' Tidak ditemukan dalam database kami! silahkan hubungi Bagian Tanaman <?php echo CNF_PG; ?>');
+					$('#no_spta-<?php echo $kode_meja_tebu; ?>').val('');
 				}
             }
         });
 		}else{
-			alert('No SPTA tidak sesuai format / tidak dikeluarkan oleh <?php echo CNF_PG;?>');
-			$('#no_spta-<?php echo $kode_meja_tebu;?>').val('');
+			alert('No SPTA tidak sesuai format / tidak dikeluarkan oleh <?php echo CNF_PG; ?>');
+			$('#no_spta-<?php echo $kode_meja_tebu; ?>').val('');
 		}
 	}
 }
