@@ -24,17 +24,17 @@
 
 
 <div class="col-md-12">
-	<?
+	<?php
 	if($cctv_on == 1){
 	?>
-	<video autoplay="true" id="videoElement-<?php echo $kode_meja_tebu; ?>" style="width: 100%" src="<?=$cctv_url; ?>"  >
+	<video autoplay="true" id="videoElement-<?php echo $kode_meja_tebu; ?>" style="width: 100%" src="<?php=$cctv_url; ?>"  >
 			
 		</video>
-	<?
+	<?php
 	}else if($cctv_on == 2){
 		?>
-	<img  id="videoElement-<?php echo $kode_meja_tebu; ?>" style="width: 100%" src="<?=$cctv_url; ?>"  >
-	<?
+	<img  id="videoElement-<?php echo $kode_meja_tebu; ?>" style="width: 100%" src="<?php=$cctv_url; ?>"  >
+	<?php
 	}
 	?>
 	<canvas id="canvas-element-<?php echo $kode_meja_tebu; ?>" style="display: none;" ></canvas>
@@ -207,7 +207,7 @@ function getImageVideo<?php echo $kode_meja_tebu; ?>(){
 	var today = (new Date()).toString();
 
 	var canvas = document.querySelector("#canvas-element-<?php echo $kode_meja_tebu; ?>");
-	<?
+	<?php
 	if($cctv_on == 1){
 	?>
 	
@@ -232,7 +232,7 @@ function getImageVideo<?php echo $kode_meja_tebu; ?>(){
     	
 });
  
-  <?
+  <?php
 	}else if($cctv_on == 2){
 		?>
 		var images = document.querySelector("videoElement-<?php echo $kode_meja_tebu; ?>");
@@ -258,11 +258,11 @@ function getImageVideo<?php echo $kode_meja_tebu; ?>(){
     	$('#sub-<?php echo $kode_meja_tebu; ?>').trigger('click');
 	});
 
-		<?
+		<?php
 	}else{
 		?>
 			$('#sub-<?php echo $kode_meja_tebu; ?>').trigger('click');
-		<?
+		<?php
 	}
   ?>
 
