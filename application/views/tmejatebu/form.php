@@ -31,7 +31,7 @@
 			
 		</video>
 	<?
-	}else if($cctv_on == 2 || $cctv_on == 3 ){
+	}else if($cctv_on == 2){
 		?>
 	<img  id="videoElement-<?php echo $kode_meja_tebu;?>" style="width: 100%" src="<?=$cctv_url;?>"  >
 	<?
@@ -173,7 +173,7 @@
 			 
 <script type="text/javascript">
 $(document).ready(function() { 
-
+		$(".sidebar-toggle").trigger("click");
 		$('#no_spta-<?php echo $kode_meja_tebu;?>').focus();
 		$('form input').on('keypress', function(e) {
 		return e.which !== 13;
@@ -182,24 +182,8 @@ $(document).ready(function() {
 		$("#kondisi_tebu-<?php echo $kode_meja_tebu;?>").jCombo("<?php echo site_url('tmejatebu/comboselect?filter=m_rafaksi:nilai:nilai') ?>",
 		{  selected_value : '' });
 	
-	<?php
-	if($cctv_on == 3){
-		?>
-		setInterval(reloadimagein<?php echo $kode_meja_tebu;?>,1000);
-		<?
-	}
-	?>
-
-	
 
 });
-
-function reloadimagein<?php echo $kode_meja_tebu;?>(){
-	//newImage = new Image();
-	var src = "<?php echo $cctv_url; ?>";
-	$("#videoElement-<?php echo $kode_meja_tebu;?>").attr("src", src+"?timestamp=" + new Date().getTime());
-
-}
 
 
 
@@ -249,7 +233,7 @@ function getImageVideo<?php echo $kode_meja_tebu;?>(){
 });
  
   <?
-	}else if($cctv_on == 2 || $cctv_on == 3){
+	}else if($cctv_on == 2){
 		?>
 		var images = document.querySelector("videoElement-<?php echo $kode_meja_tebu;?>");
 		
