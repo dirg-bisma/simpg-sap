@@ -14,7 +14,7 @@ class Tselektormodel extends SB_Model
 	public static function querySelect(  ){
 		
 		
-		return "   SELECT t_selektor.* FROM   t_selektor   ";
+		return "   SELECT t_selektor.* FROM   vw_selektor_data as t_selektor   ";
 	}
 	public static function queryWhere(  ){
 		
