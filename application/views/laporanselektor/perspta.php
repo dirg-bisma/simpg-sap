@@ -78,7 +78,7 @@ $akt = 0;
 	 <td><?php echo $r->timb_netto_tgl; ?></td>
 	 <td><?php echo $r->ditolak_sel; ?></td>
 	 <td><?php echo $r->ditolak_alasan; ?></td>
-	 <?
+	 <?php
 	$no++;
 	$akt++;
  }
