@@ -164,6 +164,7 @@ GROUP BY `a`.`id`) as ax WHERE 0=0";
   `a`.`angkut_pg`       AS `angkut_pg`,
   `a`.`jenis_spta`      AS `jenis_spta`,
   `c`.`no_angkutan`     AS `no_angkutan`,
+  g.id_petani_sap    AS `id_petani_sap`,
   IF(`g`.`nama_petani`  = '','-',`g`.`nama_petani`)    AS `nama_petani`,
   `b`.`deskripsi_blok`  AS `deskripsi_blok`,
   `a`.`spt_status`      AS `spt_status`,
