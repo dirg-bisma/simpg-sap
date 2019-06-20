@@ -458,7 +458,7 @@ INNER JOIN sap_m_karyawan c ON c.`Persno`=b.`Persno` WHERE a.id='".$_POST['id_sp
 		if($kat == 'X') $wh = '';
 		$wh .= " AND a.tgl_spta='$tgl' AND a.persno_pta='$pta'";
 		
-		$a = $this->db->query("SELECT no_spat,a.kode_blok,jenis_spta,tgl_spta,c.divisi,e.`karyawan`,d.`nama_petani`,f.`name` AS nama_pta,tgl_expired,tebang_pg,angkut_pg,metode_tma,IF(kode_plant_trasnfer!='',CONCAT(c.`deskripsi_blok`,' TRANSFER DARI ',kode_plant_trasnfer),IF(kode_plant_ke != '', CONCAT(c.`deskripsi_blok`,' TRANSFER KE ',kode_plant_ke),c.`deskripsi_blok`)) AS deskripsi_blok,c.`luas_tanam`,c.`periode`,c.`status_blok`,c.`kepemilikan`,IF(metode_tma=1,'MANUAL',IF(metode_tma=2,'SEMI MEKANISASI','MEKANISASI')) AS txt_metode_tma,v.nama_vendor FROM t_spta a 
+		$a = $this->db->query("SELECT no_spat,a.kode_blok,jenis_spta,tgl_spta,c.divisi,e.`karyawan`,d.`nama_petani`,f.`name` AS nama_pta,tgl_expired,tebang_pg,angkut_pg,metode_tma,IF(kode_plant_trasnfer!='',CONCAT(c.`deskripsi_blok`,' TRANSFER DARI ',kode_plant_trasnfer),IF(kode_plant_ke != '', CONCAT(c.`deskripsi_blok`,' TRANSFER KE ',kode_plant_ke),c.`deskripsi_blok`)) AS deskripsi_blok,c.`luas_tanam`,c.`periode`,c.`status_blok`,c.`kepemilikan`,IF(metode_tma=1,'MANUAL',IF(metode_tma=2,'SEMI MEKANISASI','MEKANISASI')) AS txt_metode_tma,v.nama_vendor,a.spt_status,a.natura_status FROM t_spta a 
 INNER JOIN sap_field c ON a.kode_blok=c.`kode_blok` 
 INNER JOIN vw_master_afdeling e ON e.`kode_affd`=c.`divisi`
 INNER JOIN sap_m_karyawan f ON f.`Persno`=a.persno_pta
@@ -494,7 +494,7 @@ WHERE 0=0 AND cetak_spta_status=0 $wh GROUP BY a.`id`")->result();
 	function cetaksptapetak($tgl,$petak){
 		$wh = " AND a.tgl_spta='$tgl' AND a.kode_blok='$petak'";
 		
-		$a = $this->db->query("SELECT no_spat,a.kode_blok,jenis_spta,tgl_spta,c.divisi,e.`karyawan`,d.`nama_petani`,f.`name` AS nama_pta,tgl_expired,tebang_pg,angkut_pg,metode_tma,IF(kode_plant_trasnfer!='',CONCAT(c.`deskripsi_blok`,' TRANSFER DARI ',kode_plant_trasnfer),IF(kode_plant_ke != '', CONCAT(c.`deskripsi_blok`,' TRANSFER KE ',kode_plant_ke),c.`deskripsi_blok`)) AS deskripsi_blok,c.`luas_tanam`,c.`periode`,c.`status_blok`,c.`kepemilikan`,IF(metode_tma=1,'MANUAL',IF(metode_tma=2,'SEMI MEKANISASI','MEKANISASI')) AS txt_metode_tma,v.nama_vendor FROM t_spta a 
+		$a = $this->db->query("SELECT no_spat,a.kode_blok,jenis_spta,tgl_spta,c.divisi,e.`karyawan`,d.`nama_petani`,f.`name` AS nama_pta,tgl_expired,tebang_pg,angkut_pg,metode_tma,IF(kode_plant_trasnfer!='',CONCAT(c.`deskripsi_blok`,' TRANSFER DARI ',kode_plant_trasnfer),IF(kode_plant_ke != '', CONCAT(c.`deskripsi_blok`,' TRANSFER KE ',kode_plant_ke),c.`deskripsi_blok`)) AS deskripsi_blok,c.`luas_tanam`,c.`periode`,c.`status_blok`,c.`kepemilikan`,IF(metode_tma=1,'MANUAL',IF(metode_tma=2,'SEMI MEKANISASI','MEKANISASI')) AS txt_metode_tma,v.nama_vendor,a.spt_status,a.natura_status FROM t_spta a 
 INNER JOIN sap_field c ON a.kode_blok=c.`kode_blok` 
 INNER JOIN vw_master_afdeling e ON e.`kode_affd`=c.`divisi`
 INNER JOIN sap_m_karyawan f ON f.`Persno`=a.persno_pta

@@ -38,6 +38,11 @@
   jsbarcode-fontSize="12">
 </svg> 
 <center>
+	<?php 
+				if($row->spt_status == 1 ) echo "<b> SPT </b>";
+				if($row->natura_status == 1 ) echo "<b> NATURA </b>";
+			?>
+			<br />
 			<?php echo $row->nama_vendor;?>
 </center>
 		</td>
@@ -59,7 +64,14 @@
   jsbarcode-width="1"
   jsbarcode-fontSize="12">
 </svg> 
+
+			
 			<center>
+				<?php 
+				if($row->spt_status == 1 ) echo "<b> SPT </b>";
+				if($row->natura_status == 1 ) echo "<b> NATURA </b>";
+			?>
+			<br />
 			<b><u><?php echo strtoupper(CNF_NAMAPERUSAHAAN);?></u></b></center>
 			
 			<?php echo $row->deskripsi_blok;?><br />

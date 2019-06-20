@@ -40,7 +40,7 @@
                   <label>
 					<input type="hidden" id="spt0" name="spt" value="0">
 					<?php if($kategori == 'TS-SP'){?>
-                    <input type="checkbox" id="spt1" name="spt" value="1" onchange="onchangeSpt()"> SPT
+                    <input type="checkbox" id="spt1" name="spt" value="1" onchange="onchangeSpt()" checked> SPT
 					<?php }?>
                   </label>
                 </div> 
@@ -49,8 +49,14 @@
 	<div class="checkbox">
                   <label>
 					<input type="hidden" id="natura0" name="natura" value="0">
-					<?php if($kategori == 'TS-SP'){?>
-                    <input type="checkbox" id="natura1" name="natura" value="1" onchange="onchangeNatura()"> Natura 10%
+					<?php if($kategori == 'TS-SP'){
+						$cekspg = $this->db->query("SELECT persen_10 FROM t_spg WHERE kode_blok = '$kode_blok' ")->row();
+						$sttspg = '';
+						if($cekspg){
+							if($cekspg->persen_10 == 1) $sttspg = 'checked';
+						}
+						?>
+                    <input type="checkbox" id="natura1" name="natura" value="1" onchange="onchangeNatura()" <?=$sttspg;?>> Natura 10%
 					<?php }?>
                   </label>
                 </div> 
@@ -167,6 +173,15 @@ var tempJarakPilih = false;
 var tempVendor = false;
 var tempVendorPilih = false;
 $(document).ready(function(){ 
+
+	<?php
+	if(CNF_COMPANYCODE == 'N011'){
+		?>
+		onchangeSpt();
+		onchangeNatura();
+		<?
+	}
+	?>
 	
 	$(".select2").select2({ width: '100%' });
 	$('.vendor').hide();

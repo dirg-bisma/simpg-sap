@@ -133,8 +133,8 @@ class Tsbh extends SB_Controller
 		// Group users permission
 		$this->data['access']		= $this->access;
 		// Render into template
-		
-			$this->data['content'] = $this->load->view('tsbh/index',$this->data, true );
+			
+			$this->data['content'] = $this->load->view('tsbh/'.CNF_COMPANYCODE.'/index',$this->data, true );
 
 		
     	$this->load->view('layouts/main', $this->data );
@@ -144,7 +144,7 @@ class Tsbh extends SB_Controller
 
 	function add(){
 
-		echo $this->load->view('tsbh/form',null, true );
+		echo $this->load->view('tsbh/'.CNF_COMPANYCODE.'/form',null, true );
 	}
 	
 	function upload() 
@@ -161,7 +161,7 @@ class Tsbh extends SB_Controller
 		$this->data['access']		= $this->access;
 		// Render into template
 		
-		$this->data['content'] = $this->load->view('tsbh/indexupload',$this->data, true );
+		$this->data['content'] = $this->load->view('tsbh/'.CNF_COMPANYCODE.'/indexupload',$this->data, true );
 		
     	$this->load->view('layouts/main', $this->data );
     
@@ -182,7 +182,7 @@ class Tsbh extends SB_Controller
 		$this->data['access']		= $this->access;
 		// Render into template
 		
-		$this->data['content'] = $this->load->view('tsbh/indexpengolahan',$this->data, true );
+		$this->data['content'] = $this->load->view('tsbh/'.CNF_COMPANYCODE.'/indexpengolahan',$this->data, true );
 		
     	$this->load->view('layouts/main', $this->data );
     
@@ -203,7 +203,7 @@ class Tsbh extends SB_Controller
 		$this->data['access']		= $this->access;
 		// Render into template
 		
-		$this->data['content'] = $this->load->view('tsbh/indextanaman',$this->data, true );
+		$this->data['content'] = $this->load->view('tsbh/'.CNF_COMPANYCODE.'/indextanaman',$this->data, true );
 		
     	$this->load->view('layouts/main', $this->data );
     
@@ -224,7 +224,7 @@ class Tsbh extends SB_Controller
 		$this->data['access']		= $this->access;
 		// Render into template
 		
-		$this->data['content'] = $this->load->view('tsbh/indexaku',$this->data, true );
+		$this->data['content'] = $this->load->view('tsbh/'.CNF_COMPANYCODE.'/indexaku',$this->data, true );
 		
     	$this->load->view('layouts/main', $this->data );
     
@@ -245,7 +245,7 @@ class Tsbh extends SB_Controller
         $this->data['access']		= $this->access;
         // Render into template
 
-        $this->data['content'] = $this->load->view('tsbh/pengdownload',$this->data, true );
+        $this->data['content'] = $this->load->view('tsbh/'.CNF_COMPANYCODE.'/pengdownload',$this->data, true );
 
         $this->load->view('layouts/main', $this->data );
 
@@ -371,7 +371,7 @@ class Tsbh extends SB_Controller
 		$file = "SBH-".$this->data['title'].".xls";
 			header("Content-type: application/vnd.ms-excel");
 			header("Content-Disposition: attachment; filename=$file");
-		echo $this->load->view('tsbh/downloadreport',$this->data, true );
+		echo $this->load->view('tsbh/'.CNF_COMPANYCODE.'/downloadreport',$this->data, true );
 		}
 
 		if($jns == 2){
@@ -381,15 +381,15 @@ class Tsbh extends SB_Controller
 			header("Content-Disposition: attachment; filename=$file");
 
 			if(CNF_KONSEP == 2){
-				echo $this->load->view('tsbh/downloadtemplatejat',$this->data, true );
+				echo $this->load->view('tsbh/'.CNF_COMPANYCODE.'/downloadtemplatejat',$this->data, true );
 			}else{
-				echo $this->load->view('tsbh/downloadtemplate',$this->data, true );
+				echo $this->load->view('tsbh/'.CNF_COMPANYCODE.'/downloadtemplate',$this->data, true );
 			}
 		}
 
 		if($jns == 3){
 		$this->data['title'] = 'PERIODE '.SiteHelpers::daterpt($tgl1).' S/D '.SiteHelpers::daterpt($tgl2);
-		echo $this->load->view('tsbh/cetakapprovesbh',$this->data, true );
+		echo $this->load->view('tsbh/'.CNF_COMPANYCODE.'/cetakapprovesbh',$this->data, true );
 		}
 
 		//var_dump($rows);
@@ -426,8 +426,68 @@ try
 				
 				if($Key > 2){
 					if(trim($Row[1]) != ''){
-
+					if(CNF_COMPANYCODE == 'N011'){
 					if(CNF_KONSEP == 2){
+						//coresapler
+						$tempdataari = array(
+						'id_ari'	 		=> trim($Row[1]), 
+						'id_spta' 			=> trim($Row[0]), 
+						'persen_brix_ari' 	=> trim($Row[38]), 
+						'persen_pol_ari' 	=> trim($Row[39]), 
+						'ph_ari' 			=> trim($Row[40]), 
+						'hk' 				=> trim($Row[41]), 
+						'nilai_nira' 		=> trim($Row[42]), 
+						'faktor_rendemen' 	=> trim($Row[43]), 
+						'rendemen_ari' 		=> trim($Row[44]),
+						'faktor_konversi'   => trim($Row[45]),
+						'rendemen_individu' => trim($Row[46]), 
+						'hablur_ari' 		=> trim($Row[47]), 
+						'gula_total' 		=> trim($Row[48]), 
+						'tetes_total' 		=> trim($Row[49]), 
+						'rendemen_ptr' 		=> trim($Row[50]), 
+						'gula_ptr' 			=> trim($Row[51]), 
+						'tetes_ptr' 		=> trim($Row[52]),
+						'sembilanpuluh_persen' 		=> trim($Row[53]),
+						'sepuluh_persen' 		=> trim($Row[54]),
+						'seratus_persen' 		=> trim($Row[55]), 
+						'gula_pg' 			=> trim($Row[56]), 
+						'tetes_pg' 			=> trim($Row[57]),
+						'sbh_ari_status'	=> '1',
+						'sbh_ari_user'		=> $this->session->userdata('fid'),
+						'sbh_ari_tgl'		=> date('Y-m-d H:i:s')
+					);
+
+					}else{
+						//ari
+					$tempdataari = array(
+						'id_ari'	 		=> trim($Row[1]), 
+						'id_spta' 			=> trim($Row[0]), 
+						'persen_brix_ari' 	=> trim($Row[38]), 
+						'persen_pol_ari' 	=> trim($Row[39]), 
+						'ph_ari' 			=> trim($Row[40]), 
+						'hk' 				=> trim($Row[41]), 
+						'nilai_nira' 		=> trim($Row[42]), 
+						'faktor_rendemen' 	=> trim($Row[43]), 
+						'rendemen_ari' 		=> trim($Row[44]), 
+						'hablur_ari' 		=> trim($Row[45]), 
+						'gula_total' 		=> trim($Row[46]), 
+						'tetes_total' 		=> trim($Row[47]), 
+						'rendemen_ptr' 		=> trim($Row[48]), 
+						'gula_ptr' 			=> trim($Row[49]), 
+						'tetes_ptr' 		=> trim($Row[50]),
+						'sembilanpuluh_persen' 		=> trim($Row[51]),
+						'sepuluh_persen' 		=> trim($Row[52]),
+						'seratus_persen' 		=> trim($Row[53]), 
+						'gula_pg' 			=> trim($Row[54]), 
+						'tetes_pg' 			=> trim($Row[55]),
+						'sbh_ari_status'	=> '1',
+						'sbh_ari_user'		=> $this->session->userdata('fid'),
+						'sbh_ari_tgl'		=> date('Y-m-d H:i:s')
+					);
+				}
+			}else{
+
+				if(CNF_KONSEP == 2){
 						//coresapler
 						$tempdataari = array(
 						'id_ari'	 		=> trim($Row[1]), 
@@ -479,6 +539,8 @@ try
 						'sbh_ari_tgl'		=> date('Y-m-d H:i:s')
 					);
 				}
+
+			}
 
 			$this->db->where('id_ari', trim($Row[1]));
 			$this->db->where('id_spta', trim($Row[0]));

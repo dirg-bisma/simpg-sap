@@ -501,6 +501,15 @@ WHERE b.`no_spat`='".trim($allDataInSheet[$i]["C"])."' AND a.sbh_ari_status=0");
 			$data['faktor_rendemen'] = $faktor_rendemen;
 			$data['rendemen_ari'] = $rendemen_ari;
 
+			if(CNF_COMPANYCODE == 'N011'){
+				$sql = $this->db->query("SELECT a.`r_spg` FROM t_spg a INNER JOIN t_spta b ON a.`kode_blok`=b.`kode_blok`
+WHERE b.`id` = '".$_POST['id_spta']."'")->row();
+				$data['r_spg'] = 0;
+				if($sql){
+					$data['r_spg'] = $sql->r_spg;
+				}
+			}
+
 			
 			
 			
