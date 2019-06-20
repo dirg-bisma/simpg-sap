@@ -45,7 +45,7 @@ TEMPLATE BAGI HASIL<br />
 					//$i = 0;
 					if($t['view'] =='1'){
 						$i++;
-						if($i == 43){
+						if($i == 41){
 							echo '<th>'.$t['label'].'</th>';
 							echo '<th>Rendemen Contoh</th>';
 							echo '<th>Faktor Konversi</th>';
@@ -68,8 +68,8 @@ foreach ($rows as $key) {
 	foreach ($tableGrid as $k => $t){
 		$i++;
 		$fld = $t['field'];
-		if($i > 36){
-			if($i == 43){
+		if($i > 35){
+			if($i == 41){
 				echo '<td bgcolor="yellow">'.$key->$fld.'</td>';
 				echo '<td bgcolor="yellow">'.$key->rendemen_individu.'</td>';
 				echo '<td bgcolor="yellow">'.$key->faktor_konversi.'</td>';

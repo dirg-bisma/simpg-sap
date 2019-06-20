@@ -58,7 +58,7 @@ foreach ($rows as $key) {
 	foreach ($tableGrid as $k => $t){
 		$i++;
 		$fld = $t['field'];
-		if($i > 36){
+		if($i > 35){
 			echo '<td bgcolor="yellow">'.$key->$fld.'</td>';
 		}else{
 			echo '<td >';

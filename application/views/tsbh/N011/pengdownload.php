@@ -211,7 +211,7 @@
                 {  "targets": [1,3,2,5],"width": "100px" },
                 {  "targets": [6],"width": "70px" },
                 {  "targets": [0],"width": "20px" },
-        { className: "number", "targets": [ 15,33,43,44,45,47,48,52,53 ] },
+        { className: "number", "targets": [ 15,33,42,43,44,48,49,50,51,52,53 ] },
                 {  "targets": [ -1 ], "orderable": false },
             ],
             "fixedColumns":  {
@@ -240,31 +240,31 @@
                         return x;
                     },0 );
 
-                    var hablur = api.column( 43 ).data().reduce( function (a, b) {
+                    var hablur = api.column( 42 ).data().reduce( function (a, b) {
                         var x = intVal(a) + intVal(b);  
 
                         return x;
                     },0 );
 
-                    var gtt = api.column( 44 ).data().reduce( function (a, b) {
+                    var gtt = api.column( 43 ).data().reduce( function (a, b) {
                         var x = intVal(a) + intVal(b);  
 
                         return x;
                     },0 );
 
-                    var ttt = api.column( 45 ).data().reduce( function (a, b) {
+                    var ttt = api.column( 44 ).data().reduce( function (a, b) {
                         var x = intVal(a) + intVal(b);  
 
                         return x;
                     },0 );
 
-                    var gptr = api.column( 47 ).data().reduce( function (a, b) {
+                    var gptr = api.column( 48 ).data().reduce( function (a, b) {
                         var x = intVal(a) + intVal(b);  
 
                         return x;
                     },0 );
 
-                    var tptr = api.column( 48 ).data().reduce( function (a, b) {
+                    var tptr = api.column( 51 ).data().reduce( function (a, b) {
                         var x = intVal(a) + intVal(b);  
 
                         return x;
@@ -289,11 +289,11 @@
                     // Update footer
                     $( api.column( 15 ).footer() ).html(ha.toFixed(4));  
                     $( api.column( 33 ).footer() ).html(netto.toFixed(0)); 
-                    $( api.column( 43 ).footer() ).html(hablur.toFixed(2)); 
-                    $( api.column( 44 ).footer() ).html(gtt.toFixed(2)); 
-                    $( api.column( 45 ).footer() ).html(ttt.toFixed(2)); 
-                    $( api.column( 47 ).footer() ).html(gptr.toFixed(2)); 
-                    $( api.column( 48 ).footer() ).html(tptr.toFixed(2)); 
+                    $( api.column( 42 ).footer() ).html(hablur.toFixed(2)); 
+                    $( api.column( 43 ).footer() ).html(gtt.toFixed(2)); 
+                    $( api.column( 44 ).footer() ).html(ttt.toFixed(2)); 
+                    $( api.column( 48 ).footer() ).html(gptr.toFixed(2)); 
+                    $( api.column( 51 ).footer() ).html(tptr.toFixed(2)); 
                     $( api.column( 52 ).footer() ).html(gpg.toFixed(2)); 
                     $( api.column( 53 ).footer() ).html(tpg.toFixed(2));               
                 }
