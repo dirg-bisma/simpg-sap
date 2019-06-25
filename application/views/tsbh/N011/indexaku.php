@@ -48,12 +48,15 @@
                     <div class="box-tools pull-right">
                         Tanggal Giling : &nbsp;&nbsp;&nbsp;
                         <input type="text" class="date" id="tgl1" value="<?php echo date('Y-m-d');?>">&nbsp;&nbsp;s/d&nbsp;&nbsp;<input type="text" class="date" id="tgl2"  value="<?php echo date('Y-m-d');?>">
+
                         <a href="javascript:reloadGrid()" class="tips btn btn-xs btn-info"  title="View">
                             <i class="fa fa-search"></i>&nbsp;View </a>
                         <a href="javascript:approved()" class="tips btn btn-xs btn-danger"  title="View">
                             <i class="fa fa-check"></i>&nbsp;Approve</a>
                             <a href="javascript:cancelapproved()" class="tips btn btn-xs btn-danger"  title="View">
     <i class="fa fa-times"></i>&nbsp;Cancel Approve</a>
+    <a href="javascript:downloadlembarkerja()" class="tips btn btn-xs btn-primary"  title="View">
+                            <i class="fa fa-check"></i>&nbsp;Download Lembar Kerja AKU</a>
 
                     </div>
                 </div>
@@ -346,4 +349,11 @@
     }
 });
  }
+
+
+ function downloadlembarkerja(jns=2){
+  var url = "<?php echo site_url('tsbh/downloadlembarkerja');?>/"+jns+"/"+$('#tgl1').val()+'/'+$('#tgl2').val();
+  window.open(url,'_blank');
+ }
+
 </script>
