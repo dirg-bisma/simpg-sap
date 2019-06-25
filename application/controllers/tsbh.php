@@ -455,6 +455,45 @@ class Tsbh extends SB_Controller
 	}
 
 
+	function downloadlembarkerja($jns,$tgl1,$tgl2){
+		$sort = $this->model->primaryKey; 
+		$order = 'asc';
+
+		$filter = " AND  tgl_giling BETWEEN '$tgl1' AND '$tgl2'";
+		if($jns == 2){
+			$filter .= " AND sbh_status = 4";	
+		}
+
+		$sql = "SELECT '' AS no_ajuan,CONCAT(DATE_FORMAT('$tgl1','%j'),DATE_FORMAT('$tgl2','%j')) AS periode,a.`id_petani_sap`,d.`nama_petani`,d.`kode_kelompok`,SUM(b.`netto_final`) AS netto,
+IF(a.`tebang_pg`=1,SUM(b.`netto_final`),0) AS tebang_pg,
+IF(a.`angkut_pg`=1,SUM(b.`netto_final`),0) AS angkut_pg,
+(IF(a.`tebang_pg`=1,SUM(b.`netto_final`),0)+IF(a.`angkut_pg`=1,SUM(b.`netto_final`),0)) AS total_tma,
+SUM(c.`sembilanpuluh_persen`) AS sembilanpuluh_persen,
+SUM(c.`sepuluh_persen`) AS sepuluh_persen,
+SUM(c.`gula_ptr`) AS gula_ptr,
+SUM(c.`gula_pg`) AS gula_pg,
+SUM(c.`gula_ptr`) AS gula_ptr,
+SUM(c.`tetes_ptr`) AS tetes_ptr,
+SUM(c.`tetes_pg`) AS tetes_pg
+ FROM t_spta a 
+INNER JOIN t_timbangan b ON a.`id`=b.`id_spat`
+INNER JOIN t_ari c ON c.`id_spta`=a.`id`
+INNER JOIN sap_petani d ON d.`id_petani_sap`=a.`id_petani_sap` WHERE 0=0 $filter
+GROUP BY a.`id_petani_sap`";
+		$this->data['result'] = $this->db->query($sql)->result();
+
+		
+		$this->data['title'] = 'LEMBARKERJA PERIODE '.SiteHelpers::daterpt($tgl1).' S/D '.SiteHelpers::daterpt($tgl2);
+		$file = "SBH-".$this->data['title'].".xls";
+			//header("Content-type: application/vnd.ms-excel");
+			//header("Content-Disposition: attachment; filename=$file");
+		echo $this->load->view('tsbh/'.CNF_COMPANYCODE.'/downloadlembarkerja',$this->data, true );
+		
+
+		//var_dump($rows);
+	}
+
+
 	function uploadsend(){
 		 //var_dump($_FILES);die();
 		ini_set('memory_limit', '4048M');
