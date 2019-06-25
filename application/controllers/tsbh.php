@@ -258,7 +258,7 @@ class Tsbh extends SB_Controller
         $data['result'] = $result;
         header("Content-disposition: attachment; filename=".str_replace('-', '',$tgl1).'_sbh_'." ".str_replace('-', '',$tgl2).".xls");
         header("Content-Type: application/vnd.ms-excel");
-        $this->load->view('apisbh/tpl_excel', $data);
+        $this->load->view('tsbh/'.CNF_COMPANYCODE.'/tpl_sap', $data);
     }
 
     function gridssbh($stt,$tgl1,$tgl2){
