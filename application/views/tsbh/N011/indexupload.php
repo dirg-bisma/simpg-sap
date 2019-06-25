@@ -50,8 +50,11 @@
 		<input type="text" class="date" id="tgl1" value="<?php echo date('Y-m-d');?>">&nbsp;&nbsp;s/d&nbsp;&nbsp;<input type="text" class="date" id="tgl2"  value="<?php echo date('Y-m-d');?>">
 		<a href="javascript:reloadGrid()" class="tips btn btn-xs btn-info"  title="View">
 		<i class="fa fa-search"></i>&nbsp;View </a>
+
+    <a href="javascript:downloadv2()" class="tips btn btn-xs btn-danger"  title="Download">
+    <i class="fa fa-download"></i>&nbsp;Download Template V.2</a>
 		<a href="javascript:download()" class="tips btn btn-xs btn-danger"  title="Download">
-		<i class="fa fa-download"></i>&nbsp;Download Template</a>
+		<i class="fa fa-download"></i>&nbsp;Download Report</a>
 		
 		<a href="javascript:uploadData()" class="tips btn btn-xs btn-success"  title="Upload SBH">
 		<i class="fa fa-upload"></i>&nbsp;Upload SBH</a> 
@@ -316,6 +319,11 @@ function reloadGrid(){
   function download(jns=2){
  	var url = "<?php echo site_url('tsbh/downloaded');?>/"+jns+"/"+$('#tgl1').val()+'/'+$('#tgl2').val();
  	window.open(url,'_blank');
+ }
+
+ function downloadv2(jns=2){
+  var url = "<?php echo site_url('tsbh/downloadedtemplate');?>/"+jns+"/"+$('#tgl1').val()+'/'+$('#tgl2').val();
+  window.open(url,'_blank');
  }
 
 

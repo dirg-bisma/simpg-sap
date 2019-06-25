@@ -44,7 +44,7 @@
             </ul>
             <div class="box box-danger">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Download Data SBH untuk SAP</h3>
+                    <h3 class="box-title">Approve Data</h3>
                     <div class="box-tools pull-right">
                         Tanggal Giling : &nbsp;&nbsp;&nbsp;
                         <input type="text" class="date" id="tgl1" value="<?php echo date('Y-m-d');?>">&nbsp;&nbsp;s/d&nbsp;&nbsp;<input type="text" class="date" id="tgl2"  value="<?php echo date('Y-m-d');?>">
