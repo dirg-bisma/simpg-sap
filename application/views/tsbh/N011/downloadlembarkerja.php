@@ -42,7 +42,7 @@ INTERNAL CHECK A.K.U<br />
 			<th rowspan="2">NAMA PETANI</th>
 			<th rowspan="2">KODE KELOMPOK</th>
 			<th rowspan="2">TEBU (Kg)</th>
-			<th colspan="3">TMA TEBU TR OLEH PG (Kg)</th>
+			<th colspan="2">TMA TEBU TR OLEH PG (Kg)</th>
 			<th colspan="3">GULA EX TR</th>
 			<th rowspan="2">GULA PG</th>
 			<th rowspan="2">GULA EX TR</th>
@@ -54,7 +54,6 @@ INTERNAL CHECK A.K.U<br />
 			
 			<th>ANGKUT PG</th>
 			<th>TEBANG PG</th>
-			<th>TOTAL TMA</th>
 			<th>GULA 90%</th>
 			<th>GULA 10%</th>
 			<th>GULA 100%</th>
@@ -74,7 +73,6 @@ foreach ($result as $key) {
 	echo '<td>'.$key->netto.'</td>';
 	echo '<td>'.$key->tebang_pg.'</td>';
 	echo '<td>'.$key->angkut_pg.'</td>';
-	echo '<td>'.$key->total_tma.'</td>';
 	echo '<td>'.$key->sembilanpuluh_persen.'</td>';
 	echo '<td>'.$key->sepuluh_persen.'</td>';
 	echo '<td>'.$key->gula_ptr.'</td>';

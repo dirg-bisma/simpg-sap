@@ -467,7 +467,6 @@ class Tsbh extends SB_Controller
 		$sql = "SELECT '' AS no_ajuan,CONCAT(DATE_FORMAT('$tgl1','%j'),DATE_FORMAT('$tgl2','%j')) AS periode,a.`id_petani_sap`,d.`nama_petani`,d.`kode_kelompok`,SUM(b.`netto_final`) AS netto,
 IF(a.`tebang_pg`=1,SUM(b.`netto_final`),0) AS tebang_pg,
 IF(a.`angkut_pg`=1,SUM(b.`netto_final`),0) AS angkut_pg,
-(IF(a.`tebang_pg`=1,SUM(b.`netto_final`),0)+IF(a.`angkut_pg`=1,SUM(b.`netto_final`),0)) AS total_tma,
 SUM(c.`sembilanpuluh_persen`) AS sembilanpuluh_persen,
 SUM(c.`sepuluh_persen`) AS sepuluh_persen,
 SUM(c.`gula_ptr`) AS gula_ptr,
@@ -484,9 +483,9 @@ GROUP BY a.`id_petani_sap`";
 
 		
 		$this->data['title'] = 'LEMBARKERJA PERIODE '.SiteHelpers::daterpt($tgl1).' S/D '.SiteHelpers::daterpt($tgl2);
-		$file = "SBH-".$this->data['title'].".xls";
-			//header("Content-type: application/vnd.ms-excel");
-			//header("Content-Disposition: attachment; filename=$file");
+		$file = "LK-".$this->data['title'].".xls";
+			header("Content-type: application/vnd.ms-excel");
+			header("Content-Disposition: attachment; filename=$file");
 		echo $this->load->view('tsbh/'.CNF_COMPANYCODE.'/downloadlembarkerja',$this->data, true );
 		
 
