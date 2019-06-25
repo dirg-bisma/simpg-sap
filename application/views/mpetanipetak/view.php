@@ -61,6 +61,12 @@
 						
 					</tr>
 				
+					<tr>
+						<td width='30%' class='label-view text-right'>Kode Kelompok</td>
+						<td><?php echo $row['kode_kelompok'] ;?> </td>
+						
+					</tr>
+				
 						</tbody>	
 					</table>    
 				</div>

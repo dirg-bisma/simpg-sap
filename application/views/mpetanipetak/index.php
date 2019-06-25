@@ -26,8 +26,8 @@
     <a href="<?php echo site_url('mpetanipetak/addupload') ?>" class="tips btn btn-xs btn-warning"  title="Upload Data Petani">
     <i class="fa fa-upload"></i>&nbsp;Upload Petani</a>
 
-		<a href="<?php echo site_url('mpetanipetak/add') ?>" class="tips btn btn-xs btn-info"  title="Sync Data Petani">
-		<i class="fa fa-download"></i>&nbsp;Sync Data Petani Petak</a>
+		<!--a href="<?php echo site_url('mpetanipetak/add') ?>" class="tips btn btn-xs btn-info"  title="Sync Data Petani">
+		<i class="fa fa-download"></i>&nbsp;Sync Data Petani Petak</a-->
 		<?php endif;?>
 
     <?php if($this->access['is_edit'] ==1) : ?>

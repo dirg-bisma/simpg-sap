@@ -26,45 +26,49 @@
 
 <div class="col-md-4">
 									
-								  <div class="form-group hidethis " style="display:none;">
-									<label for="ipt" class=" control-label "> Id Petani    </label>									
-									  <input type='text' class='form-control input-sm' placeholder='' value='<?php echo $row['id_petani'];?>' name='id_petani'   /> 						
+								  <div class="form-group  " >
+									<label for="ipt" class=" control-label "> ID Petani SIMPG    </label>									
+									  <input type='text' class='form-control input-sm' placeholder='' value='<?php echo $row['id_petani'];?>' name='id_petani' readonly   /> 						
 								  </div> 					
 								  <div class="form-group  " >
-									<label for="ipt" class=" control-label "> Id Petani Sap  <span class="asterix"> * </span>  </label>									
-									  <input type='text' class='form-control input-sm' placeholder='' value='<?php echo $row['id_petani_sap'];?>' name='id_petani_sap'  required /> 						
+									<label for="ipt" class=" control-label "> ID Petani SAP  <span class="asterix"> * </span>  </label>									
+									  <input type='text' class='form-control input-sm' placeholder='' value='<?php echo $row['id_petani_sap'];?>' name='id_petani_sap' readonly required /> 						
 								  </div> 					
 								  <div class="form-group  " >
 									<label for="ipt" class=" control-label "> Nama Petani  <span class="asterix"> * </span>  </label>									
-									  <input type='text' class='form-control input-sm' placeholder='' value='<?php echo $row['nama_petani'];?>' name='nama_petani'  required /> 						
-								  </div> 					
-								  <div class="form-group  " >
-									<label for="ipt" class=" control-label "> No Ktp  <span class="asterix"> * </span>  </label>									
-									  <input type='text' class='form-control input-sm' placeholder='' value='<?php echo $row['no_ktp'];?>' name='no_ktp'  required /> 						
+									  <input type='text' class='form-control input-sm' placeholder='' value='<?php echo $row['nama_petani'];?>' name='nama_petani'  readonly required /> 						
 								  </div> 
 			</div>
 			
 			<div class="col-md-4">
 									
 								  <div class="form-group  " >
+									<label for="ipt" class=" control-label "> No KTP  <span class="asterix"> * </span>  </label>									
+									  <input type='text' class='form-control input-sm' placeholder='' value='<?php echo $row['no_ktp'];?>' name='no_ktp'  required  /> 						
+								  </div> 					
+								  <div class="form-group  " >
 									<label for="ipt" class=" control-label "> Alamat Petani  <span class="asterix"> * </span>  </label>									
-									  <input type='text' class='form-control input-sm' placeholder='' value='<?php echo $row['alamat_petani'];?>' name='alamat_petani'  required /> 						
+									  <input type='text' class='form-control input-sm' placeholder='' value='<?php echo $row['alamat_petani'];?>' name='alamat_petani' readonly  required /> 						
 								  </div> 					
 								  <div class="form-group  " >
 									<label for="ipt" class=" control-label "> Kota Petani  <span class="asterix"> * </span>  </label>									
-									  <input type='text' class='form-control input-sm' placeholder='' value='<?php echo $row['kota_petani'];?>' name='kota_petani'  required /> 						
+									  <input type='text' class='form-control input-sm' placeholder='' value='<?php echo $row['kota_petani'];?>' name='kota_petani'  required readonly /> 						
 								  </div> 
 			</div>
 			
 			<div class="col-md-4">
 									
 								  <div class="form-group  " >
-									<label for="ipt" class=" control-label "> Reconciliation Account    </label>									
-									  <input type='text' class='form-control input-sm' placeholder='' value='<?php echo $row['reconciliation_account'];?>' name='reconciliation_account'   /> 						
+									<label for="ipt" class=" control-label "> Kode Kelompok  <span class="asterix"> * </span>  </label>									
+									  <input type='text' class='form-control input-sm' placeholder='' value='<?php echo $row['kode_kelompok'];?>' name='kode_kelompok'   required /> 						
 								  </div> 					
 								  <div class="form-group  " >
-									<label for="ipt" class=" control-label "> Region    </label>									
-									  <input type='text' class='form-control input-sm' placeholder='' value='<?php echo $row['region'];?>' name='region'   /> 						
+									<label for="ipt" class=" control-label "> Reconciliation Account  <span class="asterix"> * </span>  </label>									
+									  <input type='text' class='form-control input-sm' placeholder='' value='<?php echo $row['reconciliation_account'];?>' name='reconciliation_account' readonly required /> 						
+								  </div> 					
+								  <div class="form-group  " >
+									<label for="ipt" class=" control-label "> Region  <span class="asterix"> * </span>  </label>									
+									  <input type='text' class='form-control input-sm' placeholder='' value='<?php echo $row['region'];?>' name='region'  required readonly /> 						
 								  </div> 
 			</div>
 			
