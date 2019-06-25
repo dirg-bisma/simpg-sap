@@ -545,6 +545,7 @@ try
 					);
 				}else{
 					//kedawung
+					$tempdataari = array(
 						'id_ari'	 		=> trim($Row[1]), 
 						'id_spta' 			=> trim($Row[0]), 
 						'persen_brix_ari' 	=> trim($Row[37]), 
@@ -568,6 +569,7 @@ try
 						'sbh_ari_status'	=> '1',
 						'sbh_ari_user'		=> $this->session->userdata('fid'),
 						'sbh_ari_tgl'		=> date('Y-m-d H:i:s')
+				);
 				}
 			}else{
 
