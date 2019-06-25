@@ -164,7 +164,7 @@ class Mpetanipetak extends SB_Controller
 		}
 		
 		$this->data['id'] = $id;
-		$this->data['content'] =  $this->load->view('mpetanipetak/view', $this->data ,true);	  
+		$this->data['content'] =  $this->load->view('mpetanipetak/form', $this->data ,true);	  
 		$this->load->view('layouts/main',$this->data);
 	}
 
@@ -227,7 +227,8 @@ class Mpetanipetak extends SB_Controller
 					'alamat_petani' 			=> trim($allDataInSheet[$i]["H"]), 
 					'kota_petani' 				=> trim($allDataInSheet[$i]["E"]), 
 					'reconciliation_account' 	=> trim($allDataInSheet[$i]["G"]), 
-					'region' 					=> trim($allDataInSheet[$i]["F"])
+					'region' 					=> trim($allDataInSheet[$i]["F"]),
+					'kode_kelompok' 			=> trim($allDataInSheet[$i]["J"]),
 				);
 				//var_dump($tempdata);
 				$ID = $this->model->insertRowUpdate($tempdata , trim($allDataInSheet[$i]["A"]));

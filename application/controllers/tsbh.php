@@ -338,6 +338,65 @@ class Tsbh extends SB_Controller
 
     }
 
+    function downloadedtemplate($jns,$tgl1,$tgl2){
+		$sort = $this->model->primaryKey; 
+		$order = 'asc';
+
+		$filter = " AND  tgl_giling BETWEEN '$tgl1' AND '$tgl2'";
+		if($jns == 2){
+			$filter .= " AND sbh_status <= 2";	
+		}
+		if($jns == 3){
+			$filter .= " AND sbh_status = 1";
+		} 
+
+		$filter .= $this->session->userdata('filt_sbh');
+		$params = array(
+			'limit'		=> 0,
+			'page'		=> 0,
+			'sort'		=> $sort ,
+			'order'		=> $order,
+			'params'	=> $filter,
+			'global'	=> (isset($this->access['is_global']) ? $this->access['is_global'] : 0 )
+		);
+		// Get Query 
+		$results = $this->model->getRowspdx( $params );
+		$this->data['rows'] = $results['rows'];
+		//$total = $results['total'];
+		//$totalfil = $results['totalfil'];
+		$this->data['tableGrid'] 	= $this->info['config']['grid'];
+		//var_dump($this->data['tableGrid']);die();
+		if($jns == 1){
+		$this->data['title'] = 'PERIODE '.SiteHelpers::daterpt($tgl1).' S/D '.SiteHelpers::daterpt($tgl2);
+		$file = "SBH-".$this->data['title'].".xls";
+			header("Content-type: application/vnd.ms-excel");
+			header("Content-Disposition: attachment; filename=$file");
+		echo $this->load->view('tsbh/'.CNF_COMPANYCODE.'/downloadreport',$this->data, true );
+		}
+
+		if($jns == 2){
+		$this->data['title'] = 'TEMPLATE PERIODE '.SiteHelpers::daterpt($tgl1).' S/D '.SiteHelpers::daterpt($tgl2);
+		$file = "SBH-".$this->data['title'].".xls";
+			header("Content-type: application/vnd.ms-excel");
+			header("Content-Disposition: attachment; filename=$file");
+
+			if(CNF_KONSEP == 2){
+				echo $this->load->view('tsbh/'.CNF_COMPANYCODE.'/downloadtemplatejatnew',$this->data, true );
+			}else if(CNF_KONSEP == 3){
+				echo $this->load->view('tsbh/'.CNF_COMPANYCODE.'/downloadtemplatekednew',$this->data, true );
+			}else{
+				echo $this->load->view('tsbh/'.CNF_COMPANYCODE.'/downloadtemplatenew',$this->data, true );
+			}
+		}
+
+		if($jns == 3){
+		$this->data['title'] = 'PERIODE '.SiteHelpers::daterpt($tgl1).' S/D '.SiteHelpers::daterpt($tgl2);
+		echo $this->load->view('tsbh/'.CNF_COMPANYCODE.'/cetakapprovesbh',$this->data, true );
+		}
+
+		//var_dump($rows);
+	}
+
 	function downloaded($jns,$tgl1,$tgl2){
 		$sort = $this->model->primaryKey; 
 		$order = 'asc';
@@ -447,8 +506,8 @@ try
 						'rendemen_ptr' 		=> trim($Row[49]), 
 						'gula_ptr' 			=> trim($Row[52]), 
 						'tetes_ptr' 		=> trim($Row[55]),
-						'sembilanpuluh_persen' 	=> trim($Row[53]),
-						'sepuluh_persen' 		=> trim($Row[54]),
+						'sembilanpuluh_persen' 	=> trim($Row[54]),
+						'sepuluh_persen' 		=> trim($Row[53]),
 						'kopensasi_gula' 		=> trim($Row[51]), 
 						'gula_pg' 			=> trim($Row[56]), 
 						'tetes_pg' 			=> trim($Row[57]),
@@ -457,9 +516,35 @@ try
 						'sbh_ari_tgl'		=> date('Y-m-d H:i:s')
 					);
 
-					}else{
+					}else if(CNF_KONSEP == 1){
 						//ari
 					$tempdataari = array(
+						'id_ari'	 		=> trim($Row[1]), 
+						'id_spta' 			=> trim($Row[0]), 
+						'persen_brix_ari' 	=> trim($Row[36]), 
+						'persen_pol_ari' 	=> trim($Row[37]), 
+						'ph_ari' 			=> trim($Row[38]), 
+						'hk' 				=> trim($Row[39]), 
+						'nilai_nira' 		=> trim($Row[40]), 
+						'faktor_rendemen' 	=> trim($Row[41]), 
+						'rendemen_ari' 		=> trim($Row[42]), 
+						'hablur_ari' 		=> trim($Row[43]), 
+						'gula_total' 		=> trim($Row[44]), 
+						'tetes_total' 		=> trim($Row[45]), 
+						'rendemen_ptr' 		=> trim($Row[46]), 
+						'gula_ptr' 			=> trim($Row[49]), 
+						'tetes_ptr' 		=> trim($Row[52]),
+						'sembilanpuluh_persen' 	=> trim($Row[51]),
+						'sepuluh_persen' 		=> trim($Row[50]),
+						'kopensasi_gula' 		=> trim($Row[48]), 
+						'gula_pg' 			=> trim($Row[53]), 
+						'tetes_pg' 			=> trim($Row[54]),
+						'sbh_ari_status'	=> '1',
+						'sbh_ari_user'		=> $this->session->userdata('fid'),
+						'sbh_ari_tgl'		=> date('Y-m-d H:i:s')
+					);
+				}else{
+					//kedawung
 						'id_ari'	 		=> trim($Row[1]), 
 						'id_spta' 			=> trim($Row[0]), 
 						'persen_brix_ari' 	=> trim($Row[37]), 
@@ -475,15 +560,14 @@ try
 						'rendemen_ptr' 		=> trim($Row[47]), 
 						'gula_ptr' 			=> trim($Row[50]), 
 						'tetes_ptr' 		=> trim($Row[53]),
-						'sembilanpuluh_persen' 	=> trim($Row[51]),
-						'sepuluh_persen' 		=> trim($Row[52]),
-						'kopensasi_gula' 		=> trim($Row[53]), 
+						'sembilanpuluh_persen' 	=> trim($Row[52]),
+						'sepuluh_persen' 		=> trim($Row[51]),
+						'kopensasi_gula' 		=> trim($Row[49]), 
 						'gula_pg' 			=> trim($Row[54]), 
 						'tetes_pg' 			=> trim($Row[55]),
 						'sbh_ari_status'	=> '1',
 						'sbh_ari_user'		=> $this->session->userdata('fid'),
 						'sbh_ari_tgl'		=> date('Y-m-d H:i:s')
-					);
 				}
 			}else{
 
