@@ -258,7 +258,7 @@ function onchangeTpg(){
 		document.getElementById('tebang_pg0').disabled = false;
 	}
 }
-
+<?php if(CNF_COMPANYCODE == 'N011'){ ?>
 function onchangeSpt(){
 	if(document.getElementById("spt1").checked) {
 		document.getElementById('spt0').disabled = true;
@@ -274,7 +274,7 @@ function onchangeNatura(){
 		document.getElementById('natura0').disabled = false;
 	}
 }
-
+<?php } ?>
 
 function onchangeApg(){
 	if(document.getElementById("angkut_pg1").checked) {
