@@ -33,7 +33,7 @@
 	<label for="Company Code" class=" control-label col-md-4 text-left"> 
 	<?php if($kategori == 'TS-SP'){?>
 	Pilihan SPT <span class="asterix"> * </span>
-	<?php }?>
+	<?php } ?>
 	</label>
 <div class="col-md-4">
 	<div class="checkbox">
@@ -41,7 +41,7 @@
 					<input type="hidden" id="spt0" name="spt" value="0">
 					<?php if($kategori == 'TS-SP'){?>
                     <input type="checkbox" id="spt1" name="spt" value="1" onchange="onchangeSpt()" checked> SPT
-					<?php }?>
+					<?php } ?>
                   </label>
                 </div> 
 	</div>
@@ -57,12 +57,12 @@
 						}
 						?>
                     <input type="checkbox" id="natura1" name="natura" value="1" onchange="onchangeNatura()" <?=$sttspg;?>> Natura 10%
-					<?php }?>
+					<?php } ?>
                   </label>
                 </div> 
 	</div>
 </div>
-<?php }?>
+<?php } ?>
 <div class="form-group  " >
 	<label for="Company Code" class=" control-label col-md-4 text-left"> Jumlah Order <span class="asterix"> * </span></label>
 	<div class="col-md-8">
@@ -274,7 +274,7 @@ function onchangeNatura(){
 		document.getElementById('natura0').disabled = false;
 	}
 }
-<?php }?>
+<?php } ?>
 
 function onchangeApg(){
 	if(document.getElementById("angkut_pg1").checked) {
@@ -283,7 +283,7 @@ function onchangeApg(){
 		$('#jarak_id').prop('required',true);
 		tempJarak = true;
 		tempVendor = true;
-		$('#jarak_id').val('<?php echo $idjrk;?>');
+		$('#jarak_id').val('<?php echo $idjrk; ?>');
 	}else{
 		document.getElementById('angkut_pg0').disabled = false;
 		$('.vendor').hide();
