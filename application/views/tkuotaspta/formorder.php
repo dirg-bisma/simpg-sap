@@ -7,17 +7,17 @@
 		 <form action="<?php echo site_url('tkuotaspta/saveOrder'); ?>" class='form-vertical' 
 		 parsley-validate='true' novalidate='true' method="post" id="frmOrder" enctype="multipart/form-data" > 
 
-		<input type="hidden" name="id" value="<?php echo $id;?>" />
-		<input type="hidden" name="id_spta_kuota" value="<?php echo $id_spta_kuota;?>" />
-		<input type="hidden" name="id_spta_kuota_kkw" value="<?php echo $id_spta_kuota_kkw;?>" />
-		<input type="hidden" name="afdeling" value="<?php echo $afdeling;?>" />
-		<input type="hidden" name="id_petani_sap" value="<?php echo $id_petani_sap;?>" />
-		<input type="hidden" name="kategori" value="<?php echo $kategori;?>" />
+		<input type="hidden" name="id" value="<?php echo $id; ?>" />
+		<input type="hidden" name="id_spta_kuota" value="<?php echo $id_spta_kuota; ?>" />
+		<input type="hidden" name="id_spta_kuota_kkw" value="<?php echo $id_spta_kuota_kkw; ?>" />
+		<input type="hidden" name="afdeling" value="<?php echo $afdeling; ?>" />
+		<input type="hidden" name="id_petani_sap" value="<?php echo $id_petani_sap; ?>" />
+		<input type="hidden" name="kategori" value="<?php echo $kategori; ?>" />
 <div class="col-md-12">
 <div class="form-group  " >
 	<label for="Company Code" class=" control-label col-md-4 text-left"> Tgl SPTA <span class="asterix"> * </span></label>
 	<div class="col-md-8">
-		<input type='text' class='form-control input-sm' placeholder='' value='<?php echo $tgl_spta;?>' name='tgl_spta' readonly  required /> <br />
+		<input type='text' class='form-control input-sm' placeholder='' value='<?php echo $tgl_spta; ?>' name='tgl_spta' readonly  required /> <br />
 	</div> 
 	</div> 
 	
@@ -56,7 +56,7 @@
 							if($cekspg->persen_10 == 1) $sttspg = 'checked';
 						}
 						?>
-                    <input type="checkbox" id="natura1" name="natura" value="1" onchange="onchangeNatura()" <?=$sttspg;?>> Natura 10%
+                    <input type="checkbox" id="natura1" name="natura" value="1" onchange="onchangeNatura()" <?php echo $sttspg; ?>> Natura 10%
 					<?php } ?>
                   </label>
                 </div> 
@@ -186,19 +186,19 @@ $(document).ready(function(){
 	$(".select2").select2({ width: '100%' });
 	$('.vendor').hide();
 	 
-	$("#persno_pta").jCombo("<?php echo site_url('tkuotaspta/comboselect?filter=vw_master_karyawan:Persno:name:id_jabatan:2') ?>",
+	$("#persno_pta").jCombo("<?php echo site_url('tkuotaspta/comboselect?filter=vw_master_karyawan:Persno:name:id_jabatan:2'); ?>",
 		{  selected_value : '', initial_text:'- pilih nama PTA -' });
 		
-	$("#transfer_dari").jCombo("<?php echo site_url('tkuotaspta/comboselect?filter=sap_plant:kode_plant:nama_plant') ?>",
+	$("#transfer_dari").jCombo("<?php echo site_url('tkuotaspta/comboselect?filter=sap_plant:kode_plant:nama_plant'); ?>",
 		{  selected_value : '' , initial_text:'- pilih jika tebu transfer Dari -' });
 
-	$("#transfer_ke").jCombo("<?php echo site_url('tkuotaspta/comboselect?filter=sap_plant:kode_plant:nama_plant') ?>",
+	$("#transfer_ke").jCombo("<?php echo site_url('tkuotaspta/comboselect?filter=sap_plant:kode_plant:nama_plant'); ?>",
 		{  selected_value : '' , initial_text:'- pilih jika tebu transfer Ke -' });
 		
-	$("#vendor_id").jCombo("<?php echo site_url('tkuotaspta/comboselect?filter=m_vendor:id_vendor:nama_vendor') ?>",
+	$("#vendor_id").jCombo("<?php echo site_url('tkuotaspta/comboselect?filter=m_vendor:id_vendor:nama_vendor'); ?>",
 		{  selected_value : '' , initial_text:'- pilih jika diangkut Vendor -' });
 		
-	$("#jarak_id").jCombo("<?php echo site_url('tkuotaspta/comboselect?filter=m_biaya_jarak:id_jarak:keterangan') ?>",
+	$("#jarak_id").jCombo("<?php echo site_url('tkuotaspta/comboselect?filter=m_biaya_jarak:id_jarak:keterangan'); ?>",
 		{  selected_value : '' , initial_text:'- pilih jarak ke pabrik -' });
 	
 	var frm = $('#frmOrder');
