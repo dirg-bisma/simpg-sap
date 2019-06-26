@@ -56,7 +56,7 @@
 							if($cekspg->persen_10 == 1) $sttspg = 'checked';
 						}
 						?>
-                    <input type="checkbox" id="natura1" name="natura" value="1" onchange="onchangeNatura()" <?php echo $sttspg; ?>> Natura 10%
+                    <input type="checkbox" id="natura1" name="natura" value="1" onchange="onchangeNatura()" <?php echo $sttspg; ?> > Natura 10%
 					<?php } ?>
                   </label>
                 </div> 
