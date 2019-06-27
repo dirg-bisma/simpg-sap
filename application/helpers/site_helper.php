@@ -51,6 +51,13 @@ public static function datereport($tgl){
 	$tgl = explode('-',$tgl);
 	return $tgl[2].' '.$bln[$tgl[1]].' '.$tgl[0];
 }
+
+public static function datereporthidejam($tgl){
+	$bln = array('01'=>'Januari','02'=>'Febuari','03'=>'Maret','04'=>'April','05'=>'Mei','06'=>'Juni','07'=>'Juli','08'=>'Agustus','09'=>'September','10'=>'Oktober','11'=>'November','12'=>'Desember');
+	$tgl1 = explode(' ', $tgl);
+	$tgl = explode('-',$tgl1[0]);
+	return $tgl[2].' '.$bln[$tgl[1]].' '.$tgl[0];
+}
 public static function datereportbln($tgl){
 	$bln = array('01'=>'Jan','02'=>'Feb','03'=>'Mar','04'=>'Apr','05'=>'Mei','06'=>'Jun','07'=>'Jul','08'=>'Agt','09'=>'Sep','10'=>'Okt','11'=>'Nov','12'=>'Des');
 	$tgl = explode('-',$tgl);
@@ -80,6 +87,43 @@ public static function datereporttgl($tgl){
 	$tgl = explode('-',$tgl);
 	return $tgl[2];
 }
+
+public static function penyebut($nilai) {
+		$nilai = abs($nilai);
+		$huruf = array("", "Satu", "Dua", "Tiga", "Empat", "Lima", "Enam", "Tujuh", "Delapan", "Sembilan", "Sepuluh", "Sebelas");
+		$temp = "";
+		if ($nilai < 12) {
+			$temp = " ". $huruf[$nilai];
+		} else if ($nilai <20) {
+			$temp = self::penyebut($nilai - 10). " Belas";
+		} else if ($nilai < 100) {
+			$temp = self::penyebut($nilai/10)." Puluh". self::penyebut($nilai % 10);
+		} else if ($nilai < 200) {
+			$temp = " Seratus" . self::penyebut($nilai - 100);
+		} else if ($nilai < 1000) {
+			$temp = self::penyebut($nilai/100) . " Ratus" . self::penyebut($nilai % 100);
+		} else if ($nilai < 2000) {
+			$temp = " Seribu" . self::penyebut($nilai - 1000);
+		} else if ($nilai < 1000000) {
+			$temp = self::penyebut($nilai/1000) . " Ribu" . self::penyebut($nilai % 1000);
+		} else if ($nilai < 1000000000) {
+			$temp = self::penyebut($nilai/1000000) . " Juta" . self::penyebut($nilai % 1000000);
+		} else if ($nilai < 1000000000000) {
+			$temp = self::penyebut($nilai/1000000000) . " Milyar" . self::penyebut(fmod($nilai,1000000000));
+		} else if ($nilai < 1000000000000000) {
+			$temp = self::penyebut($nilai/1000000000000) . " Trilyun" . self::penyebut(fmod($nilai,1000000000000));
+		}     
+		return $temp;
+	}
+ 
+	public static function terbilang($nilai) {
+		if($nilai<0) {
+			$hasil = "minus ". trim(self::penyebut($nilai));
+		} else {
+			$hasil = trim(self::penyebut($nilai));
+		}     		
+		return $hasil;
+	}
 
 public static function array_sort($array, $on, $order=SORT_ASC)
 {
