@@ -61,9 +61,14 @@
 			<div style="clear:both"></div>	
 				
  		<div class="toolbar-line text-center">		
-			
+			<?
+      if( $rowdetail['id'] == '' ){
+      ?>
 			<input type="submit" name="submit" class="btn btn-primary btn-sm" value="<?php echo $this->lang->line('core.sb_submit'); ?>" />
 			<a href="<?php echo site_url('tpinjamanpetani');?>" class="btn btn-sm btn-warning"><?php echo $this->lang->line('core.sb_cancel'); ?> </a>
+			<?
+		}
+			?>
  		</div>
 			  		
 		</form>

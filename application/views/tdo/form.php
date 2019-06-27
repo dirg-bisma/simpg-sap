@@ -66,8 +66,14 @@
       <a href="javascript:downloadtemplatepot()" class="btn btn-sm btn-info"> <i class="fa fa-download" ></i> Export Template Potongan </a>
       <a href="javascript:importpotongan()" class="btn btn-sm btn-primary"> <i class="fa fa-upload" ></i> Import Potongan </a>
 
+      <?
+      if($this->session->userdata('gid') == 1 || $this->session->userdata('gid') == 12){
+      ?>
       <a href="javascript:formverifikasi()" class="btn btn-sm btn-success"> <i class="fa fa-check" ></i> Verifikasi DO</a>
       <a href="javascript:formcancelverifikasi()" class="btn btn-sm btn-danger"> <i class="fa fa-times" ></i> Cancel DO</a>
+      <?
+    }
+      ?>
     </div>
                  </form> 
                 </div>
