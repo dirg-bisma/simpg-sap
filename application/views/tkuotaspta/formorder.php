@@ -178,10 +178,12 @@ $( "#spt1" ).on( "click", function(){
 });
 	<?php
 	if(CNF_COMPANYCODE == 'N011'){
+		if($kategori == 'TS-SP'){
 		?>
 		onchangeSpt();
 		onchangeNatura();
 		<?
+	}
 	}
 	?>
 	
