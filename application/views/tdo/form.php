@@ -62,10 +62,12 @@
                   </div> 
                   </div> 
                   <div class="col-md-12 text-center">    
-      <a href="javascript:generatepotongandefault()" class="btn btn-sm btn-warning"> <i class="fa fa-cogs" ></i> Generate Potongan Default </a>
-      <a href="javascript:downloadtemplatepot()" class="btn btn-sm btn-danger"> <i class="fa fa-download" ></i> Export Template Potongan Excel </a>
+      <a href="javascript:generatepotongandefault()" class="btn btn-sm btn-warning"> <i class="fa fa-cogs" ></i> Generate Potongan </a>
+      <a href="javascript:downloadtemplatepot()" class="btn btn-sm btn-info"> <i class="fa fa-download" ></i> Export Template Potongan </a>
       <a href="javascript:importpotongan()" class="btn btn-sm btn-primary"> <i class="fa fa-upload" ></i> Import Potongan </a>
+
       <a href="javascript:formverifikasi()" class="btn btn-sm btn-success"> <i class="fa fa-check" ></i> Verifikasi DO</a>
+      <a href="javascript:formcancelverifikasi()" class="btn btn-sm btn-danger"> <i class="fa fa-times" ></i> Cancel DO</a>
     </div>
                  </form> 
                 </div>
@@ -184,5 +186,9 @@ $(document).ready(function(){
 
  function formverifikasi(){
   SximoModal('<?php echo site_url('tdo/formverifikasi');?>','Verifikasi DO','500px');
+ }
+
+ function formcancelverifikasi(){
+  SximoModal('<?php echo site_url('tdo/formcancelverifikasi');?>','Cancel Verifikasi DO','500px');
  }
 </script>		 

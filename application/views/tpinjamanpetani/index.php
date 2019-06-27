@@ -17,10 +17,13 @@
               	<div class="box-header with-border">
                   <h3 class="box-title"><?php echo $pageTitle ;?></h3>
                   <div class="box-tools pull-right">
- 	
+ 	  
+    <a href="<?php echo site_url('tpinjamanpetani/cetakreport') ?>" class="tips btn btn-xs btn-warning"  title="Download Data">
+    <i class="fa fa-download"></i>&nbsp;Export Data </a>
+
 		<?php if($this->access['is_add'] ==1) : ?>
 		<a href="<?php echo site_url('tpinjamanpetani/add') ?>" class="tips btn btn-xs btn-info"  title="<?php echo $this->lang->line('core.btn_new'); ?>">
-		<i class="fa fa-plus"></i>&nbsp;<?php echo $this->lang->line('core.btn_new'); ?> (F2) </a>
+		<i class="fa fa-plus"></i>&nbsp;Tambah </a>
 		<?php endif;?>
                   </div>
                 </div>
@@ -89,7 +92,7 @@ var table;
         {
           "targets": [ -1 ], //last column
           "orderable": false, //set not orderable
-        },
+        },{ className: "number", "targets": [ 6,7,8] },
         ],
         });
       });

@@ -6,7 +6,7 @@
 									<div class="col-md-8">
 									  <select class="form-control" id="periodeverif" name="periode" onchange="periodreload()">
                       <?php
-                      $s = $this->db->query("SELECT * FROM t_periode_do where status=0 order by id")->result();
+                      $s = $this->db->query("SELECT * FROM t_periode_do where status=1 order by id")->result();
                       foreach($s as $d){
                         ?>
                         <option value="<?php echo $d->id;?>"><?php echo $d->nama_periode;?></option>
@@ -28,9 +28,9 @@
 				
  		<div class="toolbar-line text-center">		
 			
-			<a href="javascript:verifikasido()" class="tips btn btn-xs btn-success"  title="Verifikasi Data">
-		<i class="fa fa-check"></i>&nbsp;Verifikasi Data</a> 
 
+    <a href="javascript:cancelverifikasido()" class="tips btn btn-xs btn-danger"  title="cancel Data">
+    <i class="fa fa-times"></i>&nbsp;Cancel Verifikasi Data</a> 
  		</div>
 			  		
 	
