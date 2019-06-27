@@ -22,6 +22,7 @@ CREATE TABLE `t_pinjaman_petani` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
+DROP TABLE IF EXISTS `t_pinjaman_petani_detail`;
 
 CREATE TABLE `t_pinjaman_petani_detail` (
   `id` int(20) NOT NULL AUTO_INCREMENT,
