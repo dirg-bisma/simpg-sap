@@ -14,7 +14,7 @@ class Tpinjamanpetanimodel extends SB_Model
 	public static function querySelect(  ){
 		
 		
-		return "   SELECT t_pinjaman_petani.* FROM t_pinjaman_petani   ";
+		return "   SELECT t_pinjaman_petani.* FROM vw_t_pinjaman_petani  as t_pinjaman_petani   ";
 	}
 	public static function queryWhere(  ){
 		

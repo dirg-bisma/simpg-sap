@@ -383,6 +383,10 @@ WHERE STATUS = 1";
 		echo $this->load->view('tdo/formverifikasi',null, true );
 	}
 
+	function formcancelverifikasi(){
+		echo $this->load->view('tdo/formcancelverif',null, true );
+	}
+
 	function viewverif(){
 		$idperiod = $_REQUEST['idperiode'];
 		$row = $this->db->query("SELECT * FROM t_periode_do WHERE id=$idperiod")->row_array();
@@ -396,6 +400,30 @@ WHERE STATUS = 1";
 		$totrow = $this->db->affected_rows();
 		echo $totrow." DO berhasil di verikasi Oleh ".$this->session->userdata('fid');
 		$this->db->query("UPDATE t_periode_do SET status=1,tgl_act=now(),user_act='".$this->session->userdata('fid')."' WHERE id=$idperiod");
+		//input ke buku hutang bahwa sudah menjadi potongan
+		$sqlpot = $this->db->query("SELECT a.nominal,c.`id_petani_sap`,c.`no_do`,d.id as id_pinjaman,d.saldo_kredit
+FROM `t_do_potongan` a 
+INNER JOIN `m_potongan_do` b ON a.`id_potongan`=b.`id` 
+INNER JOIN t_do c ON c.`id`=a.`id_do`
+INNER JOIN t_pinjaman_petani d ON d.`id_petani_sap`=c.`id_petani_sap`
+WHERE b.`jenis_potongan`=6 AND a.`nominal` > 0 AND c.`status_do`=1 AND c.`id_periode`=$idperiod")->result();
+		foreach ($sqlpot as $kes) {
+			$sisas = $kes->saldo_kredit-$kes->nominal;
+			$data = array(
+			'tgl'			=>date('Y-m-d'),
+			'jenis_tx'		=>2,
+			'no_ref'		=>$kes->no_do,
+			'id_pinjaman'	=>$kes->id_pinjaman,
+			'id_petani_sap'	=>$kes->id_petani_sap,
+			'kredit'		=>$kes->nominal,
+			'saldo'			=>$sisas,
+			'saldo_sebelumnya'=>$kes->saldo_kredit,
+			'user_act'		=>$this->session->userdata('fid'),
+			'tgl_act'		=>date('Y-m-d H:i:s')
+		);
+			$this->db->insert('t_pinjaman_petani_detail',$data);
+			$this->db->query("UPDATE t_pinjaman_petani SET saldo_kredit=".$sisas.",last_update=NOW(),user_update='".$this->session->userdata('fid')."' where id=".$kes->id_pinjaman);
+		}
 
 	}
 
@@ -405,6 +433,13 @@ WHERE STATUS = 1";
 		$totrow = $this->db->affected_rows();
 		echo $totrow." DO berhasil di Cancel Verifikasi Oleh ".$this->session->userdata('fid');
 		$this->db->query("UPDATE t_periode_do SET status=0,tgl_act=now(),user_act='".$this->session->userdata('fid')."' WHERE id=$idperiod");
+
+		$this->db->query("DELETE a.* FROM t_pinjaman_petani_detail a INNER JOIN t_do b ON a.`no_ref`=b.`no_do` WHERE b.`id_periode`=$idperiod");
+		$this->db->query("UPDATE t_pinjaman_petani a 
+INNER JOIN t_do b ON b.`id_petani_sap`=a.`id_petani_sap`
+SET a.saldo_kredit = (SELECT SUM(debet)-SUM(kredit) FROM t_pinjaman_petani_detail WHERE id_pinjaman = a.`id`)
+WHERE b.`id_periode`=$idperiod");
+
 	}
 
 	function printsendiri( $id = null) 
