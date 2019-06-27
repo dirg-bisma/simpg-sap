@@ -6,6 +6,7 @@ MySQL - 10.1.19-MariaDB
 /*!40101 SET NAMES utf8 */;
 
 DROP TABLE IF EXISTS `t_pinjaman_petani`;
+
 CREATE TABLE `t_pinjaman_petani` (
   `id` int(20) NOT NULL AUTO_INCREMENT,
   `no_pinjaman` varchar(120) DEFAULT NULL,
@@ -21,7 +22,7 @@ CREATE TABLE `t_pinjaman_petani` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
-DROP TABLE IF EXISTS `t_pinjaman_petani`;
+
 CREATE TABLE `t_pinjaman_petani_detail` (
   `id` int(20) NOT NULL AUTO_INCREMENT,
   `tgl` date DEFAULT NULL,
