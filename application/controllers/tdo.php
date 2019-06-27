@@ -487,6 +487,10 @@ WHERE STATUS = 1";
 		}
 
 		$per = $this->db->query("SELECT * FROM t_periode_do where id = $periode")->row();
+
+		$this->data['row'] = $this->db->query("SELECT * FROM t_periode_do where id = $periode")->row_array();
+		//$this->data['id'] = $id;
+		$rx = $this->load->view('tperiodegiling/viewcetak', $this->data ,true);
 		//echo $filter;die();
 		header("Content-disposition: attachment; filename=DO_".CNF_PG."_".$per->nama_periode.".xls");
         header("Content-Type: application/vnd.ms-excel");
@@ -498,6 +502,9 @@ WHERE STATUS = 1";
 		<tr><td colspan='19' align='center'>".CNF_PG."</td></tr>
 		<tr><td colspan='19' align='center'>".SiteHelpers::daterpt($per->tgl_awal)." s/d ".SiteHelpers::daterpt($per->tgl_akhir)."</td></tr>
 		<tr>
+		<tr><td colspan='19' align='center'>
+".$rx."
+		</td></tr>
 		<th bgcolor='silver'>NO</th>
 		<th bgcolor='silver'>ID_DO</th>
 		<th bgcolor='silver'>NO_DO</th>
