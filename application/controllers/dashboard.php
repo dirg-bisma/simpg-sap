@@ -81,6 +81,7 @@ class Dashboard extends SB_Controller {
 		//jns 1 selektor,2 timbangan, 3 gilingan
 		$tgl = str_replace(' ', '', $tgl);
 		$cc = CNF_COMPANYCODE;
+		echo $tgl;
 		$leftjoin = '';
 		$fieldj = "";
 		if($jns == 1){
