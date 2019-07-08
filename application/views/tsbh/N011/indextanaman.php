@@ -47,12 +47,19 @@
                   <div class="box-tools pull-right">
 		Tanggal Giling : &nbsp;&nbsp;&nbsp;
 		<input type="text" class="date" id="tgl1" value="<?php echo date('Y-m-d');?>">&nbsp;&nbsp;s/d&nbsp;&nbsp;<input type="text" class="date" id="tgl2"  value="<?php echo date('Y-m-d');?>">
+
+
 		<a href="javascript:reloadGrid()" class="tips btn btn-xs btn-info"  title="View">
 		<i class="fa fa-search"></i>&nbsp;View </a>
+
+    
+
 		<a href="javascript:approved()" class="tips btn btn-xs btn-warning"  title="View">
 		<i class="fa fa-check"></i>&nbsp;Approve</a>
     <a href="javascript:cancelapproved()" class="tips btn btn-xs btn-danger"  title="View">
     <i class="fa fa-times"></i>&nbsp;Cancel Approve</a>
+
+
 		
                   </div>
                 </div>
@@ -345,4 +352,7 @@ function reloadGrid(){
     }
 });
  }
+
+
+
 </script>

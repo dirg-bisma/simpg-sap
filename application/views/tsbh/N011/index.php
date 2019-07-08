@@ -55,6 +55,13 @@
                         <a href="javascript:download()" class="tips btn btn-xs btn-danger"  title="View">
                             <i class="fa fa-download"></i>&nbsp;Download Report</a>
                             <?php endif;?>
+                            <?php if($this->session->userdata('gid') == 11){
+                                ?>
+                            <a href="javascript:downloadprognosa()" class="tips btn btn-xs btn-success"  title="View">
+                            <i class="fa fa-download"></i>&nbsp;Download Prognosa</a>
+                                <?
+                            }
+                            ?>
                     </div>
                 </div>
 
@@ -314,6 +321,13 @@
     function download(){
         var jns = 1;
         var url = "<?php echo site_url('tsbh/downloaded');?>/"+jns+"/"+$('#tgl1').val()+'/'+$('#tgl2').val();
+        window.open(url,'_blank');
+    }
+
+
+     function downloadprognosa(){
+        var jns = 3;
+        var url = "<?php echo site_url('tsbh/downloadedprognosa');?>/"+jns+"/"+$('#tgl1').val()+'/'+$('#tgl2').val();
         window.open(url,'_blank');
     }
 </script>
