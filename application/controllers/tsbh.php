@@ -455,6 +455,40 @@ class Tsbh extends SB_Controller
 	}
 
 
+	function downloadedprognosa($jns,$tgl1,$tgl2){
+		$sort = $this->model->primaryKey; 
+		$order = 'asc';
+
+		$filter = " AND  tgl_giling BETWEEN '$tgl1' AND '$tgl2'";
+		$filter .= " AND sbh_status > 3";	
+
+		//$filter .= $this->session->userdata('filt_sbh');
+		$params = array(
+			'limit'		=> 0,
+			'page'		=> 0,
+			'sort'		=> $sort ,
+			'order'		=> $order,
+			'params'	=> $filter,
+			'global'	=> (isset($this->access['is_global']) ? $this->access['is_global'] : 0 )
+		);
+		// Get Query 
+		$results = $this->model->getRowspdx( $params );
+		$this->data['rows'] = $results['rows'];
+		//$total = $results['total'];
+		//$totalfil = $results['totalfil'];
+		$this->data['tableGrid'] 	= $this->info['config']['grid'];
+		$file = 'Prognosa Template '.SiteHelpers::daterpt($tgl1).' S/D '.SiteHelpers::daterpt($tgl2).'.xls';
+		//var_dump($this->data['tableGrid']);die();
+		header("Content-type: application/vnd.ms-excel");
+		header("Content-Disposition: attachment; filename=$file");
+		$this->data['title'] = 'PERIODE '.SiteHelpers::daterpt($tgl1).' S/D '.SiteHelpers::daterpt($tgl2);
+		echo $this->load->view('tsbh/'.CNF_COMPANYCODE.'/templateprognosa',$this->data, true );
+		
+
+		//var_dump($rows);
+	}
+
+
 	function downloadlembarkerja($jns,$tgl1,$tgl2){
 		$sort = $this->model->primaryKey; 
 		$order = 'asc';
