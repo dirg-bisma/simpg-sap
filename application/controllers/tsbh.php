@@ -460,7 +460,7 @@ class Tsbh extends SB_Controller
 		$order = 'asc';
 
 		$filter = " AND  tgl_giling BETWEEN '$tgl1' AND '$tgl2'";
-		$filter .= " AND sbh_status > 3";	
+		$filter .= " AND sbh_status > 2";	
 
 		//$filter .= $this->session->userdata('filt_sbh');
 		$params = array(
