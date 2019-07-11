@@ -412,10 +412,10 @@ table.null-border{
   </tr>
 
   <tr>
-    <td rowspan="3">AMPAS</td>
+    <td rowspan="2">AMPAS</td>
     <td align="center">37</td>
     <td>TON</td>
-    <td class="number"><?php echo SiteHelpers::numberformat($rw->ton_ampas, 3); ?></td>
+    <td class="number"><?php echo SiteHelpers::numberformat($rw->ampas_ton, 3); ?></td>
     <td class="number"></td>
   </tr>
   <tr>
@@ -426,10 +426,10 @@ table.null-border{
   </tr>
 
   <tr>
-    <td rowspan="3">BLOTONG</td>
+    <td rowspan="2">BLOTONG</td>
     <td align="center">39</td>
     <td>TON</td>
-    <td class="number"><?php echo SiteHelpers::numberformat($rw->ton_blotong, 3); ?></td>
+    <td class="number"><?php echo SiteHelpers::numberformat($rw->blotong_ton, 3); ?></td>
     <td class="number"></td>
   </tr>
   <tr>
@@ -440,16 +440,16 @@ table.null-border{
   </tr>
 
   <tr>
-    <td rowspan="3">POL DALAM HASIL + TAKSASI</td>
+    <td rowspan="2">POL DALAM HASIL + TAKSASI</td>
     <td align="center">39</td>
     <td>TON</td>
-    <td class="number"><?php echo SiteHelpers::numberformat($rw->ton_pol_dlm_hasil_plus_taksasi, 3); ?></td>
+    <td class="number"><?php echo SiteHelpers::numberformat($rw->pol_dlm_hasil_taksasi_ton, 3); ?></td>
     <td class="number"></td>
   </tr>
   <tr>
     <td align="center">40</td>
     <td>% POL</td>
-    <td class="number"><?php echo SiteHelpers::numberformat($rw->persen_pol_dlm_hasil_plus_taksasi, 3); ?></td>
+    <td class="number"><?php echo SiteHelpers::numberformat($rw->pol_dlm_hasil_taksasi_persenpol, 3); ?></td>
     <td class="number"></td>
   </tr>
 
