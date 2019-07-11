@@ -131,8 +131,9 @@ class Tlapharpeng extends SB_Controller
 
 	function validasidata($id,$hg){
 		$this->inputLogs("Validasi Laporan Harian Oleh ".$this->session->userdata('fid')." Pada Hari Giling ke ".$hg);
-		$this->db->query("UPDATE t_lap_harian_pengolahan_ptpn SET status = 2,tgl_validasi=NOW(),user_validasi='".$this->session->userdata('fid')."'");
+		$this->db->query("UPDATE t_lap_harian_pengolahan_ptpn SET status = 2,tgl_validasi=NOW(),user_validasi='".$this->session->userdata('fid')."' WHERE id = $id");
 		$this->session->set_flashdata('message',SiteHelpers::alert('success','Berhasil validasi data..'));
+		$this->senddataserver($id);
 			redirect('tlapharpeng/show/'.$id,301);
 	}
 	
@@ -177,7 +178,7 @@ class Tlapharpeng extends SB_Controller
 		$this->data['content'] =  $this->load->view('tlapharpeng/view', $this->data ,true);	  
 		$this->load->view('layouts/main',$this->data);
 		if($row->status == 2){
-			$this->senddataserver($id);
+			//$this->senddataserver($id);
 		}
 	}
 
