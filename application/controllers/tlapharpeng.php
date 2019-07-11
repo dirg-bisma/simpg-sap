@@ -305,29 +305,36 @@ class Tlapharpeng extends SB_Controller
   `kes_sd` AS `kes`,
   `ha_tebang_tr_sd` AS `ha_tebang_tr`,
   `ha_tebang_ts_sd` AS `ha_tebang_ts`,
+  `ha_tebang_spt_sd` AS `ha_tebang_spt`,
   `ha_tebang_ts_saudara_sd` AS `ha_tebang_ts_saudara`,
   `ha_tebang_total_sd` AS `ha_tebang_total`,
   `ton_tebang_tr_sd` AS `ton_tebang_tr`,
   `ton_tebang_ts_sd` AS `ton_tebang_ts`,
+  `ton_tebang_spt_sd` AS `ton_tebang_spt`,
   `ton_tebang_ts_saudara_sd` AS `ton_tebang_ts_saudara`,
   `ton_tebang_total_sd` AS `ton_tebang_total`,
   `ha_giling_tr_sd` AS `ha_giling_tr`,
   `ha_giling_ts_sd` AS `ha_giling_ts`,
+  `ha_giling_spt_sd` AS `ha_giling_spt`,
   `ha_giling_ts_saudara_sd` AS `ha_giling_ts_saudara`,
   `ha_giling_total_sd` AS `ha_giling_total`,
   `ton_giling_tr_sd` AS `ton_giling_tr`,
   `ton_giling_ts_sd` AS `ton_giling_ts`,
+  `ton_giling_spt_sd` AS `ton_giling_spt`,
   `ton_giling_ts_saudara_sd` AS `ton_giling_ts_saudara`,
   `ton_giling_total_sd` AS `ton_giling_total`,
   `kristal_tr_sd` AS `kristal_tr`,
   `kristal_ts_sd` AS `kristal_ts`,
+  `kristal_spt_sd` AS `kristal_spt`,
   `kristal_ts_saudara_sd` AS `kristal_ts_saudara`,
   `kristal_total_sd` AS `kristal_total`,
   `rend_tr_sd` AS `rend_tr`,
   `rend_ts_sd` AS `rend_ts`,
+  `rend_spt_sd` AS `rend_spt`,
   `rend_ts_saudara_sd` AS `rend_ts_saudara`,
   `rend_total_sd` AS `rend_total`,
   `gula_pg_ts_sd` AS `gula_pg_ts`,
+  `gula_pg_spt_sd` AS `gula_pg_spt`,
   `gula_pg_eks_ts_saudara_sd` AS `gula_pg_eks_ts_saudara`,
   `gula_pg_eks_tr_sd` AS `gula_pg_eks_tr`,
   `gula_pg_total_sd` AS `gula_pg_total`,
@@ -346,6 +353,7 @@ class Tlapharpeng extends SB_Controller
   `tetes_total_sd` AS `tetes_total`,
   `tebu_terbakar_tr_sd` AS `tebu_terbakar_tr`,
   `tebu_terbakar_ts_sd` AS `tebu_terbakar_ts`,
+  `tebu_terbakar_spt_sd` AS `tebu_terbakar_spt`,
   `tebu_terbakar_ts_saudara_sd` AS `tebu_terbakar_ts_saudara`,
   `tebu_terbakar_total_sd` AS `tebu_terbakar_total`,
   `jam_berhenti_a_sd` AS `jam_berhenti_a`,
@@ -402,12 +410,15 @@ GROUP BY b.`kode_kat_lahan`";
 			$rwsqlhutang = $this->db->query($sqlhutanggula)->result();
 			$gulaptr = 0;
 			$gulamiliktssaudara = 0;
+			$gulaspt = 0;
 			$gulapgextr = 0;
 			$gulapg = 0;
 			$gulapgextssaudara = 0;
 			foreach ($rwsqlhutang as $v) {
 				if($v->kode_kat_lahan == 'TS-TR'){
 					$gulamiliktssaudara += $v->gulapg;
+				}else if($v->kode_kat_lahan == 'TS-SP'){
+					$gulaspt += $v->gulapg;
 				}else if(substr($v->kode_kat_lahan,0,2) == 'TS'){
 					$gulapg += $v->gulapg;
 				}else{
@@ -420,7 +431,8 @@ GROUP BY b.`kode_kat_lahan`";
 			/*query hari ini simpg*/
 			$sqlhidigiling = $this->db->query("SELECT 
 IF(b.`kode_kat_lahan` = 'TS-TR','TS-TR',
-IF(LEFT(b.kode_kat_lahan,2)='TS','TS','TR')) AS kode_kat_lahan,
+IF(b.`kode_kat_lahan` = 'TS-SP','TS-SP',
+IF(LEFT(b.kode_kat_lahan,2)='TS','TS','TR'))) AS kode_kat_lahan,
 ROUND(SUM(hablur_ari)/1000,3) AS kristal,SUM(c.`netto_final`)/1000 AS tebudigiling,
 SUM(d.ha_tertebang) AS ha_digiling,
 sum(IF(e.kondisi_tebu = '".CNF_MUTU_TERBAKAR."',c.netto_final,0))/1000 as tebuterbakar
@@ -432,16 +444,21 @@ sum(IF(e.kondisi_tebu = '".CNF_MUTU_TERBAKAR."',c.netto_final,0))/1000 as tebute
  WHERE b.tgl_giling ='".$r->tgl."'
 GROUP BY IF(b.`kode_kat_lahan` = 'TS-TR','TS-TR',
 IF(LEFT(b.kode_kat_lahan,2)='TS','TS','TR'))")->result();
-			$tongilingts=0;$tongilingtr=0;$tongilingtransfer=0;
-			$hagilingts=0;$hagilingtr=0;$hagilingtransfer=0;
-			$hablurts=0;$hablurtr=0;$hablurtransfer=0;
-			$tebuterbakarts=0;$tebuterbakartr=0;$tebuterbakartransfer=0;
+			$tongilingts=0;$tongilingtr=0;$tongilingtransfer=0;$tongilingspt=0;
+			$hagilingts=0;$hagilingtr=0;$hagilingtransfer=0;$hagilingspt=0;
+			$hablurts=0;$hablurtr=0;$hablurtransfer=0;$hablurspt=0;
+			$tebuterbakarts=0;$tebuterbakartr=0;$tebuterbakartransfer=0;$tebuterbakarspt=0;
 			foreach ($sqlhidigiling as $k) {
 				if($k->kode_kat_lahan == 'TS-TR'){
 					$tongilingtransfer+= $k->tebudigiling;
 					$hagilingtransfer+=$k->ha_digiling;
 					$hablurtransfer+=$k->kristal;
 					$tebuterbakartransfer+=$k->tebuterbakar;
+				}else if($k->kode_kat_lahan == 'TS-SP'){
+					$tongilingspt+= $k->tebudigiling;
+					$hagilingspt+=$k->ha_digiling;
+					$hablurspt+=$k->kristal;
+					$tebuterbakarspt+=$k->tebuterbakar;
 				}else if($k->kode_kat_lahan == 'TS'){
 					$tongilingts+= $k->tebudigiling;
 					$hagilingts+=$k->ha_digiling;
@@ -458,7 +475,8 @@ IF(LEFT(b.kode_kat_lahan,2)='TS','TS','TR'))")->result();
 			if($hg == 0){
 				$sqlhiditebang = $this->db->query("SELECT 
 IF(b.`kode_kat_lahan` = 'TS-TR','TS-TR',
-IF(LEFT(b.kode_kat_lahan,2)='TS','TS','TR')) AS kode_kat_lahan,SUM(c.`netto_final`)/1000 AS tebuditebang,
+IF(b.`kode_kat_lahan` = 'TS-SP','TS-SP',
+IF(LEFT(b.kode_kat_lahan,2)='TS','TS','TR'))) AS kode_kat_lahan,SUM(c.`netto_final`)/1000 AS tebuditebang,
 SUM(d.ha_tertebang) AS ha_ditebang
  FROM  t_spta b  
  INNER JOIN t_timbangan c ON c.`id_spat`=b.`id`
@@ -469,7 +487,8 @@ IF(LEFT(b.kode_kat_lahan,2)='TS','TS','TR'))")->result();
 			}else{
 				$sqlhiditebang = $this->db->query("SELECT 
 IF(b.`kode_kat_lahan` = 'TS-TR','TS-TR',
-IF(LEFT(b.kode_kat_lahan,2)='TS','TS','TR')) AS kode_kat_lahan,SUM(c.`netto_final`)/1000 AS tebuditebang,
+IF(b.`kode_kat_lahan` = 'TS-SP','TS-SP',
+IF(LEFT(b.kode_kat_lahan,2)='TS','TS','TR'))) AS kode_kat_lahan,SUM(c.`netto_final`)/1000 AS tebuditebang,
 SUM(d.ha_tertebang) AS ha_ditebang
  FROM  t_spta b  
  INNER JOIN t_timbangan c ON c.`id_spat`=b.`id`
@@ -479,12 +498,15 @@ GROUP BY IF(b.`kode_kat_lahan` = 'TS-TR','TS-TR',
 IF(LEFT(b.kode_kat_lahan,2)='TS','TS','TR'))")->result();	
 			}
 			
-			$tontebangts=0;$tontebangtr=0;$tontebangtransfer=0;
-			$hatebangts=0;$hatebangtr=0;$hatebangtransfer=0;
+			$tontebangts=0;$tontebangtr=0;$tontebangtransfer=0;$tontebangspt=0;
+			$hatebangts=0;$hatebangtr=0;$hatebangtransfer=0;$hatebangspt=0;
 			foreach ($sqlhiditebang as $k) {
 				if($k->kode_kat_lahan == 'TS-TR'){
 					$tontebangtransfer+= $k->tebuditebang;
 					$hatebangtransfer+=$k->ha_ditebang;
+				}else if($k->kode_kat_lahan == 'TS-SP'){
+					$tontebangspt+= $k->tebuditebang;
+					$hatebangspt+=$k->ha_ditebang;
 				}else if($k->kode_kat_lahan == 'TS'){
 					$tontebangts+= $k->tebuditebang;
 					$hatebangts+=$k->ha_ditebang;
@@ -497,23 +519,29 @@ IF(LEFT(b.kode_kat_lahan,2)='TS','TS','TR'))")->result();
 			$skgsbh = array(
 				'ha_tebang_tr'=>$hatebangtr,
 				'ha_tebang_ts'=>$hatebangts,
+				'ha_tebang_spt'=>$hatebangspt,
 				'ha_tebang_ts_saudara'=>$hatebangtransfer,
 				'ton_tebang_tr'=>$tontebangtr,
 				'ton_tebang_ts'=>$tontebangts,
+				'ton_tebang_spt'=>$tontebangspt,
 				'ton_tebang_ts_saudara'=>$tontebangtransfer,
 				'ha_giling_tr'=>$hagilingtr,
 				'ha_giling_ts'=>$hagilingts,
+				'ha_giling_spt'=>$hagilingspt,
 				'ha_giling_ts_saudara'=>$hagilingtransfer,
 				'ton_giling_tr'=>$tongilingtr,
 				'ton_giling_ts'=>$tongilingts,
+				'ton_giling_spt'=>$tongilingspt,
 				'ton_giling_ts_saudara'=>$tongilingtransfer,
 				'tebu_terbakar_ts'=>$tebuterbakarts,
 				'tebu_terbakar_tr'=>$tebuterbakartr,
+				'tebu_terbakar_spt'=>$tebuterbakarspt,
 				'tebu_terbakar_ts_saudara'=>$tebuterbakartransfer,
 				'kristal_tr'=>$hablurtr,
 				'kristal_ts'=>$hablurts,
+				'kristal_spt'=>$hablurspt,
 				'kristal_ts_saudara'=>$hablurtransfer,
-				'sbh_tr_sd' => $gulaptr,'sbh_tr_ts_saudara_sd' => $gulamiliktssaudara,'sbh_ts_sd' => $gulapg,'sbh_ts_tr_sd' => $gulapgextr,'sbh_ts_ts_saudara_sd' => $gulapgextssaudara);
+				'sbh_tr_sd' => $gulaptr,'sbh_tr_ts_saudara_sd' => $gulamiliktssaudara,'sbh_ts_sd' => $gulapg,'sbh_ts_tr_sd' => $gulapgextr,'sbh_ts_ts_saudara_sd' => $gulapgextssaudara,'sbh_spt_sd' => $gulaspt);
 
 
 

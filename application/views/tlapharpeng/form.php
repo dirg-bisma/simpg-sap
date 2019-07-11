@@ -44,6 +44,7 @@
                         <input type="hidden" name="id" value="">
 
                         <input type="hidden" name="sbh_tr_sd" id="sbh_tr_sd" value="">
+                        <input type="hidden" name="sbh_spt_sd" id="sbh_spt_sd" value="">
                         <input type="hidden" name="sbh_tr_ts_saudara_sd" id="sbh_tr_ts_saudara_sd" value="">
                         <input type="hidden" name="sbh_ts_sd" id="sbh_ts_sd" value="">
                         <input type="hidden" name="sbh_ts_tr_sd" id="sbh_ts_tr_sd" value="">
@@ -439,6 +440,12 @@
                                 <td><input type="number" readonly step="any" class="number" name="tebu_terbakar_ts_saudara" id="tebu_terbakar_ts_saudara" onkeyup="total1('tebu_terbakar_ts','tebu_terbakar_ts_saudara','tebu_terbakar_tr','tebu_terbakar_total')"></td>
                                 <td><input type="number" step="any" class="number" tabindex="-1" id="tebu_terbakar_ts_saudara_yl" readonly></td>
                                 <td><input type="number" step="any" class="number" tabindex="-1" id="tebu_terbakar_ts_saudara_sd" name="tebu_terbakar_ts_saudara_sd" readonly></td>
+                            </tr>
+                            <tr>
+                                <td> SPT </td>
+                                <td><input type="number" readonly step="any" class="number" name="tebu_terbakar_spt" id="tebu_terbakar_spt"  ></td>
+                                <td><input type="number" step="any" class="number" tabindex="-1" id="tebu_terbakar_spt_yl" readonly></td>
+                                <td><input type="number"  step="any" class="number" tabindex="-1" id="tebu_terbakar_spt_sd" name="tebu_terbakar_spt_sd" readonly></td>
                             </tr>
                             <tr>
                                 <td> TR </td>
@@ -944,6 +951,7 @@
     });
 
     var gulatr = 0; var gulatrtssaudara=0;var gulats=0;gulatstr=0;gulatstssaudara=0;
+    var gulaspt = 0;
 
 
     function tonpol(tonx,persenx,el,elkeh=0){
@@ -1097,12 +1105,14 @@
            // alert(data.hg);
 
            gulatr = data.skgsbh.sbh_tr_sd;
+           gulaspt = data.skgsbh.sbh_spt_sd;
            gulatrtssaudara = data.skgsbh.sbh_tr_ts_saudara_sd;
            gulats = data.skgsbh.sbh_ts_sd;
            gulatstr = data.skgsbh.sbh_ts_tr_sd;
            gulatstssaudara = data.skgsbh.sbh_ts_ts_saudara_sd;
 
            $('#sbh_tr_sd').val(gulatr);
+           $('#sbh_spt_sd').val(gulaspt);
            $('#sbh_tr_ts_saudara_sd').val(gulatrtssaudara);
            $('#sbh_ts_sd').val(gulats);
            $('#sbh_ts_tr_sd').val(gulatstr);
@@ -1183,12 +1193,12 @@
                     $('#'+k).val(v);   
             });
 
-            total1('ha_giling_ts','ha_giling_ts_saudara','ha_giling_tr','ha_giling_total');
-            total1('ton_giling_ts','ton_giling_ts_saudara','ton_giling_tr','ton_giling_total');
-            total1('kristal_ts','kristal_ts_saudara','kristal_tr','kristal_total');
+            total1('ha_giling_ts','ha_giling_ts_saudara','ha_giling_tr','ha_giling_total',0,'ha_giling_spt');
+            total1('ton_giling_ts','ton_giling_ts_saudara','ton_giling_tr','ton_giling_total',0,'ton_giling_spt');
+            total1('kristal_ts','kristal_ts_saudara','kristal_tr','kristal_total',0,'kristal_spt');
             total1('ha_tebang_ts','ha_tebang_ts_saudara','ha_tebang_tr','ha_tebang_total',0,'ha_tebang_spt');
-            total1('ton_tebang_ts','ton_tebang_ts_saudara','ton_tebang_tr','ton_tebang_total');
-            total1('tebu_terbakar_ts','tebu_terbakar_ts_saudara','tebu_terbakar_tr','tebu_terbakar_total');
+            total1('ton_tebang_ts','ton_tebang_ts_saudara','ton_tebang_tr','ton_tebang_total',0,'ton_tebang_spt');
+            total1('tebu_terbakar_ts','tebu_terbakar_ts_saudara','tebu_terbakar_tr','tebu_terbakar_total',0,'tebu_terbakar_spt');
 
             total1('jam_berhenti_a','jam_berhenti_b','0','total_jb');
             total1('tetes_produksi','tetes_sisan','tetes_sto','tetes_total',0,'tetes_ex_repro');
@@ -1205,6 +1215,7 @@
             //rendemen
             hitungrendemen('ton_giling_ts','kristal_ts','rend_ts');
             hitungrendemen('ton_giling_tr','kristal_tr','rend_tr');
+            hitungrendemen('ton_giling_spt','kristal_spt','rend_spt');
             hitungrendemen('ton_giling_ts_saudara','kristal_ts_saudara','rend_ts_saudara');
             hitungrendemen('ton_giling_total','kristal_total','rend_total');
 
