@@ -564,7 +564,11 @@ IF(LEFT(b.kode_kat_lahan,2)='TS','TS','TR'))")->result();
 
 
 	function senddataserver($id){
-		$hostx = 'devproduksi.ptpn11.co.id';
+		if(CNF_COMPANYCODE == 'N011'){
+			$hostx = '10.20.1.13';
+		}else{
+			$hostx = 'devproduksi.ptpn11.co.id';
+		}
 		$result = $this->db->query('SELECT * FROM t_lap_harian_pengolahan_ptpn WHERE id="'.$id.'"');
 		$datax = json_encode($result->result());
 		$result->free_result();
