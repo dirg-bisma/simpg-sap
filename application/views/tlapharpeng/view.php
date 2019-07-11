@@ -416,13 +416,13 @@ table.null-border{
     <td align="center">37</td>
     <td>TON</td>
     <td class="number"><?php echo SiteHelpers::numberformat($rw->ampas_ton, 3); ?></td>
-    <td class="number"></td>
+    <td class="number"><?php echo SiteHelpers::numberformat($rw->ampas_ton_sd, 3); ?></td>
   </tr>
   <tr>
     <td align="center">38</td>
     <td>% POL</td>
     <td class="number"><?php echo SiteHelpers::numberformat($rw->persen_pol_ampas, 3); ?></td>
-    <td class="number"></td>
+    <td class="number"><?php echo SiteHelpers::numberformat($rw->persen_pol_ampas_sd, 3); ?></td>
   </tr>
 
   <tr>
@@ -430,13 +430,13 @@ table.null-border{
     <td align="center">39</td>
     <td>TON</td>
     <td class="number"><?php echo SiteHelpers::numberformat($rw->blotong_ton, 3); ?></td>
-    <td class="number"></td>
+    <td class="number"><?php echo SiteHelpers::numberformat($rw->blotong_ton_sd, 3); ?></td>
   </tr>
   <tr>
     <td align="center">40</td>
     <td>% POL</td>
     <td class="number"><?php echo SiteHelpers::numberformat($rw->persen_pol_blotong, 3); ?></td>
-    <td class="number"></td>
+    <td class="number"><?php echo SiteHelpers::numberformat($rw->persen_pol_blotong_sd, 3); ?></td>
   </tr>
 
   <tr>
@@ -444,13 +444,13 @@ table.null-border{
     <td align="center">39</td>
     <td>TON</td>
     <td class="number"><?php echo SiteHelpers::numberformat($rw->pol_dlm_hasil_taksasi_ton, 3); ?></td>
-    <td class="number"></td>
+    <td class="number"><?php echo SiteHelpers::numberformat($rw->pol_dlm_hasil_taksasi_ton_sd, 3); ?></td>
   </tr>
   <tr>
     <td align="center">40</td>
     <td>% POL</td>
     <td class="number"><?php echo SiteHelpers::numberformat($rw->pol_dlm_hasil_taksasi_persenpol, 3); ?></td>
-    <td class="number"></td>
+    <td class="number"><?php echo SiteHelpers::numberformat($rw->pol_dlm_hasil_taksasi_persenpol_sd, 3); ?></td>
   </tr>
 
   <tr>
