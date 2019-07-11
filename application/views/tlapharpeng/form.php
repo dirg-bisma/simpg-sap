@@ -1255,7 +1255,7 @@
 
         var tothutangtr = gulatr-prodtryl;
         var xgulatstr = gulatstr - prodtsextryl;
-        var xgulatssaudara = gulatstssaudara - prodtssaudarayl;
+        var xgulatssaudara = gulatrtssaudara - prodtssaudarayl;
         var xgulats = gulats - prodtsyl;
         var xgulaspt = gulaspt - prodsptyl;
        // console.log(tothutangtr);
