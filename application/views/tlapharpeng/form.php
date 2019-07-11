@@ -1062,7 +1062,7 @@
         rx += prhi +' Rendemen S/d : '+prsd;
         $('#txtcek').html(rx);
 
-        if(rhi == prhi && rsd == prsd && rhi != '' && rsd != ''){
+        if(rhi.toFixed(2) == prhi.toFixed(2) && rsd.toFixed(2) == prsd.toFixed(2) && rhi != '' && rsd != ''){
             $('#txtcek').hide();
             $('#btnsimpan').show();
         }else{
