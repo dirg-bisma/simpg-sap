@@ -1057,12 +1057,16 @@
 
         var prhi = parseFloat($('#pol_tebu').val() - $('#k_dlm_total').val());
         var prsd = parseFloat($('#pol_tebu_sd').val() - $('#k_dlm_total_sd').val());
-
+        rhi = parseFloat(rhi).toFixed(2);
+        prhi = parseFloat(prhi).toFixed(2);
+        rsd = parseFloat(rsd).toFixed(2);
+        prsd = parseFloat(prsd).toFixed(2);
+        
         var rx = "RENDEMEN BELUM SAMA DENGAN NERACA POL Rendemen Hi : ";
         rx += prhi +' Rendemen S/d : '+prsd;
         $('#txtcek').html(rx);
-
-        if(rhi.toFixed(2) == prhi.toFixed(2) && rsd.toFixed(2) == prsd.toFixed(2) && rhi != '' && rsd != ''){
+        
+        if(rhi == prhi && rsd == prsd && rhi != '' && rsd != ''){
             $('#txtcek').hide();
             $('#btnsimpan').show();
         }else{
