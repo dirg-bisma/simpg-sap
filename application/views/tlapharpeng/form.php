@@ -1007,7 +1007,7 @@
         prhi = parseFloat(prhi).toFixed(2);
         rsd = parseFloat(rsd).toFixed(2);
         prsd = parseFloat(prsd).toFixed(2);
-        
+
         var rx = "RENDEMEN BELUM SAMA DENGAN NERACA POL Rendemen Hi : ";
         rx += prhi +' Rendemen S/d : '+prsd;
         $('#txtcek').html(rx);
@@ -1249,14 +1249,50 @@
         var prod = parseFloat($('#gula_produksi').val());
         var prodtryl = parseFloat($('#gula_tr_bagihasil_yl').val());
         var prodtsextryl = parseFloat($('#gula_pg_eks_tr_yl').val());
+        var prodtsyl = parseFloat($('#gula_pg_ts_yl').val());
+        var prodtssaudarayl  = parseFloat($('#gula_pg_eks_tr_yl').val());
+        var prodsptyl = parseFloat($('#gula_pg_spt_yl').val());
 
         var tothutangtr = gulatr-prodtryl;
         var xgulatstr = gulatstr - prodtsextryl;
+        var xgulatssaudara = gulatstssaudara - prodtssaudarayl;
+        var xgulats = gulats - prodtsyl;
+        var xgulaspt = gulaspt - prodsptyl;
        // console.log(tothutangtr);
         var tempgula=0;
         if(tothutangtr < prod){
                 $('#gula_tr_bagihasil').val(tothutangtr.toFixed(3));
             tempgula = prod - tothutangtr;
+
+            //cari dulu TS
+            if(tempgula > xgulats){
+                $('#gula_pg_ts').val(xgulats.toFixed(3));
+                    tempgula = tempgula - xgulats;
+            }else{
+                $('#gula_pg_ts').val(tempgula.toFixed(3));
+                tempgula = 0;
+            }
+            //cari spt
+            if(tempgula > xgulaspt){
+                $('#gula_pg_spt').val(xgulaspt.toFixed(3));
+                    tempgula = tempgula - xgulaspt;
+            }else{
+                $('#gula_pg_spt').val(tempgula.toFixed(3));
+                tempgula = 0;
+            }
+
+            //cari ts saudara
+            if(tempgula > xgulatssaudara){
+                $('#gula_pg_eks_ts_saudara').val(xgulatssaudara.toFixed(3));
+                    tempgula = tempgula - xgulatssaudara;
+            }else{
+                $('#gula_pg_eks_ts_saudara').val(tempgula.toFixed(3));
+                tempgula = 0;
+            }
+
+            //cari ts ex tr
+            $('#gula_pg_eks_tr').val(tempgula.toFixed(3));
+/*
             if(tempgula > xgulatstr){
                 $('#gula_pg_eks_tr').val(xgulatstr.toFixed(3));
                 tempgula = tempgula - xgulatstr;
@@ -1264,7 +1300,7 @@
             }else{
                 $('#gula_pg_eks_tr').val(tempgula.toFixed(3));
                 $('#gula_pg_ts').val(0);
-            }
+            }*/
         }else{
             $('#gula_tr_bagihasil').val(prod.toFixed(3));
             $('#gula_pg_eks_tr').val(0);
