@@ -293,61 +293,7 @@
                                 <td><input type="number" step="any" class="number" tabindex="-1" id="rend_total_sd" name="rend_total_sd" readonly></td>
                             </tr>
 
-                            <tr style="color:red;font-weight:bold" >
-                                <td colspan="2"> KRISTAL BAGI HASIL </td>
-                                
-                                <td>&nbsp;</td>
-                                <td>&nbsp;</td>
-                            </tr>
-                            <tr>
-                                <td> TS </td>
-                                <td><input type="number" readonly step="any" class="number" name="kristalbh_pg_ts" id="kristalbh_pg_ts"  onkeyup="total1('kristalbh_pg_ts','kristalbh_pg_eks_ts_saudara','kristalbh_pg_eks_tr','kristalbh_pg_total',0,'kristalbh_pg_spt')"></td>
-                                <td><input type="number" step="any" class="number" tabindex="-1" id="kristalbh_pg_ts_yl" readonly></td>
-                                <td><input type="number" step="any" class="number" tabindex="-1" id="kristalbh_pg_ts_sd" name="kristalbh_pg_ts_sd" readonly></td>
-                            </tr>
-                            <tr>
-                                <td> EKS. TS SAUDARA </td>
-                                <td><input type="number" readonly step="any" class="number" name="kristalbh_pg_eks_ts_saudara" id="kristalbh_pg_eks_ts_saudara"  onkeyup="total1('kristalbh_pg_ts','kristalbh_pg_eks_ts_saudara','kristalbh_pg_eks_tr','kristalbh_pg_total',0,'kristalbh_pg_spt')"></td>
-                                <td><input type="number" step="any" class="number" tabindex="-1" id="kristalbh_pg_eks_ts_saudara_yl" readonly></td>
-                                <td><input type="number" step="any" class="number" tabindex="-1" id="kristalbh_pg_eks_ts_saudara_sd" name="kristalbh_pg_eks_ts_saudara_sd" readonly></td>
-                            </tr>
-                            <tr>
-                                <td> SPT </td>
-                                <td><input type="number" readonly step="any" class="number" name="kristalbh_pg_spt" id="kristalbh_pg_spt"  onkeyup="total1('kristalbh_pg_ts','kristalbh_pg_eks_ts_saudara','kristalbh_pg_eks_tr','kristalbh_pg_total',0,'kristalbh_pg_spt')"></td>
-                                <td><input type="number" step="any" class="number" tabindex="-1" id="kristalbh_pg_spt_yl" readonly></td>
-                                <td><input type="number" step="any" class="number" tabindex="-1" id="kristalbh_pg_spt_sd" name="kristalbh_pg_spt_sd" readonly></td>
-                            </tr>
-                            <tr>
-                                <td> EKS . TR </td>
-                                <td><input type="number" readonly step="any" class="number" name="kristalbh_pg_eks_tr" id="kristalbh_pg_eks_tr"  onkeyup="total1('kristalbh_pg_ts','kristalbh_pg_eks_ts_saudara','kristalbh_pg_eks_tr','kristalbh_pg_total',0,'kristalbh_pg_spt')"></td>
-                                <td><input type="number" step="any" class="number" tabindex="-1" id="kristalbh_pg_eks_tr_yl" readonly></td>
-                                <td><input type="number" step="any" class="number" tabindex="-1" id="kristalbh_pg_eks_tr_sd" name="kristalbh_pg_eks_tr_sd" readonly></td>
-                            </tr>
-                            <tr bgcolor="#ea6d6d">
-                                <td style="color:white;font-weight:bold"> KRISTAL MILIK PG </td>
-                                <td><input type="number" step="any" class="number" tabindex="-1" name="kristalbh_pg_total" id="kristalbh_pg_total" readonly onchange="total1('kristalbh_pg_total','kristalbh_tr_ts_saudara','kristalbh_tr_bagihasil','kristalbh_produksi')"></td>
-                                <td><input type="number" step="any" class="number" tabindex="-1" id="kristalbh_pg_total_yl" readonly></td>
-                                <td><input type="number" step="any" class="number" tabindex="-1" id="kristalbh_pg_total_sd" name="kristalbh_pg_total_sd" readonly></td>
-                            </tr>
-                            <tr>
-                                <td> MILIK TS SAUDARA </td>
-                                <td><input type="number" readonly step="any" class="number" name="kristalbh_tr_ts_saudara" id="kristalbh_tr_ts_saudara" onkeyup="total1('kristalbh_pg_total','kristalbh_tr_ts_saudara','kristalbh_tr_bagihasil','kristalbh_produksi')"></td>
-                                <td><input type="number" step="any" class="number" tabindex="-1" id="kristalbh_tr_ts_saudara_yl" readonly></td>
-                                <td><input type="number" step="any" class="number" tabindex="-1" id="kristalbh_tr_ts_saudara_sd" name="kristalbh_tr_ts_saudara_sd" readonly></td>
-                            </tr>
-                            <tr>
-                                <td> MILIK TR </td>
-                                <td><input type="number" readonly step="any" class="number" name="kristalbh_tr_bagihasil" id="kristalbh_tr_bagihasil" onkeyup="total1('kristalbh_pg_total','kristalbh_tr_ts_saudara','kristalbh_tr_bagihasil','kristalbh_produksi')"></td>
-                                <td><input type="number" step="any" class="number" tabindex="-1" id="kristalbh_tr_bagihasil_yl" readonly></td>
-                                <td><input type="number" step="any" class="number" tabindex="-1" id="kristalbh_tr_bagihasil_sd" name="kristalbh_tr_bagihasil_sd" readonly></td>
-                            </tr>
-                            <tr bgcolor="#036f06" >
-                                <td style="color:white;font-weight:bold"> TOTAL KRISTAL BAGIHASIL </td>
-                                <td><input type="number" step="any" class="number" tabindex="-1" name="kristalbh_produksi" id="kristalbh_produksi" readonly></td>
-                                <td><input type="number" step="any" class="number" tabindex="-1" id="kristalbh_produksi_yl" readonly></td>
-                                <td><input type="number" step="any" class="number" tabindex="-1" id="kristalbh_produksi_sd" name="kristalbh_produksi_sd" readonly></td>
-                            </tr>
-
+                            
                             <tr style="color:red;font-weight:bold" >
                                 <td colspan="2"> GULA BAGI HASIL </td>
                                 
