@@ -94,7 +94,7 @@ class Mpotongando extends SB_Controller
             for ($i=0; $i < count($this->col) ; $i++) { 
             		$field = $this->col[$i+1];
             		if($field == 'jenis_potongan'){
-            			$a = array( '0' => 'Manual' ,  '1' => 'Upah Angkut' ,  '2' => 'Upah Tebang' ,  '3' => 'Per Kg Tebu' ,  '4' => 'Per 50Kg Gula 90%' ,  '5' => 'Per 50Kg Gula 10%' ,  '6' => 'Potongan Pinjaman Petani' );
+            			$a = array( '0' => 'Manual' ,  '2' => 'Upah Angkut' ,  '1' => 'Upah Tebang' ,  '3' => 'Per Kg Tebu' ,  '4' => 'Per 50Kg Gula 90%' ,  '5' => 'Per 50Kg Gula 10%' ,  '6' => 'Potongan Pinjaman Petani' );
             			$row[] = $a[$dt->$field];
             		}else if($field == 'posisi'){
             			$a = array( '0' => 'Kanan' ,  '1' => 'Kiri'  );

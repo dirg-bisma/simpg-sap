@@ -42,7 +42,7 @@
 									<label for="ipt" class=" control-label "> Jenis Potongan  <span class="asterix"> * </span>  </label>									
 									  
 					<?php $jenis_potongan = explode(',',$row['jenis_potongan']);
-					$jenis_potongan_opt = array( '0' => 'Manual' ,  '1' => 'Upah Angkut' ,  '2' => 'Upah Tebang' ,  '3' => 'Per Kg Tebu' ,  '4' => 'Per 50Kg Gula 90%' ,  '5' => 'Per 50Kg Gula 10%' ,  '6' => 'Potongan Pinjaman Petani' , ); ?>
+					$jenis_potongan_opt = array( '0' => 'Manual' ,  '2' => 'Upah Angkut' ,  '1' => 'Upah Tebang' ,  '3' => 'Per Kg Tebu' ,  '4' => 'Per 50Kg Gula 90%' ,  '5' => 'Per 50Kg Gula 10%' ,  '6' => 'Potongan Pinjaman Petani' , ); ?>
 					<select name='jenis_potongan' rows='5' required  class='form-control input-sm select2' style='width: 100%;' > 
 						<?php 
 						foreach($jenis_potongan_opt as $key=>$val)
