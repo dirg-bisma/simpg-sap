@@ -297,8 +297,8 @@ LEFT JOIN (SELECT * FROM `t_do_potongan` WHERE id_do=$key->id) b ON a.`id`=b.`id
 			$mpot = "SELECT *,
 CASE
 	WHEN jenis_potongan = 0 THEN 0
-	WHEN jenis_potongan = 1 THEN (SELECT SUM(pot_upah_tebang) FROM `t_do_detail` WHERE id_periode = $periode AND kode_blok = '$key->kode_blok')
-	WHEN jenis_potongan = 2 THEN (SELECT SUM(pot_upah_angkut) FROM `t_do_detail` WHERE id_periode = $periode AND kode_blok = '$key->kode_blok')
+	WHEN jenis_potongan = 2 THEN (SELECT SUM(pot_upah_tebang) FROM `t_do_detail` WHERE id_periode = $periode AND kode_blok = '$key->kode_blok')
+	WHEN jenis_potongan = 1 THEN (SELECT SUM(pot_upah_angkut) FROM `t_do_detail` WHERE id_periode = $periode AND kode_blok = '$key->kode_blok')
 	WHEN jenis_potongan = 3 THEN (SELECT netto_tebu FROM `t_do` WHERE id_periode=$periode AND kode_blok='$key->kode_blok')*nominal
 	WHEN jenis_potongan = 4 THEN ROUND((SELECT gula_90 FROM `t_do` WHERE id_periode=$periode AND kode_blok='$key->kode_blok')/50,0)*nominal
 	WHEN jenis_potongan = 5 THEN ROUND((SELECT gula_10 FROM `t_do` WHERE id_periode=$periode AND kode_blok='$key->kode_blok')/50,0)*nominal
