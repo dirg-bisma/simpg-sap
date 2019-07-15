@@ -264,7 +264,7 @@ metode_tma FROM t_spta WHERE no_spat = '".$_POST['nospta']."'")->row();
 	function cektruk(){
 		$arr['stt'] = 0;
 		if(isset($_POST['notruk'])){
-			$cek = $this->db->query("SELECT a.no_angkutan, b.no_spat FROM t_selektor a LEFT JOIN t_spta b ON a.id_spta = b.id WHERE no_angkutan = '".$_POST['notruk']."' AND DATE(a.tgl_selektor) = '".date("Y-m-d")."'")->row();
+			$cek = $this->db->query("SELECT a.no_angkutan, b.no_spat FROM t_selektor a LEFT JOIN t_spta b ON a.id_spta = b.id WHERE no_angkutan = '".$_POST['notruk']."' AND a.tgl_selektor BETWEEN CONCAT(DATE(NOW()),' 06:00:00') AND CONCAT(DATE_ADD(DATE(NOW()), INTERVAL +1 DAY),' 05:59:00')")->row();
 		$arr['stt'] = 1;
 		if($cek){
 			$arr['stt'] = 1;
