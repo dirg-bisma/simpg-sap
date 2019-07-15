@@ -53,7 +53,7 @@
 							
 							<div class="form-group col-md-6 " >
 								<label for="ipt" class=" control-label "> No Angkutan   <span class="asterix"> * </span>  </label>
-								<input type='text' class='form-control input-sm' id='no_angkutan' name='no_angkutan' style="text-transform:uppercase" autocomplete="off"  onkeyup="getTara(event,this.value);getNoTruk(event,this.value);" placeholder="(No truk/No Lori/No traktor)" required />
+								<input type='text' class='form-control input-sm' id='no_angkutan' name='no_angkutan' style="text-transform:uppercase" autocomplete="off"  onkeyup="getTara(event,this.value);" placeholder="(No truk/No Lori/No traktor)" required />
 							</div>
 							<div class="form-group  col-md-6" >
 								<label for="ipt" class=" control-label "> Petugas Angkut   <span class="asterix"> * </span>  </label>
@@ -173,7 +173,7 @@
 						
 						<div class="toolbar-line text-center">
 							
-							<input type="submit" name="submit" class="btn btn-primary btn-sm" value="<?php echo $this->lang->line('core.sb_submit'); ?>" />
+							<input type=" button" onclick="getNoTruk()" name="submit" class="btn btn-primary btn-sm" value="<?php echo $this->lang->line('core.sb_submit'); ?>" />
 							<a href="<?php echo site_url('tselektor');?>" class="btn btn-sm btn-warning"><?php echo $this->lang->line('core.sb_cancel'); ?> </a>
 						</div>
 						
@@ -237,10 +237,10 @@ $('#ptgs_angkutan').val('');
 }
 }
 
-function getNoTruk(e,id){
-notruk = id;
+function getNoTruk(){
+notruk = $("#no_angkutan").val();
 
-if(e.keyCode == 13 && notruk != ''){
+// if(e.keyCode == 13 && notruk != ''){
 $.ajax({
 type: 'POST',
 url: "<?php echo site_url('tselektor/cektruk');?>",
@@ -248,13 +248,21 @@ data: {notruk:notruk},
 dataType: 'json',
 success: function (dat) {
 	if(dat.stt == 1){
-			alert("Nomer Angkutan "+notruk+" sudah pernah masuk hari ini, dengan nomer spat "+dat.data.no_spat);
+		if (window.confirm("Nomer Angkutan "+notruk+" sudah pernah masuk hari ini, dengan nomer spat "+dat.data.no_spat))
+			{
+			    $("form").submit();
+			}
+		else
+			{
+			    $("form").submit();
+			}
 	}else{		
-
+			$("form").submit();
 	}
+
 }
 });
-}
+// }
 }
 
 function getNoSPTA(e,nospta){
