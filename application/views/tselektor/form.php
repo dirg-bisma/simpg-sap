@@ -173,7 +173,7 @@
 						
 						<div class="toolbar-line text-center">
 							
-							<input type=" button" onclick="getNoTruk()" name="submit" class="btn btn-primary btn-sm" value="<?php echo $this->lang->line('core.sb_submit'); ?>" />
+							<input type="text" onclick="getNoTruk()" name="submit" class="btn btn-primary btn-sm" value="<?php echo $this->lang->line('core.sb_submit'); ?>" />
 							<a href="<?php echo site_url('tselektor');?>" class="btn btn-sm btn-warning"><?php echo $this->lang->line('core.sb_cancel'); ?> </a>
 						</div>
 						
