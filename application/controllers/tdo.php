@@ -410,6 +410,7 @@ WHERE b.`jenis_potongan`=6 AND a.`nominal` > 0 AND c.`status_do`=1 AND c.`id_per
 		$sisas = 0;
 		foreach ($sqlpot as $kes) {
 			if($sisas == 0) $sisas = $kes->saldo_kredit-$kes->nominal-$sisas;
+			else $sisas = $sisas-$kes->nominal;
 			
 			$data = array(
 			'tgl'			=>date('Y-m-d'),
