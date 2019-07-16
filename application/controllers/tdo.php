@@ -409,8 +409,11 @@ INNER JOIN t_pinjaman_petani d ON d.`id_petani_sap`=c.`id_petani_sap`
 WHERE b.`jenis_potongan`=6 AND a.`nominal` > 0 AND c.`status_do`=1 AND c.`id_periode`=$idperiod")->result();
 		$sisas = 0;
 		foreach ($sqlpot as $kes) {
-			if($sisas == 0) $sisas = $kes->saldo_kredit-$kes->nominal-$sisas;
-			else $sisas = $sisas-$kes->nominal;
+			if($sisas == 0) {
+				$sisas = $kes->saldo_kredit-$kes->nominal-$sisas;
+			}else{
+				$sisas = $sisas-$kes->nominal;
+			} 
 			
 			$data = array(
 			'tgl'			=>date('Y-m-d'),
