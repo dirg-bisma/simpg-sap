@@ -426,7 +426,7 @@ WHERE b.`jenis_potongan`=6 AND a.`nominal` > 0 AND c.`status_do`=1 AND c.`id_per
 			'id_petani_sap'	=>$kes->id_petani_sap,
 			'kredit'		=>$kes->nominal,
 			'saldo'			=>$sisas,
-			'saldo_sebelumnya'=>$kes->saldo_kredit,
+			'saldo_sebelumnya'=>$kes->saldo_kredit-$sisas,
 			'user_act'		=>$this->session->userdata('fid'),
 			'tgl_act'		=>date('Y-m-d H:i:s')
 		);
