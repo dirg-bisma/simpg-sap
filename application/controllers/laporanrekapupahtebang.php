@@ -92,8 +92,8 @@ a.`kode_blok`,c.`no_spat`,a.persno_mandor,e.`name` AS mandor_nama,f.`name` AS pt
 INNER JOIN t_upah_tebang_detail b ON a.`id`=b.`id_upah_tebang`
 INNER JOIN t_spta c ON c.`id`=b.`id_spta`
 INNER JOIN t_selektor d ON d.`id_spta`=c.`id` 
-INNER JOIN sap_m_karyawan e ON e.`Persno`=a.`persno_mandor`
-INNER JOIN sap_m_karyawan f ON f.`Persno`=c.`persno_pta` $wh
+INNER JOIN (SELECT * FROM sap_m_karyawan WHERE id_jabatan = 3) e ON e.`Persno`=a.`persno_mandor`
+INNER JOIN (SELECT * FROM sap_m_karyawan WHERE id_jabatan = 2) f ON f.`Persno`=c.`persno_pta`  $wh
 ORDER BY d.`persno_mandor_tma`")->result();
 			$rt = $this->db->query("SELECT SUM(a1.`total_bersih`) AS total 
 				FROM t_upah_tebang_detail a1 
@@ -115,8 +115,8 @@ a.`kode_blok`,c.`no_spat`,a.persno_mandor,e.`name` AS mandor_nama,f.`name` AS pt
 INNER JOIN t_upah_tebang_detail b ON a.`id`=b.`id_upah_tebang`
 INNER JOIN t_spta c ON c.`id`=b.`id_spta`
 INNER JOIN t_selektor d ON d.`id_spta`=c.`id` 
-INNER JOIN sap_m_karyawan e ON e.`Persno`=a.`persno_mandor`
-INNER JOIN sap_m_karyawan f ON f.`Persno`=c.`persno_pta` $wh
+INNER JOIN (SELECT * FROM sap_m_karyawan WHERE id_jabatan = 3) e ON e.`Persno`=a.`persno_mandor`
+INNER JOIN (SELECT * FROM sap_m_karyawan WHERE id_jabatan = 2) f ON f.`Persno`=c.`persno_pta`  $wh
 ORDER BY d.`persno_mandor_tma`")->result();
 			$rt = $this->db->query("SELECT SUM(a1.`total_bersih`) AS total 
 				FROM t_upah_tebang_detail a1 
@@ -136,8 +136,8 @@ ORDER BY d.`persno_mandor_tma`")->result();
 INNER JOIN t_upah_tebang_detail b ON a.`id`=b.`id_upah_tebang`
 INNER JOIN t_spta c ON c.`id`=b.`id_spta`
 INNER JOIN t_selektor d ON d.`id_spta`=c.`id` 
-INNER JOIN sap_m_karyawan e ON e.`Persno`=a.`persno_mandor`
-INNER JOIN sap_m_karyawan f ON f.`Persno`=c.`persno_pta`  $wh
+INNER JOIN (SELECT * FROM sap_m_karyawan WHERE id_jabatan = 3) e ON e.`Persno`=a.`persno_mandor`
+INNER JOIN (SELECT * FROM sap_m_karyawan WHERE id_jabatan = 2) f ON f.`Persno`=c.`persno_pta`  $wh
 ORDER BY a.`no_bukti`")->result();
 			$this->data['detail'] = $result;
 		$this->load->view('laporanrekapupahtebang/pertransaksi',$this->data);
@@ -149,8 +149,8 @@ ORDER BY a.`no_bukti`")->result();
 INNER JOIN t_upah_tebang_detail b ON a.`id`=b.`id_upah_tebang`
 INNER JOIN t_spta c ON c.`id`=b.`id_spta`
 INNER JOIN t_selektor d ON d.`id_spta`=c.`id` 
-INNER JOIN sap_m_karyawan e ON e.`Persno`=a.`persno_mandor`
-INNER JOIN sap_m_karyawan f ON f.`Persno`=c.`persno_pta`  $wh
+INNER JOIN (SELECT * FROM sap_m_karyawan WHERE id_jabatan = 3) e ON e.`Persno`=a.`persno_mandor`
+INNER JOIN (SELECT * FROM sap_m_karyawan WHERE id_jabatan = 2) f ON f.`Persno`=c.`persno_pta`  $wh
 ORDER BY a.`no_bukti`")->result();
 			$this->data['detail'] = $result;
 			$this->data['titlepetak'] = $_REQUEST['petak'];
