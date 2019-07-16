@@ -38,7 +38,7 @@ $(document).ready(function(){
 	});
 
 	alert("Data Siap di Print, gunakan Ctrl+shift+p , untuk print !!");
-	setTimeout(function () { window.close();}, 3000);
+	//setTimeout(function () { window.close();}, 3000);
 });
 
 

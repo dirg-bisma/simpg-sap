@@ -1,5 +1,5 @@
 
-<body>
+<body style="font-family: 'font-family: 'sans-serif'">
 	<page>
 <table style="width: 100%; margin-left: auto; margin-right: auto;" border="1" cellspacing="0" cellpadding="1">
 <tbody>
@@ -102,12 +102,10 @@ $sepuluh = $do->gula_10;
 <td style="height: 13px;" colspan="2" align="center">
 <p>&nbsp;<br />&nbsp;<br />PENERIMA</p>
 <p>&nbsp;</p>
-<p>&nbsp;</p>
 <p><?=$do->nama_petani;?></p>
 </td>
 <td style="height: 13px;" colspan="2" align="center">
 <p>&nbsp;<?=CNF_PG;?>, <?=siteHelpers::datereporthidejam($do->tgl_act);?><br /><?=CNF_NAMAPERUSAHAAN;?><br /><?=strtoupper(CNF_PG);?></p>
-<p>&nbsp;</p>
 <p>&nbsp;</p>
 <p><?=strtoupper(CNF_GM);?><br />General Manager</p>
 </td>
