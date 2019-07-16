@@ -71,6 +71,7 @@
 							class=' form-control'  required >
 							<option value=''>- SEMUA -</option>
 							<option value='TS'>TS</option>
+							<option value='TS-SP'>TS-SP</option>
 							<option value='TR'>TR</option>
 						</select> </td>
 
