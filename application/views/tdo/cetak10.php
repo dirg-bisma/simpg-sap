@@ -13,13 +13,13 @@
 
 <img src="<?php echo base_url(CNF_COMPANYCODE.'.png');?>" height="52px" style="margin:5px" />
 </td>
-<td style="font-size:11px;height: 26px;padding-right:10px" align="center">
+<td style="font-size:10px;height: 26px;padding-right:10px" align="center">
 	<b><?=strtoupper(CNF_NAMAPERUSAHAAN);?><br /><?=strtoupper(CNF_PG);?></b></td>
-<td style="font-size:11px;height: 26px;" align="center"><b>PERMINTAAN<br />PENGELUARAN GULA NATURA 10%</b></td>
-<td style="font-size:11px;height: 26px;padding-right:10px" align="right"><b>NO DO : <?=$do->no_do;?><br />TGL DO : <?=date('j M Y', strtotime($do->tgl_act));?></b></td>
+<td style="font-size:10px;height: 26px;" align="center"><b>PERMINTAAN<br />PENGELUARAN GULA NATURA 10%</b></td>
+<td style="font-size:10px;height: 26px;padding-right:10px" align="right"><b>NO DO : <?=$do->no_do;?><br />TGL DO : <?=date('j M Y', strtotime($do->tgl_act));?></b></td>
 </tr>
-<tr style="height: 99px;">
-<td style="height: 99px;padding:10px" colspan="4">
+<tr >
+<td style="padding:2px" colspan="4">
 <table style="width: 100%;">
 <tbody>
 <tr style="height: 13px;">
