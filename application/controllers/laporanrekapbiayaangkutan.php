@@ -41,7 +41,7 @@ class Laporanrekapbiayaangkutan extends SB_Controller
 			$whvendor ="";
 
 			if (!empty($kat)) {
-				$whkat = "AND LEFT(a.kode_kat_lahan, 2) = '$kat' ";
+				$whkat = "AND a.kode_kat_lahan LIKE '$kat%' ";
 			}
 			if (!empty($angkutan)) {
 				$whangkut = "AND a.jenis_spta = '$angkutan' ";
