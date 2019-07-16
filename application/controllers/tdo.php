@@ -407,8 +407,9 @@ INNER JOIN `m_potongan_do` b ON a.`id_potongan`=b.`id`
 INNER JOIN t_do c ON c.`id`=a.`id_do`
 INNER JOIN t_pinjaman_petani d ON d.`id_petani_sap`=c.`id_petani_sap`
 WHERE b.`jenis_potongan`=6 AND a.`nominal` > 0 AND c.`status_do`=1 AND c.`id_periode`=$idperiod")->result();
+		$sisas = 0;
 		foreach ($sqlpot as $kes) {
-			$sisas = $kes->saldo_kredit-$kes->nominal;
+			$sisas = $kes->saldo_kredit-$kes->nominal-$sisas;
 			$data = array(
 			'tgl'			=>date('Y-m-d'),
 			'jenis_tx'		=>2,
@@ -423,7 +424,7 @@ WHERE b.`jenis_potongan`=6 AND a.`nominal` > 0 AND c.`status_do`=1 AND c.`id_per
 		);
 			$this->db->insert('t_pinjaman_petani_detail',$data);
 			$this->db->query("UPDATE t_pinjaman_petani SET saldo_kredit=".$sisas.",last_update=NOW(),user_update='".$this->session->userdata('fid')."' where id=".$kes->id_pinjaman);
-			$kes->saldo_kredit = $sisas;
+			$
 		}
 
 	}
