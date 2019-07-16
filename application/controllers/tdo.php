@@ -407,16 +407,15 @@ INNER JOIN `m_potongan_do` b ON a.`id_potongan`=b.`id`
 INNER JOIN t_do c ON c.`id`=a.`id_do`
 INNER JOIN t_pinjaman_petani d ON d.`id_petani_sap`=c.`id_petani_sap`
 WHERE b.`jenis_potongan`=6 AND a.`nominal` > 0 AND c.`status_do`=1 AND c.`id_periode`=$idperiod order by c.id_petani_sap")->result();
-		$sisas = 0;$idpetani = '';
+		$sisas = 0;$idpetani = '';$nominalpot = 0;$saldos = 0;
 		foreach ($sqlpot as $kes) {
 			if($idpetani != $kes->id_petani_sap){
 				$sisas = 0;
+				$nominalpot = 0;$saldos = 0;
 			}
-			if($sisas == 0) {
-				$sisas = $kes->saldo_kredit-$kes->nominal-$sisas;
-			}else{
-				$sisas = $sisas-$kes->nominal;
-			} 
+			$nominalpot += $kes->nominal;
+			$sisas = $kes->saldo_kredit - $nominalpot;
+			//$saldos += $kes->saldo_kredit;
 			
 			$data = array(
 			'tgl'			=>date('Y-m-d'),
@@ -426,7 +425,7 @@ WHERE b.`jenis_potongan`=6 AND a.`nominal` > 0 AND c.`status_do`=1 AND c.`id_per
 			'id_petani_sap'	=>$kes->id_petani_sap,
 			'kredit'		=>$kes->nominal,
 			'saldo'			=>$sisas,
-			'saldo_sebelumnya'=>$kes->saldo_kredit-$sisas,
+			'saldo_sebelumnya'=>$sisas+$kes->nominal,
 			'user_act'		=>$this->session->userdata('fid'),
 			'tgl_act'		=>date('Y-m-d H:i:s')
 		);
