@@ -5,7 +5,7 @@
 
 </style>
 
-<page size="A4" style="font-size:12px;font-family: 'dot-matrix'">
+<page size="A4" style="font-size:10px;font-family: 'dot-matrix'">
 <table style="width: 100%; margin-left: auto; margin-right: auto;" border="1" cellspacing="0" cellpadding="1">
 <tbody>
 <tr style="height: 26px;">
