@@ -406,9 +406,12 @@ FROM `t_do_potongan` a
 INNER JOIN `m_potongan_do` b ON a.`id_potongan`=b.`id` 
 INNER JOIN t_do c ON c.`id`=a.`id_do`
 INNER JOIN t_pinjaman_petani d ON d.`id_petani_sap`=c.`id_petani_sap`
-WHERE b.`jenis_potongan`=6 AND a.`nominal` > 0 AND c.`status_do`=1 AND c.`id_periode`=$idperiod")->result();
-		$sisas = 0;
+WHERE b.`jenis_potongan`=6 AND a.`nominal` > 0 AND c.`status_do`=1 AND c.`id_periode`=$idperiod order by c.id_petani_sap")->result();
+		$sisas = 0;$idpetani = '';
 		foreach ($sqlpot as $kes) {
+			if($idpetani != $kes->id_petani_sap){
+				$sisas = 0;
+			}
 			if($sisas == 0) {
 				$sisas = $kes->saldo_kredit-$kes->nominal-$sisas;
 			}else{
