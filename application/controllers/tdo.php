@@ -413,6 +413,7 @@ WHERE b.`jenis_potongan`=6 AND a.`nominal` > 0 AND c.`status_do`=1 AND c.`id_per
 				$sisas = 0;
 				$nominalpot = 0;$saldos = 0;
 			}
+			$idpetani = $kes->id_petani_sap;
 			$nominalpot += $kes->nominal;
 			$sisas = $kes->saldo_kredit - $nominalpot;
 			//$saldos += $kes->saldo_kredit;
