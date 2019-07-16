@@ -1,5 +1,11 @@
+<style>
 
-<page size="A4" style="font-size:12px;font-family: 'sans-serif'">
+/* @font-face kit by Fonts2u (https://fonts2u.com) */ 
+@font-face {font-family:"dot-matrix";src:url("<?=base_url('adminlte/font/1979_dot_matrix.eot');?>?") format("eot"),url("<?=base_url('adminlte/font/1979_dot_matrix.woff');?>") format("woff"),url("<?=base_url('adminlte/font/1979_dot_matrix.ttf');?>") format("truetype"),url("<?=base_url('adminlte/font/1979_dot_matrix.svg#1979-Dot-Matrix');?>") format("svg");font-weight:normal;font-style:normal;}
+
+</style>
+
+<page size="A4" style="font-size:12px;font-family: 'dot-matrix'">
 <table style="width: 100%; margin-left: auto; margin-right: auto;" border="1" cellspacing="0" cellpadding="1">
 <tbody>
 <tr style="height: 26px;">
