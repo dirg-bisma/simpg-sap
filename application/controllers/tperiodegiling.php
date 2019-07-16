@@ -219,7 +219,7 @@ INNER JOIN t_ari d ON d.`id_spta`=a.`id`
 WHERE 0=0 AND (kode_kat_lahan = 'TS-SP' OR LEFT(kode_kat_lahan,2) = 'TR') AND a.`sbh_status`>3
 AND a.`tgl_giling` BETWEEN '".$period->tgl_awal."' AND '".$period->tgl_akhir."'
 GROUP BY a.`kode_blok`")->result();
-			$no=1;
+			$no=0;
 			foreach ($sqldo as $k) {
 				$no++;
 				$nogudang = '';
