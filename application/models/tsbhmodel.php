@@ -91,6 +91,7 @@ class Tsbhmodel extends SB_Model
   `c`.`no_angkutan`     AS `no_angkutan`,
   IF(`g`.`nama_petani`  = '','-',`g`.`nama_petani`)    AS `nama_petani`,
   `b`.`deskripsi_blok`  AS `deskripsi_blok`,
+  `b`.`luas_ha`         AS `luas_ha`,
   `c`.`ha_tertebang`    AS `ha_tertebang`,
   `c`.`tgl_tebang`      AS `tgl_tebang`,
   `c`.`brix_sel`        AS `brix_sel`,
