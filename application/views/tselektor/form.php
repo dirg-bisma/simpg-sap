@@ -173,8 +173,9 @@
 						
 						<div class="toolbar-line text-center">
 							
-<!-- 							<input type="text" onclick="getNoTruk()" name="submit" class="btn btn-primary btn-sm" value="<?php echo $this->lang->line('core.sb_submit'); ?>" readonly /> -->
+							<input type="submit" id="kliksubmit" name="submit" class="btn btn-primary btn-sm" value="<?php echo $this->lang->line('core.sb_submit'); ?>" readonly  style="display:none;"/>
 							<button type="button" onclick="getNoTruk()" name="submit" class="btn btn-primary btn-sm"  />Simpan</button>
+
 							<a href="<?php echo site_url('tselektor');?>" class="btn btn-sm btn-warning"><?php echo $this->lang->line('core.sb_cancel'); ?> </a>
 						</div>
 						
@@ -251,14 +252,17 @@ success: function (dat) {
 	if(dat.stt == 1){
 		if (window.confirm("Nomer Angkutan "+notruk+" sudah pernah masuk hari ini, dengan nomer spat "+dat.data.no_spat+", ingin simpan data ini? "))
 			{
-			    $("form").submit();
+			    // $("form").submit();
+			    $("#kliksubmit").click();
 			}
 		else
 			{
 			    // $("form").submit();
 			}
-	}else{		
-			$("form").submit();
+	}else if (dat.stt == 0){ 		
+			$("#kliksubmit").click();
+	}else{
+		$("#kliksubmit").click();
 	}
 
 }
