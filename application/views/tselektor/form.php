@@ -248,7 +248,7 @@ data: {notruk:notruk},
 dataType: 'json',
 success: function (dat) {
 	if(dat.stt == 1){
-		if (window.confirm("Nomer Angkutan "+notruk+" sudah pernah masuk hari ini, dengan nomer spat "+dat.data.no_spat))
+		if (window.confirm("Nomer Angkutan "+notruk+" sudah pernah masuk hari ini, dengan nomer spat "+dat.data.no_spat+", ingin simpan data ini? "))
 			{
 			    $("form").submit();
 			}
