@@ -254,7 +254,7 @@ success: function (dat) {
 			}
 		else
 			{
-			    $("form").submit();
+			    // $("form").submit();
 			}
 	}else{		
 			$("form").submit();
