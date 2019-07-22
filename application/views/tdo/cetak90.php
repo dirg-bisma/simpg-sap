@@ -144,9 +144,9 @@ echo '<b>'.number_format($total).'</b>';
 	$sqlcx = $this->db->query("SELECT SUM(IF(posisi=0,1,0)) AS kanan,SUM(IF(posisi=1,1,0)) AS kiri FROM `t_do_potongan` WHERE id_do = $do->id")->row();
 	
 	if($sqlcx->kanan > $sqlcx->kiri){
-		$banyak = 1;$sedikit = 0;
-	} else{
 		$banyak = 0;$sedikit = 1;
+	} else{
+		$banyak = 1;$sedikit = 0;
 	}
 
 	$k = array();
