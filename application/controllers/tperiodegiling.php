@@ -200,7 +200,7 @@ class Tperiodegiling extends SB_Controller
 SQL_NO_CACHE 
 IF(kode_kat_lahan='TS-SP',1,0) AS jenis_do,
 a.`kode_blok`,
-a.`id_petani_sap`,
+a1.`id_petani_sap`,
 a1.`kepemilikan`,
 SUM(IFNULL(b1.`ha_tertebang`,0)) AS ha_tertebang,
 a1.`luas_ha`,
