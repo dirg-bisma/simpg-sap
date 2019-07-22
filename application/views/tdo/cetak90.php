@@ -166,7 +166,10 @@ echo '<b>'.number_format($total).'</b>';
 		?>
 			<tr>
 		<td><?=$det1['nama_potongan'];?></td><td > = Rp. </td><td align="right" width="25%"><?=number_format($det1['nominal'])?></td><td width="5%">&nbsp;</td>
-		<? echo $k[$i];$i++;
+		<?  
+
+		if(isset($k[$i])) echo $k[$i];
+		$i++;
 		$tot1+=$det1['nominal'];?>
 	</tr>
 		<?
