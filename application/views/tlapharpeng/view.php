@@ -196,7 +196,7 @@ table.null-border{
     <td align="center">12</td>
     <td>MLK PTR</td>
     <td class="number"><?php echo SiteHelpers::numberformat($rw->gula_tr_bagihasil+$rw->gula_tr_ts_saudara, 3); ?></td>
-    <td class="number"><?php echo SiteHelpers::numberformat($rw->gula_tr_bagihasil+$rw->gula_tr_ts_saudara_sd, 3); ?></td>
+    <td class="number"><?php echo SiteHelpers::numberformat($rw->gula_tr_bagihasil_sd+$rw->gula_tr_ts_saudara_sd, 3); ?></td>
   </tr>
   <tr>
     <td align="center">-12.1-</td>
