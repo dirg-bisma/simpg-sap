@@ -913,7 +913,7 @@
 
         total1(el,'0','0','0');
 
-        var ppoltetessd = parseFloat($('#ton_pol_tetes_sd').val())/parseFloat($('#tetes_total_sd').val()) * 100;
+        var ppoltetessd = parseFloat($('#ton_pol_tetes_sd').val())/parseFloat($('#tetes_produksi_sd').val()) * 100;
         if(isNaN(ppoltetessd)) ppoltetessd = 0;
         $('#persen_pol_tetes_sd').val(ppoltetessd.toFixed(2));
 
