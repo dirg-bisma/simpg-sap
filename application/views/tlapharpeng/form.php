@@ -773,13 +773,13 @@
                                     <td> TON DALAM HASIL + TAKSASI </td>
                                     <td><input type="number" step="any" class="number" name="pol_dlm_hasil_taksasi_ton" id="pol_dlm_hasil_taksasi_ton"   onkeyup="total1('pol_dlm_hasil_taksasi_ton','0','0','0');tonpol('pol_dlm_hasil_taksasi_ton','pol_dlm_hasil_taksasi_persenpol','pol_taksasi_ton')"></td>
                                     <td><input type="number" readonly step="any" class="number"  id="pol_dlm_hasil_taksasi_ton_yl"></td>
-                                    <td><input type="number"  readonly step="any" class="number" name="pol_dlm_hasil_taksasi_ton_sd" id="pol_dlm_hasil_taksasi_ton_sd"></td>
+                                    <td><input type="number"   step="any" class="number" name="pol_dlm_hasil_taksasi_ton_sd" id="pol_dlm_hasil_taksasi_ton_sd"></td>
                                 </tr>
                                 <tr>
                                     <td> % POL DALAM HASIL + TAKSASI </td>
                                     <td><input type="number" step="any" class="number" name="pol_dlm_hasil_taksasi_persenpol" id="pol_dlm_hasil_taksasi_persenpol" onkeyup="tonpol('pol_dlm_hasil_taksasi_ton','pol_dlm_hasil_taksasi_persenpol','pol_taksasi_ton','ton_taksasi_tebu')"></td>
                                     <td><input type="number" readonly step="any" class="number"  id="pol_dlm_hasil_taksasi_persenpol_yl"></td>
-                                    <td><input type="number" readonly step="any" class="number" name="pol_dlm_hasil_taksasi_persenpol_sd" id="pol_dlm_hasil_taksasi_persenpol_sd"></td>
+                                    <td><input type="number"  step="any" class="number" name="pol_dlm_hasil_taksasi_persenpol_sd" id="pol_dlm_hasil_taksasi_persenpol_sd" onkeyup="tonpol('pol_dlm_hasil_taksasi_ton_sd','pol_dlm_hasil_taksasi_persenpol_sd','pol_taksasi_ton_sd','ton_taksasi_tebu_sd')"></td>
                                 </tr>
 
 
