@@ -419,7 +419,7 @@ GROUP BY b.`kode_kat_lahan`";
 				if($v->kode_kat_lahan == 'TS-TR'){
 					$gulamiliktssaudara += $v->gulapg;
 				}else if($v->kode_kat_lahan == 'TS-SP'){
-					$gulaspt += $v->gulapg;
+					$gulaspt += $v->gulapg + $v->gula_ptr;
 				}else if(substr($v->kode_kat_lahan,0,2) == 'TS'){
 					$gulapg += $v->gulapg;
 				}else{
@@ -444,7 +444,8 @@ sum(IF(e.kondisi_tebu = '".CNF_MUTU_TERBAKAR."',c.netto_final,0))/1000 as tebute
  INNER JOIN t_meja_tebu e ON e.id_spta = b.id
  WHERE b.tgl_giling ='".$r->tgl."'
 GROUP BY IF(b.`kode_kat_lahan` = 'TS-TR','TS-TR',
-IF(LEFT(b.kode_kat_lahan,2)='TS','TS','TR'))")->result();
+IF(b.`kode_kat_lahan` = 'TS-SP','TS-SP',
+IF(LEFT(b.kode_kat_lahan,2)='TS','TS','TR')))")->result();
 			$tongilingts=0;$tongilingtr=0;$tongilingtransfer=0;$tongilingspt=0;
 			$hagilingts=0;$hagilingtr=0;$hagilingtransfer=0;$hagilingspt=0;
 			$hablurts=0;$hablurtr=0;$hablurtransfer=0;$hablurspt=0;
@@ -484,7 +485,8 @@ SUM(d.ha_tertebang) AS ha_ditebang
  INNER JOIN t_selektor d ON d.id_spta = b.id
  WHERE b.tgl_timbang <= '".$r->tgl."'
 GROUP BY IF(b.`kode_kat_lahan` = 'TS-TR','TS-TR',
-IF(LEFT(b.kode_kat_lahan,2)='TS','TS','TR'))")->result();
+IF(b.`kode_kat_lahan` = 'TS-SP','TS-SP',
+IF(LEFT(b.kode_kat_lahan,2)='TS','TS','TR')))")->result();
 			}else{
 				$sqlhiditebang = $this->db->query("SELECT 
 IF(b.`kode_kat_lahan` = 'TS-TR','TS-TR',
@@ -496,7 +498,8 @@ SUM(d.ha_tertebang) AS ha_ditebang
  INNER JOIN t_selektor d ON d.id_spta = b.id
  WHERE b.tgl_timbang ='".$r->tgl."'
 GROUP BY IF(b.`kode_kat_lahan` = 'TS-TR','TS-TR',
-IF(LEFT(b.kode_kat_lahan,2)='TS','TS','TR'))")->result();	
+IF(b.`kode_kat_lahan` = 'TS-SP','TS-SP',
+IF(LEFT(b.kode_kat_lahan,2)='TS','TS','TR')))")->result();	
 			}
 			
 			$tontebangts=0;$tontebangtr=0;$tontebangtransfer=0;$tontebangspt=0;
@@ -556,7 +559,7 @@ IF(LEFT(b.kode_kat_lahan,2)='TS','TS','TR'))")->result();
 	function datacek($kode,$hg){
 		$a = $this->db->query("SELECT id from t_lap_harian_pengolahan_ptpn where plant_code = '".$kode."' AND hari_giling='".$hg."' AND status != 1")->row();
 		if($a){
-			echo 'Data Sudah divalidasi.. Maka Tidak Bisa di edit !!';
+			echo '0';
 		}else{
 			echo '0';
 		}
