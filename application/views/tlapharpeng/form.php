@@ -282,7 +282,7 @@
                             </tr>
                             <tr>
                                 <td> TR </td>
-                                <td><input type="number"  readonly step="any" class="number" name="rend_tr" id="rend_tr"></td>
+                                <td><input type="number" step="any" class="number" name="rend_tr" id="rend_tr"></td>
                                 <td><input type="number" step="any" class="number" tabindex="-1" id="rend_tr_yl"></td>
                                 <td><input type="number" step="any" class="number" tabindex="-1" id="rend_tr_sd" name="rend_tr_sd"></td>
                             </tr>
