@@ -270,24 +270,19 @@ table.null-border{
     <td align="center">21</td>
     <td>TS</td>
     <td class="number"><?php echo SiteHelpers::numberformat($rw->rend_ts, 3); ?></td>
-    <td class="number"><?php 
-    if($rw->ton_giling_ts_saudara_sd != 0 && $rw->ton_giling_ts_sd != 0){
-    echo SiteHelpers::numberformat(($rw->kristal_ts_sd+$rw->kristal_ts_saudara_sd)/($rw->ton_giling_ts_sd+$rw->ton_giling_ts_saudara_sd)*100, 3);
-    }else{
-      echo '-';
-    } ?></td>
+    <td class="number"><?php echo SiteHelpers::numberformat($rw->rend_ts_sd, 3); ?></td>
   </tr>
   <tr>
     <td align="center">22</td>
     <td>TR</td>
     <td class="number"><?php echo SiteHelpers::numberformat($rw->rend_tr, 3); ?></td>
-    <td class="number"><?php echo SiteHelpers::numberformat(($rw->kristal_tr_sd)/($rw->ton_giling_tr_sd)*100, 3); ?></td>
+    <td class="number"><?php echo SiteHelpers::numberformat($rw->rend_tr_sd, 3); ?></td>
   </tr>
   <tr class="spottr">
     <td align="center">23</td>
     <td>TS + TR</td>
     <td class="number"><?php echo SiteHelpers::numberformat($rw->rend_total, 3); ?></td>
-    <td class="number"><?php echo SiteHelpers::numberformat(($rw->kristal_total_sd/$rw->ton_giling_total_sd)*100, 3); ?></td>
+    <td class="number"><?php echo SiteHelpers::numberformat($rw->rend_total_sd, 3); ?></td>
   </tr>
   <tr>
     <td rowspan="3">HABLUR DIHASILKAN</td>

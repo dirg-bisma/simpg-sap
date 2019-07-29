@@ -181,7 +181,7 @@ table.null-border{
     <td align="center">12</td>
     <td>MLK PTR</td>
     <td class="number"><?php echo SiteHelpers::numberformat($rw->gula_tr_bagihasil+$rw->gula_tr_ts_saudara, 3); ?></td>
-    <td class="number"><?php echo SiteHelpers::numberformat($rw->gula_tr_bagihasil+$rw->gula_tr_ts_saudara_sd, 3); ?></td>
+    <td class="number"><?php echo SiteHelpers::numberformat($rw->gula_tr_bagihasil_sd+$rw->gula_tr_ts_saudara_sd, 3); ?></td>
   </tr>
   <tr>
     <td align="center">-12.1-</td>
@@ -255,24 +255,19 @@ table.null-border{
     <td align="center">21</td>
     <td>TS</td>
     <td class="number"><?php echo SiteHelpers::numberformat($rw->rend_ts, 3); ?></td>
-    <td class="number"><?php 
-    if($rw->ton_giling_ts_saudara_sd != 0 && $rw->ton_giling_ts_sd != 0){
-    echo SiteHelpers::numberformat(($rw->kristal_ts_sd+$rw->kristal_ts_saudara_sd)/($rw->ton_giling_ts_sd+$rw->ton_giling_ts_saudara_sd)*100, 3);
-    }else{
-      echo '-';
-    } ?></td>
+    <td class="number"><?php echo SiteHelpers::numberformat($rw->rend_ts_sd, 3); ?></td>
   </tr>
   <tr>
     <td align="center">22</td>
     <td>TR</td>
     <td class="number"><?php echo SiteHelpers::numberformat($rw->rend_tr, 3); ?></td>
-    <td class="number"><?php echo SiteHelpers::numberformat(($rw->kristal_tr_sd)/($rw->ton_giling_tr_sd)*100, 3); ?></td>
+    <td class="number"><?php echo SiteHelpers::numberformat($rw->rend_tr_sd, 3); ?></td>
   </tr>
   <tr class="spottr">
     <td align="center">23</td>
     <td>TS + TR</td>
     <td class="number"><?php echo SiteHelpers::numberformat($rw->rend_total, 3); ?></td>
-    <td class="number"><?php echo SiteHelpers::numberformat(($rw->kristal_total_sd/$rw->ton_giling_total_sd)*100, 3); ?></td>
+    <td class="number"><?php echo SiteHelpers::numberformat($rw->rend_total_sd, 3); ?></td>
   </tr>
   <tr>
     <td rowspan="3">HABLUR DIHASILKAN</td>
@@ -373,8 +368,8 @@ table.null-border{
     <td>SISA TEBU DI EMPLASEMEN</td>
     <td align="center">33</td>
     <td>TON</td>
-    <td class="number"><?php echo SiteHelpers::numberformat($rw->ton_tebang_total-$rw->ton_giling_total, 3); ?></td>
     <td class="number"><?php echo SiteHelpers::numberformat($rw->ton_tebang_total_sd-$rw->ton_giling_total_sd, 3); ?></td>
+    <td class="number">-</td>
   </tr>
   <tr>
     <td rowspan="3">TEBU TERBAKAR</td>
@@ -395,11 +390,62 @@ table.null-border{
     <td class="number"><?php echo SiteHelpers::numberformat($rw->tebu_terbakar_total, 3); ?></td>
     <td class="number"><?php echo SiteHelpers::numberformat($rw->tebu_terbakar_total_sd, 3); ?></td>
   </tr>
+
+  <tr>
+    <td rowspan="2">AMPAS</td>
+    <td align="center">37</td>
+    <td>TON</td>
+    <td class="number"><?php echo SiteHelpers::numberformat($rw->ampas_ton, 3); ?></td>
+    <td class="number"><?php echo SiteHelpers::numberformat($rw->ampas_ton_sd, 3); ?></td>
+  </tr>
+  <tr>
+    <td align="center">38</td>
+    <td>% POL</td>
+    <td class="number"><?php echo SiteHelpers::numberformat($rw->persen_pol_ampas, 3); ?></td>
+    <td class="number"><?php echo SiteHelpers::numberformat($rw->persen_pol_ampas_sd, 3); ?></td>
+  </tr>
+
+  <tr>
+    <td rowspan="2">BLOTONG</td>
+    <td align="center">39</td>
+    <td>TON</td>
+    <td class="number"><?php echo SiteHelpers::numberformat($rw->blotong_ton, 3); ?></td>
+    <td class="number"><?php echo SiteHelpers::numberformat($rw->blotong_ton_sd, 3); ?></td>
+  </tr>
+  <tr>
+    <td align="center">40</td>
+    <td>% POL</td>
+    <td class="number"><?php echo SiteHelpers::numberformat($rw->persen_pol_blotong, 3); ?></td>
+    <td class="number"><?php echo SiteHelpers::numberformat($rw->persen_pol_blotong_sd, 3); ?></td>
+  </tr>
+
+  <tr>
+    <td rowspan="2">POL DALAM HASIL + TAKSASI</td>
+    <td align="center">39</td>
+    <td>TON</td>
+    <td class="number"><?php echo SiteHelpers::numberformat($rw->pol_dlm_hasil_taksasi_ton, 3); ?></td>
+    <td class="number"><?php echo SiteHelpers::numberformat($rw->pol_dlm_hasil_taksasi_ton_sd, 3); ?></td>
+  </tr>
+  <tr>
+    <td align="center">40</td>
+    <td>% POL</td>
+    <td class="number"><?php echo SiteHelpers::numberformat($rw->pol_dlm_hasil_taksasi_persenpol, 3); ?></td>
+    <td class="number"><?php echo SiteHelpers::numberformat($rw->pol_dlm_hasil_taksasi_persenpol_sd, 3); ?></td>
+  </tr>
+
   <tr>
     <td style="padding: 20px;">KET. JAM BERHENTI GILING</td>
-    <td align="center">37</td>
+    <td align="center">41</td>
     <td></td>
     <td colspan="2" ><?php echo $rw->keterangan_jb; ?></td>
+  </tr>
+
+   <tr>
+    <td style="padding: 20px;">EFESIENSI PABRIK (OR)</td>
+    <td align="center">42</td>
+    <td>%</td>
+    <td class="number"><?php echo SiteHelpers::numberformat($rw->ef_or, 3); ?></td>
+    <td class="number"><?php echo SiteHelpers::numberformat($rw->ef_or_sd, 3); ?></td>
   </tr>
   
 </table>
