@@ -419,7 +419,8 @@ GROUP BY b.`kode_kat_lahan`";
 				if($v->kode_kat_lahan == 'TS-TR'){
 					$gulamiliktssaudara += $v->gulapg;
 				}else if($v->kode_kat_lahan == 'TS-SP'){
-					$gulaspt += $v->gulapg + $v->gula_ptr;
+					$gulaspt += $v->gulapg;
+					$gulapgextr += $v->gulapg;
 				}else if(substr($v->kode_kat_lahan,0,2) == 'TS'){
 					$gulapg += $v->gulapg;
 				}else{
