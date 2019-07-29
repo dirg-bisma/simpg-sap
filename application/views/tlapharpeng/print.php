@@ -441,64 +441,64 @@ table.null-border{
   </tr>
 
 <tr>
-    <td style="padding: 20px;">% Pol TEBU</td>
-    <td align="center">43</td>
+    <td >% Pol TEBU</td>
+    <td align="center">42</td>
     <td>%</td>
     <td class="number"><?php echo SiteHelpers::numberformat($rw->pol_tebu, 3); ?></td>
     <td class="number"><?php echo SiteHelpers::numberformat($rw->pol_tebu_sd, 3); ?></td>
   </tr>
 
 <tr>
-    <td style="padding: 20px;">Kehilangan Dlm Ampas</td>
-    <td align="center">44</td>
+    <td >Kehilangan Dlm Ampas</td>
+    <td align="center">43</td>
     <td>%</td>
     <td class="number"><?php echo SiteHelpers::numberformat($rw->k_dlm_ampas, 3); ?></td>
     <td class="number"><?php echo SiteHelpers::numberformat($rw->k_dlm_ampas_sd, 3); ?></td>
   </tr>
 
   <tr>
-    <td style="padding: 20px;">Kehilangan Dlm Blotong</td>
-    <td align="center">45</td>
+    <td >Kehilangan Dlm Blotong</td>
+    <td align="center">44</td>
     <td>%</td>
     <td class="number"><?php echo SiteHelpers::numberformat($rw->k_dlm_blotong, 3); ?></td>
     <td class="number"><?php echo SiteHelpers::numberformat($rw->k_dlm_blotong_sd, 3); ?></td>
   </tr>
 
   <tr>
-    <td style="padding: 20px;">Kehilangan Dlm Tetes</td>
-    <td align="center">46</td>
+    <td >Kehilangan Dlm Tetes</td>
+    <td align="center">45</td>
     <td>%</td>
     <td class="number"><?php echo SiteHelpers::numberformat($rw->k_dlm_tetes, 3); ?></td>
     <td class="number"><?php echo SiteHelpers::numberformat($rw->k_dlm_tetes_sd, 3); ?></td>
   </tr>
 
   <tr>
-    <td style="padding: 20px;">OV</td>
-    <td align="center">47</td>
+    <td >OV</td>
+    <td align="center">46</td>
     <td>%</td>
     <td class="number"><?php echo SiteHelpers::numberformat($rw->ef_ov, 3); ?></td>
     <td class="number"><?php echo SiteHelpers::numberformat($rw->ef_ov_sd, 3); ?></td>
   </tr>
 
    <tr>
-    <td style="padding: 20px;">ME</td>
-    <td align="center">48</td>
+    <td >ME</td>
+    <td align="center">47</td>
     <td>%</td>
     <td class="number"><?php echo SiteHelpers::numberformat($rw->ef_me, 3); ?></td>
     <td class="number"><?php echo SiteHelpers::numberformat($rw->ef_me_sd, 3); ?></td>
   </tr>
 
    <tr>
-    <td style="padding: 20px;">BHR</td>
-    <td align="center">49</td>
+    <td >BHR</td>
+    <td align="center">48</td>
     <td>%</td>
     <td class="number"><?php echo SiteHelpers::numberformat($rw->ef_bhr, 3); ?></td>
     <td class="number"><?php echo SiteHelpers::numberformat($rw->ef_bhr_sd, 3); ?></td>
   </tr>
 
    <tr>
-    <td style="padding: 20px;">EFESIENSI PABRIK (OR)</td>
-    <td align="center">50</td>
+    <td >EFESIENSI PABRIK (OR)</td>
+    <td align="center">49</td>
     <td>%</td>
     <td class="number"><?php echo SiteHelpers::numberformat($rw->ef_or, 3); ?></td>
     <td class="number"><?php echo SiteHelpers::numberformat($rw->ef_or_sd, 3); ?></td>
