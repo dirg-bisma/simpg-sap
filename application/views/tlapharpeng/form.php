@@ -1215,7 +1215,7 @@
 
         vtot =  parseFloat(v1v)+parseFloat(v2v)+parseFloat(v3v)+parseFloat(v4v);
         if(opt==0){
-            $('#'+vtotal).val(vtot.toFixed(3));
+            $('#'+vtotal).val(vtot.toFixed(4));
         }
         // body...
         hitungsd(v1,v2,v3,vtotal,v4);
