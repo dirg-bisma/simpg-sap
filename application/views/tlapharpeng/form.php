@@ -1336,7 +1336,7 @@
         
 
 
-        $('#jam_kampanye_sd').val(jksd.toFixed(2));
+        $('#jam_kampanye_sd').val(jksd.toFixed(4));
         //$('#jam_kampanye_hr_sd').val(jkhrsd.toFixed(2));
         hitungsd('jam_kampanye_hr','0','0','0');
 
@@ -1347,9 +1347,9 @@
         var totjamberhentihr = $('#jb_hr').val(); if(totjamberhentihr == '') totjamberhentihr=0;
 
         var jamgiling = parseFloat(jamkampanye)-parseFloat(totjamberhenti);
-        $('#jam_giling').val(parseFloat(jamgiling).toFixed(2));
+        $('#jam_giling').val(parseFloat(jamgiling).toFixed(4));
         var jgsd = parseFloat(jamgiling)+parseFloat(jgyll);
-        $('#jam_giling_sd').val(jgsd.toFixed(2));
+        $('#jam_giling_sd').val(jgsd.toFixed(4));
 
         var kis=0;
         var kes = 0;
@@ -1391,11 +1391,11 @@
         var jbb = $('#jam_berhenti_b'+v).val(); if(jbb == '') jbb=0;
         var jamgiling = $('#jam_giling'+v).val(); if(jamgiling == '') jamgiling=0;
 
-        var pa = parseFloat(jba/jamgiling).toFixed(2);
-        var pb = parseFloat(jbb/jamgiling).toFixed(2);
+        var pa = parseFloat(jba/jamgiling).toFixed(4);
+        var pb = parseFloat(jbb/jamgiling).toFixed(4);
 
-        $('#jba_persen_jamgil'+v).val(parseFloat(pa).toFixed(2));
-        $('#jbb_persen_jamgil'+v).val(parseFloat(pb).toFixed(2));
+        $('#jba_persen_jamgil'+v).val(parseFloat(pa).toFixed(4));
+        $('#jbb_persen_jamgil'+v).val(parseFloat(pb).toFixed(4));
         
         total1('jba_persen_jamgil','jbb_persen_jamgil','0','total_persen_jamgil');
 
