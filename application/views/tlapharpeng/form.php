@@ -868,7 +868,7 @@
                                 
                                 </tbody>
                             </table>
-                            <center><p id="txtcek" style="font-size: 13px;background-color: red;color: white"><b>RENDEMEN TIDAK SAMA CEK KEMBALI NERACA POL</b></p></center>
+                            <center><p id="txtcek" style="font-size: 13px;background-color: red;color: white"><b>RENDEMEN TIDAK SAMA CEK KEMBALI NERACA POL</b> atau klik <a href="javascript:cekdatainputan()" class="btn btn-primary">Cek data</a></p></center>
                             <div class="toolbar-line text-center">
                                 <input type="submit" class="btn btn-primary btn-sm" value="Simpan" id="btnsimpan" />
                                 <a href="<?php echo site_url('tlapharpeng');?>" class="btn btn-sm btn-warning"><?php echo $this->lang->line('core.sb_cancel'); ?> </a>
@@ -1002,6 +1002,17 @@
 
     }
 
+    function cekdatainputan(){
+        tonpol('tetes_produksi','persen_pol_tetes','ton_pol_tetes','k_dlm_tetes');
+        total1('ampas_ton','0','0','0');
+        tonpol('ampas_ton','persen_pol_ampas','pol_ampas_ton','k_dlm_ampas');
+        total1('blotong_ton','0','0','0');
+        tonpol('blotong_ton','persen_pol_blotong','pol_blotong_ton','k_dlm_blotong');
+        tonpol('tetes_produksi','persen_pol_tetes','ton_pol_tetes','k_dlm_tetes');
+        total1('pol_dlm_hasil_taksasi_ton','0','0','0');
+        tonpol('pol_dlm_hasil_taksasi_ton','pol_dlm_hasil_taksasi_persenpol','pol_taksasi_ton','ton_taksasi_tebu');
+    }
+
 
     function cekRendemen(){
         var rhi = $('#rend_total').val();
@@ -1016,7 +1027,7 @@
 
         var rx = "RENDEMEN BELUM SAMA DENGAN NERACA POL Rendemen Hi : ";
         rx += prhi +' Rendemen S/d : '+prsd;
-        $('#txtcek').html(rx);
+        $('#txtcek').html(rx+' atau klik <a href="javascript:cekdatainputan()" class="btn btn-primary">Cek data</a>');
         
         if(rhi == prhi && rsd == prsd && rhi != '' && rsd != ''){
             $('#txtcek').hide();
