@@ -83,6 +83,13 @@ class Apitimbanganmodel extends SB_Model
         $results = $this->db->query($query)->result();
         return $results;
     }
+	
+	public function VByRfid($rfid)
+    {
+        $query = $this->queryRfid() . ' WHERE t_spta.rfid_sticker = "'.$rfid.'" AND rfid_sticker_status = 1 GROUP BY t_spta.id ';
+        $results = $this->db->query($query)->result();
+        return $results;
+    }
 
     public function VByNoLori($no_lori)
     {
@@ -249,5 +256,94 @@ class Apitimbanganmodel extends SB_Model
         ON bj.id_jarak = t_spta.jarak_id";
         return $qry;
     }
+	
+	private function queryRfid()
+	{
+		$str = "SELECT 
+                  t_spta.id,
+                  t_spta.no_spat,
+                  t_spta.kode_plant,
+                  CONCAT(t_spta.kode_blok, ' (',CONCAT(IF(t_spta.metode_tma=1,'MNL ',IF(t_spta.metode_tma=2,'SMK ','MK '))),
+                  IF(t_spta.angkut_pg = 1, CONCAT(' - ',bj.keterangan,')'),')')) AS kode_blok,
+                  t_spta.persno_pta,
+                  t_spta.id_petani_sap,
+                  t_spta.tebang_pg,
+                  t_spta.angkut_pg,
+                  t_spta.metode_tma,
+                  t_spta.kode_affd,
+                  t_spta.selektor_status,
+                  t_spta.selektor_tgl,
+                  t_spta.pintu_masuk_status,
+                  t_spta.pintu_masuk_tgl,
+                  t_spta.timb_bruto_status,
+                  t_spta.timb_bruto_tgl,
+                  t_spta.timb_netto_status,
+                  t_spta.timb_netto_tgl,
+                  t_spta.meja_tebu_status,
+                  t_spta.meja_tebu_tgl,
+                  t_spta.ari_status,
+                  t_spta.ari_tgl,
+                  t_spta.hari_giling,
+                  t_spta.tgl_giling,
+                  sap_petani.`nama_petani` AS nama_petani,
+                  CONCAT(pta.`name`, '-(', cc.Persno,' - ',cc.name,')') AS nama_pta,
+                  t_spta.kode_kat_lahan,
+                  t_selektor.tgl_tebang,
+                  t_selektor.no_angkutan,
+                  t_selektor.ptgs_angkutan,
+                  t_selektor.no_trainstat,
+                  t_selektor.no_urut_timbang,
+                  sap_field.deskripsi_blok,
+                  kkw.`name` AS nama_kkw,
+                  t_timbangan.transloading_status,
+                  t_timbangan.bruto,
+                  t_timbangan.tara,
+                  t_timbangan.netto,
+                  t_timbangan.lokasi_timbang_1,
+                  t_timbangan.lokasi_timbang_2,
+                  t_timbangan.id_timbangan,
+                  t_timbangan.tgl_bruto,
+                  t_timbangan.tgl_tara,
+                  t_timbangan.tgl_netto,
+                  t_timbangan.no_transloading,
+                  t_timbangan.ptgs_transloading,
+                  t_timbangan.ptgs_timbang_1,
+                  t_timbangan.ptgs_timbang_2,
+                  t_timbangan.tgl_transloading,
+                  t_timbangan.multi_sling,
+                  t_timbangan.train_stat,
+                  t_timbangan.no_lori,
+                  t_timbangan.netto_final,
+                  t_timbangan.netto_rafaksi,
+                  t_timbangan.rafaksi_prosentis,
+                  b.`kondisi_tebu`,
+				  truck.rfid_sticker,
+				  truck.tara as tara_rfid				  
+                FROM
+                  t_spta 
+                  LEFT JOIN sap_petani 
+                    ON t_spta.id_petani_sap = sap_petani.`id_petani_sap`
+                  INNER JOIN sap_m_karyawan AS pta 
+                    ON t_spta.persno_pta = pta.Persno 
+                  INNER JOIN t_selektor 
+                    ON t_selektor.id_spta = t_spta.id 
+                  INNER JOIN sap_field 
+                    ON t_spta.kode_blok = sap_field.kode_blok 
+                  INNER JOIN sap_m_affdeling AS aff1 
+                    ON t_spta.kode_affd = aff1.kode_affd 
+                  INNER JOIN sap_m_karyawan AS kkw 
+                    ON aff1.Persno = kkw.Persno 
+                  LEFT JOIN t_timbangan 
+                    ON t_spta.id = t_timbangan.id_spat 
+                  LEFT JOIN t_meja_tebu AS b 
+                    ON t_spta.id = b.`id_spta`
+                  INNER JOIN sap_m_karyawan AS cc 
+                    ON t_selektor.`persno_mandor_tma` = cc.Persno
+                  LEFT JOIN m_biaya_jarak AS bj
+					ON bj.id_jarak = t_spta.jarak_id
+				  LEFT JOIN m_truk_gps as truck 
+					ON t_spta.rfid_sticker=truck.rfid_sticker";
+		return $str;
+	}
 
 }

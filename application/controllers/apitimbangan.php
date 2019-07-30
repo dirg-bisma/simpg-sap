@@ -65,6 +65,36 @@ class Apitimbangan extends SB_Controller
 
         echo json_encode($output);
     }
+	
+	function byrfid()
+    {
+        $rfid = $this->input->get('rfid');
+        $this->load->model('apitimbanganmodel');
+        $result = $this->apitimbanganmodel->VByRfid($rfid);
+
+        if(count($result) == 1){
+            foreach ($result[0] as $key => $value) {
+                if (is_null($value)) {
+                    $result[0]->$key = "";
+                }
+            }
+            $output = array(
+                'result' => $result,
+                'count' => count($result),
+                'msg' => 'success',
+                'status' => 'true'
+            );
+        }else{
+            $output = array(
+                'result' => array(),
+                'count' => count($result),
+                'msg' => 'data not found',
+                'status' => 'false'
+            );
+        }
+
+        echo json_encode($output);
+    }
 
 
     function bynolori($no_lori)
@@ -321,6 +351,8 @@ class Apitimbangan extends SB_Controller
             echo json_encode($result);
         }
     }
+	
+	
 
     function simpanlori()
     {
@@ -403,6 +435,8 @@ class Apitimbangan extends SB_Controller
             echo json_encode($result);
         }
     }
+	
+	
 
     function taralori($no_lori)
     {

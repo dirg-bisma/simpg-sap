@@ -165,6 +165,19 @@ WHERE (no_spat = '".$_GET['nospta']."')";
 		}
 		echo json_encode($arr);
 	}
+	
+	function datagrid2(){
+		$arr = array();
+		$sql = $this->db->query("SELECT no_spat,rfid_sticker,tgl_selektor,no_urut,no_angkutan,ptgs_angkutan,terbakar_sel,ditolak_sel FROM vw_selektor_data2 WHERE DATE(tgl_selektor)=DATE(NOW()) ORDER BY no_urut DESC LIMIT 20")->result();
+
+		if($sql){
+			$arr['stt'] = 1;
+			$arr['data'] = $sql;
+		}else{
+			$arr['stt'] = 0;
+		}
+		echo json_encode($arr);
+	}
 
 
 	function datamandor(){
@@ -240,44 +253,217 @@ WHERE (no_spat = '".$_GET['nospta']."')";
 		}
 		
 	}
+	
+	function datatruckv2()
+	{
+		if($this->GetPost('rfid')){
+			$sql = "SELECT * FROM m_truk_gps WHERE 
+			rfid_sticker = '". $this->GetPost('rfid') ."'";
+			$result = $this->db->query($sql)->row();
+
+			if(count($result) == 1){
+				if($result ->status == 0){
+					$output = array(
+						'result' => $result,
+						'count' => count($result),
+						'msg' => 'success',
+						'status' => 'true'
+					);
+				}else{
+					$output = array(
+						'result' => array(
+								"id"=> "",
+								"nopol_truk"=> "",
+								"rfid_sticker"=> "",
+								"sopir"=> "",
+								"tara"=> "",
+							),
+						'count' => 0,
+						'msg' => 'Rfid Tertaut dengan SPTA',
+						'status' => 'false'
+					);
+				}
+				
+			}else{
+				$output = array(
+					'result' => array(
+						"id"=> "",
+						"nopol_truk"=> "",
+						"rfid_sticker"=> "",
+						"sopir"=> "",
+						"tara"=> "",
+					),
+					'count' => count($result),
+					'msg' => 'data not found',
+					'status' => 'false'
+				);
+			}
+			echo json_encode($output);
+		}else{
+			$output = array(
+				'result' => array(
+					"id"=> "",
+					"nopol_truk"=> "",
+					"rfid_sticker"=> "",
+					"sopir"=> "",
+					"tara"=> "",
+				),
+				'count' => 0,
+				'msg' => 'parameter rfid missing',
+				'status' => 'false'
+			);
+			echo json_encode($output);
+		}
+		
+	}
+	
+	function registrasirfid()
+	{
+		$this->db->select('*');
+		$this->db->from('m_truk_gps');
+		$this->db->where('nopol_truk', str_replace(' ', '', strtoupper($_POST['nopol_truk'])));
+		$query = $this->db->get();
+		$ret = $query->row();
+		if(count($ret) == 0){
+			$data = array(
+				'nopol_truk' => str_replace(' ', '', strtoupper($_POST['nopol_truk'])),
+				'rfid_sticker' => $_POST['rfid_sticker'],
+				'sopir' => $_POST['sopir'],
+				'tara' => $_POST['tara']
+			);
+
+		$this->db->insert('m_truk_gps', $data);
+		$output = array(
+					'result' => array(
+						"rfid_sticker"=> $_POST['rfid_sticker'],
+						"sopir"=> $_POST['sopir'],
+						"nopol_truk"=> str_replace(' ', '', strtoupper($_POST['nopol_truk'])),
+						"tara"=> '',
+					),
+					'count' => 1,
+					'msg' => 'data add',
+					'status' => 'true'
+				);
+			
+			echo json_encode($output);
+		}else if(count($ret) == 1){
+			
+			$this->db->set('tara', $_POST['tara']);
+			$this->db->where('rfid_sticker', $_POST['rfid_sticker']);
+			$this->db->update('m_truk_gps');
+			$output = array(
+					'result' => array(
+						"rfid_sticker"=> $ret->rfid_sticker,
+						"sopir"=> $ret->sopir,
+						"nopol_truk"=> $ret->nopol_truk,
+						"tara"=> $ret->tara,
+					),
+					'count' => 1,
+					'msg' => 'data sudah ada, Update Tara',
+					'status' => 'true'
+				);
+				
+			
+			echo json_encode($output);
+		}else{
+			$output = array(
+					'result' => array(
+						"rfid_sticker"=> "",
+						"sopir"=> "",
+						"nopol_truk"=> '',
+						"tara"=> '',
+					),
+					'count' => 0,
+					'msg' => 'error add',
+					'status' => 'false'
+				);
+			
+			echo json_encode($output);
+		}
+		
+	}
+	
+	function updateTara()
+	{
+		$this->db->select('*');
+		$this->db->from('m_truk_gps');
+		$this->db->where('nopol_truk', str_replace(' ', '', strtoupper($_POST['nopol_truk'])));
+		$query = $this->db->get();
+		$ret = $query->row();
+		if(count($ret) == 1){
+			$this->db->set('tara', $_POST['tara']);
+			$this->db->where('rfid_sticker', $ret->rfid_sticker);
+			$this->db->update('m_truk_gps');
+			
+			$output = array(
+					'result' => array(
+						"rfid_sticker"=> $ret->rfid_sticker,
+						"sopir"=> $ret->sopir,
+						"nopol_truk"=> $ret->nopol_truk,
+						"tara"=> $_POST['tara'],
+					),
+					'count' => 0,
+					'msg' => 'data updated',
+					'status' => 'true'
+				);
+			
+			echo json_encode($output);
+		}else{
+			$output = array(
+					'result' => array(
+						"rfid_sticker"=> "",
+						"sopir"=> "",
+						"nopol_truk"=> str_replace(' ', '', strtoupper($_POST['nopol_truk'])),
+						"tara"=> $_POST['tara'],
+					),
+					'count' => 0,
+					'msg' => 'error updated',
+					'status' => 'false'
+				);
+			
+			echo json_encode($output);
+		}
+		
+	}
 
 	function save()
 	{
 		$arr['status'] = 'false';
-
-		$cekcard = $this->db->query("SELECT no_spat FROM t_spta WHERE rfid_card = '".$_POST['rfid_card']."' AND rfid_card_status = 1")->row();
+		$cekcard = $this->db->query("SELECT no_spat FROM t_spta 
+		WHERE rfid_sticker = '".$this->input->get_post('rfid_sticker')."' 
+		AND rfid_sticker_status = 1")->row();
 		if($cekcard){
 			
 			$arr['status'] = 'false';
-			$arr['msg'] = "Kartu Masih Tertaut Dengan SPTA ".$cekcard->no_spat;
+			$arr['msg'] = "Stiker ".$this->input->get_post('rfid_sticker')." Masih Tertaut Dengan SPTA ".$cekcard->no_spat;
 
 		}else{
 		$rules = $this->validateForm();
-
+		
 
 		$this->form_validation->set_rules( $rules );
 		if( $this->form_validation->run() )
 		{
 			$data = $this->validatePost();
-			$data['tgl_selektor'] = date('Y-m-d H:i:s');
 			
-			$data = $this->validatePost();
             $data['tgl_selektor'] = date('Y-m-d H:i:s');
 			$data['no_angkutan'] =  strtoupper($data['no_angkutan']);
 			$data['ptgs_angkutan'] = strtoupper($data['ptgs_angkutan']);
-			$data['tgl_tebang'] = $_POST['tgl_tebang'].' '.$_POST['jam_tebang'].':00';
+			$data['tgl_tebang'] = $this->input->get_post('tgl_tebang').' '.$this->input->get_post('jam_tebang').':00';
 			//$data['ptgs_selektor'] = $_POST['ptgs_selektor'];
 			$data['ptgs_selektor'] = "Operator Selektor";
-			$data['rfid_card'] = $_POST['rfid_card'];
+			$data['rfid_sticker'] = $this->input->get_post('rfid_sticker');
 
 			$rx = $this->db->query('SELECT IFNULL(MAX(no_urut),0)+1 AS nourut,get_tgl_giling() AS tgl FROM t_selektor WHERE tgl_urut = get_tgl_giling() AND ptgs_selektor="'.$data['ptgs_selektor'].'"')->row();
 			$data['no_urut'] = $rx->nourut;
 			$data['tgl_urut'] = $rx->tgl;
 			
-			
 			$ID = $this->model->insertRow($data , $this->input->get_post( 'id_selektor' , true ));
-
-			$sql = $this->db->query("UPDATE t_spta SET rfid_card='".$_POST['rfid_card']."',rfid_card_tagging=NOW(),rfid_card_status=1 WHERE id = '".$data['id_spta']."'");
+			$this->db->set('status', '1');
+			$this->db->where('rfid_sticker', $this->input->get_post('rfid_sticker'));
+			$this->db->update('m_truk_gps');
+			
+			$sql = $this->db->query("UPDATE t_spta SET rfid_sticker='".$this->input->get_post('rfid_sticker')."',rfid_sticker_tagging=NOW(),rfid_sticker_status=1 WHERE id = '".$this->input->get_post('id_spta')."'");
 			
 			// Input logs
 			if( $this->input->get( 'id_selektor' , true ) =='')
@@ -312,6 +498,12 @@ WHERE (no_spat = '".$_GET['nospta']."')";
         }
         return $output;
     }
+	
+	function cetak($id){
+		$this->data['row'] = $this->db->query("SELECT no_spat,no_angkutan,ptgs_angkutan,no_urut,tgl_selektor FROM t_selektor a INNER JOIN t_spta b ON a.id_spta=b.id WHERE a.id_spta=$id GROUP BY b.id")->row();
+		echo $this->data['content'] =  $this->load->view('tselektor/view', $this->data ,true);	  
+		
+	}
 
 
 }

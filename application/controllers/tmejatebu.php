@@ -229,6 +229,18 @@ class Tmejatebu extends SB_Controller
 			if($data['kondisi_tebu'] == CNF_MUTU_TERBAKAR){
 				$s = $this->db->query('UPDATE t_selektor SET terbakar_sel = 1 WHERE id_spta="'.$data['id_spta'].'"');
 			}
+			
+			$this->db->query('UPDATE t_spta SET rfid_sticker_status = 2 WHERE id ="'.$data['id_spta'].'"');
+			
+			$this->db->select('*');
+			$this->db->where('id', $data['id_spta']);
+			$rfid_result = $this->db->get('t_spta')->row();
+			
+			if($rfid_result->rfid_sticker != ""){
+			$qry_rfid =$this->db->query('UPDATE m_truk_gps SET status = 0 WHERE rfid_sticker="'.$rfid_result->rfid_sticker.'"');	
+			}
+			 
+			
 			// Input logs
 			if( $this->input->get( 'id_mejatebu' , true ) =='')
 			{
