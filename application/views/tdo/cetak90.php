@@ -59,6 +59,13 @@ if($do->jenis_do == 1){
 <td style="height: 13px;">TETES PTR</td>
 <td style="height: 13px;"><?=number_format($do->berat_tetes,2);?> Kg</td>
 </tr>
+<tr style="height: 13px;">
+<td style="height: 13px;"></td>
+<td style="height: 13px;"></td>
+<td style="height: 13px;">&nbsp;</td>
+<td style="height: 13px;">GULA / KG TEBU</td>
+<td style="height: 13px;"><?=number_format(($do->gula_100/$do->netto_tebu)*100,2);?> Kg</td>
+</tr>
 </tbody>
 </table>
 </td>
