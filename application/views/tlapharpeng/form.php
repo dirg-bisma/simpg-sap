@@ -591,6 +591,12 @@
                                     <td><input type="number" step="any" class="number" id="raw_sugar_diolah_yl"></td>
                                     <td><input type="number" step="any" class="number" id="raw_sugar_diolah_sd" name="raw_sugar_diolah_sd"></td>
                                 </tr>
+                                <tr>
+                                    <td>  Sisan Diolah </td>
+                                    <td><input type="number" onkeyup="total1('sisan_diolah','0','0','0');" step="any" class="number" name="sisan_diolah" id="sisan_diolah"></td>
+                                    <td><input type="number" step="any" class="number" id="sisan_diolah_yl"></td>
+                                    <td><input type="number" step="any" class="number" id="sisan_diolah_sd" name="sisan_diolah_sd"></td>
+                                </tr>
                                  <tr>
                                     <td> GULA REPRO tahun ini </td>
                                     
