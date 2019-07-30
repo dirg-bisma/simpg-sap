@@ -96,9 +96,9 @@ if($sepuluh != 0){
 <td style="height: 13px;" align="center"><b>Natura<br />Kg</b></td>
 </tr>
 <tr style="height: 13px;">
-<td style="height: 13px;" align="center"><?=number_format($seratus,2);?></td>
-<td style="height: 13px;" align="center"><?=number_format($sembilan,2);?></td>
-<td style="height: 13px;" align="center"><?=number_format($sepuluh,2);?></td>
+<td style="height: 13px;" align="center"><br /><?=number_format($seratus,2);?></td>
+<td style="height: 13px;" align="center"><br /><?=number_format($sembilan,2);?></td>
+<td style="height: 13px;" align="center"><br /><?=number_format($sepuluh,2);?></td>
 </tr>
 <?
 }else{
@@ -107,7 +107,7 @@ if($sepuluh != 0){
 <td style="height: 13px;" align="center"><b>100%<br />Kg</b></td>
 </tr>
 <tr style="height: 13px;">
-<td style="height: 13px;" align="center"><?=number_format($sembilan,2);?></td>
+<td style="height: 13px;" align="center"><br /><?=number_format($sembilan,2);?></td>
 </tr>
 <?
 }
