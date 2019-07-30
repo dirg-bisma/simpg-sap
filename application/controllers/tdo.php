@@ -542,6 +542,14 @@ WHERE b.`id_periode`=$idperiod");
 		$sql = $this->db->query("SELECT * FROM vw_t_do WHERE 0=0 $filter")->result();
 		$no=1;
 
+		//sql potongan head
+		$sqlpot = $this->db->query("SELECT nama_potongan FROM `t_do_potongan` a INNER JOIN t_do b ON a.`id_do`=b.`id` WHERE 0=0 $filter GROUP BY id_potongan ORDER BY id_potongan ASC")->result();
+		$thpot = '';$colspan = 0;
+		foreach ($sqlpot as $key) {
+			$colspan++;
+			$thpot .= "<th bgcolor='silver'>".$key->nama_potongan."</th>";
+		}
+
 		echo "<table><thead>
 		<tr><td colspan='19' align='center'>DATA DO PERIODE $per->nama_periode</td></tr>
 		<tr><td colspan='19' align='center'>".CNF_PG."</td></tr>
@@ -566,7 +574,8 @@ WHERE b.`id_periode`=$idperiod");
 		<th bgcolor='silver'>TETES_PTR</th>
 		<th bgcolor='silver'>HARGA_GULA</th>
 		<th bgcolor='silver'>HARGA_TETES</th>
-		<th bgcolor='silver'>TOTAL_PENDAPATAN</th>
+		<th bgcolor='silver'>TOTAL_PENDAPATAN</th>".
+		$thpot."
 		<th bgcolor='silver'>TOTAL_POTONGAN</th>
 		<th bgcolor='silver'>TOTAL_BERSIH</th>";
 		echo "</tr></thead>";
@@ -597,6 +606,13 @@ WHERE b.`id_periode`=$idperiod");
 			echo "<td>".number_format($key->harga_gula)."</td>";
 			echo "<td>".number_format($key->harga_tetes)."</td>";
 			echo "<td>".number_format($key->total_pendapatan)."</td>";
+			//sql potongan detail
+			$sqlpot = $this->db->query("SELECT a.nominal FROM `t_do_potongan` a INNER JOIN t_do b ON a.`id_do`=b.`id` WHERE 0=0 $filter and b.id = ".$key->id." GROUP BY id_potongan ORDER BY id_potongan ASC")->result();
+		
+		foreach ($sqlpot as $keys) {
+			echo "<td bgcolor='yellow'>".number_format($keys->nominal)."</td>";
+		}
+
 			echo "<td>".number_format($key->total_potongan)."</td>";
 			echo "<td>".number_format($key->total_pendapatan_bersih)."</td>";
 			echo "</tr>";
@@ -621,6 +637,7 @@ WHERE b.`id_periode`=$idperiod");
 			echo "<td bgcolor='yellow'></td>";
 			echo "<td bgcolor='yellow'></td>";
 			echo "<td bgcolor='yellow'>".number_format($totalpendapatan)."</td>";
+			echo "<td bgcolor='yellow' colspan=".$colspan."></td>";
 			echo "<td bgcolor='yellow'>".number_format($totalpotongan)."</td>";
 			echo "<td bgcolor='yellow'>".number_format($totalbersih)."</td>";
 			echo "</tr>";
@@ -629,7 +646,7 @@ WHERE b.`id_periode`=$idperiod");
 			echo "<tr><td></td>";
 			echo "</tr>";
 			echo "<tr><td colspan=5 align=center><br />".date('d M Y')."</td><td colspan=9>&nbsp;</td><td></td></tr>";
-			echo "<tr><td colspan=5 align=center>Manajer Keuangan<br /><br/><br /><br/><br /><br/>.........</td>
+			echo "<tr><td colspan=8 align=center>Manajer Keuangan<br /><br/><br /><br/><br /><br/>..............</td>
 			<td colspan=9>&nbsp;</td><td colspan=5 align=center>General Manager<br /><br/><br /><br/><br /><br/>".CNF_GM."</td></tr>";
 			echo "</tr>";
 
