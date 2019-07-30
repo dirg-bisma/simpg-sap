@@ -63,8 +63,8 @@ if($do->jenis_do == 1){
 <td style="height: 13px;"></td>
 <td style="height: 13px;"></td>
 <td style="height: 13px;">&nbsp;</td>
-<td style="height: 13px;">GULA / KG TEBU</td>
-<td style="height: 13px;"><?=number_format(($do->gula_100/$do->netto_tebu)*100,2);?> Kg</td>
+<td style="height: 13px;">GULA / KUI TEBU</td>
+<td style="height: 13px;"><?=number_format(($do->gula_100/($do->netto_tebu/100)),2);?> Kg</td>
 </tr>
 </tbody>
 </table>
@@ -230,7 +230,7 @@ echo '<b>'.number_format($total).'</b>';
 </td>
 </tr>
 <tr style="height: 13px;">
-<td style="height: 13px;" colspan="2" width="70%" align="center">
+<td style="height: 13px;" colspan="2" width="60%" align="center">
 </td>
 <td style="height: 13px;" colspan="2" align="center">
 <p>&nbsp;<?=CNF_PG;?>, <?=siteHelpers::datereporthidejam($do->tgl_act);?><br /><?=CNF_NAMAPERUSAHAAN;?><br /><?=strtoupper(CNF_PG);?></p>
