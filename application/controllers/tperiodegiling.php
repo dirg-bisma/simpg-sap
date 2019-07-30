@@ -93,8 +93,18 @@ class Tperiodegiling extends SB_Controller
             $row[] = $no+1;
             for ($i=0; $i < count($this->col) ; $i++) { 
             		$field = $this->col[$i+1];
+            		if($field == 'harga_gula' || $field == 'harga_tetes' || $field == 'netto_tebu_total' || $field == 'total_do' || $field == 'total_natura' || $field == 'total_tetes'){
+            			$row[] = number_format($dt->$field,2);
+            		}else if($field == 'status'){
+            			$arx = array('0'=>'Buka','1'=>'Tutup');
+            			$row[] = $arx[$dt->$field];
+            		}else if($field == 'jenis_do'){
+            			$arx = array('0'=>'90%-10%','1'=>'95%-5%','2'=>'100%');
+            			$row[] = $arx[$dt->$field];
+            		}else{
             		$conn = (isset($this->con[$i+1]) ? $this->con[$i+1] : array() ) ;
 					$row[] = SiteHelpers::gridDisplay($dt->$field , $field , $conn );
+				}
             }
  
             //add html for action
@@ -223,7 +233,30 @@ GROUP BY a.`kode_blok`")->result();
 			foreach ($sqldo as $k) {
 				$no++;
 				$nogudang = '';
-				if($k->is_natura == 1){
+				$isnatura = 0;
+				$gula100 = $k->gula_100;
+				$gulanatura = 0;
+				$gulado = 0;
+				if($period->jenis_do == 0){
+					//90-10%
+					$isnatura = 1;
+					$gulanatura = round($k->gula_100*10/100);
+					$gulado = $gula100-$gulanatura;
+
+				}else if($period->jenis_do == 1){
+					//95-5%
+					$isnatura = 1;
+					$gulanatura = round($k->gula_100*5/100);
+					$gulado = $gula100-$gulanatura;
+
+				}else if($period->jenis_do == 2){
+					//100%
+					$isnatura = 0;
+					$gulanatura = 0;
+					$gulado = $gula100-$gulanatura;
+
+				}
+				if($isnatura == 1){
 					$nogudang = str_pad($no,4,'0',STR_PAD_LEFT).''.str_pad($periodid,3,'0',STR_PAD_LEFT).'NTR'.CNF_TAHUNGILING;
 				}
 				$dt = array(
@@ -235,9 +268,9 @@ GROUP BY a.`kode_blok`")->result();
 					'ha_tergiling'=>$k->ha_tertebang,
 					'netto_tebu'=>$k->netto_tebu,
 					'ha_pokok'=>$k->luas_ha,
-					'gula_100'=>$k->gula_100,
-					'gula_90'=>$k->gula_90,
-					'gula_10'=>$k->gula_10,
+					'gula_100'=>$gula100,
+					'gula_90'=>$gulado,
+					'gula_10'=>$gulanatura,
 					'harga_gula'=>$period->harga_gula,
 					'berat_tetes'=>$k->tetes_ptr,
 					'harga_tetes'=>$period->harga_tetes,
@@ -247,7 +280,7 @@ GROUP BY a.`kode_blok`")->result();
 					'user_act'=>$this->session->userdata('fid'),
 					'tgl_act'=>date('Y-m-d H:i:s'),
 					'status_do'=>0,
-					'is_natura'=> $k->is_natura,
+					'is_natura'=> $isnatura,
 					'no_bon_gudang'=>$nogudang
 				);
 

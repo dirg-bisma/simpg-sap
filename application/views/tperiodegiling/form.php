@@ -75,6 +75,22 @@
 									  <input type='text' class='form-control input-sm' placeholder='' value='<?php echo $row['harga_tetes'];?>' name='harga_tetes'  required /> <br />
 									  <i> <small></small></i>
 									 </div> 
+								  </div> 					
+								  <div class="form-group  " >
+									<label for="Jenis DO" class=" control-label col-md-4 text-left"> Jenis DO </label>
+									<div class="col-md-8">
+									  
+					<?php $jenis_do = explode(',',$row['jenis_do']);
+					$jenis_do_opt = array( '0' => '90 % - 10 %' ,  '1' => '95 % - 5 %' ,  '2' => '100 %' , ); ?>
+					<select name='jenis_do' rows='5'   class='form-control input-sm select2' style='width: 100%;' > 
+						<?php 
+						foreach($jenis_do_opt as $key=>$val)
+						{
+							echo "<option  value ='$key' ".($row['jenis_do'] == $key ? " selected='selected' " : '' ).">$val</option>"; 						
+						}						
+						?></select> <br />
+									  <i> <small></small></i>
+									 </div> 
 								  </div> 
 			</div>
 			

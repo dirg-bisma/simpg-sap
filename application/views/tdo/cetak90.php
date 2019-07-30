@@ -3,6 +3,8 @@
 /* @font-face kit by Fonts2u (https://fonts2u.com) */ 
 @font-face {font-family:"dot-matrix";src:url("<?=base_url('adminlte/font/1979_dot_matrix.eot');?>?") format("eot"),url("<?=base_url('adminlte/font/1979_dot_matrix.woff');?>") format("woff"),url("<?=base_url('adminlte/font/1979_dot_matrix.ttf');?>") format("truetype"),url("<?=base_url('adminlte/font/1979_dot_matrix.svg#1979-Dot-Matrix');?>") format("svg");font-weight:normal;font-style:normal;}
 
+
+
 </style>
 
 <page size="A4" style="font-size:10px;font-family: 'dot-matrix'">
@@ -72,11 +74,6 @@ if($do->jenis_do == 1){
 <p>Giling Tgl <?=date('j M Y', strtotime($do->tgl_awal));?> s/d <?=date('j M Y', strtotime($do->tgl_akhir));?></p></b>
 </td>
 </tr>
-<tr style="height: 13px;">
-<td style="height: 13px;" align="center"><b>100%<br />Kg</b></td>
-<td style="height: 13px;" align="center"><b>90%<br />Kg</b></td>
-<td style="height: 13px;" align="center"><b>10%<br />Kg</b></td>
-</tr>
 <?
 $seratus = $do->gula_100;
 $sembilan = $do->gula_90;
@@ -84,12 +81,32 @@ $sepuluh = $do->gula_10;
 
 $hgula = $sembilan*$do->harga_gula;
 $htetes = $do->berat_tetes*$do->harga_tetes;
+if($sepuluh != 0){
 ?>
+<tr style="height: 13px;">
+<td style="height: 13px;" align="center"><b>100%<br />Kg</b></td>
+<td style="height: 13px;" align="center"><b>DO<br />Kg</b></td>
+<td style="height: 13px;" align="center"><b>Natura<br />Kg</b></td>
+</tr>
 <tr style="height: 13px;">
 <td style="height: 13px;" align="center"><?=number_format($seratus,2);?></td>
 <td style="height: 13px;" align="center"><?=number_format($sembilan,2);?></td>
 <td style="height: 13px;" align="center"><?=number_format($sepuluh,2);?></td>
 </tr>
+<?
+}else{
+?>
+<tr style="height: 13px;">
+<td style="height: 13px;" align="center"><b>100%<br />Kg</b></td>
+</tr>
+<tr style="height: 13px;">
+<td style="height: 13px;" align="center"><?=number_format($sembilan,2);?></td>
+</tr>
+<?
+}
+?>
+
+
 </tbody>
 </table>
 </td>
@@ -137,8 +154,8 @@ echo '<b>'.number_format($total).'</b>';
 <td style="height: 13px;" colspan="4">&nbsp;</td>
 </tr>
 <tr style="height: 13px;">
-<td style="height: 13px;" colspan="4">&nbsp;&nbsp;<b>PINJAMAN / KEWAJIBAN &amp; IURAN PTR KE PG :</b><br />
-<table style="width:80%;margin:10px">
+<td style="height: 13px;" colspan="4"><br />&nbsp;&nbsp;<b>PINJAMAN / KEWAJIBAN &amp; IURAN PTR KE PG :</b><br />
+<table style="width:95%;margin:10px;" >
 	<?
 	//cari yang terbanyak dulu
 	$sqlcx = $this->db->query("SELECT SUM(IF(posisi=0,1,0)) AS kanan,SUM(IF(posisi=1,1,0)) AS kiri FROM `t_do_potongan` WHERE id_do = $do->id")->row();
@@ -157,7 +174,7 @@ echo '<b>'.number_format($total).'</b>';
 
 	foreach ($do_det_2 as $det2) {
 		
-		$k[$inc] = '<td>'.$det2['nama_potongan'].'</td><td > = Rp. </td><td align="right" width="25%">'.number_format($det2['nominal']).'</td>';
+		$k[$inc] = '<td>'.$det2['nama_potongan'].'</td><td > = Rp. </td><td align="right" width="10%">'.number_format($det2['nominal']).'</td>';
 		$inc++;
 		$tot2+=$det2['nominal'];
 	}
@@ -165,7 +182,7 @@ echo '<b>'.number_format($total).'</b>';
 	foreach ($do_det_1 as $det1) {
 		?>
 			<tr>
-		<td><?=$det1['nama_potongan'];?></td><td > = Rp. </td><td align="right" width="25%"><?=number_format($det1['nominal'])?></td><td width="5%">&nbsp;</td>
+		<td ><?=$det1['nama_potongan'];?></td><td > = Rp. </td><td align="right" width="10%"><?=number_format($det1['nominal'])?></td><td width="5%">&nbsp;</td>
 		<?  
 
 		if(isset($k[$i])) echo $k[$i];

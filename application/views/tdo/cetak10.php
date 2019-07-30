@@ -15,7 +15,7 @@
 </td>
 <td style="font-size:10px;height: 26px;padding-right:10px" align="center">
 	<b><?=strtoupper(CNF_NAMAPERUSAHAAN);?><br /><?=strtoupper(CNF_PG);?></b></td>
-<td style="font-size:10px;height: 26px;" align="center"><b>PERMINTAAN<br />PENGELUARAN GULA NATURA 10%</b></td>
+<td style="font-size:10px;height: 26px;" align="center"><b>PERMINTAAN<br />PENGELUARAN GULA NATURA </b></td>
 <td style="font-size:10px;height: 26px;padding-right:10px" align="right"><b>NO DO : <?=$do->no_do;?><br />TGL DO : <?=date('j M Y', strtotime($do->tgl_act));?></b></td>
 </tr>
 <tr >
@@ -62,7 +62,7 @@
 <tr>
 
 <td align="center">TAHUN GILING <?=CNF_TAHUNGILING;?></td>
-<td align="center">10% GULA NATURA MILIK PTR</td>
+<td align="center"> GULA NATURA MILIK PTR</td>
 <td align="center">PENGAMBILAN</td>
 
 </tr>
@@ -79,7 +79,7 @@ $sepuluh = $do->gula_10;
 <td align="center" style="padding:10px">
 <table width="100%">
 <tr>
-<td>GULA NATURA 10%</td>
+<td>GULA NATURA </td>
 <td> <b><?=$sepuluh;?></b> Kilogram</td>
 </tr>
 <tr>
@@ -87,7 +87,7 @@ $sepuluh = $do->gula_10;
 </i><br /></td>
 </tr>
 <tr>
-<td>KARUNG + INTERBAG 10%</td>
+<td>KARUNG + INTERBAG </td>
 <td> <b><?=round($sepuluh/50,0);?></b> Lembar</td>
 </tr>
 </table>
