@@ -1167,6 +1167,9 @@
             total1('ton_tebang_ts','ton_tebang_ts_saudara','ton_tebang_tr','ton_tebang_total',0,'ton_tebang_spt');
             total1('tebu_terbakar_ts','tebu_terbakar_ts_saudara','tebu_terbakar_tr','tebu_terbakar_total',0,'tebu_terbakar_spt');
 
+            total1('gula_pg_ts','gula_pg_eks_ts_saudara','gula_pg_eks_tr','gula_pg_total',0,'gula_pg_spt');
+            total1('gula_pg_total','gula_tr_ts_saudara','gula_tr_bagihasil','gula_produksi');
+            
             total1('jam_berhenti_a','jam_berhenti_b','0','total_jb');
             total1('tetes_produksi','tetes_sisan','tetes_sto','tetes_total',0,'tetes_ex_repro');
             total1('jb_hr','0','0','0');
