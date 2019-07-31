@@ -357,8 +357,9 @@ function reloadgrid(afd=afdx) {
         });
     }
  
- $("#checkAll").click(function(){
-    $('input:checkbox').attr('checked', 'true');
+
+ $('#checkAll').on('ifChanged', function(event){
+    $('input:checkbox').not(this).prop('checked', this.checked);
 });
 
 </script>
