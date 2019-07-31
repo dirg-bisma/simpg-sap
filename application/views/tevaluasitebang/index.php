@@ -359,7 +359,8 @@ function reloadgrid(afd=afdx) {
  
 
  $('#checkAll').on('ifChanged', function(event){
-    $('input:checkbox').not(this).prop('checked', this.checked);
+    $('input:checkbox').not(this).click();
+    // $('input:checkbox').not(this).prop('checked', this.checked);
 });
 
 </script>
