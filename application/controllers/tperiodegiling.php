@@ -416,8 +416,11 @@ FROM t_do WHERE id_periode =$periodid")->row();
 		{ 
 			echo "err : maaf anda tidak memiliki hak untuk menghapus data";
 	  	}
+			$periodid = $_POST['id'];
 			
 		$this->model->destroy($_POST['id']);
+			$sqldeldo = $this->db->query("DELETE FROM t_do where id_periode = '$periodid'");
+			$sqldeldo = $this->db->query("DELETE FROM t_do_detail where id_periode = '$periodid'");
 		$this->inputLogs("ID : ".$_POST['id']."  , Has Been Removed Successfull");
 		echo "ID : ".$_POST['id']."  , berhasil dihapus !!";
 		
