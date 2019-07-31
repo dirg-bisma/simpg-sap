@@ -358,8 +358,8 @@ function reloadgrid(afd=afdx) {
     }
  
  $("#checkAll").click(function(){
-    $('input:checkbox').not(this).prop('checked', this.checked);
+    $('input:checkbox').prop('checked', 'true');
 });
- 
+
 </script>
       
