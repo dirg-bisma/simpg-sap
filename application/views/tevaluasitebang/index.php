@@ -16,7 +16,7 @@
         <thead>
         <tr>
             <th>No</th>
-            <th><i class='fa fa-check'></i></th>
+            <th><input type="checkbox" id="checkAll"></th>
             <th>No SPTA</th>
             <th>Tgl SPTA</th>
             <th>Jenis SPTA</th>
@@ -357,6 +357,9 @@ function reloadgrid(afd=afdx) {
         });
     }
  
+ $("#checkAll").click(function(){
+    $('input:checkbox').not(this).prop('checked', this.checked);
+});
  
 </script>
       
