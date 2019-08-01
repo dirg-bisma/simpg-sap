@@ -12,8 +12,11 @@
           <div class="box box-widget widget-user">
             <!-- Add the bg color to the header using any of the bg-* classes -->
             <div class="widget-user-header bg-aqua-active">
-              <h3 class="widget-user-username">Sistem Informasi Manajemen Pabrik Gula</h3>
+              <h3 class="widget-user-username">SIMPG</h3>
               <h5 class="widget-user-desc"><?php echo CNF_PG;?></h5>
+              <?
+              if($this->session->userdata('gid') != 16){
+              ?>
 			  <?php echo form_open('dashboard/postgantimejatebu'); ?>
 			  <div class="col-md-3">
 			  <select id="mejatebu" name="mejatebu" class="form-control"></select>
@@ -21,6 +24,9 @@
 			  <button type="submit" class="btn btn-danger"  style="height: 30px;" > Ganti Gilingan </button>
 			  </div>
 			  <?php echo form_close();?> 
+        <?
+      }
+        ?>
             </div>
             <div class="widget-user-image">
               <img class="img-circle" src="<?php echo base_url('logo.png');?>" alt="SIMPG" style="width:80px;height:80px">
@@ -48,6 +54,9 @@
 
 </section>
  <section class="content" style="padding-top: 0px">
+  <?
+              if($this->session->userdata('gid') != 16){
+              ?>
 <div class="box box-warning">
                 <div class="box-header with-border">
         
@@ -171,7 +180,9 @@
           </div>
       
       </div>
-
+<?
+}
+?>
 <div class="box box-warning">
 <input type="hidden" id="tgl" />
   <div class="box-header with-border">

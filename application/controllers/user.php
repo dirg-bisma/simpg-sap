@@ -154,7 +154,8 @@ class User extends SB_controller {
 				'gid'		=> $row->group_id,
 				'eid'		=> $row->email,
 				'll'		=> $row->last_login,
-				'fid'		=> $row->first_name.' '.$row->last_name
+				'fid'		=> $row->first_name.' '.$row->last_name,
+				'lastid'	=> $row->last_name
 			));
 			redirect('dashboard',301);
 
