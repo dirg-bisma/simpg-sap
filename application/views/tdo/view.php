@@ -15,9 +15,7 @@
 					   	echo $this->load->view('tdo/cetak90', $this->data ,true);	
 					   ?>
 					   
-				</div>
-
-				<div class="col-md-12">
+				
 					   <?php
 					   	$this->data['do'] = $row;
 					   	if($row->is_natura == 1){
