@@ -15,7 +15,7 @@
               <h3 class="widget-user-username">SIMPG</h3>
               <h5 class="widget-user-desc"><?php echo CNF_PG;?></h5>
               <?
-              if($this->session->userdata('gid') != 16){
+              if($this->session->userdata('gid') < 15){
               ?>
 			  <?php echo form_open('dashboard/postgantimejatebu'); ?>
 			  <div class="col-md-3">
@@ -55,7 +55,7 @@
 </section>
  <section class="content" style="padding-top: 0px">
   <?
-              if($this->session->userdata('gid') != 16){
+              if($this->session->userdata('gid') < 15){
               ?>
 <div class="box box-warning">
                 <div class="box-header with-border">
