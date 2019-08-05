@@ -35,7 +35,7 @@ LAPORAN SELEKTOR HARIAN<br />
 <hr />
 <table class="tableizer-table">
 <thead><tr class="tableizer-firstrow">
-<th>NO</th><th>NO Urut</th><th>NO SPTA</th><th>AFD</th><th>Mandor</th><th>No Petak</th><th>Kebun</th><th>Kategori</th><th>Angkutan</th><th>No Angkutan</th><th>Supir</th><th>Brix</th><th>pH</th><th>Terbakar</th><th>Ha Tertebang</th><th>Tebang</th><th>Selektor</th><th>Bruto</th><th>Netto</th><th>Ditolak</th><th>Alasan</th></tr></thead>
+<th>NO</th><th>NO Urut</th><th>NO SPTA</th><th>AFD</th><th>Mandor</th><th>PTA</th><th>No Petak</th><th>Kebun</th><th>Kategori</th><th>Angkutan</th><th>No Angkutan</th><th>Supir</th><th>Brix</th><th>pH</th><th>Terbakar</th><th>Ha Tertebang</th><th>Tebang</th><th>Selektor</th><th>Bruto</th><th>Netto</th><th>Ditolak</th><th>Alasan</th></tr></thead>
 <tbody>
 <?php
 $no=1;
@@ -62,6 +62,7 @@ $akt = 0;
 	 <td><?php echo $r->no_spat; ?></td>
 	 <td><?php echo $r->kode_affd; ?></td>
 	 <td><?php echo $r->mandor; ?></td>
+	 <td><?php echo $r->pta; ?></td>
 	 <td><?php echo $r->kode_blok; ?></td>
 	 <td><?php echo $r->deskripsi_blok; ?></td>
 	 <td><?php echo $r->kode_kat_lahan; ?></td>

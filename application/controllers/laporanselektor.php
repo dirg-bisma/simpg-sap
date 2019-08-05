@@ -83,6 +83,7 @@ class Laporanselektor extends SB_Controller
   `e`.`deskripsi_blok`    AS `deskripsi_blok`,
   `b`.`kode_kat_lahan`    AS `kode_kat_lahan`,
   `c`.`name`              AS `mandor`,
+   f.name as pta,
    b.`timb_bruto_tgl`,
    b.`timb_netto_tgl`,
    b.`jenis_spta`,
@@ -91,6 +92,7 @@ class Laporanselektor extends SB_Controller
 FROM `t_selektor` `a`
      INNER JOIN `t_spta` `b` ON `a`.`id_spta` = `b`.`id`
      INNER JOIN `sap_m_karyawan` `c`  ON `c`.`Persno` = CONVERT(`a`.`persno_mandor_tma` USING utf8)
+	 INNER JOIN `sap_m_karyawan` `f`  ON `f`.`Persno` = CONVERT(`b`.`persno_pta` USING utf8)
      INNER JOIN `sap_field` `e` ON `e`.`kode_blok` = `b`.`kode_blok` $wh GROUP BY b.`id`
 ORDER BY `a`.`tgl_selektor` ASC";
 $result = $this->db->query($sql)->result();
