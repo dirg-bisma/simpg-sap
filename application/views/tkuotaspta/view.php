@@ -57,7 +57,7 @@
 			<br />
 			<center>
 			 <a href="<?php echo site_url('tkuotaspta');?>" class="btn btn-sm btn-warning"> <i class="fa fa-table"></i> Kembali </a>
-		  <a href="javascript:filterCetak(0)" target="_blank" class="btn btn-sm btn-danger"> <i class="fa fa-qrcode"></i> Cetak SPTA </a>
+		  <a href="javascript:filterCetak(0)" class="btn btn-sm btn-danger"> <i class="fa fa-qrcode"></i> Cetak SPTA </a>
 		  <!--a href="javascript:filterCetak(1)" target="_blank" class="btn btn-sm btn-info"> <i class="fa fa-print"></i> Cetak List </a-->
 		  
 		  </center>
