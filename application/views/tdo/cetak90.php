@@ -20,9 +20,9 @@
 <td style="font-size:11px;height: 26px;" align="center"><b>PRODUKSI GULA PETANI TH <?=CNF_TAHUNGILING;?><br />
 <?php 
 if($do->jenis_do == 1){
-	echo 'SISTEM PEMBELIAN TEBU';
+	//echo 'SISTEM PEMBELIAN TEBU';
 }else{
-	echo 'SISTEM BAGI HASIL';
+	//echo 'SISTEM BAGI HASIL';
 }
 ?></b></td>
 <td style="font-size:11px;height: 26px;padding-right:10px" align="right"><b>NO DO : <?=$do->no_do;?><br />TGL DO : <?=date('j M Y', strtotime($do->tgl_act));?></b></td>
