@@ -1327,7 +1327,7 @@
             $('#gula_pg_ts').val(0);
         }
         
-        total1('gula_pg_ts','gula_pg_eks_ts_saudara','gula_pg_eks_tr','gula_pg_total');
+        total1('gula_pg_ts','gula_pg_eks_ts_saudara','gula_pg_eks_tr','gula_pg_total',0,'gula_pg_spt');
         total1('gula_pg_total','gula_tr_ts_saudara','gula_tr_bagihasil','gula_produksi',1);
         total1('gula_produksi','gula_ex_sisan','0','jml_gula_all');
     }
