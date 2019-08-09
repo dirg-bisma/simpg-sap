@@ -38,6 +38,15 @@ class Apitimbanganmodel extends SB_Model
             return false;
         }
     }
+	
+	public function TaraRfid($rfid)
+	{
+		$this->db->select('*');
+		$this->db->from('m_truk_gps');
+		$this->db->where('rfid_sticker', $rfid);
+		$result = $this->db->get();
+		return $result->row();
+	}
 
     public function Noloko()
     {

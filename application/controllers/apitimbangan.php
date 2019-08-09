@@ -96,6 +96,28 @@ class Apitimbangan extends SB_Controller
         echo json_encode($output);
     }
 
+	function tararfid()
+	{
+		$this->load->model('apitimbanganmodel');
+		$rfid = $this->GetPost('rfid');
+        $result = $this->apitimbanganmodel->TaraRfid($rfid);
+		if(count($result) == 1){
+			$output = array(
+                'result' => $result,
+                'count' => count($result),
+                'msg' => 'success',
+                'status' => 'true'
+            );
+		}else{
+            $output = array(
+                'result' => array(),
+                'count' => count($result),
+                'msg' => 'data not found',
+                'status' => 'false'
+            );
+        }
+		echo json_encode($output);
+	}
 
     function bynolori($no_lori)
     {
