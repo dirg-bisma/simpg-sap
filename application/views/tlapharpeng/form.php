@@ -1270,7 +1270,7 @@
         var prodtryl = parseFloat($('#gula_tr_bagihasil_yl').val());
         var prodtsextryl = parseFloat($('#gula_pg_eks_tr_yl').val());
         var prodtsyl = parseFloat($('#gula_pg_ts_yl').val());
-        var prodtssaudarayl  = parseFloat($('#gula_pg_eks_tr_yl').val());
+        var prodtssaudarayl  = parseFloat($('#gula_pg_eks_ts_saudara_sd').val());
         var prodsptyl = parseFloat($('#gula_pg_spt_yl').val());
 
         var tothutangtr = gulatr-prodtryl;
@@ -1278,7 +1278,7 @@
         var xgulatssaudara = gulatrtssaudara - prodtssaudarayl;
         var xgulats = gulats - prodtsyl;
         var xgulaspt = gulaspt - prodsptyl;
-        console.log(xgulatssaudara+ " gula trts = "+gulatrtssaudara+" prod gula yl "+prodtssaudarayl);
+      //  console.log(xgulatssaudara+ " gula trts = "+gulatrtssaudara+" prod gula yl "+prodtssaudarayl);
         var tempgula=0;
         if(tothutangtr < prod){
                 $('#gula_tr_bagihasil').val(tothutangtr.toFixed(3));
