@@ -1278,7 +1278,7 @@
         var xgulatssaudara = gulatrtssaudara - prodtssaudarayl;
         var xgulats = gulats - prodtsyl;
         var xgulaspt = gulaspt - prodsptyl;
-        console.log(xgulatssaudara);
+        console.log(xgulatssaudara+ " gula trts = "+gulatrtssaudara+" prod gula yl "+prodtssaudarayl);
         var tempgula=0;
         if(tothutangtr < prod){
                 $('#gula_tr_bagihasil').val(tothutangtr.toFixed(3));
