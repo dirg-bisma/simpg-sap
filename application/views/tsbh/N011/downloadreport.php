@@ -34,7 +34,7 @@ LAPORAN BAGI HASIL<br />
 </tr>
 </table>
 <table class="tableizer-table">
-<thead><tr class="tableizer-firstrow"><th>Jam</th><th>No SPTA</th><th>No Petak</th><th>Deskripsi</th><th>Luas</th><th>Luas Tertebang</th><th>Petani</th><th>Netto Tebu</th><th>Jenis SPTA</th><th>No Kendaraan</th><th>Kategori</th><th>Kualitas</th><th>Kristal Total</th><th>R. Total</th><th>R. Petani</th><th>Kristal Petani</th><th>Kristal PG</th><th>Gula Petani</th><th>Gula PG</th><th>Tetes Petani</th><th>Tetes PG</th></tr></thead>
+<thead><tr class="tableizer-firstrow"><th>Jam</th><th>No SPTA</th><th>No Petak</th><th>Deskripsi</th><th>Luas</th><th>Luas Tertebang</th><th>ID Petani</th><th>Petani</th><th>Netto Tebu</th><th>Jenis SPTA</th><th>No Kendaraan</th><th>Kategori</th><th>Kualitas</th><th>Kristal Total</th><th>R. Total</th><th>R. Petani</th><th>Kristal Petani</th><th>Kristal PG</th><th>Gula Petani</th><th>Gula PG</th><th>Tetes Petani</th><th>Tetes PG</th></tr></thead>
 <tbody>
 <?php
 foreach ($rows as $key) {
@@ -43,6 +43,7 @@ foreach ($rows as $key) {
 		<td><?php echo $key->deskripsi_blok;?></td>
 		<td><?php echo $key->luas_ha;?></td>
 		<td><?php echo $key->ha_tertebang;?></td>
+		<td><?php echo $key->id_petani_sap;?></td>
 		<td><?php echo $key->nama_petani;?></td><td><?php echo $key->netto_final;?></td><td><?php echo $key->jenis_spta;?></td><td><?php echo $key->no_angkutan;?></td><td><?php echo $key->kode_kat_lahan;?></td><td><?php echo $key->kondisi_tebu;?></td><td><?php echo $key->hablur_ari;?></td><td><?php echo $key->rendemen_ari;?></td><td><?php echo $key->rendemen_ptr;?></td><td><?php echo ROUND($key->gula_ptr/1.003,2);?></td><td><?php echo ROUND($key->gula_pg/1.003,2);?></td><td><?php echo $key->gula_ptr;?></td><td><?php echo $key->gula_pg;?></td><td><?php echo $key->tetes_ptr;?></td><td><?php echo $key->tetes_pg;?></td></tr>
 	<?php
 }
