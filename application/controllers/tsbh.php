@@ -511,7 +511,8 @@ SUM(c.`tetes_pg`) AS tetes_pg
  FROM t_spta a 
 INNER JOIN t_timbangan b ON a.`id`=b.`id_spat`
 INNER JOIN t_ari c ON c.`id_spta`=a.`id`
-INNER JOIN sap_petani d ON d.`id_petani_sap`=a.`id_petani_sap` WHERE 0=0 $filter
+INNER JOIN sap_field e on e.kode_blok=a.kode_blok
+INNER JOIN sap_petani d ON d.`id_petani_sap`=e.`id_petani_sap` WHERE 0=0 $filter
 GROUP BY a.`id_petani_sap`";
 		$this->data['result'] = $this->db->query($sql)->result();
 
