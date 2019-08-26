@@ -61,7 +61,7 @@
 
 <script type="text/javascript">
 $(document).ready(function(){
-		$("#divisi").jCombo("<?php echo site_url('mmasterfield/comboselect?filter=sap_m_affdeling:kode_affd:nama_afdeling') ?>");
+		$("#divisi").jCombo("<?php echo site_url('mmasterfield/comboselect?filter=sap_m_affdeling:kode_affd:kode_affd') ?>");
 		autocompleted();
 });
 
