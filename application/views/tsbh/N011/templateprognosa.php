@@ -44,7 +44,21 @@ foreach ($rows as $key) {
 		<td><?php echo $key->kode_blok;?></td>
 		<td><?php echo $key->luas_ha;?></td>
 		<td><?php echo $key->ha_tertebang;?></td>
-		<td><?php echo $key->nama_petani;?></td><td><?php echo $key->netto_final;?></td><td><?php echo $key->jenis_spta;?></td><td><?php echo $key->no_angkutan;?></td><td><?php echo $key->kode_kat_lahan;?></td><td><?php echo $key->kondisi_tebu;?></td><td><?php echo $key->hablur_ari;?></td><td><?php echo $key->rendemen_ari;?></td><td><?php echo $key->rendemen_ptr;?></td><td><?php echo ROUND($key->gula_ptr/1.003,2);?></td><td><?php echo ROUND($key->gula_pg/1.003,2);?></td><td><?php echo $key->gula_ptr;?></td><td><?php echo $key->gula_pg;?></td><td><?php echo $key->tetes_ptr;?></td><td><?php echo $key->tetes_pg;?></td></tr>
+		<td><?php echo $key->nama_petani;?></td>
+		<td><?php echo $key->netto_final;?></td>
+		<td><?php echo $key->jenis_spta;?></td>
+		<td><?php echo $key->no_angkutan;?></td>
+		<td><?php echo $key->kode_kat_lahan;?></td>
+		<td><?php echo $key->kondisi_tebu;?></td>
+		<td><?php echo $key->hablur_ari;?></td>
+		<td><?php echo $key->rendemen_ari;?></td>
+		<td><?php if($key->nama_petani != ''){ echo $key->rendemen_ptr;  }else{ echo '0';} ?></td>
+		<td><?php if($key->nama_petani != ''){ echo ROUND($key->gula_ptr/1.003,2);  }else{ echo '0';} ?></td>
+		<td><?php echo ROUND($key->gula_pg/1.003,2);?></td>
+		<td><?php if($key->nama_petani != ''){ echo $key->gula_ptr; }else{ echo '0';} ?></td>
+		<td><?php echo $key->gula_pg;?></td>
+		<td><?php if($key->nama_petani != ''){  echo $key->tetes_ptr; }else{echo '0';} ?></td>
+		<td><?php echo $key->tetes_pg;?></td></tr>
 	<?php
 }
 ?>
