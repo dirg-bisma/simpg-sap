@@ -47,11 +47,18 @@ LAPORAN PROTAS PER PETAK<br />
 	<th>LUAS</th>
 	<th>TERTEBANG</th>
 	<th>SISA</th>
-	<th>TAPG</th>
-	<th>TPGAS</th>
-	<th>TSAPG</th>
-	<th>TAS</th>
+	<th>JML TAPG</th>
+	<th>JML TPGAS</th>
+	<th>JML TSAPG</th>
+	<th>JML TAS</th>
+	<th>TAPG (Kg)</th>
+	<th>TPGAS (Kg)</th>
+	<th>TSAPG (Kg)</th>
+	<th>TAS (Kg)</th>
 	<th>ORDER SPTA</th>
+	<th>AWAL CETAK SPTA</th>
+	<th>AKHIR CETAK SPTA</th>
+	<th>JANGKA WAKTU SPTA (Hari)</th>
 	<th>SPTA TERTIMBANG SD Hi</th>
 	<th>SPTA TERGILING SD Hi</th>
 	<th>SPTA DLM PROSES SBH</th>
@@ -93,7 +100,14 @@ $i=1;
 	<td><?php echo $r->tpgas;?></td>
 	<td><?php echo $r->tsapg;?></td>
 	<td><?php echo $r->tas;?></td>
+	<td><?php echo number_format($r->tapg_kg,2);?></td>
+	<td><?php echo number_format($r->tpgas_kg,2);?></td>
+	<td><?php echo number_format($r->tsapg_kg,2);?></td>
+	<td><?php echo number_format($r->tas_kg,2);?></td>
 	<td><?php echo $r->order_spta;?></td>
+	<td><?php echo $r->tgl_awal_cetak;?></td>
+	<td><?php echo $r->tgl_akhir_cetak;?></td>
+	<td><?php echo $r->jangka_waktu;?></td>
 	<td><?php echo $r->spta_tertimbang_sd;?></td>
 	<td><?php echo $r->spta_tergiling_sd;?></td>
 	<td><?php echo $r->spta_on_proses;?></td>

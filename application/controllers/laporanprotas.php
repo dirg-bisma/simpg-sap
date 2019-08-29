@@ -44,7 +44,14 @@ class Laporanprotas extends SB_Controller
       sum(case when concat(a.tebang_pg,a.angkut_pg)=10 then 1 else 0 end) as tpgas,
       sum(case when concat(a.tebang_pg,a.angkut_pg)=01 then 1 else 0 end) as tsapg,
       sum(case when concat(a.tebang_pg,a.angkut_pg)=00 then 1 else 0 end) as tas,  
+      sum(case when concat(a.tebang_pg,a.angkut_pg)=11 then c.netto_final else 0 end) as tapg_kg,
+      sum(case when concat(a.tebang_pg,a.angkut_pg)=10 then c.netto_final else 0 end) as tpgas_kg,
+      sum(case when concat(a.tebang_pg,a.angkut_pg)=01 then c.netto_final else 0 end) as tsapg_kg,
+      sum(case when concat(a.tebang_pg,a.angkut_pg)=00 then c.netto_final else 0 end) as tas_kg, 
       count(a.id) as order_spta,
+			min(a.tgl_spta) as tgl_awal_cetak,
+			max(a.tgl_spta) as tgl_akhir_cetak,
+			datediff(max(a.tgl_spta), min(a.tgl_spta)) as jangka_waktu,
       count(case when a.timb_netto_status=1 then 1 else 0 end) as spta_tertimbang_sd,
       count(case when a.meja_tebu_status=1 then 1 else 0 end) as spta_tergiling_sd,
       sum(case when i.kondisi_tebu='A' then 1 else 0 end) as mutu_a,
@@ -80,7 +87,7 @@ class Laporanprotas extends SB_Controller
 		
 		$this->data['result'] = $result;
 		if(isset($_REQUEST['excel']) && $_REQUEST['excel'] == 1){
-				$file = "Laporan Timbangan - PERIODE ".SiteHelpers::datereport($tgl1)." s/d ".SiteHelpers::datereport($tgl2).".xls";
+				$file = "Laporan PROTAS -  $afd.xls";
 				header("Content-type: application/vnd.ms-excel");
 				header("Content-Disposition: attachment; filename=$file");
 		}
