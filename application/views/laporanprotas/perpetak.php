@@ -118,9 +118,9 @@ $i=1;
 	<td><?php echo $r->mutu_d;?></td>
 	<td><?php echo $r->mutu_e;?></td>
 	<td><?php echo $r->terbakar_selektor;?></td>
-	<td><?php echo $r->netto;?></td>
-	<td><?php echo $r->netto_release;?></td>
-	<td><?php echo $r->gula_release;?></td>
+	<td><?php echo number_format($r->netto,0);?></td>
+	<td><?php echo number_format($r->netto_release,0);?></td>
+	<td><?php echo number_format($r->gula_release,2);?></td>
 	<td><?php echo number_format($r->protas,2);?></td>
 	<td><?php echo $r->r_release;?></td>
 	<td><?php echo number_format($r->upah_tebang,2);?></td>
