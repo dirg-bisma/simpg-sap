@@ -222,6 +222,21 @@
 						<td><?php echo $row['rata_tgi_batang'] ;?> </td>
 						
 					</tr>
+
+					<tr>
+						<td width='30%' class='label-view text-right'>Aff Tebang</td>
+						<td><?php echo $row['aff_tebang']==1 ?"Sudah Aff" : "Belum Aff"; ?> </td>
+						
+					</tr>
+					<?php if($row['aff_tebang'] == 1){ ?>
+					<?php $gid = $this->session->userdata('gid'); if($gid == 11 || $gid == 1){ ?>
+					<tr>
+						<td width='30%' class='label-view text-right'>Buka Aff Tebang</td>
+						<td><a class="btn btn-sm btn-danger" href="<?php echo site_url('mmasterfield/bukaaff/'.$row['kode_blok']) ?>">Buka Aff</a> </td>
+						
+					</tr>
+					<?php } ?>
+					<?php } ?>
 				
 						</tbody>	
 					</table>    

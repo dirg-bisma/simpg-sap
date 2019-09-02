@@ -401,5 +401,23 @@ class Mmasterfield extends SB_Controller
 		
 	}
 
+	function bukaaff($kode_blok)
+	{
+		$gid = $this->session->userdata('gid'); 
+		if($gid == 11 || $gid == 1 ){
+			$this->db->where(array('kode_blok' => $kode_blok));
+			$this->db->update('sap_field',array(
+				'aff_tebang' => "0"
+			));
+
+			$this->inputLogs(" ubah data aff tebang master field oleh ".$this->session->userdata('fid').' dengan petak '.$kode_blok);
+			
+			$this->session->set_flashdata('message',SiteHelpers::alert('success'," ubah data aff tebang master field oleh ".$this->session->userdata('fid').' Berhasil kode_blok '.$kode_blok));
+			
+			redirect( 'mmasterfield',301);
+		}
+
+	}
+
 
 }
