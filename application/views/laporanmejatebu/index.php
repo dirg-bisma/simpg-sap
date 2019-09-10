@@ -62,7 +62,7 @@
                             <option value='1' selected>Meja Tebu Per SPTA</option>
                             <option value='2'>Meja Tebu Per Petak</option>
                             <option value='3'>Sisa Pagi / Tebu Siap Giling</option>
-                            <option value='4'>Selektor > 7 Hari</option>
+                            <option value='4'>Selektor > 2 Hari</option>
                         </select> </td>
                         <td class='metodetma' valign="center"> Metode TMA </td>
                         <td class='metodetma' style="padding:5px" width="200px">

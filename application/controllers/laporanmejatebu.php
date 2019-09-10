@@ -170,7 +170,7 @@ FROM `t_selektor` `a`
      INNER JOIN `t_spta` `b` ON `a`.`id_spta` = `b`.`id`
      INNER JOIN `sap_m_karyawan` `c`  ON `c`.`Persno` = CONVERT(`a`.`persno_mandor_tma` USING utf8)
      INNER JOIN `sap_field` `e` ON `e`.`kode_blok` = `b`.`kode_blok` 
-     WHERE b.selektor_status = 1 AND b.timb_bruto_status = 0 AND DATEDIFF(DATE(NOW()),DATE(b.selektor_tgl)) > 7
+     WHERE b.selektor_status = 1 AND b.timb_bruto_status = 0 AND DATEDIFF(DATE(NOW()),DATE(b.selektor_tgl)) > 2
       GROUP BY b.`id`
 ORDER BY `a`.`tgl_selektor` ASC";
 
