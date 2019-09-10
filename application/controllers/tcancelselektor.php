@@ -263,7 +263,7 @@ class Tcancelselektor extends SB_Controller
 		
 		if(isset($_POST['nospta'])){
 			if($ax == 1){
-			$cek = $this->db->query("SELECT a.*,no_angkutan,selektor_tgl FROM t_spta a INNER JOIN t_selektor b on a.id=b.id_spta WHERE no_spat = '".$_POST['nospta']."' AND b.`ditolak_sel`=0 AND DATEDIFF(DATE(NOW()),DATE(a.selektor_tgl)) > 7 AND timb_bruto_status = 0 AND a.id NOT IN (SELECT id_spta FROM t_cancel_selektor)")->row();
+			$cek = $this->db->query("SELECT a.*,no_angkutan,selektor_tgl FROM t_spta a INNER JOIN t_selektor b on a.id=b.id_spta WHERE no_spat = '".$_POST['nospta']."' AND b.`ditolak_sel`=0 AND DATEDIFF(DATE(NOW()),DATE(a.selektor_tgl)) > 2 AND timb_bruto_status = 0 AND a.id NOT IN (SELECT id_spta FROM t_cancel_selektor)")->row();
 		}else{
 			$cek = $this->db->query("SELECT a.*,no_angkutan,selektor_tgl FROM t_spta a INNER JOIN t_selektor b on a.id=b.id_spta WHERE no_spat = '".$_POST['nospta']."'")->row();
 		}
