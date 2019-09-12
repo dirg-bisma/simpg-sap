@@ -66,32 +66,21 @@
               <ul class="nav nav-stacked" id="listKkw">
 			  <?php
 				foreach($rowdetail as $rd){
-				if($group->name != 'KP10'){
-			  ?>
+				if($group->name != 'KP10' || $group->name != 'KP15' ){
+			  	?>
                 <li><a href="javascript:getTables(<?php echo $rd->id;?>,'<?php echo $rd->kode_affd;?>','<?php echo $rd->nama_afdeling.' - '.$rd->name; ?>',<?php echo $rd->id_spta_kuota;?>)"><?php echo $rd->kode_affd.' - '.$rd->name; ?> <span class="pull-right badge bg-red"><?php echo $rd->kuota_spta-$rd->terpakai;?></span></a></li>
 				<?php
-					}else{
+				}else{
 						if($rd->kode_affd == CNF_AFD_JATIROTO){ ?>
 							<li><a href="javascript:getTables(<?php echo $rd->id;?>,'<?php echo $rd->kode_affd;?>','<?php echo $rd->nama_afdeling.' - '.$rd->name; ?>',<?php echo $rd->id_spta_kuota;?>)"><?php echo $rd->kode_affd.' - '.$rd->name; ?> <span class="pull-right badge bg-red"><?php echo $rd->kuota_spta-$rd->terpakai;?></span></a></li>
-						<?php
-						}
-					}	
-				}
-				?>
-				<?php
-				foreach($rowdetail as $rd){
-				if($group->name != 'KP15'){
-			  ?>
-                <li><a href="javascript:getTables(<?php echo $rd->id;?>,'<?php echo $rd->kode_affd;?>','<?php echo $rd->nama_afdeling.' - '.$rd->name; ?>',<?php echo $rd->id_spta_kuota;?>)"><?php echo $rd->kode_affd.' - '.$rd->name; ?> <span class="pull-right badge bg-red"><?php echo $rd->kuota_spta-$rd->terpakai;?></span></a></li>
-				<?php
-					}else{
+				<?php	}
 						if($rd->kode_affd == CNF_AFD_ASEMBAGUS){ ?>
 							<li><a href="javascript:getTables(<?php echo $rd->id;?>,'<?php echo $rd->kode_affd;?>','<?php echo $rd->nama_afdeling.' - '.$rd->name; ?>',<?php echo $rd->id_spta_kuota;?>)"><?php echo $rd->kode_affd.' - '.$rd->name; ?> <span class="pull-right badge bg-red"><?php echo $rd->kuota_spta-$rd->terpakai;?></span></a></li>
-						<?php
-						}
-					}	
+				<?php 	}
+					}
 				}
 				?>
+				
               </ul>
             </div>
           </div>
