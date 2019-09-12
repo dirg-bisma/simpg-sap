@@ -78,6 +78,20 @@
 					}	
 				}
 				?>
+				<?php
+				foreach($rowdetail as $rd){
+				if($group->name != 'KP15'){
+			  ?>
+                <li><a href="javascript:getTables(<?php echo $rd->id;?>,'<?php echo $rd->kode_affd;?>','<?php echo $rd->nama_afdeling.' - '.$rd->name; ?>',<?php echo $rd->id_spta_kuota;?>)"><?php echo $rd->kode_affd.' - '.$rd->name; ?> <span class="pull-right badge bg-red"><?php echo $rd->kuota_spta-$rd->terpakai;?></span></a></li>
+				<?php
+					}else{
+						if($rd->kode_affd == CNF_AFD_ASEMBAGUS){ ?>
+							<li><a href="javascript:getTables(<?php echo $rd->id;?>,'<?php echo $rd->kode_affd;?>','<?php echo $rd->nama_afdeling.' - '.$rd->name; ?>',<?php echo $rd->id_spta_kuota;?>)"><?php echo $rd->kode_affd.' - '.$rd->name; ?> <span class="pull-right badge bg-red"><?php echo $rd->kuota_spta-$rd->terpakai;?></span></a></li>
+						<?php
+						}
+					}	
+				}
+				?>
               </ul>
             </div>
           </div>
