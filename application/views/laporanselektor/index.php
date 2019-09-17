@@ -79,6 +79,14 @@
 						<tr>
 
 						
+						<td valign="center"> Jenis Laporan </td>
+						<td style="padding:5px" width="200px">
+							<select id='jns' rows='5' 
+							class=' form-control'  required >
+							<option value='1'>Per Petak</option>
+							<option value='2' selected>Per SPTA</option>
+						</select> </td>
+						
 
 						<td valign="center"> Afdeling </td>
 						<td style="padding:5px" width="200px">
@@ -87,11 +95,11 @@
 						</select> </td>
 
 						<td valign="center"> Petak </td>
-						<td style="padding:5px" width="200px" colspan="3"> 
+						<td style="padding:5px" width="200px" colspan="2"> 
 						<input type='text' class='form-control input-sm' placeholder='' id='kode_blok'  /> 
 						</td>
 							
-
+						
 						<td valign="center" colspan="2"><input type="button" onclick="getReport()" class="btn btn-info btn-sm" value="View " />
 							<input type="button" class="btn btn-warning btn-sm" onclick="printContent('report')"  value="Cetak " />
 							<input type="button" onclick="getReportExcel()" class="btn btn-danger btn-sm" value="Excel " />
@@ -141,7 +149,7 @@ function getReport(){
 	 	type 	: "POST",
 	 	datatype: "json",
 	 	url 	: "<?php echo site_url('laporanselektor/printlaporan'); ?>",
-	 	data 	: {tgl1:$('#tgl1').val(),tgl2:$('#tgl2').val(),
+	 	data 	: {tgl1:$('#tgl1').val(),tgl2:$('#tgl2').val(),jns:$('#jns').val(),
 	 	sup:$('#sup').val(),bln:$('#bln').val(),thn:$('#thn').val(),rjns:$('#rjns').val()
 	 	,kat:$('#kat').val(),angkutan:$('#angkutan').val(),divisi:$('#divisi').val(),kode_blok:$('#kode_blok').val()
 	 	},
@@ -153,7 +161,7 @@ function getReport(){
 
 function getReportExcel(){
 var myData = {tgl1:$('#tgl1').val(),tgl2:$('#tgl2').val(),
-	 	sup:$('#sup').val(),bln:$('#bln').val(),thn:$('#thn').val(),rjns:$('#rjns').val()
+	 	sup:$('#sup').val(),bln:$('#bln').val(),thn:$('#thn').val(),rjns:$('#rjns').val(),jns:$('#jns').val()
 	 	,kat:$('#kat').val(),angkutan:$('#angkutan').val(),divisi:$('#divisi').val(),kode_blok:$('#kode_blok').val()
 	 	};
 var out = [];
