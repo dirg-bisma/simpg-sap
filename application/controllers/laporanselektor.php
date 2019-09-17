@@ -29,6 +29,7 @@ class Laporanselektor extends SB_Controller
 		$bln  = $_REQUEST['bln'];
 		$thn  = $_REQUEST['thn'];
 		$rjns = $_REQUEST['rjns'];
+		$jns  = $_REQUEST['jns'];
 
 
 		$kat  		= $_REQUEST['kat'];
@@ -75,32 +76,60 @@ class Laporanselektor extends SB_Controller
 				$file = "Laporan Selektor - PERIODE ".SiteHelpers::datereport($tgl1)." s/d ".SiteHelpers::datereport($tgl2).".xls";
 				header("Content-type: application/vnd.ms-excel");
 				header("Content-Disposition: attachment; filename=$file");
-			}
+		}
+
+		if($jns == 1){
 
 		$sql = "SELECT
-  `b`.`no_spat`           AS `no_spat`,
-  `b`.`kode_blok`         AS `kode_blok`,
-  `e`.`deskripsi_blok`    AS `deskripsi_blok`,
-  `b`.`kode_kat_lahan`    AS `kode_kat_lahan`,
-  `c`.`name`              AS `mandor`,
-   f.name as pta,
-   b.`timb_bruto_tgl`,
-   b.`timb_netto_tgl`,
-   b.`jenis_spta`,
-   b.kode_affd,
-   a.*
-FROM `t_selektor` `a`
-     INNER JOIN `t_spta` `b` ON `a`.`id_spta` = `b`.`id`
-     INNER JOIN `sap_m_karyawan` `c`  ON `c`.`Persno` = CONVERT(`a`.`persno_mandor_tma` USING utf8)
-	 INNER JOIN `sap_m_karyawan` `f`  ON `f`.`Persno` = CONVERT(`b`.`persno_pta` USING utf8)
-     INNER JOIN `sap_field` `e` ON `e`.`kode_blok` = `b`.`kode_blok` $wh GROUP BY b.`id`
-ORDER BY `a`.`tgl_selektor` ASC";
-$result = $this->db->query($sql)->result();
-		
+		`b`.`kode_blok`         AS `kode_blok`,
+		`e`.`deskripsi_blok`    AS `deskripsi_blok`,
+		`b`.`kode_kat_lahan`    AS `kode_kat_lahan`,
+		 b.kode_affd,
+		   e.luas_ha,
+		   sum(a.ha_tertebang) AS tertebang,
+		   e.luas_ha-sum(a.ha_tertebang) AS sisa,
+		   SUM(if(b.jenis_spta='TRUK', 1, 0)) AS truk,
+		   SUM(if(b.jenis_spta='LORI', 1, 0)) AS lori,
+		   SUM(if(b.jenis_spta='ODONG2', 1, 0)) AS odong2,
+		   SUM(if(b.jenis_spta='TRAKTOR', 1, 0)) AS traktor,
+		 count(a.id_selektor) AS jumlah
+		FROM `t_selektor` `a`
+			INNER JOIN `t_spta` `b` ON `a`.`id_spta` = `b`.`id`
+			INNER JOIN `sap_field` `e` ON `e`.`kode_blok` = `b`.`kode_blok` 
+			$wh
+		GROUP BY b.`kode_blok`
+		ORDER BY b.kode_affd ASC";
+		$result = $this->db->query($sql)->result();
+				
 		$this->data['result'] = $result;
-		$this->load->view('laporanselektor/perspta',$this->data);
-		
-		
-		
+		$this->load->view('laporanselektor/perpetak',$this->data);
+
+		}elseif($jns == 2){
+
+			$sql = "SELECT
+			`b`.`no_spat`           AS `no_spat`,
+			`b`.`kode_blok`         AS `kode_blok`,
+			`e`.`deskripsi_blok`    AS `deskripsi_blok`,
+			`b`.`kode_kat_lahan`    AS `kode_kat_lahan`,
+			`c`.`name`              AS `mandor`,
+			f.name as pta,
+			b.`timb_bruto_tgl`,
+			b.`timb_netto_tgl`,
+			b.`jenis_spta`,
+			b.kode_affd,
+			a.*
+			FROM `t_selektor` `a`
+				INNER JOIN `t_spta` `b` ON `a`.`id_spta` = `b`.`id`
+				INNER JOIN `sap_m_karyawan` `c`  ON `c`.`Persno` = CONVERT(`a`.`persno_mandor_tma` USING utf8)
+				INNER JOIN `sap_m_karyawan` `f`  ON `f`.`Persno` = CONVERT(`b`.`persno_pta` USING utf8)
+				INNER JOIN `sap_field` `e` ON `e`.`kode_blok` = `b`.`kode_blok` $wh GROUP BY b.`id`
+			ORDER BY `a`.`tgl_selektor` ASC";
+			$result = $this->db->query($sql)->result();
+					
+			$this->data['result'] = $result;
+			$this->load->view('laporanselektor/perspta',$this->data);
+		}
+
 	}
+
 }
