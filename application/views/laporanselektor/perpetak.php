@@ -40,8 +40,8 @@ LAPORAN SELEKTOR HARIAN PER PETAK<br />
 <th>Kebun</th>
 <th>Kategori</th>
 <th>Luas Ha</th>
+<th>Ha Tervalidasi</th>
 <th>Ha Tertebang</th>
-<th>Sisa Ha</th>
 <th>Truck</th>
 <th>Lori</th>
 <th>Odong2</th>
@@ -66,8 +66,8 @@ foreach($result as $r){
     <td> '.$r->deskripsi_blok.' </td>
     <td> '.$r->kode_kat_lahan.'</td>
     <td align="center"> '.$r->luas_ha.'</td>
+    <td align="center"> '.$r->luas_tebang.'</td>
     <td align="center"> '.$r->tertebang.'</td>
-    <td align="center"> '.$r->sisa.'</td>
     <td align="center"> '.$r->truk.' </td>
     <td align="center"> '.$r->lori.' </td>
     <td align="center"> '.$r->odong2.' </td>
@@ -77,7 +77,6 @@ foreach($result as $r){
     
     $total_luas_ha = $total_luas_ha+$r->luas_ha;
     $total_tertebang = $total_tertebang+$r->tertebang;
-    $total_sisa = $total_sisa+$r->sisa;
 
     $truk = $truk+$r->truk;
     $lori = $lori+$r->lori;
@@ -92,10 +91,8 @@ foreach($result as $r){
 ?>
 </tbody>
 <tfoot><tr style="font-weight:bold;background:#3c8dbc;color:white">
-<td colspan="4"> JUMLAH </td>
-<td align="center"><?php echo $total_luas_ha;?></td>
+<td colspan="6"> JUMLAH </td>
 <td align="center"><?php echo $total_tertebang;?></td>
-<td align="center"><?php echo $total_sisa;?></td>
 <td align="center"><?php echo $truk;?></td>
 <td align="center"><?php echo $lori;?></td>
 <td align="center"><?php echo $odong2;?></td>
