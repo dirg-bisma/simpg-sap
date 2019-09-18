@@ -368,10 +368,12 @@ class Thapas extends SB_Controller
 				$this->db->update('t_hapas_detail_copy', $rax);
 			//}
 
-				redirect('thapas',301);
+				//
 		}
 
 	    }
+
+	    redirect('thapas',301);
     }
 	
 	
