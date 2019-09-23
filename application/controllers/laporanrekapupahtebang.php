@@ -42,10 +42,10 @@ class Laporanrekapupahtebang extends SB_Controller
 
 			if (!empty($kat)) {
 				if($kat == 'TSN'){
-					$wh .= " AND (c.kode_kat_lahan LIKE 'TS%' OR c.kode_kat_lahan != 'TS-SP')";
+					$wh .= " AND (c.kode_kat_lahan LIKE 'TS%' AND c.kode_kat_lahan != 'TS-SP')";
 					$wh2 .= " AND (b1.kode_kat_lahan LIKE 'TS%' OR b1.kode_kat_lahan != 'TS-SP')";
 				}else if($kat == 'TRN'){
-					$wh .= " AND (c.kode_kat_lahan LIKE 'TR%' OR c.kode_kat_lahan = 'TS-SP')";
+					$wh .= " AND (c.kode_kat_lahan LIKE 'TR%' AND c.kode_kat_lahan = 'TS-SP')";
 					$wh2 .= " AND (b1.kode_kat_lahan LIKE 'TR%' OR b1.kode_kat_lahan = 'TS-SP')";
 				}else{
 					$wh .= " AND c.kode_kat_lahan LIKE '$kat%'";

@@ -42,7 +42,7 @@ class Laporanrekapbiayaangkutan extends SB_Controller
 
 			if (!empty($kat)) {
 				if($kat == 'TSN'){
-					$whkat = "AND (a.kode_kat_lahan LIKE 'TS%' OR a.kode_kat_lahan != 'TS-SP') ";
+					$whkat = "AND (a.kode_kat_lahan LIKE 'TS%' AND a.kode_kat_lahan != 'TS-SP') ";
 				}else if($kat == 'TRN'){
 					$whkat = "AND (a.kode_kat_lahan LIKE 'TR%' OR a.kode_kat_lahan = 'TS-SP') ";
 				}else{
