@@ -419,5 +419,23 @@ class Mmasterfield extends SB_Controller
 
 	}
 
+	function bukavalidasi($kode_blok)
+	{
+		$gid = $this->session->userdata('gid'); 
+		if($gid == 11 || $gid == 1 ){
+			$sql = "update t_selektor join t_spta as a on a.id=t_selektor.id_spta
+			set t_selektor.tanaman_status = 0, t_selektor.ha_tertebang = 0
+			where kode_blok = '$kode_blok' and sbh_status < 3 and tanaman_status = 1";
+			$this->db->query($sql);
+			$jml = $this->db->affected_rows();
+
+			$this->inputLogs(" ubah data validasi tebang master field oleh ".$this->session->userdata('fid').' dengan petak '.$kode_blok);
+			
+			$this->session->set_flashdata('message',SiteHelpers::alert('success',"$jml data terbuka validasi ha tebang master field oleh ".$this->session->userdata('fid').' Berhasil kode_blok '.$kode_blok));
+			
+			redirect( 'mmasterfield',301);
+		}
+	}
+
 
 }
