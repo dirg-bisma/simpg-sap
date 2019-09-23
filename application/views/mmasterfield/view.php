@@ -228,6 +228,13 @@
 						<td><?php echo $row['aff_tebang']==1 ?"Sudah Aff" : "Belum Aff"; ?> </td>
 						
 					</tr>
+					<?php $gid = $this->session->userdata('gid'); if($gid == 11 || $gid == 1){ ?>
+					<tr>
+						<td width='30%' class='label-view text-right'>Buka Ha Tervalidasi</td>
+						<td><a class="btn btn-sm btn-warning" href="<?php echo site_url('mmasterfield/bukavalidasi/'.$row['kode_blok']) ?>">Buka Validasi</a> </td>
+						
+					</tr>
+					<?php } ?>
 					<?php if($row['aff_tebang'] == 1){ ?>
 					<?php $gid = $this->session->userdata('gid'); if($gid == 11 || $gid == 1){ ?>
 					<tr>
