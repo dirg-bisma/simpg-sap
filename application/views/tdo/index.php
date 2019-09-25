@@ -66,7 +66,8 @@
       <a href="javascript:exporttoexcel()" class="btn btn-sm btn-danger"><i class="fa fa-download"></i> Export Excel </a>
       <a href="javascript:reloaddata()" class="btn btn-sm btn-warning"><i class="fa fa-desktop"></i> Tampilkan Data </a>
       <a href="javascript:cetakdo(1)" class="btn btn-sm btn-info"><i class="fa fa-print"></i> Print DO 90% </a>
-      <a href="javascript:cetakdo(2)" class="btn btn-sm btn-info"><i class="fa fa-print"></i> Print DO Natura </a>
+      <a href="javascript:cetakdo(2)" class="btn btn-sm btn-primary"><i class="fa fa-print"></i> Print DO Natura </a>
+      <a href="javascript:cetakdo(3)" class="btn btn-sm btn-warning"><i class="fa fa-print"></i> Print Bukti </a>
     </div>
                 </div>
   
@@ -169,7 +170,8 @@ var table;
  function cetakdo(a){
     if($('#periode').val() != 'x'){
       if(a == 1)  window.open("<?=site_url('tdo/printall90');?>/"+$('#periode').val());
-      else window.open("<?=site_url('tdo/printall10');?>/"+$('#periode').val());
+      else if(a == 2) window.open("<?=site_url('tdo/printall10');?>/"+$('#periode').val());
+      else if(a == 3) window.open("<?=site_url('tdo/printallkwt');?>/"+$('#periode').val());
   }else{
     alert("Pilih periode DO terlebih dahulu !!");
    }
