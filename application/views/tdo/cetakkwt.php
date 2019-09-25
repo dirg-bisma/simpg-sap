@@ -84,7 +84,13 @@ if($do->jenis_do == 1){
 	
 
 <tr style="height: 13px;">
-<td style="height: 13px;" colspan="2" width="60%" align="center">
+<td style="height: 13px;" colspan="2" width="50%" align="center">
+	<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+	<p><?=strtoupper($do->nama_petani);?><br />Petani</p>
 </td>
 <td style="height: 13px;" colspan="2" align="center">
 <p>&nbsp;<?=CNF_PG;?>, <?=siteHelpers::datereporthidejam($do->tgl_act);?><br /><?=CNF_NAMAPERUSAHAAN;?><br /><?=strtoupper(CNF_PG);?></p>
