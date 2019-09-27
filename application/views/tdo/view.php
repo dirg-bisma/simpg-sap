@@ -14,7 +14,7 @@
 					   	$this->data['do'] = $row;
 					   	echo $this->load->view('tdo/cetakkwt', $this->data ,true);
 					   	echo "<hr />";
-					   	echo $this->load->view('tdo/cetak90', $this->data ,true);	
+					   	echo $this->load->view('tdo/cetaklampiran', $this->data ,true);	
 					   ?>
 					   
 				
