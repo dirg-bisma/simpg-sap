@@ -195,16 +195,6 @@ echo '<b>'.number_format($total).'</b>';
 <i><b><?=siteHelpers::terbilang(($totalbersih));?> Rupiah</b></i>
 </td>
 </tr>
-<tr style="height: 13px;">
-<td style="height: 13px;" colspan="4">
-
-</td>
-</tr>
-<tr style="height: 13px;">
-<td style="height: 13px;" colspan="4">
-
-</td>
-</tr>
 
 </tbody>
 </table>
