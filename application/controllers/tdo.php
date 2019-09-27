@@ -508,6 +508,27 @@ WHERE b.`id_periode`=$idperiod");
 		}
 		
 	}
+	
+	function printalllampiran( $id = null) 
+	{
+		
+		$row =  $this->db->query("SELECT * FROM vw_t_do WHERE id_periode=$id")->result();
+		if($row)
+		{
+			$this->data['content'] = '';
+			foreach($row as $r){
+				$this->data['do'] = $r;
+				$this->data['id'] = $r->id;
+				$this->data['content'] .=  $this->load->view('tdo/cetaklampiran', $this->data ,true);
+			}
+
+			  
+			$this->load->view('layouts/kosongcetakqr', $this->data );
+		} else {
+			redirect('tdo',301);
+		}
+		
+	}
 
 	function printall10( $id = null) 
 	{
