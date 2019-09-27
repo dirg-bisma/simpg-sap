@@ -67,8 +67,8 @@
 $seratus = $do->gula_100;
 $sembilan = $do->gula_90;
 $sepuluh = $do->gula_10;
-$hgula = $sembilan*$do->harga_gula;
-$htetes = $do->berat_tetes*$do->harga_tetes;
+$hgula = floor($sembilan*$do->harga_gula);
+$htetes = floor($do->berat_tetes*$do->harga_tetes);
 if($sepuluh != 0){
 ?>
 <tr style="height: 13px;">
