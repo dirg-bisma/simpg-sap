@@ -7,7 +7,7 @@
 <table style="width: 100%; margin-left: auto; margin-right: auto;" border="1" cellspacing="0" cellpadding="1">
 <tbody>
 <tr>
-<td style="font-size:11px;padding-right:10px" align="center"><b>LAMPIRAN<br />NO DO : <?=$do->no_do;?><br />TGL DO : <?=date('j M Y', strtotime($do->tgl_act));?></b></td>
+<td style="font-size:11px;padding-right:10px" align="center"><b>LAMPIRAN<br />NO DOCUMENT : <?=$do->no_do;?><br />TGL DOCUMENT : <?=date('j M Y', strtotime($do->tgl_act));?></b></td>
 </tr>
 <tr style="height: 99px;">
 <td style="height: 99px;padding:10px" colspan="4">
