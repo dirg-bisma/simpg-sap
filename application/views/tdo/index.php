@@ -173,7 +173,7 @@ var table;
       if(a == 1)  window.open("<?=site_url('tdo/printall90');?>/"+$('#periode').val());
       else if(a == 2) window.open("<?=site_url('tdo/printall10');?>/"+$('#periode').val());
       else if(a == 3) window.open("<?=site_url('tdo/printallkwt');?>/"+$('#periode').val());
-      else if(a == 4) window.open("<?=site_url('tdo/printlampiran');?>/"+$('#periode').val());
+      else if(a == 4) window.open("<?=site_url('tdo/printalllampiran');?>/"+$('#periode').val());
   }else{
     alert("Pilih periode DO terlebih dahulu !!");
    }
