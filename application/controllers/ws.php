@@ -8,7 +8,7 @@ class Ws extends SB_Controller
     }
 
     function masterfield(){
-    	$a = $this->db->query("SELECT * FROM sap_field")->result();
+    	$a = $this->db->query("SELECT count(*) FROM sap_field")->result();
     	echo json_encode($a,true);
     }
 }
