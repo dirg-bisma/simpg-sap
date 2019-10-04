@@ -9,6 +9,6 @@ class Ws extends SB_Controller
 
     function masterfield(){
     	$a = $this->db->query("SELECT * FROM sap_field")->result();
-    	return json_encode($a,true);
+    	echo json_encode($a,true);
     }
 }
