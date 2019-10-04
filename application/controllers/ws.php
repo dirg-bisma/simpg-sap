@@ -25,10 +25,10 @@ class Ws extends SB_Controller
     	  if($kodeblok !='' || $afd != '') {
     	  	if($kodeblok != '') $this->db->where('kode_blok',$kodeblok);
     	  	if($afd != '') $this->db->where('divisi',$afd);
-    	  }else{
+    	  }
     	 	if($limit !='') $this->db->limit($limit);
          	if($limit !=''&&$offset!='') $this->db->limit($limit,$offset);
-     	}
+     	
          $dx = $this->db->get()->result();
          $data['data'] = $dx;
 
