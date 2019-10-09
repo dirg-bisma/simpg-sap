@@ -375,6 +375,42 @@ class Thapas extends SB_Controller
 
 	    redirect('thapas',301);
     }
+
+
+    function ambildata(){
+    	$sql1 = $this->db->query("SELECT LEFT(b.`kepemilikan`,2) AS kode,kode_plant_trasnfer,SUM(c.`ha_tertebang`) AS ha, 
+SUM(e.`netto_final`)/1000 AS ton,
+SUM(hablur_ari)/1000 AS hablur_total,
+SUM(gula_total)/1000 AS gula_total,
+SUM(gula_ptr)/1000 AS gula_ptr,
+SUM(gula_pg)/1000 AS gula_pg
+FROM t_spta a 
+INNER JOIN sap_field b ON a.`kode_blok`=b.`kode_blok`
+INNER JOIN t_selektor c ON c.`id_spta`=a.`id`
+INNER JOIN t_timbangan e ON e.`id_spat`=a.`id`
+INNER JOIN t_ari d ON d.`id_spta`=a.`id`
+WHERE kode_plant_trasnfer != ''
+GROUP BY LEFT(b.`kepemilikan`,2),kode_plant_trasnfer ORDER BY kode_plant_trasnfer ASC")->result();
+
+    	$sql2 = $this->db->query("SELECT IF(LEFT(b.`kepemilikan`,4) = 'TS-S','SPT',LEFT(b.`kepemilikan`,2)) AS kode,kode_plant_trasnfer,SUM(c.`ha_tertebang`) AS ha, 
+SUM(e.`netto_final`)/1000 AS ton,
+SUM(hablur_ari)/1000 AS hablur_total,
+SUM(gula_total)/1000 AS gula_total,
+SUM(gula_ptr)/1000 AS gula_ptr,
+SUM(gula_pg)/1000 AS gula_pg
+FROM t_spta a 
+INNER JOIN sap_field b ON a.`kode_blok`=b.`kode_blok`
+INNER JOIN t_selektor c ON c.`id_spta`=a.`id`
+INNER JOIN t_timbangan e ON e.`id_spat`=a.`id`
+INNER JOIN t_ari d ON d.`id_spta`=a.`id`
+WHERE (kode_plant_trasnfer = '' || kode_plant_trasnfer = '".CNF_PLANCODE."')
+GROUP BY IF(LEFT(b.`kepemilikan`,4) = 'TS-S','SPT',LEFT(b.`kepemilikan`,2)) ORDER BY kode_plant_trasnfer ASC")->result();
+
+    	$sql3 = $this->db->query("SELECT  ((kristal_total_sd*1.003)-gula_produksi_sd) AS shs_ex_ms_thnini,gula_produksi_sd,gula_ex_sisan_sd,tetes_produksi_sd,tetes_sisan_sd,tetes_sto_sd FROM `t_lap_harian_pengolahan_ptpn` ORDER BY hari_giling DESC LIMIT 1")->result();
+
+    	$ax = array("transfer"=>$sql1,"murni"=>$sql2,"lp"=>$sql3);
+    	echo json_encode($ax);
+    }
 	
 	
 
