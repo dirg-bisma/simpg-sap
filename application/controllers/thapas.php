@@ -389,7 +389,7 @@ INNER JOIN sap_field b ON a.`kode_blok`=b.`kode_blok`
 INNER JOIN t_selektor c ON c.`id_spta`=a.`id`
 INNER JOIN t_timbangan e ON e.`id_spat`=a.`id`
 INNER JOIN t_ari d ON d.`id_spta`=a.`id`
-WHERE kode_plant_trasnfer != ''
+WHERE kode_plant_trasnfer != '' AND YEAR(tgl_spta) = '".CNF_TAHUNGILING."'
 GROUP BY IF(LEFT(b.`kepemilikan`,5) = 'TS-ST','TS',IF(LEFT(b.`kepemilikan`,5) = 'TS-SP','TR',LEFT(b.`kepemilikan`,2))),kode_plant_trasnfer ORDER BY kode_plant_trasnfer ASC")->result();
 
     	$sql2 = $this->db->query("SELECT IF(LEFT(b.`kepemilikan`,5) = 'TS-ST','TS',IF(LEFT(b.`kepemilikan`,5) = 'TS-SP','TR',LEFT(b.`kepemilikan`,2))) AS kode,kode_plant_trasnfer,SUM(c.`ha_tertebang`) AS ha, 
@@ -403,7 +403,7 @@ INNER JOIN sap_field b ON a.`kode_blok`=b.`kode_blok`
 INNER JOIN t_selektor c ON c.`id_spta`=a.`id`
 INNER JOIN t_timbangan e ON e.`id_spat`=a.`id`
 INNER JOIN t_ari d ON d.`id_spta`=a.`id`
-WHERE (kode_plant_trasnfer = '' || kode_plant_trasnfer = '".CNF_PLANCODE."')
+WHERE (kode_plant_trasnfer = '' || kode_plant_trasnfer = '".CNF_PLANCODE."') AND YEAR(tgl_spta) = '".CNF_TAHUNGILING."'
 GROUP BY IF(LEFT(b.`kepemilikan`,5) = 'TS-ST','TS',IF(LEFT(b.`kepemilikan`,5) = 'TS-SP','TR',LEFT(b.`kepemilikan`,2)))")->result();
 
     	$sql3 = $this->db->query("SELECT  ((kristal_total_sd*1.003)-gula_produksi_sd) AS shs_ex_ms_thnini,gula_produksi_sd,gula_ex_sisan_sd,tetes_produksi_sd,tetes_sisan_sd,tetes_sto_sd FROM `t_lap_harian_pengolahan_ptpn` ORDER BY hari_giling DESC LIMIT 1")->result();
