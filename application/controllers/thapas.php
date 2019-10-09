@@ -378,7 +378,7 @@ class Thapas extends SB_Controller
 
 
     function ambildata(){
-    	$sql1 = $this->db->query("SELECT IF(LEFT(kode_kat_lahan,5) = 'TS-ST','TS',IF(LEFT(kode_kat_lahan,5) = 'TS-SP','TR',LEFT(kode_kat_lahan,2))) AS kode,kode_plant_trasnfer,SUM(c.`ha_tertebang`) AS ha, 
+    	$sql1 = $this->db->query("SELECT kode,kode_plant_trasnfer,sum(ha) as ha,sum(ton) as ton,sum(hablur_total) as hablur_total,sum(gula_total) as gula_total, sum(gula_ptr) as gula_ptr,sum(gula_pg) as gula_pg from (SELECT IF(LEFT(kode_kat_lahan,5) = 'TS-ST','TS',IF(LEFT(kode_kat_lahan,5) = 'TS-SP','TR',LEFT(kode_kat_lahan,2))) AS kode,kode_plant_trasnfer,SUM(c.`ha_tertebang`) AS ha, 
 SUM(e.`netto_final`)/1000 AS ton,
 SUM(hablur_ari)/1000 AS hablur_total,
 SUM(gula_total)/1000 AS gula_total,
@@ -389,9 +389,9 @@ INNER JOIN t_selektor c ON c.`id_spta`=a.`id`
 INNER JOIN t_timbangan e ON e.`id_spat`=a.`id`
 INNER JOIN t_ari d ON d.`id_spta`=a.`id`
 WHERE kode_plant_trasnfer != '' AND YEAR(tgl_spta) = '".CNF_TAHUNGILING."'
-GROUP BY IF(LEFT(kode_kat_lahan,5) = 'TS-ST','TS',IF(LEFT(kode_kat_lahan,5) = 'TS-SP','TR',LEFT(kode_kat_lahan,2))),kode_plant_trasnfer ORDER BY kode_plant_trasnfer ASC")->result();
+GROUP BY kode_kat_lahan,kode_plant_trasnfer) as cx group by kode,kode_plant_trasnfer ORDER BY kode_plant_trasnfer ASC")->result();
 
-    	$sql2 = $this->db->query("SELECT IF(LEFT(kode_kat_lahan,5) = 'TS-ST','SPT',IF(LEFT(kode_kat_lahan,5) = 'TS-SP','TR',LEFT(kode_kat_lahan,2))) AS kode,kode_plant_trasnfer,SUM(c.`ha_tertebang`) AS ha, 
+    	$sql2 = $this->db->query("SELECT kode,sum(ha) as ha,sum(ton) as ton,sum(hablur_total) as hablur_total,sum(gula_total) as gula_total, sum(gula_ptr) as gula_ptr,sum(gula_pg) as gula_pg from (SELECT IF(LEFT(kode_kat_lahan,5) = 'TS-ST','SPT',IF(LEFT(kode_kat_lahan,5) = 'TS-SP','TR',LEFT(kode_kat_lahan,2))) AS kode,kode_plant_trasnfer,SUM(c.`ha_tertebang`) AS ha, 
 SUM(e.`netto_final`)/1000 AS ton,
 SUM(hablur_ari)/1000 AS hablur_total,
 SUM(gula_total)/1000 AS gula_total,
@@ -402,7 +402,7 @@ INNER JOIN t_selektor c ON c.`id_spta`=a.`id`
 INNER JOIN t_timbangan e ON e.`id_spat`=a.`id`
 INNER JOIN t_ari d ON d.`id_spta`=a.`id`
 WHERE (kode_plant_trasnfer = '' || kode_plant_trasnfer = '".CNF_PLANCODE."') AND YEAR(tgl_spta) = '".CNF_TAHUNGILING."'
-GROUP BY IF(LEFT(kode_kat_lahan,5) = 'TS-ST','SPT',IF(LEFT(kode_kat_lahan,5) = 'TS-SP','TR',LEFT(kode_kat_lahan,2)))")->result();
+GROUP BY kode_kat_lahan) as cx group by kode")->result();
 
     	$sql3 = $this->db->query("SELECT  ((kristal_total_sd*1.003)-gula_produksi_sd) AS shs_ex_ms_thnini,gula_produksi_sd,gula_ex_sisan_sd,tetes_produksi_sd,tetes_sisan_sd,tetes_sto_sd FROM `t_lap_harian_pengolahan_ptpn` ORDER BY hari_giling DESC LIMIT 1")->result();
 
