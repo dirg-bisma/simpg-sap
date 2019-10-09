@@ -401,7 +401,7 @@ FROM t_spta a
 INNER JOIN t_selektor c ON c.`id_spta`=a.`id`
 INNER JOIN t_timbangan e ON e.`id_spat`=a.`id`
 INNER JOIN t_ari d ON d.`id_spta`=a.`id`
-WHERE (kode_plant_trasnfer = '' || kode_plant_trasnfer = '".CNF_PLANCODE."') AND YEAR(tgl_spta) = '".CNF_TAHUNGILING."'
+WHERE (kode_plant_trasnfer = '' || ISNULL(kode_plant_trasnfer) || kode_plant_trasnfer = '".CNF_PLANCODE."') AND YEAR(tgl_spta) = '".CNF_TAHUNGILING."'
 GROUP BY kode_kat_lahan) as cx group by kode")->result();
 
     	$sql3 = $this->db->query("SELECT  ((kristal_total_sd*1.003)-gula_produksi_sd) AS shs_ex_ms_thnini,gula_produksi_sd,gula_ex_sisan_sd,tetes_produksi_sd,tetes_sisan_sd,tetes_sto_sd FROM `t_lap_harian_pengolahan_ptpn` ORDER BY hari_giling DESC LIMIT 1")->result();
