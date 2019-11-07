@@ -54,7 +54,7 @@ $tan = 'display:none;';$peng='';
                         <input type="hidden" name="thn_giling" value="<?php echo CNF_TAHUNGILING;?>">
                         <input type="hidden" name="id" value="<?=$row->id;?>">
                         <?php
-                        $sql = "select concat(LEFT(kode_kat_lahan,2),'-TR') as kode,kode_plant_trasnfer from t_spta where kode_plant_trasnfer != kode_plant and kode_plant_trasnfer != '' group by LEFT(kode_kat_lahan,2),kode_plant_trasnfer order by kode_plant_trasnfer asc";
+                        $sql = "select concat(LEFT(kode_kat_lahan,2),'-TR') as kode,kode_plant_trasnfer from t_spta where kode_plant_trasnfer != kode_plant and kode_plant_trasnfer != '' and sbh_status > 0 group by LEFT(kode_kat_lahan,2),kode_plant_trasnfer order by kode_plant_trasnfer asc";
                         $a = $this->db->query($sql)->result();
                         $transfer = array();
                         foreach($a as $b){
