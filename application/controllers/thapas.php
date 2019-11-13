@@ -383,7 +383,7 @@ SUM(e.`netto_final`)/1000 AS ton,
 SUM(hablur_ari)/1000 AS hablur_total,
 SUM(gula_total)/1000 AS gula_total,
 SUM(gula_ptr)/1000 AS gula_ptr,
-SUM(gula_pg)/1000 AS gula_pg
+ROUND(SUM(gula_pg)/1000,3) AS gula_pg
 FROM t_spta a 
 INNER JOIN t_selektor c ON c.`id_spta`=a.`id`
 INNER JOIN t_timbangan e ON e.`id_spat`=a.`id`
@@ -396,7 +396,7 @@ SUM(e.`netto_final`)/1000 AS ton,
 SUM(hablur_ari)/1000 AS hablur_total,
 SUM(gula_total)/1000 AS gula_total,
 SUM(gula_ptr)/1000 AS gula_ptr,
-SUM(gula_pg)/1000 AS gula_pg
+ROUND(SUM(gula_pg)/1000,3) AS gula_pg
 FROM t_spta a 
 INNER JOIN t_selektor c ON c.`id_spta`=a.`id`
 INNER JOIN t_timbangan e ON e.`id_spat`=a.`id`
