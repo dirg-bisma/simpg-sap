@@ -576,18 +576,7 @@ $tan = 'display:none;';$peng='';
                 var murni = dat.murni;
                 var transfer = dat.transfer;
                 var lp = dat.lp;
-                $.each(lp,function(i, obj) {
-                    var hblrthnlalu = obj.gula_ex_sisan_sd*1/1.003;
-                    $('#0402').val(obj.gula_ex_sisan_sd*1);
-                    $('#0401').val(hblrthnlalu.toFixed(3));
-                    $('#0403').val(obj.gula_produksi_sd*1);
-                    $('#0404').val(obj.shs_ex_ms_thnini*1);
-                    $('#0405').val(obj.tetes_produksi_sd*1);
-                    $('#0406').val(obj.tetes_sisan_sd*1);
-                    $('#0407').val(obj.tetes_sto_sd*1);
-                    $('#0408').val(0);
-                    hitungagain('0403');
-                });
+
 
                 $.each(murni,function(i, obj) {
                     if(obj.kode == 'TR'){
@@ -681,6 +670,19 @@ $tan = 'display:none;';$peng='';
                  sumdata('010107_gula_ptr','0101_gula_ptr','010206_gula_ptr','0102_gula_ptr','010108_gula_ptr','010207_gula_ptr','0103_gula_ptr');
                  sumdata('010107_gumil','0101_gumil','010206_gumil','0102_gumil','010108_gumil','010207_gumil','0103_gumil');
                  hitungagain('0408');
+
+                 $.each(lp,function(i, obj) {
+                    var hblrthnlalu = obj.gula_ex_sisan_sd*1/1.003;
+                    $('#0402').val(obj.gula_ex_sisan_sd*1);
+                    $('#0401').val(hblrthnlalu.toFixed(3));
+                    $('#0403').val(obj.gula_produksi_sd*1);
+                    $('#0404').val(obj.shs_ex_ms_thnini*1);
+                    $('#0405').val(obj.tetes_produksi_sd*1);
+                    $('#0406').val(obj.tetes_sisan_sd*1);
+                    $('#0407').val(obj.tetes_sto_sd*1);
+                    $('#0408').val(0);
+                    hitungagain('0403');
+                });
 
 
             }
