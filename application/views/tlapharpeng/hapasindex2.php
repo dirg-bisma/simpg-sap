@@ -586,6 +586,7 @@ $tan = 'display:none;';$peng='';
                     $('#0406').val(obj.tetes_sisan_sd*1);
                     $('#0407').val(obj.tetes_sto_sd*1);
                     $('#0408').val(0);
+                    hitungagain('0403');
                 });
 
                 $.each(murni,function(i, obj) {
@@ -680,7 +681,7 @@ $tan = 'display:none;';$peng='';
                  sumdata('010107_gula_ptr','0101_gula_ptr','010206_gula_ptr','0102_gula_ptr','010108_gula_ptr','010207_gula_ptr','0103_gula_ptr');
                  sumdata('010107_gumil','0101_gumil','010206_gumil','0102_gumil','010108_gumil','010207_gumil','0103_gumil');
                  hitungagain('0408');
-                 hitungagain('0403');
+
 
             }
         });
