@@ -54,7 +54,7 @@ $tan = 'display:none;';$peng='';
                         <input type="hidden" name="thn_giling" value="<?php echo CNF_TAHUNGILING;?>">
                         <input type="hidden" name="id" value="<?=$row->id;?>">
                         <?php
-                        $sql = "select concat(LEFT(kode_kat_lahan,2),'-TR') as kode,kode_plant_trasnfer from t_spta where kode_plant_trasnfer != kode_plant and kode_plant_trasnfer != '' group by LEFT(kode_kat_lahan,2),kode_plant_trasnfer order by kode_plant_trasnfer asc";
+                        $sql = "select concat(LEFT(kode_kat_lahan,2),'-TR') as kode,kode_plant_trasnfer from t_spta where kode_plant_trasnfer != kode_plant and kode_plant_trasnfer != '' and sbh_status > 0 group by LEFT(kode_kat_lahan,2),kode_plant_trasnfer order by kode_plant_trasnfer asc";
                         $a = $this->db->query($sql)->result();
                         $transfer = array();
                         foreach($a as $b){
@@ -106,6 +106,9 @@ $tan = 'display:none;';$peng='';
                                     <td>&nbsp;Jml Hr. Giling Inc. JB</td>
                                     <td><input type="text"  required name="jml_hari_gil_inc_jb" id="jml_hari_gil_inc_jb" class='form-control input-sm' value="<?=$row->jml_hari_gil_inc_jb;?>" /></td>
                                 </tr>
+                                <tr>
+                                    <td colspan="4" align="center"><a href="javascript:getData()" class="btn btn-primary">AMBIL DATA</a></td>
+                                </tr>
                             </thead>
                         </table>
                                 <table class="tableizer-table" style="<?=$tan;?>">
@@ -144,7 +147,7 @@ $tan = 'display:none;';$peng='';
                                         }
                                         ?>
                                         <input type="hidden" name="<?=$ks->kode;?>_plant" value="<?=$kodep;?>">
-                                <tr><td colspan="3"> <?=$ks->uraian.' '.$pg ;?>  </td><td><input type="number" step="any" class="number <?=$ks->parent;?>_luas"  value="<?=$ks->luas;?>" id="<?=$ks->kode;?>_luas" name="<?=$ks->kode;?>_luas" <?=$ro;?>></td></tr>  
+                                <tr><td colspan="3"> <?=$ks->uraian.' '.$pg ;?>  </td><td><input type="number" step="any" class="number <?=$ks->parent;?>_luas"  value="<?=$ks->luas;?>" id="<?=$ks->kode;?>_luas<?=$kodep;?>" name="<?=$ks->kode;?>_luas" <?=$ro;?>></td></tr>  
                                 <?
                                     }else{
                                     ?>
@@ -191,7 +194,7 @@ $tan = 'display:none;';$peng='';
                                         }
                                         ?>
                                         <input type="hidden" name="<?=$ks->kode;?>_plant" value="<?=$kodep;?>">
-                                <tr><td colspan="3"> <?=$ks->uraian.' '.$pg ;?>  </td><td><input type="number" step="any" class="number <?=$ks->parent;?>_ton_tebu"  value="<?=$ks->ton_tebu;?>" id="<?=$ks->kode;?>_ton_tebu" name="<?=$ks->kode;?>_ton_tebu" <?=$ro;?>></td></tr>  
+                                <tr><td colspan="3"> <?=$ks->uraian.' '.$pg ;?>  </td><td><input type="number" step="any" class="number <?=$ks->parent;?>_ton_tebu"  value="<?=$ks->ton_tebu;?>" id="<?=$ks->kode;?>_ton_tebu<?=$kodep;?>" name="<?=$ks->kode;?>_ton_tebu" <?=$ro;?>></td></tr>  
                                 <?
                                     }else{
                                     ?>
@@ -307,15 +310,15 @@ $tan = 'display:none;';$peng='';
                                     <td><input type="number" step="any" 
                                         class="number <?=$ks->parent;?>_hablur"  
                                         value="<?=$ks->ton_hablur;?>" 
-                                        id="<?=$ks->kode;?>_hablur" name="<?=$ks->kode;?>_hablur" <?=$ro;?>></td>
+                                        id="<?=$ks->kode;?>_hablur<?=$kodep;?>" name="<?=$ks->kode;?>_hablur" <?=$ro;?>></td>
                                         <td><input type="number" step="any" 
                                         class="number <?=$ks->parent;?>_gula_ptr"  
                                         value="<?=$ks->ton_gula_ptr;?>" 
-                                        id="<?=$ks->kode;?>_gula_ptr" name="<?=$ks->kode;?>_gula_ptr" onkeyup="hitungcek('<?=$ks->kode;?>')" <?=$ro;?>></td>
+                                        id="<?=$ks->kode;?>_gula_ptr<?=$kodep;?>" name="<?=$ks->kode;?>_gula_ptr" onkeyup="hitungcek('<?=$ks->kode;?>')" <?=$ro;?>></td>
                                         <td><input type="number" step="any" 
                                         class="number <?=$ks->parent;?>_gumil"  
                                         value="<?=$ks->ton_gula_milik;?>" 
-                                        id="<?=$ks->kode;?>_gumil" name="<?=$ks->kode;?>_gumil" <?=$ro;?>></td>
+                                        id="<?=$ks->kode;?>_gumil<?=$kodep;?>" name="<?=$ks->kode;?>_gumil" <?=$ro;?>></td>
                                     </tr>  
                                 <?
                                     }else{
@@ -560,6 +563,125 @@ $tan = 'display:none;';$peng='';
             if($(obj).val()!= 0)   x = parseFloat($(obj).val());
             lr = lr + x;
             $('#0409').val(lr.toFixed(4));
+        });
+    }
+
+
+    function getData(){
+        $.ajax({
+            type: 'POST',
+            url: "<?php echo site_url('thapas/ambildata');?>",
+            dataType: 'json',
+            success: function (dat) {
+                var murni = dat.murni;
+                var transfer = dat.transfer;
+                var lp = dat.lp;
+                $.each(lp,function(i, obj) {
+                    var hblrthnlalu = obj.gula_ex_sisan_sd*1/1.003;
+                    $('#0402').val(obj.gula_ex_sisan_sd*1);
+                    $('#0401').val(hblrthnlalu.toFixed(3));
+                    $('#0403').val(obj.gula_produksi_sd*1);
+                    $('#0404').val(obj.shs_ex_ms_thnini*1);
+                    $('#0405').val(obj.tetes_produksi_sd*1);
+                    $('#0406').val(obj.tetes_sisan_sd*1);
+                    $('#0407').val(obj.tetes_sto_sd*1);
+                    $('#0408').val(0);
+                });
+
+                $.each(murni,function(i, obj) {
+                    if(obj.kode == 'TR'){
+                        $('#010201_luas').val(obj.ha*1);
+                        $('#010201_ton_tebu').val(obj.ton*1);
+                        $('#010201_hablur').val(obj.hablur_total*1);
+                        $('#010201_gula_ptr').val(obj.gula_ptr*1);
+                        $('#010201_gumil').val(obj.gula_pg*1);
+                    }
+                    if(obj.kode == 'TS'){
+                        $('#010101_luas').val(obj.ha*1);
+                        $('#010101_ton_tebu').val(obj.ton*1);
+                        $('#010101_hablur').val(obj.hablur_total*1);
+                        $('#010101_gula_ptr').val(obj.gula_ptr*1);
+                        $('#010101_gumil').val(obj.gula_pg*1);
+                        
+                    }
+                    if(obj.kode == 'SPT'){
+                        $('#010102_luas').val(obj.ha*1);
+                        $('#010102_ton_tebu').val(obj.ton*1);
+                        $('#010102_hablur').val(obj.hablur_total*1);
+                        $('#010102_gula_ptr').val(obj.gula_ptr*1);
+                        $('#010102_gumil').val(obj.gula_pg*1);
+                    }
+                });
+
+                $.each(transfer,function(i, obj) {
+                    if(obj.kode == 'TR'){
+                        $('#010202_luas'+obj.kode_plant_trasnfer).val(obj.ha*1);
+                        $('#010203_luas'+obj.kode_plant_trasnfer).val(obj.ha*1);
+                        $('#010204_luas'+obj.kode_plant_trasnfer).val(obj.ha*1);
+                        $('#010205_luas'+obj.kode_plant_trasnfer).val(obj.ha*1);
+
+                        $('#010202_ton_tebu'+obj.kode_plant_trasnfer).val(obj.ton*1);
+                        $('#010203_ton_tebu'+obj.kode_plant_trasnfer).val(obj.ton*1);
+                        $('#010204_ton_tebu'+obj.kode_plant_trasnfer).val(obj.ton*1);
+                        $('#010205_ton_tebu'+obj.kode_plant_trasnfer).val(obj.ton*1);
+
+                        $('#010202_hablur'+obj.kode_plant_trasnfer).val(obj.hablur_total*1);
+                        $('#010203_hablur'+obj.kode_plant_trasnfer).val(obj.hablur_total*1);
+                        $('#010204_hablur'+obj.kode_plant_trasnfer).val(obj.hablur_total*1);
+                        $('#010205_hablur'+obj.kode_plant_trasnfer).val(obj.hablur_total*1);
+
+                        
+                        $('#010202_gula_ptr'+obj.kode_plant_trasnfer).val(obj.gula_ptr*1);
+                        $('#010203_gula_ptr'+obj.kode_plant_trasnfer).val(obj.gula_ptr*1);
+                        $('#010204_gula_ptr'+obj.kode_plant_trasnfer).val(obj.gula_ptr*1);
+                        $('#010205_gula_ptr'+obj.kode_plant_trasnfer).val(obj.gula_ptr*1);
+
+                        $('#010202_gumil'+obj.kode_plant_trasnfer).val(obj.gula_pg*1);
+                        $('#010203_gumil'+obj.kode_plant_trasnfer).val(obj.gula_pg*1);
+                        $('#010204_gumil'+obj.kode_plant_trasnfer).val(obj.gula_pg*1);
+                        $('#010205_gumil'+obj.kode_plant_trasnfer).val(obj.gula_pg*1);
+
+                        
+                    }
+                    if(obj.kode == 'TS'){
+                        $('#010103_luas'+obj.kode_plant_trasnfer).val(obj.ha*1);
+                        $('#010104_luas'+obj.kode_plant_trasnfer).val(obj.ha*1);
+                        $('#010105_luas'+obj.kode_plant_trasnfer).val(obj.ha*1);
+                        $('#010106_luas'+obj.kode_plant_trasnfer).val(obj.ha*1);
+
+                       $('#010103_ton_tebu'+obj.kode_plant_trasnfer).val(obj.ton*1);
+                       $('#010104_ton_tebu'+obj.kode_plant_trasnfer).val(obj.ton*1);
+                       $('#010105_ton_tebu'+obj.kode_plant_trasnfer).val(obj.ton*1);
+                       $('#010106_ton_tebu'+obj.kode_plant_trasnfer).val(obj.ton*1);
+
+
+                        $('#010103_hablur'+obj.kode_plant_trasnfer).val(obj.hablur_total*1);
+                        $('#010104_hablur'+obj.kode_plant_trasnfer).val(obj.hablur_total*1);
+                        $('#010105_hablur'+obj.kode_plant_trasnfer).val(obj.hablur_total*1);
+                        $('#010106_hablur'+obj.kode_plant_trasnfer).val(obj.hablur_total*1);
+
+                        $('#010103_gula_ptr'+obj.kode_plant_trasnfer).val(obj.gula_ptr*1);
+                        $('#010104_gula_ptr'+obj.kode_plant_trasnfer).val(obj.gula_ptr*1);
+                        $('#010105_gula_ptr'+obj.kode_plant_trasnfer).val(obj.gula_ptr*1);
+                        $('#010106_gula_ptr'+obj.kode_plant_trasnfer).val(obj.gula_ptr*1);
+
+                        $('#010103_gumil'+obj.kode_plant_trasnfer).val(obj.gula_pg*1);
+                        $('#010104_gumil'+obj.kode_plant_trasnfer).val(obj.gula_pg*1);
+                        $('#010105_gumil'+obj.kode_plant_trasnfer).val(obj.gula_pg*1);
+                        $('#010106_gumil'+obj.kode_plant_trasnfer).val(obj.gula_pg*1);
+                        
+                    }
+                    
+                });
+
+                 sumdata('010107_luas','0101_luas','010206_luas','0102_luas','010108_luas','010207_luas','0103_luas');
+                 sumdata('010107_ton_tebu','0101_ton_tebu','010206_ton_tebu','0102_ton_tebu','010108_ton_tebu','010207_ton_tebu','0103_ton_tebu');
+                 sumdata('010107_hablur','0101_hablur','010206_hablur','0102_hablur','010108_hablur','010207_hablur','0103_hablur');
+                 sumdata('010107_gula_ptr','0101_gula_ptr','010206_gula_ptr','0102_gula_ptr','010108_gula_ptr','010207_gula_ptr','0103_gula_ptr');
+                 sumdata('010107_gumil','0101_gumil','010206_gumil','0102_gumil','010108_gumil','010207_gumil','0103_gumil');
+                 hitungagain('0408');
+
+            }
         });
     }
 </script>

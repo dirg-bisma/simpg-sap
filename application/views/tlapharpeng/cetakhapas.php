@@ -34,7 +34,7 @@ $tetesrs = 0;
 	</table>
 	<table style="width: 100%;font-weight: bold;font-family: Arial;font-size: 12px;padding:0 10px 10px 10px">
 		<tr><td style="width: 70%">Tanggal Awal Giling</td><td>:</td><td style="text-align: right;"><?=$kontrol->daterpt($row->tgl_awal)?></td></tr>
-		<tr><td style="width: 70%">Tanggal Akhir Giling</td><td>:</td><td style="text-align: right;"><?=$kontrol->daterpt($row->tgl_awal)?></td></tr>
+		<tr><td style="width: 70%">Tanggal Akhir Giling</td><td>:</td><td style="text-align: right;"><?=$kontrol->daterpt($row->tgl_akhir)?></td></tr>
 		<tr><td style="width: 70%">Tanggal Stop Hari Raya Idul Fitri</td><td>:</td><td style="text-align: right;"><?= $row->tgl_stop_hif == '0000-00-00' ? '-': $kontrol->daterpt($row->tgl_stop_hif)?></td></tr>
 		<tr><td style="width: 70%">Tanggal Start Hari Raya Idul Fitri</td><td>:</td><td style="text-align: right;"><?= $row->tgl_start_hif == '0000-00-00' ? '-': $kontrol->daterpt($row->tgl_start_hif)?></td></tr>
 		<tr><td style="width: 70%">Tanggal Stop Hari Raya Idul Adha</td><td>:</td><td style="text-align: right;"><?= $row->tgl_stop_hia == '0000-00-00' ? '-': $kontrol->daterpt($row->tgl_stop_hia)?></td></tr>
@@ -503,7 +503,7 @@ $tetesrs = 0;
 <table style="width: 100%;font-family: Arial;padding:10px;font-size: 12px">
   <tr>
   	<td>&nbsp;</td>
-    <td style="width: 50%; text-align: center; font-weight: bold;"><?=CNF_PG?>, <?=$kontrol->daterpt($row->datecreate)?>
+    <td style="width: 50%; text-align: center; font-weight: bold;"><?=CNF_PG?>, <?=$kontrol->daterpt($row->tgl_akhir)?>
     	<br /><?=CNF_NAMAPERUSAHAAN;?>
     </td>
   </tr>
