@@ -481,7 +481,7 @@ $tetesrs = 0;
         	<tr style="background-color:pink;font-weight:bold;"><td style="color: black"><b> 
         		Total Jumlah Incl Ms Thn Yll </b></td>
         		<td style="text-align: right;"><?=$kontrol->numberformat($extshablur+$hblryll,4);?></td>
-        		<td style="text-align: right;"><?=$kontrol->numberformat($extstonshs+$shsyll,4);?></td>
+        		<td style="text-align: right;"><?=$kontrol->numberformat(round($extstonshs+$shsyll,2),4);?></td>
         		<td style="text-align: right;"><?=$kontrol->numberformat(0,4);?></td>
         		<td style="text-align: right;"><?=$kontrol->numberformat($extstontetes+$tetesyll,4);?></td>
         	</tr>
