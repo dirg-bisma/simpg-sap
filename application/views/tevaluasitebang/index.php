@@ -28,7 +28,7 @@
         </thead>
         <tbody id="bodylist">
             
-        </tbody>
+        </tbody> 
         </table>
       </div>
       <div class="modal-footer">

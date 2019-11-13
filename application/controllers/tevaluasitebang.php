@@ -313,7 +313,7 @@ WHERE a.`timb_netto_status` = 1 $wh GROUP BY a.id";
 		}
 		echo $htm;
 	}
- 
+  
 
 	function downloadtemplate_petak($kodeblok, $luasha) 
 	{
