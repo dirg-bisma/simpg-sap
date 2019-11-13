@@ -312,9 +312,10 @@ $tetesrs = 0;
         			$onsisa =  $shsexmsthnini;
         			$hblr = $ks->ton_hablur;
         		}
+                $ks->ton_gula_milik = $ks->ton_gula_milik - $onsisa;
         		?>
         		<td style="text-align: right;"><?=$kontrol->numberformat($hblr,4);?></td>
-        		<td style="text-align: right;"> <?=$kontrol->numberformat(($ks->ton_gula_milik-$onsisa),4);?></td>
+        		<td style="text-align: right;"> <?=$kontrol->numberformat(($ks->ton_gula_milik),4);?></td>
         		
         		<td style="text-align: right;"><?=$kontrol->numberformat($onsisa,4);?></td>
         		<td style="text-align: right;"><?=$kontrol->numberformat($totaltetes/$totaltebugiling*$ks->ton_tebu,4);?></td>
