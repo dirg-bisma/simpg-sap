@@ -551,10 +551,11 @@ $tan = 'display:none;';$peng='';
             var xl = $('#010101_hablur').val()*1.003;
 
             var cx =   xs -xx -$('#010107_gumil').val() - $('#010102_gumil').val() - $('#010207_gumil').val() ;
-            var xp = xl - cx;
+           // var xp = xl - cx;
         //    var gumil = $('#010101_hablur').val()*1.003;
+            var cx = Math.round(cx,3);
             var egumil = cx;
-            $('#010101_gumil').val(egumil.toFixed(4));
+            $('#010101_gumil').val(egumil.toFixed(3));
             sumdata('010107_gumil','0101_gumil','010206_gumil','0102_gumil','010108_gumil','010207_gumil','0103_gumil');
 
             //$('#0404').val(xp.toFixed(4));
