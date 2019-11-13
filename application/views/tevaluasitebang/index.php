@@ -33,6 +33,8 @@
       </div>
       <div class="modal-footer">
       <button type="button" class="btn btn-danger pull-left" onclick="setaff()" >Set Aff</button>
+      <button type="button" class="btn btn-success pull-left" onclick="downloadtemplate($('#kodeblok1').val(),$('#luasha1').val());">Download Template</button>
+        <a  href="javascript:uploadData()" type="button" class="btn btn-warning" >Upload Template</a>
         <button type="submit" class="btn btn-primary" >Validasi Luas</button>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>
@@ -340,6 +342,10 @@ function reloadgrid(afd=afdx) {
     });
  }
 
+ function downloadtemplate(kodeblok,luasha){
+    window.location.href = "<?php echo site_url('tevaluasitebang/downloadtemplate_petak');?>"+"/"+kodeblok+"/"+luasha;
+ }
+
  function setaff(){
     var kodepetak = $('#kodeblok1').val();
         $.ajax({
@@ -362,6 +368,9 @@ function reloadgrid(afd=afdx) {
     $('input:checkbox').not(this).click();
     // $('input:checkbox').not(this).prop('checked', this.checked);
 });
+ function uploadData(){
+    SximoModal('<?php echo site_url('tevaluasitebang/formupload');?>','Upload Template','500px');
+ }
 
 </script>
       

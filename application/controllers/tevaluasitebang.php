@@ -313,7 +313,157 @@ WHERE a.`timb_netto_status` = 1 $wh GROUP BY a.id";
 		}
 		echo $htm;
 	}
+ 
+
+	function downloadtemplate_petak($kodeblok, $luasha) 
+	{
+		$file = "TEMPLATE-".$kodeblok.".xls";
+			header("Content-type: application/vnd.ms-excel");
+			header("Content-Disposition: attachment; filename=$file");
+		
+		$wh = " AND a.kode_blok='$kodeblok'";
+		
+		$sql = "SELECT a.id,a.`no_spat`,a.tgl_spta,tgl_timbang,c.`netto` as netto_final,a.`jenis_spta`,
+		a.selektor_tgl,b.ha_tertebang,b.tanaman_status
+		 FROM t_spta a
+INNER JOIN t_timbangan c ON c.`id_spat`=a.`id`
+INNER JOIN t_selektor b on b.id_spta = a.id
+WHERE a.`timb_netto_status` = 1 $wh GROUP BY a.id";
+		
+		$th = $this->db->query($sql)->result();
+		$htm = "<table>     <thead>
+				<tr><td colspan='8' style='text-align:center'>
+						<b>PETAK $kodeblok</b></td></tr>
+				        <tr>
+				            <th>No</th>
+				            <th>No SPTA</th>
+				            <th>Tgl SPTA</th>
+				            <th>Jenis SPTA</th>
+				            <th>Tgl Masuk</th>
+				            <th>Tgl Timbang</th>
+				            <th>Netto</th>
+				            <th>Ha</th>
+				        </tr>
+				        </thead>";
+		$no=1;
+
+		$havalid = 0;
+		$habelum = 0;
+		$ton = 0;
+
+		$arter = array('1'=>'Ya','0'=>'Tidak');
+				$arterx = array('1'=>'Manual','2'=>'Semi Mekanisasi','3'=>'Mekanisasi');
+		foreach($th as $tb){
+			if($tb->tanaman_status == 1){
+				$havalid += $tb->ha_tertebang;
+			}else{
+				$habelum += $tb->ha_tertebang;
+			}
+			$ton += $tb->netto_final;
+			$r = '';
+			$htm .= "<tr>";
+			
+				$htm .= "<td>".$no."</td>";
+				
+				$no++;
+				
+			if($tb->tanaman_status == 1){
+				$htm .=  "
+				<td>".$tb->no_spat."</td>
+				<td>".$tb->tgl_spta."</td>
+				<td>".$tb->jenis_spta."</td>
+				<td>".$tb->selektor_tgl."</td>
+				<td>".$tb->tgl_timbang."</td>
+				<td class='number'>".number_format($tb->netto_final)."</td>";
+				$htm .=	"<td class='number'>".$tb->ha_tertebang."</td>";
+		}else{
+			$htm .=  "
+				<td style='background:yellow;'>".$tb->no_spat."</td>
+				<td style='background:yellow;'>".$tb->tgl_spta."</td>
+				<td style='background:yellow;'>".$tb->jenis_spta."</td>
+				<td style='background:yellow;'>".$tb->selektor_tgl."</td>
+				<td style='background:yellow;'>".$tb->tgl_timbang."</td>
+				<td style='background:yellow;' class='number'>".number_format($tb->netto_final)."</td>";
+			$htm .=	"<td class='number'>".$tb->ha_tertebang."</td>";
+		}
+			$htm .= "</tr>";
+		
+
+		}
+		$htm .= "</table>";
+	
+		echo $htm;
+	}
+
+	function uploadsend(){
+		 //var_dump($_FILES);die();
+		ini_set('memory_limit', '4048M');
+		ini_set('upload_max_filesize','30M');
+		ini_set('post_max_size','30M');
+		$user = $this->session->userdata('fid');
+		$totdata = 0;
+		// include APPPATH."/third_party/PHPExcel/IOFactory.php";
+
+		//include (APPPATH.'/third_party/php-excel-reader/excel_reader2.php');
+		// include (APPPATH.'/third_party/SpreadsheetReader.php');
+		// $file = '';
+    	$this->load->library("excel");
+
+			$inputFileName = 'TEMP_TEMPLATE_EVALUASI_TAN.xls';
+
+
+		if(move_uploaded_file($_FILES['template_eva']['tmp_name'], $inputFileName)){
+			//chmod($file, 0777);
+				    	// include 'PHPExcel/IOFactory.php';
+			//  Read your Excel workbook
+			try {
+			    $inputFileType = PHPExcel_IOFactory::identify($inputFileName);
+			    $objReader = PHPExcel_IOFactory::createReader($inputFileType);
+			    $objPHPExcel = $objReader->load($inputFileName);
+			} catch(Exception $e) {
+			    die('Error loading file "'.pathinfo($inputFileName,PATHINFO_BASENAME).'": '.$e->getMessage());
+			}
+
+			//  Get worksheet dimensions
+			$sheet = $objPHPExcel->getSheet(0); 
+			$highestRow = $sheet->getHighestRow(); 
+			$highestColumn = $sheet->getHighestColumn();
+
+			$arr_rowData = array();
+			//  Loop through each row of the worksheet in turn
+			for ($row = 3; $row <= $highestRow; $row++){ 
+			    //  Read a row of data into an array
+			    $rowData = $sheet->rangeToArray('H' . $row . ':' . $highestColumn . $row,
+			                                    NULL,
+			                                    TRUE,
+			                                    TRUE);
+			    $rowDatawh = $sheet->rangeToArray('B' . $row . ':' . $highestColumn . $row,
+			                                    NULL,
+			                                    TRUE,
+			                                    TRUE);
+
+
+			    // array_push($arr_rowData, $rowData);
+			    //  Insert row data array into your database of choice here
+			    $sql = "UPDATE t_selektor a inner join t_spta b on a.id_spta = b.id set a.ha_tertebang='".$rowData[0][0]."',a.tanaman_status=1,a.tanaman_user='$user',a.tanaman_act=now() WHERE b.no_spat = '".$rowDatawh[0][0]."'";
+			    $this->db->query($sql);
+			    $totdata++;
+
+			    // echo $rowData[0][0];
+			    // print_r("<br>");
+			}
+			echo ($totdata)." Data Berhasil Diupload Silahkan cek di Table !!";
+			// $data['read'] = $arr_rowData;
+			// print_r($arr_rowData);
+}else{
+	echo 'File Gagal Upload !! Max Upload Filesize '.ini_get('upload_max_filesize');
+}
+}
   
+  	function formupload(){
+
+		echo $this->load->view('tevaluasitebang/formupload',null, true );
+	}
 	function add( $id = null ) 
 	{
 		if($id =='')
