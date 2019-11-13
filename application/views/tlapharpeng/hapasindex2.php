@@ -557,7 +557,7 @@ $tan = 'display:none;';$peng='';
             $('#010101_gumil').val(egumil.toFixed(4));
             sumdata('010107_gumil','0101_gumil','010206_gumil','0102_gumil','010108_gumil','010207_gumil','0103_gumil');
 
-            $('#0404').val(xp.toFixed(4));
+            //$('#0404').val(xp.toFixed(4));
         }
         var lr = 0;
         $('.0409').each(function(i, obj) {
