@@ -210,7 +210,7 @@ $tetesrs = 0;
 	</table>
 	<table style="width: 100%;font-weight: bold;font-family: Arial;font-size: 12px;padding:0 10px 10px 10px">
 		<tr><td style="width: 70%">Tanggal Awal Giling</td><td>:</td><td style="text-align: right;"><?=$kontrol->daterpt($row->tgl_awal)?></td></tr>
-		<tr><td style="width: 70%">Tanggal Akhir Giling</td><td>:</td><td style="text-align: right;"><?=$kontrol->daterpt($row->tgl_awal)?></td></tr>
+		<tr><td style="width: 70%">Tanggal Akhir Giling</td><td>:</td><td style="text-align: right;"><?=$kontrol->daterpt($row->tgl_akhir)?></td></tr>
 		<tr><td style="width: 70%">Tanggal Stop Hari Raya Idul Fitri</td><td>:</td><td style="text-align: right;"><?= $row->tgl_stop_hif == '0000-00-00' ? '-': $kontrol->daterpt($row->tgl_stop_hif)?></td></tr>
 		<tr><td style="width: 70%">Tanggal Start Hari Raya Idul Fitri</td><td>:</td><td style="text-align: right;"><?= $row->tgl_start_hif == '0000-00-00' ? '-': $kontrol->daterpt($row->tgl_start_hif)?></td></tr>
 		<tr><td style="width: 70%">Tanggal Stop Hari Raya Idul Adha</td><td>:</td><td style="text-align: right;"><?= $row->tgl_stop_hia == '0000-00-00' ? '-': $kontrol->daterpt($row->tgl_stop_hia)?></td></tr>
@@ -314,7 +314,7 @@ $tetesrs = 0;
         		}
         		?>
         		<td style="text-align: right;"><?=$kontrol->numberformat($hblr,4);?></td>
-        		<td style="text-align: right;"><?=$kontrol->numberformat(($ks->ton_gula_milik),4);?></td>
+        		<td style="text-align: right;"> <?=$kontrol->numberformat(($ks->ton_gula_milik-$onsisa),4);?></td>
         		
         		<td style="text-align: right;"><?=$kontrol->numberformat($onsisa,4);?></td>
         		<td style="text-align: right;"><?=$kontrol->numberformat($totaltetes/$totaltebugiling*$ks->ton_tebu,4);?></td>
