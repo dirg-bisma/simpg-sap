@@ -548,7 +548,7 @@ $tan = 'display:none;';$peng='';
         if(vkode == '0403'){
             var xs = $('#0403').val()*1;
             var xx = $('#0103_gula_ptr').val();
-            var xl = $('$#010101_hablur').val()*1.003;
+            var xl = $('#010101_hablur').val()*1.003;
 
             var cx =   xs -xx -$('#010107_gumil').val() - $('#010102_gumil').val() - $('#010207_gumil').val() ;
             var xp = xl - cx;
