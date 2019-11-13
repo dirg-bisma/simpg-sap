@@ -73,7 +73,7 @@ $tetesrs = 0;
                     }
         	?>
         	<tr style="<?=$d;?>"><td  style="color: black"><span style="color:<?=$clr;?>"><?=$ks->kode;?></span><b> 
-        		<?=$ks->uraian.' '.$pg;?> </b></td><td style="text-align: right;"><?=$kontrol->numberformat($ks->luas,3);?></td></tr>
+        		<?=$ks->uraian.' '.$pg;?> </b></td><td style="text-align: right;"><?=$kontrol->numberformat($ks->luas,4);?></td></tr>
         	<?
         }
         }
@@ -108,7 +108,7 @@ $tetesrs = 0;
                     }
         	?>
         	<tr style="<?=$d;?>"><td  style="color: black"><span style="color:<?=$clr;?>"><?=$ks->kode;?></span><b> 
-        		<?=$ks->uraian.' '.$pg;?> </b></td><td style="text-align: right;"><?=$kontrol->numberformat($ks->ton_tebu,3);?></td></tr>
+        		<?=$ks->uraian.' '.$pg;?> </b></td><td style="text-align: right;"><?=$kontrol->numberformat($ks->ton_tebu,4);?></td></tr>
         	<?
         }
         }
@@ -143,7 +143,7 @@ $tetesrs = 0;
                     }
         	?>
         	<tr style="<?=$d;?>"><td  style="color: black"><span style="color:<?=$clr;?>"><?=$ks->kode;?></span><b> 
-        		<?=$ks->uraian.' '.$pg;?> </b></td><td style="text-align: right;"><?=$kontrol->numberformat($ks->ton_hablur,3);?></td></tr>
+        		<?=$ks->uraian.' '.$pg;?> </b></td><td style="text-align: right;"><?=$kontrol->numberformat($ks->ton_hablur,4);?></td></tr>
         	<?
         }
         }
@@ -190,7 +190,7 @@ $tetesrs = 0;
                     }
         	?>
         	<tr style="<?=$d;?>"><td  style="color: black"><span style="color:<?=$clr;?>"><?=$ks->kode;?></span><b> 
-        		<?=$ks->uraian.' '.$pg;?> </b></td><td style="text-align: right;"><?=$kontrol->numberformat($ks->nilai,3);?></td></tr>
+        		<?=$ks->uraian.' '.$pg;?> </b></td><td style="text-align: right;"><?=$kontrol->numberformat($ks->nilai,4);?></td></tr>
         	<?
         }
         }
@@ -257,10 +257,10 @@ $tetesrs = 0;
         	?>
         	<tr style="<?=$d;?>"><td  style="color: black"><span style="color:<?=$clr;?>"><?=$ks->kode;?></span><b> 
         		<?=$ks->uraian.' '.$pg;?> </b></td>
-        		<td style="text-align: right;"><?=$kontrol->numberformat($ks->luas,3);?></td>
-        		<td style="text-align: right;"><?=$kontrol->numberformat($ks->ton_tebu,3);?></td>
-        		<td style="text-align: right;"><?=$kontrol->numberformat($ks->ton_hablur,3);?></td>
-        		<td style="text-align: right;"><?=$kontrol->numberformat($totaltetes/$totaltebugiling*$ks->ton_tebu,3);?></td>
+        		<td style="text-align: right;"><?=$kontrol->numberformat($ks->luas,4);?></td>
+        		<td style="text-align: right;"><?=$kontrol->numberformat($ks->ton_tebu,4);?></td>
+        		<td style="text-align: right;"><?=$kontrol->numberformat($ks->ton_hablur,4);?></td>
+        		<td style="text-align: right;"><?=$kontrol->numberformat($totaltetes/$totaltebugiling*$ks->ton_tebu,4);?></td>
         	</tr>
         	<?
         }
@@ -314,11 +314,11 @@ $tetesrs = 0;
         		}
                 //$ks->ton_gula_milik = $ks->ton_gula_milik - $onsisa;
         		?>
-        		<td style="text-align: right;"><?=$kontrol->numberformat($hblr,3);?></td>
-        		<td style="text-align: right;"> <?=$kontrol->numberformat(($ks->ton_gula_milik),3);?></td>
+        		<td style="text-align: right;"><?=$kontrol->numberformat($hblr,4);?></td>
+        		<td style="text-align: right;"> <?=$kontrol->numberformat(($ks->ton_gula_milik),4);?></td>
         		
-        		<td style="text-align: right;"><?=$kontrol->numberformat($onsisa,3);?></td>
-        		<td style="text-align: right;"><?=$kontrol->numberformat($totaltetes/$totaltebugiling*$ks->ton_tebu,3);?></td>
+        		<td style="text-align: right;"><?=$kontrol->numberformat($onsisa,4);?></td>
+        		<td style="text-align: right;"><?=$kontrol->numberformat($totaltetes/$totaltebugiling*$ks->ton_tebu,4);?></td>
         	</tr>
         	<?
         	if($ks->kode == '010108'){
@@ -358,11 +358,11 @@ $tetesrs = 0;
         		$hblr = $ks->ton_gula_milik/1.003;
         		
         		?>
-        		<td style="text-align: right;"><?=$kontrol->numberformat($hblr,3);?></td>
-        		<td style="text-align: right;"><?=$kontrol->numberformat(($ks->ton_gula_milik),3);?></td>
+        		<td style="text-align: right;"><?=$kontrol->numberformat($hblr,4);?></td>
+        		<td style="text-align: right;"><?=$kontrol->numberformat(($ks->ton_gula_milik),4);?></td>
         		
-        		<td style="text-align: right;"><?=$kontrol->numberformat(0,3);?></td>
-        		<td style="text-align: right;"><?=$kontrol->numberformat(($totaltetes/$totaltebugiling*$ks->ton_tebu)-($ks->ton_tebu*3/100),3);?></td>
+        		<td style="text-align: right;"><?=$kontrol->numberformat(0,4);?></td>
+        		<td style="text-align: right;"><?=$kontrol->numberformat(($totaltetes/$totaltebugiling*$ks->ton_tebu)-($ks->ton_tebu*3/100),4);?></td>
         	</tr>
         	<?
         	if($ks->kode == '010207'){
@@ -375,10 +375,10 @@ $tetesrs = 0;
 		?>
 		<tr style="background-color:pink;font-weight:bold;"><td style="color: black"><span style="color:pink">0103</span><b> 
         		TOTAL Ex TS + Ex TR  </b></td>
-        		<td style="text-align: right;"><?=$kontrol->numberformat($extshablur,3);?></td>
-        		<td style="text-align: right;"><?=$kontrol->numberformat($extstonshs,3);?></td>
-        		<td style="text-align: right;"><?=$kontrol->numberformat($onsisa,3);?></td>
-        		<td style="text-align: right;"><?=$kontrol->numberformat($extstontetes,3);?></td>
+        		<td style="text-align: right;"><?=$kontrol->numberformat($extshablur,4);?></td>
+        		<td style="text-align: right;"><?=$kontrol->numberformat($extstonshs,4);?></td>
+        		<td style="text-align: right;"><?=$kontrol->numberformat($onsisa,4);?></td>
+        		<td style="text-align: right;"><?=$kontrol->numberformat($extstontetes,4);?></td>
         	</tr>
 		<tr><td colspan="4">2. MILIK SENDIRI PG SAUDARA</td></tr>
 		<?
@@ -409,11 +409,11 @@ $tetesrs = 0;
         		$hblr = $ks->ton_gula_ptr/1.003;
         		
         		?>
-        		<td style="text-align: right;"><?=$kontrol->numberformat($hblr,3);?></td>
-        		<td style="text-align: right;"><?=$kontrol->numberformat(($ks->ton_gula_ptr),3);?></td>
+        		<td style="text-align: right;"><?=$kontrol->numberformat($hblr,4);?></td>
+        		<td style="text-align: right;"><?=$kontrol->numberformat(($ks->ton_gula_ptr),4);?></td>
         		
-        		<td style="text-align: right;"><?=$kontrol->numberformat(0,3);?></td>
-        		<td style="text-align: right;"><?=$kontrol->numberformat($ks->ton_tebu*0/100,3);?></td>
+        		<td style="text-align: right;"><?=$kontrol->numberformat(0,4);?></td>
+        		<td style="text-align: right;"><?=$kontrol->numberformat($ks->ton_tebu*0/100,4);?></td>
         	</tr>
         	<?
         }
@@ -448,11 +448,11 @@ $tetesrs = 0;
         		$hblr = $ks->ton_gula_ptr/1.003;
         		
         		?>
-        		<td style="text-align: right;"><?=$kontrol->numberformat($hblr,3);?></td>
-        		<td style="text-align: right;"><?=$kontrol->numberformat(($ks->ton_gula_ptr),3);?></td>
+        		<td style="text-align: right;"><?=$kontrol->numberformat($hblr,4);?></td>
+        		<td style="text-align: right;"><?=$kontrol->numberformat(($ks->ton_gula_ptr),4);?></td>
         		
-        		<td style="text-align: right;"><?=$kontrol->numberformat(0,3);?></td>
-        		<td style="text-align: right;"><?=$kontrol->numberformat($ks->ton_tebu*3/100,3);?></td>
+        		<td style="text-align: right;"><?=$kontrol->numberformat(0,4);?></td>
+        		<td style="text-align: right;"><?=$kontrol->numberformat($ks->ton_tebu*3/100,4);?></td>
         	</tr>
         	<?
 
@@ -466,36 +466,36 @@ $tetesrs = 0;
 		?>
 		<tr style="background-color:pink;font-weight:bold;"><td style="color: black"><b> 
         		TOTAL 1 + 2 + 3 </b></td>
-        		<td style="text-align: right;"><?=$kontrol->numberformat($extshablur,3);?></td>
-        		<td style="text-align: right;"><?=$kontrol->numberformat($extstonshs,3);?></td>
-        		<td style="text-align: right;"><?=$kontrol->numberformat($onsisa,3);?></td>
-        		<td style="text-align: right;"><?=$kontrol->numberformat($extstontetes,3);?></td>
+        		<td style="text-align: right;"><?=$kontrol->numberformat($extshablur,4);?></td>
+        		<td style="text-align: right;"><?=$kontrol->numberformat($extstonshs,4);?></td>
+        		<td style="text-align: right;"><?=$kontrol->numberformat($onsisa,4);?></td>
+        		<td style="text-align: right;"><?=$kontrol->numberformat($extstontetes,4);?></td>
         	</tr>
         	<tr style="background-color:pink;font-weight:bold;"><td style="color: black"><b> 
         		Ex MS Tahun Yll </b></td>
-        		<td style="text-align: right;"><?=$kontrol->numberformat($hblryll,3);?></td>
-        		<td style="text-align: right;"><?=$kontrol->numberformat($shsyll,3);?></td>
-        		<td style="text-align: right;"><?=$kontrol->numberformat(0,3);?></td>
-        		<td style="text-align: right;"><?=$kontrol->numberformat($tetesyll,3);?></td>
+        		<td style="text-align: right;"><?=$kontrol->numberformat($hblryll,4);?></td>
+        		<td style="text-align: right;"><?=$kontrol->numberformat($shsyll,4);?></td>
+        		<td style="text-align: right;"><?=$kontrol->numberformat(0,4);?></td>
+        		<td style="text-align: right;"><?=$kontrol->numberformat($tetesyll,4);?></td>
         	</tr>
         	<tr style="background-color:pink;font-weight:bold;"><td style="color: black"><b> 
         		Total Jumlah Incl Ms Thn Yll </b></td>
-        		<td style="text-align: right;"><?=$kontrol->numberformat($extshablur+$hblryll,3);?></td>
-        		<td style="text-align: right;"><?=$kontrol->numberformat($extstonshs+$shsyll,3);?></td>
-        		<td style="text-align: right;"><?=$kontrol->numberformat(0,3);?></td>
-        		<td style="text-align: right;"><?=$kontrol->numberformat($extstontetes+$tetesyll,3);?></td>
+        		<td style="text-align: right;"><?=$kontrol->numberformat($extshablur+$hblryll,4);?></td>
+        		<td style="text-align: right;"><?=$kontrol->numberformat($extstonshs+$shsyll,4);?></td>
+        		<td style="text-align: right;"><?=$kontrol->numberformat(0,4);?></td>
+        		<td style="text-align: right;"><?=$kontrol->numberformat($extstontetes+$tetesyll,4);?></td>
         	</tr>
         	<tr style="background-color:pink;font-weight:bold;"><td style="color: black" colspan="4"><b> 
         		JUMLAH TETES Ex RS </b></td>
-        		<td style="text-align: right;"><?=$kontrol->numberformat($tetesrs,3);?></td>
+        		<td style="text-align: right;"><?=$kontrol->numberformat($tetesrs,4);?></td>
         	</tr>
         	<tr style="background-color:pink;font-weight:bold;"><td style="color: black" colspan="4"><b> 
         		JUMLAH TETES STO </b></td>
-        		<td style="text-align: right;"><?=$kontrol->numberformat($tetessto,3);?></td>
+        		<td style="text-align: right;"><?=$kontrol->numberformat($tetessto,4);?></td>
         	</tr>
         	<tr style="background-color:pink;font-weight:bold;"><td style="color: black" colspan="4"><b> 
         		JUMLAH TETES TOTAL </b></td>
-        		<td style="text-align: right;"><?=$kontrol->numberformat($tetestotal,3);?></td>
+        		<td style="text-align: right;"><?=$kontrol->numberformat($tetestotal,4);?></td>
         	</tr>
 	</table>
 	</td>

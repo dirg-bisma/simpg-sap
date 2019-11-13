@@ -547,11 +547,13 @@ $tan = 'display:none;';$peng='';
 
         if(vkode == '0403'){
             var xs = $('#0403').val()*1;
-            var xx = $('#0103_hablur').val();
-            var cx = (xx*1.003) - xs;
+            var xx = $('#0103_gula_ptr').val();
+          
 
-            var gumil = $('#010101_hablur').val()*1.003;
-            var egumil = gumil - cx;
+            var cx =   xs -xx -$('#010107_gumil').val() - $('#010102_gumil').val();
+
+        //    var gumil = $('#010101_hablur').val()*1.003;
+            var egumil = cx;
             $('#010101_gumil').val(egumil.toFixed(4));
             sumdata('010107_gumil','0101_gumil','010206_gumil','0102_gumil','010108_gumil','010207_gumil','0103_gumil');
 
