@@ -467,7 +467,7 @@ $tetesrs = 0;
 		<tr style="background-color:pink;font-weight:bold;"><td style="color: black"><b> 
         		TOTAL 1 + 2 + 3 </b></td>
         		<td style="text-align: right;"><?=$kontrol->numberformat($extshablur,4);?></td>
-        		<td style="text-align: right;"><?=$kontrol->numberformat($extstonshs,4);?></td>
+        		<td style="text-align: right;"><?=$kontrol->numberformat(round($extstonshs,2),4);?></td>
         		<td style="text-align: right;"><?=$kontrol->numberformat($onsisa,4);?></td>
         		<td style="text-align: right;"><?=$kontrol->numberformat($extstontetes,4);?></td>
         	</tr>
