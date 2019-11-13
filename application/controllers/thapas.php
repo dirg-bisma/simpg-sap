@@ -380,7 +380,7 @@ class Thapas extends SB_Controller
     function ambildata(){
     	$sql1 = $this->db->query("SELECT kode,kode_plant_trasnfer,sum(ha) as ha,sum(ton) as ton,sum(hablur_total) as hablur_total,sum(gula_total) as gula_total, sum(gula_ptr) as gula_ptr,sum(gula_pg) as gula_pg from (SELECT IF(LEFT(kode_kat_lahan,5) = 'TS-ST','TS',IF(LEFT(kode_kat_lahan,5) = 'TS-SP','TR',LEFT(kode_kat_lahan,2))) AS kode,kode_plant_trasnfer,SUM(c.`ha_tertebang`) AS ha, 
 SUM(e.`netto_final`)/1000 AS ton,
-round(SUM(hablur_ari)/1000 AS hablur_total,
+SUM(hablur_ari)/1000 AS hablur_total,
 SUM(gula_total)/1000 AS gula_total,
 SUM(gula_ptr)/1000 AS gula_ptr,
 SUM(gula_pg)/1000 AS gula_pg
