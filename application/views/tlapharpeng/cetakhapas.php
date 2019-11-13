@@ -413,7 +413,7 @@ $tetesrs = 0;
         		<td style="text-align: right;"><?=$kontrol->numberformat(($ks->ton_gula_ptr),4);?></td>
         		
         		<td style="text-align: right;"><?=$kontrol->numberformat(0,4);?></td>
-        		<td style="text-align: right;"><?=$kontrol->numberformat($ks->ton_tebu*3/100,4);?></td>
+        		<td style="text-align: right;"><?=$kontrol->numberformat($ks->ton_tebu*0/100,4);?></td>
         	</tr>
         	<?
         }
