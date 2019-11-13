@@ -312,7 +312,7 @@ $tetesrs = 0;
         			$onsisa =  $shsexmsthnini;
         			$hblr = $ks->ton_hablur;
         		}
-               // $ks->ton_gula_milik = $ks->ton_gula_milik - $onsisa;
+                $ks->ton_gula_milik = $ks->ton_gula_milik - $onsisa;
         		?>
         		<td style="text-align: right;"><?=$kontrol->numberformat($hblr,4);?></td>
         		<td style="text-align: right;"> <?=$kontrol->numberformat(($ks->ton_gula_milik),4);?></td>
@@ -391,7 +391,7 @@ $tetesrs = 0;
         	}else{
         		$d = '';$clr = 'white';
         		if($ks->parent == '010000'){
-        			$clr = '#dadada';
+        			$clr = '#dadada'; 
         			$d = 'background-color:#dadada;font-weight:bold';
         		}else if($ks->parent == '01000'){
         			$clr = 'pink';
