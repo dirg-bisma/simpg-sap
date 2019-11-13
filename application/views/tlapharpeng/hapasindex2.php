@@ -550,7 +550,7 @@ $tan = 'display:none;';$peng='';
             var xx = $('#0103_gula_ptr').val();
           
 
-            var cx =   xs -xx -$('#010107_gumil').val() - $('#010102_gumil').val() - $('#010207_gumil').va();
+            var cx =   xs -xx -$('#010107_gumil').val() - $('#010102_gumil').val() - $('#010207_gumil').val();
 
         //    var gumil = $('#010101_hablur').val()*1.003;
             var egumil = cx;
