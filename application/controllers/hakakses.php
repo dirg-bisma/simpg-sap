@@ -217,7 +217,7 @@ class Hakakses extends SB_Controller  {
 
 		}
 
-		$rs = $this->db->query("SELECT * FROM updates_filesql ORDER BY dateadd DESC")->result();
+		$rs = $this->db->query("SELECT * FROM updates_filesql ORDER BY nama_file DESC")->result();
 
 		$this->data['direktori'] = $rs;
     	$this->data['content'] = $this->load->view('hakakses/databaseupdate',$this->data, true );		
