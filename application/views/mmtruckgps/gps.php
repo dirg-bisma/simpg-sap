@@ -52,7 +52,7 @@
 
     <script>
 
-      var mymap = L.map('mapid').setView([-7.7000677, 111.540868], 12);
+      var mymap = L.map('mapid').setView([-7.7000677, 111.540868], 7);
       L.tileLayer('http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
     maxZoom: 20,
@@ -186,7 +186,7 @@
     ];
 
         function fshowdata(e){
-         // updateStatus();
+          updateStatus();
             var popup = e.target.getPopup();
             var id = e.target.options.customId;
              $.ajax({
@@ -195,13 +195,13 @@
             type: "POST",
             success: function(data){
                 //console.log(data);
-                if(data.status == 1){
+                if(data.status == 2){
                   stt = "On Task";
                 }else{
                   stt = "Free";
                 }
 
-                popup.setContent("NOPOL : "+data.nopol_truk+"<br />HP GPS : "+data.no_hp+"<br />STATUS : "+stt+"<br />SPTA : "+"<br />BLOK : "+"<br />PTA : ");
+                popup.setContent("NOPOL : <b>"+data.nopol+"</b><br />HP GPS : <b>"+data.no_hp+"</b><br />STATUS : <b>"+stt+"</b><br />SPTA : <b>"+data.no_spat+"</b><br />PETAK : <b>"+data.kode_blok+"</b><br />DESK : <b>"+data.deskripsi_blok+"</b><br />AFD : <b>"+data.divisi+"</b><br />VENDOR : <b>"+data.nama_vendor+"</b>");
             }
         });
            // console.log(id);
@@ -221,7 +221,7 @@
                   
                   if(typeof(truk[v.id_gps_server])!='undefined')
                      {
-                      if(v.status == 1){
+                      if(v.status == 2){
                         truk[v.id_gps_server].setIcon(onIco);
                       }else{
                         truk[v.id_gps_server].setIcon(freeIco);

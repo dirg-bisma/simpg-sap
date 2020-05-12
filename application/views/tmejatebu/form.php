@@ -31,7 +31,7 @@
 			
 		</video>
 	<?php
-	}else if($cctv_on == 2){
+	}else if($cctv_on == 2 || $cctv_on == 3 ){
 		?>
 	<img  id="videoElement-<?php echo $kode_meja_tebu; ?>" style="width: 100%" src="<?php echo $cctv_url; ?>"  >
 	<?php
@@ -181,6 +181,18 @@ $(document).ready(function() {
 	
 		$("#kondisi_tebu-<?php echo $kode_meja_tebu; ?>").jCombo("<?php echo site_url('tmejatebu/comboselect?filter=m_rafaksi:nilai:nilai') ?>",
 		{  selected_value : '' });
+
+	<?php
+	if($cctv_on == 3){
+		?>
+		var time = 0;
+		setInterval(function() {
+		$('#videoElement-<?php echo $kode_meja_tebu; ?>').attr('src','<?php echo $cctv_url; ?>?t='+time);
+		time++;
+	}, 10000); 
+		<?php
+	}
+	?>
 	
 
 });
@@ -233,7 +245,7 @@ function getImageVideo<?php echo $kode_meja_tebu; ?>(){
 });
  
   <?php
-	}else if($cctv_on == 2){
+	}else if($cctv_on == 2 || $cctv_on == 3){
 		?>
 		var images = document.querySelector("videoElement-<?php echo $kode_meja_tebu; ?>");
 		

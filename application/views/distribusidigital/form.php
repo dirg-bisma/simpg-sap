@@ -37,7 +37,7 @@
 		$("#mandor").jCombo("<?php echo site_url('distribusidigital/comboselect?filter=sap_m_karyawan:Persno:name:id_jabatan:3') ?>",
 		{  selected_value : '' });
 
-		$("#truk").jCombo("<?php echo site_url('distribusidigital/comboselect?filter=m_truk_gps:id:nopol_truk|namatruk:status:0') ?>",
+		$("#truk").jCombo("<?php echo site_url('distribusidigital/comboselect?filter=m_truk_gps:id:nopol_truk|namatruk:status:1') ?>",
 		{  selected_value : '' });
 
 		$('.select2').select2();

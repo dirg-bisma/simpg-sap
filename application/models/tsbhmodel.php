@@ -47,12 +47,12 @@ class Tsbhmodel extends SB_Model
 		
 		
 		$rows = array();
-		$query = $this->db->query( $this->querySbh() . " {$params} ". $this->queryGroup() ." {$orderConditional}  {$limitConditional} ");
+		$query = $this->db->query( "SELECT SQL_NO_CACHE * FROM (". $this->querySbh() . " WHERE 0=0 {$params} GROUP BY `a`.`id`) as ax {$orderConditional}  {$limitConditional} ");
 		$result = $query->result();
 		$query->free_result();
 
 		if($key =='' ) { $key ='*'; } else { $key = $table.".".$key ; }
-		$counter_select = "SELECT count(id) as total from vw_sbh_data  WHERE 0=0 {$params}";
+		$counter_select = "SELECT count(id) as total from (". $this->querySbh() . " WHERE 0=0 {$params} GROUP BY `a`.`id`) as ax";
 		//echo 	$counter_select; exit;
 		$query = $this->db->query( $counter_select );
 		$res = $query->result();
@@ -75,7 +75,7 @@ class Tsbhmodel extends SB_Model
     $query = "";
 		if(CNF_COMPANYCODE != 'N011')
 		{
-			$query =  "SELECT SQL_NO_CACHE * FROM (SELECT 
+			$query =  "SELECT 
   `a`.`sbh_status`      AS `sbh_status`,
   `f`.`id_ari`          AS `id_ari`,
   `a`.`id`              AS `id`,
@@ -147,10 +147,9 @@ FROM ((((((`t_spta` `a`
     JOIN `t_ari` `f`
       ON ((`f`.`id_spta` = `a`.`id`)))
    LEFT JOIN `sap_petani` `g`
-     ON ((`g`.`id_petani_sap` = `b`.`id_petani_sap`)))
-GROUP BY `a`.`id`) as ax WHERE 0=0";
+     ON ((`g`.`id_petani_sap` = `b`.`id_petani_sap`)))";
 		}else{
-			$query = "SELECT SQL_NO_CACHE * FROM (SELECT 
+			$query = "SELECT 
   `a`.`sbh_status`      AS `sbh_status`,
   `f`.`id_ari`          AS `id_ari`,
   `a`.`id`              AS `id`,
@@ -228,8 +227,7 @@ FROM ((((((`t_spta` `a`
     JOIN `t_ari` `f`
       ON ((`f`.`id_spta` = `a`.`id`)))
    LEFT JOIN `sap_petani` `g`
-     ON ((`g`.`id_petani_sap` = `b`.`id_petani_sap`)))
-GROUP BY `a`.`id`) as ax WHERE 0=0";
+     ON ((`g`.`id_petani_sap` = `b`.`id_petani_sap`)))";
     }
     
 	return $query;

@@ -8,7 +8,8 @@ class Mmtruckgps extends SB_Controller
 	public $per_page	= '10';
 	public $idx			= '';
 
-	public static $host='http://103.5.50.118:8082';
+	//public static $host='http://103.5.50.118:8082';
+	public static $host='http://gps.ptpn11.co.id:8082';
 	private static $adminEmail='admin';
 	private static $adminPassword='admin';
 	public static $cookie;
@@ -271,6 +272,11 @@ class Mmtruckgps extends SB_Controller
 	}
 
 
+	function getroute(){
+		$id = $_POST['id'];
+	}
+
+
 	function apiSave($id,$name,$imei,$nohp,$task)
 	{
 		//$ch = curl_init();
@@ -312,24 +318,72 @@ class Mmtruckgps extends SB_Controller
 
 	function monitoringtruk()
 	{
-		if(CNF_PLANCODE != 'KP04'){
-			redirect( 'mmtruckgps',301);
-		}else{
+		//if(CNF_PLANCODE != 'KP04'){
+		//	redirect( 'mmtruckgps',301);
+		//}else{
 		$this->data['id'] = 'all';
 		$this->data['content'] =  $this->load->view('mmtruckgps/gps', $this->data ,true);	
 		$this->load->view('layouts/main', $this->data );
-		}
+		//}
 	}
 
 	function detailtruck($id){
-		$a = $this->db->query("SELECT * FROM m_truk_gps where id_gps_server = $id")->row();
+		$a = $this->db->query("SELECT *,a.nopol_truk as nopol FROM m_truk_gps a LEFT JOIN vw_spta_digital b ON b.id_truck=a.id where id_gps_server = $id")->row();
 		echo json_encode($a);
 	}
 
 	function listtruck(){
-		$a = $this->db->query("SELECT * FROM m_truk_gps")->result();
+		$a = $this->db->query("SELECT * FROM m_truk_gps ")->result();
 		echo json_encode($a);
 	}
+
+	function historytruck($idtruk){
+		/*$from_str = '2017-07-25 00:00:10';
+		$to_str = '2017-07-25 10:10:10';
+
+		$from_obj = new DateTime($from_str);
+		$to_obj = new DateTime($to_str);
+
+
+		$from_iso = substr($from_obj->format(DateTime::ATOM),0,-6).'.000Z';
+		$to_iso = substr($to_obj->format(DateTime::ATOM),0,-6).'.000Z';
+
+		$route=self::reportRoute($idtruk,'',$from_iso,$to_iso,self::$cookie);
+		echo $route->response;*/
+		$date = date('Y-m-d');
+		$from_str =  date('Y-m-d H:i:s', strtotime($date. ' -3 days'));
+		$to_str = date('Y-m-d H:i:s');
+
+		$from_obj = new DateTime($from_str);
+		$to_obj = new DateTime($to_str);
+
+
+		$from_iso = substr($from_obj->format(DateTime::ATOM),0,-6).'.000Z';
+		$to_iso = substr($to_obj->format(DateTime::ATOM),0,-6).'.000Z';
+		$data='deviceId='.$idtruk.'&from='.$from_iso.'&type=allEvents&to='.$to_iso.'&page=1&start=0&limit=25';
+
+		$username = CNF_PLANCODE;
+		$password = CNF_PLANCODE;
+
+		//echo "http://gps.ptpn11.co.id:8082/api/reports/route?".$data;
+			$ch = curl_init();
+			curl_setopt($ch,CURLOPT_URL,"http://gps.ptpn11.co.id:8082/api/reports/route?".$data);
+			curl_setopt($ch, CURLOPT_USERPWD, $username . ":" . $password);
+			curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);
+			curl_setopt($ch,CURLOPT_CONNECTTIMEOUT, 4);
+			$json = curl_exec($ch);
+			$json = json_decode($json);
+			echo json_encode( $json );
+
+	}
+
+
+	public static function reportRoute($deviceId,$groupId,$from,$to,$cookie) {
+
+        $data='deviceId='.$deviceId.'&groupId='.$groupId.'&from='.$from.'&to='.$to;
+
+        return self::curl('/api/reports/route?'.$data,'GET',$cookie ,'',array());
+    }
 
 
 	public static function curl($task,$method,$cookie,$data,$header) {
@@ -340,7 +394,7 @@ class Mmtruckgps extends SB_Controller
 	$header[]="Cookie: ".$cookie;
 	
 	$ch = curl_init();
-	curl_setopt($ch, CURLOPT_URL, "http://103.5.50.118:8082".$task);
+	curl_setopt($ch, CURLOPT_URL, "http://gps.ptpn11.co.id:8082".$task);
 	curl_setopt($ch, CURLOPT_TIMEOUT, 30);
 	curl_setopt($ch, CURLOPT_HEADER, 1);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);

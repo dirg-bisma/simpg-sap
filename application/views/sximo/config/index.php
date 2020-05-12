@@ -102,6 +102,16 @@
 				 </div>
 			  </div>
 
+			  <div class="form-group">
+				<label for="ipt" class=" control-label col-md-4">RFID SELEKTOR</label>
+				<div class="col-md-8">
+						<select id="cnf_rfidselektor" name="cnf_rfidselektor" class="form-control input-sm">
+							<option value="1" <?php if(CNF_RFIDSELEKTOR == 1) echo 'selected';?> >Non Aktif</option>
+							<option value="2" <?php if(CNF_RFIDSELEKTOR == 2) echo 'selected';?> >Aktif</option>
+						</select>
+				 </div>
+			  </div>
+
 			</fieldset>
 
 		
@@ -194,7 +204,7 @@
 			  <div class="form-group">
 				<label for="ipt" class=" control-label col-md-4">AFD Asembagus</label>
 				<div class="col-md-8">
-						<input name="cnf_afd_jatiroto" type="text" id="cnf_afd_jatiroto" class="form-control input-sm" value="<?php echo  CNF_AFD_ASEMBAGUS ;?>" />
+						<input name="cnf_afd_asembagus" type="text" id="cnf_afd_asembagus" class="form-control input-sm" value="<?php echo  CNF_AFD_ASEMBAGUS ;?>" />
 				 </div>
 			  </div>
 

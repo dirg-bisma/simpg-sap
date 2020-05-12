@@ -141,8 +141,14 @@ class Tselektor extends SB_Controller
 		// Group users permission
 		$this->data['access']		= $this->access;
 		// Render into template
+
+		if(CNF_RFIDSELEKTOR == 2){
+			$this->data['content'] = $this->load->view('tselektor/formrfid',$this->data, true );
+		}else{
+			$this->data['content'] = $this->load->view('tselektor/form',$this->data, true );
+		}
 		
-		$this->data['content'] = $this->load->view('tselektor/form',$this->data, true );
+		
 		$this->data['content'] .= $this->load->view('tselektor/index',$this->data, true );
 		
     	$this->load->view('layouts/main', $this->data );
@@ -283,6 +289,23 @@ metode_tma FROM t_spta WHERE no_spat = '".$_POST['nospta']."'")->row();
 		echo $this->data['content'] =  $this->load->view('tselektor/view', $this->data ,true);	  
 		
 	}
+
+	function cekdatarfid(){
+		$arr['stt'] = 0;
+		if(isset($_POST['rfid'])){
+			$cek = $this->db->query("SELECT * FROM vw_spta_digital WHERE rfid_sticker = '".$_POST['rfid']."'")->row();
+		$arr['stt'] = 1;
+		if($cek){
+			$arr['stt'] = 1;
+			$arr['data'] = $cek;
+		}else{
+			$arr['stt'] = 0;
+		}
+		
+		}
+		echo json_encode($arr);
+	}
+	
 
 	
 

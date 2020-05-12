@@ -149,6 +149,10 @@ class Apitimbangan extends SB_Controller
         echo json_encode($output);
     }
 
+    function freetruck($id){
+       $this->db->query("UPDATE m_truk_gps SET status=1,task_update=now(),id_spta=0 where id_spta='".$id."'");
+    }
+
     function simpandcs()
     {
         try{
@@ -211,7 +215,8 @@ class Apitimbangan extends SB_Controller
                 $this->db->set($data);
                 $this->db->insert('t_timbangan');
 
-                 $this->db->query("UPDATE t_spta SET timb_bruto_status=1,timb_bruto_tgl='$tgl_timbang',timb_netto_status=1,timb_netto_tgl='$tgl_timbang',tgl_timbang=get_tgl_giling() WHERE id='".$id_spat[0]->id."'");
+                 $this->db->query("UPDATE t_spta SET timb_bruto_status=1,timb_bruto_tgl='$tgl_timbang',timb_netto_status=1,timb_netto_tgl='$tgl_timbang',tgl_timbang=get_tgl_giling(),rfid_sticker_closetag=now(),rfid_sticker_status=2 WHERE id='".$id_spat[0]->id."'");
+                 $this->freetruck($id_spat[0]->id);
 
                 $this->inputLogs("t_timbangan:insert=id:".$id_spat[0]->id.";");
 
@@ -349,7 +354,9 @@ class Apitimbangan extends SB_Controller
                 $this->apitimbanganmodel->UpdateNetto($where, $data_netto);
 
 
-                $this->db->query("UPDATE t_spta SET timb_netto_status=1,timb_netto_tgl='$tgl_timbang',tgl_timbang=get_tgl_giling() WHERE id='".$id_spat[0]->id."'");
+                $this->db->query("UPDATE t_spta SET timb_netto_status=1,timb_netto_tgl='$tgl_timbang',tgl_timbang=get_tgl_giling(),rfid_sticker_closetag=now(),rfid_sticker_status=2 WHERE id='".$id_spat[0]->id."'");
+
+                $this->freetruck($id_spat[0]->id);
 
                 $result = array(
                     'msg' => $this->GetPost('no_spat'),

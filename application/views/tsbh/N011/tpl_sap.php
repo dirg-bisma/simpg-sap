@@ -118,11 +118,11 @@
             <td><?php echo $r->hablur_ari; ?></td>
             <td><?php echo $r->gula_total; ?></td>
             <td><?php echo $r->tetes_total; ?></td>
-            <td><?php echo 0; ?></td>
-            <td><?php echo 0; ?></td>
-            <td><?php echo 0; ?></td>
-            <td><?php echo $r->gula_total; ?></td>
-            <td><?php echo $r->tetes_total; ?></td>
+            <td><?php echo $r->rendemen_ptr; ?></td>
+            <td><?php echo $r->gula_ptr; ?></td>
+            <td><?php echo $r->tetes_ptr; ?></td>
+            <td><?php echo $r->gula_pg; ?></td>
+            <td><?php echo $r->tetes_pg; ?></td>
         </tr>
     <?php } ?>
     </tbody>

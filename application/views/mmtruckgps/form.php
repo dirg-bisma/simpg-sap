@@ -34,10 +34,10 @@
 									 </div> 
 								  </div> 					
 								  <div class="form-group  " >
-									<label for="Vendor" class=" control-label col-md-4 text-left"> Vendor <span class="asterix"> * </span></label>
+									<label for="Vendor" class=" control-label col-md-4 text-left"> Vendor </label>
 									<div class="col-md-8">
 									  <select name='vendor_id' rows='5' id='vendor_id' code='{$vendor_id}' 
-							class='form-control input-sm select2 ' style='width: 100%;' required  ></select> <br />
+							class='form-control input-sm select2 ' style='width: 100%;'   ></select> <br />
 									  <i> <small></small></i>
 									 </div> 
 								  </div> 					
@@ -79,6 +79,14 @@
 									  <input type='text' class='form-control input-sm' placeholder='' value='<?php echo $row['no_hp'];?>' name='no_hp'  required /> <br />
 									  <i> <small></small></i>
 									 </div> 
+								  </div> 					
+								  <div class="form-group  " >
+									<label for="RFID Sticker" class=" control-label col-md-4 text-left"> RFID Sticker </label>
+									<div class="col-md-8">
+									  <input type='text' class='form-control input-sm' id="rfid_sticker" placeholder='' value='<?php echo $row['rfid_sticker'];?>' name='rfid_sticker' readonly   /> <br />
+									  <input type="button" onclick="getsocket()" value="GET">
+									  <i> <small></small></i>
+									 </div> 
 								  </div> 
 			</div>
 			
@@ -107,4 +115,16 @@ $(document).ready(function() {
 		{  selected_value : '<?php echo $row["vendor_id"] ?>' });
 		 	 
 });
+
+function getsocket(){
+	//var socket = new WebSocket("ws://10.47.103.23:12345");
+	var socket = new WebSocket("ws://192.168.43.118:8088");
+	socket.onmessage = function (evt) { 
+                  var received_msg = evt.data;
+                  console.log(received_msg);
+                  $('#rfid_sticker').val(received_msg);
+
+                 // alert("Message is received...");
+               };
+}
 </script>		 
