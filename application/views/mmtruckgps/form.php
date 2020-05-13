@@ -118,7 +118,7 @@ $(document).ready(function() {
 
 function getsocket(){
 	//var socket = new WebSocket("ws://10.47.103.23:12345");
-	var socket = new WebSocket("ws://192.168.43.118:8088");
+	var socket = new WebSocket("ws://127.0.0.1:8088");
 	socket.onmessage = function (evt) { 
                   var received_msg = evt.data;
                   console.log(received_msg);
