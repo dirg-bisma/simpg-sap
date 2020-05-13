@@ -51,10 +51,10 @@ class Distribusidigital extends SB_Controller
         $sqltruk = $this->db->query("SELECT * FROM m_truk_gps WHERE id=$truk")->row();
         if($sqltruk) {
             $rfidsticker = $sqltruk->rfid_sticker;
-            $sql = $this->db->query("UPDATE t_spta set id_truck=$truk,persno_mandor=$mandor,tgl_distribusi=now(),status_distribusi=1,rfid_sticker='$rfidsticker',rfid_sticker_tagging=now(),rfid_sticker_status=1 where id=$id"); 
+            $sql = $this->db->query("UPDATE t_spta set id_truck=$truk,persno_mandor='$mandor',tgl_distribusi=now(),status_distribusi=1,rfid_sticker='$rfidsticker',rfid_sticker_tagging=now(),rfid_sticker_status=1 where id=$id"); 
 
         }else{
-          $sql = $this->db->query("UPDATE t_spta set id_truck=$truk,persno_mandor=$mandor,tgl_distribusi=now(),status_distribusi=1 where id=$id");  
+          $sql = $this->db->query("UPDATE t_spta set id_truck=$truk,persno_mandor='$mandor',tgl_distribusi=now(),status_distribusi=1 where id=$id");  
         }
             
     	   
