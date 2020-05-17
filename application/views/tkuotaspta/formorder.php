@@ -34,7 +34,7 @@
 
 	<label for="Company Code" class=" control-label col-md-4 text-left"> 
 	<?php if($kategori == 'TS-SP' || $jnsKat == 'TR'){ ?>
-	Pilihan SPT <span class="asterix"> * </span>
+	Jenis Pembayaran <span class="asterix"> * </span>
 	<?php } ?>
 	</label>
 <div class="col-md-4">
