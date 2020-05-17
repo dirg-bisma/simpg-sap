@@ -27,11 +27,13 @@
 		<input type='text' class='form-control input-sm' placeholder='' value='<?php echo $kode_blok;?>' name='kode_blok' readonly  required /> <br />
 	</div> 
 	</div> 
-	<?php if(CNF_COMPANYCODE == 'N011'){ ?>
+	<?php if(CNF_COMPANYCODE == 'N011' || CNF_COMPANYCODE == 'N009'){ 
+		$jnsKat = substr($kategori, 0,2);
+		?>
 <div class="form-group  " >
 
 	<label for="Company Code" class=" control-label col-md-4 text-left"> 
-	<?php if($kategori == 'TS-SP'){ ?>
+	<?php if($kategori == 'TS-SP' || $jnsKat == 'TR'){ ?>
 	Pilihan SPT <span class="asterix"> * </span>
 	<?php } ?>
 	</label>
@@ -39,7 +41,7 @@
 	<div class="checkbox">
                   <label>
 					<input type="hidden" id="spt0" name="spt" value="0">
-					<?php if($kategori == 'TS-SP'){ ?>
+					<?php if($kategori == 'TS-SP' || $jnsKat == 'TR'){ ?>
                     <input type="checkbox" id="spt1" name="spt" value="1" onchange="onchangeSpt()" readonly checked> SPT
 					<?php } ?>
                   </label>
@@ -49,7 +51,7 @@
 	<div class="checkbox">
                   <label>
 					<input type="hidden" id="natura0" name="natura" value="0">
-					<?php if($kategori == 'TS-SP'){
+					<?php if($kategori == 'TS-SP' || $jnsKat == 'TR'){
 						$cekspg = $this->db->query("SELECT persen_10 FROM t_spg WHERE kode_blok = '$kode_blok' ")->row();
 						$sttspg = '';
 						if($cekspg){
@@ -177,8 +179,8 @@ $( "#spt1" ).on( "click", function(){
 	$(this).prop('checked', true).attr("readonly")
 });
 	<?php
-	if(CNF_COMPANYCODE == 'N011'){
-		if($kategori == 'TS-SP'){
+	if(CNF_COMPANYCODE == 'N011' || CNF_COMPANYCODE == 'N009'){
+		if($kategori == 'TS-SP' || $jnsKat == 'TR'){
 		?>
 		onchangeSpt();
 		onchangeNatura();
