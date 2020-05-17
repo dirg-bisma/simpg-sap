@@ -42,7 +42,7 @@
                   <label>
 					<input type="hidden" id="spt0" name="spt" value="0">
 					<?php if($kategori == 'TS-SP' || $jnsKat == 'TR'){ ?>
-                    <input type="checkbox" id="spt1" name="spt" value="1" onchange="onchangeSpt()" readonly checked> SPT
+                    <input type="checkbox" id="spt1" name="spt" value="1"   > SPT
 					<?php } ?>
                   </label>
                 </div> 
@@ -176,7 +176,7 @@ var tempVendor = false;
 var tempVendorPilih = false;
 $(document).ready(function(){ 
 $( "#spt1" ).on( "click", function(){
-	$(this).prop('checked', true).attr("readonly")
+//	$(this).prop('checked', true).attr("readonly")
 });
 	<?php
 	if(CNF_COMPANYCODE == 'N011' || CNF_COMPANYCODE == 'N009'){
