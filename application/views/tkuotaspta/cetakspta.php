@@ -39,7 +39,11 @@
 </svg> 
 <center>
 	<?php 
-				if($row->spt_status == 1 ) echo "<b> SPT </b>";
+				if($row->spt_status == 1 ){
+					echo "<b> SPT </b>";
+				} else{
+					echo "<b> SBH </b>";
+				}
 				if($row->natura_status == 1 ) echo "<b> NATURA </b>";
 			?>
 			<br />

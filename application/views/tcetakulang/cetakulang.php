@@ -41,8 +41,12 @@
   jsbarcode-fontSize="12">
 </svg> 
 <center>
-	<?php 
-				if($row->spt_status == 1 ) echo "<b> SPT </b>";
+		<?php 
+				if($row->spt_status == 1 ){
+					echo "<b> SPT </b>";
+				} else{
+					echo "<b> SBH </b>";
+				}
 				if($row->natura_status == 1 ) echo "<b> NATURA </b>";
 			?>
 			<br />
