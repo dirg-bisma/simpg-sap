@@ -62,7 +62,7 @@
 
 <td align="center"  style="font-size:13px">
 <?php echo CNF_PG.', '.SiteHelpers::datereport(date('Y-m-d'));?><br />
-<b>Manajer QC</b><br />
+<b>Manajer QA</b><br />
 	<br />
 	<br />
 	<br />
