@@ -126,7 +126,7 @@
 $(document).ready(function(){
 		//getReport();
 
-		$("#divisi").jCombo("<?php echo site_url('mmasterfield/comboselect?filter=sap_m_affdeling:kode_affd:nama_afdeling') ?>",
+		$("#divisi").jCombo("<?php echo site_url('mmasterfield/comboselect?filter=vw_master_afdeling:kode_affd:nama_afdeling') ?>",
 		{  selected_value : '', initial_text :'- SEMUA AFD -' });
 		autocompleted();
 		$('.bulan').hide();$('.tahun').hide();
