@@ -110,7 +110,7 @@ class Laporantimbangan extends SB_Controller
 			}
 
 		if($jns == 1){
-			if(CNF_COMPANYCODE == 'N007'){
+			if(CNF_COMPANYCODE == '7BCN'){
 				$slfield = "b.no_hv,b.op_hv,b.no_stipping,b.op_stipping,b.no_gl,b.op_gl,";
 				$vn7 = "perpetakn7";	
 			}else{
@@ -134,7 +134,7 @@ $result = $this->db->query($sql)->result();
 		$this->data['result'] = $result;
 		$this->load->view('laporantimbangan/'.$vn7,$this->data);
 		}else{
-			if(CNF_COMPANYCODE == 'N007'){
+			if(CNF_COMPANYCODE == '7BCN'){
 				$slfield = "b.no_hv,b.op_hv,b.no_stipping,b.op_stipping,b.no_gl,b.op_gl,";
 				$vn7 = "persptan7";	
 			}else{
@@ -254,7 +254,7 @@ $result = $this->db->query($sql)->result();
 			}
 
 		if($jns == 1){
-			if(CNF_COMPANYCODE == 'N007'){
+			if(CNF_COMPANYCODE == '7BCN'){
 				$slfield = "b.no_hv,b.op_hv,b.no_stipping,b.op_stipping,b.no_gl,b.op_gl,";
 				$vn7 = "perpetakn7";	
 			}else{
@@ -278,7 +278,7 @@ $result = $this->db->query($sql)->result();
 		$this->data['result'] = $result;
 		$this->load->view('laporantimbangan/'.$vn7,$this->data);
 		}else{
-			if(CNF_COMPANYCODE == 'N007'){
+			if(CNF_COMPANYCODE == '7BCN'){
 				$slfield = "b.no_hv,b.op_hv,b.no_stipping,b.op_stipping,b.no_gl,b.op_gl,";
 				$vn7 = "persptan7";	
 			}else{
