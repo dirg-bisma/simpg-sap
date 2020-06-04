@@ -213,8 +213,11 @@ class Mmtruckgps extends SB_Controller
 			if($idserv->id_gps_server != '0'){
 				$idserv = $this->apiSave($idserv->id_gps_server,$data['nopol_truk'].' - '.$data['namatruk'],$data['imei'],$data['no_hp'],'PUT');
 			}else{
-				$idserv = $this->apiSave(-1,$data['nopol_truk'].' - '.$data['namatruk'],$data['imei'],$data['no_hp'],'POST');
+				if($data['imei'] != '0' || $data['imei'] != '' || $data['imei'] !='-'){
+					$idserv = $this->apiSave(-1,$data['nopol_truk'].' - '.$data['namatruk'],$data['imei'],$data['no_hp'],'POST');
 				$this->db->query("UPDATE m_truk_gps set id_gps_server=$idserv WHERE id=$ID");
+				}
+				
 			}
 			// Input logs
 			
