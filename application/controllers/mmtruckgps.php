@@ -234,9 +234,9 @@ class Mmtruckgps extends SB_Controller
 			$this->session->set_flashdata('message',SiteHelpers::alert('success'," Data has been saved succesfuly !"));
 			if($this->input->post('apply'))
 			{
-		//		redirect( 'mmtruckgps/add/'.$ID,301);
+				redirect( 'mmtruckgps/add/'.$ID,301);
 			} else {
-		//		redirect( 'mmtruckgps',301);
+				redirect( 'mmtruckgps',301);
 			}			
 			
 			
