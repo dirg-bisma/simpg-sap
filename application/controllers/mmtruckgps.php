@@ -313,8 +313,8 @@ class Mmtruckgps extends SB_Controller
 		}
 		
 		
-		//return $r->id;
-		echo json_encode($b).' '.$task.' '.json_encode($data2);
+		return $r->id;
+		//echo json_encode($b).' '.$task.' '.json_encode($data2);
 		//self::curl('/api/devices','POST',$sessionId,$data,array(self::$jsonC));
 		die();
 	}
