@@ -74,7 +74,7 @@
         l.bindPopup(out.join("<br />"));
     }
 }}).addTo(mymap);
-      var base = '<?=base_url(CNF_PLANCODE."_2019N.zip");?>';
+      var base = '<?=base_url(CNF_PLANCODE."TS.zip");?>';
     shp(base).then(function(data){
     geo.addData(data);
     });
