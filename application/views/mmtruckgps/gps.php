@@ -107,7 +107,7 @@
     var lokoIco = L.icon({
         iconUrl: '<?=base_url("logo-loko.png");?>',
         iconSize: [30, 40],
-        iconAnchor: [16, 37],
+        iconAnchor: [30, 37],
         popupAnchor: [0, -28]
     });
 
