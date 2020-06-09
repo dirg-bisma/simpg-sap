@@ -52,7 +52,7 @@
 
     <script>
 
-      var mymap = L.map('mapid').setView([-7.7000677, 111.540868], 7);
+      var mymap = L.map('mapid').setView([-7.7000677, 111.540868], 13);
       L.tileLayer('http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
     maxZoom: 20,
@@ -88,6 +88,13 @@
 
     var onIco = L.icon({
         iconUrl: '<?=base_url("logo-on.png");?>',
+        iconSize: [30, 40],
+        iconAnchor: [16, 37],
+        popupAnchor: [0, -28]
+    });
+
+    var lokoIco = L.icon({
+        iconUrl: '<?=base_url("logo-loko.png");?>',
         iconSize: [30, 40],
         iconAnchor: [16, 37],
         popupAnchor: [0, -28]
@@ -224,7 +231,15 @@
                       if(v.status == 2){
                         truk[v.id_gps_server].setIcon(onIco);
                       }else{
-                        truk[v.id_gps_server].setIcon(freeIco);
+                        var nmd = v.nopol_truk;
+                        var x1 = str.substring(0, 4);
+                        if(x1 == 'LOKO'){
+                            truk[v.id_gps_server].setIcon(lokoIco);
+                        }else{
+                            truk[v.id_gps_server].setIcon(freeIco);
+                        }
+                        
+                        
                       }
                      }
                 });
