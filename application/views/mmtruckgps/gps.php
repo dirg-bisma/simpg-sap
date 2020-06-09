@@ -51,8 +51,19 @@
 
 
     <script>
+       var mymap;
+        if('<?=CNF_PLANCODE?>' == 'KP11'){
+            mymap = L.map('mapid').setView([-8.2412627,113.5032091], 12);
+        }else if('<?=CNF_PLANCODE?>' == 'KP10'){
+            mymap = L.map('mapid').setView([-8.1798387,113.3403699], 12);
+        }else if('<?=CNF_PLANCODE?>' == 'KP15'){
+            mymap = L.map('mapid').setView([-7.8056564,114.2323347], 12);
 
-      var mymap = L.map('mapid').setView([-7.7000677, 111.540868], 13);
+        }else{
+            mymap = L.map('mapid').setView([-8.0440892,113.4375936], 9);
+        }
+      
+
       L.tileLayer('http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
     maxZoom: 20,
@@ -232,7 +243,7 @@
                         truk[v.id_gps_server].setIcon(onIco);
                       }else{
                         var nmd = v.nopol_truk;
-                        var x1 = str.substring(0, 4);
+                        var x1 = nmd.substring(0, 4);
                         if(x1 == 'LOKO'){
                             truk[v.id_gps_server].setIcon(lokoIco);
                         }else{
