@@ -392,12 +392,14 @@ WHERE (no_spat = '".$_GET['nospta']."')";
 		$ret = $query->row();
 		if(count($ret) == 1){
 			$this->db->set('tara', $_POST['tara']);
+			$this->db->set('sopir', $_POST['sopir']);
 			$this->db->where('rfid_sticker', $ret->rfid_sticker);
 			$this->db->update('m_truk_gps');
 			
 			$output = array(
 					'result' => array(
 						"nopol_truk"=> $ret->nopol_truk,
+						"sopir"=> $ret->nopol_truk,
 					),
 					'count' => 0,
 					'msg' => 'data updated',
