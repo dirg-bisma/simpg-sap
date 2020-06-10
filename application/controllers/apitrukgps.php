@@ -18,10 +18,10 @@ function detailtruck($id){
 			echo json_encode($a);
 		}else{
 			$output = array(
-				"id"=> "",
-				"rfid_sticker"=> "",
-				"nopol_truk"=> '',
-				"tara"=> '',
+				"id"=> "-",
+				"rfid_sticker"=> "-",
+				"nopol_truk"=> '-',
+				"tara"=> '-',
 			);
 			echo json_encode($output);
 		}
