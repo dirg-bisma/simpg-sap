@@ -14,6 +14,17 @@ function detailtruck($id){
 
 	function detailtruckrfid($id){
 		$a = $this->db->query("SELECT * FROM m_truk_gps a where rfid_sticker = '$id'")->row();
-		echo json_encode($a);
+		if(count($a) == 1){
+			echo json_encode($a);
+		}else{
+			$output = array(
+				"id"=> "",
+				"rfid_sticker"=> "",
+				"nopol_truk"=> '',
+				"tara"=> '',
+			);
+			echo json_encode($output);
+		}
+		
 	}
 }
