@@ -80,7 +80,7 @@ class Tupahtebang extends SB_Controller
         $pta = $_GET['pta'];
         $mandor = $_GET['mandor'];
 
-        if($pta != '') $filter .= " AND persno_pta = '$pta'";
+        if($pta != '') $filter .= " AND CAST(persno_pta AS CHAR) = '$pta'";
         if($mandor != '') $filter .= " AND persno_mandor = '$mandor'";
 
 
@@ -192,7 +192,7 @@ class Tupahtebang extends SB_Controller
         $mandor = $_GET['mandor'];
         $tgl2 = $_GET['tgl2'];
 
-        if($pta != '') $filter .= " AND persno_pta = '$pta'";
+        if($pta != '') $filter .= " AND CAST(persno_pta as CHAR) = '$pta'";
         if($mandor != '') $filter .= " AND persno_mandor = '$mandor'";
 
         $sql =$this->db->query("SELECT id FROM t_upah_tebang $filter")->result();
@@ -244,7 +244,7 @@ INNER JOIN t_selektor c ON c.`id_spta`=b.`id` WHERE a.id_upah_tebang=$id")->resu
         $pta = $_GET['pta'];
         $mandor = $_GET['mandor'];
 
-        if($pta != '') $filter .= " AND persno_pta = '$pta'";
+        if($pta != '') $filter .= " AND CAST(persno_pta AS CHAR) = '$pta'";
         if($mandor != '') $filter .= " AND persno_mandor = '$mandor'";
 
 		$this->data['coldefadd'] = $this->db->query("select kodekolom,nama_pekerjaan_tma,satuan from m_pekerjaan_tma where status_pekerjaan=1 and jenis=1 order by id_pekerjaan_tma asc")->result();
@@ -447,7 +447,7 @@ SET a.`upah_tebang_status`=".$ID.",a.`upah_tebang_tgl` = NOW() WHERE b.`id_upah_
 		$tglb = $_POST['tglb'];
 		$jtebangan = $_POST['jenis_tebangan'];
 		
-		$wh = " AND a.kode_blok='$kodeblok' AND a.persno_pta='$pta' and b.persno_mandor_tma='$mandor' AND a.metode_tma = '$jtebangan'  and date(a.tgl_timbang) BETWEEN '$tgla' and '$tglb'";
+		$wh = " AND a.kode_blok='$kodeblok' AND CAST(a.persno_pta AS CHAR)='$pta' and b.persno_mandor_tma='$mandor' AND a.metode_tma = '$jtebangan'  and date(a.tgl_timbang) BETWEEN '$tgla' and '$tglb'";
 		
 		$sql = "SELECT a.id,a.`persno_pta`,a.metode_tma,a.kode_blok,b.persno_mandor_tma,a.`no_spat`,a.`kode_kat_lahan`,c.`netto` as netto_final, b.no_angkutan,date(a.`tgl_timbang`) as tgl_timb,a.`jenis_spta`,a.upah_tebang_status,b.terbakar_sel,b.tgl_tebang,b.tgl_selektor,d.kondisi_tebu FROM t_spta a
 INNER JOIN t_selektor b ON a.id=b.id_spta
