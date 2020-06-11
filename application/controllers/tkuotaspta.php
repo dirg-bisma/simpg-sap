@@ -346,6 +346,7 @@ INNER JOIN sap_m_karyawan c ON c.`Persno`=b.`Persno` WHERE a.id='".$_POST['id_sp
 		$sql = $this->db->query("UPDATE t_spta_kuota SET simpan=(SELECT SUM(kouta_tot) FROM t_spta_kuota_tot WHERE id_spta_kuota=".$_POST['id_spta_kuota'].") WHERE id='".$_POST['id_spta_kuota']."'");
 		
 		//input ke spta table
+		if($_POST['kategori'] == 'TS-ST') $_POST['spt'] = '1';
 		for($i=0;$i<$_POST['kouta_tot'];$i++){
 			$epdate = $_POST['tgl_spta'];
 			if(CNF_COMPANYCODE == 'N011'){

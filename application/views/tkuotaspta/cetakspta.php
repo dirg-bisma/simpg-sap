@@ -39,12 +39,17 @@
 </svg> 
 <center>
 	<?php 
+	$jnsKat = substr($row->kepemilikan, 0,2);
+	if($row->kepemilikan == 'TS-ST' || $jnsKat == 'TR'){
 				if($row->spt_status == 1 ){
 					echo "<b> SPT </b>";
 				} else{
 					echo "<b> SBH </b>";
 				}
 				if($row->natura_status == 1 ) echo "<b> NATURA </b>";
+			?>
+			<?
+		}
 			?>
 			<br />
 			<?php echo $row->nama_vendor;?>
