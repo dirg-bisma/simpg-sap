@@ -245,7 +245,7 @@ class Tevaluasitebang extends SB_Controller
 		 FROM t_spta a
 INNER JOIN t_timbangan c ON c.`id_spat`=a.`id`
 INNER JOIN t_selektor b on b.id_spta = a.id
-WHERE a.`timb_netto_status` = 1 $wh GROUP BY a.id";
+WHERE a.`timb_netto_status` = 1 $wh GROUP BY a.id ORDER BY timb_netto_tgl ";
 		
 		$th = $this->db->query($sql)->result();
 		$htm = "<tr><td colspan='8' style='text-align:center'>
