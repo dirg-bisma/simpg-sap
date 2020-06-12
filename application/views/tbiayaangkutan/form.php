@@ -104,6 +104,8 @@ $(document).ready(function() {
 			getDetailEdit('<?php echo $row['id'];?>');
 		}
 		
+
+		getTotal();
 		//$('input.number').number( true, 0 );
 });
 
