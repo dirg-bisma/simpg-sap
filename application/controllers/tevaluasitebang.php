@@ -240,7 +240,7 @@ class Tevaluasitebang extends SB_Controller
 		
 		$wh = " AND a.kode_blok='$kodeblok'";
 		
-		$sql = "SELECT a.id,a.`no_spat`,a.tgl_spta,tgl_timbang,c.`netto` as netto_final,a.`jenis_spta`,
+		$sql = "SELECT a.id,a.`no_spat`,a.tgl_spta,tgl_timbang,c.`netto` as netto_final,a.`jenis_spta`,timb_netto_tgl,
 		a.selektor_tgl,b.ha_tertebang,b.tanaman_status
 		 FROM t_spta a
 INNER JOIN t_timbangan c ON c.`id_spat`=a.`id`
@@ -281,7 +281,7 @@ WHERE a.`timb_netto_status` = 1 $wh GROUP BY a.id";
 				<td>".$tb->tgl_spta."</td>
 				<td>".$tb->jenis_spta."</td>
 				<td>".$tb->selektor_tgl."</td>
-				<td>".$tb->tgl_timbang."</td>
+				<td>".$tb->timb_netto_tgl."</td>
 				<td class='number'>".number_format($tb->netto_final)."</td>";
 				$htm .=	"<td class='number'>".$tb->ha_tertebang."</td>";
 		}else{
@@ -292,7 +292,7 @@ WHERE a.`timb_netto_status` = 1 $wh GROUP BY a.id";
 				<td>".$tb->tgl_spta."</td>
 				<td>".$tb->jenis_spta."</td>
 				<td>".$tb->selektor_tgl."</td>
-				<td>".$tb->tgl_timbang."</td>
+				<td>".$tb->timb_netto_tgl."</td>
 				<td class='number'>".number_format($tb->netto_final)."</td>";
 			$htm .=	"<td class='number'><input type='number' id='ha_".$tb->id."' class='number inline input' value='".$tb->ha_tertebang."'  /></td>";
 		}
