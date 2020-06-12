@@ -119,6 +119,7 @@ function getDetailEdit(idx){
 	        success: function (data) {
 	        	if(data.msg != 0){
 	        		$('#bodytable').append(data.row);
+	        		getTotal();
 	        	}
 	        }
 	    });
