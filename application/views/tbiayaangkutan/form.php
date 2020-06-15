@@ -104,6 +104,8 @@ $(document).ready(function() {
 			getDetailEdit('<?php echo $row['id'];?>');
 		}
 		
+
+		getTotal();
 		//$('input.number').number( true, 0 );
 });
 
@@ -117,6 +119,7 @@ function getDetailEdit(idx){
 	        success: function (data) {
 	        	if(data.msg != 0){
 	        		$('#bodytable').append(data.row);
+	        		getTotal();
 	        	}
 	        }
 	    });

@@ -104,7 +104,7 @@
 
     <script>
 
-      var mymap = L.map('mapid').setView([-7.7000677, 111.540868], 7);
+      var mymap = L.map('mapid').setView([-8.2412627,113.5032091], 12);
       L.tileLayer('http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
     maxZoom: 20,
