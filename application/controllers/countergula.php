@@ -12,15 +12,14 @@ class Countergula extends SB_Controller
 		$ax = array();
 		if($key == md5(CNF_PLANCODE)){
 			$sql = false;
-			$ipx = self::get_client_ip();
 			if($sensor == 'CS'){
-				$sql = $this->db->query("INSERT t_counter_gula_detail VALUES('','$jlr',1,0,get_tgl_giling(),now(),now(),'$ipx')");
+				$sql = $this->db->query("INSERT t_counter_gula_detail VALUES('','$jlr',1,0,get_tgl_giling(),now(),now())");
 			}else if($sensor == 'CF'){
-				$sql = $this->db->query("INSERT t_counter_gula_detail VALUES('','$jlr',0,1,get_tgl_giling(),now(),now(),'$ipx')");
+				$sql = $this->db->query("INSERT t_counter_gula_detail VALUES('','$jlr',0,1,get_tgl_giling(),now(),now())");
 			}else if($sensor == 'TM'){
-				$sql = $this->db->query("INSERT t_counter_gula_detail VALUES('','$jlr',0,0,get_tgl_giling(),now(),now(),'$ipx')");
+				$sql = $this->db->query("INSERT t_counter_gula_detail VALUES('','$jlr',0,0,get_tgl_giling(),now(),now())");
 			}else if($sensor == 'ALL'){
-				$sql = $this->db->query("INSERT t_counter_gula_detail VALUES('','$jlr',1,1,get_tgl_giling(),now(),now(),'$ipx')");
+				$sql = $this->db->query("INSERT t_counter_gula_detail VALUES('','$jlr',1,1,get_tgl_giling(),now(),now())");
 			}
 		
 		if($sql){
@@ -87,24 +86,5 @@ ORDER BY tgl_act DESC ")->result();
 		echo $response . "\n";
 
 	}
-
-	function get_client_ip() {
-    $ipaddress = '';
-    if (getenv('HTTP_CLIENT_IP'))
-        $ipaddress = getenv('HTTP_CLIENT_IP');
-    else if(getenv('HTTP_X_FORWARDED_FOR'))
-        $ipaddress = getenv('HTTP_X_FORWARDED_FOR');
-    else if(getenv('HTTP_X_FORWARDED'))
-        $ipaddress = getenv('HTTP_X_FORWARDED');
-    else if(getenv('HTTP_FORWARDED_FOR'))
-        $ipaddress = getenv('HTTP_FORWARDED_FOR');
-    else if(getenv('HTTP_FORWARDED'))
-       $ipaddress = getenv('HTTP_FORWARDED');
-    else if(getenv('REMOTE_ADDR'))
-        $ipaddress = getenv('REMOTE_ADDR');
-    else
-        $ipaddress = 'UNKNOWN';
-    return $ipaddress;
-}
 
 }
