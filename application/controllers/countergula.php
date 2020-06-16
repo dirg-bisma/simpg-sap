@@ -13,13 +13,23 @@ class Countergula extends SB_Controller
 		if($key == md5(CNF_PLANCODE)){
 			$sql = false;
 			if($sensor == 'CS'){
-				$sql = $this->db->query("INSERT t_counter_gula_detail VALUES('','$jlr',1,0,get_tgl_giling(),now(),now())");
+				$re = $this->db->query("UPDATE t_counter_gula_detail SET cekscale=cekscale+1,jam_pengakuan=now(),tgl_act=() where tgl_pengakuan=get_tgl_giling()");
+				if($this->db->affected_rows() == 0){
+					$sql = $this->db->query("INSERT t_counter_gula_detail VALUES('','$jlr',1,0,get_tgl_giling(),now(),now())");
+				}
+				
 			}else if($sensor == 'CF'){
-				$sql = $this->db->query("INSERT t_counter_gula_detail VALUES('','$jlr',0,1,get_tgl_giling(),now(),now())");
+				$re = $this->db->query("UPDATE t_counter_gula_detail SET conveyor=conveyor+1,jam_pengakuan=now(),tgl_act=() where tgl_pengakuan=get_tgl_giling()");
+				if($this->db->affected_rows() == 0){
+					$sql = $this->db->query("INSERT t_counter_gula_detail VALUES('','$jlr',0,1,get_tgl_giling(),now(),now())");
+				}
 			}else if($sensor == 'TM'){
 				$sql = $this->db->query("INSERT t_counter_gula_detail VALUES('','$jlr',0,0,get_tgl_giling(),now(),now())");
 			}else if($sensor == 'ALL'){
-				$sql = $this->db->query("INSERT t_counter_gula_detail VALUES('','$jlr',1,1,get_tgl_giling(),now(),now())");
+				$re = $this->db->query("UPDATE t_counter_gula_detail SET cekscale=cekscale+1,conveyor=conveyor+1,jam_pengakuan=now(),tgl_act=() where tgl_pengakuan=get_tgl_giling()");
+				if($this->db->affected_rows() == 0){
+					$sql = $this->db->query("INSERT t_counter_gula_detail VALUES('','$jlr',1,1,get_tgl_giling(),now(),now())");
+				}
 			}
 		
 		if($sql){
