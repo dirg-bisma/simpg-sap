@@ -8,37 +8,23 @@ class Countergula extends SB_Controller
 	}
 
 	function setCount($key,$jlr,$sensor){
-		$rex = false;
+		
 		$ax = array();
 		if($key == md5(CNF_PLANCODE)){
 			$sql = false;
 			if($sensor == 'CS'){
-				$re = $this->db->query("UPDATE t_counter_gula_detail SET cekscale=cekscale+1,jam_pengakuan=now(),tgl_act=now() where tgl_pengakuan=get_tgl_giling() and jalur='$jlr'");
-				if($this->db->affected_rows() == 0){
-					$sql = $this->db->query("INSERT t_counter_gula_detail VALUES('','$jlr',1,0,get_tgl_giling(),now(),now())");
-					$rex = $sql;
-				}
-				
+				$sql = $this->db->query("INSERT t_counter_gula_detail VALUES('','$jlr',1,0,get_tgl_giling(),now(),now())");
 			}else if($sensor == 'CF'){
-				$re = $this->db->query("UPDATE t_counter_gula_detail SET conveyor=conveyor+1,jam_pengakuan=now(),tgl_act=now() where tgl_pengakuan=get_tgl_giling() and jalur='$jlr'");
-				if($this->db->affected_rows() == 0){
-					$sql = $this->db->query("INSERT t_counter_gula_detail VALUES('','$jlr',0,1,get_tgl_giling(),now(),now())");
-					$rex = $sql;
-				}
+				$sql = $this->db->query("INSERT t_counter_gula_detail VALUES('','$jlr',0,1,get_tgl_giling(),now(),now())");
 			}else if($sensor == 'TM'){
 				$sql = $this->db->query("INSERT t_counter_gula_detail VALUES('','$jlr',0,0,get_tgl_giling(),now(),now())");
-				$rex = $sql;
 			}else if($sensor == 'ALL'){
-				$re = $this->db->query("UPDATE t_counter_gula_detail SET cekscale=cekscale+1,conveyor=conveyor+1,jam_pengakuan=now(),tgl_act=now() where tgl_pengakuan=get_tgl_giling() and jalur='$jlr'");
-				if($this->db->affected_rows() == 0){
-					$sql = $this->db->query("INSERT t_counter_gula_detail VALUES('','$jlr',1,1,get_tgl_giling(),now(),now())");
-					$rex = $sql;
-				}
+				$sql = $this->db->query("INSERT t_counter_gula_detail VALUES('','$jlr',1,1,get_tgl_giling(),now(),now())");
 			}
 		
-		if($rex){
+		if($sql){
 			$ax['data'] = 'Berhasil Insert';
-			$this->db->query("DELETE FROM t_counter_gula_detail where tgl_pengakuan < get_tgl_giling()");
+
 			$as = $this->db->query("SELECT 
   jalur,
   tgl_pengakuan,
