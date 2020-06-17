@@ -1,123 +1,128 @@
-<section class="content-header">
-          <h1>
-            <?php echo $pageTitle ;?>
-          </h1>
-          <ol class="breadcrumb">
+<style type="text/css">
+	table.tableizer-table {
+		font-size: 12px;
+		border: 1px solid #CCC; 
+		font-family: Arial, Helvetica, sans-serif;
+		width:100%;
+	} 
+	.tableizer-table td {
+		padding: 4px;
+		margin: 3px;
+		border: 1px solid #CCC;
+	}
+	.tableizer-table th {
+		background-color: #104E8B; 
+		color: #FFF;
+		font-weight: bold;
+		height:25px;padding:10px;
+	}
+</style>
+<table  style="height: 5px;font-family:Monospace;" border="0" width="100%">
+<tbody>
+<tr>
 
-          	<li><i class="fa fa-dashboard"></i> <a href="<?php echo site_url('dashboard') ?>">Dashboard</a></li>
-			<li><a href="<?php echo site_url('keragaanpabrik') ?>"><?php echo $pageTitle ?></a></li>
-			<li class="active"> Detail </li>
-          </ol>
-        </section>
+<td align="left"  style="font-size:11px" colspan="4">
+<b><?=CNF_NAMAPERUSAHAAN;?></b><br />
+	<?=CNF_PG;?> 
+	<?=CNF_ALAMAT;?>
+</td>
+<td align="center" style="font-size:13px" colspan="4">
+LAPORAN KERAGAAN PABRIK HARI GILING KE <?php echo $_GET['hari']?><br />
 
- <section class="content">
-          <div class="row">
-            <div class="col-xs-12">
-              <div class="box box-danger">
-              	<div class="box-header with-border">	
-				<div class="table-responsive">
-					<table class="table table-striped table-bordered" >
-						<tbody>	
-					
-					<tr>
-						<td width='30%' class='label-view text-right'>Hari Giling</td>
-						<td><?php echo $row['hari_giling'] ;?> </td>
-						
-					</tr>
-				
-					<tr>
-						<td width='30%' class='label-view text-right'>Tgl Giling</td>
-						<td><?php echo $row['tgl_giling'] ;?> </td>
-						
-					</tr>
-				
-					<tr>
-						<td width='30%' class='label-view text-right'>Jam</td>
-						<td><?php echo $row['jam'] ;?> </td>
-						
-					</tr>
-				
-					<tr>
-						<td width='30%' class='label-view text-right'>Digiling(ton)</td>
-						<td><?php echo $row['digiling'] ;?> </td>
-						
-					</tr>
-				
-					<tr>
-						<td width='30%' class='label-view text-right'>Brix NPP</td>
-						<td><?php echo $row['brix_npp'] ;?> </td>
-						
-					</tr>
-				
-					<tr>
-						<td width='30%' class='label-view text-right'>NM Persen Tebu</td>
-						<td><?php echo $row['nm_persen_tebu'] ;?> </td>
-						
-					</tr>
-				
-					<tr>
-						<td width='30%' class='label-view text-right'>Uap Baru</td>
-						<td><?php echo $row['uap_baru'] ;?> </td>
-						
-					</tr>
-				
-					<tr>
-						<td width='30%' class='label-view text-right'>Uap Bekas</td>
-						<td><?php echo $row['uap_bekas'] ;?> </td>
-						
-					</tr>
-				
-					<tr>
-						<td width='30%' class='label-view text-right'>Suhu PP I</td>
-						<td><?php echo $row['suhu_pp_i'] ;?> </td>
-						
-					</tr>
-				
-					<tr>
-						<td width='30%' class='label-view text-right'>Suhu PP II</td>
-						<td><?php echo $row['suhu_pp_ii'] ;?> </td>
-						
-					</tr>
-				
-					<tr>
-						<td width='30%' class='label-view text-right'>Suhu PP III</td>
-						<td><?php echo $row['suhu_pp_iii'] ;?> </td>
-						
-					</tr>
-				
-					<tr>
-						<td width='30%' class='label-view text-right'>TURBIDITY NM</td>
-						<td><?php echo $row['turbidity'] ;?> </td>
-						
-					</tr>
-				
-					<tr>
-						<td width='30%' class='label-view text-right'>VACUUM EVA</td>
-						<td><?php echo $row['v_eva'] ;?> </td>
-						
-					</tr>
-				
-					<tr>
-						<td width='30%' class='label-view text-right'>VACUUM MASAKAN</td>
-						<td><?php echo $row['v_masakan'] ;?> </td>
-						
-					</tr>
-				
-					<tr>
-						<td width='30%' class='label-view text-right'>Be NK</td>
-						<td><?php echo $row['be_nk'] ;?> </td>
-						
-					</tr>
-				
-						</tbody>	
-					</table>    
-				</div>
-				<a href="<?php echo site_url('keragaanpabrik');?>" class="btn btn-sm btn-warning"> << Back </a>
-			</div>
-		</div>		
-	
+</td>
+</tr>
+</table>
+<hr />
+<table class="tableizer-table">
 
-	</div>
-</div>
-</section>
-	  
+<thead>
+	<tr class="tableizer-firstrow">
+    <th>Jam</th>
+    <th>DIGILING</th>
+    <th>BRIX NPP</th>
+    <th>NM % TEBU</th>
+    <th>UAP BARU</th>
+    <th>UAP BEKAS</th>
+    <th>SUHU PP I</th>
+    <th>SUHU PP II</th>
+    <th>SUHU PP III</th>
+    <th>TURBIDITY</th>
+    <th>VACUUM EVA</th>
+    <th>VACUUM MASAKAN</th>
+    <th>Be NK</th>
+	</tr>
+</thead>
+<tbody>
+<?php $cek = array();?>
+<?php foreach($jam as $row_jam){?>
+<tr style="font-weight:bold;background:#3c8dbc;color:white">
+	<?php $cek_jam;?>
+	<?php foreach($row as $r){?>		
+		<?php if($r->jam == $row_jam->jam){?>	
+		<?php $cek_jam = $r->jam;?>	
+		<td align="center"><?php echo $row_jam->jam;?></td>		
+		<td align="right"><?php echo $r->digiling;?></td>
+		<td align="right"><?php echo $r->brix_npp;?></td>
+		<td align="right"><?php echo $r->nm_persen_tebu;?></td>
+		<td align="right"><?php echo $r->uap_baru;?></td>
+		<td align="right"><?php echo $r->uap_bekas;?></td>
+		<td align="right"><?php echo $r->suhu_pp_i;?></td>
+		<td align="right"><?php echo $r->suhu_pp_ii;?></td>
+		<td align="right"><?php echo $r->suhu_pp_iii;?></td>
+		<td align="right"><?php echo $r->turbidity;?></td>
+		<td align="right"><?php echo $r->v_eva;?></td>
+		<td align="right"><?php echo $r->v_masakan;?></td>
+		<td align="right"><?php echo $r->be_nk;?></td>		
+		<?php }?>
+	<?php }?>
+	<?php array_push($cek, $cek_jam);?>
+	<?php if(!in_array($row_jam->jam, $cek)){?>
+		<td align="center"><?php echo $row_jam->jam;?></td>
+		<td align="right">-</td>
+		<td align="right">-</td>
+		<td align="right">-</td>
+		<td align="right">-</td>
+		<td align="right">-</td>
+		<td align="right">-</td>
+		<td align="right">-</td>
+		<td align="right">-</td>
+		<td align="right">-</td>
+		<td align="right">-</td>
+		<td align="right">-</td>
+		<td align="right">-</td>
+	<?php }?>
+
+</tr>
+<?php }?>
+</tbody>
+<tfoot><tr style="font-weight:bold;background:#104E8B;color:white">
+    <td colspan="2"> GRAND TOTAL </td><td align="center"></td>
+	<td align="center"></td>
+	<td align="center"></td>
+	<td align="right"></td>
+	<td align="right"></td>
+	<td align="right"></td>
+	<td align="right"></td>
+	<td align="right"></td>
+	<td align="right"></td>
+	<td align="right"></td>
+	<td align="right"></td>
+	</tr></tfoot>
+</table>
+<hr />
+<table style="width:100%">
+<tr><td style="width: 60%"><br>
+			<br />	
+			<br />	
+			<br />
+			</td><td style="width: 20%" >&nbsp;</td>
+			<td align="center"> <?=CNF_PG.' ,'.SiteHelpers::datereport(date('Y-m-d'));?>
+			<br /><br /><br />
+			<br /><br />	
+			<br />	
+			<br />
+			..........................
+			<br />	
+
+			</td></tr>
+		</table>

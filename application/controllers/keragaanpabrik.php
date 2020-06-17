@@ -156,14 +156,12 @@ class Keragaanpabrik extends SB_Controller
 			redirect('dashboard',301);
 	  	}		
 
-		$row = $this->model->getRow($id);
-		if($row)
-		{
-			$this->data['row'] =  $row;
-		} else {
-			$this->data['row'] = $this->model->getColumnTable('t_keragaan_pabrik'); 
-		}
-		
+		$hari = $_GET['hari'];  
+		$row = $this->model->rekapData($hari);
+		$sql_jam = "SELECT * FROM t_lap_jam";
+		$jam = $this->db->query($sql_jam)->result();
+		$this->data['row'] =  $row;
+		$this->data['jam'] = $jam;
 		$this->data['id'] = $id;
 		$this->data['content'] =  $this->load->view('keragaanpabrik/view', $this->data ,true);	  
 		$this->load->view('layouts/main',$this->data);

@@ -71,6 +71,35 @@ class Keragaanpabrikmodel extends SB_Model
 		$this->db->where('id', $id);
 		$this->db->update('t_keragaan_pabrik', $data_update);
 	}
+
+	public function rekapData($hari)
+	{
+		$sql = "SELECT
+		b.jam AS jam_lap,
+		a.id,
+		a.hari_giling,
+		a.tgl_giling,
+		a.jam,
+		format(ifnull(a.digiling,0), 2) as digiling,
+		format(ifnull(a.brix_npp,0), 2) as brix_npp,
+		format(ifnull(a.nm_persen_tebu,0), 2) as nm_persen_tebu,
+		format(ifnull(a.uap_baru,0), 2) as uap_baru,
+		format(ifnull(a.uap_bekas,0), 2) as uap_bekas,
+		format(ifnull(a.suhu_pp_i,0), 2) as suhu_pp_i,
+		format(ifnull(a.suhu_pp_ii,0), 2) as suhu_pp_ii,
+		format(ifnull(a.suhu_pp_iii,0), 2) as suhu_pp_iii,
+		format(ifnull(a.turbidity,0), 2) as turbidity,
+		format(ifnull(a.v_eva,0), 2) as v_eva,
+		format(ifnull(a.v_masakan,0), 2) as v_masakan,
+		format(ifnull(a.be_nk,0), 2) as be_nk,
+		a.kp
+		FROM
+		t_keragaan_pabrik AS a
+		JOIN t_lap_jam AS b ON b.jam = a.jam
+		WHERE hari_giling = $hari";
+		$data = $this->db->query($sql)->result();
+		return $data;
+	}
 	
 }
 
