@@ -304,6 +304,7 @@ FROM
 		$this->data['id_petani_sap'] = $blk->id_petani_sap;
 		$this->data['kategori'] = $blk->kepemilikan;
 		$this->data['idjrk'] = '';
+		$this->data['jarakfield'] = $blk->jarak_blok_ke_pabrik;
 		if($jrk){
 		$this->data['idjrk'] = $jrk->id_jarak;
 	}
