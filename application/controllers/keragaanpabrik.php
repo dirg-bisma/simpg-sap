@@ -327,5 +327,11 @@ class Keragaanpabrik extends SB_Controller
 		
 	}
 
+	function jsonperjam($tgl, $jam)
+	{
+		$data = $this->model->rekapDataJam($tgl, $jam);
+		echo json_encode($data);
+	}
+
 
 }
