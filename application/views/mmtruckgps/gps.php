@@ -90,6 +90,13 @@
     geo.addData(data);
     });
 
+    if('<?=CNF_PLANCODE?>' == 'KP11'){
+        var base = '<?=base_url("CHEK_POINT_SBR.zip");?>';
+    shp(base).then(function(data){
+    geo.addData(data);
+    });
+    }
+
     var freeIco = L.icon({
         iconUrl: '<?=base_url("logo-free.png");?>',
         iconSize: [40, 40],
