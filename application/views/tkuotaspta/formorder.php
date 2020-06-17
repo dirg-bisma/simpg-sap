@@ -25,7 +25,9 @@
 	<label for="Company Code" class=" control-label col-md-4 text-left"> Kode Petak <span class="asterix"> * </span></label>
 	<div class="col-md-8">
 		<input type='text' class='form-control input-sm' placeholder='' value='<?php echo $kode_blok;?>' name='kode_blok' readonly  required /> <br />
+		<i>Jarak <b><?=$jarakfield;?> Km</b></i>
 	</div> 
+
 	</div> 
 	<?php if(CNF_COMPANYCODE == 'N011' || CNF_COMPANYCODE == 'N009'){ 
 		$jnsKat = substr($kategori, 0,2);
@@ -58,7 +60,7 @@
 							if($cekspg->persen_10 == 1) $sttspg = 'checked';
 						}
 						?>
-                    <input type="checkbox" id="natura1" name="natura" value="1" onchange="onchangeNatura()" <?php echo $sttspg; ?> > Natura 10%
+                    <input type="checkbox" id="natura1" name="natura" value="1" onchange="onchangeNatura()" <?php echo $sttspg; ?> > Natura 
 					<?php } ?>
                   </label>
                 </div> 
