@@ -22,7 +22,7 @@ class Keragaanpabrikmodel extends SB_Model
 	}
 	
 	public static function queryGroup(){
-		return "   ";
+		return "  ";
 	}
 
 	public function insertData($data)
@@ -80,7 +80,7 @@ class Keragaanpabrikmodel extends SB_Model
 		a.hari_giling,
 		a.tgl_giling,
 		a.jam,
-		format(ifnull(a.digiling,0), 2) as digiling,
+		format(ifnull(a.digiling/100,0), 0) as digiling,
 		format(ifnull(a.brix_npp,0), 2) as brix_npp,
 		format(ifnull(a.nm_persen_tebu,0), 2) as nm_persen_tebu,
 		format(ifnull(a.uap_baru,0), 2) as uap_baru,
@@ -109,7 +109,7 @@ class Keragaanpabrikmodel extends SB_Model
 		a.hari_giling,
 		a.tgl_giling,
 		a.jam,
-		format(ifnull(a.digiling,0), 2) as digiling,
+		format(ifnull(a.digiling/100,0), 0) as digiling,
 		format(ifnull(a.brix_npp,0), 2) as brix_npp,
 		format(ifnull(a.nm_persen_tebu,0), 2) as nm_persen_tebu,
 		format(ifnull(a.uap_baru,0), 2) as uap_baru,
@@ -128,6 +128,34 @@ class Keragaanpabrikmodel extends SB_Model
 		WHERE tgl_giling = '$tgl' and a.jam='$jam'";
 		$data = $this->db->query($sql)->row();
 		return $data;
+	}
+
+	function hitungRekap($hari, $param, $standart)
+	{
+		$sql = "SELECT
+		count(id) as jumlah_id,
+		$param,
+		sum( IF ( $param = $standart, 1, 0 ) ) AS normal,
+		sum( IF ( $param > $standart, 1, 0 ) ) AS over,
+		sum( IF ( $param < $standart, 1, 0 ) ) AS under,
+	  		sum( IF ( $param = $standart, 1, 0 ) )+
+		    sum( IF ( $param > $standart, 1, 0 ) )+
+		    sum( IF ( $param < $standart, 1, 0 ) ) as total	
+		FROM
+			t_keragaan_pabrik 
+		WHERE
+			hari_giling = $hari";
+		
+		$data = $this->db->query($sql)->row();
+		return $data;
+	}
+
+	function gethg($hg)
+	{
+		$hg = $hg-1;
+		$sql = "SELECT '".($hg+1)."' as hg,DATE_ADD(DATE(IFNULL(awal_giling,NOW())),INTERVAL ".$hg." DAY) AS tgl FROM tb_setting";
+		$r = $this->db->query($sql)->row();
+		return $r;
 	}
 }
 

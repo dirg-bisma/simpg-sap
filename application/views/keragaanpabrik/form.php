@@ -201,15 +201,21 @@
 				<th><?php echo $this->lang->line('core.btn_action'); ?></th>
 			  </tr>
         </thead>
-		<?php foreach($data_keragaan as $row_keragaan){?>			
+		<?php $i=1;foreach($data_keragaan as $row_keragaan){?>			
 			<tr>
-				<?php foreach($tableGrid as $k => $t){?>				
-				<td><?php echo $row_keragaan->$t['field']?></td>
+				<?php foreach($tableGrid as $k => $t){?>
+				<?php  if($t['field'] == 'id'){?>				
+					<td><?php echo $i;?></td>
+				<?php }elseif($t['field'] == 'kp'){?>
+					
+				<?php }else{?>
+					<td><?php echo $row_keragaan->$t['field'];?></td>
+				<?php }?>
 				<?php }?>
 				<td><a href='<?php echo site_url('keragaanpabrik/add/?hari='.$row_keragaan->hari_giling.'&id='.$row_keragaan->id);?>'  class="tips "  title="Edit"><i class="fa  fa-edit"></i>  </a> &nbsp;&nbsp;</td>
 			</tr>
 		
-		<?php }?>
+		<?php $i++;}?>
         
 
     </table>

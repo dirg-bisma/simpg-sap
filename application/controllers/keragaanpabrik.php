@@ -156,17 +156,82 @@ class Keragaanpabrik extends SB_Controller
 			redirect('dashboard',301);
 	  	}		
 
+		$var = array('digiling', 'brix_npp', 'nm_persen_tebu', 'uap_baru', 'uap_bekas', 'suhu_pp_i',
+				'suhu_pp_ii', 'suhu_pp_iii', 'turbidity', 'v_eva', 'v_masakan', 'be_nk');  
 		$hari = $_GET['hari'];  
 		$row = $this->model->rekapData($hari);
 		$sql_jam = "SELECT * FROM t_lap_jam";
 		$jam = $this->db->query($sql_jam)->result();
+		$sql_std = "SELECT * FROM m_setting_laporan WHERE id=1";
+		$data_std = $this->db->query($sql_std)->row();
+		$sql_avg = "SELECT * FROM vw_keragaan_pabrik WHERE hari_giling = $hari";
+		$data_avg = $this->db->query($sql_avg)->row();
+		
+		$this->data['hg'] = $this->model->gethg($hari);
 		$this->data['row'] =  $row;
 		$this->data['jam'] = $jam;
 		$this->data['id'] = $id;
+		$this->data['avg'] = $data_avg;
+		$this->data['standart'] = $data_std;
+		$this->data['std_digiling'] = $this->model->hitungRekap($hari, 'digiling', $data_std->digiling*100);
+		$this->data['std_brix_npp'] = $this->model->hitungRekap($hari, 'brix_npp', $data_std->brix_npp);
+		$this->data['std_nm_persen_tebu'] = $this->model->hitungRekap($hari, 'nm_persen_tebu', $data_std->nm_persen_tebu);
+		$this->data['std_uap_baru'] = $this->model->hitungRekap($hari, 'uap_baru', $data_std->uap_baru);
+		$this->data['std_uap_bekas'] = $this->model->hitungRekap($hari, 'uap_bekas', $data_std->uap_bekas);
+		$this->data['std_suhu_pp_i'] = $this->model->hitungRekap($hari, 'suhu_pp_i', $data_std->suhu_pp_i);
+		$this->data['std_suhu_pp_ii'] = $this->model->hitungRekap($hari, 'suhu_pp_ii', $data_std->suhu_pp_ii);
+		$this->data['std_suhu_pp_iii'] = $this->model->hitungRekap($hari, 'suhu_pp_iii', $data_std->suhu_pp_iii);
+		$this->data['std_turbidity'] = $this->model->hitungRekap($hari, 'turbidity', $data_std->turbidity);
+		$this->data['std_v_eva'] = $this->model->hitungRekap($hari, 'v_eva', $data_std->v_eva);
+		$this->data['std_v_masakan'] = $this->model->hitungRekap($hari, 'v_masakan', $data_std->v_msk);
+		$this->data['std_be_nk'] = $this->model->hitungRekap($hari, 'be_nk', $data_std->be_nk);
+		
 		$this->data['content'] =  $this->load->view('keragaanpabrik/view', $this->data ,true);	  
 		$this->load->view('layouts/main',$this->data);
 	}
   
+
+	function cetak( $id = null) 
+	{
+		if($this->access['is_detail'] ==0)
+		{ 
+			$this->session->set_flashdata('error',SiteHelpers::alert('error','Your are not allowed to access the page'));
+			redirect('dashboard',301);
+	  	}		
+
+		$var = array('digiling', 'brix_npp', 'nm_persen_tebu', 'uap_baru', 'uap_bekas', 'suhu_pp_i',
+				'suhu_pp_ii', 'suhu_pp_iii', 'turbidity', 'v_eva', 'v_masakan', 'be_nk');  
+		$hari = $_GET['hari'];  
+		$row = $this->model->rekapData($hari);
+		$sql_jam = "SELECT * FROM t_lap_jam";
+		$jam = $this->db->query($sql_jam)->result();
+		$sql_std = "SELECT * FROM m_setting_laporan WHERE id=1";
+		$data_std = $this->db->query($sql_std)->row();
+		$sql_avg = "SELECT * FROM vw_keragaan_pabrik WHERE hari_giling = $hari";
+		$data_avg = $this->db->query($sql_avg)->row();
+		
+		$this->data['hg'] = $this->model->gethg($hari);
+		$this->data['row'] =  $row;
+		$this->data['jam'] = $jam;
+		$this->data['id'] = $id;
+		$this->data['avg'] = $data_avg;
+		$this->data['standart'] = $data_std;
+		$this->data['std_digiling'] = $this->model->hitungRekap($hari, 'digiling', $data_std->digiling*100);
+		$this->data['std_brix_npp'] = $this->model->hitungRekap($hari, 'brix_npp', $data_std->brix_npp);
+		$this->data['std_nm_persen_tebu'] = $this->model->hitungRekap($hari, 'nm_persen_tebu', $data_std->nm_persen_tebu);
+		$this->data['std_uap_baru'] = $this->model->hitungRekap($hari, 'uap_baru', $data_std->uap_baru);
+		$this->data['std_uap_bekas'] = $this->model->hitungRekap($hari, 'uap_bekas', $data_std->uap_bekas);
+		$this->data['std_suhu_pp_i'] = $this->model->hitungRekap($hari, 'suhu_pp_i', $data_std->suhu_pp_i);
+		$this->data['std_suhu_pp_ii'] = $this->model->hitungRekap($hari, 'suhu_pp_ii', $data_std->suhu_pp_ii);
+		$this->data['std_suhu_pp_iii'] = $this->model->hitungRekap($hari, 'suhu_pp_iii', $data_std->suhu_pp_iii);
+		$this->data['std_turbidity'] = $this->model->hitungRekap($hari, 'turbidity', $data_std->turbidity);
+		$this->data['std_v_eva'] = $this->model->hitungRekap($hari, 'v_eva', $data_std->v_eva);
+		$this->data['std_v_masakan'] = $this->model->hitungRekap($hari, 'v_masakan', $data_std->v_msk);
+		$this->data['std_be_nk'] = $this->model->hitungRekap($hari, 'be_nk', $data_std->be_nk);
+		
+		$this->load->view('keragaanpabrik/view', $this->data);
+	}
+
 	function add( $id = null ) 
 	{
 		if($id =='')
