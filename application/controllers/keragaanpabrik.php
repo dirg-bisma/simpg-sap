@@ -101,7 +101,8 @@ class Keragaanpabrik extends SB_Controller
             $btn ='';
 			$idku = $this->model->primaryKey;
             if($this->access['is_detail'] ==1){
-            	$btn .= '<a href='.site_url('keragaanpabrik/show/?hari='.$dt->hari_giling).'  class="tips "  title="view"><i class="fa  fa-search"></i>  </a> &nbsp;&nbsp;';
+				$btn .= '<a href='.site_url('keragaanpabrik/show/?hari='.$dt->hari_giling).'  class="tips "  title="view"><i class="fa  fa-search"></i>  </a> &nbsp;&nbsp;';
+				$btn .= '<a target="_blank" href='.site_url('keragaanpabrik/cetak/?hari='.$dt->hari_giling).'  class="tips "  title="view"><i class="fa  fa-print"></i>  </a> &nbsp;&nbsp;';
             }
             if($this->access['is_edit'] ==1){
             	$btn .= '<a href='.site_url('keragaanpabrik/add/?hari='.$dt->hari_giling).'  class="tips "  title="Edit"><i class="fa  fa-edit"></i>  </a> &nbsp;&nbsp;';
