@@ -38,15 +38,23 @@
 <td style="height: 13px;">WILAYAH KKW</td>
 <td style="height: 13px;"><?=$do->divisi;?></td>
 <td style="height: 13px;">&nbsp;</td>
-<td style="height: 13px;">TETES PTR</td>
+<td style="height: 13px;">TETES</td>
 <td style="height: 13px;"><?=number_format($do->berat_tetes,2);?> Kg</td>
 </tr>
 <tr style="height: 13px;">
 <td style="height: 13px;"></td>
 <td style="height: 13px;"></td>
 <td style="height: 13px;">&nbsp;</td>
-<td style="height: 13px;">GULA / KUI TEBU</td>
-<td style="height: 13px;"><?=number_format(($do->gula_100/($do->netto_tebu/100)),2);?> Kg</td>
+<td style="height: 13px;">GULA</td>
+<td style="height: 13px;"><?=number_format($do->gula_100,2);?> Kg</td>
+</tr>
+</tr>
+<tr style="height: 13px;">
+<td style="height: 13px;"></td>
+<td style="height: 13px;"></td>
+<td style="height: 13px;">&nbsp;</td>
+<td style="height: 13px;">RENDEMEN</td>
+<td style="height: 13px;"><?=number_format((($do->gula_100/1.003)/($do->netto_tebu)*100),2);?> %</td>
 </tr>
 </tbody>
 </table>
@@ -104,7 +112,7 @@ if($sepuluh != 0){
 <table style="width: 100%;">
 <tbody>
 <tr>
-<td colspan="3"><b><u>PENDAPATAN PETANI</u></b></td>
+<td colspan="3"><b><u>DASAR PERHITUNGAN</u></b></td>
 
 <td>&nbsp;</td>
 <td>&nbsp;</td>
@@ -124,7 +132,7 @@ if($sepuluh != 0){
 <td align="right"> = Rp. </td><td align="right"><?=number_format($htetes);?></td>
 </tr>
 <tr>
-<td colspan="3"><i>Jumlah Pendapatan Petani</i></td>
+<td colspan="3"><i>TOTAL</i></td>
 <td>&nbsp;</td>
 <td align="right"> = Rp. </td><td align="right" style="border-top:1px solid black">
 <?
@@ -138,13 +146,18 @@ echo '<b>'.number_format($total).'</b>';
 </table>
 </td>
 </tr>
+<?
+	/*
 <tr style="height: 13px;">
 <td style="height: 13px;" colspan="4">&nbsp;</td>
 </tr>
 <tr style="height: 13px;">
 <td style="height: 13px;" colspan="4"><br />&nbsp;&nbsp;<b>PINJAMAN / KEWAJIBAN &amp; IURAN PTR KE PG :</b><br />
+	
+	?>
 <table style="width:95%;margin:10px;" >
 	<?
+
 	//cari yang terbanyak dulu
 	$sqlcx = $this->db->query("SELECT SUM(IF(posisi=0,1,0)) AS kanan,SUM(IF(posisi=1,1,0)) AS kiri FROM `t_do_potongan` WHERE id_do = $do->id")->row();
 	
@@ -183,7 +196,7 @@ echo '<b>'.number_format($total).'</b>';
 		<td></td><td></td>
 		<td style="border-top:1px solid black"> = Rp. </td><td align="right"  style="border-top:1px solid black"><?=number_format($tot2)?></td></tr>
 </table>
-
+	
 <table style="width:97%;margin:10px">
 <tr><td align="center"><b>Jumlah Pinjaman/Kewajiban dan Iuran PTR ke PG</b></td><td style="border-bottom:1px solid black"> = Rp. </td><td align="right" style="border-bottom:1px solid black"><?=number_format($totalpotongan);?></td></tr>
 <tr><td align="center"><b>Pendapatan bersih Petani Tebu Rakyat</b></td><td style="border-bottom:1px solid black"> = Rp. </td><td align="right" style="border-bottom:1px solid black"><b><?=number_format($totalbersih);?></b></td></tr>
@@ -200,6 +213,8 @@ echo '<b>'.number_format($total).'</b>';
 </table>
 </td>
 </tr>
+*/
+	?>
 </tbody>
 </table>
 </page>
