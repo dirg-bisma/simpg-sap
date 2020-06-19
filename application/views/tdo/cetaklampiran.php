@@ -54,7 +54,10 @@
 <td style="height: 13px;"></td>
 <td style="height: 13px;">&nbsp;</td>
 <td style="height: 13px;">RENDEMEN</td>
-<td style="height: 13px;"><?=number_format(floor(($do->gula_100/1.003)/($do->netto_tebu))*100,2);?> %</td>
+<td style="height: 13px;"><?
+$rend = (($do->gula_100/1.003)*100)/($do->netto_tebu);
+//echo $rend.'<br />';
+echo substr($rend, 0,4);?> %</td>
 </tr>
 </tbody>
 </table>
