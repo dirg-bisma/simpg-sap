@@ -73,7 +73,7 @@ class Distribusidigital extends SB_Controller
     	$wh = " AND a.tgl_spta = '$tgl'";
     	if($filter != '') $wh .= " AND (b.kode_blok LIKE '%$filter%' OR b.deskripsi_blok LIKE '%$filter%')";
 
-    	$sql = $this->db->query("SELECT a.id,a.no_spat,b.`kode_blok`,b.`deskripsi_blok` FROM t_spta a INNER JOIN sap_field b ON a.`kode_blok`=b.`kode_blok` WHERE 0=0 AND angkut_pg = 1 $wh AND a.`status_distribusi` = $jns AND (kode_affd = '$username' OR persno_pta = '$username')")->result();
+    	$sql = $this->db->query("SELECT a.id,a.no_spat,b.`kode_blok`,b.`deskripsi_blok` FROM t_spta a INNER JOIN sap_field b ON a.`kode_blok`=b.`kode_blok` WHERE 0=0 AND angkut_pg = 1 AND LEFT(b.kepemilikan,2)='TS' $wh AND a.`status_distribusi` = $jns AND (kode_affd = '$username' OR persno_pta = '$username')")->result();
 
     	$html = '';
     	if($sql)
