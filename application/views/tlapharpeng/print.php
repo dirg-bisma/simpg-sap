@@ -238,6 +238,13 @@ table.null-border{
     <td class="number"><?php echo SiteHelpers::numberformat($rw->raw_sugar_diolah_sd, 3); ?></td>
   </tr>
   <tr>
+    <td>GKP EX RAW SUGAR DIOLAH</td>
+    <td align="center">-17.1-</td>
+    <td>TON</td>
+    <td class="number"><?php echo SiteHelpers::numberformat($rw->gula_ex_rs, 3); ?></td>
+    <td class="number"><?php echo SiteHelpers::numberformat($rw->gula_ex_rs_sd, 3); ?></td>
+  </tr>
+  <tr>
     <td>ICUMSA</td>
     <td align="center">18</td>
     <td>UI</td>
