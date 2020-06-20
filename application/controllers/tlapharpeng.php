@@ -343,6 +343,7 @@ class Tlapharpeng extends SB_Controller
   `gula_tr_ts_saudara_sd` AS `gula_tr_ts_saudara`,
   `gula_produksi_sd` AS `gula_produksi`,
   `gula_ex_sisan_sd` AS `gula_ex_sisan`,
+  `gula_ex_rs_sd` AS `gula_ex_rs`,
   `sisan_diolah_sd` AS `sisan_diolah`,
   `raw_sugar_diolah_sd` AS `raw_sugar_diolah`,
   `gula_repro_thn_lalu_sd` AS `gula_repro_thn_lalu`,

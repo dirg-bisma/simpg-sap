@@ -24,7 +24,7 @@ class Countergula extends SB_Controller
 		
 		if($sql){
 			$ax['data'] = 'Berhasil Insert';
-			$this->db->query("DELETE FROM t_counter_gula_detail where tgl_pengakuan < get_tgl_giling()");
+			$this->db->query("delete from t_counter_gula_detail where TIME_FORMAT(tgl_act, '%H') < TIME_FORMAT(NOW(), '%H')");
 			$as = $this->db->query("SELECT 
   jalur,
   tgl_pengakuan,
