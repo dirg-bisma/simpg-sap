@@ -124,7 +124,7 @@ if($sepuluh != 0){
 <td width="250px">GULA</td>
 <td>: <?=$sembilan;?></td>
 <td>Kg x Rp.</td>
-<td align="right"><?=number_format($do->harga_gula);?></td>
+<td align="right"><?=number_format($do->harga_gula,2);?></td>
 <td width="10%" align="right"> = Rp. </td><td align="right"><?=number_format($hgula);?></td>
 </tr>
 <tr>
