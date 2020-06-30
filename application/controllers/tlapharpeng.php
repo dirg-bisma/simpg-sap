@@ -419,7 +419,7 @@ GROUP BY b.`kode_kat_lahan`";
 			foreach ($rwsqlhutang as $v) {
 				if($v->kode_kat_lahan == 'TS-TR'){
 					$gulamiliktssaudara += $v->gulapg;
-				}else if($v->kode_kat_lahan == 'TS-SP'){
+				}else if($v->kode_kat_lahan == 'TS-ST'){
 					$gulaspt += $v->gulapg;
 					$gulaptr += $v->gula_ptr;
 				}else if(substr($v->kode_kat_lahan,0,2) == 'TS'){
@@ -434,7 +434,7 @@ GROUP BY b.`kode_kat_lahan`";
 			/*query hari ini simpg*/
 			$sqlhidigiling = $this->db->query("SELECT 
 IF(b.`kode_kat_lahan` = 'TS-TR','TS-TR',
-IF(b.`kode_kat_lahan` = 'TS-SP','TS-SP',
+IF(b.`kode_kat_lahan` = 'TS-ST','TS-ST',
 IF(LEFT(b.kode_kat_lahan,2)='TS','TS','TR'))) AS kode_kat_lahan,
 ROUND(SUM(hablur_ari)/1000,3) AS kristal,SUM(c.`netto_final`)/1000 AS tebudigiling,
 SUM(d.ha_tertebang) AS ha_digiling,
@@ -446,7 +446,7 @@ sum(IF(e.kondisi_tebu = '".CNF_MUTU_TERBAKAR."',c.netto_final,0))/1000 as tebute
  INNER JOIN t_meja_tebu e ON e.id_spta = b.id
  WHERE b.tgl_giling ='".$r->tgl."'
 GROUP BY IF(b.`kode_kat_lahan` = 'TS-TR','TS-TR',
-IF(b.`kode_kat_lahan` = 'TS-SP','TS-SP',
+IF(b.`kode_kat_lahan` = 'TS-ST','TS-ST',
 IF(LEFT(b.kode_kat_lahan,2)='TS','TS','TR')))")->result();
 			$tongilingts=0;$tongilingtr=0;$tongilingtransfer=0;$tongilingspt=0;
 			$hagilingts=0;$hagilingtr=0;$hagilingtransfer=0;$hagilingspt=0;
@@ -458,7 +458,7 @@ IF(LEFT(b.kode_kat_lahan,2)='TS','TS','TR')))")->result();
 					$hagilingtransfer+=$k->ha_digiling;
 					$hablurtransfer+=$k->kristal;
 					$tebuterbakartransfer+=$k->tebuterbakar;
-				}else if($k->kode_kat_lahan == 'TS-SP'){
+				}else if($k->kode_kat_lahan == 'TS-ST'){
 					$tongilingspt+= $k->tebudigiling;
 					$hagilingspt+=$k->ha_digiling;
 					$hablurspt+=$k->kristal;
@@ -479,7 +479,7 @@ IF(LEFT(b.kode_kat_lahan,2)='TS','TS','TR')))")->result();
 			if($hg == 0){
 				$sqlhiditebang = $this->db->query("SELECT 
 IF(b.`kode_kat_lahan` = 'TS-TR','TS-TR',
-IF(b.`kode_kat_lahan` = 'TS-SP','TS-SP',
+IF(b.`kode_kat_lahan` = 'TS-ST','TS-ST',
 IF(LEFT(b.kode_kat_lahan,2)='TS','TS','TR'))) AS kode_kat_lahan,SUM(c.`netto_final`)/1000 AS tebuditebang,
 SUM(d.ha_tertebang) AS ha_ditebang
  FROM  t_spta b  
@@ -487,12 +487,12 @@ SUM(d.ha_tertebang) AS ha_ditebang
  INNER JOIN t_selektor d ON d.id_spta = b.id
  WHERE b.tgl_timbang <= '".$r->tgl."'
 GROUP BY IF(b.`kode_kat_lahan` = 'TS-TR','TS-TR',
-IF(b.`kode_kat_lahan` = 'TS-SP','TS-SP',
+IF(b.`kode_kat_lahan` = 'TS-ST','TS-ST',
 IF(LEFT(b.kode_kat_lahan,2)='TS','TS','TR')))")->result();
 			}else{
 				$sqlhiditebang = $this->db->query("SELECT 
 IF(b.`kode_kat_lahan` = 'TS-TR','TS-TR',
-IF(b.`kode_kat_lahan` = 'TS-SP','TS-SP',
+IF(b.`kode_kat_lahan` = 'TS-ST','TS-ST',
 IF(LEFT(b.kode_kat_lahan,2)='TS','TS','TR'))) AS kode_kat_lahan,SUM(c.`netto_final`)/1000 AS tebuditebang,
 SUM(d.ha_tertebang) AS ha_ditebang
  FROM  t_spta b  
@@ -500,7 +500,7 @@ SUM(d.ha_tertebang) AS ha_ditebang
  INNER JOIN t_selektor d ON d.id_spta = b.id
  WHERE b.tgl_timbang ='".$r->tgl."'
 GROUP BY IF(b.`kode_kat_lahan` = 'TS-TR','TS-TR',
-IF(b.`kode_kat_lahan` = 'TS-SP','TS-SP',
+IF(b.`kode_kat_lahan` = 'TS-ST','TS-ST',
 IF(LEFT(b.kode_kat_lahan,2)='TS','TS','TR')))")->result();	
 			}
 			
@@ -510,7 +510,7 @@ IF(LEFT(b.kode_kat_lahan,2)='TS','TS','TR')))")->result();
 				if($k->kode_kat_lahan == 'TS-TR'){
 					$tontebangtransfer+= $k->tebuditebang;
 					$hatebangtransfer+=$k->ha_ditebang;
-				}else if($k->kode_kat_lahan == 'TS-SP'){
+				}else if($k->kode_kat_lahan == 'TS-ST'){
 					$tontebangspt+= $k->tebuditebang;
 					$hatebangspt+=$k->ha_ditebang;
 				}else if($k->kode_kat_lahan == 'TS'){
