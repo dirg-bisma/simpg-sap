@@ -581,6 +581,12 @@ table.null-border{
           <a href="<?php echo site_url('tlapharpeng/validasidata/'.$rw->id);?>" onclick="return confirm(' Apakah anda yakin akan Validasi data ini, karena jika sudah divalidasi data tidak akan bisa di rubah ?')" class="btn btn-sm btn-danger"> Validasi </a>&nbsp;&nbsp;
           <?php
         }
+
+        if($rw->status == 2 ){
+          ?>
+          <a href="<?php echo site_url('tlapharpeng/validasidata/'.$rw->id);?>" onclick="return confirm(' Apakah anda yakin akan mengirimkan data keserver lagi ?')" class="btn btn-sm btn-info"> Kirim Ulang Server </a>&nbsp;&nbsp;
+          <?
+        }
         ?>
           <a href="<?php echo site_url('tlapharpeng/printxs/'.$rw->id.'/'.$rw->hari_giling);?>"  target="_blank" class="btn btn-sm btn-primary"> Print  </a>&nbsp;&nbsp;
         
