@@ -51,7 +51,7 @@ class SB_Model extends CI_Model
 		if($key =='' ) { $key ='*'; } else { $key = $table.".".$key ; }
 		$counter_select = preg_replace( '/[\s]*SELECT(.*)FROM/Usi', 'SELECT count('.$key.') as total FROM ( SELECT '.$key.' FROM ', $this->querySelect() );
 		//echo 	$counter_select; exit;
-		$query = $this->db->query( $counter_select . $this->queryWhere()." ". $this->queryGroup().') as '.$table);
+		$query = $this->db->query( 'SELECT count('.$key.') as total FROM '.$table);
 		$res = $query->result();
 		// var_dump($counter_select . $this->queryWhere()." {$params} ". $this->queryGroup());exit;
 		$total = $res[0]->total;
