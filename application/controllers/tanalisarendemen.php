@@ -43,7 +43,7 @@ class Tanalisarendemen extends SB_Controller
 	}
 	
 	function gridMejaTebu(){
-		$result = $this->db->query('SELECT a.id,a.`no_spat`,a.`meja_tebu_tgl`,b.`warna_meja_tebu`,b.`kode_meja_tebu`,no_urut_analisa_rendemen FROM t_spta  a INNER JOIN t_meja_tebu b ON a.`id`=b.`id_spta` WHERE meja_tebu_status = 1 AND ari_status = 0 AND b.gilingan = "'.$this->session->userdata('gilingan').'" ORDER BY a.`meja_tebu_tgl` ASC LIMIT 15 ')->result();
+		$result = $this->db->query('SELECT a.id,a.`no_spat`,a.`meja_tebu_tgl`,b.`warna_meja_tebu`,b.`kode_meja_tebu`,no_urut_analisa_rendemen FROM (SELECT * FROM t_spta WHERE meja_tebu_status = 1 AND ari_status = 0) AS a INNER JOIN t_meja_tebu b ON a.`id`=b.`id_spta` WHERE  b.gilingan = "'.$this->session->userdata('gilingan').'" ORDER BY b.`tgl_meja_tebu` ASC LIMIT 15 ')->result();
 		$data = array();
 		foreach ($result as $dt) {
 			$spta = $dt->no_spat;
