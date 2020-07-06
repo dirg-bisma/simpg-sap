@@ -54,8 +54,6 @@
 <td style="height: 13px;"></td>
 <td style="height: 13px;">&nbsp;</td>
 	
-<td style="height: 13px;"></td>
-<td style="height: 13px;">&nbsp;</td>
 <?
 if(CNF_TAMPILGPT == 2){
 	?>
@@ -67,6 +65,11 @@ if(CNF_TAMPILGPT == 2){
 <?
 if(CNF_TAMPILRPETANI == 2){
 	?>
+</tr>
+	<tr>
+		<td style="height: 13px;"></td>
+<td style="height: 13px;"></td>
+<td style="height: 13px;">&nbsp;</td>
 	<td style="height: 13px;">R. PETANI</td>
 <td style="height: 13px;"><?
 $rend = (($do->gula_100/1.003)*100)/($do->netto_tebu);
