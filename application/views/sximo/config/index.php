@@ -112,6 +112,26 @@
 				 </div>
 			  </div>
 
+			  <div class="form-group">
+				<label for="ipt" class=" control-label col-md-4">TAMPIL DO GULA / KUITEBU</label>
+				<div class="col-md-8">
+						<select id="cnf_tampilgpt" name="cnf_tampilgpt" class="form-control input-sm">
+							<option value="1" <?php if(CNF_TAMPILGPT == 1) echo 'selected';?> >Non Aktif</option>
+							<option value="2" <?php if(CNF_TAMPILGPT == 2) echo 'selected';?> >Aktif</option>
+						</select>
+				 </div>
+			  </div>
+
+			  <div class="form-group">
+				<label for="ipt" class=" control-label col-md-4">TAMPIL DO R. PETANI</label>
+				<div class="col-md-8">
+						<select id="cnf_tampilrpetani" name="cnf_tampilrpetani" class="form-control input-sm">
+							<option value="1" <?php if(CNF_TAMPILRPETANI == 1) echo 'selected';?> >Non Aktif</option>
+							<option value="2" <?php if(CNF_TAMPILRPETANI == 2) echo 'selected';?> >Aktif</option>
+						</select>
+				 </div>
+			  </div>
+
 			</fieldset>
 
 		

@@ -56,11 +56,26 @@
 	
 <td style="height: 13px;"></td>
 <td style="height: 13px;">&nbsp;</td>
-<!--td style="height: 13px;">R. PETANI</td>
+<?
+if(CNF_TAMPILGPT == 1){
+	?>
+	<td style="height: 13px;">GULA/KUI TEBU</td>
+	<td style="height: 13px;"><?=number_format($do->gula_100/($do->netto_tebu/100),2);?></td>
+	<?
+}
+?>
+<?
+if(CNF_TAMPILRPETANI == 1){
+	?>
+	<td style="height: 13px;">R. PETANI</td>
 <td style="height: 13px;"><?
-//$rend = (($do->gula_100/1.003)*100)/($do->netto_tebu);
+$rend = (($do->gula_100/1.003)*100)/($do->netto_tebu);
 //echo $rend.'<br />';
-//echo substr($rend, 0,4);?> %</td-->
+echo substr($rend, 0,4);?> %</td>
+<?
+}
+?>
+
 </tr>
 </tbody>
 </table>
