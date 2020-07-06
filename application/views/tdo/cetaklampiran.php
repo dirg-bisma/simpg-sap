@@ -58,7 +58,7 @@
 if(CNF_TAMPILGPT == 2){
 	?>
 	<td style="height: 13px;">GULA/KUI TEBU</td>
-	<td style="height: 13px;"><?=number_format($do->gula_100/($do->netto_tebu/100),2);?></td>
+	<td style="height: 13px;"><?=number_format($do->gula_100/($do->netto_tebu/100),2);?> KG</td>
 	<?
 }
 ?>
