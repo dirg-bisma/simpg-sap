@@ -229,4 +229,11 @@ class apimaterialmodel extends SB_Model
       $result = $this->db->query($sql);
       return $result->result();
     }
+
+    public function CariTarabyNopol($nopol)
+    {
+      $sql = "SELECT * FROM m_tara_truk WHERE no_pol LIKE '%$nopol%'";
+      $result = $this->db->query($sql);
+      return $result->result();
+    }
 }
