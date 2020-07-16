@@ -539,4 +539,130 @@ class Apimaterial  extends SB_Controller
 
         echo json_encode($output);
     }
+
+
+    function simpanmaterialcepat()
+    {
+        try{
+            $this->load->model('apimaterialmodel');
+
+            $no_transaksi = $this->GetPost('no_transaksi');
+            $jenis_transaksi = $this->GetPost('jenis_transaksi');
+            $supir = $this->GetPost('nama_supir');
+            $no_kendaraan = $this->GetPost('no_kendaraan');
+            $kode_barang = $this->GetPost('kode_material');
+            $nama_barang = $this->GetPost('nama_material');
+            $kode_relasi = $this->GetPost('kode_relasi');
+            $nama_relasi = $this->GetPost('nama_relasi');
+            $timbang_1 = $this->GetPost('timbang_1');
+            $timbang_2 = $this->GetPost('timbang_2');
+            $netto = $this->GetPost('netto');
+
+
+            $no_tiket = $this->GetPost('no_tiket');
+
+            $transaksi = $this->apimaterialmodel->getTmaterialTiket($no_tiket);
+
+            if(count($transaksi) == 0){
+
+                $data = array(
+                    'no_transaksi' => $no_transaksi,
+                    'jenis_transaksi' => $jenis_transaksi,
+                    'nama_supir' => $supir,
+                    'no_kendaraan' => $no_kendaraan,
+                    'kode_material' => $kode_barang,
+                    'nama_material' => $nama_barang,
+                    'kode_relasi' => $kode_relasi,
+                    'nama_relasi' => $nama_relasi,
+                    'timbang_1' => $timbang_1,
+                    'tgl_timbang_1' =>date('Y-m-d H:i:s'),
+                    'status_timbang_1' => "1",
+                    'timbang_2' => $timbang_2,
+                    'netto' => $netto,
+                    'tgl_timbang_2' =>date('Y-m-d H:i:s'),
+                    'status_timbang_2' => "1"
+                );
+
+                $this->db->set($data);
+                $this->db->insert('t_timbang_material');
+                $insert_id = $this->db->insert_id();
+                $sql = "select no_tiket from t_timbang_material where id_t_material = '$insert_id'";
+                $hasil = $this->db->query($sql);
+                $return_no_tiket = $hasil->row();
+
+                $result = array(
+                    'msg' => ' '.$return_no_tiket->no_tiket,
+                    'status' => 'true'
+                );
+                echo json_encode($result);
+            }
+
+        }catch(Exception $ex){
+            $result = array(
+                'msg' => $ex,
+                'status' => 'false'
+            );
+            echo json_encode($result);
+        }
+    }
+
+    function carirelasicepat()
+    {
+        $search = $this->input->get('search');
+        $this->load->model('apimaterialmodel');
+        $result = $this->apimaterialmodel->getRelasiCepat($search);
+
+        if(count($result) > 0){
+            foreach ($result[0] as $key => $value) {
+                if (is_null($value)) {
+                    $result[0]->$key = "";
+                }
+            }
+            $output = array(
+                'result' => $result,
+                'count' => count($result),
+                'msg' => 'success',
+                'status' => 'true'
+            );
+        }else{
+            $output = array(
+                'result' => [],
+                'count' => count($result),
+                'msg' => 'data not found',
+                'status' => 'false'
+            );
+        }
+
+        echo json_encode($output);
+    }
+
+    function carimaterialcepat()
+    {
+        $search = $this->input->get('search');
+        $this->load->model('apimaterialmodel');
+        $result = $this->apimaterialmodel->getMaterialCepat($search);
+
+        if(count($result) > 0){
+            foreach ($result[0] as $key => $value) {
+                if (is_null($value)) {
+                    $result[0]->$key = "";
+                }
+            }
+            $output = array(
+                'result' => $result,
+                'count' => count($result),
+                'msg' => 'success',
+                'status' => 'true'
+            );
+        }else{
+            $output = array(
+                'result' => [],
+                'count' => count($result),
+                'msg' => 'data not found',
+                'status' => 'false'
+            );
+        }
+
+        echo json_encode($output);
+    }
 }

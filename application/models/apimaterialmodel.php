@@ -236,4 +236,21 @@ class apimaterialmodel extends SB_Model
       $result = $this->db->query($sql);
       return $result->result();
     }
+
+    public function getMaterialCepat($search)
+    {
+        $sql = "SELECT a.* FROM m_material AS a WHERE a.timbang_cepat = 1 AND  a.`nama_material` LIKE '%$search%'";
+
+        $result = $this->db->query($sql);
+        return $result->result();
+    }
+
+    public function getRelasiCepat($search)
+    {
+        $sql = "SELECT a.* FROM m_relasi AS a WHERE a.timbang_cepat = 1 AND  a.`nama_relasi` LIKE '%$search%'";
+
+        $result = $this->db->query($sql);
+        return $result->result();
+    }
+    
 }
