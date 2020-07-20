@@ -68,7 +68,7 @@ class Senddatatoserver extends CI_Controller {
 	public function gett_spta($id,$idlog)
 	{
 		if(CNF_COMPANYCODE == 'N011'){
-			$hostx = '10.20.1.13';
+			$hostx = 'devproduksi.ptpn11.co.id';
 		}else{
 			$hostx = 'devproduksi.ptpn11.co.id';
 		}
@@ -111,7 +111,7 @@ class Senddatatoserver extends CI_Controller {
 	public function gett_selektor($id,$idlog)
 		{
 			if(CNF_COMPANYCODE == 'N011'){
-			$hostx = '10.20.1.13';
+			$hostx = 'devproduksi.ptpn11.co.id';
 		}else{
 			$hostx = 'devproduksi.ptpn11.co.id';
 		}
@@ -150,7 +150,7 @@ class Senddatatoserver extends CI_Controller {
 	public function gett_timbangan($id,$idlog)
 		{
 			if(CNF_COMPANYCODE == 'N011'){
-			$hostx = '10.20.1.13';
+			$hostx = 'devproduksi.ptpn11.co.id';
 		}else{
 			$hostx = 'devproduksi.ptpn11.co.id';
 		}
@@ -189,7 +189,7 @@ class Senddatatoserver extends CI_Controller {
 	public function gett_meja_tebu($id,$idlog)
 		{
 			if(CNF_COMPANYCODE == 'N011'){
-			$hostx = '10.20.1.13';
+			$hostx = 'devproduksi.ptpn11.co.id';
 		}else{
 			$hostx = 'devproduksi.ptpn11.co.id';
 		}
@@ -228,7 +228,7 @@ class Senddatatoserver extends CI_Controller {
 	public function gett_ari($id,$idlog)
 		{
 			if(CNF_COMPANYCODE == 'N011'){
-			$hostx = '10.20.1.13';
+			$hostx = 'devproduksi.ptpn11.co.id';
 		}else{
 			$hostx = 'devproduksi.ptpn11.co.id';
 		}
