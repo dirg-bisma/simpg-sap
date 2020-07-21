@@ -79,16 +79,23 @@ class Dashboard extends SB_Controller {
     	}
     }
 
+    public function gettotalquota($tgl){
+    	$rx = $this->db->query("SELECT ifnull(count(id),0) as total_cetak,ifnull(sum(selektor_status),0) as total_masuk from t_spta where tgl_spta = '$tgl'")->row();
+
+    	echo json_encode($rx);
+    }
+
     public function getkuotaspta($tgl){
     	//$tgl = $_REQUEST['tgl'];
     	$rx = $this->db->query("SELECT 
-a.kode_affd,b.`name`,IFNULL(total_cetak,0) AS total_cetak,IFNULL(masuk,0) AS masuk FROM sap_m_affdeling a 
+a.kode_affd,b.`name`,IFNULL(total_cetak_lori,0) AS total_cetak_lori,IFNULL(total_cetak_truk,0) AS total_cetak_truk,IFNULL(masuk_truk,0) AS masuk_truk,IFNULL(masuk_lori,0) AS masuk_lori FROM sap_m_affdeling a 
 INNER JOIN sap_m_karyawan b ON a.`Persno`=b.`Persno`
-LEFT JOIN (SELECT kode_affd,COUNT(id) AS total_cetak,SUM(selektor_status) AS masuk FROM t_spta WHERE tgl_spta = '$tgl' GROUP BY kode_affd) AS c ON c.kode_affd=a.kode_affd
+LEFT JOIN (SELECT kode_affd,SUM(IF(jenis_spta = 'TRUK',1,0)) AS total_cetak_truk,SUM(IF(jenis_spta = 'LORI',1,0)) AS total_cetak_lori,SUM(IF(selektor_status = 1 AND jenis_spta = 'TRUK',1,0)) AS masuk_truk,SUM(IF(selektor_status = 1 AND jenis_spta = 'LORI',1,0)) AS masuk_lori FROM t_spta WHERE tgl_spta = '$tgl' GROUP BY kode_affd) AS c ON c.kode_affd=a.kode_affd
 ORDER BY a.`kode_affd`")->result();
     	$ht ='';
     	foreach ($rx as $rd) {
-    		$ht .= ' <li><a href="javascript:datadetailspta(\''.$rd->kode_affd.'\')">'.$rd->kode_affd.' - '.$rd->name.'<span class="pull-right "><span class="badge bg-red">'.$rd->total_cetak.'</span>&nbsp;&nbsp;<span class="badge bg-green">'.$rd->masuk.'</span></span></a></li>';
+    		$ht .= ' <li><a href="javascript:datadetailspta(\''.$rd->kode_affd.'\')">'.$rd->kode_affd.' - '.$rd->name.'
+    		<br />TRUK : <span class="badge bg-red">'.$rd->total_cetak_truk.'</span>&nbsp;&nbsp;<span class="badge bg-green">'.$rd->masuk_truk.'</span> LORI : <span class="badge bg-red">'.$rd->total_cetak_lori.'</span>&nbsp;&nbsp;<span class="badge bg-green">'.$rd->masuk_lori.'</span></a></li>';
     	}
     	echo $ht;
     }
