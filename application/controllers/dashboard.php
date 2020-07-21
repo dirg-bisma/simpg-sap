@@ -80,7 +80,7 @@ class Dashboard extends SB_Controller {
     }
 
     public function gettotalquota($tgl){
-    	$rx = $this->db->query("SELECT ifnull(count(id),0) as total_cetak,ifnull(sum(selektor_status),0) as total_masuk from t_spta where tgl_spta = '$tgl'")->row();
+    	$rx = $this->db->query("SELECT IFNULL(SUM(IF(jenis_spta = 'TRUK',1,0)),0) AS total_cetak_truk,IFNULL(SUM(IF(jenis_spta = 'LORI',1,0)),0) AS total_cetak_lori,IFNULL(SUM(IF(selektor_status = 1 AND jenis_spta = 'TRUK',1,0)),0) AS masuk_truk,IFNULL(SUM(IF(selektor_status = 1 AND jenis_spta = 'LORI',1,0)),0) AS masuk_lori from t_spta where retur_status=0 AND tgl_spta = '$tgl'")->row();
 
     	echo json_encode($rx);
     }
@@ -90,7 +90,7 @@ class Dashboard extends SB_Controller {
     	$rx = $this->db->query("SELECT 
 a.kode_affd,b.`name`,IFNULL(total_cetak_lori,0) AS total_cetak_lori,IFNULL(total_cetak_truk,0) AS total_cetak_truk,IFNULL(masuk_truk,0) AS masuk_truk,IFNULL(masuk_lori,0) AS masuk_lori FROM sap_m_affdeling a 
 INNER JOIN sap_m_karyawan b ON a.`Persno`=b.`Persno`
-LEFT JOIN (SELECT kode_affd,SUM(IF(jenis_spta = 'TRUK',1,0)) AS total_cetak_truk,SUM(IF(jenis_spta = 'LORI',1,0)) AS total_cetak_lori,SUM(IF(selektor_status = 1 AND jenis_spta = 'TRUK',1,0)) AS masuk_truk,SUM(IF(selektor_status = 1 AND jenis_spta = 'LORI',1,0)) AS masuk_lori FROM t_spta WHERE tgl_spta = '$tgl' GROUP BY kode_affd) AS c ON c.kode_affd=a.kode_affd
+LEFT JOIN (SELECT kode_affd,SUM(IF(jenis_spta = 'TRUK',1,0)) AS total_cetak_truk,SUM(IF(jenis_spta = 'LORI',1,0)) AS total_cetak_lori,SUM(IF(selektor_status = 1 AND jenis_spta = 'TRUK',1,0)) AS masuk_truk,SUM(IF(selektor_status = 1 AND jenis_spta = 'LORI',1,0)) AS masuk_lori FROM t_spta WHERE retur_status=0 AND tgl_spta = '$tgl' GROUP BY kode_affd) AS c ON c.kode_affd=a.kode_affd
 ORDER BY a.`kode_affd`")->result();
     	$ht ='';
     	foreach ($rx as $rd) {
@@ -104,7 +104,7 @@ ORDER BY a.`kode_affd`")->result();
     	$sqla = "SELECT a.`no_spat`,b.`kode_blok`,b.`deskripsi_blok`,c.`name`,count(id) as ttl FROM t_spta a 
 INNER JOIN sap_field b ON a.`kode_blok`=b.`kode_blok` 
 INNER JOIN sap_m_karyawan c ON c.`Persno`=a.`persno_pta`
-WHERE kode_affd = '$afd' AND tgl_spta = '$tgl' AND selektor_status = 0 GROUP BY kode_blok,persno_pta";
+WHERE retur_status=0 AND kode_affd = '$afd' AND tgl_spta = '$tgl' AND selektor_status = 0 GROUP BY kode_blok,persno_pta";
 		$th1 = $this->db->query($sqla)->result();
 		$isi1 = '';
 		foreach ($th1 as $k) {
