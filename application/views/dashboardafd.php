@@ -13,7 +13,7 @@
             <!-- Add the bg color to the header using any of the bg-* classes -->
             <div class="widget-user-header bg-aqua">
               <h3 class="widget-user-username" style="margin-left:10px"><i class="fa fa-qrcode"></i> Giling <?php echo CNF_TAHUNGILING;?></h3>
-              <h5 class="widget-user-desc" style="margin-left:10px">Tanggal SPTA </h5><span class="pull-right"><span class="badge bg-red">Tercetak</span>&nbsp;&nbsp;<span class="badge bg-green">Masuk</span></span>
+              <h5 class="widget-user-desc" style="margin-left:10px">Tanggal SPTA </h5><span class="pull-right"><span class="badge bg-red" id="tercet">0 Tercetak</span>&nbsp;&nbsp;<span class="badge bg-green" id="msk">0 Masuk</span></span>
                 <input type="date" id="tgl" class="form-control" value="<?=date('Y-m-d');?>" onchange="getdataspta()" />
             </div>
       <hr />  
@@ -28,7 +28,7 @@
         </div>
         
         <div class="col-md-8">
-        <iframe src="http://devproduksi.ptpn11.co.id/simpgdbmobile/tanaman.php?id=970" style="max-height:655pxpx;min-height:665px;overflow:auto;width: 100%" ></iframe>
+        <iframe src="http://devproduksi.ptpn11.co.id/simpgdbmobile/tanaman.php?id=970" style="max-height:655px;min-height:665px;overflow:auto;width: 100%" ></iframe>
         </div>
         
         
@@ -104,7 +104,21 @@
           success: function (data) { 
             
             $('#listKkw').html(data);
+            getdatasptadetail();
             getdata();
+          }
+        });
+}
+
+function getdatasptadetail(){
+  $.ajax({
+       type: 'POST',
+          url: '<?php echo site_url('dashboard/gettotalquota');?>/'+$("#tgl").val(), 
+          dataType : 'json',
+          success: function (data) { 
+            
+           $('#msk').html(data.total_masuk+" Masuk");
+           $('#tercet').html(data.total_cetak+" Cetak");
           }
         });
 }
