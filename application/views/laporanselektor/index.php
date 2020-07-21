@@ -16,17 +16,16 @@
 	<div class="page-content-wrapper m-t">
     
 <div class="sbox animated fadeIn">
-			<div class="sbox-content" style="padding:10px" > 		
-				<table witdh="100%">
-					<tr>
-						<td style="padding:5px" width="150px">
+			<div class="sbox-content" style="padding:10px" > 	
+			<div class="row">	
+				<div class="col-md-2">
 							<select id="rjns" class=" form-control">
 								<option value="1">PERIODE</option>
 								<option value="2">BULANAN</option>
 								<option value="3">TAHUNAN</option>
 							</select>
-						</td>
-						<td class="bulan" style="padding:5px" width="150px">
+						</div>
+						<div class="col-md-2 bulan">
 							<select id="bln" class=" form-control">
 								<option value="1">Jan</option>
 								<option value="2">Feb</option>
@@ -41,8 +40,8 @@
 								<option value="11">Nov</option>
 								<option value="12">Des</option>
 							</select>
-						</td>
-						<td class="tahun" style="padding:5px" width="150px">
+						</div>
+						<div class="col-md-2 tahun">
 							<select id="thn" class=" form-control">
 								<option value="2015">2015</option>
 								<option value="2016">2016</option>
@@ -50,66 +49,60 @@
 								<option value="2018">2018</option>
 								<option value="2019">2019</option>
 							</select>
-						</td>
-						<td class="period">
-							<input type='text' class='form-control date input-sm' readonly placeholder='' value='<?php echo date('Y-m-d');?>' id='tgl1'  /> </td><td class="period" align="center"> s/d </td>
-						<td style="padding:5px" class="period"><input type='text' class='form-control date input-sm' readonly placeholder='' value='<?php echo date('Y-m-d');?>' id='tgl2'  /> </td>
+						</div>
+						<div class="col-md-2 period">
+							<input type='text' class='form-control date input-sm' readonly placeholder='' value='<?php echo date('Y-m-d');?>' id='tgl1'  /> </div>
+						<div class="col-md-2 period">
+							<input type='text' class='form-control date input-sm' readonly placeholder='' value='<?php echo date('Y-m-d');?>' id='tgl2'  /> </div>
 
 
-						<td valign="center"> Kategori </td>
-						<td style="padding:5px" width="200px">
+						<div class="col-md-3">  
 							<select id='kat' rows='5' 
 							class=' form-control'  required >
-							<option value=''>- SEMUA -</option>
+							<option value=''>- SEMUA KATEGORI -</option>
 							<option value='TS'>TS</option>
 							<option value='TR'>TR</option>
-						</select> </td>
+						</select> </div>
 
-						<td valign="center"> Angkutan </td>
-						<td style="padding:5px" width="200px">
+						<div class="col-md-3"> 
 							<select id='angkutan' rows='5' 
 							class=' form-control'  required >
-							<option value=''>- SEMUA -</option>
+							<option value=''>- SEMUA ANGKUTAN -</option>
 							<option value='TRUK'>TRUK</option>
 							<option value='LORI'>LORI</option>
 							<option value='ODONG2'>ODONG2</option>
 							<option value='TRAKTOR'>TRAKTOR</option>
-						</select> </td>
+						</select> </div>
 
-						<tr>
+						</div>
 
-						
-						<td valign="center"> Jenis Laporan </td>
-						<td style="padding:5px" width="200px">
+						<div class="row">
+						<div class="col-md-3" valign="center"> Jenis Laporan 
 							<select id='jns' rows='5' 
 							class=' form-control'  required >
 							<option value='1'>Per Petak</option>
 							<option value='2' selected>Per SPTA</option>
-						</select> </td>
+						</select> </div>
 						
 
-						<td valign="center"> Afdeling </td>
-						<td style="padding:5px" width="200px">
+						<div class="col-md-3" valign="center"> Afdeling 
 							<select id='divisi' rows='5' 
 							class=' form-control'  >
-						</select> </td>
+						</select> </div>
 
-						<td valign="center"> Petak </td>
-						<td style="padding:5px" width="200px" colspan="2"> 
+						<div class="col-md-6" valign="center"> Petak 
 						<input type='text' class='form-control input-sm' placeholder='' id='kode_blok'  /> 
-						</td>
-							
-						
-						<td valign="center" colspan="2"><input type="button" onclick="getReport()" class="btn btn-info btn-sm" value="View " />
+						</div>
+						<hr />
+						</div>	
+						<div class="toolbar-line text-center " style="padding: 10px">	
+							<input type="button" onclick="getReport()" class="btn btn-info btn-sm" value="View " />
 							<input type="button" class="btn btn-warning btn-sm" onclick="printContent('report')"  value="Cetak " />
 							<input type="button" onclick="getReportExcel()" class="btn btn-danger btn-sm" value="Excel " />
-			 </td>
-						</tr>
-						
-					</tr>	
-				</table>		 
-			</div>
-			<hr />
+			 			</div>
+								 
+			
+			
 			<div class="sbox-content" style="height:650px;padding:10px;overflow:auto" id="report" > 
 			</div>
 		</div>		
@@ -126,7 +119,7 @@
 $(document).ready(function(){
 		//getReport();
 
-		$("#divisi").jCombo("<?php echo site_url('mmasterfield/comboselect?filter=vw_master_afdeling:kode_affd:nama_afdeling') ?>",
+		$("#divisi").jCombo("<?php echo site_url('mmasterfield/comboselect?filter=vw_master_afdeling:kode_affd:kode_affd|karyawan') ?>",
 		{  selected_value : '', initial_text :'- SEMUA AFD -' });
 		autocompleted();
 		$('.bulan').hide();$('.tahun').hide();
