@@ -13,7 +13,8 @@
             <!-- Add the bg color to the header using any of the bg-* classes -->
             <div class="widget-user-header bg-aqua">
               <h3 class="widget-user-username" style="margin-left:10px"><i class="fa fa-qrcode"></i> Giling <?php echo CNF_TAHUNGILING;?></h3>
-              <h5 class="widget-user-desc" style="margin-left:10px">Tanggal SPTA </h5><span class="pull-right"><span class="badge bg-red" id="tercet">0 Tercetak</span>&nbsp;&nbsp;<span class="badge bg-green" id="msk">0 Masuk</span></span>
+              <h5 class="widget-user-desc" style="margin-left:10px">Tanggal SPTA </h5><span class="pull-right"><span class="badge bg-red" id="tercet">0 Cetak Truk</span>&nbsp;&nbsp;<span class="badge bg-red" id="tercetlr">0 Cetak Lori</span><br />
+              <span class="badge bg-green" id="msk">0 Masuk Truk</span>&nbsp;&nbsp;<span class="badge bg-green" id="msklr">0 Masuk Lori</span></span>
                 <input type="date" id="tgl" class="form-control" value="<?=date('Y-m-d');?>" onchange="getdataspta()" />
             </div>
       <hr />  
@@ -117,8 +118,10 @@ function getdatasptadetail(){
           dataType : 'json',
           success: function (data) { 
             
-           $('#msk').html(data.total_masuk+" Masuk");
-           $('#tercet').html(data.total_cetak+" Cetak");
+           $('#msk').html(data.masuk_truk+" Masuk Truk");
+           $('#tercet').html(data.total_cetak_truk+" Cetak Truk");
+           $('#msklr').html(data.masuk_lori+" Masuk Lori");
+           $('#tercetlr').html(data.total_cetak_lori+" Cetak Lori");
           }
         });
 }
