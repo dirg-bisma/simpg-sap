@@ -19,8 +19,11 @@ class Dashboard extends SB_Controller {
 		$this->data = array();
 		
 
-
-		$this->data['content'] = $this->load->view('dashboard',$this->data,true);
+		if($this->session->userdata('gid') != 2 && $this->session->userdata('gid') != 11 && $this->session->userdata('gid') != 22){
+			$this->data['content'] = $this->load->view('dashboard',$this->data,true);
+		}else{
+			$this->data['content'] = $this->load->view('dashboardafd',$this->data,true);
+		}
 		$this->load->view('layouts/main',$this->data);
 	}
 
@@ -74,6 +77,73 @@ class Dashboard extends SB_Controller {
     	}else{
     		echo json_encode(array('dtt'=>0));
     	}
+    }
+
+    public function getkuotaspta($tgl){
+    	//$tgl = $_REQUEST['tgl'];
+    	$rx = $this->db->query("SELECT 
+a.kode_affd,b.`name`,IFNULL(total_cetak,0) AS total_cetak,IFNULL(masuk,0) AS masuk FROM sap_m_affdeling a 
+INNER JOIN sap_m_karyawan b ON a.`Persno`=b.`Persno`
+LEFT JOIN (SELECT kode_affd,COUNT(id) AS total_cetak,SUM(selektor_status) AS masuk FROM t_spta WHERE tgl_spta = '$tgl' GROUP BY kode_affd) AS c ON c.kode_affd=a.kode_affd
+ORDER BY a.`kode_affd`")->result();
+    	$ht ='';
+    	foreach ($rx as $rd) {
+    		$ht .= ' <li><a href="javascript:datadetailspta(\''.$rd->kode_affd.'\')">'.$rd->kode_affd.' - '.$rd->name.'<span class="pull-right "><span class="badge bg-red">'.$rd->total_cetak.'</span>&nbsp;&nbsp;<span class="badge bg-green">'.$rd->masuk.'</span></span></a></li>';
+    	}
+    	echo $ht;
+    }
+
+    public function detailspta($tgl,$afd){
+    	$sqla = "SELECT a.`no_spat`,b.`kode_blok`,b.`deskripsi_blok`,c.`name`,count(id) as ttl FROM t_spta a 
+INNER JOIN sap_field b ON a.`kode_blok`=b.`kode_blok` 
+INNER JOIN sap_m_karyawan c ON c.`Persno`=a.`persno_pta`
+WHERE kode_affd = '$afd' AND tgl_spta = '$tgl' AND selektor_status = 0 GROUP BY kode_blok,persno_pta";
+		$th1 = $this->db->query($sqla)->result();
+		$isi1 = '';
+		foreach ($th1 as $k) {
+			$isi1 .= '<tr><td><span class="badge bg-red">'.$k->ttl.'</span> '.$k->kode_blok.'<br />'.$k->deskripsi_blok.'</td><td>'.$k->name.'</td></tr>';
+		}
+
+		$sqla = "SELECT a.`no_spat`,b.`kode_blok`,b.`deskripsi_blok`,c.no_angkutan,c.tgl_selektor FROM t_spta a 
+INNER JOIN sap_field b ON a.`kode_blok`=b.`kode_blok` 
+INNER JOIN t_selektor c on c.id_spta=a.id
+WHERE kode_affd = '$afd' AND tgl_spta = '$tgl' AND selektor_status = 1";
+		$th1 = $this->db->query($sqla)->result();
+		$isi2 = '';
+		foreach ($th1 as $k) {
+			$isi2 .= '<tr><td>'.$k->no_spat.'</td><td>'.$k->kode_blok.'<br />'.$k->deskripsi_blok.'</td><td>'.$k->no_angkutan.'<br />'.$k->tgl_selektor.'</td></tr>';
+		}
+
+    	$htm = '<div class="page-content-wrapper m-t">
+	<ul class="nav nav-tabs">
+	  <li class="active"><a href="#blmmasuk"  data-toggle="tab" aria-expanded="true">Belum Masuk </a></li>
+	  <li class=""><a href="#selektor"  data-toggle="tab" aria-expanded="false">Sudah Selektor </a></li>
+	</ul>	
+	<br />
+	<div class="tab-content">
+	  <div class="tab-pane m-t active" id="blmmasuk">
+	  <table class="table table-bordered display dataTable no-footer" id="blmsk">
+	  <thead>
+	  <tr>
+	  <th>Petak Blok</th>
+	  <th>PTA</th>
+	  </tr>
+	  </thead>'.$isi1.'</table>
+	  </div>
+	  <div class="tab-pane m-t " id="selektor">
+	  <table class="table table-bordered display dataTable no-footer" id="selek">
+	  <thead>
+	  <tr>
+	  <th>No SPTA</th>
+	  <th>Petak Blok</th>
+	  <th>Tgl Masuk</th>
+	  </tr>
+	  <thead>
+	  '.$isi2.'</table>
+	  </div>
+	  </div></div>';
+	  $htm .= '';
+	  echo $htm;
     }
 
 
