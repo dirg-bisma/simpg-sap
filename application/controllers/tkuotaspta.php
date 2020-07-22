@@ -466,7 +466,7 @@ INNER JOIN vw_master_afdeling e ON e.`kode_affd`=c.`divisi`
 INNER JOIN sap_m_karyawan f ON f.`Persno`=a.persno_pta
 LEFT JOIN sap_petani d ON d.`id_petani_sap`=c.`id_petani_sap` 
 LEFT JOIN m_vendor v ON v.id_vendor=a.`vendor_angkut`
-WHERE 0=0 AND cetak_spta_status=0 $wh GROUP BY a.`id`")->result();
+WHERE 0=0 AND cetak_spta_status=0 $wh GROUP BY a.`id` ORDER BY a.kode_blok,no_spat")->result();
 		$html = '';$i=1;
 		foreach($a as $b){
 			$this->data['row'] =$b; 
@@ -502,7 +502,7 @@ INNER JOIN vw_master_afdeling e ON e.`kode_affd`=c.`divisi`
 INNER JOIN sap_m_karyawan f ON f.`Persno`=a.persno_pta
 LEFT JOIN sap_petani d ON d.`id_petani_sap`=c.`id_petani_sap` 
 LEFT JOIN m_vendor v ON v.id_vendor=a.`vendor_angkut`
-WHERE 0=0 AND cetak_spta_status=0 $wh GROUP BY a.`id`")->result();
+WHERE 0=0 AND cetak_spta_status=0 $wh GROUP BY a.`id` ORDER BY a.kode_blok,no_spat")->result();
 		$html = '';$i=1;
 		foreach($a as $b){
 			$this->data['row'] =$b; 
