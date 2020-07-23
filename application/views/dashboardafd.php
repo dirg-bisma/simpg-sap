@@ -49,7 +49,7 @@
           </div>
       
       <div class="box box-warning">
-<input type="hidden" id="tgl" />
+<!--input type="hidden" id="tgl" /-->
   <div class="box-header with-border">
   <div class="col-md-4 col-xs-12">
   <!--selektor-->
@@ -94,7 +94,8 @@
 
 <script type="text/javascript">
   $(document).ready(function(){
-      getdataspta();
+      
+      getdata();
   });
 
   function getdataspta(){
@@ -106,7 +107,7 @@
             
             $('#listKkw').html(data);
             getdatasptadetail();
-            getdata();
+            
           }
         });
 }
@@ -150,6 +151,7 @@ function getselektor(){
           success: function (data) { 
             $("#selektordata").html(data);
             gettimbangan();
+            getdataspta();
           }
         });
 }
