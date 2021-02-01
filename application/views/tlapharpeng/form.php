@@ -857,6 +857,14 @@
                                     <td><input type="number" step="any" class="number" name="ef_or_sd" id="ef_or_sd"></td>
                                     
                                 </tr>
+
+                                <tr bgcolor="#3c8dbc" >
+                                <td style="color:white;font-weight:bold"> UAP % TEBU </td>
+                                    <td><input type="number" step="any" class="number" name="uap_persen_tebu" id="uap_persen_tebu"></td>
+                                    <td><input type="number" step="any" class="number"  id="uap_persen_tebu_yl"></td>
+                                    <td><input type="number" step="any" class="number" name="uap_persen_tebu_sd" id="uap_persen_tebu_sd"></td>
+                                    
+                                </tr>
                                 
                                 
                                 <tr>

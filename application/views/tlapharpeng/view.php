@@ -568,6 +568,14 @@ table.null-border{
     <td class="number"><?php echo SiteHelpers::numberformat($rw->ef_or_sd, 3); ?></td>
   </tr>
 
+  <tr>
+    <td >UAP % TEBU</td>
+    <td align="center">51</td>
+    <td>%</td>
+    <td class="number"><?php echo SiteHelpers::numberformat($rw->uap_persen_tebu, 3); ?></td>
+    <td class="number"><?php echo SiteHelpers::numberformat($rw->uap_persen_tebu_sd, 3); ?></td>
+  </tr>
+
   
   
 </table>

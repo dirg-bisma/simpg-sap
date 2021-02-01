@@ -529,6 +529,12 @@ $tan = 'display:none;';$peng='';
         $('#'+total2).val(trx.toFixed(4));
         var ttl= tx+trx;
         $('#'+total3).val(ttl.toFixed(4));
+        
+        /*if(total3 == '0103_hablur'){
+            var exmsini = ($('#0103_hablur').val()*1.003)-$('#0403').val();
+            $('#0404').val(exmsini.toFixed(4));
+            
+        }*/
     }
 
     function gethari(){
@@ -559,6 +565,9 @@ $tan = 'display:none;';$peng='';
             sumdata('010107_gumil','0101_gumil','010206_gumil','0102_gumil','010108_gumil','010207_gumil','0103_gumil');
 
             //$('#0404').val(xp.toFixed(4));
+            
+            var exmsini = ($('#0103_hablur').val()*1.003)-$('#0403').val();
+            $('#0404').val(exmsini.toFixed(4));
         }
         var lr = 0;
         $('.0409').each(function(i, obj) {
@@ -679,7 +688,7 @@ $tan = 'display:none;';$peng='';
                     $('#0402').val(obj.gula_ex_sisan_sd*1);
                     $('#0401').val(hblrthnlalu.toFixed(3));
                     $('#0403').val(obj.gula_produksi_sd*1);
-                    $('#0404').val(obj.shs_ex_ms_thnini*1);
+                  //  $('#0404').val(obj.shs_ex_ms_thnini*1);
                     $('#0405').val(obj.tetes_produksi_sd*1);
                     $('#0406').val(obj.tetes_sisan_sd*1);
                     $('#0407').val(obj.tetes_sto_sd*1);
