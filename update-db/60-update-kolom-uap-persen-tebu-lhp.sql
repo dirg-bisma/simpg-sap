@@ -1,0 +1,1 @@
+ALTER TABLE `t_lap_harian_pengolahan_ptpn` ADD COLUMN `uap_persen_tebu` DOUBLE(10,3) DEFAULT 0 NULL AFTER `sbh_spt_sd`, ADD COLUMN `uap_persen_tebu_sd` DOUBLE(10,3) DEFAULT 0 NULL AFTER `uap_persen_tebu`; 
